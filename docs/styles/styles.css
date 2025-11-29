@@ -102,6 +102,10 @@ main.content h1, main.content h2, main.content p, main.content ul, main.content 
 #quarto-sidebar .chapter-number {
   color: white !important;
 }
+/* Nota: a ocultação de numeração dos preliminares será feita por pós-processamento
+   do arquivo gerado (`docs/index.html`) por meio do script `scripts/fix_sidebar_frontmatter.ps1`.
+   Evitamos regras CSS por posição (nth-child) que podem quebrar quando a ordem mudar.
+*/
 
 #quarto-sidebar .sidebar-item-text.active {
   background: rgba(255, 255, 255, 0.15) !important;
