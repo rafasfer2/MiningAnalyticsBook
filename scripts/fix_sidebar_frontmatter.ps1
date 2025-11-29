@@ -55,39 +55,59 @@ foreach ($f in $frontFiles) {
 $pattern = '<a[^>]*href="(?<href>\./[^\"]+)"[^>]*class="[^\"]*sidebar-link[^\"]*"[^>]*>(?<inner>.*?)</a>'
 $matches = [regex]::Matches($html, $pattern, [System.Text.RegularExpressions.RegexOptions]::Singleline)
 
+# Reconstruir o HTML por partes para evitar problemas com escapes e posições móveis
+$result = ''
+$lastIndex = 0
 $chapterCounter = 1
+
 for ($i = 0; $i -lt $matches.Count; $i++) {
     $m = $matches[$i]
+    $start = $m.Index
+    $length = $m.Length
+    # anexar trecho entre o último match e este
+    if ($start -gt $lastIndex) {
+        $result += $html.Substring($lastIndex, $start - $lastIndex)
+    }
+
     $href = $m.Groups['href'].Value
     $anchorHtml = $m.Groups['inner'].Value
+    $aTag = $m.Value
 
     if ($frontHrefs.Contains($href)) {
-        # remover span.chapter-number
         $newInner = [regex]::Replace($anchorHtml, '<span\s+class="chapter-number">.*?</span>\s*&nbsp;|<span\s+class="chapter-number">.*?</span>', '', [System.Text.RegularExpressions.RegexOptions]::Singleline)
     } else {
-        # substituir ou inserir número sequencial começando em 1
         if ($anchorHtml -match '<span\s+class="chapter-number">(.*?)</span>') {
-            $newInner = [regex]::Replace($anchorHtml, '<span\s+class="chapter-number">.*?</span>', "<span class=\"chapter-number\">$chapterCounter</span>", [System.Text.RegularExpressions.RegexOptions]::Singleline)
+            $numSpan = "<span class=`"chapter-number`">$chapterCounter</span>"
+            $newInner = [regex]::Replace($anchorHtml, '<span\s+class="chapter-number">.*?</span>', $numSpan, [System.Text.RegularExpressions.RegexOptions]::Singleline)
         } else {
-            # inserir no início do conteúdo da âncora
-            $newInner = "<span class=\"chapter-number\">$chapterCounter</span>&nbsp; $anchorHtml"
+            $newInner = "<span class=`"chapter-number`">$chapterCounter</span>&nbsp; $anchorHtml"
         }
         $chapterCounter++
     }
 
     if ($newInner -ne $anchorHtml) {
-        # substituir o trecho correspondente no HTML original usando posições do match
-        $start = $m.Index
-        $length = $m.Length
-        $aTag = $html.Substring($start, $length)
-        # substituir o inner na âncora
-        $aTagNew = $aTag -replace [regex]::Escape($anchorHtml), [System.Text.RegularExpressions.Regex]::Escape($newInner)
-        # desfazer escapes residuais introduzidos
-        $aTagNew = $aTagNew -replace '\\u003c','<' -replace '\\',''
-        $html = $html.Substring(0, $start) + $aTagNew + $html.Substring($start + $length)
+        # substituir somente a parte inner dentro da tag <a>
+        $innerIndex = $aTag.IndexOf($anchorHtml)
+        if ($innerIndex -ge 0) {
+            $aTagNew = $aTag.Substring(0, $innerIndex) + $newInner + $aTag.Substring($innerIndex + $anchorHtml.Length)
+        } else {
+            # fallback: usar a tag original
+            $aTagNew = $aTag
+        }
+        $result += $aTagNew
         Write-Output "Atualizado sidebar para: $href"
+    } else {
+        $result += $aTag
     }
+
+    $lastIndex = $start + $length
 }
+
+# anexar resto do documento
+if ($lastIndex -lt $html.Length) { $result += $html.Substring($lastIndex) }
+
+# substituir o html pelo resultado processado
+$html = $result
 
 # salvar o html modificado (sobrepondo docs/index.html)
 Set-Content -Path $indexPath -Value $html -Encoding UTF8
