@@ -43,30 +43,48 @@ if (-not (Test-Path $indexPath)) { Write-Error "Arquivo docs/index.html não enc
 
 $html = Get-Content -Raw -Path $indexPath
 
+# Construir um hashset com os hrefs dos front matter para comparação rápida
+$frontHrefs = [System.Collections.Generic.HashSet[string]]::new()
 foreach ($f in $frontFiles) {
-    # normalizar nome para .html (mantém subpastas se presentes)
     $htmlFile = [System.IO.Path]::ChangeExtension($f, '.html')
-    # garantir barra './' prefixo na comparação (em index.html os hrefs usam './')
-    $href = "./" + $htmlFile -replace '\\', '/'
+    $href = "./" + ($htmlFile -replace '\\','/')
+    $frontHrefs.Add($href) | Out-Null
+}
 
-    # localizar a posição do href no HTML
-    $pos = $html.IndexOf($href, [System.StringComparison]::OrdinalIgnoreCase)
-    if ($pos -lt 0) { continue }
+# Encontrar todas as âncoras do sidebar em ordem e ajustar os spans de numeração
+$pattern = '<a[^>]*href="(?<href>\./[^\"]+)"[^>]*class="[^\"]*sidebar-link[^\"]*"[^>]*>(?<inner>.*?)</a>'
+$matches = [regex]::Matches($html, $pattern, [System.Text.RegularExpressions.RegexOptions]::Singleline)
 
-    # encontrar o início da tag <a mais próxima antes do href
-    $aStart = $html.LastIndexOf('<a', $pos)
-    if ($aStart -lt 0) { continue }
-    $aEnd = $html.IndexOf('</a>', $pos)
-    if ($aEnd -lt 0) { continue }
-    $aEnd += 4 # incluir </a>
+$chapterCounter = 1
+for ($i = 0; $i -lt $matches.Count; $i++) {
+    $m = $matches[$i]
+    $href = $m.Groups['href'].Value
+    $anchorHtml = $m.Groups['inner'].Value
 
-    $anchor = $html.Substring($aStart, $aEnd - $aStart)
+    if ($frontHrefs.Contains($href)) {
+        # remover span.chapter-number
+        $newInner = [regex]::Replace($anchorHtml, '<span\s+class="chapter-number">.*?</span>\s*&nbsp;|<span\s+class="chapter-number">.*?</span>', '', [System.Text.RegularExpressions.RegexOptions]::Singleline)
+    } else {
+        # substituir ou inserir número sequencial começando em 1
+        if ($anchorHtml -match '<span\s+class="chapter-number">(.*?)</span>') {
+            $newInner = [regex]::Replace($anchorHtml, '<span\s+class="chapter-number">.*?</span>', "<span class=\"chapter-number\">$chapterCounter</span>", [System.Text.RegularExpressions.RegexOptions]::Singleline)
+        } else {
+            # inserir no início do conteúdo da âncora
+            $newInner = "<span class=\"chapter-number\">$chapterCounter</span>&nbsp; $anchorHtml"
+        }
+        $chapterCounter++
+    }
 
-    # remover o span chapter-number dentro da âncora
-    $newAnchor = $anchor -replace '<span\s+class="chapter-number">.*?</span>\s*&nbsp;','' -replace '<span\s+class="chapter-number">.*?</span>',''
-
-    if ($newAnchor -ne $anchor) {
-        $html = $html.Substring(0, $aStart) + $newAnchor + $html.Substring($aEnd)
+    if ($newInner -ne $anchorHtml) {
+        # substituir o trecho correspondente no HTML original usando posições do match
+        $start = $m.Index
+        $length = $m.Length
+        $aTag = $html.Substring($start, $length)
+        # substituir o inner na âncora
+        $aTagNew = $aTag -replace [regex]::Escape($anchorHtml), [System.Text.RegularExpressions.Regex]::Escape($newInner)
+        # desfazer escapes residuais introduzidos
+        $aTagNew = $aTagNew -replace '\\u003c','<' -replace '\\',''
+        $html = $html.Substring(0, $start) + $aTagNew + $html.Substring($start + $length)
         Write-Output "Atualizado sidebar para: $href"
     }
 }
