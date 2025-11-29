@@ -102,14 +102,10 @@ main.content h1, main.content h2, main.content p, main.content ul, main.content 
 #quarto-sidebar .chapter-number {
   color: white !important;
 }
-
-/* Oculta a numeração no sidebar para os itens de front matter (preliminares).
-   Ajuste o número dentro de nth-child(-n+X) caso adicione/remova preliminares.
-   Aqui estão ocultos os primeiros 11 itens (index, dedicatória, agradecimentos, epígrafe,
-   prefácio, introdução, resumo, notações, credits, requirements, macroprocesso). */
-#quarto-sidebar .sidebar-menu-container > ul.list-unstyled > li:nth-child(-n+11) .chapter-number {
-  display: none !important;
-}
+/* Nota: a ocultação de numeração dos preliminares será feita por pós-processamento
+   do arquivo gerado (`docs/index.html`) por meio do script `scripts/fix_sidebar_frontmatter.ps1`.
+   Evitamos regras CSS por posição (nth-child) que podem quebrar quando a ordem mudar.
+*/
 
 #quarto-sidebar .sidebar-item-text.active {
   background: rgba(255, 255, 255, 0.15) !important;
