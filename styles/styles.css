@@ -103,6 +103,14 @@ main.content h1, main.content h2, main.content p, main.content ul, main.content 
   color: white !important;
 }
 
+/* Oculta a numeração no sidebar para os itens de front matter (preliminares).
+   Ajuste o número dentro de nth-child(-n+X) caso adicione/remova preliminares.
+   Aqui estão ocultos os primeiros 11 itens (index, dedicatória, agradecimentos, epígrafe,
+   prefácio, introdução, resumo, notações, credits, requirements, macroprocesso). */
+#quarto-sidebar .sidebar-menu-container > ul.list-unstyled > li:nth-child(-n+11) .chapter-number {
+  display: none !important;
+}
+
 #quarto-sidebar .sidebar-item-text.active {
   background: rgba(255, 255, 255, 0.15) !important;
   color: var(--color-gold-base) !important;
