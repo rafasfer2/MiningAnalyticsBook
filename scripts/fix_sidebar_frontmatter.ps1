@@ -3,7 +3,9 @@
 # para os arquivos listados como front matter no _quarto.yml (entradas simples antes do primeiro '- part:').
 # Uso: execute na raiz do projeto: powershell -ExecutionPolicy Bypass -File .\scripts\fix_sidebar_frontmatter.ps1
 
-$projectRoot = Split-Path -Parent $MyInvocation.MyCommand.Definition
+# Determinar a raiz do projeto (diretório pai do diretório scripts)
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
+$projectRoot = Resolve-Path (Join-Path $scriptDir '..')
 Set-Location $projectRoot
 
 $yml = Get-Content -Raw -Path "_quarto.yml"
