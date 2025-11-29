@@ -16,39 +16,17 @@ book:
 
   chapters:
     # --- I. MATERIAIS PRELIMINARES (Front Matter - ABNT COMPLETA) ---
-    - file: index.qmd
-      title: "Bem-vindo(a)"
-      unnumbered: true
-    - file: dedicatória.qmd
-      title: "Dedicatória"
-      unnumbered: true
-    - file: agradecimentos.qmd
-      title: "Agradecimentos"
-      unnumbered: true
-    - file: epigrafe.qmd
-      title: "Epígrafe"
-      unnumbered: true
-    - file: prefacio.qmd
-      title: "Prefácio"
-      unnumbered: true
-    - file: intro.qmd
-      title: "Introdução"
-      unnumbered: true
-    - file: resumo_abstract.qmd
-      title: "Resumo e Abstract"
-      unnumbered: true
-    - file: notacoes_abreviacoes.qmd
-      title: "Notações e Abreviações"
-      unnumbered: true
-    - file: credits.qmd
-      title: "Créditos e Licença"
-      unnumbered: true
-    - file: requirements.qmd
-      title: "Requisitos"
-      unnumbered: true
-    - file: macroprocesso.qmd
-      title: "Macroprocesso de Mineração"
-      unnumbered: true
+    - index.qmd
+    - dedicatória.qmd
+    - agradecimentos.qmd
+    - epigrafe.qmd
+    - prefacio.qmd
+    - intro.qmd
+    - resumo_abstract.qmd
+    - notacoes_abreviacoes.qmd
+    - credits.qmd
+    - requirements.qmd
+    - macroprocesso.qmd
 
     # --- II. CORPO PRINCIPAL (Capítulos 1 - 25) ---
     - part: "Parte I: A Fundação do Sistema de Gestão"
