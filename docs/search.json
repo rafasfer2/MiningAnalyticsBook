@@ -1,0 +1,680 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Sistema de Gestão e Excelência Operacional na Mineração",
+    "section": "",
+    "text": "Bem-vindo(a)\nSeja bem-vindo(a) a este livro técnico voltado à Excelência Operacional e à Gestão Integrada de Ativos na mineração.\nA disciplina de Mining Analytics é fundamental para transformar o vasto volume de dados de despacho e ordens de serviço em inteligência acionável.\nCom o avanço das tecnologias de monitoramento e coleta automatizada de dados, tornou-se possível aplicar métodos quantitativos robustos para avaliar o desempenho, prever desvios e alinhar as áreas de Operação e Manutenção (PCO/PCM).\nEste material foi desenvolvido para oferecer uma introdução prática e aplicada aos conceitos de Governança de Performance e Confiabilidade de Sistemas Reparáveis, com ênfase na utilização da linguagem R e do pacote miningKPI como ferramentas principais.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Bem-vindo(a)</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#vocabulário-de-performance-integrada",
+    "href": "index.html#vocabulário-de-performance-integrada",
+    "title": "Sistema de Gestão e Excelência Operacional na Mineração",
+    "section": "Vocabulário de Performance Integrada",
+    "text": "Vocabulário de Performance Integrada\nAo longo do livro, utilizaremos um vocabulário padronizado baseado no Sistema de Gestão de Indicadores (SGI), que integra as visões de Produção e Manutenção:\n\n\n\n\n\n\nConceitos Essenciais\n\n\n\n\nDF – Disponibilidade Física: Capacidade do sistema de executar sua função. A indisponibilidade é medida pelas Horas de Manutenção (HM).\n\nUF – Utilização Física: Indica o quanto do tempo disponível (HD) é efetivamente usado para operação (HT). Reflete a eficiência do PCO.\n\nHT – Horas Trabalhadas: Tempo em que o ativo está ligado e produtivo, base para o cálculo da produtividade horária.\n\nMTBF – Mean Time Between Failures: Mede a Confiabilidade (intervalo médio de tempo em que o sistema opera sem falhas).\n\nMTTR – Mean Time to Repair: Mede a Manutenibilidade (agilidade em restaurar o funcionamento do equipamento).",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Bem-vindo(a)</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#público-e-objetivos",
+    "href": "index.html#público-e-objetivos",
+    "title": "Sistema de Gestão e Excelência Operacional na Mineração",
+    "section": "Público e Objetivos",
+    "text": "Público e Objetivos\nEste livro é direcionado a Engenheiros de Ativos, Analistas de Dados, Estudantes e Gestores que buscam aplicar modelos estatísticos robustos para otimizar o desempenho do ciclo de vida dos ativos.\nAo final da leitura, o leitor será capaz de: - Integrar a lógica PCO e PCM através do balanço de horas (GPV-M).\n- Analisar a aderência (Budget vs. Real) e atribuir perdas usando gráficos Waterfall.\n- Ajustar modelos de vida útil (NHPP/Crow-AMSAA) a dados reais de sistemas reparáveis.\n- Utilizar Cartas de Controle (CEP) para monitorar a estabilidade de processos operacionais.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Bem-vindo(a)</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#como-usar-este-livro-reprodução",
+    "href": "index.html#como-usar-este-livro-reprodução",
+    "title": "Sistema de Gestão e Excelência Operacional na Mineração",
+    "section": "Como Usar Este Livro (Reprodução)",
+    "text": "Como Usar Este Livro (Reprodução)\nEste material é totalmente reproduzível. Todos os dados e funções são fornecidos através do pacote R miningKPI.\n\nInstale o R, RStudio e as extensões do Quarto.\n\nInstale o pacote em seu ambiente:\nr     remotes::install_github(\"rafasfer2/miningKPI\")\n\nExecute os exemplos de código R embutidos nos capítulos para consolidar o aprendizado.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Bem-vindo(a)</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#agradecimentos",
+    "href": "index.html#agradecimentos",
+    "title": "Sistema de Gestão e Excelência Operacional na Mineração",
+    "section": "Agradecimentos",
+    "text": "Agradecimentos\nEste livro é fruto de anos de experiência prática em engenharia de confiabilidade e análise de dados.\nAgradeço à comunidade R e a todos que contribuíram para o desenvolvimento deste material.\n\n\n\n\n\n\n\nComece a Jornada!\n\n\n\nClique na barra lateral para iniciar a leitura.\nRecomendamos começar pela Descrição do Macroprocesso para obter o contexto operacional da mina, ou seguir diretamente para a Parte I (Fundamentos).\n\n\nRafael da Silva Fernandes\nNovembro de 2025",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Bem-vindo(a)</span>"
+    ]
+  },
+  {
+    "objectID": "dedicatória.html",
+    "href": "dedicatória.html",
+    "title": "2  Dedicatória",
+    "section": "",
+    "text": "Dedicatória\nDedico este trabalho a todos os profissionais da mineração que acreditam na força dos dados para transformar operações em sistemas mais seguros, eficientes e sustentáveis.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dedicatória</span>"
+    ]
+  },
+  {
+    "objectID": "agradecimentos.html",
+    "href": "agradecimentos.html",
+    "title": "3  Agradecimentos",
+    "section": "",
+    "text": "Agradecimentos\nA realização deste livro só foi possível graças ao apoio e à colaboração de diversas pessoas e instituições.\nAgradeço à equipe de engenharia e operação das empresas parceiras, que compartilharam experiências, dados e desafios reais do setor mineral. Aos colegas pesquisadores e professores das universidades e centros de pesquisa, pelo incentivo à pesquisa aplicada e à inovação em mineração e ciência de dados.\nReconheço o suporte das agências de fomento à pesquisa e desenvolvimento tecnológico, fundamentais para a consolidação de projetos inovadores no setor mineral.\nAos desenvolvedores e à comunidade R, por disponibilizarem ferramentas livres e colaborativas que viabilizam a análise avançada de dados e a reprodutibilidade científica.\nAos familiares e amigos, pelo apoio incondicional durante todo o processo de elaboração deste trabalho.\n\n“A excelência operacional é construída coletivamente, com colaboração, aprendizado contínuo e paixão pelo que se faz.” — Adaptado de práticas de gestão",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Agradecimentos</span>"
+    ]
+  },
+  {
+    "objectID": "epigrafe.html",
+    "href": "epigrafe.html",
+    "title": "4  Epígrafe",
+    "section": "",
+    "text": "Epígrafe\n“Sem dados, você é apenas mais uma pessoa com opinião.” — W. Edwards Deming",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Epígrafe</span>"
+    ]
+  },
+  {
+    "objectID": "prefacio.html",
+    "href": "prefacio.html",
+    "title": "5  Prefácio",
+    "section": "",
+    "text": "Prefácio\nA mineração sempre foi um setor marcado por grandes desafios: ciclos econômicos, pressões ambientais, exigências de segurança e a busca constante por produtividade. Ao longo da minha trajetória profissional, percebi que a chave para enfrentar esses desafios está na integração entre gestão e dados.\nEste livro nasceu da necessidade de unir duas dimensões que, muitas vezes, caminham separadas:\n- A Gestão Integrada de Ativos, que organiza processos e responsabilidades.\n- A Ciência de Dados, que transforma medições e registros em conhecimento aplicável.\nA proposta é oferecer ao leitor uma visão clara de como indicadores, metodologias de confiabilidade e ferramentas estatísticas podem ser aplicados de forma prática na mineração. Mais do que conceitos, este material traz exemplos reproduzíveis em R, permitindo que engenheiros, analistas e gestores possam experimentar, adaptar e evoluir suas próprias análises.\nO título Sistema de Gestão e Excelência Operacional na Mineração: Análise de Indicadores e Data Science com R reflete exatamente essa ambição: construir uma ponte entre a teoria da gestão e a prática da análise de dados, sempre com foco na excelência operacional.\nEspero que este livro sirva como guia, inspiração e ferramenta de trabalho para todos que acreditam que a mineração pode ser mais eficiente, segura e sustentável quando apoiada em dados confiáveis e modelos robustos.\nRafael da Silva Fernandes\nItabira, Minas Gerais – Novembro de 2025",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Prefácio</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "6  Introdução",
+    "section": "",
+    "text": "Introdução\nA mineração moderna enfrenta desafios cada vez mais complexos: aumento da escala produtiva, exigências ambientais, pressão por custos e necessidade de inovação tecnológica. Nesse cenário, a Gestão Integrada de Ativos e a Excelência Operacional tornam-se pilares estratégicos.\nEste livro apresenta um framework que une indicadores de performance, ciência de dados e modelos de confiabilidade, aplicados ao contexto da mineração. A proposta é transformar dados brutos em inteligência acionável, apoiando decisões em operação, manutenção e engenharia.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introdução</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#objetivos",
+    "href": "intro.html#objetivos",
+    "title": "6  Introdução",
+    "section": "6.1 Objetivos",
+    "text": "6.1 Objetivos\n\nDemonstrar como estruturar um Sistema de Gestão Integrado (SGI).\n\nApresentar metodologias de análise de indicadores (OKR, KPI, KPO).\n\nAplicar técnicas de Data Science com R para modelagem de confiabilidade e variabilidade.\n\nOferecer exemplos práticos com o pacote miningKPI.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introdução</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#estrutura-do-livro",
+    "href": "intro.html#estrutura-do-livro",
+    "title": "6  Introdução",
+    "section": "6.2 Estrutura do Livro",
+    "text": "6.2 Estrutura do Livro\nO conteúdo está organizado em seis partes:\n1. Fundamentos do SGI\n2. Macroprocesso Tradicional (Ferro e Transporte)\n3. Truckless & Instalações\n4. Engenharia de Confiabilidade e Sistemas\n5. Macroprocesso de Beneficiamento (Cobre)\n6. Gestão do Conhecimento\nCada parte combina teoria, prática e exemplos em R, permitindo ao leitor reproduzir análises e adaptar conceitos à sua realidade.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introdução</span>"
+    ]
+  },
+  {
+    "objectID": "resumo_abstract.html",
+    "href": "resumo_abstract.html",
+    "title": "7  Resumo Abstract",
+    "section": "",
+    "text": "8 Resumo Abstract .\nEm desenvolvimento…",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Resumo Abstract</span>"
+    ]
+  },
+  {
+    "objectID": "notacoes_abreviacoes.html",
+    "href": "notacoes_abreviacoes.html",
+    "title": "8  Notações, Símbolos e Abreviações",
+    "section": "",
+    "text": "Notações, Símbolos e Abreviações\nEste livro utiliza um conjunto padronizado de notações e abreviações técnicas:\n\nDF – Disponibilidade Física\n\nUF – Utilização Física\n\nHT – Horas Trabalhadas\n\nHM – Horas de Manutenção\n\nMTBF – Mean Time Between Failures (Confiabilidade)\n\nMTTR – Mean Time to Repair (Manutenibilidade)\n\nLCC – Life Cycle Cost (Custo do Ciclo de Vida)\n\nCEP – Controle Estatístico de Processo\n\nNHPP – Non-Homogeneous Poisson Process\n\nPCM – Planejamento e Controle da Manutenção\n\nPCO – Planejamento e Controle da Operação\n\nSímbolos matemáticos principais: - ({X}) – Média amostral\n- () – Desvio padrão\n- ((t)) – Taxa de falha dependente do tempo",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Notações, Símbolos e Abreviações</span>"
+    ]
+  },
+  {
+    "objectID": "macroprocesso.html",
+    "href": "macroprocesso.html",
+    "title": "9  Macroprocesso da Mineração",
+    "section": "",
+    "text": "Macroprocesso da Mineração\nO macroprocesso da mineração pode ser entendido como um fluxo operacional integrado, que conecta todas as etapas desde a lavra até a expedição do produto final. Este capítulo fornece o contexto técnico necessário para compreender os indicadores e análises apresentados ao longo do livro.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Macroprocesso da Mineração</span>"
+    ]
+  },
+  {
+    "objectID": "macroprocesso.html#lavra-extração",
+    "href": "macroprocesso.html#lavra-extração",
+    "title": "9  Macroprocesso da Mineração",
+    "section": "9.1 11.1. Lavra (Extração)",
+    "text": "9.1 11.1. Lavra (Extração)\n\nPerfuração e desmonte de rocha: uso de explosivos e técnicas de fragmentação.\n\nCarregamento: escavadeiras e pás carregadeiras transferem o minério para os equipamentos de transporte.\n\nIndicadores principais: taxa de penetração, qualidade do furo, fragmentação, produtividade da frente de lavra.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Macroprocesso da Mineração</span>"
+    ]
+  },
+  {
+    "objectID": "macroprocesso.html#transporte",
+    "href": "macroprocesso.html#transporte",
+    "title": "9  Macroprocesso da Mineração",
+    "section": "9.2 11.2. Transporte",
+    "text": "9.2 11.2. Transporte\n\n9.2.1 11.2.1. Transporte Tradicional (Truck & Shovel)\n\nCaminhões fora de estrada realizam o ciclo de transporte (carregamento, viagem, descarga, retorno).\n\nIndicadores: tempo de ciclo, disponibilidade física dos caminhões, utilização, consumo de combustível.\n\n\n\n9.2.2 11.2.2. Transporte Contínuo (Truckless/IPCC)\n\nSistemas de correias transportadoras e britadores móveis reduzem custos e emissões.\n\nIndicadores: backlog de carga, confiabilidade das correias, tempo de parada programada.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Macroprocesso da Mineração</span>"
+    ]
+  },
+  {
+    "objectID": "macroprocesso.html#beneficiamento",
+    "href": "macroprocesso.html#beneficiamento",
+    "title": "9  Macroprocesso da Mineração",
+    "section": "9.3 11.3. Beneficiamento",
+    "text": "9.3 11.3. Beneficiamento\n\nBritagem e moagem: redução granulométrica do minério.\n\nConcentração: processos físicos e químicos para separar o mineral de interesse.\n\nIndicadores principais: vazão, eficiência energética, taxa de recuperação, estabilidade de processo (CEP).",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Macroprocesso da Mineração</span>"
+    ]
+  },
+  {
+    "objectID": "macroprocesso.html#expedição",
+    "href": "macroprocesso.html#expedição",
+    "title": "9  Macroprocesso da Mineração",
+    "section": "9.4 11.4. Expedição",
+    "text": "9.4 11.4. Expedição\n\nArmazenamento e carregamento: silos, pátios e sistemas de carregamento ferroviário ou portuário.\n\nLogística de transporte: integração com ferrovias e portos para exportação.\n\nIndicadores principais: aderência ao plano de produção, tempo de carregamento, perdas logísticas.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Macroprocesso da Mineração</span>"
+    ]
+  },
+  {
+    "objectID": "macroprocesso.html#integração-do-macroprocesso",
+    "href": "macroprocesso.html#integração-do-macroprocesso",
+    "title": "9  Macroprocesso da Mineração",
+    "section": "9.5 11.5. Integração do Macroprocesso",
+    "text": "9.5 11.5. Integração do Macroprocesso\nO macroprocesso deve ser visto como um sistema interdependente: - A lavra influencia a qualidade da alimentação da usina.\n- O transporte impacta diretamente a aderência ao plano de produção.\n- O beneficiamento define a eficiência global e a recuperação metalúrgica.\n- A expedição garante o cumprimento dos contratos e metas comerciais.\nEssa visão integrada é a base para o Sistema de Gestão de Indicadores (SGI), que conecta operação, manutenção e engenharia em busca da excelência operacional.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Macroprocesso da Mineração</span>"
+    ]
+  },
+  {
+    "objectID": "macroprocesso.html#conexão-com-o-livro",
+    "href": "macroprocesso.html#conexão-com-o-livro",
+    "title": "9  Macroprocesso da Mineração",
+    "section": "9.6 11.6. Conexão com o Livro",
+    "text": "9.6 11.6. Conexão com o Livro\nEste capítulo serve como mapa de referência: - Cada parte do livro detalha um segmento do macroprocesso.\n- Os indicadores apresentados estão sempre relacionados a uma etapa específica.\n- O pacote miningKPI fornece dados simulados e funções para reproduzir análises de cada fase.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Macroprocesso da Mineração</span>"
+    ]
+  },
+  {
+    "objectID": "credits.html",
+    "href": "credits.html",
+    "title": "10  Créditos e Agradecimentos",
+    "section": "",
+    "text": "Créditos e Agradecimentos",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Créditos e Agradecimentos</span>"
+    ]
+  },
+  {
+    "objectID": "credits.html#autor",
+    "href": "credits.html#autor",
+    "title": "10  Créditos e Agradecimentos",
+    "section": "10.1 Autor",
+    "text": "10.1 Autor\nRafael da Silva Fernandes Engenheiro, Analista de Dados Universidade Federal de Itajubá\n\n🐙 GitHub: github.com/rafasfer2",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Créditos e Agradecimentos</span>"
+    ]
+  },
+  {
+    "objectID": "credits.html#sobre-o-autor",
+    "href": "credits.html#sobre-o-autor",
+    "title": "10  Créditos e Agradecimentos",
+    "section": "10.2 Sobre o Autor",
+    "text": "10.2 Sobre o Autor\nEngenheiro com experiência em análise de confiabilidade, manutenção industrial e ciência de dados. Este livro é fruto de anos de prática aplicando métodos estatísticos para otimização de estratégias de manutenção em ambientes industriais.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Créditos e Agradecimentos</span>"
+    ]
+  },
+  {
+    "objectID": "credits.html#agradecimentos",
+    "href": "credits.html#agradecimentos",
+    "title": "10  Créditos e Agradecimentos",
+    "section": "10.3 Agradecimentos",
+    "text": "10.3 Agradecimentos\nEste livro não seria possível sem o apoio e contribuição de diversas pessoas e comunidades:\n\n10.3.1 Comunidade R\nAgradeço à comunidade R e aos desenvolvedores dos pacotes open-source que tornaram este trabalho possível:\n\nHadley Wickham e equipe do tidyverse\nTerry Therneau pelo pacote survival\nChristopher Jackson pelo flexsurv\nDavid Gohel pelo officer e flextable\nDesenvolvedores do Quarto e Posit\n\n\n\n10.3.2 Revisores e Colaboradores\nAgradecimentos especiais a:\n\nColegas de trabalho que forneceram feedback valioso\nBeta readers que testaram os exemplos\nComunidade GitHub que reportou issues e sugeriu melhorias\n\n\n\n10.3.3 Instituições\n\nEmpresas que forneceram dados anonimizados para estudos de caso\nUniversidades que promovem pesquisa em confiabilidade\nComunidades online (Stack Overflow, RStudio Community, Cross Validated)\n\n\n\n10.3.4 Família\nGratidão à minha família pelo apoio durante o desenvolvimento deste livro.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Créditos e Agradecimentos</span>"
+    ]
+  },
+  {
+    "objectID": "credits.html#ferramentas-utilizadas",
+    "href": "credits.html#ferramentas-utilizadas",
+    "title": "10  Créditos e Agradecimentos",
+    "section": "10.4 Ferramentas Utilizadas",
+    "text": "10.4 Ferramentas Utilizadas\nEste livro foi desenvolvido com:\n\nQuarto — Sistema de publicação científica (quarto.org)\nR — Linguagem de programação estatística (r-project.org)\nRStudio / VS Code — IDEs para desenvolvimento\nGitHub — Versionamento e colaboração\nGit — Controle de versão\n\n\n10.4.1 Pacotes R Principais\ntidyverse      # Manipulação e visualização de dados\nsurvival       # Análise de sobrevivência\nflexsurv       # Modelos paramétricos flexíveis\nWeibullR       # Análise Weibull\nfitdistrplus   # Ajuste de distribuições\nggplot2        # Visualizações\nknitr          # Relatórios reproduzíveis",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Créditos e Agradecimentos</span>"
+    ]
+  },
+  {
+    "objectID": "credits.html#licença-e-uso",
+    "href": "credits.html#licença-e-uso",
+    "title": "10  Créditos e Agradecimentos",
+    "section": "10.5 Licença e Uso",
+    "text": "10.5 Licença e Uso\n\n10.5.1 Conteúdo\nEste livro está licenciado sob Creative Commons BY-NC-SA 4.0.\nVocê pode: - ✅ Compartilhar — copiar e redistribuir - ✅ Adaptar — remixar e transformar\nDesde que: - 📝 Atribua crédito apropriado - 🚫 Não use para fins comerciais - 🔄 Compartilhe adaptações sob a mesma licença\n\n\n10.5.2 Código\nTodo o código R apresentado neste livro está licenciado sob MIT License e pode ser usado livremente em projetos pessoais e comerciais.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Créditos e Agradecimentos</span>"
+    ]
+  },
+  {
+    "objectID": "credits.html#como-citar-este-livro",
+    "href": "credits.html#como-citar-este-livro",
+    "title": "10  Créditos e Agradecimentos",
+    "section": "10.6 Como Citar este Livro",
+    "text": "10.6 Como Citar este Livro\n\n10.6.1 Formato ABNT\nFERNANDES, Rafael da Silva. Confiabilidade e Manutenção: Aplicações em R.\n1. ed. Itajubá: UNIFEI, 2025. Disponível em:\nhttps://github.com/rafasfer2/QuartoBook. Acesso em: [data de acesso].\n\n\n10.6.2 Formato BibTeX\n@book{fernandes2025confiabilidade,\n  title     = {Confiabilidade e Manutenção: Aplicações em R},\n  author    = {Fernandes, Rafael da Silva},\n  year      = {2025},\n  publisher = {Universidade Federal de Itajubá},\n  address   = {Itajubá, MG},\n  url       = {https://github.com/rafasfer2/QuartoBook}\n}",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Créditos e Agradecimentos</span>"
+    ]
+  },
+  {
+    "objectID": "credits.html#contribuições",
+    "href": "credits.html#contribuições",
+    "title": "10  Créditos e Agradecimentos",
+    "section": "10.7 Contribuições",
+    "text": "10.7 Contribuições\nContribuições são bem-vindas! Se você encontrou erros ou tem sugestões:\n\nReporte issues: GitHub Issues\nPull requests: GitHub",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Créditos e Agradecimentos</span>"
+    ]
+  },
+  {
+    "objectID": "credits.html#feedback",
+    "href": "credits.html#feedback",
+    "title": "10  Créditos e Agradecimentos",
+    "section": "10.8 Feedback",
+    "text": "10.8 Feedback\nSe este livro foi útil:\n\n⭐ Deixe uma estrela no GitHub\n💬 Compartilhe com colegas\n🤝 Contribua com exemplos ou melhorias\n\n\nÚltima atualização: Novembro de 2025",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Créditos e Agradecimentos</span>"
+    ]
+  },
+  {
+    "objectID": "requirements.html",
+    "href": "requirements.html",
+    "title": "11  requirements",
+    "section": "",
+    "text": "Como Usar este Livro",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>requirements</span>"
+    ]
+  },
+  {
+    "objectID": "requirements.html#convenções-e-organização",
+    "href": "requirements.html#convenções-e-organização",
+    "title": "11  requirements",
+    "section": "11.1 Convenções e Organização",
+    "text": "11.1 Convenções e Organização\nEste livro foi desenvolvido para ser prático, reproduzível e didático. Todos os exemplos de código R podem ser executados diretamente, e os dados utilizados estão disponíveis no diretório resources/data/.\n\n11.1.1 Organização dos Capítulos\nO livro está dividido em quatro partes principais:\n\nFundamentos e Teoria — Conceitos básicos de confiabilidade, distribuições de vida útil e métodos de estimação.\nAnálise e Modelagem Prática — Técnicas de análise de dados de falha, modelagem Weibull e análise de sobrevivência.\nEstratégias de Manutenção — Manutenção preventiva, preditiva e modelagem de sistemas complexos.\nMétodos Avançados e Aplicações — Simulação Monte Carlo, estudos de caso industriais e governança de dados.\n\nCada capítulo inclui:\n\nTeoria concisa — Explicação dos conceitos fundamentais.\nExemplos práticos com R — Código reproduzível e comentado.\nVisualizações e tabelas — Gráficos interpretativos e resumos estatísticos.\nExercícios 📝 — Atividades para consolidar o aprendizado.\n\n\n\n11.1.2 Convenções de Código",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>requirements</span>"
+    ]
+  },
+  {
+    "objectID": "requirements.html#requisitos-de-software",
+    "href": "requirements.html#requisitos-de-software",
+    "title": "11  requirements",
+    "section": "14.1 Requisitos de Software",
+    "text": "14.1 Requisitos de Software\nPara reproduzir os exemplos deste livro, você precisará de:\n\n14.1.1 R (versão ≥ 4.0)\nR é a linguagem de programação principal utilizada. Faça o download em: https://www.r-project.org/\n\n\n14.1.2 RStudio Desktop ou VS Code\nRStudio é o IDE recomendado para desenvolvimento em R: https://posit.co/download/rstudio-desktop/\nAlternativamente, você pode usar VS Code com as extensões: - R (reditorsupport.r) - Quarto (quarto.quarto)\n\n\n14.1.3 Quarto CLI\nEste livro foi desenvolvido com Quarto, um sistema de publicação científica. Instale em: https://quarto.org/docs/get-started/\n\n\n14.1.4 Pacotes R Necessários\nOs seguintes pacotes R são utilizados ao longo do livro:\n\n\nCode\n# Manipulação e visualização de dados\ninstall.packages(c(\"tidyverse\", \"dplyr\", \"tidyr\", \"readr\", \"ggplot2\", \"plotly\"))\n\n# Análise de confiabilidade e sobrevivência\ninstall.packages(c(\"survival\", \"flexsurv\", \"WeibullR\", \"reliability\"))\n\n# Tabelas e relatórios\ninstall.packages(c(\"knitr\", \"kableExtra\", \"DT\", \"broom\"))\n\n# Machine learning e manutenção preditiva\ninstall.packages(c(\"caret\", \"randomForest\", \"prophet\", \"anomalize\"))\n\n# Simulação\ninstall.packages(c(\"simmer\", \"MASS\"))\n\n\nPara instalar todos os pacotes de uma vez:\n\n\nCode\nsource(\"resources/install_packages.R\")",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>requirements</span>"
+    ]
+  },
+  {
+    "objectID": "requirements.html#estrutura-de-arquivos-e-dados",
+    "href": "requirements.html#estrutura-de-arquivos-e-dados",
+    "title": "11  requirements",
+    "section": "14.2 Estrutura de Arquivos e Dados",
+    "text": "14.2 Estrutura de Arquivos e Dados\nO projeto deste livro está organizado da seguinte forma:\nQuartoBook/\n├── _quarto.yml              # Configuração do livro\n├── index.qmd                # Página inicial\n├── preface.qmd              # Prefácio\n├── requirements.qmd         # Este arquivo\n├── setup.qmd                # Instruções de instalação\n├── chapters/                # Capítulos principais\n│   ├── 01-fundamentos.qmd\n│   ├── 02-distribuicoes.qmd\n│   └── ...\n├── appendices/              # Apêndices\n│   ├── A-pacotes.qmd\n│   └── ...\n├── resources/               # Recursos adicionais\n│   ├── data/                # Dados de exemplo (CSV, RDS)\n│   ├── scripts/             # Scripts R auxiliares\n│   └── images/              # Imagens e figuras\n├── docs/                    # Output renderizado (HTML)\n└── references.bib           # Bibliografia\n\n14.2.1 Dados de Exemplo\nTodos os datasets utilizados nos exemplos estão disponíveis em resources/data/:\n\nfalhas_bombas.csv — Dados de falha de bombas industriais.\nsensores_compressor.csv — Dados de sensores para manutenção preditiva.\nhistorico_motores.rds — Histórico de manutenção de motores elétricos.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>requirements</span>"
+    ]
+  },
+  {
+    "objectID": "requirements.html#como-executar-os-exemplos",
+    "href": "requirements.html#como-executar-os-exemplos",
+    "title": "11  requirements",
+    "section": "14.3 Como Executar os Exemplos",
+    "text": "14.3 Como Executar os Exemplos\n\n14.3.1 No RStudio\n\nAbra o arquivo .qmd desejado.\nClique em “Run” para executar os chunks de código individualmente.\nUse Ctrl+Shift+K para renderizar o documento completo.\n\n\n\n14.3.2 No VS Code\n\nInstale as extensões Quarto e R.\nAbra o arquivo .qmd.\nUse Ctrl+Enter para executar linhas de código.\nExecute quarto preview no terminal para visualizar o livro completo.\n\n\n\n14.3.3 Via Terminal\nPara renderizar o livro completo:\nquarto render\nPara visualizar com hot reload:\nquarto preview",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>requirements</span>"
+    ]
+  },
+  {
+    "objectID": "requirements.html#reprodutibilidade",
+    "href": "requirements.html#reprodutibilidade",
+    "title": "11  requirements",
+    "section": "14.4 Reprodutibilidade",
+    "text": "14.4 Reprodutibilidade\nEste livro foi desenvolvido com práticas de ciência de dados reproduzível:\n\nTodos os dados de exemplo estão versionados.\nCódigos são testados e validados.\nSessões R são gerenciadas com .Rprofile.\nOutputs são congelados com freeze: auto no Quarto.\n\nPara garantir reprodutibilidade, recomendamos:\n\n\nCode\n# Verificar versão do R\nR.version.string\n\n# Listar pacotes instalados\ninstalled.packages()[, c(\"Package\", \"Version\")]",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>requirements</span>"
+    ]
+  },
+  {
+    "objectID": "requirements.html#dúvidas-e-suporte",
+    "href": "requirements.html#dúvidas-e-suporte",
+    "title": "11  requirements",
+    "section": "14.5 Dúvidas e Suporte",
+    "text": "14.5 Dúvidas e Suporte\nPara dúvidas, sugestões ou relato de erros:\n\nGitHub Issues: https://github.com/SEU_USER/QuartoBook/issues\nEmail: rafael@example.com\nEmail: rafael@example.com\n\n\nBoa leitura e bons estudos! 🚀",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>requirements</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part1-fundamentos/01-introducao-gestao.html",
+    "href": "chapters/part1-fundamentos/01-introducao-gestao.html",
+    "title": "12  Introducao-Gestao",
+    "section": "",
+    "text": "13 Introducao-Gestao .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte I: A Fundação do Sistema de Gestão",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Introducao-Gestao</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part1-fundamentos/02-modelos-normas.html",
+    "href": "chapters/part1-fundamentos/02-modelos-normas.html",
+    "title": "13  Modelos-Normas",
+    "section": "",
+    "text": "14 Modelos-Normas .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte I: A Fundação do Sistema de Gestão",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Modelos-Normas</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part1-fundamentos/03-governanca-seguranca.html",
+    "href": "chapters/part1-fundamentos/03-governanca-seguranca.html",
+    "title": "14  Governanca-Seguranca",
+    "section": "",
+    "text": "15 Governanca-Seguranca .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte I: A Fundação do Sistema de Gestão",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Governanca-Seguranca</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part1-fundamentos/04-indicadores-dashboards.html",
+    "href": "chapters/part1-fundamentos/04-indicadores-dashboards.html",
+    "title": "15  Indicadores-Dashboards",
+    "section": "",
+    "text": "16 Indicadores-Dashboards .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte I: A Fundação do Sistema de Gestão",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Indicadores-Dashboards</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part2-planejamento/05-planejamento-estrategico.html",
+    "href": "chapters/part2-planejamento/05-planejamento-estrategico.html",
+    "title": "16  Planejamento-Estrategico",
+    "section": "",
+    "text": "17 Planejamento-Estrategico .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte II: Planejamento e Macroprocesso de Lavra",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Planejamento-Estrategico</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part2-planejamento/06-avaliacao-sustentabilidade.html",
+    "href": "chapters/part2-planejamento/06-avaliacao-sustentabilidade.html",
+    "title": "17  Avaliacao-Sustentabilidade",
+    "section": "",
+    "text": "18 Avaliacao-Sustentabilidade .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte II: Planejamento e Macroprocesso de Lavra",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Avaliacao-Sustentabilidade</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part2-planejamento/07-gestao-riscos.html",
+    "href": "chapters/part2-planejamento/07-gestao-riscos.html",
+    "title": "18  Gestao-Riscos",
+    "section": "",
+    "text": "19 Gestao-Riscos .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte II: Planejamento e Macroprocesso de Lavra",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Gestao-Riscos</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part3-truckless/08-evolucao-transporte.html",
+    "href": "chapters/part3-truckless/08-evolucao-transporte.html",
+    "title": "19  Evolucao-Transporte",
+    "section": "",
+    "text": "20 Evolucao-Transporte .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte III: Sistemas Truckless e Infraestrutura de Transporte",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Evolucao-Transporte</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part3-truckless/09-projeto-operacao-truckless.html",
+    "href": "chapters/part3-truckless/09-projeto-operacao-truckless.html",
+    "title": "20  Projeto-Operacao-Truckless",
+    "section": "",
+    "text": "21 Projeto-Operacao-Truckless .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte III: Sistemas Truckless e Infraestrutura de Transporte",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Projeto-Operacao-Truckless</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part3-truckless/10-automacao-monitoramento.html",
+    "href": "chapters/part3-truckless/10-automacao-monitoramento.html",
+    "title": "21  Automacao-Monitoramento",
+    "section": "",
+    "text": "22 Automacao-Monitoramento .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte III: Sistemas Truckless e Infraestrutura de Transporte",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Automacao-Monitoramento</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part3-truckless/11-gestao-hidrica-sustentabilidade.html",
+    "href": "chapters/part3-truckless/11-gestao-hidrica-sustentabilidade.html",
+    "title": "22  Gestao-Hidrica-Sustentabilidade",
+    "section": "",
+    "text": "23 Gestao-Hidrica-Sustentabilidade .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte III: Sistemas Truckless e Infraestrutura de Transporte",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Gestao-Hidrica-Sustentabilidade</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part4-confiabilidade/12-fundamentos-confiabilidade.html",
+    "href": "chapters/part4-confiabilidade/12-fundamentos-confiabilidade.html",
+    "title": "23  Fundamentos-Confiabilidade",
+    "section": "",
+    "text": "24 Fundamentos-Confiabilidade .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte IV: Engenharia de Confiabilidade e Gestão de Ativos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Fundamentos-Confiabilidade</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part4-confiabilidade/13-gestao-ativos-ciclo-vida.html",
+    "href": "chapters/part4-confiabilidade/13-gestao-ativos-ciclo-vida.html",
+    "title": "24  Gestao-Ativos-Ciclo-Vida",
+    "section": "",
+    "text": "25 Gestao-Ativos-Ciclo-Vida .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte IV: Engenharia de Confiabilidade e Gestão de Ativos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Gestao-Ativos-Ciclo-Vida</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part4-confiabilidade/14-integridade-procedimentos.html",
+    "href": "chapters/part4-confiabilidade/14-integridade-procedimentos.html",
+    "title": "25  Integridade-Procedimentos",
+    "section": "",
+    "text": "26 Integridade-Procedimentos .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte IV: Engenharia de Confiabilidade e Gestão de Ativos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Integridade-Procedimentos</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part4-confiabilidade/15-automacao-digitalizacao.html",
+    "href": "chapters/part4-confiabilidade/15-automacao-digitalizacao.html",
+    "title": "26  Automacao-Digitalizacao",
+    "section": "",
+    "text": "27 Automacao-Digitalizacao .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte IV: Engenharia de Confiabilidade e Gestão de Ativos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Automacao-Digitalizacao</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part4-confiabilidade/16-estudos-de-caso-confiabilidade.html",
+    "href": "chapters/part4-confiabilidade/16-estudos-de-caso-confiabilidade.html",
+    "title": "27  Estudos-De-Caso-Confiabilidade",
+    "section": "",
+    "text": "28 Estudos-De-Caso-Confiabilidade .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte IV: Engenharia de Confiabilidade e Gestão de Ativos",
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Estudos-De-Caso-Confiabilidade</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part5-beneficiamento/17-fundamentos-beneficiamento.html",
+    "href": "chapters/part5-beneficiamento/17-fundamentos-beneficiamento.html",
+    "title": "28  Fundamentos-Beneficiamento",
+    "section": "",
+    "text": "29 Fundamentos-Beneficiamento .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte V: Beneficiamento e Controle de Processo",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Fundamentos-Beneficiamento</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part5-beneficiamento/18-controle-otimizacao.html",
+    "href": "chapters/part5-beneficiamento/18-controle-otimizacao.html",
+    "title": "29  Controle-Otimizacao",
+    "section": "",
+    "text": "30 Controle-Otimizacao .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte V: Beneficiamento e Controle de Processo",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Controle-Otimizacao</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part5-beneficiamento/19-gestao-efluentes.html",
+    "href": "chapters/part5-beneficiamento/19-gestao-efluentes.html",
+    "title": "30  Gestao-Efluentes",
+    "section": "",
+    "text": "31 Gestao-Efluentes .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte V: Beneficiamento e Controle de Processo",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Gestao-Efluentes</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part5-beneficiamento/20-indicadores-beneficiamento.html",
+    "href": "chapters/part5-beneficiamento/20-indicadores-beneficiamento.html",
+    "title": "31  Indicadores-Beneficiamento",
+    "section": "",
+    "text": "32 Indicadores-Beneficiamento .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte V: Beneficiamento e Controle de Processo",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Indicadores-Beneficiamento</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part6-conhecimento/21-fundamentos-conhecimento.html",
+    "href": "chapters/part6-conhecimento/21-fundamentos-conhecimento.html",
+    "title": "32  Fundamentos-Conhecimento",
+    "section": "",
+    "text": "33 Fundamentos-Conhecimento .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte VI: Gestão do Conhecimento, Pessoas e Inovação",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Fundamentos-Conhecimento</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part6-conhecimento/22-praticas-ferramentas.html",
+    "href": "chapters/part6-conhecimento/22-praticas-ferramentas.html",
+    "title": "33  Praticas-Ferramentas",
+    "section": "",
+    "text": "34 Praticas-Ferramentas .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte VI: Gestão do Conhecimento, Pessoas e Inovação",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Praticas-Ferramentas</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part6-conhecimento/23-gestao-pessoas.html",
+    "href": "chapters/part6-conhecimento/23-gestao-pessoas.html",
+    "title": "34  Gestao-Pessoas",
+    "section": "",
+    "text": "35 Gestao-Pessoas .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte VI: Gestão do Conhecimento, Pessoas e Inovação",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Gestao-Pessoas</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part6-conhecimento/24-inovacao-futuro.html",
+    "href": "chapters/part6-conhecimento/24-inovacao-futuro.html",
+    "title": "35  Inovacao-Futuro",
+    "section": "",
+    "text": "36 Inovacao-Futuro .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte VI: Gestão do Conhecimento, Pessoas e Inovação",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Inovacao-Futuro</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part6-conhecimento/25-estudos-de-caso-inovacao.html",
+    "href": "chapters/part6-conhecimento/25-estudos-de-caso-inovacao.html",
+    "title": "36  Estudos-De-Caso-Inovacao",
+    "section": "",
+    "text": "37 Estudos-De-Caso-Inovacao .\nEm desenvolvimento…",
+    "crumbs": [
+      "Parte VI: Gestão do Conhecimento, Pessoas e Inovação",
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Estudos-De-Caso-Inovacao</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part7-apendices/dicionario-indicadores.html",
+    "href": "chapters/part7-apendices/dicionario-indicadores.html",
+    "title": "Appendix A — Dicionario-Indicadores",
+    "section": "",
+    "text": "Dicionario-Indicadores\nEm desenvolvimento…",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Dicionario-Indicadores</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part7-apendices/glossario-termos.html",
+    "href": "chapters/part7-apendices/glossario-termos.html",
+    "title": "Appendix B — Glossario-Termos",
+    "section": "",
+    "text": "Glossario-Termos\nEm desenvolvimento…",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossario-Termos</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/part7-apendices/sobre_os_dados.html",
+    "href": "chapters/part7-apendices/sobre_os_dados.html",
+    "title": "Appendix C — Sobre Os Dados",
+    "section": "",
+    "text": "Sobre Os Dados\nEm desenvolvimento…",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Sobre Os Dados</span>"
+    ]
+  }
+]

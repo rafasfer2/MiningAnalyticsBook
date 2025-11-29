@@ -1,0 +1,53 @@
+---
+title: "Bem-vindo(a)"
+author: "Rafael da Silva Fernandes"
+date: last-modified
+format: html
+numbered: false
+number-sections: false
+---
+
+# Bem-vindo(a) {.unnumbered}
+
+Seja bem-vindo(a) a este livro técnico voltado à **Excelência Operacional** e à **Gestão Integrada de Ativos** na mineração.
+A disciplina de *Mining Analytics* é fundamental para transformar o vasto volume de dados de despacho e ordens de serviço em **inteligência acionável**.
+
+
+::: {.callout-note}
+### Conceitos Essenciais
+
+- **DF – Disponibilidade Física:** Capacidade do sistema de executar sua função. A indisponibilidade é medida pelas **Horas de Manutenção (HM)**.
+- **UF – Utilização Física:** Indica o quanto do tempo disponível (**HD**) é efetivamente usado para operação (**HT**). Reflete a eficiência do PCO.
+- **HT – Horas Trabalhadas:** Tempo em que o ativo está ligado e produtivo, base para o cálculo da produtividade horária.
+- **MTBF – Mean Time Between Failures:** Mede a **Confiabilidade** (intervalo médio de tempo em que o sistema opera sem falhas).
+- **Analisar a aderência (Budget vs. Real)** e atribuir perdas usando gráficos *Waterfall*.
+- Utilizar **Cartas de Controle (CEP)** para monitorar a estabilidade de processos operacionais.
+
+---
+
+## Como Usar Este Livro (Reprodução)
+
+Este material é **totalmente reproduzível**. Todos os dados e funções são fornecidos através do pacote R **`miningKPI`**.
+
+1. Instale o R, RStudio e as extensões do Quarto.
+2. Instale o pacote em seu ambiente:
+    ```r
+    remotes::install_github("rafasfer2/miningKPI")
+3. Execute os exemplos de código R embutidos nos capítulos para consolidar o aprendizado.
+
+---
+
+## Agradecimentos
+
+Agradeço à comunidade R e a todos que contribuíram para o desenvolvimento deste material.
+
+---
+
+::: callout-tip
+## Comece a Jornada!
+Clique na barra lateral para iniciar a leitura.
+Recomendamos começar pela **Descrição do Macroprocesso** para obter o contexto operacional da mina, ou seguir diretamente para a **Parte I (Fundamentos)**.
+:::
+
+**Rafael da Silva Fernandes**
+*Novembro de 2025*

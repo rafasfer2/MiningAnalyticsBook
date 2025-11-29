@@ -1,0 +1,66 @@
+---
+title: "Macroprocesso da Mineração"
+format: html
+numbered: false
+---
+
+# Macroprocesso da Mineração {.unnumbered}
+
+O macroprocesso da mineração pode ser entendido como um **fluxo operacional integrado**, que conecta todas as etapas desde a lavra até a expedição do produto final. Este capítulo fornece o **contexto técnico** necessário para compreender os indicadores e análises apresentados ao longo do livro.
+
+---
+
+## 11.1. Lavra (Extração)
+
+- **Perfuração e desmonte de rocha**: uso de explosivos e técnicas de fragmentação.
+- **Carregamento**: escavadeiras e pás carregadeiras transferem o minério para os equipamentos de transporte.
+- **Indicadores principais**: taxa de penetração, qualidade do furo, fragmentação, produtividade da frente de lavra.
+
+---
+
+## 11.2. Transporte
+
+### 11.2.1. Transporte Tradicional (Truck & Shovel)
+- Caminhões fora de estrada realizam o ciclo de transporte (carregamento, viagem, descarga, retorno).
+- Indicadores: tempo de ciclo, disponibilidade física dos caminhões, utilização, consumo de combustível.
+
+### 11.2.2. Transporte Contínuo (Truckless/IPCC)
+- Sistemas de correias transportadoras e britadores móveis reduzem custos e emissões.
+- Indicadores: backlog de carga, confiabilidade das correias, tempo de parada programada.
+
+---
+
+## 11.3. Beneficiamento
+
+- **Britagem e moagem**: redução granulométrica do minério.
+- **Concentração**: processos físicos e químicos para separar o mineral de interesse.
+- **Indicadores principais**: vazão, eficiência energética, taxa de recuperação, estabilidade de processo (CEP).
+
+---
+
+## 11.4. Expedição
+
+- **Armazenamento e carregamento**: silos, pátios e sistemas de carregamento ferroviário ou portuário.
+- **Logística de transporte**: integração com ferrovias e portos para exportação.
+- **Indicadores principais**: aderência ao plano de produção, tempo de carregamento, perdas logísticas.
+
+---
+
+## 11.5. Integração do Macroprocesso
+
+O macroprocesso deve ser visto como um **sistema interdependente**:
+- A lavra influencia a qualidade da alimentação da usina.
+- O transporte impacta diretamente a aderência ao plano de produção.
+- O beneficiamento define a eficiência global e a recuperação metalúrgica.
+- A expedição garante o cumprimento dos contratos e metas comerciais.
+
+Essa visão integrada é a base para o **Sistema de Gestão de Indicadores (SGI)**, que conecta operação, manutenção e engenharia em busca da **excelência operacional**.
+
+---
+
+## 11.6. Conexão com o Livro
+
+Este capítulo serve como **mapa de referência**:
+- Cada parte do livro detalha um segmento do macroprocesso.
+- Os indicadores apresentados estão sempre relacionados a uma etapa específica.
+- O pacote **`miningKPI`** fornece dados simulados e funções para reproduzir análises de cada fase.

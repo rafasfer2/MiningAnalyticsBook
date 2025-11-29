@@ -1,0 +1,91 @@
+---
+title: "Variabilidade e Estabilidade (CEP)"
+format: html
+---
+
+## Introdução ao Controle Estatístico
+
+Na mineração, a média é apenas metade da história. Um equipamento que produz 1000 t/h com desvio padrão de 50 t/h é muito mais confiável do que um que produz 1000 t/h variando entre 500 e 1500 t/h.
+
+O **Controle Estatístico de Processo (CEP)** nos permite distinguir entre:
+
+1.  **Variação de Causa Comum:** O "ruído" natural do processo (ex: dureza da rocha varia levemente).
+2.  **Variação de Causa Especial:** Eventos anômalos que exigem ação (ex: chuva torrencial).
+
+Neste capítulo, utilizaremos os dados de **Carga de Brucutu** (`load_daily_cep_br`) do pacote `miningKPI`.
+
+## Carregamento e Preparação
+
+```{r}
+#| label: setup-cep
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(miningKPI)
+# library(ggsci) 
+
+# Carregar dados
+data("load_daily_cep_mine_b")
+glimpse(load_daily_cep_mine_b)
+```
+
+## Impacto Climático: Chuva vs. Seco
+
+A chuva é uma das maiores fontes de variabilidade. Vamos testar a hipótese: **"A produtividade cai significativamente no período chuvoso?"**
+
+```{r}
+
+#| label: boxplot-clima
+#| fig-cap: "Comparativo de Produtividade"
+#| warning: false
+
+# Filtrar NAs
+dados_clima <- load_daily_cep_mine_b %>% 
+  filter(!is.na(periodo_climatico))
+
+# Gráfico
+
+dados_clima %>% 
+  ggplot(aes(x = periodo_climatico, y = produtividade_ht, fill = periodo_climatico)) + 
+  geom_boxplot(alpha = 0.7) +
+  scale_fill_manual(values = c("Chuvoso" = "#3498DB", "Seco" = "#F39C12")) + 
+  labs(y = "Produtividade (t/HT)", x = "Clima") + 
+  theme_minimal()
+```
+
+::: callout-note
+## Interpretação
+
+Se a mediana do "Seco" for superior à do "Chuvoso", confirmamos o impacto. A dispersão (tamanho da caixa) indica a instabilidade.
+:::
+
+## Cartas de Controle (HAO)
+
+O indicador **HAO (Horas de Atraso Operacional)** mede as perdas de processo. Abaixo, a carta de controle para monitorar a estabilidade.
+
+```{r}
+#| label: carta-controle
+#| fig-cap: "Carta de Controle X-Barra"
+#| warning: false
+
+# Agrupar por dia
+kpi_diario <- load_daily_cep_mine_b %>% 
+  group_by(data) %>% 
+  summarise(hao_medio = mean(HAO, na.rm = TRUE)) %>% 
+  ungroup() %>% 
+  mutate(
+    media = mean(hao_medio), 
+    LSC = media + 3 * sd(hao_medio)
+  )
+
+# Plotar
+ggplot(kpi_diario, aes(x = data, y = hao_medio)) + 
+  geom_hline(aes(yintercept = media), color = "blue") + 
+  geom_hline(aes(yintercept = LSC), color = "red", linetype = "dashed") + 
+  geom_line(color = "gray") + 
+  geom_point(aes(color = hao_medio > LSC)) +
+  scale_color_manual(values = c("FALSE" = "black", "TRUE" = "red")) +
+  theme_minimal() +
+  theme(legend.position = "none")
+```

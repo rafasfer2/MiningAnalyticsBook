@@ -1,0 +1,137 @@
+/* ==============================================================================
+   ESTRUTURA FINAL DO LAYOUT (V10.0 - CONSOLIDADO E FINAL)
+   ============================================================================== */
+
+/* --- 1. VARIÁVEIS E CORES GLOBAIS --- */
+:root {
+  /* Paleta Customizada (Completa - BrBG) */
+  --color-brown-dark: #543005;
+  --color-brown-med: #8c510a;
+  --color-brown: #bf812d;
+  --color-brown-light: #dfc27d;
+  --color-cream: #f6e8c3;
+  --color-cyan-light: #c7eae5;
+  --color-cyan-mid: #80cdc1;
+  --color-teal: #35978f;
+  --color-teal-dark: #01665e;
+  --color-teal-deep: #003c30;
+
+  /* ESCALAS DE DESTAQUE E SUPORTE */
+  --color-gold: #d4af37;          /* Ouro Original (Ativo/Borda) */
+  --color-gold-base: #ffd700;     /* Ouro Puro (Padrão Ativo) */
+  --color-gold-darker: #b39700;
+  --color-gray-soft: #CCCCCC;
+  --color-hover-gray: #e3e3e3;
+  --color-gray-med: #aaaaaa;
+
+  /* Layout Dimensions */
+  --sidebar-width: 320px;
+  --toc-width: 300px;
+  --header-height: 60px;
+
+  --content-gap: 0.5rem;
+  --text-padding-left: 0.75rem;
+}
+
+/* =========================================
+   2. RESET GERAL E TIPOGRAFIA BASE
+   ========================================= */
+body, html {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+  /* FIX FINAL: Tamanho contido e estável */
+  font-size: 12pt;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  color: var(--color-brown-dark);
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+}
+h1 { border-bottom: 2px solid var(--color-brown); }
+h2 { color: var(--color-brown-med); }
+main.content h1, main.content h2, main.content p, main.content ul, main.content ol, main.content blockquote { text-align: justify; }
+
+/* =========================================
+   3. SIDEBAR (ESQUERDA) - LAYOUT E HIERARQUIA
+   ========================================= */
+#quarto-sidebar {
+  position: fixed !important; left: 0 !important; top: 0 !important;
+  width: var(--sidebar-width) !important; height: 100vh !important;
+  z-index: 100; padding: 0 !important; margin: 0 !important;
+  background: var(--color-teal-dark) !important;
+}
+
+/* TÍTULO DO LIVRO (FIXADO) */
+#quarto-sidebar .sidebar-title {
+  color: white !important; /* Corrigido: Garante o branco */
+  font-weight: 700;
+  padding: 1.2rem 1rem !important;
+  border-bottom: 2px solid var(--color-teal) !important;
+}
+
+/* Item Container - Remove margens verticais */
+#quarto-sidebar .sidebar-item,
+#quarto-sidebar .sidebar-item-container {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Layout do Link (Alinhamento, Quebra de Linha e Fonte) */
+#quarto-sidebar .sidebar-item-text {
+  /* Alinhamento */
+  display: flex !important;
+  align-items: center !important;
+
+  /* Permite quebra de linha (para títulos longos) */
+  white-space: normal;
+  overflow: hidden;
+
+  /* Padding e Cor */
+  padding: 0.2rem 1rem 0.2rem var(--text-padding-left) !important;
+  margin: 0 !important;
+  color: white !important;
+  font-size: 0.8rem !important;
+  border-left: 4px solid transparent !important;
+}
+
+/* Numeração e Item ATIVO */
+#quarto-sidebar .chapter-number {
+  color: white !important;
+}
+
+#quarto-sidebar .sidebar-item-text.active {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: var(--color-gold-base) !important;
+  border-left: 4px solid var(--color-gold-base) !important;
+  font-weight: bold !important;
+}
+
+/* =========================================
+   4. CONTEÚDO PRINCIPAL (LAYOUT)
+   ========================================= */
+
+#quarto-header {
+  position: fixed !important; top: 0 !important;
+  left: var(--sidebar-width) !important;
+  right: var(--toc-width) !important;
+  height: var(--header-height) !important;
+  background: white !important;
+  z-index: 99 !important;
+}
+
+body.nav-sidebar {
+  padding-left: calc(var(--sidebar-width) + var(--content-gap)) !important;
+  padding-right: calc(var(--toc-width) + var(--content-gap)) !important;
+  padding-top: var(--header-height) !important;
+  margin: 0 !important;
+}
+
+main.content h1, main.content h2, main.content p, main.content ul, main.content ol, main.content blockquote {
+  padding-left: var(--text-padding-left) !important;
+  padding-right: var(--text-padding-left) !important;
+  margin: 0 0 1rem 0 !important;
+}

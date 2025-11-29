@@ -1,0 +1,115 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  # --- METADADOS (ESTRUTURALMENTE CORRETO) ---
+  title: "Sistema de Gestão e Excelência Operacional na Mineração"
+  subtitle: "Análise de Indicadores e Data Science com R"
+  author: "Rafael da Silva Fernandes"
+  date: last-modified
+
+  sidebar:
+    style: docked
+    collapse-level: 2
+    search: true
+
+  chapters:
+    # --- I. MATERIAIS PRELIMINARES (Front Matter - ABNT COMPLETA) ---
+    - file: index.qmd
+      title: "Bem-vindo(a)"
+      unnumbered: true
+    - file: dedicatória.qmd
+      title: "Dedicatória"
+      unnumbered: true
+    - file: agradecimentos.qmd
+      title: "Agradecimentos"
+      unnumbered: true
+    - file: epigrafe.qmd
+      title: "Epígrafe"
+      unnumbered: true
+    - file: prefacio.qmd
+      title: "Prefácio"
+      unnumbered: true
+    - file: intro.qmd
+      title: "Introdução"
+      unnumbered: true
+    - file: resumo_abstract.qmd
+      title: "Resumo e Abstract"
+      unnumbered: true
+    - file: notacoes_abreviacoes.qmd
+      title: "Notações e Abreviações"
+      unnumbered: true
+    - file: credits.qmd
+      title: "Créditos e Licença"
+      unnumbered: true
+    - file: requirements.qmd
+      title: "Requisitos"
+      unnumbered: true
+    - file: macroprocesso.qmd
+      title: "Macroprocesso de Mineração"
+      unnumbered: true
+
+    # --- II. CORPO PRINCIPAL (Capítulos 1 - 25) ---
+    - part: "Parte I: A Fundação do Sistema de Gestão"
+      chapters:
+        - chapters/part1-fundamentos/01-introducao-gestao.qmd
+        - chapters/part1-fundamentos/02-arquitetura-indicadores.qmd
+        - chapters/part1-fundamentos/03-governanca-seguranca.qmd
+        - chapters/part1-fundamentos/04-indicadores-dashboards.qmd
+
+    - part: "Parte II: Planejamento e Macroprocesso de Lavra"
+      chapters:
+        - chapters/part2-planejamento/05-planejamento-estrategico.qmd
+        - chapters/part2-planejamento/06-avaliacao-sustentabilidade.qmd
+        - chapters/part2-planejamento/07-gestao-riscos.qmd
+
+    - part: "Parte III: Sistemas Truckless e Infraestrutura de Transporte"
+      chapters:
+        - chapters/part3-truckless/08-evolucao-transporte.qmd
+        - chapters/part3-truckless/09-projeto-operacao-truckless.qmd
+        - chapters/part3-truckless/10-automacao-monitoramento.qmd
+        - chapters/part3-truckless/11-gestao-hidrica-sustentabilidade.qmd
+
+    - part: "Parte IV: Engenharia de Confiabilidade e Gestão de Ativos"
+      chapters:
+        - chapters/part4-confiabilidade/12-fundamentos-confiabilidade.qmd
+        - chapters/part4-confiabilidade/13-gestao-ativos-ciclo-vida.qmd
+        - chapters/part4-confiabilidade/14-integridade-procedimentos.qmd
+        - chapters/part4-confiabilidade/15-automacao-digitalizacao.qmd
+        - chapters/part4-confiabilidade/16-estudos-de-caso-confiabilidade.qmd
+
+    - part: "Parte V: Beneficiamento e Controle de Processo"
+      chapters:
+        - chapters/part5-beneficiamento/17-fundamentos-beneficiamento.qmd
+        - chapters/part5-beneficiamento/18-controle-otimizacao.qmd
+        - chapters/part5-beneficiamento/19-gestao-efluentes.qmd
+        - chapters/part5-beneficiamento/20-indicadores-beneficiamento.qmd
+
+    - part: "Parte VI: Gestão do Conhecimento, Pessoas e Inovação"
+      chapters:
+        - chapters/part6-conhecimento/21-fundamentos-conhecimento.qmd
+        - chapters/part6-conhecimento/22-praticas-ferramentas.qmd
+        - chapters/part6-conhecimento/23-gestao-pessoas.qmd
+        - chapters/part6-conhecimento/24-inovacao-futuro.qmd
+        - chapters/part6-conhecimento/25-estudos-de-caso-inovacao.qmd
+
+    # --- END MATTER (Referências) ---
+    - references.qmd
+
+  appendices:
+    - chapters/part7-apendices/dicionario-indicadores.qmd
+    - chapters/part7-apendices/glossario-termos.qmd
+    - chapters/part7-apendices/sobre_os_dados.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: flatly
+    css: styles/styles.css
+    code-fold: true
+    toc: true
+    number-sections: true
+    # FIX FINAL: TOC-DEPTH no bloco de formatação HTML (local correto)
+    toc-depth: 4

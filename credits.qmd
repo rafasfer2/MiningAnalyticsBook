@@ -1,0 +1,133 @@
+---
+title: "Créditos e Agradecimentos"
+format: html
+numbered: false
+---
+
+# Créditos e Agradecimentos {.unnumbered}
+
+## Autor
+
+Engenheiro, Analista de Dados
+Universidade Federal de Itajubá
+
+- 🐙 GitHub: [github.com/rafasfer2](https://github.com/rafasfer2)
+
+## Sobre o Autor
+
+Engenheiro com experiência em análise de confiabilidade, manutenção industrial e ciência de dados. Este livro é fruto de anos de prática aplicando métodos estatísticos para otimização de estratégias de manutenção em ambientes industriais.
+
+## Agradecimentos
+
+Este livro não seria possível sem o apoio e contribuição de diversas pessoas e comunidades:
+
+### Comunidade R
+
+Agradeço à **comunidade R** e aos desenvolvedores dos pacotes open-source que tornaram este trabalho possível:
+
+- **Hadley Wickham** e equipe do `tidyverse`
+- **Terry Therneau** pelo pacote `survival`
+- **Christopher Jackson** pelo `flexsurv`
+- **David Gohel** pelo `officer` e `flextable`
+- Desenvolvedores do **Quarto** e **Posit**
+
+### Revisores e Colaboradores
+
+Agradecimentos especiais a:
+
+- Colegas de trabalho que forneceram feedback valioso
+- Beta readers que testaram os exemplos
+- Comunidade GitHub que reportou issues e sugeriu melhorias
+
+### Instituições
+
+- **Empresas** que forneceram dados anonimizados para estudos de caso
+- **Universidades** que promovem pesquisa em confiabilidade
+- **Comunidades online** (Stack Overflow, RStudio Community, Cross Validated)
+
+### Família
+
+Gratidão à minha família pelo apoio durante o desenvolvimento deste livro.
+
+## Ferramentas Utilizadas
+
+Este livro foi desenvolvido com:
+
+- **Quarto** — Sistema de publicação científica ([quarto.org](https://quarto.org))
+- **R** — Linguagem de programação estatística ([r-project.org](https://www.r-project.org))
+- **RStudio / VS Code** — IDEs para desenvolvimento
+- **GitHub** — Versionamento e colaboração
+- **Git** — Controle de versão
+
+### Pacotes R Principais
+
+```r
+tidyverse      # Manipulação e visualização de dados
+survival       # Análise de sobrevivência
+flexsurv       # Modelos paramétricos flexíveis
+WeibullR       # Análise Weibull
+fitdistrplus   # Ajuste de distribuições
+ggplot2        # Visualizações
+knitr          # Relatórios reproduzíveis
+```
+
+## Licença e Uso
+
+### Conteúdo
+
+Este livro está licenciado sob [Creative Commons BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+Você pode:
+- ✅ Compartilhar — copiar e redistribuir
+- ✅ Adaptar — remixar e transformar
+
+Desde que:
+- 📝 Atribua crédito apropriado
+- 🚫 Não use para fins comerciais
+- 🔄 Compartilhe adaptações sob a mesma licença
+
+### Código
+
+Todo o código R apresentado neste livro está licenciado sob [MIT License](https://opensource.org/licenses/MIT) e pode ser usado livremente em projetos pessoais e comerciais.
+
+## Como Citar este Livro
+
+### Formato ABNT
+
+```
+FERNANDES, Rafael da Silva. Confiabilidade e Manutenção: Aplicações em R.
+1. ed. Itajubá: UNIFEI, 2025. Disponível em:
+https://github.com/rafasfer2/QuartoBook. Acesso em: [data de acesso].
+```
+
+### Formato BibTeX
+
+```bibtex
+@book{fernandes2025confiabilidade,
+  title     = {Confiabilidade e Manutenção: Aplicações em R},
+  author    = {Fernandes, Rafael da Silva},
+  year      = {2025},
+  publisher = {Universidade Federal de Itajubá},
+  address   = {Itajubá, MG},
+  url       = {https://github.com/rafasfer2/QuartoBook}
+}
+```
+
+## Contribuições
+
+Contribuições são bem-vindas! Se você encontrou erros ou tem sugestões:
+
+- **Reporte issues:** [GitHub Issues](https://github.com/rafasfer2/QuartoBook/issues)
+- **Pull requests:** [GitHub](https://github.com/rafasfer2/QuartoBook)
+
+## Feedback
+
+Se este livro foi útil:
+
+- ⭐ Deixe uma estrela no [GitHub](https://github.com/rafasfer2/QuartoBook)
+- 💬 Compartilhe com colegas
+- 🤝 Contribua com exemplos ou melhorias
+
+---
+
+*Última atualização: Novembro de 2025*
