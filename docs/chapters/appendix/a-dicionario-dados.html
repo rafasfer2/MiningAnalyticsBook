@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Notações, Símbolos e Abreviações – Sistema de Gestão e Excelência Operacional na Mineração</title>
+<title>Apêndice A — Dicionário de Dados do Pacote miningKPI – Sistema de Gestão e Excelência Operacional na Mineração</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../chapters/appendix/dicionario-indicadores.html" rel="prev">
+<link href="../../chapters/appendix/b-dicionario-indicadores.html" rel="next">
+<link href="../../chapters/03-ciclo-transporte.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -112,7 +113,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/appendix/dicionario-indicadores.html">Apêndices</a></li><li class="breadcrumb-item"><a href="../../chapters/appendix/notacoes-abreviacoes.html">Notações, Símbolos e Abreviações</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/appendix/a-dicionario-dados.html">Apêndices</a></li><li class="breadcrumb-item"><a href="../../chapters/appendix/a-dicionario-dados.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Dados do Pacote <code>miningKPI</code></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
@@ -189,14 +190,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/appendix/dicionario-indicadores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Indicadores (KPIs)</span></span></a>
+  <a href="../../chapters/appendix/a-dicionario-dados.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Dados do Pacote <code>miningKPI</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/appendix/notacoes-abreviacoes.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Notações, Símbolos e Abreviações</span></a>
+  <a href="../../chapters/appendix/b-dicionario-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Dicionário de Indicadores (KPIs)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/appendix/c-notacoes-abreviacoes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Notações, Símbolos e Abreviações</span></span></a>
   </div>
 </li>
       </ul>
@@ -211,19 +218,24 @@ window.Quarto = {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#siglas-de-gestão-de-ativos" id="toc-siglas-de-gestão-de-ativos" class="nav-link active" data-scroll-target="#siglas-de-gestão-de-ativos">Siglas de Gestão de Ativos</a></li>
-  <li><a href="#variáveis-do-ciclo-de-perfuração-drilling" id="toc-variáveis-do-ciclo-de-perfuração-drilling" class="nav-link" data-scroll-target="#variáveis-do-ciclo-de-perfuração-drilling">Variáveis do Ciclo de Perfuração (Drilling)</a></li>
-  <li><a href="#variáveis-do-ciclo-de-carregamento-loading" id="toc-variáveis-do-ciclo-de-carregamento-loading" class="nav-link" data-scroll-target="#variáveis-do-ciclo-de-carregamento-loading">Variáveis do Ciclo de Carregamento (Loading)</a></li>
-  <li><a href="#variáveis-do-ciclo-de-transporte-hauling" id="toc-variáveis-do-ciclo-de-transporte-hauling" class="nav-link" data-scroll-target="#variáveis-do-ciclo-de-transporte-hauling">Variáveis do Ciclo de Transporte (Hauling)</a></li>
+  <li><a href="#a.-datasets-de-carregamento" id="toc-a.-datasets-de-carregamento" class="nav-link active" data-scroll-target="#a.-datasets-de-carregamento"><span class="header-section-number">A.1</span> A. Datasets de Carregamento</a>
+  <ul class="collapse">
+  <li><a href="#load_events_mine_a" id="toc-load_events_mine_a" class="nav-link" data-scroll-target="#load_events_mine_a"><span class="header-section-number">A.1.1</span> <code>load_events_mine_a</code></a></li>
+  </ul></li>
+  <li><a href="#b.-datasets-de-transporte" id="toc-b.-datasets-de-transporte" class="nav-link" data-scroll-target="#b.-datasets-de-transporte"><span class="header-section-number">A.2</span> B. Datasets de Transporte</a>
+  <ul class="collapse">
+  <li><a href="#haul_events_mine_a" id="toc-haul_events_mine_a" class="nav-link" data-scroll-target="#haul_events_mine_a"><span class="header-section-number">A.2.1</span> <code>haul_events_mine_a</code></a></li>
+  </ul></li>
+  <li><a href="#c.-estrutura-de-consolidação" id="toc-c.-estrutura-de-consolidação" class="nav-link" data-scroll-target="#c.-estrutura-de-consolidação"><span class="header-section-number">A.3</span> C. Estrutura de Consolidação</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/appendix/dicionario-indicadores.html">Apêndices</a></li><li class="breadcrumb-item"><a href="../../chapters/appendix/notacoes-abreviacoes.html">Notações, Símbolos e Abreviações</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/appendix/a-dicionario-dados.html">Apêndices</a></li><li class="breadcrumb-item"><a href="../../chapters/appendix/a-dicionario-dados.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Dados do Pacote <code>miningKPI</code></span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Notações, Símbolos e Abreviações</h1>
+<h1 class="title"><span id="app-dados" class="quarto-section-identifier">Apêndice A — Dicionário de Dados do Pacote <code>miningKPI</code></span></h1>
 </div>
 
 
@@ -240,55 +252,128 @@ window.Quarto = {
 </header>
 
 
-<p>Este capítulo consolida as notações matemáticas e abreviações técnicas utilizadas para modelar os ciclos operacionais de lavra, garantindo unicidade na interpretação das variáveis estocásticas.</p>
-<section id="siglas-de-gestão-de-ativos" class="level2">
-<h2 class="anchored" data-anchor-id="siglas-de-gestão-de-ativos">Siglas de Gestão de Ativos</h2>
-<p>Abreviações gerais utilizadas na gestão de manutenção e confiabilidade:</p>
-<ul>
-<li><strong>DF</strong>: Disponibilidade Física.</li>
-<li><strong>UF</strong>: Utilização Física.</li>
-<li><strong>HT</strong>: Horas Trabalhadas.</li>
-<li><strong>HM</strong>: Horas de Manutenção.</li>
-<li><strong>MTBF</strong>: <em>Mean Time Between Failures</em> (Tempo Médio Entre Falhas).</li>
-<li><strong>MTTR</strong>: <em>Mean Time to Repair</em> (Tempo Médio Para Reparo).</li>
-</ul>
+<p>O pacote <code>miningKPI</code> fornece conjuntos de dados educacionais que simulam operações reais de mineração. Estes dados estão estruturados em formato de eventos (<em>long format</em>) ou ciclos consolidados.</p>
+<section id="a.-datasets-de-carregamento" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="a.-datasets-de-carregamento"><span class="header-section-number">A.1</span> A. Datasets de Carregamento</h2>
+<section id="load_events_mine_a" class="level3" data-number="A.1.1">
+<h3 data-number="A.1.1" class="anchored" data-anchor-id="load_events_mine_a"><span class="header-section-number">A.1.1</span> <code>load_events_mine_a</code></h3>
+<p>Dataset primário contendo os eventos sequenciais da escavadeira. Cada linha representa uma mudança de estado operacional.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 38%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Coluna</th>
+<th style="text-align: center;">Tipo</th>
+<th style="text-align: left;">Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>load_id</code></td>
+<td style="text-align: center;">Character</td>
+<td style="text-align: left;">Identificador da unidade de carga (ex: LOAD-0001).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>haul_id</code></td>
+<td style="text-align: center;">Character</td>
+<td style="text-align: left;">Identificador do caminhão atendido (NA se estiver ociosa).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>event_type</code></td>
+<td style="text-align: center;">Character</td>
+<td style="text-align: left;">Tipo do evento: <code>maneuver</code>, <code>loading</code> ou <code>idle</code>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>duration_min</code></td>
+<td style="text-align: center;">Numeric</td>
+<td style="text-align: left;">Duração do evento em minutos.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>payload</code></td>
+<td style="text-align: center;">Numeric</td>
+<td style="text-align: left;">Massa carregada (toneladas). Preenchido apenas no evento <code>loading</code>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>first_time</code></td>
+<td style="text-align: center;">DateTime</td>
+<td style="text-align: left;">Timestamp do início do evento.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>exit_time</code></td>
+<td style="text-align: center;">DateTime</td>
+<td style="text-align: left;">Timestamp do fim do evento.</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="variáveis-do-ciclo-de-perfuração-drilling" class="level2">
-<h2 class="anchored" data-anchor-id="variáveis-do-ciclo-de-perfuração-drilling">Variáveis do Ciclo de Perfuração (Drilling)</h2>
-<p>Variáveis estocásticas que compõem o tempo total do furo (<span class="math inline">\(X_i\)</span>):</p>
-<ul>
-<li><strong><span class="math inline">\(P_i\)</span> (SET)</strong>: Tempo de Posicionamento e Emboquilhamento (<em>Setup</em>).</li>
-<li><strong><span class="math inline">\(D_i\)</span> (DT)</strong>: Tempo de Perfuração Efetiva (<em>Drilling Time</em>).</li>
-<li><strong><span class="math inline">\(H_i\)</span> (RHT)</strong>: Tempo de Manuseio de Hastes (<em>Rod Handling Time</em>).</li>
-<li><strong><span class="math inline">\(M_i\)</span> (TRA)</strong>: Tempo de Manobra e Deslocação (<em>Tramming</em>).</li>
-<li><strong><span class="math inline">\(L_i\)</span></strong>: Profundidade Perfurada Líquida (metros).</li>
-<li><strong><span class="math inline">\(X_i\)</span> (TBF)</strong>: Tempo Total do Furo (<em>Time Between Feet</em> ou Total Cycle).</li>
-</ul>
 </section>
-<section id="variáveis-do-ciclo-de-carregamento-loading" class="level2">
-<h2 class="anchored" data-anchor-id="variáveis-do-ciclo-de-carregamento-loading">Variáveis do Ciclo de Carregamento (Loading)</h2>
-<p>Notações para a identidade fundamental do carregamento (<span class="math inline">\(X_i = M_i + C_i + O_i\)</span>). <em>Nota: Alteramos a notação de carga para <span class="math inline">\(C_i\)</span> para evitar conflito com Drilling (<span class="math inline">\(D_i\)</span>).</em></p>
-<ul>
-<li><strong><span class="math inline">\(M_i\)</span> (MCT)</strong>: <em>Maneuver Cycle Time</em> - Tempo de manobra do caminhão na carga.</li>
-<li><strong><span class="math inline">\(C_i\)</span> (LCT)</strong>: <em>Loading Cycle Time</em> - Tempo de carregamento efetivo (escavação e despejo).</li>
-<li><strong><span class="math inline">\(O_i\)</span> (OCT)</strong>: <em>Operational Cycle Time</em> - Ociosidade operacional (espera por caminhão).</li>
-<li><strong><span class="math inline">\(L_i\)</span> (Payload)</strong>: Massa carregada na composição <span class="math inline">\(i\)</span> (toneladas).</li>
-<li><strong><span class="math inline">\(X_i\)</span> (TBC)</strong>: <em>Time Between Compositions</em> - Tempo total do ciclo de carga.</li>
-</ul>
+<section id="b.-datasets-de-transporte" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="b.-datasets-de-transporte"><span class="header-section-number">A.2</span> B. Datasets de Transporte</h2>
+<section id="haul_events_mine_a" class="level3" data-number="A.2.1">
+<h3 data-number="A.2.1" class="anchored" data-anchor-id="haul_events_mine_a"><span class="header-section-number">A.2.1</span> <code>haul_events_mine_a</code></h3>
+<p>Dataset contendo o rastreamento detalhado da viagem do caminhão, decomposto em 7 eventos operacionais.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 38%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Coluna</th>
+<th style="text-align: center;">Tipo</th>
+<th style="text-align: left;">Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>haul_id</code></td>
+<td style="text-align: center;">Character</td>
+<td style="text-align: left;">Identificador da unidade de transporte (ex: HAUL-0051).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>origin</code></td>
+<td style="text-align: center;">Character</td>
+<td style="text-align: left;">Local de origem/carregamento (ex: Bench/Bancada).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>destination</code></td>
+<td style="text-align: center;">Character</td>
+<td style="text-align: left;">Local de destino/basculamento (ex: Crusher/Britador).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>event_type</code></td>
+<td style="text-align: center;">Character</td>
+<td style="text-align: left;">Um dos 7 estados sequenciais (ex: <code>travel_full</code>, <code>queue_at_load</code>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>duration_min</code></td>
+<td style="text-align: center;">Numeric</td>
+<td style="text-align: left;">Duração do evento em minutos.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>payload</code></td>
+<td style="text-align: center;">Numeric</td>
+<td style="text-align: left;">Carga transportada na viagem (toneladas).</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="variáveis-do-ciclo-de-transporte-hauling" class="level2">
-<h2 class="anchored" data-anchor-id="variáveis-do-ciclo-de-transporte-hauling">Variáveis do Ciclo de Transporte (Hauling)</h2>
-<p>A jornada de transporte é decomposta em 7 eventos sequenciais para a viagem <span class="math inline">\(j\)</span>:</p>
+</section>
+<section id="c.-estrutura-de-consolidação" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="c.-estrutura-de-consolidação"><span class="header-section-number">A.3</span> C. Estrutura de Consolidação</h2>
+<p>Para a análise de <strong>KPIs</strong>, os dados brutos são transformados para uma visão de “Ciclo” através das funções de sumarização do pacote <code>miningKPI</code>.</p>
 <ul>
-<li><strong><span class="math inline">\(Vv_j\)</span></strong>: Tempo de Viagem Vazio (<em>Travel Empty</em>).</li>
-<li><strong><span class="math inline">\(Fc_j\)</span></strong>: Tempo de Fila para Carregar (<em>Queue at Load</em>).</li>
-<li><strong><span class="math inline">\(Mc_j\)</span></strong>: Tempo de Manobra para Carregar (<em>Maneuver at Load</em>).</li>
-<li><strong><span class="math inline">\(C_j\)</span></strong>: Tempo de Carregamento (<em>Loading Time</em>). Corresponde ao <span class="math inline">\(C_i\)</span> da escavadeira.</li>
-<li><strong><span class="math inline">\(Vc_j\)</span></strong>: Tempo de Viagem Cheio (<em>Travel Full</em>).</li>
-<li><strong><span class="math inline">\(Fb_j\)</span></strong>: Tempo de Fila para Bascular (<em>Queue at Dump</em>).</li>
-<li><strong><span class="math inline">\(D_j\)</span></strong>: Tempo de Basculamento (<em>Dumping Time</em>).</li>
-<li><strong><span class="math inline">\(FT_j\)</span></strong>: <em>Fixed Time</em> - Soma dos tempos fixos (Filas + Manobras + Carga/Descarga).</li>
+<li><strong>Ciclo de Carga (<span class="math inline">\(X_i\)</span>):</strong> Agrega os tempos de <code>maneuver</code> + <code>loading</code> + <code>idle</code>.</li>
+<li><strong>Ciclo de Transporte (<span class="math inline">\(X_j\)</span>):</strong> Agrega os tempos fixos (<span class="math inline">\(FT_j\)</span>) e os tempos variáveis de viagem (<span class="math inline">\(Vc_j, Vv_j\)</span>).</li>
 </ul>
+<blockquote class="blockquote">
+<p><strong>Nota Técnica:</strong> A estrutura em formato <em>long</em> (eventos) é ideal para disponibilidade, enquanto o formato <em>wide</em> (ciclos) facilita a análise de produtividade.</p>
+</blockquote>
 
 
 </section>
@@ -696,11 +781,14 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../chapters/appendix/dicionario-indicadores.html" class="pagination-link" aria-label="Dicionário de Indicadores (KPIs)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Indicadores (KPIs)</span></span>
+      <a href="../../chapters/03-ciclo-transporte.html" class="pagination-link" aria-label="A Jornada de 7 Eventos e o Ciclo de Transporte">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Jornada de 7 Eventos e o Ciclo de Transporte</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../chapters/appendix/b-dicionario-indicadores.html" class="pagination-link" aria-label="Dicionário de Indicadores (KPIs)">
+        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Dicionário de Indicadores (KPIs)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

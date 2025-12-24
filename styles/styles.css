@@ -130,7 +130,9 @@ body.nav-sidebar {
   margin: 0 !important;
 }
 
-main.content h1, main.content h2, main.content p, main.content ul, main.content ol, main.content blockquote {
+/* Adicionado h3 e h4 para corrigir o desalinhamento de A.1.1 */
+main.content h1, main.content h2, main.content h3, main.content h4,
+main.content p, main.content ul, main.content ol, main.content blockquote {
   padding-left: var(--text-padding-left) !important;
   padding-right: var(--text-padding-left) !important;
   margin: 0 0 1rem 0 !important;

@@ -1,50 +1,43 @@
----
-format: html
----
-
-# Dicionário de Dados do Pacote `miningKPI` {#app-dados} {#app-dados}
+# Dicionário de Dados do Pacote `miningKPI` {#app-dados}
 
 O pacote `miningKPI` fornece conjuntos de dados educacionais que simulam operações reais de mineração. Estes dados estão estruturados em formato de eventos (*long format*) ou ciclos consolidados.
 
-### Datasets de Carregamento
+## Datasets de Carregamento
 
-#### `load_events_mine_a`
+### `load_events_mine_a`
 
 Dataset primário contendo os eventos sequenciais da escavadeira. Cada linha representa uma mudança de estado operacional.
 
-|  |  |  |
-|----|----|----|
-| **Coluna** | **Tipo** | **Descrição** |
+| Coluna | Tipo | Descrição |
+|:---------------------|:--------------------------:|:---------------------|
 | `load_id` | Character | Identificador da unidade de carga (ex: LOAD-0001). |
 | `haul_id` | Character | Identificador do caminhão atendido (NA se estiver ociosa). |
-| `event_type` | Character | Tipo do evento: `maneuver` (manobra), `loading` (carregamento) ou `idle` (ocioso). |
+| `event_type` | Character | Tipo do evento: `maneuver`, `loading` ou `idle`. |
 | `duration_min` | Numeric | Duração do evento em minutos. |
 | `payload` | Numeric | Massa carregada (toneladas). Preenchido apenas no evento `loading`. |
 | `first_time` | DateTime | Timestamp do início do evento. |
 | `exit_time` | DateTime | Timestamp do fim do evento. |
 
-### Datasets de Transporte
+## Datasets de Transporte
 
-#### `haul_events_mine_a`
+### `haul_events_mine_a`
 
 Dataset contendo o rastreamento detalhado da viagem do caminhão, decomposto em 7 eventos operacionais.
 
-|  |  |  |
-|----|----|----|
-| **Coluna** | **Tipo** | **Descrição** |
+| Coluna | Tipo | Descrição |
+|:---------------------|:--------------------------:|:---------------------|
 | `haul_id` | Character | Identificador da unidade de transporte (ex: HAUL-0051). |
 | `origin` | Character | Local de origem/carregamento (ex: Bench/Bancada). |
 | `destination` | Character | Local de destino/basculamento (ex: Crusher/Britador). |
-| `event_type` | Character | Um dos 7 estados sequenciais (ex: `travel_full`, `queue_at_load`, etc.). |
+| `event_type` | Character | Um dos 7 estados sequenciais (ex: `travel_full`, `queue_at_load`). |
 | `duration_min` | Numeric | Duração do evento em minutos. |
 | `payload` | Numeric | Carga transportada na viagem (toneladas). |
 
-### Estrutura de Consolidação
+## Estrutura de Consolidação
 
-Para a análise de **KPIs**, os dados brutos são transformados para uma visão de "Ciclo" (uma linha por atendimento ou viagem) através das funções de sumarização do pacote `miningKPI`.
+Para a análise de **KPIs**, os dados brutos são transformados para uma visão de "Ciclo" através das funções de sumarização do pacote `miningKPI`.
 
 -   **Ciclo de Carga (**$X_i$): Agrega os tempos de `maneuver` + `loading` + `idle`.
-
 -   **Ciclo de Transporte (**$X_j$): Agrega os tempos fixos ($FT_j$) e os tempos variáveis de viagem ($Vc_j, Vv_j$).
 
-> **Nota Técnica:** A estrutura em formato *long* (eventos) é ideal para cálculos de disponibilidade e utilização, enquanto o formato *wide* (ciclos) facilita a análise de produtividade e payload.
+> **Nota Técnica:** A estrutura em formato *long* (eventos) é ideal para disponibilidade, enquanto o formato *wide* (ciclos) facilita a análise de produtividade.
