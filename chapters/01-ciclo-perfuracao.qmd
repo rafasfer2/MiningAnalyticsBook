@@ -49,7 +49,7 @@ A geometria da malha (quadrada, retangular ou estagiada) é desenhada para otimi
 Para transformar a operação em **Mining Analytics**, precisamos traduzir os eventos físicos em variáveis matemáticas. Para cada furo $i$, definimos a base de dados operacional conforme a tabela abaixo:
 
 |  |  |  |  |
-|------------------|------------------|------------------|------------------|
+|----|----|----|----|
 | **Fase Operacional** | **Notação Matemática** | **Sigla Técnica (English)** | **Variável no R (miningKPI)** |
 | **Setup e Início** | $P_i$ | SET (Setup/Positioning) | `p_time` |
 | **Penetração Real** | $D_i$ | DRI (Drilling Time) | `d_time` |
@@ -104,7 +104,7 @@ $$GDR = \frac{TDM}{\sum_{i=1}^{N(t)} X_i} \quad [m/h]$$
 
 ## Integração: Do Bit à Caçamba
 
-Portanto, ao monitorarmos o TDM (Metragem Total Perfurada) e a aderência à malha, estamos, na verdade, garantindo que a Identidade Fundamental do Carregamento, que exploraremos no \@chap-carregamento, apresente os menores valores possíveis de variabilidade.
+Portanto, ao monitorarmos o TDM (Metragem Total Perfurada) e a aderência à malha, estamos, na verdade, garantindo que a Identidade Fundamental do Carregamento, que exploraremos no \@ref(chap-carregamento), apresente os menores valores possíveis de variabilidade.
 
 ## Referências do Capítulo {.unnumbered}
 
