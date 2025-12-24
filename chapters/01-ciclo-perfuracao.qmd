@@ -22,6 +22,62 @@ O ciclo operacional de uma perfuratriz não se resume apenas a "furar o chão". 
 
 ![Ciclo de Perfuração.](../images/fig-ciclo-perfuracao.png){#fig-ciclo-perfuracao}
 
+No pacote `miningKPI`, disponibilizamos o banco de dados `drill_events_mine_d`. Este dataset contém a telemetria detalhada (formato long), permitindo identificar cada fase da Identidade Fundamental do ciclo de perfuração.
+
+::: {style="background-color:#e6f9e6; border-left: 4px solid #4CAF50; padding: 1em; margin: 1em 0;"}
+**Exemplo:** Dados de eventos de perfuração – Mina D
+
+No pacote `miningKPI`, disponibilizamos o banco de dados `load_events_mine_a`. Este dataset é um conjunto de dados primário estruturado em eventos sequenciais (formato long), onde cada linha representa a mudança de estado da unidade de carga.
+:::
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+#| eval: false
+
+library(miningKPI)
+library(dplyr)
+library(knitr)
+
+drill_events_mine_d %>%
+  filter(drill_id == "DRILL_100") %>%
+  # Selecionando eventos que compõem um ciclo típico de furo
+  slice(5:9) %>%
+  kable(caption = "Sequência de eventos da perfuratriz DRILL_100")
+```
+
+No dia 01/01/2023, a perfuratriz DRILL_100 (da frota Rotary Drill - Class PF416) operava na região de **Dry Pit**. Analisando a sequência cronológica, podemos decompor o ciclo operacional:
+
+-   **Linha 1 (O Setup -** $P_i$): Às 01:45:35, inicia-se o posicionamento e emboquilhamento. Este evento de `setup` dura $14,7$ minutos, preparando a haste para a penetração inicial.
+
+-   **Linha 2 (A Manobra -** $M_i$): Segue-se um evento de `tramming` de $4,15$ minutos. Na perfuração, manobras curtas entre furos da mesma malha são fundamentais para o cálculo da performance bruta.
+
+-   **Linha 3 (A Perfuração -** $D_i$): Às 02:04:29, o bit inicia o contato efetivo com a rocha. Esta fase de `drilling` dura $6,87$ minutos. É neste intervalo que a Taxa de Penetração (ROP) é calculada.
+
+-   **Linha 4 (As Hastes -** $H_i$): O evento `rods` de $9,38$ minutos indica o manuseio da coluna de perfuração (adição ou retirada de hastes), essencial para atingir a profundidade de projeto.
+
+-   **A Consolidação do Ciclo (**$X_i$): Assim como no carregamento, o ciclo total de um furo é a soma dessas durações. Para transformar os micro-eventos em indicadores de performance, sumarizamos os dados por ciclo:
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+drill_events_mine_d %>%
+  filter(drill_id == "DRILL_100") %>%
+  slice(5:9) %>%
+  group_by(drill_id, drill_fleet, origin) %>%
+  summarise(
+    start_hole    = min(first_time),
+    end_hole      = max(exit_time),
+    # Metragem alocada proporcionalmente neste intervalo
+    meters_drilled = sum(allocated_meters, na.rm = TRUE),
+    total_xi_min   = sum(duration_min),
+    .groups       = "drop"
+  )
+```
+
 > **Nota de Modelagem:** No pacote `miningKPI`, as fases de **Posicionamento** e **Emboquilhamento** são frequentemente agrupadas na variável de **Setup (**$P_i$), pois ambas representam tempos preparatórios sem avanço significativo de profundidade.
 
 Após a conclusão da malha (*drill pattern*), ocorre o desmonte por explosivos, transformando a rocha *in situ* em material fragmentado (*run-of-mine* - ROM) pronto para o carregamento
@@ -49,7 +105,7 @@ A geometria da malha (quadrada, retangular ou estagiada) é desenhada para otimi
 Para transformar a operação em **Mining Analytics**, precisamos traduzir os eventos físicos em variáveis matemáticas. Para cada furo $i$, definimos a base de dados operacional conforme a tabela abaixo:
 
 |  |  |  |  |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | **Fase Operacional** | **Notação Matemática** | **Sigla Técnica (English)** | **Variável no R (miningKPI)** |
 | **Setup e Início** | $P_i$ | SET (Setup/Positioning) | `p_time` |
 | **Penetração Real** | $D_i$ | DRI (Drilling Time) | `d_time` |
