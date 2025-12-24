@@ -1,0 +1,54 @@
+---
+format: html
+---
+
+# Dicionário de Indicadores {#app-dicionario}
+
+Este apêndice consolida os principais indicadores de desempenho (KPIs) utilizados ao longo desta obra. As fórmulas seguem as notações estabelecidas nos capítulos técnicos, e as funções listadas referem-se às implementações disponíveis no pacote `miningKPI`.
+
+## Gestão de Ativos e Disponibilidade
+
+Estes indicadores medem a saúde técnica e a prontidão da frota para o trabalho.
+
+|  |  |  |  |
+|----|----|----|----|
+| **Indicador** | **Sigla/Fórmula** | **Função R** | **Capítulo de Referência** |
+| **Disponibilidade Física** | $DF = \frac{WH + ID}{TH} \times 100$ | `kpi_availability()` | \@chap-ativos |
+| **Utilização Efetiva** | $UF = \frac{WH}{WH + ID} \times 100$ | `kpi_utilization()` | \@chap-ativos |
+| **MTBF** | $MTBF = \frac{\sum TBF}{N(t)}$ | `plot_crow_amsaa()` | \@chap-ativos |
+| **MTTR** | $MTTR = \frac{\sum TTR}{N(t)}$ | `kpi_mttr_summary()` | \@chap-ativos |
+
+## Ciclo de Perfuração (Drilling)
+
+Avaliam a performance da perfuratriz e a interação da ferramenta com a litologia local.
+
+|  |  |  |  |
+|----|----|----|----|
+| **Indicador** | **Sigla/Fórmula** | **Função R** | **Capítulo de Referência** |
+| **Metragem Perfurada** | $TDM = \sum L_i$ | `drill_summary()` | \@chap-perfuracao |
+| **Taxa de Penetração (ROP)** | $ROP = \frac{TDM}{\sum D_i}$ | `kpi_drill_rop()` | \@chap-perfuracao |
+| **Perfuração Bruta (GDR)** | $GDR = \frac{TDM}{WH}$ | `kpi_drill_gdr()` | \@chap-perfuracao |
+| **Tempo Total do Furo** | $X_i = P_i + D_i + H_i + M_i$ | `drill_cycle_time()` | \@chap-perfuracao |
+
+## Ciclo de Carregamento (Loading)
+
+Indicadores focados na eficiência da unidade de carga e no batimento de saída da frente de lavra.
+
+|  |  |  |  |
+|----|----|----|----|
+| **Indicador** | **Sigla/Fórmula** | **Função R** | **Capítulo de Referência** |
+| **Massa Carregada** | $TPL = \sum L_i$ | `kpi_production_summary()` | \@chap-carregamento |
+| **Tempo Total do Ciclo** | $X_i = M_i + D_i + O_i$ | `load_summarize_cycle()` | \@chap-carregamento |
+| **Produtividade de Carga** | $LP = \frac{TPL}{WH}$ | `kpi_productivity_fleet()` | \@chap-carregamento |
+| **Eficiência Técnica (MLCT)** | $MLCT = \frac{1}{N(t)} \sum D_i$ | `load_summarize_cycle()` | \@chap-carregamento |
+
+## Ciclo de Transporte (Hauling)
+
+Medem o desempenho logístico, velocidades de deslocamento e conformidade de carga nos caminhões.
+
+|  |  |  |  |
+|----|----|----|----|
+| **Indicador** | **Sigla/Fórmula** | **Função R** | **Capítulo de Referência** |
+| **Aderência à Carga** | $PC = \frac{L_{real}}{L_{target}} \times 100$ | `check_payload_compliance()` | \@chap-transporte |
+| **Velocidade Média Cheio** | $VMC = \frac{d}{t_{v_c}}$ | `haul_summarize_cycle()` | \@chap-transporte |
+| **Produtividade Horária** | $PH = \frac{TPL}{WH}$ | `kpi_productivity_fleet()` | \@chap-transporte |

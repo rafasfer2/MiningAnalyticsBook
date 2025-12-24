@@ -1,0 +1,147 @@
+---
+  format: html
+---
+
+# Ciclo de Perfuração e Desmonte de Rocha {#chap-perfuracao}
+
+## Processo de Perfuração e Desmonte de Rochas
+
+A perfuração de rochas nas minas a céu aberto é realizada por perfuratrizes percussivas e/ou rotativas que utilizam energia hidráulica ou pneumática. Para o bom funcionamento desta atividade, é primordial projetar e preparar frentes livres de escavação, o que auxilia na obtenção de resultados positivos nos serviços subsequentes de detonação, carga e transporte.
+
+O ciclo de perfuração de rochas é composto por cinco fases fundamentais (\@fig-ciclo-perfuracao):
+
+-   **Posicionamento**: Alinhamento da máquina de acordo com o local do furo e a inclinação da bancada.
+
+-   **Emboquilhamento**: Posicionamento do *bit* para o início da penetração.
+
+-   **Perfuração**: Aplicação de rotação e percussão para ocasionar o desgaste e avanço na rocha.
+
+-   **Colocação e Remoção de Hastes**: Adição sucessiva de hastes conforme a profundidade almejada e sua posterior retirada.
+
+-   **Deslocação**: Movimentação do equipamento para um novo posicionamento de furo.
+
+![Ciclo de Perfuração.](../images/fig-ciclo-perfuracao.png){#fig-ciclo-perfuracao}
+
+Após o ciclo de perfuração, ocorre o desmonte em bancadas por meio da explosão de furos para tornar uma superfície vertical livre, permitindo o carregamento e transporte do minério.
+
+## Do Planejamento à Marcação de Campo
+
+A execução da perfuração é o resultado de um fluxo de planejamento rigoroso:
+
+1.  **Dimensionamento do Plano**: Polígonos de perfuração são dimensionados via software, definindo localização dos furos, espaçamento e afastamento.
+
+2.  **Preparação da Área**: Liberação de ordens de serviço para limpeza dos polígonos, garantindo o tráfego das perfuratrizes.
+
+3.  **Marcação Topográfica**: Marcação física dos furos no campo, onde o operador inicia o ciclo de posicionamento ($P_i$).
+
+## Métodos e Malhas de Perfuração
+
+As principais malhas utilizadas são as quadradas, retangulares ou estagiadas. Os parâmetros de **afastamento** (distância entre a linha de furos e a face livre) e **espaçamento** (distância entre furos da mesma linha) são essenciais para a fragmentação adequada.
+
+Quanto aos métodos, destacam-se o **Top Hammer** (martelo de topo), indicado para furos de até 140 mm, e o **Down The Hole (DTH)**, onde o martelo atua diretamente no *bit* na parte inferior da coluna, minimizando a perda de energia.
+
+### Estrutura de Dados e Notações na Perfuração
+
+Para cada furo $i$, definimos as variáveis fundamentais que comporão a base de dados operacional:
+
+-   $P_i$: Tempo de Posicionamento e Emboquilhamento (min).
+
+-   $D_i$: Tempo de Perfuração Efetiva (*Drilling Time*) (min).
+
+-   $H_i$: Tempo de Manuseio de Hastes (*Rod Handling*) (min).
+
+-   $M_i$: Tempo de Manobra e Deslocação (min).
+
+-   $L_i$: Profundidade Perfurada líquida (m).
+
+### Resumo da Nomenclatura e Notações
+
+| **Fase Operacional** | **Notação Matemática** | **Sigla Técnica** |
+|----------------------|------------------------|-------------------|
+| Setup e Início       | $P_i$                  | SET               |
+| Penetração Real      | $D_i$                  | DT                |
+| Troca de Hastes      | $H_i$                  | RHT               |
+| Movimentação         | $M_i$                  | TRA               |
+| **Total do Furo**    | $X_i$                  | **TBF**           |
+
+: Relação entre fases operacionais e notações matemáticas na perfuração. {#tbl-notacao-perfuracao}
+
+## Identidade Fundamental do Ciclo de Perfuração
+
+O Tempo Total do Furo ($X_i$) é a soma das durações das fases componentes: $$X_i = P_i + D_i + H_i + M_i$$
+
+Esta igualdade permite identificar se gargalos são geológicos (elevação de $D_i$), mecânicos ($H_i$) ou de infraestrutura ($M_i$).
+
+## Mensuração da Performance de Perfuração
+
+A transformação dos registros brutos em indicadores de desempenho (KPIs) é processada automaticamente pelas funções do pacote `miningKPI`.
+
+### Metragem Total Perfurada (Total Drilled Meters - TDM)
+
+Representa o volume físico total de furos realizados em um intervalo de tempo \$t\$.
+
+$$TDM = \sum_{i=1}^{N(t)} L_i$$
+
+-   $L_i$: Profundidade líquida do furo $i$ (m).
+
+-   $N(t)$: Número total de furos acumulados no período.
+
+### Taxa de Penetração Líquida (Rate of Penetration - ROP)
+
+Mede a velocidade média de avanço da ferramenta exclusivamente durante o tempo de contato e corte da rocha. É o indicador de eficiência do bit e da resposta litológica.
+
+$$ROP = \frac{TDM}{\sum_{i=1}^{N(t)} D_i}$$
+
+-   $ROP$: Taxa de Penetração Líquida (m/h).
+
+-   $D_i$: Tempo de perfuração efetiva (convertido para horas).
+
+### Taxa de Perfuração Bruta (Gross Drilling Rate - GDR)
+
+Indica a produtividade real do ativo, considerando todo o tempo de ciclo, incluindo manobras e trocas de haste.
+
+$$GDR = \frac{TDM}{WH}$$
+
+-   $WH$: Horas Trabalhadas (*Work Hours*), calculadas pela soma de $X_i$ convertida para horas.
+
+### Disponibilidade e Utilização da Perfuratriz
+
+Seguindo o padrão de gestão de ativos, medimos o percentual de tempo em que a perfuratriz esteve em operação efetiva (Drilling) versus o tempo total disponível.
+
+## Integração: Do Bit à Caçamba
+
+Portanto, ao monitorarmos o TDM (Metragem Total Perfurada) e a aderência à malha, estamos, na verdade, garantindo que a Identidade Fundamental do Carregamento, que exploraremos no @chap-carregamento, apresente os menores valores possíveis de variabilidade.
+
+## Referências do Capítulo {.unnumbered}
+
+-   [@alves2022]
+
+-   [@atlascopco2016]
+
+-   [@camargos2023]
+
+-   [@cardoso2016]
+
+-   [@caterpillar2000]
+
+-   [@curi2017]
+
+-   [@fernandes2023]
+
+-   [@figueira2010]
+
+-   [@geraldi2011]
+
+-   [@mattos2019]
+
+-   [@osanloo2020]
+
+-   [@plinninger2010]
+
+-   [@silva2023]
+
+-   [@sinodrills2024]
+
+-   [@wennmohs2023]
+
+-   [@zhang2019]

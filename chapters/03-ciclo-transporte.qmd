@@ -1,0 +1,160 @@
+# A Jornada de 7 Eventos e o Ciclo de Transporte {#chap-transporte}
+
+## O Papel do Transporte na Lavra a Céu Aberto
+
+O transporte na mineração é a operação unitária responsável por deslocar o material extraído da jazida até os seus destinos finais, como britadores, pilhas de estéril ou pilhas pulmão. Esta etapa é frequentemente a mais onerosa do ciclo de explotação devido ao alto custo de manutenção da frota, combustível e complexidade logística. A viabilidade econômica do plano de lavra depende de uma seleção criteriosa da frota e da redução da variabilidade entre as viagens.
+
+## O Ciclo dos Processos de Carregamento e Transporte
+
+Diferente do carregamento, que se concentra em um ponto fixo, o transporte é um processo dinâmico e espacialmente distribuído. Conforme ilustrado na \@fig-ciclo-transporte, o ciclo é composto por uma sequência lógica de eventos que rastreiam o movimento do caminhão desde a frente de lavra até o seu destino de descarregamento.
+
+![Ciclo de processos de carregamento e transporte](/images/fig-ciclo-transporte.png){#fig-ciclo-transporte fig-cap="Ciclo de processos de carregamento e transporte."}
+
+Para fins de análise de performance e modelagem estatística no pacote `miningKPI`, o ciclo de transporte é decomposto em 7 eventos sequenciais que formam a jornada completa do caminhão:
+
+1.  **Tempo de Viagem Vazio (**$Vv_j$): Retorno do ponto de descarga até a frente de lavra ou ponto de espera.
+
+2.  **Tempo de Fila para Carregar (**$Fc_j$): Tempo de espera na frente de lavra antes de iniciar a manobra.
+
+3.  **Tempo de Manobra para Carregar (**$Mc_j$): Posicionamento do caminhão sob a unidade de carga.
+
+4.  **Tempo para Escavadeira Carregar (**$C_j$): Tempo efetivo de recepção do material (corresponde ao $LCT$ da unidade de carga).
+
+5.  **Tempo de Viagem Cheio (**$Vc_j$): Deslocamento da frente de lavra até o ponto de descarga.
+
+6.  **Tempo de Fila para Bascular (**$Fb_j$): Espera no destino antes do posicionamento final.
+
+7.  **Tempo de Basculamento (**$D_j$): Tempo efetivo de descarga do material no destino.
+
+::: {style="background-color:#e6f9e6; border-left: 4px solid #4CAF50; padding: 1em; margin: 1em 0;"}
+**Exemplo:** Dados de eventos de transporte – Mina A
+
+No pacote `miningKPI`, o banco de dados `haul_events_mine_a` contém o rastreamento detalhado de cada viagem. Diferente dos ciclos de carregamento, o transporte exige a integração de dados de localização (origem e destino) com os tempos de deslocamento e espera.
+
+Abaixo, observamos um exemplo de uma jornada completa para o caminhão `HAUL-0051`:
+:::
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+library(miningKPI)
+library(dplyr)
+library(knitr)
+
+# Visualizando uma jornada completa (7 eventos)
+haul_events_mine_a %>%
+  filter(haul_id == "HAUL-0051") %>%
+  slice(1:7) %>%
+  select(any_of(c("haul_id", "load_id", "origin", "destination", "event_type", "duration_min", "payload"))) %>%
+  kable(caption = "Exemplo de uma jornada de transporte (7 eventos)")
+```
+
+### Da Telemetria à Consolidação do Ciclo
+
+A partir desses eventos brutos, o `miningKPI` realiza a agregação para calcular o tempo total da viagem $X_j$ e separar os componentes de **Tempo Fixo** ($FT_j$). Observe como os dados em formato *long* (eventos) são transformados para a análise de produtividade:
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+haul_events_mine_a %>%
+  filter(haul_id == "HAUL-0051") %>%
+  group_by(haul_id, load_id, origin) %>%
+  summarise(
+    total_cycle_Xj = sum(duration_min),
+    fixed_time_FTj = sum(duration_min[event_type %in% c("queue_at_load", "maneuver_at_load",
+                                                       "loading", "queue_at_dump",
+                                                       "maneuver_at_dump", "dumping")]),
+    travel_time = sum(duration_min[event_type %in% c("travel_full", "travel_empty")]),
+    payload_Lj = max(payload, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  kable(caption = "Consolidação da Identidade Fundamental (Viagem j)")
+```
+
+Neste exemplo, vemos a aplicação direta da fórmula $X_j = FT_j + V_{c,j} + V_{v,j}$. O registro consolidado mostra que a viagem resultou em uma massa transportada ($L_j$) de 280 toneladas, com o tempo total $X_j$ sendo a métrica base para o cálculo da **Haul Productivity**.
+
+## Estrutura de Dados e Notações no Transporte
+
+Para cada viagem $j$, definimos as variáveis fundamentais para o banco de dados de telemetria:
+
+|  |  |  |  |
+|------------------|------------------|------------------|------------------|
+| **Fase Operacional** | **Descrição Técnica** | **Notação Matemática** | **Sigla Técnica** |
+| Viagem de Ida | Deslocamento com carga | $V_{c,j}$ | FULL |
+| Viagem de Volta | Deslocamento vazio | $V_{v,j}$ | EMPT |
+| Basculamento | Tempo de descarga | $D_j$ | DUMP |
+| **Total da Viagem** | **Tempo Total entre Cargas** | $X_j$ | **TBC** |
+
+: Relação entre fases operacionais e notações matemáticas no transporte. {#tbl-notacao-transporte}
+
+## A Identidade Fundamental da Jornada de 7 Eventos
+
+O tempo total do ciclo para a viagem $j$ é a soma cronológica de cada estágio:
+
+$$X_j = F_{c,j} + M_{c,j} + C_j + V_{c,j} + F_{d,j} + M_{d,j} + D_j + V_{v,j}$$
+
+### Transformação para Tempo Fixo (*Fixed Time*)
+
+Agrupamos os componentes ocorridos em pontos fixos (origem e destino) sob a métrica **Fixed Time** ($FT_j$):
+
+$$FT_j = F_{c,j} + M_{c,j} + C_j + F_{d,j} + M_{d,j} + D_j$$
+
+Assim, a identidade do ciclo pode ser escrita de forma compacta como:
+
+$$X_j = FT_j + V_{c,j} + V_{v,j}$$
+
+## Mensuração da Performance de Transporte
+
+Os indicadores abaixo utilizam as notações estabelecidas e são processados pelas funções analíticas do pacote `miningKPI`.
+
+### Carga Média (*Mean Payload*)
+
+$$\text{Mean Payload} = \frac{\sum_j L_j}{N(t)}$$
+
+-   $L_j$: massa transportada na viagem $j$ (t).
+-   $N(t)$: número total de ciclos no período.
+
+### Produtividade do Transporte (*Haul Productivity*)
+
+$$\text{Haul Productivity} = \frac{\sum_j L_j}{WH}$$
+
+-   $WH$ (*Work Hours*): $WH = \frac{\sum_j X_j}{60}$ (considerando $X_j$ em minutos).
+
+### DMT (Distância Média de Transporte)
+
+$$DMT = \frac{\sum_j (L_j \times d_j)}{\sum_j L_j}$$
+
+-   $d_j$: distância percorrida pelo equipamento na viagem $j$ (km).
+
+### Velocidade Média (*Mean Travel Speed*)
+
+$$V_{\mathrm{mean}} = \frac{\sum_j (\mathrm{dist\_empty}_j + \mathrm{dist\_full}_j)}{\sum_j (V_{v,j} + V_{c,j})}$$
+
+### Razão kmVz/kmCh
+
+$$\text{kmVz/kmCh Ratio} = \frac{\sum_j \mathrm{dist\_empty}_j}{\sum_j \mathrm{dist\_full}_j}$$
+
+### Aderência à Produtividade (*Compliance*)
+
+$$Compliance = \left[ 1 - \left( \frac{\lvert Rate_{Actual} - Rate_{Planned} \rvert}{Rate_{Planned}} \right) \right] \times 100$$
+
+## Definições de Estados de Tempo (*Time Components*)
+
+O monitoramento individual é vital para identificar gargalos operacionais:
+
+-   **Loading Cycle Time** ($LCT_j$): Duração do ciclo da máquina de carga (corresponde a $C_j$).
+-   **Loading Maneuver Time** ($M_{c,j}$): Tempo de posicionamento do caminhão na carga.
+-   **Queue Time** ($F_{c,j}$): Tempo de espera na fila de carregamento.
+-   **Fixed Time** ($FT_j$): Consolidação dos tempos em pontos fixos (Fila + Manobra + Carga/Descarga).
+
+## Integração: A Variabilidade no Ciclo de Transporte
+
+A análise conjunta destes indicadores permite identificar a causa raiz de perdas produtivas. Enquanto a **Velocidade Média** aponta problemas na infraestrutura de pistas, a **Fila de Carregamento** revela gargalos na alocação da frota. Com estas definições, encerramos a base teórica da Parte II para iniciar a aplicação prática com o pacote `miningKPI`. \# A Jornada de 7 Eventos e o Ciclo de Transporte {#chap-transporte}
+
+## O Papel do Transporte na Lavra a Céu Aberto
+
+O transporte na mineração é a operação unitária responsável por deslocar o material extraído da jazida até os seus destinos finais, como britadores, pilhas de estéril ou pilhas pulmão. Esta etapa é frequentemente a mais onerosa do ciclo de explotação devido ao alto custo de manutenção da frota, combustível e complexidade logística. A viabilidade econômica do plano de lavra depende de uma seleção criteriosa da frota e da redução da variabilidade entre as viagens.
+

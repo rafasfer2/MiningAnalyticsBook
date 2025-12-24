@@ -1,0 +1,49 @@
+project:
+  type: book
+  output-dir: docs
+lang: pt-BR
+
+book:
+  title: "Sistema de Gestão e Excelência Operacional na Mineração"
+  subtitle: "Análise de Indicadores e Data Science com R"
+  author: "Rafael da Silva Fernandes"
+  date: last-modified
+
+  sidebar:
+    style: docked
+    collapse-level: 3
+    search: true
+
+  chapters:
+      - index.qmd
+      - intro.qmd
+      - part: chapters/part1-intro.qmd
+        chapters:
+          - chapters/01-ciclo-perfuracao.qmd
+          - chapters/02-ciclo-carregamento.qmd
+          - chapters/03-ciclo-transporte.qmd
+
+  appendices:
+    - chapters/appendix/dicionario-indicadores.qmd
+    - chapters/appendix/notacoes_abreviacoes.qmd
+
+crossref:
+  chapters: true
+  fig-prefix: "Figura"
+  tbl-prefix: "Tabela"
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: flatly
+    css: styles/styles.css
+    code-fold: true
+    toc: true
+    toc-depth: 3            # Garante que até o nível 3 apareça no TOC lateral
+    number-sections: true
+
+  docx:
+    toc: true
+    number-sections: true
+    highlight-style: github

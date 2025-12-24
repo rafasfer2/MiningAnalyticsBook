@@ -1,0 +1,420 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Sistema de Gestão e Excelência Operacional na Mineração",
+    "section": "",
+    "text": "Prefácio\nBem-vindo(a) ao guia prático sobre gestão e excelência operacional na mineração.\nEste livro apresenta um framework que integra indicadores de performance, ciência de dados e modelos de confiabilidade aplicados ao contexto da mineração. O diferencial desta obra é a união da metodologia analítica MASP (Método de Análise e Solução de Problemas) com o poder computacional da linguagem R, transformando dados brutos em inteligência acionável para decisões estratégicas em operação, manutenção e engenharia.\nA proposta é oferecer uma jornada prática pelos pilares da gestão de ativos. Ao longo dos capítulos, você não apenas entenderá os KPIs, mas aprenderá a processar eventos reais respeitando a Identidade Fundamental dos processos de contagem \\(N(t)\\).",
+    "crumbs": [
+      "Prefácio"
+    ]
+  },
+  {
+    "objectID": "index.html#público-alvo",
+    "href": "index.html#público-alvo",
+    "title": "Sistema de Gestão e Excelência Operacional na Mineração",
+    "section": "Público-alvo",
+    "text": "Público-alvo\nO conteúdo foi desenvolvido para três públicos principais:\n\nProfissionais de Operação, Manutenção e Engenharia que buscam aplicar métodos quantitativos para elevar a disponibilidade e produtividade de frotas;\nAnalistas de Dados e Engenheiros de Confiabilidade que desejam dominar o pacote miningKPI para automatizar relatórios e diagnósticos;\nEstudantes e Pesquisadores que precisam de um campo de provas real para teorias de sistemas reparáveis e gestão de ativos industrial.",
+    "crumbs": [
+      "Prefácio"
+    ]
+  },
+  {
+    "objectID": "index.html#objetivos-do-livro",
+    "href": "index.html#objetivos-do-livro",
+    "title": "Sistema de Gestão e Excelência Operacional na Mineração",
+    "section": "Objetivos do Livro",
+    "text": "Objetivos do Livro\n\nEstruturar um Sistema de Gestão Integrado (SGI) baseado no ciclo PDCA.\nDominar a Identidade Fundamental dos ciclos operacionais.\nAplicar o MASP para identificar e bloquear causas raízes de baixa performance.\nExecutar Data Science com R focado em confiabilidade e variabilidade operacional.\nUtilizar o pacote miningKPI como ferramenta padrão para análise de dados minerários.",
+    "crumbs": [
+      "Prefácio"
+    ]
+  },
+  {
+    "objectID": "index.html#o-caminho-da-análise-interativa-workflow",
+    "href": "index.html#o-caminho-da-análise-interativa-workflow",
+    "title": "Sistema de Gestão e Excelência Operacional na Mineração",
+    "section": "O Caminho da Análise Interativa (Workflow)",
+    "text": "O Caminho da Análise Interativa (Workflow)\nSeguiremos este fluxo interativo ao longo de todos os estudos de caso deste livro (Minas A a F), integrando a Ciência de Dados ao ciclo PDCA:\n\nP - Planejamento (Identificação): Localizamos qual frota ou sistema está desviando dos resultados esperados utilizando kpi_summary_fleet().\nP - Planejamento (Análise): Realizamos o “Deep Dive” para entender se o problema reside na frequência de eventos (MTBF) ou na eficiência do reparo/processo (MTTR) com plot_pareto_failures().\nD - Execução: Com base nos dados, propomos intervenções técnicas e priorização de investimentos.\nC - Verificação: Validamos se a intervenção alterou o patamar de performance do ativo através de plot_control_chart().\nA - Padronização: Encerramos o ciclo com a criação de dashboards reprodutíveis para garantir que a melhoria seja sustentável.",
+    "crumbs": [
+      "Prefácio"
+    ]
+  },
+  {
+    "objectID": "index.html#estrutura-do-livro",
+    "href": "index.html#estrutura-do-livro",
+    "title": "Sistema de Gestão e Excelência Operacional na Mineração",
+    "section": "Estrutura do Livro",
+    "text": "Estrutura do Livro\nO livro organiza-se de forma híbrida, conectando fundamentos teóricos a aplicações práticas:\n\nBloco Fundamental: Aborda a gestão de riscos críticos (MUE) e a normatização internacional (ISO 55000/5462).\nBloco de Lavra (MASP): Aplicação detalhada do ciclo PDCA nos processos de Perfuração, Carregamento e Transporte (ex: Frota 55).\nBloco de Processamento: Análise de sistemas contínuos (IPCC) e fluxos de beneficiamento de Cobre e Ferro.",
+    "crumbs": [
+      "Prefácio"
+    ]
+  },
+  {
+    "objectID": "index.html#fundamentos-de-confiabilidade",
+    "href": "index.html#fundamentos-de-confiabilidade",
+    "title": "Sistema de Gestão e Excelência Operacional na Mineração",
+    "section": "Fundamentos de Confiabilidade",
+    "text": "Fundamentos de Confiabilidade\nPara gerir esses ativos, tratamos a operação como um sistema reparável. A análise baseia-se em processos de contagem e eventos recorrentes, utilizando as notações:\n\n\\(\\{T_i\\}\\): Tempos das falhas acumulados.\n\\(\\{X_i\\}\\): Tempos entre falhas (TBF).\n\\(\\{R_i\\}\\): Tempos de reparo (TTR).",
+    "crumbs": [
+      "Prefácio"
+    ]
+  },
+  {
+    "objectID": "index.html#pré-requisitos-técnicos",
+    "href": "index.html#pré-requisitos-técnicos",
+    "title": "Sistema de Gestão e Excelência Operacional na Mineração",
+    "section": "Pré-requisitos Técnicos",
+    "text": "Pré-requisitos Técnicos\nUtilizamos o R e o ecossistema tidyverse ao longo de todo o livro. O pacote miningKPI, desenvolvido especialmente para este projeto, fornece os datasets reais e as funções analíticas necessárias.\n\n\nCódigo\n# Instalação do ecossistema\ninstall.packages(\"tidyverse\")\nremotes::install_github(\"rafasfer2/miningKPI\")\n\nlibrary(miningKPI)\nlibrary(tidyverse)\n\n\n\n\n\n\n\n\nDicaLicença e Acesso\n\n\n\nEste material é disponibilizado sob a licença CC BY-NC-SA 4.0. O código-fonte e os materiais estão disponíveis no GitHub: https://github.com/rafasfer2/miningKPI.\n\n\nRafael da Silva Fernandes\nDezembro de 2025",
+    "crumbs": [
+      "Prefácio"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "Introdução",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\nCódigo\n1 + 1\n\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming”. Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "Introdução"
+    ]
+  },
+  {
+    "objectID": "chapters/part1-intro.html",
+    "href": "chapters/part1-intro.html",
+    "title": "Parte I: Análise e Processos de Mina",
+    "section": "",
+    "text": "O Método de Lavra a Céu Aberto e o Fluxo de Valor\nNo cenário brasileiro, a exploração de minérios através do método de lavra a céu aberto representa a vertente de maior desenvolvimento e volume de produção. Esta predominância justifica-se pelas condições geográficas de nossas regiões, que dispõem de jazidas com alto teor localizadas em camadas superficiais do solo, garantindo sustentabilidade econômica e lucros às mineradoras.\nA lavra engloba todo o conjunto de operações unitárias de aproveitamento da jazida. Ela corresponde à quarta fase da mineração — precedida pela prospecção, exploração e desenvolvimento — e é alternativamente chamada de explotação. É fundamental compreender que a etapa de explotação representa a mina em operação, ou seja, a retirada efetiva do material de seu depósito mineral.",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina"
+    ]
+  },
+  {
+    "objectID": "chapters/part1-intro.html#os-estágios-do-aproveitamento-mineral",
+    "href": "chapters/part1-intro.html#os-estágios-do-aproveitamento-mineral",
+    "title": "Parte I: Análise e Processos de Mina",
+    "section": "Os Estágios do Aproveitamento Mineral",
+    "text": "Os Estágios do Aproveitamento Mineral\nPara compreender o fluxo de dados que analisaremos, é preciso situar a explotação dentro da cronologia do empreendimento mineral:\n\nProspecção: Focada em localizar o depósito de minério.\nExploração: Busca detalhar geologicamente a ocorrência mineral.\nDesenvolvimento: Inclui a preparação da jazida para o aproveitamento.\nExplotação: Atividade incumbida da retirada efetiva do material da mina.\n\nA explotação subdivide-se em subetapas fundamentais que compõem o ciclo de produção da lavra:\n\nPerfuração e Desmonte: A perfuração consiste na execução de furos na rocha para alocação de cargas explosivas. O desmonte utiliza esses explosivos para a fragmentação do maciço, reduzindo o sólido em fragmentos menores por ação mecânica para permitir o manuseio. Este processo é o foco do @chap-perfuracao.\nCarregamento: Realizado por equipamentos de carga nas frentes de lavra, consiste na retirada do material fragmentado e sua transferência para as unidades de transporte. Analisaremos sua identidade fundamental no @chap-carregamento.\nTransporte: Responsável por deslocar o material extraído até os locais de descarga, como britadores, pilhas de estéril ou pilhas pulmão1. A variabilidade deste ciclo é o foco do @chap-transporte.\n\nPara que esse processo seja bem-sucedido, a seleção dos equipamentos deve ser feita de maneira criteriosa, considerando os tamanhos dos fragmentos, os ciclos esperados e a frota disponível. A Figura 1 mostra as operações da etapa de explotação.\n\n\n\n\n\n\nFigura 1: Ciclos de operações unitárias de uma mina a céu aberto.",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina"
+    ]
+  },
+  {
+    "objectID": "chapters/part1-intro.html#footnotes",
+    "href": "chapters/part1-intro.html#footnotes",
+    "title": "Parte I: Análise e Processos de Mina",
+    "section": "",
+    "text": "O material bruto advindo da frente de lavra, denominado ROM (Run Of Mine).↩︎",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina"
+    ]
+  },
+  {
+    "objectID": "chapters/01-ciclo-perfuracao.html",
+    "href": "chapters/01-ciclo-perfuracao.html",
+    "title": "1  Ciclo de Perfuração e Desmonte de Rocha",
+    "section": "",
+    "text": "1.1 Processo de Perfuração e Desmonte de Rochas\nA perfuração de rochas nas minas a céu aberto é realizada por perfuratrizes percussivas e/ou rotativas que utilizam energia hidráulica ou pneumática. Para o bom funcionamento desta atividade, é primordial projetar e preparar frentes livres de escavação, o que auxilia na obtenção de resultados positivos nos serviços subsequentes de detonação, carga e transporte.\nO ciclo de perfuração de rochas é composto por cinco fases fundamentais (@fig-ciclo-perfuracao):\nApós o ciclo de perfuração, ocorre o desmonte em bancadas por meio da explosão de furos para tornar uma superfície vertical livre, permitindo o carregamento e transporte do minério.",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-ciclo-perfuracao.html#processo-de-perfuração-e-desmonte-de-rochas",
+    "href": "chapters/01-ciclo-perfuracao.html#processo-de-perfuração-e-desmonte-de-rochas",
+    "title": "1  Ciclo de Perfuração e Desmonte de Rocha",
+    "section": "",
+    "text": "Posicionamento: Alinhamento da máquina de acordo com o local do furo e a inclinação da bancada.\nEmboquilhamento: Posicionamento do bit para o início da penetração.\nPerfuração: Aplicação de rotação e percussão para ocasionar o desgaste e avanço na rocha.\nColocação e Remoção de Hastes: Adição sucessiva de hastes conforme a profundidade almejada e sua posterior retirada.\nDeslocação: Movimentação do equipamento para um novo posicionamento de furo.\n\n\n\n\n\n\n\nFigura 1.1: Ciclo de Perfuração.",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-ciclo-perfuracao.html#do-planejamento-à-marcação-de-campo",
+    "href": "chapters/01-ciclo-perfuracao.html#do-planejamento-à-marcação-de-campo",
+    "title": "1  Ciclo de Perfuração e Desmonte de Rocha",
+    "section": "1.2 Do Planejamento à Marcação de Campo",
+    "text": "1.2 Do Planejamento à Marcação de Campo\nA execução da perfuração é o resultado de um fluxo de planejamento rigoroso:\n\nDimensionamento do Plano: Polígonos de perfuração são dimensionados via software, definindo localização dos furos, espaçamento e afastamento.\nPreparação da Área: Liberação de ordens de serviço para limpeza dos polígonos, garantindo o tráfego das perfuratrizes.\nMarcação Topográfica: Marcação física dos furos no campo, onde o operador inicia o ciclo de posicionamento (\\(P_i\\)).",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-ciclo-perfuracao.html#métodos-e-malhas-de-perfuração",
+    "href": "chapters/01-ciclo-perfuracao.html#métodos-e-malhas-de-perfuração",
+    "title": "1  Ciclo de Perfuração e Desmonte de Rocha",
+    "section": "1.3 Métodos e Malhas de Perfuração",
+    "text": "1.3 Métodos e Malhas de Perfuração\nAs principais malhas utilizadas são as quadradas, retangulares ou estagiadas. Os parâmetros de afastamento (distância entre a linha de furos e a face livre) e espaçamento (distância entre furos da mesma linha) são essenciais para a fragmentação adequada.\nQuanto aos métodos, destacam-se o Top Hammer (martelo de topo), indicado para furos de até 140 mm, e o Down The Hole (DTH), onde o martelo atua diretamente no bit na parte inferior da coluna, minimizando a perda de energia.\n\n1.3.1 Estrutura de Dados e Notações na Perfuração\nPara cada furo \\(i\\), definimos as variáveis fundamentais que comporão a base de dados operacional:\n\n\\(P_i\\): Tempo de Posicionamento e Emboquilhamento (min).\n\\(D_i\\): Tempo de Perfuração Efetiva (Drilling Time) (min).\n\\(H_i\\): Tempo de Manuseio de Hastes (Rod Handling) (min).\n\\(M_i\\): Tempo de Manobra e Deslocação (min).\n\\(L_i\\): Profundidade Perfurada líquida (m).\n\n\n\n1.3.2 Resumo da Nomenclatura e Notações\n\n\n\nTabela 1.1: Relação entre fases operacionais e notações matemáticas na perfuração.\n\n\n\n\n\nFase Operacional\nNotação Matemática\nSigla Técnica\n\n\n\n\nSetup e Início\n\\(P_i\\)\nSET\n\n\nPenetração Real\n\\(D_i\\)\nDT\n\n\nTroca de Hastes\n\\(H_i\\)\nRHT\n\n\nMovimentação\n\\(M_i\\)\nTRA\n\n\nTotal do Furo\n\\(X_i\\)\nTBF",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-ciclo-perfuracao.html#identidade-fundamental-do-ciclo-de-perfuração",
+    "href": "chapters/01-ciclo-perfuracao.html#identidade-fundamental-do-ciclo-de-perfuração",
+    "title": "1  Ciclo de Perfuração e Desmonte de Rocha",
+    "section": "1.4 Identidade Fundamental do Ciclo de Perfuração",
+    "text": "1.4 Identidade Fundamental do Ciclo de Perfuração\nO Tempo Total do Furo (\\(X_i\\)) é a soma das durações das fases componentes: \\[X_i = P_i + D_i + H_i + M_i\\]\nEsta igualdade permite identificar se gargalos são geológicos (elevação de \\(D_i\\)), mecânicos (\\(H_i\\)) ou de infraestrutura (\\(M_i\\)).",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-ciclo-perfuracao.html#mensuração-da-performance-de-perfuração",
+    "href": "chapters/01-ciclo-perfuracao.html#mensuração-da-performance-de-perfuração",
+    "title": "1  Ciclo de Perfuração e Desmonte de Rocha",
+    "section": "1.5 Mensuração da Performance de Perfuração",
+    "text": "1.5 Mensuração da Performance de Perfuração\nA transformação dos registros brutos em indicadores de desempenho (KPIs) é processada automaticamente pelas funções do pacote miningKPI.\n\n1.5.1 Metragem Total Perfurada (Total Drilled Meters - TDM)\nRepresenta o volume físico total de furos realizados em um intervalo de tempo $t$.\n\\[TDM = \\sum_{i=1}^{N(t)} L_i\\]\n\n\\(L_i\\): Profundidade líquida do furo \\(i\\) (m).\n\\(N(t)\\): Número total de furos acumulados no período.\n\n\n\n1.5.2 Taxa de Penetração Líquida (Rate of Penetration - ROP)\nMede a velocidade média de avanço da ferramenta exclusivamente durante o tempo de contato e corte da rocha. É o indicador de eficiência do bit e da resposta litológica.\n\\[ROP = \\frac{TDM}{\\sum_{i=1}^{N(t)} D_i}\\]\n\n\\(ROP\\): Taxa de Penetração Líquida (m/h).\n\\(D_i\\): Tempo de perfuração efetiva (convertido para horas).\n\n\n\n1.5.3 Taxa de Perfuração Bruta (Gross Drilling Rate - GDR)\nIndica a produtividade real do ativo, considerando todo o tempo de ciclo, incluindo manobras e trocas de haste.\n\\[GDR = \\frac{TDM}{WH}\\]\n\n\\(WH\\): Horas Trabalhadas (Work Hours), calculadas pela soma de \\(X_i\\) convertida para horas.\n\n\n\n1.5.4 Disponibilidade e Utilização da Perfuratriz\nSeguindo o padrão de gestão de ativos, medimos o percentual de tempo em que a perfuratriz esteve em operação efetiva (Drilling) versus o tempo total disponível.",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-ciclo-perfuracao.html#integração-do-bit-à-caçamba",
+    "href": "chapters/01-ciclo-perfuracao.html#integração-do-bit-à-caçamba",
+    "title": "1  Ciclo de Perfuração e Desmonte de Rocha",
+    "section": "1.6 Integração: Do Bit à Caçamba",
+    "text": "1.6 Integração: Do Bit à Caçamba\nPortanto, ao monitorarmos o TDM (Metragem Total Perfurada) e a aderência à malha, estamos, na verdade, garantindo que a Identidade Fundamental do Carregamento, que exploraremos no (chap-carregamento?), apresente os menores valores possíveis de variabilidade.",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-ciclo-perfuracao.html#referências-do-capítulo",
+    "href": "chapters/01-ciclo-perfuracao.html#referências-do-capítulo",
+    "title": "1  Ciclo de Perfuração e Desmonte de Rocha",
+    "section": "Referências do Capítulo",
+    "text": "Referências do Capítulo\n\n(Alves 2022)\n(ATLAS COPCO 2016)\n(Camargos 2023)\n(Cardoso 2016)\n(CATERPILLAR 2000)\n(Curi 2017)\n(Fernandes et al. 2023)\n(Figueira e Almeida 2010)\n(Geraldi 2011)\n(Mattos 2019)\n(Osanloo e Paricheh 2020)\n(Plinningsger 2010)\n(Silva et al. 2023)\n(SINODRILLS 2024)\n(Wennmohs 2023)\n(Zhang 2019)\n\n\n\n\n\nAlves, Jadir Pedro. 2022. “Automação como processo disruptivo na perfuração de rochas em minas a céu aberto: desafio e ganhos reais”.\n\n\nATLAS COPCO. 2016. “Blasthole Drilling in Open Pit Mining”. https://pt.scribd.com/document/357138992/Blasthole-Drilling-Third-.\n\n\nCamargos, T. A. 2023. “Malhas de perfuração”.\n\n\nCardoso, B. 2016. “Desmonte de rochas em bancadas”.\n\n\nCATERPILLAR. 2000. “Manual de Desempenho”.\n\n\nCuri, Adilson. 2017. Lavra de Minas. Oficina de Textos. https://books.google.com.br/books?id=FFoyDwAAQBAJ.\n\n\nFernandes, R. d. S., T. R. d. Rocha, J. M. Coelho, e D. F. d. Andrade. 2023. “Development of a measurement instrument to evaluate integrated management systems and differences in perception: an approach to item response theory and the quality management process”. Production 33: e20220069. https://doi.org/10.1590/0103-6513.20220069.\n\n\nFigueira, L., e Almeida. 2010. “Beneficiamento de minérios”.\n\n\nGeraldi, J. L. P. 2011. “O rastro da perfuração”.\n\n\nMattos, A. 2019. “Bancada de perfuração”.\n\n\nOsanloo, M., e M. Paricheh. 2020. “In-pit crushing and conveying technology in open-pit mining operations: a literature review and research agenda”. International Journal of Mining, Reclamation and Environment 34 (6): 430–57. https://doi.org/10.1080/17480930.2019.1565054.\n\n\nPlinningsger, R. J. 2010. “Rock abrasivity”.\n\n\nSilva, A. F. S., E. C. S. Santos, R. M. d. N. Luz, e R. d. S. Fernandes. 2023. “Analysis of preventive maintenance strategy in off-road trucks”. Gestão & Produção 30: e5923. https://doi.org/10.1590/1806-9649-2023v30e5923.\n\n\nSINODRILLS. 2024. “Drilling tools catalog”.\n\n\nWennmohs. 2023. “Top Hammer technology”.\n\n\nZhang, Z. X. 2019. “Rock blasting and explosives engineering”.",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-ciclo-carregamento.html",
+    "href": "chapters/02-ciclo-carregamento.html",
+    "title": "2  A Identidade Fundamental do Carregamento",
+    "section": "",
+    "text": "2.1 A Operação de Carregamento: Perspectiva do Equipamento de Carga\nCarregamento refere-se ao processo de remoção e carregamento do material de minério no seu ponto de origem até seu sistema de transporte com destino ao seu ponto de descarga. As operações de carregamento são prioritariamente realizadas por escavadeiras ou carregadeiras hidráulicas ou elétricas, realizando o processo de enchimento da caçamba dos caminhões com minério ou estéril. No processo de carregamento o caminhão se posiciona ao lado da escavadeira, permitindo-a realizar os movimentos de giro e despejo do material. A Figura 2.1 ilustra o processo de carregamento do caminhão na mineração.\nA medição da operação de carregamento é baseada na captura de eventos recorrentes de curta duração, onde a precisão da coleta impacta diretamente a confiabilidade dos indicadores de performance. O desempenho do equipamento de carga é avaliado pela sua capacidade de manter um ritmo constante, minimizando as variabilidades inerentes à interação com a frota de transporte. Os principais KPIs derivam da relação entre a massa movimentada e o tempo despendido, permitindo identificar se a perda de performance reside na competência operacional ou na disponibilidade técnica do ativo.",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>A Identidade Fundamental do Carregamento</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-ciclo-carregamento.html#chap-ciclo-carregamento",
+    "href": "chapters/02-ciclo-carregamento.html#chap-ciclo-carregamento",
+    "title": "2  A Identidade Fundamental do Carregamento",
+    "section": "",
+    "text": "Figura 2.1: Método de Posicionamento no Carregamento",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>A Identidade Fundamental do Carregamento</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-ciclo-carregamento.html#conceito-de-composição-e-carregamento-entidades-e-processos",
+    "href": "chapters/02-ciclo-carregamento.html#conceito-de-composição-e-carregamento-entidades-e-processos",
+    "title": "2  A Identidade Fundamental do Carregamento",
+    "section": "2.2 Conceito de Composição e Carregamento: Entidades e Processos",
+    "text": "2.2 Conceito de Composição e Carregamento: Entidades e Processos\nPara uma análise precisa da frente de lavra, é necessário distinguir o objeto da operação da ação executada sobre ele. Essa separação permite identificar se os gargalos produtivos residem no dimensionamento da frota ou na eficiência do equipamento de carga.\nComposição: O “Sujeito” da Operação: A composição é a unidade de transporte física que se apresenta para ser carregada. É uma unidade discreta (um caminhão fora de estrada, um vagão de trem ou um conjunto de vagões). Por exemplo, quando o engenheiro diz “temos 3 composições na fila”, ele está se referindo a 3 veículos físicos aguardando o serviço.\nCarregamento: O “Processo” de Execução: O carregamento é o conjunto de movimentos e tempos despendidos pela unidade de carga para preencher a composição. É uma variável de tempo e esforço (ação técnica) que envolve a duração do contato entre a concha da escavadeira e a báscula do caminhão. Por exemplo, quando o engenheiro diz “o carregamento está lento”, ele está se referindo à performance da escavadeira (ciclos de concha, penetração na pilha, etc.), independente de quantos caminhões estão na fila.\nDefinição Operacional: O ciclo de carregamento da composição inicia-se no instante em que a unidade de carga executa a primeira penetração na pilha de material destinada a um caminhão específico e encerra-se quando a última caçambada é despejada e a unidade de transporte (composição) é liberada para o transporte.",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>A Identidade Fundamental do Carregamento</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-ciclo-carregamento.html#a-história-por-trás-dos-registros",
+    "href": "chapters/02-ciclo-carregamento.html#a-história-por-trás-dos-registros",
+    "title": "2  A Identidade Fundamental do Carregamento",
+    "section": "2.3 A História por trás dos Registros",
+    "text": "2.3 A História por trás dos Registros\nSuponha que uma unidade de carregamento esteja em operação em um determinado turno de trabalho. Ao iniciar sua operação, a escavadeira aguarda que o caminhão realize a manobra e, em seguida, inicia o primeiro carregamento. Este é o marco zero do nosso processo de contagem. Após finalizar o carregamento, pode haver alguma ociosidade antes que o próximo ciclo inicie. Os tempos e estados são coletados para cada ciclo de forma recorrente.\n\nExemplo: Dados de eventos de carregamento – Mina A\nNo pacote miningKPI, disponibilizamos o banco de dados load_events_mine_a. Este dataset é um conjunto de dados primário estruturado em eventos sequenciais (formato long), onde cada linha representa a mudança de estado da unidade de carga.\n\n\n\nCódigo\nlibrary(miningKPI)\nlibrary(dplyr)\nlibrary(knitr)\n\nload_events_mine_a %&gt;%\n  filter(load_id == \"LOAD-0001\") %&gt;%\n  head(3) %&gt;%\n  kable(caption = \"Eventos de carregamento da unidade LOAD-0001\")\n\n\n\nEventos de carregamento da unidade LOAD-0001\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncycle_id\nfirst_time\nexit_time\nload_fleet\nload_id\nhaul_id\norigin\nmaterial\npayload\nevent_type\nduration_min\n\n\n\n\n1\n2024-06-30 23:47:03\n2024-06-30 23:47:30\nHydraulic Excavator - Large Class\nLOAD-0001\nHAUL-0051\nBench\nWaste\nNA\nmaneuver\n0.450000\n\n\n1\n2024-06-30 23:47:30\n2024-06-30 23:53:26\nHydraulic Excavator - Large Class\nLOAD-0001\nHAUL-0051\nBench\nWaste\n280\nloading\n5.933333\n\n\n1\n2024-06-30 23:53:26\n2024-06-30 23:53:49\nHydraulic Excavator - Large Class\nLOAD-0001\nHAUL-0051\nBench\nWaste\nNA\nidle\n0.383333\n\n\n\n\n\nNo dia 30/06/2024, às 23:47:03, a escavadeira LOAD-0001 (da frota Hydraulic Excavator - Large Class) estava posicionada em uma frente de lavra do tipo banco (Bench). O material a ser escavado era estéril (Waste).\n\nLinha 1 (A Manobra): O caminhão HAUL-0051 chega à frente e inicia seu procedimento de posicionamento. O sistema registra o evento maneuver, que dura \\(0,45\\) minutos (27 segundos). Observe que o payload nesta linha é NA, pois o caminhão ainda está vazio.\nLinha 2 (O Carregamento): Exatamente às 23:47:30, o final da manobra torna-se o início do carregamento técnico. Durante \\(5,93\\) minutos (5 mintuos e 55 segundos), o operador da escavadeira preenche a caçamba. À medida que cada conchada é despejada, o sistema de pesagem embarcado do caminhão atualiza a massa. No momento da liberação, o banco registra o payload final de \\(280\\) toneladas.\nLinha 3 (A Ociosidade): Após a partida do caminhão, a escavadeira permanece em espera (idle) por \\(0,38\\) minutos (23 segundos) até que o próximo ciclo se inicie.\nA Consolidação do Ciclo: Do ponto de vista de Ciência de Dados, o “Ciclo de Carregamento” é uma agregação desses eventos sequenciais.\n\nPara transformar o formato long (eventos) em formato wide (ciclos), sumarizamos os dados. O tempo total do ciclo é a soma das durações desses três estados, conforme demonstrado no código abaixo:\n\n\nCódigo\nload_events_mine_a %&gt;%\n    filter(load_id == \"LOAD-0001\") %&gt;%\n    head(3) %&gt;%\n    group_by(load_fleet, load_id, haul_id, origin, material) %&gt;%\n    summarise(\n      first_time   = min(first_time),\n      exit_time    = max(exit_time),\n      payload      = sum(payload, na.rm = TRUE),\n      duration_min = sum(duration_min),\n      .groups      = \"drop\"\n    )\n\n\n# A tibble: 1 × 9\n  load_fleet                 load_id haul_id origin material first_time         \n  &lt;chr&gt;                      &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;dttm&gt;             \n1 Hydraulic Excavator - Lar… LOAD-0… HAUL-0… Bench  Waste    2024-06-30 23:47:03\n# ℹ 3 more variables: exit_time &lt;dttm&gt;, payload &lt;dbl&gt;, duration_min &lt;dbl&gt;\n\n\nNesta visão consolidada, vemos que a operação total para atender o HAUL-0051 consumiu \\(6,77\\) minutos, resultando na movimentação de \\(280\\) toneladas de estéril. Este registro agora representa uma unidade de contagem completa, pronta para ser utilizada em modelos de produtividade e confiabilidade.”",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>A Identidade Fundamental do Carregamento</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-ciclo-carregamento.html#estrutura-de-dados-e-notações-operacionais",
+    "href": "chapters/02-ciclo-carregamento.html#estrutura-de-dados-e-notações-operacionais",
+    "title": "2  A Identidade Fundamental do Carregamento",
+    "section": "2.4 Estrutura de Dados e Notações Operacionais",
+    "text": "2.4 Estrutura de Dados e Notações Operacionais\nA partir da compreensão da história contada pelos registros, podemos formalizar a estrutura dos dados. A transição do formato de eventos (cada linha uma ação) para o formato de ciclo (uma linha por atendimento) permite a aplicação de notações matemáticas fundamentais para a engenharia de processos.\nPara cada ciclo de carregamento \\(i\\), definimos as seguintes variáveis:\n\n\\(M_i\\): Duração da Manobra (Maneuver Cycle Time - MCT): Duração da manobra do caminhão para posicionamento sob a unidade de carga. Representa um componente do tempo fixo na origem.\n\\(D_i\\): Duração do Carregamento (Loading Cycle Time - LCT). Representa o tempo em que a unidade de carga esteve ocupada processando a composição \\(i\\). Refere-se exclusivamente à tarefa técnica de escavação e despejo. É o indicador primário da eficiência técnica.\n\\(O_i\\): Ociosidade Operacional (Operational Cycle Time - OCT). Representa o tempo em que a unidade de carga permaneceu em estado de espera (ociosa) aguardando a chegada de uma unidade de transporte ou liberações operacionais. Atua como o ajuste necessário para completar o ciclo.\n\\(L_i\\): Massa Carregada (Payload).ndefined Representa a quantidade de minério ou estéril, em toneladas, depositada na composição \\(i\\). É a variável que quantifica o produto final de cada evento do processo de c\n\n\n\n2.4.1 Resumo da Nomenclatura e Notações\nA tabela abaixo consolida a relação entre a realidade física, o registro no banco de dados e a formalização matemática.\n\n\n\nTabela 2.1: Relação entre fases operacionais, registros de dados e notações matemáticas.\n\n\n\n\n\n\n\n\n\n\n\nFase Operacional\nEvento no R (event_type)\nNotação Matemática\nSigla Técnica\n\n\n\n\nPosicionamento do Caminhão\nmaneuver\n\\(M_i\\)\nMCT\n\n\nEscavação e Despejo\nloading\n\\(D_i\\)\nLCT\n\n\nEspera / Ajuste de Fluxo\nidle\n\\(O_i\\)\nOCT\n\n\nTotal da Composição\nAgregado (Soma)\n\\(X_i\\)\nTBC\n\n\n\n\n\n\n\n\nCódigo\nlibrary(miningKPI)\nlibrary(dplyr)\n\n# Consolidação do ciclo e contagem de sub-eventos (passadas)\nload_events_mine_a %&gt;%\n  filter(load_id == \"LOAD-0001\") %&gt;%\n  group_by(load_fleet, load_id, haul_id, origin, material) %&gt;%\n  summarise(\n    first_time   = min(first_time),\n    exit_time    = max(exit_time),\n    payload      = sum(payload, na.rm = TRUE),\n    # Identidade Fundamental: Soma das durações das fases\n    duration_min = sum(duration_min),\n    # Contagem de passadas (apenas eventos de 'loading' efetivo)\n    n_passadas   = sum(event_type == \"loading\"),\n    .groups      = \"drop\"\n  )\n\n\n# A tibble: 141 × 10\n   load_fleet                load_id haul_id origin material first_time         \n   &lt;chr&gt;                     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;dttm&gt;             \n 1 Hydraulic Excavator - La… LOAD-0… HAUL-0… Bench  Ore      2024-08-01 02:28:23\n 2 Hydraulic Excavator - La… LOAD-0… HAUL-0… Bench  Waste    2024-08-27 10:58:46\n 3 Hydraulic Excavator - La… LOAD-0… HAUL-0… Rehan… Waste    2024-08-29 08:48:02\n 4 Hydraulic Excavator - La… LOAD-0… HAUL-0… Bench  Ore      2024-08-01 00:58:56\n 5 Hydraulic Excavator - La… LOAD-0… HAUL-0… Bench  Waste    2024-07-05 14:52:17\n 6 Hydraulic Excavator - La… LOAD-0… HAUL-0… Rehan… Waste    2024-07-29 08:00:39\n 7 Hydraulic Excavator - La… LOAD-0… HAUL-0… Bench  Ore      2024-08-06 04:11:24\n 8 Hydraulic Excavator - La… LOAD-0… HAUL-0… Bench  Waste    2024-07-01 03:42:22\n 9 Hydraulic Excavator - La… LOAD-0… HAUL-0… Rehan… Waste    2024-07-29 05:37:13\n10 Hydraulic Excavator - La… LOAD-0… HAUL-0… Stock… Ore      2024-08-24 17:38:34\n# ℹ 131 more rows\n# ℹ 4 more variables: exit_time &lt;dttm&gt;, payload &lt;dbl&gt;, duration_min &lt;dbl&gt;,\n#   n_passadas &lt;int&gt;\n\n\n\n\n\n\n\n\n## Identidade Fundamental do Ciclo de Carregamento\n\n\nA organização dos dados em eventos sequenciais e contínuos nos permite estabelecer que a soma das durações das fases componentes resulta no tempo total despendido para o atendimento de uma composição. Denominamos \\(X_i\\) como o Tempo Total do Ciclo para a composição \\(i\\), definido pela identidade:\n\n\n\\[X_i = M_i + D_i + O_i\\]\n\n\nEsta igualdade é o pilar central da análise de performance, pois permite ao gestor identificar se uma variação no ritmo de saída foi causada por ineficiência técnica (\\(D_i\\)), problemas de manobra (\\(M_i\\)) ou descasamento de frota (\\(O_i\\)).\n\n\n## Processo de Contagem e Intervalos entre Composições\n\n\nUma vez definido o tempo de cada ciclo individual, observamos como esses ciclos se sucedem cronologicamente:\n\n\n- \\(T_i\\) — Tempo do Ciclo de Carregamento: Representa o momento exato (timestamp) de finalização da carga da composição \\(i\\), conhecido como Exit Time. Uma nova contagem inicia-se imediatamente em \\(T_i\\). - \\(X_i\\) — Tempo entre Composições: Representa o tempo decorrido entre o término de duas composições sucessivas (\\(T_i - T_{i-1}\\)). Sua sigla técnica é TBC (Time Between Compositions). - \\(N(t)\\) — Processo de Contagem das Composições: É a variável aleatória associada ao número de composições acumuladas até o instante \\(t\\), funcionando como o contador do desfecho logístico.",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>A Identidade Fundamental do Carregamento</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-ciclo-carregamento.html#mensuração-da-performance-de-carregamento",
+    "href": "chapters/02-ciclo-carregamento.html#mensuração-da-performance-de-carregamento",
+    "title": "2  A Identidade Fundamental do Carregamento",
+    "section": "2.5 Mensuração da Performance de Carregamento",
+    "text": "2.5 Mensuração da Performance de Carregamento\nA transformação de dados primários em indicadores de desempenho (KPIs) é o passo fundamental para converter registros brutos em inteligência operacional. Os indicadores abaixo utilizam as notações estabelecidas e são processados automaticamente pelas funções do pacote miningKPI.\n\n2.5.1 Massa Total Carregada (Total Production Load - TPL)\nMede a entrega física total de material em um intervalo de tempo. Representa a soma das massas individuais \\(L_i\\) até o instante \\(t\\). \\[TPL = \\sum_{i=1}^{N(t)} L_i\\]\n\n\n2.5.2 Horas Trabalhadas (Work Hours - WH)\nMede o tempo total de exposição do equipamento ao processo produtivo, convertido para horas. \\[WH = \\frac{\\sum_{i=1}^{N(t)} X_i}{60}\\]\n\n\n2.5.3 Tempo Médio de Carregamento (Mean Loading Cycle Time - MLCT)\nRepresenta a média aritmética das durações \\(D_i\\), refletindo a eficiência técnica da interação máquina-material. \\[MLCT = \\frac{1}{N(t)} \\sum_{i=1}^{N(t)} D_i\\]\n\n\n2.5.4 Ociosidade da Escavadeira (Mean Operational Cycle Time - MOCT)\nMédia da variável de ociosidade \\(O_i\\), capturando o impacto das esperas por transporte no ritmo da frente de lavra. \\[MOCT = \\frac{1}{N(t)} \\sum_{i=1}^{N(t)} O_i\\]\n\n\n2.5.5 Ritmo de Produção (Mean Time Between Compositions - MTBC)\nMédia aritmética dos valores \\(X_i\\), descrevendo o “batimento cardíaco” do sistema de carga. \\[MTBC = \\frac{1}{N(t)} \\sum_{i=1}^{N(t)} X_i\\]\n\n\n2.5.6 Produtividade de Carregamento (Loading Productivity - LP)\nTaxa de produção horária efetiva, definida pelo quociente entre a massa total e o tempo em horas. \\[LP = \\frac{TPL}{WH}\\]\n\n\n2.5.7 Capacidade de Carga (Load Capacity - LC)\nRepresenta o somatório de toda a massa movimentada, discriminando a composição entre minério e estéril para fins de reconciliação de lavra. \\[LC = \\sum_{i=1}^{N(t)} L_{i(\\text{minério})} + \\sum_{i=1}^{N(t)} L_{i(\\text{estéril})}\\]",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>A Identidade Fundamental do Carregamento</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-ciclo-transporte.html",
+    "href": "chapters/03-ciclo-transporte.html",
+    "title": "3  A Jornada de 7 Eventos e o Ciclo de Transporte",
+    "section": "",
+    "text": "3.1 O Papel do Transporte na Lavra a Céu Aberto\nO transporte na mineração é a operação unitária responsável por deslocar o material extraído da jazida até os seus destinos finais, como britadores, pilhas de estéril ou pilhas pulmão. Esta etapa é frequentemente a mais onerosa do ciclo de explotação devido ao alto custo de manutenção da frota, combustível e complexidade logística. A viabilidade econômica do plano de lavra depende de uma seleção criteriosa da frota e da redução da variabilidade entre as viagens.",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>A Jornada de 7 Eventos e o Ciclo de Transporte</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-ciclo-transporte.html#o-ciclo-dos-processos-de-carregamento-e-transporte",
+    "href": "chapters/03-ciclo-transporte.html#o-ciclo-dos-processos-de-carregamento-e-transporte",
+    "title": "3  A Jornada de 7 Eventos e o Ciclo de Transporte",
+    "section": "3.2 O Ciclo dos Processos de Carregamento e Transporte",
+    "text": "3.2 O Ciclo dos Processos de Carregamento e Transporte\nDiferente do carregamento, que se concentra em um ponto fixo, o transporte é um processo dinâmico e espacialmente distribuído. Conforme ilustrado na @fig-ciclo-transporte, o ciclo é composto por uma sequência lógica de eventos que rastreiam o movimento do caminhão desde a frente de lavra até o seu destino de descarregamento.\n\n\n\n\n\n\nFigura 3.1: Ciclo de processos de carregamento e transporte\n\n\n\nPara fins de análise de performance e modelagem estatística no pacote miningKPI, o ciclo de transporte é decomposto em 7 eventos sequenciais que formam a jornada completa do caminhão:\n\nTempo de Viagem Vazio (\\(Vv_j\\)): Retorno do ponto de descarga até a frente de lavra ou ponto de espera.\nTempo de Fila para Carregar (\\(Fc_j\\)): Tempo de espera na frente de lavra antes de iniciar a manobra.\nTempo de Manobra para Carregar (\\(Mc_j\\)): Posicionamento do caminhão sob a unidade de carga.\nTempo para Escavadeira Carregar (\\(C_j\\)): Tempo efetivo de recepção do material (corresponde ao \\(LCT\\) da unidade de carga).\nTempo de Viagem Cheio (\\(Vc_j\\)): Deslocamento da frente de lavra até o ponto de descarga.\nTempo de Fila para Bascular (\\(Fb_j\\)): Espera no destino antes do posicionamento final.\nTempo de Basculamento (\\(D_j\\)): Tempo efetivo de descarga do material no destino.\n\n\nExemplo: Dados de eventos de transporte – Mina A\nNo pacote miningKPI, o banco de dados haul_events_mine_a contém o rastreamento detalhado de cada viagem. Diferente dos ciclos de carregamento, o transporte exige a integração de dados de localização (origem e destino) com os tempos de deslocamento e espera.\nAbaixo, observamos um exemplo de uma jornada completa para o caminhão HAUL-0051:\n\n\n\nCódigo\nlibrary(miningKPI)\nlibrary(dplyr)\nlibrary(knitr)\n\n# Visualizando uma jornada completa (7 eventos)\nhaul_events_mine_a %&gt;%\n  filter(haul_id == \"HAUL-0051\") %&gt;%\n  slice(1:7) %&gt;%\n  select(any_of(c(\"haul_id\", \"load_id\", \"origin\", \"destination\", \"event_type\", \"duration_min\", \"payload\"))) %&gt;%\n  kable(caption = \"Exemplo de uma jornada de transporte (7 eventos)\")\n\n\n\nExemplo de uma jornada de transporte (7 eventos)\n\n\n\n\n\n\n\n\n\n\n\nhaul_id\nload_id\norigin\ndestination\nevent_type\nduration_min\npayload\n\n\n\n\nHAUL-0051\nLOAD-0008\nBench\nWaste Dump\nqueue_at_load\n0.000000\n285.9\n\n\nHAUL-0051\nLOAD-0008\nBench\nWaste Dump\nmaneuver_at_load\n1.483333\n285.9\n\n\nHAUL-0051\nLOAD-0008\nBench\nWaste Dump\nloading\n2.316666\n285.9\n\n\nHAUL-0051\nLOAD-0008\nBench\nWaste Dump\ntravel_full\n9.983333\n285.9\n\n\nHAUL-0051\nLOAD-0008\nBench\nWaste Dump\nqueue_at_dump\n1.466666\n285.9\n\n\nHAUL-0051\nLOAD-0008\nBench\nWaste Dump\nmaneuver_at_dump\n0.000000\n285.9\n\n\nHAUL-0051\nLOAD-0008\nBench\nWaste Dump\ndumping\n0.650000\n285.9\n\n\n\n\n\n\n3.2.1 Da Telemetria à Consolidação do Ciclo\nA partir desses eventos brutos, o miningKPI realiza a agregação para calcular o tempo total da viagem \\(X_j\\) e separar os componentes de Tempo Fixo (\\(FT_j\\)). Observe como os dados em formato long (eventos) são transformados para a análise de produtividade:\n\n\nCódigo\nhaul_events_mine_a %&gt;%\n  filter(haul_id == \"HAUL-0051\") %&gt;%\n  group_by(haul_id, load_id, origin) %&gt;%\n  summarise(\n    total_cycle_Xj = sum(duration_min),\n    fixed_time_FTj = sum(duration_min[event_type %in% c(\"queue_at_load\", \"maneuver_at_load\",\n                                                       \"loading\", \"queue_at_dump\",\n                                                       \"maneuver_at_dump\", \"dumping\")]),\n    travel_time = sum(duration_min[event_type %in% c(\"travel_full\", \"travel_empty\")]),\n    payload_Lj = max(payload, na.rm = TRUE),\n    .groups = \"drop\"\n  ) %&gt;%\n  kable(caption = \"Consolidação da Identidade Fundamental (Viagem j)\")\n\n\n\nConsolidação da Identidade Fundamental (Viagem j)\n\n\n\n\n\n\n\n\n\n\n\nhaul_id\nload_id\norigin\ntotal_cycle_Xj\nfixed_time_FTj\ntravel_time\npayload_Lj\n\n\n\n\nHAUL-0051\nLOAD-0001\nBench\n901.78324\n501.66659\n400.11665\n341.0\n\n\nHAUL-0051\nLOAD-0001\nRehandling\n19.56667\n13.91667\n5.65000\n296.0\n\n\nHAUL-0051\nLOAD-0002\nBench\n7931.36588\n3768.61603\n4162.74985\n338.0\n\n\nHAUL-0051\nLOAD-0002\nRehandling\n102.73332\n53.79999\n48.93333\n322.0\n\n\nHAUL-0051\nLOAD-0003\nBench\nNA\n4756.41580\nNA\n346.0\n\n\nHAUL-0051\nLOAD-0003\nRehandling\nNA\n288.66662\nNA\n310.9\n\n\nHAUL-0051\nLOAD-0004\nBench\nNA\n4339.18268\nNA\n345.6\n\n\nHAUL-0051\nLOAD-0005\nBench\n1059.03325\n555.58326\n503.44999\n326.0\n\n\nHAUL-0051\nLOAD-0005\nRehandling\n350.84997\n173.78331\n177.06666\n322.0\n\n\nHAUL-0051\nLOAD-0005\nStockpile\n75.48332\n51.93333\n23.55000\n315.0\n\n\nHAUL-0051\nLOAD-0006\nBench\nNA\n3880.03274\nNA\n337.0\n\n\nHAUL-0051\nLOAD-0007\nBench\n632.64994\n347.53328\n285.11666\n326.0\n\n\nHAUL-0051\nLOAD-0007\nStockpile\n93.96666\n62.38333\n31.58333\n319.2\n\n\nHAUL-0051\nLOAD-0008\nBench\nNA\n5360.78237\nNA\n350.0\n\n\nHAUL-0051\nLOAD-0008\nRehandling\n719.01658\n339.34993\n379.66665\n333.0\n\n\nHAUL-0051\nLOAD-0009\nBench\n1337.76656\n689.06658\n648.69998\n348.0\n\n\nHAUL-0051\nLOAD-0009\nRehandling\nNA\n164.43331\nNA\n324.0\n\n\nHAUL-0051\nLOAD-0010\nBench\n1841.21649\n956.59986\n884.61663\n326.8\n\n\nHAUL-0051\nLOAD-0010\nRehandling\n26.75000\n17.15000\n9.60000\n313.1\n\n\nHAUL-0051\nLOAD-0012\nBench\nNA\n104.04999\nNA\n317.0\n\n\nHAUL-0051\nLOAD-0012\nStockpile\n66.68333\n47.41666\n19.26666\n353.0\n\n\n\n\n\nNeste exemplo, vemos a aplicação direta da fórmula \\(X_j = FT_j + V_{c,j} + V_{v,j}\\). O registro consolidado mostra que a viagem resultou em uma massa transportada (\\(L_j\\)) de 280 toneladas, com o tempo total \\(X_j\\) sendo a métrica base para o cálculo da Haul Productivity.",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>A Jornada de 7 Eventos e o Ciclo de Transporte</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-ciclo-transporte.html#estrutura-de-dados-e-notações-no-transporte",
+    "href": "chapters/03-ciclo-transporte.html#estrutura-de-dados-e-notações-no-transporte",
+    "title": "3  A Jornada de 7 Eventos e o Ciclo de Transporte",
+    "section": "3.3 Estrutura de Dados e Notações no Transporte",
+    "text": "3.3 Estrutura de Dados e Notações no Transporte\nPara cada viagem \\(j\\), definimos as variáveis fundamentais para o banco de dados de telemetria:\n\n\n\nTabela 3.1: Relação entre fases operacionais e notações matemáticas no transporte.\n\n\n\n\n\n\n\n\n\n\n\nFase Operacional\nDescrição Técnica\nNotação Matemática\nSigla Técnica\n\n\nViagem de Ida\nDeslocamento com carga\n\\(V_{c,j}\\)\nFULL\n\n\nViagem de Volta\nDeslocamento vazio\n\\(V_{v,j}\\)\nEMPT\n\n\nBasculamento\nTempo de descarga\n\\(D_j\\)\nDUMP\n\n\nTotal da Viagem\nTempo Total entre Cargas\n\\(X_j\\)\nTBC",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>A Jornada de 7 Eventos e o Ciclo de Transporte</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-ciclo-transporte.html#a-identidade-fundamental-da-jornada-de-7-eventos",
+    "href": "chapters/03-ciclo-transporte.html#a-identidade-fundamental-da-jornada-de-7-eventos",
+    "title": "3  A Jornada de 7 Eventos e o Ciclo de Transporte",
+    "section": "3.4 A Identidade Fundamental da Jornada de 7 Eventos",
+    "text": "3.4 A Identidade Fundamental da Jornada de 7 Eventos\nO tempo total do ciclo para a viagem \\(j\\) é a soma cronológica de cada estágio:\n\\[X_j = F_{c,j} + M_{c,j} + C_j + V_{c,j} + F_{d,j} + M_{d,j} + D_j + V_{v,j}\\]\n\n3.4.1 Transformação para Tempo Fixo (Fixed Time)\nAgrupamos os componentes ocorridos em pontos fixos (origem e destino) sob a métrica Fixed Time (\\(FT_j\\)):\n\\[FT_j = F_{c,j} + M_{c,j} + C_j + F_{d,j} + M_{d,j} + D_j\\]\nAssim, a identidade do ciclo pode ser escrita de forma compacta como:\n\\[X_j = FT_j + V_{c,j} + V_{v,j}\\]",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>A Jornada de 7 Eventos e o Ciclo de Transporte</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-ciclo-transporte.html#mensuração-da-performance-de-transporte",
+    "href": "chapters/03-ciclo-transporte.html#mensuração-da-performance-de-transporte",
+    "title": "3  A Jornada de 7 Eventos e o Ciclo de Transporte",
+    "section": "3.5 Mensuração da Performance de Transporte",
+    "text": "3.5 Mensuração da Performance de Transporte\nOs indicadores abaixo utilizam as notações estabelecidas e são processados pelas funções analíticas do pacote miningKPI.\n\n3.5.1 Carga Média (Mean Payload)\n\\[\\text{Mean Payload} = \\frac{\\sum_j L_j}{N(t)}\\]\n\n\\(L_j\\): massa transportada na viagem \\(j\\) (t).\n\\(N(t)\\): número total de ciclos no período.\n\n\n\n3.5.2 Produtividade do Transporte (Haul Productivity)\n\\[\\text{Haul Productivity} = \\frac{\\sum_j L_j}{WH}\\]\n\n\\(WH\\) (Work Hours): \\(WH = \\frac{\\sum_j X_j}{60}\\) (considerando \\(X_j\\) em minutos).\n\n\n\n3.5.3 DMT (Distância Média de Transporte)\n\\[DMT = \\frac{\\sum_j (L_j \\times d_j)}{\\sum_j L_j}\\]\n\n\\(d_j\\): distância percorrida pelo equipamento na viagem \\(j\\) (km).\n\n\n\n3.5.4 Velocidade Média (Mean Travel Speed)\n\\[V_{\\mathrm{mean}} = \\frac{\\sum_j (\\mathrm{dist\\_empty}_j + \\mathrm{dist\\_full}_j)}{\\sum_j (V_{v,j} + V_{c,j})}\\]\n\n\n3.5.5 Razão kmVz/kmCh\n\\[\\text{kmVz/kmCh Ratio} = \\frac{\\sum_j \\mathrm{dist\\_empty}_j}{\\sum_j \\mathrm{dist\\_full}_j}\\]\n\n\n3.5.6 Aderência à Produtividade (Compliance)\n\\[Compliance = \\left[ 1 - \\left( \\frac{\\lvert Rate_{Actual} - Rate_{Planned} \\rvert}{Rate_{Planned}} \\right) \\right] \\times 100\\]",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>A Jornada de 7 Eventos e o Ciclo de Transporte</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-ciclo-transporte.html#definições-de-estados-de-tempo-time-components",
+    "href": "chapters/03-ciclo-transporte.html#definições-de-estados-de-tempo-time-components",
+    "title": "3  A Jornada de 7 Eventos e o Ciclo de Transporte",
+    "section": "3.6 Definições de Estados de Tempo (Time Components)",
+    "text": "3.6 Definições de Estados de Tempo (Time Components)\nO monitoramento individual é vital para identificar gargalos operacionais:\n\nLoading Cycle Time (\\(LCT_j\\)): Duração do ciclo da máquina de carga (corresponde a \\(C_j\\)).\nLoading Maneuver Time (\\(M_{c,j}\\)): Tempo de posicionamento do caminhão na carga.\nQueue Time (\\(F_{c,j}\\)): Tempo de espera na fila de carregamento.\nFixed Time (\\(FT_j\\)): Consolidação dos tempos em pontos fixos (Fila + Manobra + Carga/Descarga).",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>A Jornada de 7 Eventos e o Ciclo de Transporte</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-ciclo-transporte.html#integração-a-variabilidade-no-ciclo-de-transporte",
+    "href": "chapters/03-ciclo-transporte.html#integração-a-variabilidade-no-ciclo-de-transporte",
+    "title": "3  A Jornada de 7 Eventos e o Ciclo de Transporte",
+    "section": "3.7 Integração: A Variabilidade no Ciclo de Transporte",
+    "text": "3.7 Integração: A Variabilidade no Ciclo de Transporte\nA análise conjunta destes indicadores permite identificar a causa raiz de perdas produtivas. Enquanto a Velocidade Média aponta problemas na infraestrutura de pistas, a Fila de Carregamento revela gargalos na alocação da frota. Com estas definições, encerramos a base teórica da Parte II para iniciar a aplicação prática com o pacote miningKPI. # A Jornada de 7 Eventos e o Ciclo de Transporte {#chap-transporte}",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>A Jornada de 7 Eventos e o Ciclo de Transporte</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-ciclo-transporte.html#o-papel-do-transporte-na-lavra-a-céu-aberto-1",
+    "href": "chapters/03-ciclo-transporte.html#o-papel-do-transporte-na-lavra-a-céu-aberto-1",
+    "title": "3  A Jornada de 7 Eventos e o Ciclo de Transporte",
+    "section": "3.8 O Papel do Transporte na Lavra a Céu Aberto",
+    "text": "3.8 O Papel do Transporte na Lavra a Céu Aberto\nO transporte na mineração é a operação unitária responsável por deslocar o material extraído da jazida até os seus destinos finais, como britadores, pilhas de estéril ou pilhas pulmão. Esta etapa é frequentemente a mais onerosa do ciclo de explotação devido ao alto custo de manutenção da frota, combustível e complexidade logística. A viabilidade econômica do plano de lavra depende de uma seleção criteriosa da frota e da redução da variabilidade entre as viagens.",
+    "crumbs": [
+      "Parte I: Análise e Processos de Mina",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>A Jornada de 7 Eventos e o Ciclo de Transporte</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/appendix/dicionario-indicadores.html",
+    "href": "chapters/appendix/dicionario-indicadores.html",
+    "title": "Apêndice A — Dicionário de Indicadores",
+    "section": "",
+    "text": "A.1 Gestão de Ativos e Disponibilidade\nEste apêndice consolida os principais indicadores de desempenho (KPIs) utilizados ao longo desta obra. As fórmulas seguem as notações estabelecidas nos capítulos técnicos, e as funções listadas referem-se às implementações disponíveis no pacote miningKPI.\nEstes indicadores medem a saúde técnica e a prontidão da frota para o trabalho.",
+    "crumbs": [
+      "Apêndices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Dicionário de Indicadores</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/appendix/dicionario-indicadores.html#gestão-de-ativos-e-disponibilidade",
+    "href": "chapters/appendix/dicionario-indicadores.html#gestão-de-ativos-e-disponibilidade",
+    "title": "Apêndice A — Dicionário de Indicadores",
+    "section": "",
+    "text": "Indicador\nSigla/Fórmula\nFunção R\nCapítulo de Referência\n\n\nDisponibilidade Física\n\\(DF = \\frac{WH + ID}{TH} \\times 100\\)\nkpi_availability()\n@chap-ativos\n\n\nUtilização Efetiva\n\\(UF = \\frac{WH}{WH + ID} \\times 100\\)\nkpi_utilization()\n@chap-ativos\n\n\nMTBF\n\\(MTBF = \\frac{\\sum TBF}{N(t)}\\)\nplot_crow_amsaa()\n@chap-ativos\n\n\nMTTR\n\\(MTTR = \\frac{\\sum TTR}{N(t)}\\)\nkpi_mttr_summary()\n@chap-ativos",
+    "crumbs": [
+      "Apêndices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Dicionário de Indicadores</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/appendix/dicionario-indicadores.html#ciclo-de-perfuração-drilling",
+    "href": "chapters/appendix/dicionario-indicadores.html#ciclo-de-perfuração-drilling",
+    "title": "Apêndice A — Dicionário de Indicadores",
+    "section": "A.2 Ciclo de Perfuração (Drilling)",
+    "text": "A.2 Ciclo de Perfuração (Drilling)\nAvaliam a performance da perfuratriz e a interação da ferramenta com a litologia local.\n\n\n\n\n\n\n\n\n\nIndicador\nSigla/Fórmula\nFunção R\nCapítulo de Referência\n\n\nMetragem Perfurada\n\\(TDM = \\sum L_i\\)\ndrill_summary()\n@chap-perfuracao\n\n\nTaxa de Penetração (ROP)\n\\(ROP = \\frac{TDM}{\\sum D_i}\\)\nkpi_drill_rop()\n@chap-perfuracao\n\n\nPerfuração Bruta (GDR)\n\\(GDR = \\frac{TDM}{WH}\\)\nkpi_drill_gdr()\n@chap-perfuracao\n\n\nTempo Total do Furo\n\\(X_i = P_i + D_i + H_i + M_i\\)\ndrill_cycle_time()\n@chap-perfuracao",
+    "crumbs": [
+      "Apêndices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Dicionário de Indicadores</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/appendix/dicionario-indicadores.html#ciclo-de-carregamento-loading",
+    "href": "chapters/appendix/dicionario-indicadores.html#ciclo-de-carregamento-loading",
+    "title": "Apêndice A — Dicionário de Indicadores",
+    "section": "A.3 Ciclo de Carregamento (Loading)",
+    "text": "A.3 Ciclo de Carregamento (Loading)\nIndicadores focados na eficiência da unidade de carga e no batimento de saída da frente de lavra.\n\n\n\n\n\n\n\n\n\nIndicador\nSigla/Fórmula\nFunção R\nCapítulo de Referência\n\n\nMassa Carregada\n\\(TPL = \\sum L_i\\)\nkpi_production_summary()\n@chap-carregamento\n\n\nTempo Total do Ciclo\n\\(X_i = M_i + D_i + O_i\\)\nload_summarize_cycle()\n@chap-carregamento\n\n\nProdutividade de Carga\n\\(LP = \\frac{TPL}{WH}\\)\nkpi_productivity_fleet()\n@chap-carregamento\n\n\nEficiência Técnica (MLCT)\n\\(MLCT = \\frac{1}{N(t)} \\sum D_i\\)\nload_summarize_cycle()\n@chap-carregamento",
+    "crumbs": [
+      "Apêndices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Dicionário de Indicadores</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/appendix/dicionario-indicadores.html#ciclo-de-transporte-hauling",
+    "href": "chapters/appendix/dicionario-indicadores.html#ciclo-de-transporte-hauling",
+    "title": "Apêndice A — Dicionário de Indicadores",
+    "section": "A.4 Ciclo de Transporte (Hauling)",
+    "text": "A.4 Ciclo de Transporte (Hauling)\nMedem o desempenho logístico, velocidades de deslocamento e conformidade de carga nos caminhões.\n\n\n\n\n\n\n\n\n\nIndicador\nSigla/Fórmula\nFunção R\nCapítulo de Referência\n\n\nAderência à Carga\n\\(PC = \\frac{L_{real}}{L_{target}} \\times 100\\)\ncheck_payload_compliance()\n@chap-transporte\n\n\nVelocidade Média Cheio\n\\(VMC = \\frac{d}{t_{v_c}}\\)\nhaul_summarize_cycle()\n@chap-transporte\n\n\nProdutividade Horária\n\\(PH = \\frac{TPL}{WH}\\)\nkpi_productivity_fleet()\n@chap-transporte",
+    "crumbs": [
+      "Apêndices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Dicionário de Indicadores</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/appendix/notacoes_abreviacoes.html",
+    "href": "chapters/appendix/notacoes_abreviacoes.html",
+    "title": "Apêndice B — Notações, Símbolos e Abreviações",
+    "section": "",
+    "text": "Notações, Símbolos e Abreviações\nEste livro utiliza um conjunto padronizado de notações e abreviações técnicas:\n\nDF – Disponibilidade Física\nUF – Utilização Física\nHT – Horas Trabalhadas\nHM – Horas de Manutenção\nMTBF – Mean Time Between Failures (Confiabilidade)\nMTTR – Mean Time to Repair (Manutenibilidade)\nLCC – Life Cycle Cost (Custo do Ciclo de Vida)\nCEP – Controle Estatístico de Processo\nNHPP – Non-Homogeneous Poisson Process\nPCM – Planejamento e Controle da Manutenção\nPCO – Planejamento e Controle da Operação\n\nSímbolos matemáticos principais:\n\n({X}) – Média amostral\n() – Desvio padrão\n((t)) - Taxa de falha dependente do tempo",
+    "crumbs": [
+      "Apêndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Notações, Símbolos e Abreviações</span>"
+    ]
+  }
+]
