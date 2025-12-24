@@ -112,89 +112,89 @@
   {
     "objectID": "chapters/01-ciclo-perfuracao.html",
     "href": "chapters/01-ciclo-perfuracao.html",
-    "title": "1  Ciclo de Perfuração e Desmonte de Rocha",
+    "title": "1  Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)",
     "section": "",
-    "text": "1.1 Processo de Perfuração e Desmonte de Rochas\nA perfuração de rochas nas minas a céu aberto é realizada por perfuratrizes percussivas e/ou rotativas que utilizam energia hidráulica ou pneumática. Para o bom funcionamento desta atividade, é primordial projetar e preparar frentes livres de escavação, o que auxilia na obtenção de resultados positivos nos serviços subsequentes de detonação, carga e transporte.\nO ciclo de perfuração de rochas é composto por cinco fases fundamentais (@fig-ciclo-perfuracao):\nApós o ciclo de perfuração, ocorre o desmonte em bancadas por meio da explosão de furos para tornar uma superfície vertical livre, permitindo o carregamento e transporte do minério.",
+    "text": "1.1 O Ciclo Físico de Perfuração (Drilling Cycle)\nA perfuração de rochas nas minas a céu aberto é a primeira etapa do processo de cominuição. Realizada por perfuratrizes percussivas e/ou rotativas (drill rigs) que utilizam energia hidráulica ou pneumática, esta atividade tem como objetivo primordial projetar e preparar frentes livres de escavação. A qualidade deste processo dita diretamente os resultados dos serviços subsequentes: detonação (blasting), carga (loading) e transporte (hauling).\nO ciclo operacional de uma perfuratriz não se resume apenas a “furar o chão”. O ciclo de perfuração de rochas é composto por cinco fases fundamentais (@fig-ciclo-perfuracao) que devem ser monitoradas individualmente:\nApós a conclusão da malha (drill pattern), ocorre o desmonte por explosivos, transformando a rocha in situ em material fragmentado (run-of-mine - ROM) pronto para o carregamento",
     "crumbs": [
       "Parte I: Análise e Processos de Mina",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)</span>"
     ]
   },
   {
-    "objectID": "chapters/01-ciclo-perfuracao.html#processo-de-perfuração-e-desmonte-de-rochas",
-    "href": "chapters/01-ciclo-perfuracao.html#processo-de-perfuração-e-desmonte-de-rochas",
-    "title": "1  Ciclo de Perfuração e Desmonte de Rocha",
+    "objectID": "chapters/01-ciclo-perfuracao.html#o-ciclo-físico-de-perfuração-drilling-cycle",
+    "href": "chapters/01-ciclo-perfuracao.html#o-ciclo-físico-de-perfuração-drilling-cycle",
+    "title": "1  Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)",
     "section": "",
-    "text": "Posicionamento: Alinhamento da máquina de acordo com o local do furo e a inclinação da bancada.\nEmboquilhamento: Posicionamento do bit para o início da penetração.\nPerfuração: Aplicação de rotação e percussão para ocasionar o desgaste e avanço na rocha.\nColocação e Remoção de Hastes: Adição sucessiva de hastes conforme a profundidade almejada e sua posterior retirada.\nDeslocação: Movimentação do equipamento para um novo posicionamento de furo.\n\n\n\n\n\n\n\nFigura 1.1: Ciclo de Perfuração.",
+    "text": "Posicionamento (Positioning - \\(P_i\\)): Alinhamento da máquina de acordo com as coordenadas do furo e a inclinação de projeto da bancada.\nEmboquilhamento (Collaring - \\(P_i\\)): Posicionamento do bit e início da penetração cuidadosa para evitar desvios iniciais.\nPerfuração (Drilling - \\(D_i\\)): Aplicação de rotação, percussão e pull-down para ocasionar a ruptura e avanço na rocha.\nManuseio de Hastes (Rod Handling - \\(H_i\\)): Adição sucessiva de hastes conforme a profundidade almejada e sua posterior retirada (threading/unthreading).\nDeslocação (Tramming - \\(M_i\\)): Movimentação do equipamento para o próximo ponto de furo.\n\n\n\n\n\n\n\nFigura 1.1: Ciclo de Perfuração.\n\n\n\n\nNota de Modelagem: No pacote miningKPI, as fases de Posicionamento e Emboquilhamento são frequentemente agrupadas na variável de Setup (\\(P_i\\)), pois ambas representam tempos preparatórios sem avanço significativo de profundidade.",
     "crumbs": [
       "Parte I: Análise e Processos de Mina",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)</span>"
     ]
   },
   {
     "objectID": "chapters/01-ciclo-perfuracao.html#do-planejamento-à-marcação-de-campo",
     "href": "chapters/01-ciclo-perfuracao.html#do-planejamento-à-marcação-de-campo",
-    "title": "1  Ciclo de Perfuração e Desmonte de Rocha",
+    "title": "1  Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)",
     "section": "1.2 Do Planejamento à Marcação de Campo",
-    "text": "1.2 Do Planejamento à Marcação de Campo\nA execução da perfuração é o resultado de um fluxo de planejamento rigoroso:\n\nDimensionamento do Plano: Polígonos de perfuração são dimensionados via software, definindo localização dos furos, espaçamento e afastamento.\nPreparação da Área: Liberação de ordens de serviço para limpeza dos polígonos, garantindo o tráfego das perfuratrizes.\nMarcação Topográfica: Marcação física dos furos no campo, onde o operador inicia o ciclo de posicionamento (\\(P_i\\)).",
+    "text": "1.2 Do Planejamento à Marcação de Campo\nA execução da perfuração é o resultado de um fluxo de planejamento rigoroso que antecede a chegada da máquina:\n\nDimensionamento do Plano: Polígonos de perfuração são desenhados via software de planejamento, definindo coordenadas \\((x,y,z)\\), burdens (afastamento) e espaçamentos (spacing).\nPreparação da Área (Pad Preparation): Liberação de ordens de serviço para limpeza de praça, garantindo a trafegabilidade e nivelamento para as perfuratrizes.\nMarcação Topográfica (Survey Stakeout): Materialização física dos furos no campo (estacas ou GPS de alta precisão), ponto onde o operador inicia o ciclo de posicionamento (\\(P_i\\)).",
     "crumbs": [
       "Parte I: Análise e Processos de Mina",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)</span>"
     ]
   },
   {
     "objectID": "chapters/01-ciclo-perfuracao.html#métodos-e-malhas-de-perfuração",
     "href": "chapters/01-ciclo-perfuracao.html#métodos-e-malhas-de-perfuração",
-    "title": "1  Ciclo de Perfuração e Desmonte de Rocha",
+    "title": "1  Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)",
     "section": "1.3 Métodos e Malhas de Perfuração",
-    "text": "1.3 Métodos e Malhas de Perfuração\nAs principais malhas utilizadas são as quadradas, retangulares ou estagiadas. Os parâmetros de afastamento (distância entre a linha de furos e a face livre) e espaçamento (distância entre furos da mesma linha) são essenciais para a fragmentação adequada.\nQuanto aos métodos, destacam-se o Top Hammer (martelo de topo), indicado para furos de até 140 mm, e o Down The Hole (DTH), onde o martelo atua diretamente no bit na parte inferior da coluna, minimizando a perda de energia.\n\n1.3.1 Estrutura de Dados e Notações na Perfuração\nPara cada furo \\(i\\), definimos as variáveis fundamentais que comporão a base de dados operacional:\n\n\\(P_i\\): Tempo de Posicionamento e Emboquilhamento (min).\n\\(D_i\\): Tempo de Perfuração Efetiva (Drilling Time) (min).\n\\(H_i\\): Tempo de Manuseio de Hastes (Rod Handling) (min).\n\\(M_i\\): Tempo de Manobra e Deslocação (min).\n\\(L_i\\): Profundidade Perfurada líquida (m).\n\n\n\n1.3.2 Resumo da Nomenclatura e Notações\n\n\n\nTabela 1.1: Relação entre fases operacionais e notações matemáticas na perfuração.\n\n\n\n\n\nFase Operacional\nNotação Matemática\nSigla Técnica\n\n\n\n\nSetup e Início\n\\(P_i\\)\nSET\n\n\nPenetração Real\n\\(D_i\\)\nDT\n\n\nTroca de Hastes\n\\(H_i\\)\nRHT\n\n\nMovimentação\n\\(M_i\\)\nTRA\n\n\nTotal do Furo\n\\(X_i\\)\nTBF",
+    "text": "1.3 Métodos e Malhas de Perfuração\nA geometria da malha (quadrada, retangular ou estagiada) é desenhada para otimizar a distribuição de energia do explosivo. Quanto à tecnologia de perfuração, destacam-se:\n\nTop Hammer (Martelo de Topo): Indicado para furos de menor diâmetro (até 140 mm), onde a percussão ocorre fora do furo.\nDown The Hole (DTH): O martelo atua diretamente sobre o bit no fundo do furo, minimizando a perda de energia em furos profundos.\n\n\n1.3.1 Estrutura de Dados e Notações\nPara transformar a operação em Mining Analytics, precisamos traduzir os eventos físicos em variáveis matemáticas. Para cada furo \\(i\\), definimos a base de dados operacional conforme a tabela abaixo:\n\n\n\nTabela 1.1: Relação entre fases operacionais e notações matemáticas na perfuração.\n\n\n\n\n\n\n\n\n\n\n\nFase Operacional\nNotação Matemática\nSigla Técnica (English)\nVariável no R (miningKPI)\n\n\nSetup e Início\n\\(P_i\\)\nSET (Setup/Positioning)\np_time\n\n\nPenetração Real\n\\(D_i\\)\nDRI (Drilling Time)\nd_time\n\n\nTroca de Hastes\n\\(H_i\\)\nRHT (Rod Handling Time)\nh_time\n\n\nMovimentação\n\\(M_i\\)\nTRA (Tramming)\nm_time\n\n\nTotal do Furo\n\\(X_i\\)\nTBF (Total Borne Time)\nxi_min",
     "crumbs": [
       "Parte I: Análise e Processos de Mina",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)</span>"
     ]
   },
   {
     "objectID": "chapters/01-ciclo-perfuracao.html#identidade-fundamental-do-ciclo-de-perfuração",
     "href": "chapters/01-ciclo-perfuracao.html#identidade-fundamental-do-ciclo-de-perfuração",
-    "title": "1  Ciclo de Perfuração e Desmonte de Rocha",
+    "title": "1  Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)",
     "section": "1.4 Identidade Fundamental do Ciclo de Perfuração",
-    "text": "1.4 Identidade Fundamental do Ciclo de Perfuração\nO Tempo Total do Furo (\\(X_i\\)) é a soma das durações das fases componentes: \\[X_i = P_i + D_i + H_i + M_i\\]\nEsta igualdade permite identificar se gargalos são geológicos (elevação de \\(D_i\\)), mecânicos (\\(H_i\\)) ou de infraestrutura (\\(M_i\\)).",
+    "text": "1.4 Identidade Fundamental do Ciclo de Perfuração\nA base de toda análise de eficiência em perfuração parte da premissa de que o tempo total para completar um furo (\\(X_i\\)) é a soma linear de seus componentes:\n\\[X_i = P_i + D_i + H_i + M_i\\]\nEsta igualdade permite identificar a natureza dos gargalos operacionais:\n\nElevação de \\(D_i\\): Provável causa geológica (rocha dura) ou desgaste do bit.\nElevação de \\(H_i\\): Problemas mecânicos no carrossel ou falha operacional no manuseio.\nElevação de \\(M_i\\): Problemas de infraestrutura (praça ruim) ou layout de malha ineficiente.",
     "crumbs": [
       "Parte I: Análise e Processos de Mina",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)</span>"
     ]
   },
   {
-    "objectID": "chapters/01-ciclo-perfuracao.html#mensuração-da-performance-de-perfuração",
-    "href": "chapters/01-ciclo-perfuracao.html#mensuração-da-performance-de-perfuração",
-    "title": "1  Ciclo de Perfuração e Desmonte de Rocha",
-    "section": "1.5 Mensuração da Performance de Perfuração",
-    "text": "1.5 Mensuração da Performance de Perfuração\nA transformação dos registros brutos em indicadores de desempenho (KPIs) é processada automaticamente pelas funções do pacote miningKPI.\n\n1.5.1 Metragem Total Perfurada (Total Drilled Meters - TDM)\nRepresenta o volume físico total de furos realizados em um intervalo de tempo $t$.\n\\[TDM = \\sum_{i=1}^{N(t)} L_i\\]\n\n\\(L_i\\): Profundidade líquida do furo \\(i\\) (m).\n\\(N(t)\\): Número total de furos acumulados no período.\n\n\n\n1.5.2 Taxa de Penetração Líquida (Rate of Penetration - ROP)\nMede a velocidade média de avanço da ferramenta exclusivamente durante o tempo de contato e corte da rocha. É o indicador de eficiência do bit e da resposta litológica.\n\\[ROP = \\frac{TDM}{\\sum_{i=1}^{N(t)} D_i}\\]\n\n\\(ROP\\): Taxa de Penetração Líquida (m/h).\n\\(D_i\\): Tempo de perfuração efetiva (convertido para horas).\n\n\n\n1.5.3 Taxa de Perfuração Bruta (Gross Drilling Rate - GDR)\nIndica a produtividade real do ativo, considerando todo o tempo de ciclo, incluindo manobras e trocas de haste.\n\\[GDR = \\frac{TDM}{WH}\\]\n\n\\(WH\\): Horas Trabalhadas (Work Hours), calculadas pela soma de \\(X_i\\) convertida para horas.\n\n\n\n1.5.4 Disponibilidade e Utilização da Perfuratriz\nSeguindo o padrão de gestão de ativos, medimos o percentual de tempo em que a perfuratriz esteve em operação efetiva (Drilling) versus o tempo total disponível.",
+    "objectID": "chapters/01-ciclo-perfuracao.html#mensuração-da-performance-kpis",
+    "href": "chapters/01-ciclo-perfuracao.html#mensuração-da-performance-kpis",
+    "title": "1  Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)",
+    "section": "1.5 Mensuração da Performance (KPIs)",
+    "text": "1.5 Mensuração da Performance (KPIs)\nA transformação dos registros brutos (telemetria) em inteligência de negócio é processada automaticamente pelas funções do pacote miningKPI. Os principais indicadores são:\n\n1.5.1 1. Metragem Total Perfurada (Total Drilled Meters - TDM)\nRepresenta o volume físico total de furos realizados em um intervalo de tempo \\(t\\).\n\\[TDM = \\sum_{i=1}^{N(t)} L_i\\]\n\n\\(L_i\\): Profundidade líquida do furo \\(i\\) (m).\n\\(N(t)\\): Número total de furos acumulados no período.\n\n\n\n1.5.2 2. Taxa de Penetração Líquida (Rate of Penetration - ROP)\nMede a velocidade média de avanço da ferramenta exclusivamente durante o tempo de contato e corte da rocha (\\(D_i\\)). É o indicador puro de eficiência mecânica e resposta litológica.\n\\[ROP = \\frac{TDM}{\\sum_{i=1}^{N(t)} D_i} \\quad [m/h]\\]\n\n\\(ROP\\): Taxa de Penetração Líquida (m/h).\n\\(D_i\\): Tempo de perfuração efetiva (convertido para horas).\n\n\n\n1.5.3 3. Taxa de Perfuração Bruta (Gross Drilling Rate - GDR)\nIndica a produtividade global do ativo, considerando todo o tempo de ciclo (\\(X_i\\)), incluindo manobras e trocas de haste. É o indicador de eficiência logística da operação.\n\\[GDR = \\frac{TDM}{\\sum_{i=1}^{N(t)} X_i} \\quad [m/h]\\]",
     "crumbs": [
       "Parte I: Análise e Processos de Mina",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)</span>"
     ]
   },
   {
     "objectID": "chapters/01-ciclo-perfuracao.html#integração-do-bit-à-caçamba",
     "href": "chapters/01-ciclo-perfuracao.html#integração-do-bit-à-caçamba",
-    "title": "1  Ciclo de Perfuração e Desmonte de Rocha",
+    "title": "1  Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)",
     "section": "1.6 Integração: Do Bit à Caçamba",
-    "text": "1.6 Integração: Do Bit à Caçamba\nPortanto, ao monitorarmos o TDM (Metragem Total Perfurada) e a aderência à malha, estamos, na verdade, garantindo que a Identidade Fundamental do Carregamento, que exploraremos no (chap-carregamento?), apresente os menores valores possíveis de variabilidade.",
+    "text": "1.6 Integração: Do Bit à Caçamba\nPortanto, ao monitorarmos o TDM (Metragem Total Perfurada) e a aderência à malha, estamos, na verdade, garantindo que a Identidade Fundamental do Carregamento, que exploraremos no @chap-carregamento, apresente os menores valores possíveis de variabilidade.",
     "crumbs": [
       "Parte I: Análise e Processos de Mina",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)</span>"
     ]
   },
   {
     "objectID": "chapters/01-ciclo-perfuracao.html#referências-do-capítulo",
     "href": "chapters/01-ciclo-perfuracao.html#referências-do-capítulo",
-    "title": "1  Ciclo de Perfuração e Desmonte de Rocha",
+    "title": "1  Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)",
     "section": "Referências do Capítulo",
     "text": "Referências do Capítulo\n\n(Alves 2022)\n(ATLAS COPCO 2016)\n(Camargos 2023)\n(Cardoso 2016)\n(CATERPILLAR 2000)\n(Curi 2017)\n(Fernandes et al. 2023)\n(Figueira e Almeida 2010)\n(Geraldi 2011)\n(Mattos 2019)\n(Osanloo e Paricheh 2020)\n(Plinningsger 2010)\n(Silva et al. 2023)\n(SINODRILLS 2024)\n(Wennmohs 2023)\n(Zhang 2019)\n\n\n\n\n\nAlves, Jadir Pedro. 2022. “Automação como processo disruptivo na perfuração de rochas em minas a céu aberto: desafio e ganhos reais”.\n\n\nATLAS COPCO. 2016. “Blasthole Drilling in Open Pit Mining”. https://pt.scribd.com/document/357138992/Blasthole-Drilling-Third-.\n\n\nCamargos, T. A. 2023. “Malhas de perfuração”.\n\n\nCardoso, B. 2016. “Desmonte de rochas em bancadas”.\n\n\nCATERPILLAR. 2000. “Manual de Desempenho”.\n\n\nCuri, Adilson. 2017. Lavra de Minas. Oficina de Textos. https://books.google.com.br/books?id=FFoyDwAAQBAJ.\n\n\nFernandes, R. d. S., T. R. d. Rocha, J. M. Coelho, e D. F. d. Andrade. 2023. “Development of a measurement instrument to evaluate integrated management systems and differences in perception: an approach to item response theory and the quality management process”. Production 33: e20220069. https://doi.org/10.1590/0103-6513.20220069.\n\n\nFigueira, L., e Almeida. 2010. “Beneficiamento de minérios”.\n\n\nGeraldi, J. L. P. 2011. “O rastro da perfuração”.\n\n\nMattos, A. 2019. “Bancada de perfuração”.\n\n\nOsanloo, M., e M. Paricheh. 2020. “In-pit crushing and conveying technology in open-pit mining operations: a literature review and research agenda”. International Journal of Mining, Reclamation and Environment 34 (6): 430–57. https://doi.org/10.1080/17480930.2019.1565054.\n\n\nPlinningsger, R. J. 2010. “Rock abrasivity”.\n\n\nSilva, A. F. S., E. C. S. Santos, R. M. d. N. Luz, e R. d. S. Fernandes. 2023. “Analysis of preventive maintenance strategy in off-road trucks”. Gestão & Produção 30: e5923. https://doi.org/10.1590/1806-9649-2023v30e5923.\n\n\nSINODRILLS. 2024. “Drilling tools catalog”.\n\n\nWennmohs. 2023. “Top Hammer technology”.\n\n\nZhang, Z. X. 2019. “Rock blasting and explosives engineering”.",
     "crumbs": [
       "Parte I: Análise e Processos de Mina",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)</span>"
     ]
   },
   {
@@ -354,67 +354,100 @@
   {
     "objectID": "chapters/appendix/dicionario-indicadores.html",
     "href": "chapters/appendix/dicionario-indicadores.html",
-    "title": "Apêndice A — Dicionário de Indicadores",
+    "title": "Apêndice A — Dicionário de Indicadores (KPIs)",
     "section": "",
-    "text": "A.1 Gestão de Ativos e Disponibilidade\nEste apêndice consolida os principais indicadores de desempenho (KPIs) utilizados ao longo desta obra. As fórmulas seguem as notações estabelecidas nos capítulos técnicos, e as funções listadas referem-se às implementações disponíveis no pacote miningKPI.\nEstes indicadores medem a saúde técnica e a prontidão da frota para o trabalho.",
+    "text": "A.1 Indicadores de Perfuração\n[cite_start]Este apêndice detalha as fórmulas matemáticas para o cálculo de desempenho e as respectivas funções do pacote miningKPI[cite: 48].",
     "crumbs": [
       "Apêndices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Dicionário de Indicadores</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Dicionário de Indicadores (KPIs)</span>"
     ]
   },
   {
-    "objectID": "chapters/appendix/dicionario-indicadores.html#gestão-de-ativos-e-disponibilidade",
-    "href": "chapters/appendix/dicionario-indicadores.html#gestão-de-ativos-e-disponibilidade",
-    "title": "Apêndice A — Dicionário de Indicadores",
+    "objectID": "chapters/appendix/dicionario-indicadores.html#indicadores-de-perfuração",
+    "href": "chapters/appendix/dicionario-indicadores.html#indicadores-de-perfuração",
+    "title": "Apêndice A — Dicionário de Indicadores (KPIs)",
     "section": "",
-    "text": "Indicador\nSigla/Fórmula\nFunção R\nCapítulo de Referência\n\n\nDisponibilidade Física\n\\(DF = \\frac{WH + ID}{TH} \\times 100\\)\nkpi_availability()\n@chap-ativos\n\n\nUtilização Efetiva\n\\(UF = \\frac{WH}{WH + ID} \\times 100\\)\nkpi_utilization()\n@chap-ativos\n\n\nMTBF\n\\(MTBF = \\frac{\\sum TBF}{N(t)}\\)\nplot_crow_amsaa()\n@chap-ativos\n\n\nMTTR\n\\(MTTR = \\frac{\\sum TTR}{N(t)}\\)\nkpi_mttr_summary()\n@chap-ativos",
+    "text": "Indicador\nFórmula\nFunção R\nDescrição\n\n\n\n\nMetragem Total\n\\(TDM = \\sum_{i=1}^{N(t)} L_i\\)\ndrill_summary()\n[cite_start]Volume físico total perfurado[cite: 36].\n\n\nTaxa de Penetração\n\\(ROP = \\frac{TDM}{\\sum D_i}\\)\nkpi_drill_rop()\n[cite_start]Velocidade de avanço durante o corte efetivo da rocha[cite: 40].\n\n\nTaxa Bruta\n\\(GDR = \\frac{TDM}{WH}\\)\nkpi_drill_gdr()\n[cite_start]Produtividade global considerando manobras e trocas de haste[cite: 43].",
     "crumbs": [
       "Apêndices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Dicionário de Indicadores</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Dicionário de Indicadores (KPIs)</span>"
     ]
   },
   {
-    "objectID": "chapters/appendix/dicionario-indicadores.html#ciclo-de-perfuração-drilling",
-    "href": "chapters/appendix/dicionario-indicadores.html#ciclo-de-perfuração-drilling",
-    "title": "Apêndice A — Dicionário de Indicadores",
-    "section": "A.2 Ciclo de Perfuração (Drilling)",
-    "text": "A.2 Ciclo de Perfuração (Drilling)\nAvaliam a performance da perfuratriz e a interação da ferramenta com a litologia local.\n\n\n\n\n\n\n\n\n\nIndicador\nSigla/Fórmula\nFunção R\nCapítulo de Referência\n\n\nMetragem Perfurada\n\\(TDM = \\sum L_i\\)\ndrill_summary()\n@chap-perfuracao\n\n\nTaxa de Penetração (ROP)\n\\(ROP = \\frac{TDM}{\\sum D_i}\\)\nkpi_drill_rop()\n@chap-perfuracao\n\n\nPerfuração Bruta (GDR)\n\\(GDR = \\frac{TDM}{WH}\\)\nkpi_drill_gdr()\n@chap-perfuracao\n\n\nTempo Total do Furo\n\\(X_i = P_i + D_i + H_i + M_i\\)\ndrill_cycle_time()\n@chap-perfuracao",
+    "objectID": "chapters/appendix/dicionario-indicadores.html#indicadores-de-carregamento",
+    "href": "chapters/appendix/dicionario-indicadores.html#indicadores-de-carregamento",
+    "title": "Apêndice A — Dicionário de Indicadores (KPIs)",
+    "section": "A.2 Indicadores de Carregamento",
+    "text": "A.2 Indicadores de Carregamento\n\n\n\n\n\n\n\n\n\nIndicador\nFórmula\nFunção R\nDescrição\n\n\n\n\nProdução Total\n\\(TPL = \\sum L_i\\)\nkpi_production_summary()\n[cite_start]Soma das massas movimentadas (TPL - Total Production Load)[cite: 122, 124].\n\n\nTempo Médio Carga\n\\(MLCT = \\frac{1}{N} \\sum D_i\\)\nload_summarize_cycle()\n[cite_start]Eficiência técnica média da escavadeira (Mean Loading Cycle Time)[cite: 125].\n\n\nOciosidade Média\n\\(MOCT = \\frac{1}{N} \\sum O_i\\)\nload_summarize_cycle()\n[cite_start]Tempo médio de espera por transporte (Mean Operational Cycle Time)[cite: 126].\n\n\nProdutividade\n\\(LP = \\frac{TPL}{WH}\\)\nkpi_productivity_fleet()\n[cite_start]Taxa de produção horária efetiva[cite: 128].",
     "crumbs": [
       "Apêndices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Dicionário de Indicadores</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Dicionário de Indicadores (KPIs)</span>"
     ]
   },
   {
-    "objectID": "chapters/appendix/dicionario-indicadores.html#ciclo-de-carregamento-loading",
-    "href": "chapters/appendix/dicionario-indicadores.html#ciclo-de-carregamento-loading",
-    "title": "Apêndice A — Dicionário de Indicadores",
-    "section": "A.3 Ciclo de Carregamento (Loading)",
-    "text": "A.3 Ciclo de Carregamento (Loading)\nIndicadores focados na eficiência da unidade de carga e no batimento de saída da frente de lavra.\n\n\n\n\n\n\n\n\n\nIndicador\nSigla/Fórmula\nFunção R\nCapítulo de Referência\n\n\nMassa Carregada\n\\(TPL = \\sum L_i\\)\nkpi_production_summary()\n@chap-carregamento\n\n\nTempo Total do Ciclo\n\\(X_i = M_i + D_i + O_i\\)\nload_summarize_cycle()\n@chap-carregamento\n\n\nProdutividade de Carga\n\\(LP = \\frac{TPL}{WH}\\)\nkpi_productivity_fleet()\n@chap-carregamento\n\n\nEficiência Técnica (MLCT)\n\\(MLCT = \\frac{1}{N(t)} \\sum D_i\\)\nload_summarize_cycle()\n@chap-carregamento",
+    "objectID": "chapters/appendix/dicionario-indicadores.html#indicadores-de-transporte",
+    "href": "chapters/appendix/dicionario-indicadores.html#indicadores-de-transporte",
+    "title": "Apêndice A — Dicionário de Indicadores (KPIs)",
+    "section": "A.3 Indicadores de Transporte",
+    "text": "A.3 Indicadores de Transporte\n\n\n\n\n\n\n\n\n\nIndicador\nFórmula\nFunção R\nDescrição\n\n\n\n\nCarga Média\n\\(\\frac{\\sum L_j}{N(t)}\\)\nhaul_summarize_cycle()\n[cite_start]Média de massa transportada por viagem (Mean Payload)[cite: 160].\n\n\nProdutividade\n\\(HP = \\frac{\\sum L_j}{WH}\\)\nkpi_productivity_fleet()\n[cite_start]Produtividade logística (Haul Productivity)[cite: 162].\n\n\nDMT\n\\(\\frac{\\sum (L_j \\times d_j)}{\\sum L_j}\\)\nhaul_summarize_cycle()\n[cite_start]Distância Média de Transporte ponderada pela massa[cite: 163].\n\n\nVelocidade Média\n\\(V_{mean} = \\frac{Dist_{total}}{Tempo_{viagem}}\\)\nhaul_summarize_cycle()\n[cite_start]Velocidade média considerando trechos cheios e vazios[cite: 164].\n\n\nAderência (Compliance)\nVar. Percentual\ncheck_payload_compliance()\n[cite_start]Desvio entre a carga real e a meta planejada[cite: 164].",
     "crumbs": [
       "Apêndices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Dicionário de Indicadores</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Dicionário de Indicadores (KPIs)</span>"
     ]
   },
   {
-    "objectID": "chapters/appendix/dicionario-indicadores.html#ciclo-de-transporte-hauling",
-    "href": "chapters/appendix/dicionario-indicadores.html#ciclo-de-transporte-hauling",
-    "title": "Apêndice A — Dicionário de Indicadores",
-    "section": "A.4 Ciclo de Transporte (Hauling)",
-    "text": "A.4 Ciclo de Transporte (Hauling)\nMedem o desempenho logístico, velocidades de deslocamento e conformidade de carga nos caminhões.\n\n\n\n\n\n\n\n\n\nIndicador\nSigla/Fórmula\nFunção R\nCapítulo de Referência\n\n\nAderência à Carga\n\\(PC = \\frac{L_{real}}{L_{target}} \\times 100\\)\ncheck_payload_compliance()\n@chap-transporte\n\n\nVelocidade Média Cheio\n\\(VMC = \\frac{d}{t_{v_c}}\\)\nhaul_summarize_cycle()\n@chap-transporte\n\n\nProdutividade Horária\n\\(PH = \\frac{TPL}{WH}\\)\nkpi_productivity_fleet()\n@chap-transporte",
-    "crumbs": [
-      "Apêndices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Dicionário de Indicadores</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/appendix/notacoes_abreviacoes.html",
-    "href": "chapters/appendix/notacoes_abreviacoes.html",
-    "title": "Apêndice B — Notações, Símbolos e Abreviações",
+    "objectID": "chapters/appendix/notacoes-abreviacoes.html",
+    "href": "chapters/appendix/notacoes-abreviacoes.html",
+    "title": "Notações, Símbolos e Abreviações",
     "section": "",
-    "text": "Notações, Símbolos e Abreviações\nEste livro utiliza um conjunto padronizado de notações e abreviações técnicas:\n\nDF – Disponibilidade Física\nUF – Utilização Física\nHT – Horas Trabalhadas\nHM – Horas de Manutenção\nMTBF – Mean Time Between Failures (Confiabilidade)\nMTTR – Mean Time to Repair (Manutenibilidade)\nLCC – Life Cycle Cost (Custo do Ciclo de Vida)\nCEP – Controle Estatístico de Processo\nNHPP – Non-Homogeneous Poisson Process\nPCM – Planejamento e Controle da Manutenção\nPCO – Planejamento e Controle da Operação\n\nSímbolos matemáticos principais:\n\n({X}) – Média amostral\n() – Desvio padrão\n((t)) - Taxa de falha dependente do tempo",
+    "text": "Siglas de Gestão de Ativos\nEste capítulo consolida as notações matemáticas e abreviações técnicas utilizadas para modelar os ciclos operacionais de lavra, garantindo unicidade na interpretação das variáveis estocásticas.\nAbreviações gerais utilizadas na gestão de manutenção e confiabilidade:",
     "crumbs": [
       "Apêndices",
-      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Notações, Símbolos e Abreviações</span>"
+      "Notações, Símbolos e Abreviações"
+    ]
+  },
+  {
+    "objectID": "chapters/appendix/notacoes-abreviacoes.html#siglas-de-gestão-de-ativos",
+    "href": "chapters/appendix/notacoes-abreviacoes.html#siglas-de-gestão-de-ativos",
+    "title": "Notações, Símbolos e Abreviações",
+    "section": "",
+    "text": "DF: Disponibilidade Física.\nUF: Utilização Física.\nHT: Horas Trabalhadas.\nHM: Horas de Manutenção.\nMTBF: Mean Time Between Failures (Tempo Médio Entre Falhas).\nMTTR: Mean Time to Repair (Tempo Médio Para Reparo).",
+    "crumbs": [
+      "Apêndices",
+      "Notações, Símbolos e Abreviações"
+    ]
+  },
+  {
+    "objectID": "chapters/appendix/notacoes-abreviacoes.html#variáveis-do-ciclo-de-perfuração-drilling",
+    "href": "chapters/appendix/notacoes-abreviacoes.html#variáveis-do-ciclo-de-perfuração-drilling",
+    "title": "Notações, Símbolos e Abreviações",
+    "section": "Variáveis do Ciclo de Perfuração (Drilling)",
+    "text": "Variáveis do Ciclo de Perfuração (Drilling)\nVariáveis estocásticas que compõem o tempo total do furo (\\(X_i\\)):\n\n\\(P_i\\) (SET): Tempo de Posicionamento e Emboquilhamento (Setup).\n\\(D_i\\) (DT): Tempo de Perfuração Efetiva (Drilling Time).\n\\(H_i\\) (RHT): Tempo de Manuseio de Hastes (Rod Handling Time).\n\\(M_i\\) (TRA): Tempo de Manobra e Deslocação (Tramming).\n\\(L_i\\): Profundidade Perfurada Líquida (metros).\n\\(X_i\\) (TBF): Tempo Total do Furo (Time Between Feet ou Total Cycle).",
+    "crumbs": [
+      "Apêndices",
+      "Notações, Símbolos e Abreviações"
+    ]
+  },
+  {
+    "objectID": "chapters/appendix/notacoes-abreviacoes.html#variáveis-do-ciclo-de-carregamento-loading",
+    "href": "chapters/appendix/notacoes-abreviacoes.html#variáveis-do-ciclo-de-carregamento-loading",
+    "title": "Notações, Símbolos e Abreviações",
+    "section": "Variáveis do Ciclo de Carregamento (Loading)",
+    "text": "Variáveis do Ciclo de Carregamento (Loading)\nNotações para a identidade fundamental do carregamento (\\(X_i = M_i + C_i + O_i\\)). Nota: Alteramos a notação de carga para \\(C_i\\) para evitar conflito com Drilling (\\(D_i\\)).\n\n\\(M_i\\) (MCT): Maneuver Cycle Time - Tempo de manobra do caminhão na carga.\n\\(C_i\\) (LCT): Loading Cycle Time - Tempo de carregamento efetivo (escavação e despejo).\n\\(O_i\\) (OCT): Operational Cycle Time - Ociosidade operacional (espera por caminhão).\n\\(L_i\\) (Payload): Massa carregada na composição \\(i\\) (toneladas).\n\\(X_i\\) (TBC): Time Between Compositions - Tempo total do ciclo de carga.",
+    "crumbs": [
+      "Apêndices",
+      "Notações, Símbolos e Abreviações"
+    ]
+  },
+  {
+    "objectID": "chapters/appendix/notacoes-abreviacoes.html#variáveis-do-ciclo-de-transporte-hauling",
+    "href": "chapters/appendix/notacoes-abreviacoes.html#variáveis-do-ciclo-de-transporte-hauling",
+    "title": "Notações, Símbolos e Abreviações",
+    "section": "Variáveis do Ciclo de Transporte (Hauling)",
+    "text": "Variáveis do Ciclo de Transporte (Hauling)\nA jornada de transporte é decomposta em 7 eventos sequenciais para a viagem \\(j\\):\n\n\\(Vv_j\\): Tempo de Viagem Vazio (Travel Empty).\n\\(Fc_j\\): Tempo de Fila para Carregar (Queue at Load).\n\\(Mc_j\\): Tempo de Manobra para Carregar (Maneuver at Load).\n\\(C_j\\): Tempo de Carregamento (Loading Time). Corresponde ao \\(C_i\\) da escavadeira.\n\\(Vc_j\\): Tempo de Viagem Cheio (Travel Full).\n\\(Fb_j\\): Tempo de Fila para Bascular (Queue at Dump).\n\\(D_j\\): Tempo de Basculamento (Dumping Time).\n\\(FT_j\\): Fixed Time - Soma dos tempos fixos (Filas + Manobras + Carga/Descarga).",
+    "crumbs": [
+      "Apêndices",
+      "Notações, Símbolos e Abreviações"
     ]
   }
 ]
