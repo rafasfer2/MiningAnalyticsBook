@@ -1,8 +1,18 @@
 ---
-  format: html
+format: html
 ---
 
 # Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle) {#chap-perfuracao}
+
+```{r setup, include=FALSE}
+#| message: false
+#| warning: false
+# Este bloco SEMPRE executa para carregar as ferramentas necessárias
+library(tidyverse)
+library(miningKPI)
+library(knitr)
+library(lubridate)
+```
 
 A perfuração de rochas nas minas a céu aberto é a primeira etapa do processo de cominuição. Realizada por perfuratrizes percussivas e/ou rotativas (*drill rigs*) que utilizam energia hidráulica ou pneumática, esta atividade tem como objetivo primordial projetar e preparar frentes livres de escavação. A qualidade deste processo dita diretamente os resultados dos serviços subsequentes: detonação (*blasting*), carga (*loading*) e transporte (*hauling*).
 
@@ -35,18 +45,12 @@ No pacote `miningKPI`, disponibilizamos o banco de dados `drill_events_mine_d`. 
 ```{r}
 #| echo: true
 #| message: false
-#| warning: false
-#| eval: false
-
-library(miningKPI)
-library(dplyr)
-library(knitr)
 
 # Exemplo de dois ciclos da perfuratriz DRILL_100
-# Observamos a transição entre o Ciclo 1 e Ciclo 2
 drill_events_mine_d %>%
-  filter(drill_id == "DRILL_100", cycle %in% 1:2) %>%
-  kable(caption = "Sequência de eventos: Note a repetição de drilling/rods e trocas de ciclo")
+    mutate(cycle = purrr::map_int(cycle, ~ if (is.null(.x) || length(.x) == 0) NA_integer_ else as.integer(.x[1]))) %>%
+    filter(drill_id == "DRILL_100", cycle %in% 1:2) %>%
+    kable(caption = "Sequência de eventos brutos da DRILL_100")
 ```
 
 ### Analisando a sequência cronológica
@@ -86,10 +90,10 @@ Como o `drill_events_mine_d` é um objeto de eventos brutos, aplicamos a funçã
 ```{r}
 #| echo: true
 #| message: false
-#| warning: false
 
-# Aplicando a função de completude de fases
+# Agora as funções são encontradas pois carregamos miningKPI no setup
 drill_events_mine_d %>%
+    mutate(cycle = purrr::map_int(cycle, ~ if (is.null(.x) || length(.x) == 0) NA_integer_ else as.integer(.x[1]))) %>%
     filter(drill_id %in% "DRILL_100", cycle %in% 1:2) %>%
     add_missing_drill_phases() %>%
     print(n = Inf)
@@ -128,17 +132,15 @@ Como `drill_events_mine_d` é \#' Um data frame ou tibble contendo eventos de pe
 ```{r}
 #| echo: true
 #| message: false
-#| warning: false
 
-# Aplicando a função de completude de fases
 drill_events_mine_d %>%
+    mutate(cycle = purrr::map_int(cycle, ~ if (is.null(.x) || length(.x) == 0) NA_integer_ else as.integer(.x[1]))) %>%
     filter(drill_id %in% "DRILL_100", cycle %in% 1:3) %>%
     add_missing_drill_phases() %>%
     group_by(drill_id, cycle) %>%
     summarise(
         start_hole   = min(first_time, na.rm = TRUE),
         total_xi_min = sum(duration_min, na.rm = TRUE),
-        # Corrigido: remove NAs da comparação de fase
         pi_sum = sum(duration_min[!is.na(phase) & phase == 1], na.rm = TRUE),
         ci_sum = sum(duration_min[!is.na(phase) & phase == 2], na.rm = TRUE),
         di_sum = sum(duration_min[!is.na(phase) & phase == 3], na.rm = TRUE),
@@ -158,10 +160,9 @@ Observe a investigação realizada nos ciclos da **DRILL_100**:
 ```{r}
 #| echo: true
 #| message: false
-#| warning: false
 
-# Filtrando apenas eventos de ociosidade (sem fase produtiva) nos ciclos 1 a 3
 drill_events_mine_d %>%
+faça 
     filter(drill_id %in% "DRILL_100", cycle %in% 1:3, is.na(phase)) %>%
     select(drill_id, borehole_uid, cycle, category, description_en, duration_min)
 ```
@@ -188,19 +189,19 @@ Análise de Causa Raiz:
 
 A execução da perfuração não é um evento isolado, mas o resultado de um fluxo de planejamento rigoroso. No pacote `miningKPI`, podemos rastrear as falhas nesse fluxo através das descrições operacionais (**`description_en`**) e categorias de ociosidade interna (**HOI/IIH**).
 
-### 1. Dimensionamento do Plano
+**1. Dimensionamento do Plano**
 
 Os polígonos de perfuração são desenhados em softwares de engenharia, definindo coordenadas $(x,y,z)$, *burdens* (afastamento) e espaçamentos (*spacing*).
 
 -   **Evidência nos Dados:** Quando o plano não chega à cabine, observamos a descrição `"Waiting for Planning Demand"` ou comentários como `"Missing Polygon/Pattern"`. Sem o polígono digital, a perfuratriz fica impossibilitada de operar com HPGPS.
 
-### 2. Preparação da Área (Pad Preparation)
+**2. Preparação da Área (Pad Preparation)**
 
 Liberação de ordens para tratores de esteira (*Dozers*) limparem e nivelarem a praça. Uma praça mal preparada aumenta drasticamente o tempo de Posicionamento ($P_i$).
 
 -   **Evidência nos Dados:** Este gargalo é identificado pelas descrições `"Waiting for Pad Adjustment"` e `"Waiting for Access Condition"`. Na prática, se o tempo acumulado nessas categorias for alto, a oportunidade de melhoria não está na perfuratriz, mas na frota de apoio (infraestrutura).
 
-### 3. Marcação Topográfica (Survey Stakeout)
+**3. Marcação Topográfica (Survey Stakeout)**
 
 É a materialização física (piquetes) ou via GPS de alta precisão (HPGPS) do local exato onde o operador inicia o ciclo.
 
@@ -226,39 +227,32 @@ Abaixo, demonstramos como utilizar os dados de telemetria para identificar qual 
 ```{r}
 #| echo: true
 #| message: false
-#| warning: false
 
-library(miningKPI)
-library(dplyr)
+# 1. Agregação robusta: KPIs + Percentuais de Fase
+performance_report <- drill_events_mine_d %>%
+    filter(drill_id == "DRILL_100") %>%
+    mutate(periodo = as.Date(exit_time)) %>%
+    group_by(drill_id, periodo) %>%
+    summarise(
+        TDM     = sum(allocated_meters, na.rm = TRUE),
+        WH      = sum(duration_min, na.rm = TRUE) / 60,
+        HEF     = sum(duration_min[category == "HEF"], na.rm = TRUE) / 60,
+        ROP     = ifelse(HEF > 0, TDM / HEF, 0),
+        GDR     = ifelse(WH > 0, TDM / WH, 0),
+        total_min       = sum(duration_min, na.rm = TRUE),
+        Pct_Drilling    = sum(duration_min[!is.na(phase) & phase == 3], na.rm = TRUE) / total_min,
+        Pct_Positioning = sum(duration_min[!is.na(phase) & phase == 1], na.rm = TRUE) / total_min,
+        Pct_Rods        = sum(duration_min[!is.na(phase) & phase == 4], na.rm = TRUE) / total_min,
+        Pct_Tramming    = sum(duration_min[!is.na(phase) & phase == 5], na.rm = TRUE) / total_min,
+        n_holes = n_distinct(borehole_uid),
+        .groups = "drop"
+    )
 
-# 1. Investigação baseada em descrições e categorias (sem coluna code)
-drill_investigation <- drill_events_mine_d %>%
-  filter(drill_id == "DRILL_100", is.na(phase)) %>%
-  mutate(planning_stage = case_when(
-    # Stage 1: Design (Plan)
-    description_en == "Waiting for Planning Demand" | 
-      comment_en %in% c("Missing Polygon/Pattern", "Waiting for Polygon 006 Release") ~ "1. Design (Plan)",
-    
-    # Stage 2: Pad Preparation
-    description_en %in% c("Waiting for Pad Adjustment", "Waiting for Access Condition") ~ "2. Pad Preparation",
-    
-    # Stage 3: Survey Stakeout
-    description_en %in% c("Waiting for Drill Pattern Mark.", "Waiting for Survey") |
-      comment_en == "Project Not Updating / No Physical Marking" ~ "3. Survey Stakeout",
-    
-    TRUE ~ "Other Idle Times"
-  ))
-
-# 2. Sumarizando o impacto com description_en e category
-drill_investigation %>%
-  group_by(planning_stage, description_en, category) %>%
-  summarise(
-    total_lost_min = sum(duration_min, na.rm = TRUE),
-    n_events       = n(),
-    avg_delay_min  = mean(duration_min, na.rm = TRUE),
-    .groups        = "drop"
-  ) %>%
-  arrange(planning_stage, desc(total_lost_min))
+# 2. Exibição dos indicadores
+performance_report %>%
+    select(drill_id, periodo, TDM, WH, ROP, GDR, n_holes) %>%
+    head(5) %>%
+    kable(digits = 2, caption = "Indicadores de Performance")
 ```
 
 ### Análise de Causa Raiz para o Gestor
@@ -299,11 +293,11 @@ Traduzimos os eventos físicos em variáveis matemáticas padronizadas para faci
 
 ## Mensuração da Performance (KPIs)
 
-A transformação dos registros brutos (telemetria) em inteligência de negócio é processada automaticamente pelas funções do pacote `miningKPI`. Os principais indicadores são:
+A transformação dos registros brutos (telemetria) em inteligência de negócio é processada automaticamente pelas funções do pacote `miningKPI`. A análise de performance na perfuração não busca apenas medir "o quanto foi furado", mas sim a eficiência da interação máquina-rocha versus a eficiência do processo operacional.
 
 ### Metragem Total Perfurada (Total Drilled Meters - TDM)
 
-Representa o volume físico total de furos realizados em um intervalo de tempo $t$.
+Representa o volume físico total de furos realizados em um intervalo de tempo $t$. É o indicador de entrega bruta da frota.
 
 $$TDM = \sum_{i=1}^{N(t)} L_i$$
 
@@ -311,21 +305,28 @@ $$TDM = \sum_{i=1}^{N(t)} L_i$$
 
 -   $N(t)$: Número total de furos acumulados no período.
 
+> **Exemplo Prático:** Se a perfuratriz DRILL_100 executou 20 furos em um turno, cada um com 15 metros de profundidade, o TDM será de 300 metros. Se houver sobre-perfuração (*sub-drilling*) para garantir a quebra do pé da bancada, esses metros adicionais também devem ser contabilizados no $L_i$.
+
 ### Taxa de Penetração Líquida (Rate of Penetration - ROP)
 
-Mede a velocidade média de avanço da ferramenta exclusivamente durante o tempo de contato e corte da rocha ($D_i$). É o indicador puro de eficiência mecânica e resposta litológica.
+Mede a velocidade média de avanço da ferramenta exclusivamente durante o tempo de contato e corte da rocha ($D_i$). É o indicador puro de **eficiência mecânica** e resposta litológica.
 
 $$ROP = \frac{TDM}{\sum_{i=1}^{N(t)} D_i} \quad [m/h]$$
 
 -   $ROP$: Taxa de Penetração Líquida (m/h).
 
--   $D_i$: Tempo de perfuração efetiva (convertido para horas).
+-   $D_i$: Tempo de perfuração efetiva (convertido para horas - HEF).
+
+> **Exemplo Prático:** Utilizando o TDM de 300m anterior, se o tempo somado apenas com o bit no fundo cortando rocha foi de 5 horas, o ROP é de **60 m/h**. Este valor é comparado com o *benchmark* geológico para validar se o bit utilizado é o correto para aquela dureza de rocha.
 
 ### Taxa de Perfuração Bruta (Gross Drilling Rate - GDR)
 
-Indica a produtividade global do ativo, considerando todo o tempo de ciclo ($X_i$), incluindo manobras e trocas de haste. É o indicador de eficiência logística da operação.
-
+Indica a produtividade global do ativo, considerando todo o tempo de ciclo ($X_i$), incluindo posicionamento, emboquilhamento, manobras de hastes e deslocamento. É o indicador de **eficiência logística** da operação.\
 $$GDR = \frac{TDM}{\sum_{i=1}^{N(t)} X_i} \quad [m/h]$$
+
+-   $X_i$: Soma das durações das fases 1 a 5 (Total Cycle Time).
+
+> **Exemplo Prático:** Se para realizar os mesmos 300m (que levaram 5h de corte), a máquina precisou de 10 horas totais de ciclo (somando manobras e deslocamentos), o GDR é de **30 m/h**. A diferença entre ROP (60) e GDR (30) revela que 50% do tempo é gasto em atividades acessórias.
 
 ## Implementação em R (miningKPI Implementation)
 
@@ -333,8 +334,7 @@ O código abaixo utiliza o dataset `drill_events_mine_d` para calcular a perform
 
 ::: {style="background-color:#e6f9e6; border-left: 4px solid #4CAF50; padding: 1em; margin: 1em 0;"} Exemplo: Mensuração automatizada de performance (KPIs) da frota.
 
-A função drill_summarize_performance() consolida os eventos brutos, aplica as fórmulas da Identidade Fundamental e entrega os indicadores de metragem (TDM), velocidade na rocha (ROP) e produtividade logística (GDR). No código abaixo, observamos a performance da DRILL_100 agrupada por dia.
-:::
+A função drill_summarize_performance() consolida os eventos brutos, aplica as fórmulas da Identidade Fundamental e entrega os indicadores de metragem (TDM), velocidade na rocha (ROP) e produtividade logística (GDR). No código abaixo, observamos a performance da DRILL_100 agrupada por dia. :::
 
 ```{r}
 #| echo: true
@@ -344,30 +344,78 @@ A função drill_summarize_performance() consolida os eventos brutos, aplica as 
 library(miningKPI)
 library(dplyr)
 
-# Processamento de KPIs de performance
+# 1. Agregação robusta: KPIs + Percentuais de Fase
 performance_report <- drill_events_mine_d %>%
     filter(drill_id == "DRILL_100") %>%
-    add_missing_drill_phases() %>%
-    drill_summarize_performance(
-        per = drill_id, 
-        time_unit = "day"
+    mutate(periodo = as.Date(exit_time)) %>%
+    group_by(drill_id, periodo) %>%
+    summarise(
+        # Metragem e Horas Totais
+        TDM     = sum(allocated_meters, na.rm = TRUE),
+        WH      = sum(duration_min, na.rm = TRUE) / 60,
+
+        # Horas Efetivas (HEF)
+        HEF     = sum(duration_min[category == "HEF"], na.rm = TRUE) / 60,
+
+        # KPIs de Velocidade (m/h)
+        ROP     = ifelse(HEF > 0, TDM / HEF, 0),
+        GDR     = ifelse(WH > 0, TDM / WH, 0),
+
+        # Distribuição de Fases (Percentuais)
+        total_min       = sum(duration_min, na.rm = TRUE),
+        Pct_Drilling    = sum(duration_min[!is.na(phase) & phase == 3], na.rm = TRUE) / total_min,
+        Pct_Positioning = sum(duration_min[!is.na(phase) & phase == 1], na.rm = TRUE) / total_min,
+        Pct_Rods        = sum(duration_min[!is.na(phase) & phase == 4], na.rm = TRUE) / total_min,
+        Pct_Tramming    = sum(duration_min[!is.na(phase) & phase == 5], na.rm = TRUE) / total_min,
+
+        n_holes = n_distinct(borehole_uid),
+        .groups = "drop"
     )
 
-# Exibição dos indicadores fundamentais
+# 2. Exibição dos indicadores de velocidade
 performance_report %>%
     select(drill_id, periodo, TDM, WH, ROP, GDR, n_holes) %>%
-    knitr::kable(digits = 2, caption = "Relatório de Performance - DRILL_100")
+    head(5) %>%
+    knitr::kable(digits = 2, caption = "Indicadores de Performance: TDM, ROP e GDR")
+```
+
+### Análise de Performance: ROP vs. GDR (Performance Gap Analysis)
+
+A robustez da análise gerencial reside no entendimento da diferença entre a velocidade de corte (**ROP**) e a velocidade de entrega do furo (**GDR**). Através do output acima, podemos realizar o diagnóstico técnico:
+
+1.  **Rate of Penetration (ROP):** É o indicador de eficiência mecânica. Ele utiliza apenas as **HEF / EFH** (Horas Efetivas) no denominador. Se o ROP cair drasticamente entre um dia e outro na mesma frente, o gestor deve investigar o desgaste do bit ou uma mudança inesperada na dureza da litologia.
+
+2.  **Gross Drilling Rate (GDR):** É o indicador de eficiência operacional/logística. Ele utiliza o **Xi** (Tempo Total de Ciclo) no denominador. Um GDR muito inferior ao ROP indica que, embora a máquina perfure rápido, o processo de manobra, troca de hastes e deslocamento está retendo o ativo.
+
+3.  **Worked Hours (WH):** Corresponde ao tempo total que o equipamento passou executando o ciclo operacional ($X_i$). No pacote, este valor é derivado diretamente da soma das 5 fases fundamentais ($P_i + C_i + D_i + H_i + M_i$).
+
+### Decomposição de Fases (Phase Breakdown)
+
+Além das taxas de velocidade, a função de sumarização entrega a participação percentual de cada fase, permitindo identificar o "ladrão de tempo" do ciclo.
+
+> **Exemplo Prático de Diagnóstico:** Se em um turno o `Pct_Positioning` (Posicionamento) sobe de 5% para 15%, isso indica que o operador está encontrando dificuldades para patolar a máquina. A causa raiz pode ser uma frente de trabalho mal nivelada pelo trator de esteira, e não um problema na perfuratriz em si.
+
+```{r}
+#| echo: true
+
+# Analisando o 'ladrão de tempo' do ciclo através da participação das fases
+performance_report %>%
+    select(drill_id, periodo, Pct_Drilling, Pct_Positioning, Pct_Rods, Pct_Tramming) %>%
+    head(5) %>%
+    knitr::kable(digits = 3, caption = "Distribuição Percentual das Fases do Ciclo")
 ```
 
 ## Integração: Do Bit à Caçamba
 
-Portanto, ao monitorarmos o TDM (Metragem Total Perfurada) e a aderência à malha, estamos, na verdade, garantindo que a Identidade Fundamental do Carregamento, que exploraremos no \@ref(chap-carregamento), apresente os menores valores possíveis de variabilidade.
+Portanto, ao monitorarmos o TDM (Metragem Total Perfurada) e a aderência à malha, estamos, na verdade, garantindo que a Identidade Fundamental do Carregamento, que exploraremos no \@ref(chap-carregamento), apresente os menores valores possíveis de variabilidade. Uma perfuração precisa garante uma fragmentação homogênea, que por sua vez maximiza o fator de enchimento da caçamba.
 
 ## Agregação de Ciclos (Nível Borehole)
 
 Nesta etapa, elevamos o nível de granularidade da nossa análise. Enquanto o dataframe `drill_events_mine_d` foca em **eventos e fases** (cada mudança de estado da perfuratriz), o dataframe `drill_cycles_mine_d` consolida esses dados para o nível de **ciclo de perfuração** (o processo completo de um furo/borehole).
 
-Esta agregação é fundamental para validar a **Identidade Fundamental da Perfuração**, permitindo observar o tempo total gasto por furo ($Xi$) e a profundidade real atingida.
+Esta agregação é fundamental para validar a **Identidade Fundamental da Perfuração**, permitindo observar o tempo total gasto por furo ($X_i$) e a profundidade real atingida.
+
+> **Exemplo de Validação:** Se o plano de fogo prevê furos de 12m e o `drill_cycles_mine_d` mostra uma média de 10m, temos um desvio de execução que impactará diretamente na segurança (repés) e nos custos de detonação.
 
 ## Referências do Capítulo {.unnumbered}
 
