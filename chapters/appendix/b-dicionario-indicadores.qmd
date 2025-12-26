@@ -4,40 +4,49 @@ format: html
 
 # Dicionário de Indicadores (KPIs) {#app-indicadores}
 
-Este apêndice detalha as fórmulas matemáticas para o cálculo de desempenho e as respectivas funções do pacote `miningKPI`.
+Este apêndice detalha as formulações matemáticas rigorosas para o cálculo de desempenho e as respectivas funções analíticas do pacote `miningKPI`. Para todas as métricas de média aritmética, adota-se a notação padrão $\bar{X}$.
 
-## A. Indicadores de Perfuração
+## Indicadores de Perfuração (Drilling)
 
-Estes indicadores medem a eficiência da perfuratriz e a resposta da rocha ao plano de fogo.
+Estes indicadores medem a eficiência da perfuratriz e a resposta da rocha ao plano de fogo, conforme discutido no **\@chap-perfuracao**.
 
-|  |  |  |  |
-|----|----|----|----|
-| **Indicador** | **Fórmula** | **Função R** | **Descrição** |
-| **Metragem Total** | $TDM = \sum_{i=1}^{N(t)} L_i$ | `drill_summary()` | Volume físico total perfurado em metros. |
-| **Taxa de Penetração** | $ROP = \frac{TDM}{\sum D_i}$ | `kpi_drill_rop()` | Velocidade de avanço durante o corte efetivo da rocha (m/h). |
-| **Taxa Bruta** | $GDR = \frac{TDM}{WH}$ | `kpi_drill_gdr()` | Produtividade global considerando manobras e trocas de haste. |
+|  |  |  |  |  |
+|----|----|----|----|----|
+| **Indicador** | **Nomenclatura Padrão** | **Fórmula** | **Função R** | **Descrição** |
+| **Metragem Total** | **TDM** | $TDM = \sum_{i=1}^{N(t)} L_i$ | `drill_summary()` | Volume físico total perfurado em metros. |
+| **Taxa de Penetração** | **MROP** = $\bar{R}$ | $MROP = \frac{\sum_{i=1}^{N(t)} L_i}{\sum_{i=1}^{N(t)} D_i} \times 60$ | `kpi_drill_rop()` | Velocidade de avanço durante o corte efetivo da rocha (m/h). |
+| **Taxa Bruta** | **GDR** = $\bar{G}$ | $GDR = \frac{TDM}{WH}$ | `kpi_drill_gdr()` | Produtividade global (m/h) considerando todo o ciclo $X_i$. |
 
-## B. Indicadores de Carregamento
+## Indicadores de Carregamento (Loading)
 
-Focados na eficiência da unidade de carga (escavadeira/carregadeira) e na interface com o transporte.
+Focados na eficiência da unidade de carga e na interface com o transporte. As bases conceituais encontram-se no **\@chap-carregamento**.
 
-|  |  |  |  |
-|----|----|----|----|
-| **Indicador** | **Fórmula** | **Função R** | **Descrição** |
-| **Produção Total** | $TPL = \sum L_i$ | `kpi_production_summary()` | Soma das massas movimentadas (*Total Production Load*). |
-| **Tempo Médio Carga** | $MLCT = \frac{1}{N} \sum D_i$ | `load_summarize_cycle()` | Eficiência técnica média da escavadeira (*Mean Loading Cycle Time*). |
-| **Ociosidade Média** | $MOCT = \frac{1}{N} \sum O_i$ | `load_summarize_cycle()` | Tempo médio de espera por transporte (*Mean Operational Cycle Time*). |
-| **Produtividade** | $LP = \frac{TPL}{WH}$ | `kpi_productivity_fleet()` | Taxa de produção horária efetiva (t/h). |
+|  |  |  |  |  |
+|----|----|----|----|----|
+| **Indicador** | **Nomenclatura Padrão** | **Fórmula** | **Função R** | **Descrição** |
+| **Produção Total** | **TPL** | $TPL = \sum_{i=1}^{N(t)} L_i$ | `kpi_production_summary()` | Soma das massas movimentadas (*Total Production Load*). |
+| **Tempo Médio Carga** | **MLCT** = $\bar{D}$ | $MLCT = \frac{1}{N(t)} \sum_{i=1}^{N(t)} D_i$ | `load_summarize_cycle()` | Eficiência técnica média da escavadeira (*Mean Loading Cycle Time*). |
+| **Ociosidade Média** | **MOCT** = $\bar{O}$ | $MOCT = \frac{1}{N(t)} \sum_{i=1}^{N(t)} O_i$ | `load_summarize_cycle()` | Tempo médio de espera por transporte (*Mean Operational Cycle Time*). |
+| **Ritmo de Produção** | **MTBC** = $\bar{X}$ | $MTBC = \frac{1}{N(t)} \sum_{i=1}^{N(t)} X_i$ | `load_summarize_cycle()` | Média do tempo entre composições atendidas. |
+| **Produtividade** | **LP** | $LP = \frac{TPL}{WH}$ | `kpi_productivity_fleet()` | Taxa de produção horária efetiva (t/h). |
 
-## C. Indicadores de Transporte
+## Indicadores de Transporte (Hauling)
 
-Indicadores que monitoram o desempenho logístico e a aderência ao plano de transporte.
+Indicadores que monitoram o desempenho logístico e a aderência ao plano, detalhados no **\@chap-transporte**.
 
-|  |  |  |  |
-|----|----|----|----|
-| **Indicador** | **Fórmula** | **Função R** | **Descrição** |
-| **Carga Média** | $MPL = \frac{\sum L_j}{N(t)}$ | `haul_summarize_cycle()` | Média de massa transportada por viagem (*Mean Payload*). |
-| **Produtividade** | $HP = \frac{\sum L_j}{WH}$ | `kpi_productivity_fleet()` | Produtividade logística do caminhão (*Haul Productivity*). |
-| **DMT** | $DMT = \frac{\sum (L_j \times d_j)}{\sum L_j}$ | `haul_summarize_cycle()` | Distância Média de Transporte ponderada pela massa. |
-| **Velocidade Média** | $V_{mean} = \frac{Dist_{total}}{Tempo_{viagem}}$ | `haul_summarize_cycle()` | Velocidade média considerando trechos cheios e vazios. |
-| **Aderência** | $\text{Var. \%}$ | `check_payload_compliance()` | Desvio entre a carga real e a meta planejada. |
+|  |  |  |  |  |
+|----|----|----|----|----|
+| **Indicador** | **Nomenclatura Padrão** | **Fórmula** | **Função R** | **Descrição** |
+| **Carga Média** | **MPL** = $\bar{L}$ | $MPL = \frac{1}{N(t)} \sum_{j=1}^{N(t)} L_j$ | `haul_summarize_cycle()` | Média de massa transportada por viagem (*Mean Payload*). |
+| **Produtividade** | **HP** | $HP = \frac{\sum_{j=1}^{N(t)} L_j}{WH}$ | `kpi_productivity_fleet()` | Produtividade logística horária do caminhão (t/h). |
+| **DMT** | **DMT** | $DMT = \frac{\sum_{j=1}^{N(t)} (L_j \times d_j)}{\sum_{j=1}^{N(t)} L_j}$ | `haul_summarize_cycle()` | Distância Média de Transporte ponderada pela massa (km). |
+| **Velocidade Média** | $V_{mean}$ | $V_{mean} = \frac{\sum Dist_{total}}{\sum Tempo_{viagem}}$ | `haul_summarize_cycle()` | Velocidade média real (km/h) integrando todos os trechos. |
+| **Aderência** | **Compliance** | $1 - \left( \frac{\lvert Rate_{Act} - Rate_{Plan} \rvert}{Rate_{Plan}} \right)$ | `check_payload_compliance()` | Nível de conformidade em relação à meta planejada. |
+
+### Notas de Notação Matemática
+
+1.  $N(t)$: Representa o número total de eventos (furos, cargas ou viagens) acumulados no intervalo de tempo analisado.
+
+2.  $WH$ (Work Hours): Horas Trabalhadas, calculadas como $WH = \frac{\sum X_i}{60}$ (considerando $X_i$ em minutos).
+
+3.  **Médias Globais**: Note que para indicadores de taxa (como $ROP$ e $V_{mean}$), o cálculo é realizado pela razão dos somatórios e não pela média aritmética das taxas individuais, garantindo a conciliação física dos dados.

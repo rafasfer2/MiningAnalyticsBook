@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -238,20 +273,24 @@ window.Quarto = {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#o-ciclo-físico-de-perfuração-drilling-cycle" id="toc-o-ciclo-físico-de-perfuração-drilling-cycle" class="nav-link active" data-scroll-target="#o-ciclo-físico-de-perfuração-drilling-cycle"><span class="header-section-number">1.1</span> O Ciclo Físico de Perfuração (Drilling Cycle)</a></li>
-  <li><a href="#do-planejamento-à-marcação-de-campo" id="toc-do-planejamento-à-marcação-de-campo" class="nav-link" data-scroll-target="#do-planejamento-à-marcação-de-campo"><span class="header-section-number">1.2</span> Do Planejamento à Marcação de Campo</a></li>
-  <li><a href="#métodos-e-malhas-de-perfuração" id="toc-métodos-e-malhas-de-perfuração" class="nav-link" data-scroll-target="#métodos-e-malhas-de-perfuração"><span class="header-section-number">1.3</span> Métodos e Malhas de Perfuração</a>
+  <li><a href="#o-ciclo-físico-de-perfuração-drilling-cycle" id="toc-o-ciclo-físico-de-perfuração-drilling-cycle" class="nav-link active" data-scroll-target="#o-ciclo-físico-de-perfuração-drilling-cycle"><span class="header-section-number">1.1</span> O Ciclo Físico de Perfuração (Drilling Cycle)</a>
   <ul class="collapse">
-  <li><a href="#estrutura-de-dados-e-notações" id="toc-estrutura-de-dados-e-notações" class="nav-link" data-scroll-target="#estrutura-de-dados-e-notações"><span class="header-section-number">1.3.1</span> Estrutura de Dados e Notações</a></li>
+  <li><a href="#analisando-a-sequência-cronológica" id="toc-analisando-a-sequência-cronológica" class="nav-link" data-scroll-target="#analisando-a-sequência-cronológica"><span class="header-section-number">1.1.1</span> Analisando a sequência cronológica</a></li>
+  <li><a href="#consolidação-e-higienização-com-add_missing_drill_phases" id="toc-consolidação-e-higienização-com-add_missing_drill_phases" class="nav-link" data-scroll-target="#consolidação-e-higienização-com-add_missing_drill_phases"><span class="header-section-number">1.1.2</span> Consolidação e Higienização com <code>add_missing_drill_phases()</code></a></li>
+  <li><a href="#estrutura-de-dados-e-notações" id="toc-estrutura-de-dados-e-notações" class="nav-link" data-scroll-target="#estrutura-de-dados-e-notações"><span class="header-section-number">1.1.3</span> Estrutura de Dados e Notações</a></li>
   </ul></li>
-  <li><a href="#identidade-fundamental-do-ciclo-de-perfuração" id="toc-identidade-fundamental-do-ciclo-de-perfuração" class="nav-link" data-scroll-target="#identidade-fundamental-do-ciclo-de-perfuração"><span class="header-section-number">1.4</span> Identidade Fundamental do Ciclo de Perfuração</a></li>
-  <li><a href="#mensuração-da-performance-kpis" id="toc-mensuração-da-performance-kpis" class="nav-link" data-scroll-target="#mensuração-da-performance-kpis"><span class="header-section-number">1.5</span> Mensuração da Performance (KPIs)</a>
+  <li><a href="#identidade-fundamental-do-ciclo-de-perfuração" id="toc-identidade-fundamental-do-ciclo-de-perfuração" class="nav-link" data-scroll-target="#identidade-fundamental-do-ciclo-de-perfuração"><span class="header-section-number">1.2</span> Identidade Fundamental do Ciclo de Perfuração</a>
   <ul class="collapse">
-  <li><a href="#metragem-total-perfurada-total-drilled-meters---tdm" id="toc-metragem-total-perfurada-total-drilled-meters---tdm" class="nav-link" data-scroll-target="#metragem-total-perfurada-total-drilled-meters---tdm"><span class="header-section-number">1.5.1</span> 1. Metragem Total Perfurada (Total Drilled Meters - TDM)</a></li>
-  <li><a href="#taxa-de-penetração-líquida-rate-of-penetration---rop" id="toc-taxa-de-penetração-líquida-rate-of-penetration---rop" class="nav-link" data-scroll-target="#taxa-de-penetração-líquida-rate-of-penetration---rop"><span class="header-section-number">1.5.2</span> 2. Taxa de Penetração Líquida (Rate of Penetration - ROP)</a></li>
-  <li><a href="#taxa-de-perfuração-bruta-gross-drilling-rate---gdr" id="toc-taxa-de-perfuração-bruta-gross-drilling-rate---gdr" class="nav-link" data-scroll-target="#taxa-de-perfuração-bruta-gross-drilling-rate---gdr"><span class="header-section-number">1.5.3</span> 3. Taxa de Perfuração Bruta (Gross Drilling Rate - GDR)</a></li>
+  <li><a href="#interpretando-os-gaps-operacionais" id="toc-interpretando-os-gaps-operacionais" class="nav-link" data-scroll-target="#interpretando-os-gaps-operacionais"><span class="header-section-number">1.2.1</span> Interpretando os Gaps Operacionais</a></li>
   </ul></li>
-  <li><a href="#integração-do-bit-à-caçamba" id="toc-integração-do-bit-à-caçamba" class="nav-link" data-scroll-target="#integração-do-bit-à-caçamba"><span class="header-section-number">1.6</span> Integração: Do Bit à Caçamba</a></li>
+  <li><a href="#mensuração-da-performance-kpis" id="toc-mensuração-da-performance-kpis" class="nav-link" data-scroll-target="#mensuração-da-performance-kpis"><span class="header-section-number">1.6</span> Mensuração da Performance (KPIs)</a>
+  <ul class="collapse">
+  <li><a href="#metragem-total-perfurada-total-drilled-meters---tdm" id="toc-metragem-total-perfurada-total-drilled-meters---tdm" class="nav-link" data-scroll-target="#metragem-total-perfurada-total-drilled-meters---tdm"><span class="header-section-number">1.6.1</span> Metragem Total Perfurada (Total Drilled Meters - TDM)</a></li>
+  <li><a href="#taxa-de-penetração-líquida-rate-of-penetration---rop" id="toc-taxa-de-penetração-líquida-rate-of-penetration---rop" class="nav-link" data-scroll-target="#taxa-de-penetração-líquida-rate-of-penetration---rop"><span class="header-section-number">1.6.2</span> Taxa de Penetração Líquida (Rate of Penetration - ROP)</a></li>
+  <li><a href="#taxa-de-perfuração-bruta-gross-drilling-rate---gdr" id="toc-taxa-de-perfuração-bruta-gross-drilling-rate---gdr" class="nav-link" data-scroll-target="#taxa-de-perfuração-bruta-gross-drilling-rate---gdr"><span class="header-section-number">1.6.3</span> Taxa de Perfuração Bruta (Gross Drilling Rate - GDR)</a></li>
+  </ul></li>
+  <li><a href="#integração-do-bit-à-caçamba" id="toc-integração-do-bit-à-caçamba" class="nav-link" data-scroll-target="#integração-do-bit-à-caçamba"><span class="header-section-number">1.7</span> Integração: Do Bit à Caçamba</a></li>
+  <li><a href="#agregação-de-ciclos-nível-borehole" id="toc-agregação-de-ciclos-nível-borehole" class="nav-link" data-scroll-target="#agregação-de-ciclos-nível-borehole"><span class="header-section-number">1.8</span> Agregação de Ciclos (Nível Borehole)</a></li>
   <li><a href="#referências-do-capítulo" id="toc-referências-do-capítulo" class="nav-link" data-scroll-target="#referências-do-capítulo">Referências do Capítulo</a></li>
   </ul>
 </nav>
@@ -279,15 +318,28 @@ window.Quarto = {
 
 
 <p>A perfuração de rochas nas minas a céu aberto é a primeira etapa do processo de cominuição. Realizada por perfuratrizes percussivas e/ou rotativas (<em>drill rigs</em>) que utilizam energia hidráulica ou pneumática, esta atividade tem como objetivo primordial projetar e preparar frentes livres de escavação. A qualidade deste processo dita diretamente os resultados dos serviços subsequentes: detonação (<em>blasting</em>), carga (<em>loading</em>) e transporte (<em>hauling</em>).</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Exemplo Prático: O Efeito Cascata Operacional">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Exemplo Prático: O Efeito Cascata Operacional
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Imagine que uma perfuratriz não respeitou a inclinação de projeto (ex: 15º) e perfurou verticalmente (90º). Isso gera um super-burden na base da bancada. Na hora da detonação, a rocha não quebrará adequadamente no “pé” do talude, gerando matacões (blocos gigantes) que reduzirão a produtividade da escavadeira em até 30% no próximo turno.</p>
+</div>
+</div>
 <section id="o-ciclo-físico-de-perfuração-drilling-cycle" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="o-ciclo-físico-de-perfuração-drilling-cycle"><span class="header-section-number">1.1</span> O Ciclo Físico de Perfuração (Drilling Cycle)</h2>
-<p>O ciclo operacional de uma perfuratriz não se resume apenas a “furar o chão”. O ciclo de perfuração de rochas é composto por cinco fases fundamentais (@fig-ciclo-perfuracao) que devem ser monitoradas individualmente:</p>
+<p>O ciclo operacional de uma perfuratriz não se resume apenas a “furar o chão”. Para fins de análise, a <a href="#fig-ciclo-perfuracao" class="quarto-xref">Figura&nbsp;<span>1.1</span></a> mostra o ciclo composto por cinco fases fundamentais que devem ser monitoradas individualmente:</p>
 <ol type="1">
-<li><p><strong>Posicionamento (<em>Positioning</em> -</strong> <span class="math inline">\(P_i\)</span>): Alinhamento da máquina de acordo com as coordenadas do furo e a inclinação de projeto da bancada.</p></li>
-<li><p><strong>Emboquilhamento (<em>Collaring</em> -</strong> <span class="math inline">\(P_i\)</span>): Posicionamento do <em>bit</em> e início da penetração cuidadosa para evitar desvios iniciais.</p></li>
-<li><p><strong>Perfuração (<em>Drilling</em> -</strong> <span class="math inline">\(D_i\)</span>): Aplicação de rotação, percussão e <em>pull-down</em> para ocasionar a ruptura e avanço na rocha.</p></li>
-<li><p><strong>Manuseio de Hastes (<em>Rod Handling</em> -</strong> <span class="math inline">\(H_i\)</span>): Adição sucessiva de hastes conforme a profundidade almejada e sua posterior retirada (<em>threading/unthreading</em>).</p></li>
-<li><p><strong>Deslocação (<em>Tramming</em> -</strong> <span class="math inline">\(M_i\)</span>): Movimentação do equipamento para o próximo ponto de furo.</p></li>
+<li><p><strong>Posicionamento (Positioning -</strong> <span class="math inline">\(P_i\)</span>): Alinhamento da máquina de acordo com as coordenadas do furo e nivelamento das sapatas (<em>jacks</em>).</p></li>
+<li><p><strong>Emboquilhamento (Collaring -</strong> <span class="math inline">\(C_i\)</span>): Início da penetração cuidadosa (baixa rotação/avanço) para evitar desvios iniciais e garantir a integridade da “boca” do furo.</p></li>
+<li><p><strong>Perfuração (Drilling -</strong> <span class="math inline">\(D_i\)</span>): Aplicação de rotação, percussão e <em>pull-down</em> pleno para o avanço na rocha.</p></li>
+<li><p><strong>Manuseio de Hastes (Rod Handling -</strong> <span class="math inline">\(H_i\)</span>): Adição sucessiva de hastes para profundidade ou sua retirada (<em>threading/unthreading</em>).</p></li>
+<li><p><strong>Deslocação (Tramming -</strong> <span class="math inline">\(M_i\)</span>): Movimentação para o próximo ponto de furo dentro da mesma malha.</p></li>
 </ol>
 <div id="fig-ciclo-perfuracao" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -299,34 +351,72 @@ Figura&nbsp;1.1: Ciclo de Perfuração.
 </figcaption>
 </figure>
 </div>
-<blockquote class="blockquote">
-<p><strong>Nota de Modelagem:</strong> No pacote <code>miningKPI</code>, as fases de <strong>Posicionamento</strong> e <strong>Emboquilhamento</strong> são frequentemente agrupadas na variável de <strong>Setup (</strong><span class="math inline">\(P_i\)</span>), pois ambas representam tempos preparatórios sem avanço significativo de profundidade.</p>
-</blockquote>
-<p>Após a conclusão da malha (<em>drill pattern</em>), ocorre o desmonte por explosivos, transformando a rocha <em>in situ</em> em material fragmentado (<em>run-of-mine</em> - ROM) pronto para o carregamento</p>
-</section>
-<section id="do-planejamento-à-marcação-de-campo" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="do-planejamento-à-marcação-de-campo"><span class="header-section-number">1.2</span> Do Planejamento à Marcação de Campo</h2>
-<p>A execução da perfuração é o resultado de um fluxo de planejamento rigoroso que antecede a chegada da máquina:</p>
+<div style="background-color:#e6f9e6; border-left: 4px solid #4CAF50; padding: 1em; margin: 1em 0;">
+<p><strong>Exemplo:</strong> Dados de eventos de perfuração – Mina D</p>
+<p>No pacote <code>miningKPI</code>, disponibilizamos o banco de dados <code>drill_events_mine_d</code>. Este dataset contém a telemetria detalhada (formato <em>long</em>), permitindo identificar cada fase da Identidade Fundamental. Note que, na prática, os dados brutos podem apresentar falhas de registro (fases ausentes) ou repetições.</p>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(miningKPI)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo de dois ciclos da perfuratriz DRILL_100</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Observamos a transição entre o Ciclo 1 e Ciclo 2</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>drill_events_mine_d <span class="sc">%&gt;%</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(drill_id <span class="sc">==</span> <span class="st">"DRILL_100"</span>, cycle <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Sequência de eventos: Note a repetição de drilling/rods e trocas de ciclo"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<section id="analisando-a-sequência-cronológica" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="analisando-a-sequência-cronológica"><span class="header-section-number">1.1.1</span> Analisando a sequência cronológica</h3>
+<p>Ao observar os dados da <strong>DRILL_100</strong>, podemos extrair <em>insights</em> valiosos sobre a eficiência da operação:</p>
 <ul>
-<li><p><strong>Dimensionamento do Plano:</strong> Polígonos de perfuração são desenhados via software de planejamento, definindo coordenadas <span class="math inline">\((x,y,z)\)</span>, <em>burdens</em> (afastamento) e espaçamentos (<em>spacing</em>).</p></li>
-<li><p><strong>Preparação da Área (<em>Pad Preparation</em>):</strong> Liberação de ordens de serviço para limpeza de praça, garantindo a trafegabilidade e nivelamento para as perfuratrizes.</p></li>
-<li><p><strong>Marcação Topográfica (<em>Survey Stakeout</em>):</strong> Materialização física dos furos no campo (estacas ou GPS de alta precisão), ponto onde o operador inicia o ciclo de posicionamento (<span class="math inline">\(P_i\)</span>).</p></li>
+<li><p><strong>Fases 1 e 2 (</strong><span class="math inline">\(P_i\)</span> e <span class="math inline">\(C_i\)</span>): Representam os preparativos. Se o operador gasta muito tempo na <strong>Fase 1 (Posicionamento)</strong>, a praça pode estar mal nivelada ou o layout da malha está dificultando a manobra.</p></li>
+<li><p><strong>Fase 3 (</strong><span class="math inline">\(D_i\)</span>): É aqui que a Taxa de Penetração (ROP) é calculada. Em furos profundos, é comum vermos a <strong>Fase 3</strong> e a <strong>Fase 4 (</strong><span class="math inline">\(H_i\)</span>) se repetirem alternadamente conforme novas hastes são adicionadas.</p></li>
+<li><p><strong>Fase 5 (</strong><span class="math inline">\(M_i\)</span>): Marca o encerramento do furo atual e o deslocamento para o próximo ponto da malha.</p></li>
+</ul>
+<p>A repetição das fases 3 e 4, característica de furos que exigem múltiplas hastes, pode ser observada detalhadamente no <strong>Ciclo 2</strong>:</p>
+<p><strong>Detalhamento do Ciclo 2 (</strong><span class="math inline">\(X_2\)</span>):</p>
+<ul>
+<li><p><strong>Phase 1:</strong> Zero eventos registrados <span class="math inline">\(\rightarrow P_2 = 0,00\)</span> minutos.</p></li>
+<li><p><strong>Phase 2:</strong> Zero eventos registrados <span class="math inline">\(\rightarrow C_2 = 0,00\)</span> minutos.</p></li>
+<li><p><strong>Phase 3 (Perfuração):</strong> Composta por 3 eventos <span class="math inline">\(\rightarrow D_2 = 6,87 + 3,38 + 5,60 = 15,85\)</span> minutos.</p></li>
+<li><p><strong>Phase 4 (Hastes):</strong> Composta por 3 eventos <span class="math inline">\(\rightarrow H_2 = 9,38 + 5,72 + 2,22 = 17,32\)</span> minutos.</p></li>
+<li><p><strong>Phase 5 (Deslocamento):</strong> Composta por 1 evento <span class="math inline">\(\rightarrow M_2 = 1,62\)</span> minutos.</p></li>
 </ul>
 </section>
-<section id="métodos-e-malhas-de-perfuração" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="métodos-e-malhas-de-perfuração"><span class="header-section-number">1.3</span> Métodos e Malhas de Perfuração</h2>
-<p>A geometria da malha (quadrada, retangular ou estagiada) é desenhada para otimizar a distribuição de energia do explosivo. Quanto à tecnologia de perfuração, destacam-se:</p>
+<section id="consolidação-e-higienização-com-add_missing_drill_phases" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="consolidação-e-higienização-com-add_missing_drill_phases"><span class="header-section-number">1.1.2</span> Consolidação e Higienização com <code>add_missing_drill_phases()</code></h3>
+<p>Para que a análise estatística seja robusta, utilizamos a função <code>add_missing_drill_phases()</code>. Ela identifica fases ausentes e as imputa com duração zero, garantindo que cada ciclo contenha as 5 fases fundamentais, além da <strong>Fase 6 (exit_cycle)</strong>, um marcador técnico necessário para o motor de cálculo.</p>
+<div style="background-color:#e6f9e6; border-left: 4px solid #4CAF50; padding: 1em; margin: 1em 0;">
+<p><strong>Exemplo:</strong> Análise de input das fases faltantes</p>
+<p>Como o <code>drill_events_mine_d</code> é um objeto de eventos brutos, aplicamos a função para observar o preenchimento das lacunas:</p>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicando a função de completude de fases</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>drill_events_mine_d <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(drill_id <span class="sc">%in%</span> <span class="st">"DRILL_100"</span>, cycle <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_missing_drill_phases</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="at">n =</span> <span class="cn">Inf</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Note que os seguintes eventos foram gerados automaticamente pelo algoritmo:</p>
 <ul>
-<li><p><strong>Top Hammer (Martelo de Topo):</strong> Indicado para furos de menor diâmetro (até 140 mm), onde a percussão ocorre fora do furo.</p></li>
-<li><p><strong>Down The Hole (DTH):</strong> O martelo atua diretamente sobre o <em>bit</em> no fundo do furo, minimizando a perda de energia em furos profundos.</p></li>
+<li><p><strong>No Ciclo 1:</strong> Imputação da <strong>Phase 1</strong> (linha 1) e da <strong>Phase 6</strong> (linha 8).</p></li>
+<li><p><strong>No Ciclo 2:</strong> Imputação da <strong>Phase 1</strong> (linha 9), <strong>Phase 2</strong> (linha 10) e da <strong>Phase 6</strong> (linha 19).</p></li>
 </ul>
-<section id="estrutura-de-dados-e-notações" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="estrutura-de-dados-e-notações"><span class="header-section-number">1.3.1</span> Estrutura de Dados e Notações</h3>
-<p>Para transformar a operação em <strong>Mining Analytics</strong>, precisamos traduzir os eventos físicos em variáveis matemáticas. Para cada furo <span class="math inline">\(i\)</span>, definimos a base de dados operacional conforme a tabela abaixo:</p>
+</section>
+<section id="estrutura-de-dados-e-notações" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="estrutura-de-dados-e-notações"><span class="header-section-number">1.1.3</span> Estrutura de Dados e Notações</h3>
+<p>Traduzimos os eventos físicos em variáveis matemáticas padronizadas para facilitar a modelagem e análise de dados:</p>
 <div id="tbl-notacao-perfuracao" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-notacao-perfuracao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;1.1: Relação entre fases operacionais e notações matemáticas na perfuração.
+Tabela&nbsp;1.1: Relação entre fases operacionais e notações na perfuração. [^1]
 </figcaption>
 <div aria-describedby="tbl-notacao-perfuracao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -340,38 +430,44 @@ Tabela&nbsp;1.1: Relação entre fases operacionais e notações matemáticas na
 <tr class="odd">
 <td><strong>Fase Operacional</strong></td>
 <td><strong>Notação Matemática</strong></td>
-<td><strong>Sigla Técnica (English)</strong></td>
-<td><strong>Variável no R (miningKPI)</strong></td>
+<td><strong>Sigla Técnica</strong></td>
+<td><strong>Variável R (miningKPI)</strong></td>
 </tr>
 <tr class="even">
-<td><strong>Setup e Início</strong></td>
+<td>Posicionamento</td>
 <td><span class="math inline">\(P_i\)</span></td>
-<td>SET (Setup/Positioning)</td>
-<td><code>p_time</code></td>
+<td>POS</td>
+<td><code>pi_min</code></td>
 </tr>
 <tr class="odd">
-<td><strong>Penetração Real</strong></td>
+<td>Emboquilhamento</td>
+<td><span class="math inline">\(C_i\)</span></td>
+<td>COL</td>
+<td><code>ci_min</code></td>
+</tr>
+<tr class="even">
+<td>Penetração Real</td>
 <td><span class="math inline">\(D_i\)</span></td>
-<td>DRI (Drilling Time)</td>
-<td><code>d_time</code></td>
-</tr>
-<tr class="even">
-<td><strong>Troca de Hastes</strong></td>
-<td><span class="math inline">\(H_i\)</span></td>
-<td>RHT (Rod Handling Time)</td>
-<td><code>h_time</code></td>
+<td>DRI</td>
+<td><code>di_min</code></td>
 </tr>
 <tr class="odd">
-<td><strong>Movimentação</strong></td>
-<td><span class="math inline">\(M_i\)</span></td>
-<td>TRA (Tramming)</td>
-<td><code>m_time</code></td>
+<td>Manuseio Hastes</td>
+<td><span class="math inline">\(H_i\)</span></td>
+<td>RHT</td>
+<td><code>hi_min</code></td>
 </tr>
 <tr class="even">
+<td>Deslocação</td>
+<td><span class="math inline">\(M_i\)</span></td>
+<td>TRA</td>
+<td><code>mi_min</code></td>
+</tr>
+<tr class="odd">
 <td><strong>Total do Furo</strong></td>
 <td><span class="math inline">\(X_i\)</span></td>
-<td>TBF (Total Borne Time)</td>
-<td><code>xi_min</code></td>
+<td><strong>TBF</strong></td>
+<td><strong><code>xi_min</code></strong></td>
 </tr>
 </tbody>
 </table>
@@ -380,22 +476,160 @@ Tabela&nbsp;1.1: Relação entre fases operacionais e notações matemáticas na
 </div>
 </section>
 </section>
-<section id="identidade-fundamental-do-ciclo-de-perfuração" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="identidade-fundamental-do-ciclo-de-perfuração"><span class="header-section-number">1.4</span> Identidade Fundamental do Ciclo de Perfuração</h2>
-<p>A base de toda análise de eficiência em perfuração parte da premissa de que o tempo total para completar um furo (<span class="math inline">\(X_i\)</span>) é a soma linear de seus componentes:<br>
-<span class="math display">\[X_i = P_i + D_i + H_i + M_i\]</span></p>
+<section id="identidade-fundamental-do-ciclo-de-perfuração" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="identidade-fundamental-do-ciclo-de-perfuração"><span class="header-section-number">1.2</span> Identidade Fundamental do Ciclo de Perfuração</h2>
+<p>A base de toda análise de eficiência em perfuração parte da premissa de que o tempo total para completar um furo (<span class="math inline">\(X_i\)</span>) é a soma linear de seus componentes excludentes:</p>
+<p><span class="math display">\[X_i = P_i + C_i + D_i + H_i + M_i\]</span></p>
 <p>Esta igualdade permite identificar a natureza dos gargalos operacionais:</p>
 <ul>
-<li><p>Elevação de <span class="math inline">\(D_i\)</span>: Provável causa geológica (rocha dura) ou desgaste do <em>bit</em>.</p></li>
-<li><p>Elevação de <span class="math inline">\(H_i\)</span>: Problemas mecânicos no carrossel ou falha operacional no manuseio.</p></li>
-<li><p>Elevação de <span class="math inline">\(M_i\)</span>: Problemas de infraestrutura (praça ruim) ou layout de malha ineficiente.</p></li>
+<li><p><strong>Elevação de</strong> <span class="math inline">\(D_i\)</span>: Provável causa geológica (rocha dura) ou desgaste excessivo do <em>bit</em>.</p></li>
+<li><p><strong>Elevação de</strong> <span class="math inline">\(H_i\)</span>: Problemas mecânicos no carrossel de hastes ou inexperiência operacional no manuseio.</p></li>
+<li><p><strong>Elevação de</strong> <span class="math inline">\(M_i\)</span>: Problemas de infraestrutura (praça mal preparada) ou layout de malha ineficiente.</p></li>
 </ul>
+<p><strong>Exemplo: Calculando a identidade fundamental</strong></p>
+<p>Utilizamos o agrupamento por ciclo para consolidar os tempos e validar a identidade fundamental:</p>
+<div style="background-color:#e6f9e6; border-left: 4px solid #4CAF50; padding: 1em; margin: 1em 0;">
+<p><strong>Exemplo:</strong> Calculando a identidade fundamental do ciclo de perfuração.</p>
+<p>Como <code>drill_events_mine_d</code> é #’ Um data frame ou tibble contendo eventos de perfuração (drill events), podemos aplicar a função <code>add_missing_drill_phases() conforme pode ser visto no código abaixo:</code></p>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicando a função de completude de fases</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>drill_events_mine_d <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(drill_id <span class="sc">%in%</span> <span class="st">"DRILL_100"</span>, cycle <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_missing_drill_phases</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(drill_id, cycle) <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">start_hole   =</span> <span class="fu">min</span>(first_time, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">total_xi_min =</span> <span class="fu">sum</span>(duration_min, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Corrigido: remove NAs da comparação de fase</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">pi_sum =</span> <span class="fu">sum</span>(duration_min[<span class="sc">!</span><span class="fu">is.na</span>(phase) <span class="sc">&amp;</span> phase <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">ci_sum =</span> <span class="fu">sum</span>(duration_min[<span class="sc">!</span><span class="fu">is.na</span>(phase) <span class="sc">&amp;</span> phase <span class="sc">==</span> <span class="dv">2</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">di_sum =</span> <span class="fu">sum</span>(duration_min[<span class="sc">!</span><span class="fu">is.na</span>(phase) <span class="sc">&amp;</span> phase <span class="sc">==</span> <span class="dv">3</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">hi_sum =</span> <span class="fu">sum</span>(duration_min[<span class="sc">!</span><span class="fu">is.na</span>(phase) <span class="sc">&amp;</span> phase <span class="sc">==</span> <span class="dv">4</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">mi_sum =</span> <span class="fu">sum</span>(duration_min[<span class="sc">!</span><span class="fu">is.na</span>(phase) <span class="sc">&amp;</span> phase <span class="sc">==</span> <span class="dv">5</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">xi_sum =</span> pi_sum <span class="sc">+</span> ci_sum <span class="sc">+</span> di_sum <span class="sc">+</span> hi_sum <span class="sc">+</span> mi_sum,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">.groups      =</span> <span class="st">"drop"</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<section id="interpretando-os-gaps-operacionais" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored"><span class="header-section-number">1.2.1</span> Interpretando os Gaps Operacionais</h3>
+<p>Ao confrontarmos <code>total_xi_min</code> (tempo total de residência) com <code>xi_sum</code> (soma das fases produtivas), identificamos oportunidades de melhoria:</p>
+<ol type="1">
+<li><p><strong>Ciclo 1:</strong> Há uma diferença de aproximadamente <strong>47 minutos</strong>. Ao consultarmos os eventos brutos, verificamos que esse tempo foi consumido por eventos de <em>Standby</em> (Troca de Turno) e esperas manuais que não compõem as fases 1 a 5.</p></li>
+<li><p><strong>Ciclo 3:</strong> A aderência é quase total (<span class="math inline">\(51.6\)</span> vs <span class="math inline">\(51.5\)</span>), indicando um ciclo “limpo” onde a máquina operou de forma contínua do início ao fim do furo.</p></li>
+</ol>
+<p>Para investigar as oportunidades de melhorias, pode-se, por exemplo:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicando a função de completude de fases</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>drill_events_mine_d <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(drill_id <span class="sc">%in%</span> <span class="st">"DRILL_100"</span>, cycle <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="fu">is.na</span>(phase))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Diferente do carregamento, onde a carga varia, na perfuração a profundidade é fixa por projeto. O uso da higienização garante que a média de <span class="math inline">\(C_i\)</span> (Emboquilhamento), por exemplo, não seja enviesada por ciclos onde o sensor falhou em registrar o evento, permitindo que o gestor foque no que realmente importa: a velocidade de penetração e a eficiência logística.</p>
+<blockquote class="blockquote">
+<div class="callout callout-style-default callout-tip callout-titled" title="Nota de Modelagem">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Nota de Modelagem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Diferente do carregamento, onde a carga varia, na perfuração a profundidade é fixa por projeto. O uso da higienização garante que a média de <span class="math inline">\(C_i\)</span> (Emboquilhamento), por exemplo, não seja enviesada por ciclos onde o sensor falhou em registrar o evento.</p>
+</div>
+</div>
+<h2 id="do-planejamento-à-marcação-de-campo" data-number="1.3" class="anchored" data-anchor-id="interpretando-os-gaps-operacionais"><span class="header-section-number">1.3</span> Do Planejamento à Marcação de Campo</h2>
+<p>A execução da perfuração é o resultado de um fluxo de planejamento rigoroso:</p>
+<ol type="1">
+<li><p><strong>Dimensionamento do Plano:</strong> Polígonos de perfuração são desenhados via software, definindo coordenadas <span class="math inline">\((x,y,z)\)</span>, <em>burdens</em> (afastamento) e espaçamentos (<em>spacing</em>).</p></li>
+<li><p><strong>Preparação da Área (Pad Preparation):</strong> Liberação de ordens para tratores de esteira (Dozers) limparem e nivelarem a praça, reduzindo o tempo de <span class="math inline">\(P_i\)</span>.</p></li>
+<li><p><strong>Marcação Topográfica (Survey Stakeout):</strong> Materialização física ou via GPS de alta precisão (HPGPS) onde o operador inicia o ciclo.</p></li>
+</ol>
+<h2 id="métodos-e-malhas-de-perfuração" data-number="1.4" class="anchored"><span class="header-section-number">1.4</span> Métodos e Malhas de Perfuração</h2>
+<p>[Image comparing Top Hammer vs Down-The-Hole drilling mechanisms cross-section]</p>
+<p>A tecnologia de perfuração impacta diretamente o tempo de <span class="math inline">\(D_i\)</span> e <span class="math inline">\(H_i\)</span>:</p>
+<ul>
+<li><p><strong>Top Hammer:</strong> Indicado para furos menores (&lt; 140 mm). A percussão ocorre fora do furo.</p></li>
+<li><p><strong>Down The Hole (DTH):</strong> O martelo atua no fundo do furo, ideal para furos profundos e rochas duras, mantendo o ROP constante.</p></li>
+</ul>
+<h2 id="estrutura-de-dados-e-notações-1" data-number="1.5" class="anchored"><span class="header-section-number">1.5</span> Estrutura de Dados e Notações</h2>
+<p>Traduzimos os eventos físicos em variáveis matemáticas padronizadas:</p>
+<div id="tbl-notacao-perfuracao" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-notacao-perfuracao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;1.2: Relação entre fases operacionais e notações na perfuração.
+</figcaption>
+<div aria-describedby="tbl-notacao-perfuracao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Fase Operacional</strong></td>
+<td><strong>Notação Matemática</strong></td>
+<td><strong>Sigla Técnica</strong></td>
+<td><strong>Variável R (miningKPI)</strong></td>
+</tr>
+<tr class="even">
+<td>Posicionamento</td>
+<td><span class="math inline">\(P_i\)</span></td>
+<td>POS</td>
+<td><code>pi_min</code></td>
+</tr>
+<tr class="odd">
+<td>Emboquilhamento</td>
+<td><span class="math inline">\(C_i\)</span></td>
+<td>COL</td>
+<td><code>ci_min</code></td>
+</tr>
+<tr class="even">
+<td>Penetração Real</td>
+<td><span class="math inline">\(D_i\)</span></td>
+<td>DRI</td>
+<td><code>di_min</code></td>
+</tr>
+<tr class="odd">
+<td>Manuseio Hastes</td>
+<td><span class="math inline">\(H_i\)</span></td>
+<td>RHT</td>
+<td><code>hi_min</code></td>
+</tr>
+<tr class="even">
+<td>Deslocação</td>
+<td><span class="math inline">\(M_i\)</span></td>
+<td>TRA</td>
+<td><code>mi_min</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Total do Furo</strong></td>
+<td><span class="math inline">\(X_i\)</span></td>
+<td><strong>TBF</strong></td>
+<td><strong><code>xi_min</code></strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</blockquote>
 </section>
-<section id="mensuração-da-performance-kpis" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="mensuração-da-performance-kpis"><span class="header-section-number">1.5</span> Mensuração da Performance (KPIs)</h2>
+</section>
+<section id="mensuração-da-performance-kpis" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="mensuração-da-performance-kpis"><span class="header-section-number">1.6</span> Mensuração da Performance (KPIs)</h2>
 <p>A transformação dos registros brutos (telemetria) em inteligência de negócio é processada automaticamente pelas funções do pacote <code>miningKPI</code>. Os principais indicadores são:</p>
-<section id="metragem-total-perfurada-total-drilled-meters---tdm" class="level3" data-number="1.5.1">
-<h3 data-number="1.5.1" class="anchored" data-anchor-id="metragem-total-perfurada-total-drilled-meters---tdm"><span class="header-section-number">1.5.1</span> 1. Metragem Total Perfurada (Total Drilled Meters - TDM)</h3>
+<section id="metragem-total-perfurada-total-drilled-meters---tdm" class="level3" data-number="1.6.1">
+<h3 data-number="1.6.1" class="anchored" data-anchor-id="metragem-total-perfurada-total-drilled-meters---tdm"><span class="header-section-number">1.6.1</span> Metragem Total Perfurada (Total Drilled Meters - TDM)</h3>
 <p>Representa o volume físico total de furos realizados em um intervalo de tempo <span class="math inline">\(t\)</span>.</p>
 <p><span class="math display">\[TDM = \sum_{i=1}^{N(t)} L_i\]</span></p>
 <ul>
@@ -403,8 +637,8 @@ Tabela&nbsp;1.1: Relação entre fases operacionais e notações matemáticas na
 <li><p><span class="math inline">\(N(t)\)</span>: Número total de furos acumulados no período.</p></li>
 </ul>
 </section>
-<section id="taxa-de-penetração-líquida-rate-of-penetration---rop" class="level3" data-number="1.5.2">
-<h3 data-number="1.5.2" class="anchored" data-anchor-id="taxa-de-penetração-líquida-rate-of-penetration---rop"><span class="header-section-number">1.5.2</span> 2. Taxa de Penetração Líquida (Rate of Penetration - ROP)</h3>
+<section id="taxa-de-penetração-líquida-rate-of-penetration---rop" class="level3" data-number="1.6.2">
+<h3 data-number="1.6.2" class="anchored" data-anchor-id="taxa-de-penetração-líquida-rate-of-penetration---rop"><span class="header-section-number">1.6.2</span> Taxa de Penetração Líquida (Rate of Penetration - ROP)</h3>
 <p>Mede a velocidade média de avanço da ferramenta exclusivamente durante o tempo de contato e corte da rocha (<span class="math inline">\(D_i\)</span>). É o indicador puro de eficiência mecânica e resposta litológica.</p>
 <p><span class="math display">\[ROP = \frac{TDM}{\sum_{i=1}^{N(t)} D_i} \quad [m/h]\]</span></p>
 <ul>
@@ -412,15 +646,20 @@ Tabela&nbsp;1.1: Relação entre fases operacionais e notações matemáticas na
 <li><p><span class="math inline">\(D_i\)</span>: Tempo de perfuração efetiva (convertido para horas).</p></li>
 </ul>
 </section>
-<section id="taxa-de-perfuração-bruta-gross-drilling-rate---gdr" class="level3" data-number="1.5.3">
-<h3 data-number="1.5.3" class="anchored" data-anchor-id="taxa-de-perfuração-bruta-gross-drilling-rate---gdr"><span class="header-section-number">1.5.3</span> 3. Taxa de Perfuração Bruta (Gross Drilling Rate - GDR)</h3>
+<section id="taxa-de-perfuração-bruta-gross-drilling-rate---gdr" class="level3" data-number="1.6.3">
+<h3 data-number="1.6.3" class="anchored" data-anchor-id="taxa-de-perfuração-bruta-gross-drilling-rate---gdr"><span class="header-section-number">1.6.3</span> Taxa de Perfuração Bruta (Gross Drilling Rate - GDR)</h3>
 <p>Indica a produtividade global do ativo, considerando todo o tempo de ciclo (<span class="math inline">\(X_i\)</span>), incluindo manobras e trocas de haste. É o indicador de eficiência logística da operação.</p>
 <p><span class="math display">\[GDR = \frac{TDM}{\sum_{i=1}^{N(t)} X_i} \quad [m/h]\]</span></p>
 </section>
 </section>
-<section id="integração-do-bit-à-caçamba" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="integração-do-bit-à-caçamba"><span class="header-section-number">1.6</span> Integração: Do Bit à Caçamba</h2>
-<p>Portanto, ao monitorarmos o TDM (Metragem Total Perfurada) e a aderência à malha, estamos, na verdade, garantindo que a Identidade Fundamental do Carregamento, que exploraremos no @chap-carregamento, apresente os menores valores possíveis de variabilidade.</p>
+<section id="integração-do-bit-à-caçamba" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="integração-do-bit-à-caçamba"><span class="header-section-number">1.7</span> Integração: Do Bit à Caçamba</h2>
+<p>Portanto, ao monitorarmos o TDM (Metragem Total Perfurada) e a aderência à malha, estamos, na verdade, garantindo que a Identidade Fundamental do Carregamento, que exploraremos no @ref(chap-carregamento), apresente os menores valores possíveis de variabilidade.</p>
+</section>
+<section id="agregação-de-ciclos-nível-borehole" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="agregação-de-ciclos-nível-borehole"><span class="header-section-number">1.8</span> Agregação de Ciclos (Nível Borehole)</h2>
+<p>Nesta etapa, elevamos o nível de granularidade da nossa análise. Enquanto o dataframe <code>drill_events_mine_d</code> foca em <strong>eventos e fases</strong> (cada mudança de estado da perfuratriz), o dataframe <code>drill_cycles_mine_d</code> consolida esses dados para o nível de <strong>ciclo de perfuração</strong> (o processo completo de um furo/borehole).</p>
+<p>Esta agregação é fundamental para validar a <strong>Identidade Fundamental da Perfuração</strong>, permitindo observar o tempo total gasto por furo (<span class="math inline">\(Xi\)</span>) e a profundidade real atingida.</p>
 </section>
 <section id="referências-do-capítulo" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="referências-do-capítulo">Referências do Capítulo</h2>

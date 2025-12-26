@@ -232,7 +232,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/appendix/b-dicionario-indicadores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Dicionário de Indicadores (KPIs) {#app-indicadores .unnumbered}</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Dicionário de Indicadores (KPIs)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -301,7 +301,7 @@ window.Quarto = {
 <div id="fig-ciclo-posicionamento-carga" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-cap="Método de carregamento e posicionamento do caminhão.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ciclo-posicionamento-carga-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/fig_processo_posicionamento_carga.png" class="img-fluid figure-img" data-fig-cap="Método de carregamento e posicionamento do caminhão.">
+<img src="..\images/fig_processo_posicionamento_carga.png" class="img-fluid figure-img" data-fig-cap="Método de carregamento e posicionamento do caminhão.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ciclo-posicionamento-carga-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;2.1: Método de Posicionamento no Carregamento
@@ -336,80 +336,6 @@ Figura&nbsp;2.1: Método de Posicionamento no Carregamento
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Eventos de carregamento da unidade LOAD-0001"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Eventos de carregamento da unidade LOAD-0001</caption>
-<colgroup>
-<col style="width: 5%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 22%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 4%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 7%">
-<col style="width: 8%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">cycle_id</th>
-<th style="text-align: left;">first_time</th>
-<th style="text-align: left;">exit_time</th>
-<th style="text-align: left;">load_fleet</th>
-<th style="text-align: left;">load_id</th>
-<th style="text-align: left;">haul_id</th>
-<th style="text-align: left;">origin</th>
-<th style="text-align: left;">material</th>
-<th style="text-align: right;">payload</th>
-<th style="text-align: left;">event_type</th>
-<th style="text-align: right;">duration_min</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">2024-06-30 23:47:03</td>
-<td style="text-align: left;">2024-06-30 23:47:30</td>
-<td style="text-align: left;">Hydraulic Excavator - Large Class</td>
-<td style="text-align: left;">LOAD-0001</td>
-<td style="text-align: left;">HAUL-0051</td>
-<td style="text-align: left;">Bench</td>
-<td style="text-align: left;">Waste</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">maneuver</td>
-<td style="text-align: right;">0.450000</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">2024-06-30 23:47:30</td>
-<td style="text-align: left;">2024-06-30 23:53:26</td>
-<td style="text-align: left;">Hydraulic Excavator - Large Class</td>
-<td style="text-align: left;">LOAD-0001</td>
-<td style="text-align: left;">HAUL-0051</td>
-<td style="text-align: left;">Bench</td>
-<td style="text-align: left;">Waste</td>
-<td style="text-align: right;">280</td>
-<td style="text-align: left;">loading</td>
-<td style="text-align: right;">5.933333</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">2024-06-30 23:53:26</td>
-<td style="text-align: left;">2024-06-30 23:53:49</td>
-<td style="text-align: left;">Hydraulic Excavator - Large Class</td>
-<td style="text-align: left;">LOAD-0001</td>
-<td style="text-align: left;">HAUL-0051</td>
-<td style="text-align: left;">Bench</td>
-<td style="text-align: left;">Waste</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">idle</td>
-<td style="text-align: right;">0.383333</td>
-</tr>
-</tbody>
-</table>
-</div>
 </div>
 <p>No dia 30/06/2024, às 23:47:03, a escavadeira LOAD-0001 (da frota Hydraulic Excavator - Large Class) estava posicionada em uma frente de lavra do tipo banco (Bench). O material a ser escavado era estéril (Waste).</p>
 <ul>
@@ -434,13 +360,6 @@ Figura&nbsp;2.1: Método de Posicionamento no Carregamento
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">.groups      =</span> <span class="st">"drop"</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 9
-  load_fleet                 load_id haul_id origin material first_time         
-  &lt;chr&gt;                      &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;dttm&gt;             
-1 Hydraulic Excavator - Lar… LOAD-0… HAUL-0… Bench  Waste    2024-06-30 23:47:03
-# ℹ 3 more variables: exit_time &lt;dttm&gt;, payload &lt;dbl&gt;, duration_min &lt;dbl&gt;</code></pre>
-</div>
 </div>
 <p>Nesta visão consolidada, vemos que a operação total para atender o HAUL-0051 consumiu <span class="math inline">\(6,77\)</span> minutos, resultando na movimentação de <span class="math inline">\(280\)</span> toneladas de estéril. Este registro agora representa uma unidade de contagem completa, pronta para ser utilizada em modelos de produtividade e confiabilidade.”</p>
 </section>
@@ -512,42 +431,24 @@ Tabela&nbsp;2.1: Relação entre fases operacionais, registros de dados e notaç
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(miningKPI)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Consolidação do ciclo e contagem de sub-eventos (passadas)</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>load_events_mine_a <span class="sc">%&gt;%</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(load_id <span class="sc">==</span> <span class="st">"LOAD-0001"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(load_fleet, load_id, haul_id, origin, material) <span class="sc">%&gt;%</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">first_time   =</span> <span class="fu">min</span>(first_time),</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">exit_time    =</span> <span class="fu">max</span>(exit_time),</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">payload      =</span> <span class="fu">sum</span>(payload, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Identidade Fundamental: Soma das durações das fases</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">duration_min =</span> <span class="fu">sum</span>(duration_min),</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Contagem de passadas (apenas eventos de 'loading' efetivo)</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_passadas   =</span> <span class="fu">sum</span>(event_type <span class="sc">==</span> <span class="st">"loading"</span>),</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups      =</span> <span class="st">"drop"</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(miningKPI)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Consolidação do ciclo e contagem de sub-eventos (passadas)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>load_events_mine_a <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(load_id <span class="sc">==</span> <span class="st">"LOAD-0001"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(load_fleet, load_id, haul_id, origin, material) <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">first_time   =</span> <span class="fu">min</span>(first_time),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">exit_time    =</span> <span class="fu">max</span>(exit_time),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">payload      =</span> <span class="fu">sum</span>(payload, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Identidade Fundamental: Soma das durações das fases</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">duration_min =</span> <span class="fu">sum</span>(duration_min),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Contagem de passadas (apenas eventos de 'loading' efetivo)</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_passadas   =</span> <span class="fu">sum</span>(event_type <span class="sc">==</span> <span class="st">"loading"</span>),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups      =</span> <span class="st">"drop"</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 141 × 10
-   load_fleet                load_id haul_id origin material first_time         
-   &lt;chr&gt;                     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;dttm&gt;             
- 1 Hydraulic Excavator - La… LOAD-0… HAUL-0… Bench  Ore      2024-08-01 02:28:23
- 2 Hydraulic Excavator - La… LOAD-0… HAUL-0… Bench  Waste    2024-08-27 10:58:46
- 3 Hydraulic Excavator - La… LOAD-0… HAUL-0… Rehan… Waste    2024-08-29 08:48:02
- 4 Hydraulic Excavator - La… LOAD-0… HAUL-0… Bench  Ore      2024-08-01 00:58:56
- 5 Hydraulic Excavator - La… LOAD-0… HAUL-0… Bench  Waste    2024-07-05 14:52:17
- 6 Hydraulic Excavator - La… LOAD-0… HAUL-0… Rehan… Waste    2024-07-29 08:00:39
- 7 Hydraulic Excavator - La… LOAD-0… HAUL-0… Bench  Ore      2024-08-06 04:11:24
- 8 Hydraulic Excavator - La… LOAD-0… HAUL-0… Bench  Waste    2024-07-01 03:42:22
- 9 Hydraulic Excavator - La… LOAD-0… HAUL-0… Rehan… Waste    2024-07-29 05:37:13
-10 Hydraulic Excavator - La… LOAD-0… HAUL-0… Stock… Ore      2024-08-24 17:38:34
-# ℹ 131 more rows
-# ℹ 4 more variables: exit_time &lt;dttm&gt;, payload &lt;dbl&gt;, duration_min &lt;dbl&gt;,
-#   n_passadas &lt;int&gt;</code></pre>
-</div>
 </div>
 <table class="caption-top table">
 <colgroup>

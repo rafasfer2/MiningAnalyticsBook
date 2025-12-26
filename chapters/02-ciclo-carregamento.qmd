@@ -8,7 +8,7 @@ format: html
 
 Carregamento refere-se ao processo de remoção e carregamento do material de minério no seu ponto de origem até seu sistema de transporte com destino ao seu ponto de descarga. As operações de carregamento são prioritariamente realizadas por escavadeiras ou carregadeiras hidráulicas ou elétricas, realizando o processo de enchimento da caçamba dos caminhões com minério ou estéril. No processo de carregamento o caminhão se posiciona ao lado da escavadeira, permitindo-a realizar os movimentos de giro e despejo do material. A @fig-ciclo-posicionamento-carga ilustra o processo de carregamento do caminhão na mineração.
 
-![Método de Posicionamento no Carregamento](../images/fig_processo_posicionamento_carga.png){#fig-ciclo-posicionamento-carga fig-cap="Método de carregamento e posicionamento do caminhão."}
+![Método de Posicionamento no Carregamento](/images/fig_processo_posicionamento_carga.png){#fig-ciclo-posicionamento-carga fig-cap="Método de carregamento e posicionamento do caminhão."}
 
 A medição da operação de carregamento é baseada na captura de eventos recorrentes de curta duração, onde a precisão da coleta impacta diretamente a confiabilidade dos indicadores de performance. O desempenho do equipamento de carga é avaliado pela sua capacidade de manter um ritmo constante, minimizando as variabilidades inerentes à interação com a frota de transporte. Os principais KPIs derivam da relação entre a massa movimentada e o tempo despendido, permitindo identificar se a perda de performance reside na competência operacional ou na disponibilidade técnica do ativo.
 
@@ -77,7 +77,6 @@ load_events_mine_a %>%
     )
 ```
 
-
 Nesta visão consolidada, vemos que a operação total para atender o HAUL-0051 consumiu $6,77$ minutos, resultando na movimentação de $280$ toneladas de estéril. Este registro agora representa uma unidade de contagem completa, pronta para ser utilizada em modelos de produtividade e confiabilidade."
 
 ## Estrutura de Dados e Notações Operacionais
@@ -125,24 +124,17 @@ load_events_mine_a %>%
     .groups      = "drop"
   )
 ```
-------------------------------------------------------------------------
-## Identidade Fundamental do Ciclo de Carregamento
 
-A organização dos dados em eventos sequenciais e contínuos nos permite estabelecer que a soma das durações das fases componentes resulta no tempo total despendido para o atendimento de uma composição. Denominamos $X_i$ como o **Tempo Total do Ciclo** para a composição $i$, definido pela identidade:
+|  |
+|:-----------------------------------------------------------------------|
+| \## Identidade Fundamental do Ciclo de Carregamento |
+| A organização dos dados em eventos sequenciais e contínuos nos permite estabelecer que a soma das durações das fases componentes resulta no tempo total despendido para o atendimento de uma composição. Denominamos $X_i$ como o **Tempo Total do Ciclo** para a composição $i$, definido pela identidade: |
+| $$X_i = M_i + D_i + O_i$$ |
+| Esta igualdade é o pilar central da análise de performance, pois permite ao gestor identificar se uma variação no ritmo de saída foi causada por ineficiência técnica ($D_i$), problemas de manobra ($M_i$) ou descasamento de frota ($O_i$). |
+| \## Processo de Contagem e Intervalos entre Composições |
+| Uma vez definido o tempo de cada ciclo individual, observamos como esses ciclos se sucedem cronologicamente: |
+| \- $T_i$ — Tempo do Ciclo de Carregamento: Representa o momento exato (*timestamp*) de finalização da carga da composição $i$, conhecido como *Exit Time*. Uma nova contagem inicia-se imediatamente em $T_i$. - $X_i$ — Tempo entre Composições: Representa o tempo decorrido entre o término de duas composições sucessivas ($T_i - T_{i-1}$). Sua sigla técnica é **TBC** (*Time Between Compositions*). - $N(t)$ — Processo de Contagem das Composições: É a variável aleatória associada ao número de composições acumuladas até o instante $t$, funcionando como o contador do desfecho logístico. |
 
-$$X_i = M_i + D_i + O_i$$
-
-Esta igualdade é o pilar central da análise de performance, pois permite ao gestor identificar se uma variação no ritmo de saída foi causada por ineficiência técnica ($D_i$), problemas de manobra ($M_i$) ou descasamento de frota ($O_i$).
-
-## Processo de Contagem e Intervalos entre Composições
-
-Uma vez definido o tempo de cada ciclo individual, observamos como esses ciclos se sucedem cronologicamente:
-
--   $T_i$ — Tempo do Ciclo de Carregamento: Representa o momento exato (*timestamp*) de finalização da carga da composição $i$, conhecido como *Exit Time*. Uma nova contagem inicia-se imediatamente em $T_i$.
--   $X_i$ — Tempo entre Composições: Representa o tempo decorrido entre o término de duas composições sucessivas ($T_i - T_{i-1}$). Sua sigla técnica é **TBC** (*Time Between Compositions*).
--   $N(t)$ — Processo de Contagem das Composições: É a variável aleatória associada ao número de composições acumuladas até o instante $t$, funcionando como o contador do desfecho logístico.
-
-------------------------------------------------------------------------
 ## Mensuração da Performance de Carregamento
 
 A transformação de dados primários em indicadores de desempenho (KPIs) é o passo fundamental para converter registros brutos em inteligência operacional. Os indicadores abaixo utilizam as notações estabelecidas e são processados automaticamente pelas funções do pacote `miningKPI`.
@@ -153,30 +145,24 @@ Mede a entrega física total de material em um intervalo de tempo. Representa a 
 
 ### Horas Trabalhadas (Work Hours - WH)
 
-Mede o tempo total de exposição do equipamento ao processo produtivo, convertido para horas. 
-$$WH = \frac{\sum_{i=1}^{N(t)} X_i}{60}$$
+Mede o tempo total de exposição do equipamento ao processo produtivo, convertido para horas. $$WH = \frac{\sum_{i=1}^{N(t)} X_i}{60}$$
 
 ### Tempo Médio de Carregamento (Mean Loading Cycle Time - MLCT)
 
-Representa a média aritmética das durações $D_i$, refletindo a eficiência técnica da interação máquina-material.
-$$MLCT = \frac{1}{N(t)} \sum_{i=1}^{N(t)} D_i$$
+Representa a média aritmética das durações $D_i$, refletindo a eficiência técnica da interação máquina-material. $$MLCT = \frac{1}{N(t)} \sum_{i=1}^{N(t)} D_i$$
 
 ### Ociosidade da Escavadeira (Mean Operational Cycle Time - MOCT)
 
-Média da variável de ociosidade $O_i$, capturando o impacto das esperas por transporte no ritmo da frente de lavra. 
-$$MOCT = \frac{1}{N(t)} \sum_{i=1}^{N(t)} O_i$$
+Média da variável de ociosidade $O_i$, capturando o impacto das esperas por transporte no ritmo da frente de lavra. $$MOCT = \frac{1}{N(t)} \sum_{i=1}^{N(t)} O_i$$
 
 ### Ritmo de Produção (Mean Time Between Compositions - MTBC)
 
-Média aritmética dos valores $X_i$, descrevendo o "batimento cardíaco" do sistema de carga. 
-$$MTBC = \frac{1}{N(t)} \sum_{i=1}^{N(t)} X_i$$
+Média aritmética dos valores $X_i$, descrevendo o "batimento cardíaco" do sistema de carga. $$MTBC = \frac{1}{N(t)} \sum_{i=1}^{N(t)} X_i$$
 
 ### Produtividade de Carregamento (Loading Productivity - LP)
 
-Taxa de produção horária efetiva, definida pelo quociente entre a massa total e o tempo em horas. 
-$$LP = \frac{TPL}{WH}$$
+Taxa de produção horária efetiva, definida pelo quociente entre a massa total e o tempo em horas. $$LP = \frac{TPL}{WH}$$
 
 ### Capacidade de Carga (Load Capacity - LC)
 
-Representa o somatório de toda a massa movimentada, discriminando a composição entre minério e estéril para fins de reconciliação de lavra. 
-$$LC = \sum_{i=1}^{N(t)} L_{i(\text{minério})} + \sum_{i=1}^{N(t)} L_{i(\text{estéril})}$$
+Representa o somatório de toda a massa movimentada, discriminando a composição entre minério e estéril para fins de reconciliação de lavra. $$LC = \sum_{i=1}^{N(t)} L_{i(\text{minério})} + \sum_{i=1}^{N(t)} L_{i(\text{estéril})}$$

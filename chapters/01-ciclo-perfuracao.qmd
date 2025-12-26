@@ -1,35 +1,35 @@
 ---
-format: html
-execute:
-  eval: false
+  format: html
 ---
 
 # Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle) {#chap-perfuracao}
 
 A perfuração de rochas nas minas a céu aberto é a primeira etapa do processo de cominuição. Realizada por perfuratrizes percussivas e/ou rotativas (*drill rigs*) que utilizam energia hidráulica ou pneumática, esta atividade tem como objetivo primordial projetar e preparar frentes livres de escavação. A qualidade deste processo dita diretamente os resultados dos serviços subsequentes: detonação (*blasting*), carga (*loading*) e transporte (*hauling*).
 
+::: {.callout-note title="Exemplo Prático: O Efeito Cascata Operacional"}
+Imagine que uma perfuratriz não respeitou a inclinação de projeto (ex: 15º) e perfurou verticalmente (90º). Isso gera um super-burden na base da bancada. Na hora da detonação, a rocha não quebrará adequadamente no "pé" do talude, gerando matacões (blocos gigantes) que reduzirão a produtividade da escavadeira em até 30% no próximo turno.
+:::
+
 ## O Ciclo Físico de Perfuração (Drilling Cycle)
 
-O ciclo operacional de uma perfuratriz não se resume apenas a "furar o chão". O ciclo de perfuração de rochas é composto por cinco fases fundamentais (\@fig-ciclo-perfuracao) que devem ser monitoradas individualmente:
+O ciclo operacional de uma perfuratriz não se resume apenas a "furar o chão". Para fins de análise, a @fig-ciclo-perfuracao mostra o ciclo composto por cinco fases fundamentais que devem ser monitoradas individualmente:
 
-1.  **Posicionamento (*Positioning* -** $P_i$): Alinhamento da máquina de acordo com as coordenadas do furo e a inclinação de projeto da bancada.
+1.  **Posicionamento (Positioning -** $P_i$): Alinhamento da máquina de acordo com as coordenadas do furo e nivelamento das sapatas (*jacks*).
 
-2.  **Emboquilhamento (*Collaring* -** $P_i$): Posicionamento do *bit* e início da penetração cuidadosa para evitar desvios iniciais.
+2.  **Emboquilhamento (Collaring -** $C_i$): Início da penetração cuidadosa (baixa rotação/avanço) para evitar desvios iniciais e garantir a integridade da "boca" do furo.
 
-3.  **Perfuração (*Drilling* -** $D_i$): Aplicação de rotação, percussão e *pull-down* para ocasionar a ruptura e avanço na rocha.
+3.  **Perfuração (Drilling -** $D_i$): Aplicação de rotação, percussão e *pull-down* pleno para o avanço na rocha.
 
-4.  **Manuseio de Hastes (*Rod Handling* -** $H_i$): Adição sucessiva de hastes conforme a profundidade almejada e sua posterior retirada (*threading/unthreading*).
+4.  **Manuseio de Hastes (Rod Handling -** $H_i$): Adição sucessiva de hastes para profundidade ou sua retirada (*threading/unthreading*).
 
-5.  **Deslocação (*Tramming* -** $M_i$): Movimentação do equipamento para o próximo ponto de furo.
+5.  **Deslocação (Tramming -** $M_i$): Movimentação para o próximo ponto de furo dentro da mesma malha.
 
 ![Ciclo de Perfuração.](../images/fig-ciclo-perfuracao.png){#fig-ciclo-perfuracao}
-
-No pacote `miningKPI`, disponibilizamos o banco de dados `drill_events_mine_d`. Este dataset contém a telemetria detalhada (formato long), permitindo identificar cada fase da Identidade Fundamental do ciclo de perfuração.
 
 ::: {style="background-color:#e6f9e6; border-left: 4px solid #4CAF50; padding: 1em; margin: 1em 0;"}
 **Exemplo:** Dados de eventos de perfuração – Mina D
 
-No pacote `miningKPI`, disponibilizamos o banco de dados `load_events_mine_a`. Este dataset é um conjunto de dados primário estruturado em eventos sequenciais (formato long), onde cada linha representa a mudança de estado da unidade de carga.
+No pacote `miningKPI`, disponibilizamos o banco de dados `drill_events_mine_d`. Este dataset contém a telemetria detalhada (formato *long*), permitindo identificar cada fase da Identidade Fundamental. Note que, na prática, os dados brutos podem apresentar falhas de registro (fases ausentes) ou repetições.
 :::
 
 ```{r}
@@ -42,99 +42,266 @@ library(miningKPI)
 library(dplyr)
 library(knitr)
 
+# Exemplo de dois ciclos da perfuratriz DRILL_100
+# Observamos a transição entre o Ciclo 1 e Ciclo 2
 drill_events_mine_d %>%
-  filter(drill_id == "DRILL_100") %>%
-  # Selecionando eventos que compõem um ciclo típico de furo
-  slice(5:9) %>%
-  kable(caption = "Sequência de eventos da perfuratriz DRILL_100")
+  filter(drill_id == "DRILL_100", cycle %in% 1:2) %>%
+  kable(caption = "Sequência de eventos: Note a repetição de drilling/rods e trocas de ciclo")
 ```
 
-No dia 01/01/2023, a perfuratriz DRILL_100 (da frota Rotary Drill - Class PF416) operava na região de **Dry Pit**. Analisando a sequência cronológica, podemos decompor o ciclo operacional:
+### Analisando a sequência cronológica
 
--   **Linha 1 (O Setup -** $P_i$): Às 01:45:35, inicia-se o posicionamento e emboquilhamento. Este evento de `setup` dura $14,7$ minutos, preparando a haste para a penetração inicial.
+Ao observar os dados da **DRILL_100**, podemos extrair *insights* valiosos sobre a eficiência da operação:
 
--   **Linha 2 (A Manobra -** $M_i$): Segue-se um evento de `tramming` de $4,15$ minutos. Na perfuração, manobras curtas entre furos da mesma malha são fundamentais para o cálculo da performance bruta.
+-   **Fases 1 e 2 (**$P_i$ e $C_i$): Representam os preparativos. Se o operador gasta muito tempo na **Fase 1 (Posicionamento)**, a praça pode estar mal nivelada ou o layout da malha está dificultando a manobra.
 
--   **Linha 3 (A Perfuração -** $D_i$): Às 02:04:29, o bit inicia o contato efetivo com a rocha. Esta fase de `drilling` dura $6,87$ minutos. É neste intervalo que a Taxa de Penetração (ROP) é calculada.
+-   **Fase 3 (**$D_i$): É aqui que a Taxa de Penetração (ROP) é calculada. Em furos profundos, é comum vermos a **Fase 3** e a **Fase 4 (**$H_i$) se repetirem alternadamente conforme novas hastes são adicionadas.
 
--   **Linha 4 (As Hastes -** $H_i$): O evento `rods` de $9,38$ minutos indica o manuseio da coluna de perfuração (adição ou retirada de hastes), essencial para atingir a profundidade de projeto.
+-   **Fase 5 (**$M_i$): Marca o encerramento do furo atual e o deslocamento para o próximo ponto da malha.
 
--   **A Consolidação do Ciclo (**$X_i$): Assim como no carregamento, o ciclo total de um furo é a soma dessas durações. Para transformar os micro-eventos em indicadores de performance, sumarizamos os dados por ciclo:
+A repetição das fases 3 e 4, característica de furos que exigem múltiplas hastes, pode ser observada detalhadamente no **Ciclo 2**:
+
+**Detalhamento do Ciclo 2 (**$X_2$):
+
+-   **Phase 1:** Zero eventos registrados $\rightarrow P_2 = 0,00$ minutos.
+
+-   **Phase 2:** Zero eventos registrados $\rightarrow C_2 = 0,00$ minutos.
+
+-   **Phase 3 (Perfuração):** Composta por 3 eventos $\rightarrow D_2 = 6,87 + 3,38 + 5,60 = 15,85$ minutos.
+
+-   **Phase 4 (Hastes):** Composta por 3 eventos $\rightarrow H_2 = 9,38 + 5,72 + 2,22 = 17,32$ minutos.
+
+-   **Phase 5 (Deslocamento):** Composta por 1 evento $\rightarrow M_2 = 1,62$ minutos.
+
+### Consolidação e Higienização com `add_missing_drill_phases()`
+
+Para que a análise estatística seja robusta, utilizamos a função `add_missing_drill_phases()`. Ela identifica fases ausentes e as imputa com duração zero, garantindo que cada ciclo contenha as 5 fases fundamentais, além da **Fase 6 (exit_cycle)**, um marcador técnico necessário para o motor de cálculo.
+
+::: {style="background-color:#e6f9e6; border-left: 4px solid #4CAF50; padding: 1em; margin: 1em 0;"}
+**Exemplo:** Análise de input das fases faltantes
+
+Como o `drill_events_mine_d` é um objeto de eventos brutos, aplicamos a função para observar o preenchimento das lacunas:
+:::
 
 ```{r}
 #| echo: true
 #| message: false
 #| warning: false
 
+# Aplicando a função de completude de fases
 drill_events_mine_d %>%
-  filter(drill_id == "DRILL_100") %>%
-  slice(5:9) %>%
-  group_by(drill_id, drill_fleet, origin) %>%
-  summarise(
-    start_hole    = min(first_time),
-    end_hole      = max(exit_time),
-    # Metragem alocada proporcionalmente neste intervalo
-    meters_drilled = sum(allocated_meters, na.rm = TRUE),
-    total_xi_min   = sum(duration_min),
-    .groups       = "drop"
-  )
+    filter(drill_id %in% "DRILL_100", cycle %in% 1:2) %>%
+    add_missing_drill_phases() %>%
+    print(n = Inf)
 ```
 
-> **Nota de Modelagem:** No pacote `miningKPI`, as fases de **Posicionamento** e **Emboquilhamento** são frequentemente agrupadas na variável de **Setup (**$P_i$), pois ambas representam tempos preparatórios sem avanço significativo de profundidade.
+Note que os seguintes eventos foram gerados automaticamente pelo algoritmo:
 
-Após a conclusão da malha (*drill pattern*), ocorre o desmonte por explosivos, transformando a rocha *in situ* em material fragmentado (*run-of-mine* - ROM) pronto para o carregamento
+-   **No Ciclo 1:** Imputação da **Phase 1** (linha 1) e da **Phase 6** (linha 8).
 
-## Do Planejamento à Marcação de Campo
-
-A execução da perfuração é o resultado de um fluxo de planejamento rigoroso que antecede a chegada da máquina:
-
--   **Dimensionamento do Plano:** Polígonos de perfuração são desenhados via software de planejamento, definindo coordenadas $(x,y,z)$, *burdens* (afastamento) e espaçamentos (*spacing*).
-
--   **Preparação da Área (*Pad Preparation*):** Liberação de ordens de serviço para limpeza de praça, garantindo a trafegabilidade e nivelamento para as perfuratrizes.
-
--   **Marcação Topográfica (*Survey Stakeout*):** Materialização física dos furos no campo (estacas ou GPS de alta precisão), ponto onde o operador inicia o ciclo de posicionamento ($P_i$).
-
-## Métodos e Malhas de Perfuração
-
-A geometria da malha (quadrada, retangular ou estagiada) é desenhada para otimizar a distribuição de energia do explosivo. Quanto à tecnologia de perfuração, destacam-se:
-
--   **Top Hammer (Martelo de Topo):** Indicado para furos de menor diâmetro (até 140 mm), onde a percussão ocorre fora do furo.
-
--   **Down The Hole (DTH):** O martelo atua diretamente sobre o *bit* no fundo do furo, minimizando a perda de energia em furos profundos.
-
-### Estrutura de Dados e Notações
-
-Para transformar a operação em **Mining Analytics**, precisamos traduzir os eventos físicos em variáveis matemáticas. Para cada furo $i$, definimos a base de dados operacional conforme a tabela abaixo:
-
-|  |  |  |  |
-|------------------|------------------|------------------|------------------|
-| **Fase Operacional** | **Notação Matemática** | **Sigla Técnica (English)** | **Variável no R (miningKPI)** |
-| **Setup e Início** | $P_i$ | SET (Setup/Positioning) | `p_time` |
-| **Penetração Real** | $D_i$ | DRI (Drilling Time) | `d_time` |
-| **Troca de Hastes** | $H_i$ | RHT (Rod Handling Time) | `h_time` |
-| **Movimentação** | $M_i$ | TRA (Tramming) | `m_time` |
-| **Total do Furo** | $X_i$ | TBF (Total Borne Time) | `xi_min` |
-
-: Relação entre fases operacionais e notações matemáticas na perfuração. {#tbl-notacao-perfuracao}
+-   **No Ciclo 2:** Imputação da **Phase 1** (linha 9), **Phase 2** (linha 10) e da **Phase 6** (linha 19).
 
 ## Identidade Fundamental do Ciclo de Perfuração
 
-A base de toda análise de eficiência em perfuração parte da premissa de que o tempo total para completar um furo ($X_i$) é a soma linear de seus componentes:\
-$$X_i = P_i + D_i + H_i + M_i$$
+A base de toda análise de eficiência em perfuração parte da premissa de que o tempo total para completar um furo ($X_i$) é a soma linear de seus componentes excludentes:
+
+$$X_i = P_i + C_i + D_i + H_i + M_i$$
 
 Esta igualdade permite identificar a natureza dos gargalos operacionais:
 
--   Elevação de $D_i$: Provável causa geológica (rocha dura) ou desgaste do *bit*.
+-   **Elevação de** $D_i$: Provável causa geológica (rocha dura) ou desgaste excessivo do *bit*.
 
--   Elevação de $H_i$: Problemas mecânicos no carrossel ou falha operacional no manuseio.
+-   **Elevação de** $H_i$: Problemas mecânicos no carrossel de hastes ou inexperiência operacional no manuseio.
 
--   Elevação de $M_i$: Problemas de infraestrutura (praça ruim) ou layout de malha ineficiente.
+-   **Elevação de** $M_i$: Problemas de infraestrutura (praça mal preparada) ou layout de malha ineficiente.
+
+**Exemplo: Calculando a identidade fundamental**
+
+Utilizamos o agrupamento por ciclo para consolidar os tempos e validar a identidade fundamental:
+
+::: {style="background-color:#e6f9e6; border-left: 4px solid #4CAF50; padding: 1em; margin: 1em 0;"}
+**Exemplo:** Calculando a identidade fundamental do ciclo de perfuração.
+
+Como `drill_events_mine_d` é \#' Um data frame ou tibble contendo eventos de perfuração (drill events), podemos aplicar a função `add_missing_drill_phases() conforme pode ser visto no código abaixo:`
+:::
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# Aplicando a função de completude de fases
+drill_events_mine_d %>%
+    filter(drill_id %in% "DRILL_100", cycle %in% 1:3) %>%
+    add_missing_drill_phases() %>%
+    group_by(drill_id, cycle) %>%
+    summarise(
+        start_hole   = min(first_time, na.rm = TRUE),
+        total_xi_min = sum(duration_min, na.rm = TRUE),
+        # Corrigido: remove NAs da comparação de fase
+        pi_sum = sum(duration_min[!is.na(phase) & phase == 1], na.rm = TRUE),
+        ci_sum = sum(duration_min[!is.na(phase) & phase == 2], na.rm = TRUE),
+        di_sum = sum(duration_min[!is.na(phase) & phase == 3], na.rm = TRUE),
+        hi_sum = sum(duration_min[!is.na(phase) & phase == 4], na.rm = TRUE),
+        mi_sum = sum(duration_min[!is.na(phase) & phase == 5], na.rm = TRUE),
+        xi_sum = pi_sum + ci_sum + di_sum + hi_sum + mi_sum,
+        .groups      = "drop"
+    )
+```
+
+### Interpretando os Gaps Operacionais
+
+Ao confrontarmos o `total_xi_min` (tempo total de residência) com o `xi_sum` (soma das fases produtivas), identificamos o que chamamos de **Gaps Operacionais**. Esses intervalos são cruciais para a gestão, pois revelam tempos em que o equipamento está disponível e alocado, mas não está perfurando.
+
+Observe a investigação realizada nos ciclos da **DRILL_100**:
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# Filtrando apenas eventos de ociosidade (sem fase produtiva) nos ciclos 1 a 3
+drill_events_mine_d %>%
+    filter(drill_id %in% "DRILL_100", cycle %in% 1:3, is.na(phase)) %>%
+    select(drill_id, borehole_uid, cycle, category, description_en, duration_min)
+```
+
+Análise de Causa Raiz:
+
+1.  **Ciclo 1 (Ociosidade Crítica):** Há uma diferença de aproximadamente **47 minutos**. Através do output acima, verificamos que esse tempo foi consumido por dois eventos de **IIH (Horas Ociosas Internas)**:
+
+    -   **Shift Change (1.13 min):** Uma troca de turno rápida e dentro do esperado.
+
+    -   **Operator Talk/Lecture (45.6 min):** Uma palestra ou orientação operacional que deteve a máquina por quase uma hora.
+
+    > **Insight:** Aqui identificamos que o baixo rendimento deste furo não foi causado por dureza da rocha ou falha mecânica, mas por uma interferência de gestão/treinamento.
+
+2.  **Ciclo 2 (Atraso Logístico):** Identificamos um evento de **Water Refill (9.23 min)**. Embora necessário, o abastecimento de água é uma ociosidade interna (**IIH**) que, se repetida em excesso, indica a necessidade de otimização do trajeto do caminhão-pipa.
+
+3.  **Ciclo 3 (Performance Ideal):** A aderência é quase total ($51.6$ vs $51.5$ min). Este é o "ciclo limpo", onde a máquina operou de forma contínua do posicionamento ao deslocamento final, sem registros de **IIH** ou **HOI**.
+
+> ::: {.callout-tip title="Nota de Modelagem"}
+> Diferente do carregamento, onde a carga varia, na perfuração a profundidade é fixa por projeto. O uso da higienização garante que a média de $C_i$ (Emboquilhamento), por exemplo, não seja enviesada por ciclos onde o sensor falhou em registrar o evento.
+> :::
+
+## Do Planejamento à Marcação de Campo
+
+A execução da perfuração não é um evento isolado, mas o resultado de um fluxo de planejamento rigoroso. No pacote `miningKPI`, podemos rastrear as falhas nesse fluxo através das descrições operacionais (**`description_en`**) e categorias de ociosidade interna (**HOI/IIH**).
+
+### 1. Dimensionamento do Plano
+
+Os polígonos de perfuração são desenhados em softwares de engenharia, definindo coordenadas $(x,y,z)$, *burdens* (afastamento) e espaçamentos (*spacing*).
+
+-   **Evidência nos Dados:** Quando o plano não chega à cabine, observamos a descrição `"Waiting for Planning Demand"` ou comentários como `"Missing Polygon/Pattern"`. Sem o polígono digital, a perfuratriz fica impossibilitada de operar com HPGPS.
+
+### 2. Preparação da Área (Pad Preparation)
+
+Liberação de ordens para tratores de esteira (*Dozers*) limparem e nivelarem a praça. Uma praça mal preparada aumenta drasticamente o tempo de Posicionamento ($P_i$).
+
+-   **Evidência nos Dados:** Este gargalo é identificado pelas descrições `"Waiting for Pad Adjustment"` e `"Waiting for Access Condition"`. Na prática, se o tempo acumulado nessas categorias for alto, a oportunidade de melhoria não está na perfuratriz, mas na frota de apoio (infraestrutura).
+
+### 3. Marcação Topográfica (Survey Stakeout)
+
+É a materialização física (piquetes) ou via GPS de alta precisão (HPGPS) do local exato onde o operador inicia o ciclo.
+
+-   **Evidência nos Dados:** Falhas nesta etapa geram descrições como `"Waiting for Survey"` e `"Waiting for Drill Pattern Mark."`. O comentário `"Project Not Updating / No Physical Marking"` é o exemplo clássico de um erro de redundância: o sistema digital falhou e a marcação física (tradicional) não foi realizada, paralisando o ativo.
+
+### Resumo de Correlação para Investigação
+
+Para facilitar a análise de causa raiz, a tabela abaixo correlaciona as etapas do planejamento com os dados que você encontrará no dataset:
+
+|  |  |  |  |
+|------------------|------------------|------------------|------------------|
+| **Planning Stage (Etapa de Planejamento)** | **Technical Initials (Sigla Técnica)** | **KPI Category (PT / EN)** | **Common Descriptions (Descrições Comuns)** |
+| **Dimensioning (Design)** | Plano / Plan | **HOI / IIH** | `Waiting for Planning Demand`, `Missing Polygon` |
+| **Preparation (Pad Prep)** | Infra | **HOI / IIH** \| **HTD / DWH** | `Waiting for Pad Adjustment`, `Access Condition` |
+| **Marking (Survey)** | Topo / Survey | **HOI / IIH** \| **HTI / IWH** | `Waiting for Survey`, `Pattern Marking` |
+
+::: {style="background-color:#e6f9e6; border-left: 4px solid #4CAF50; padding: 1em; margin: 1em 0;"}
+**Exemplo:** Investigando Falhas no Fluxo de Planejamento.
+
+Abaixo, demonstramos como utilizar os dados de telemetria para identificar qual etapa do planejamento — Design (Plan), Pad Preparation ou Survey Stakeout — está impactando a disponibilidade física da frota. Neste exemplo, filtramos apenas os eventos que não possuem fase produtiva (is.na(phase)) e os categorizamos utilizando as descrições e comentários traduzidos.
+:::
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+library(miningKPI)
+library(dplyr)
+
+# 1. Investigação baseada em descrições e categorias (sem coluna code)
+drill_investigation <- drill_events_mine_d %>%
+  filter(drill_id == "DRILL_100", is.na(phase)) %>%
+  mutate(planning_stage = case_when(
+    # Stage 1: Design (Plan)
+    description_en == "Waiting for Planning Demand" | 
+      comment_en %in% c("Missing Polygon/Pattern", "Waiting for Polygon 006 Release") ~ "1. Design (Plan)",
+    
+    # Stage 2: Pad Preparation
+    description_en %in% c("Waiting for Pad Adjustment", "Waiting for Access Condition") ~ "2. Pad Preparation",
+    
+    # Stage 3: Survey Stakeout
+    description_en %in% c("Waiting for Drill Pattern Mark.", "Waiting for Survey") |
+      comment_en == "Project Not Updating / No Physical Marking" ~ "3. Survey Stakeout",
+    
+    TRUE ~ "Other Idle Times"
+  ))
+
+# 2. Sumarizando o impacto com description_en e category
+drill_investigation %>%
+  group_by(planning_stage, description_en, category) %>%
+  summarise(
+    total_lost_min = sum(duration_min, na.rm = TRUE),
+    n_events       = n(),
+    avg_delay_min  = mean(duration_min, na.rm = TRUE),
+    .groups        = "drop"
+  ) %>%
+  arrange(planning_stage, desc(total_lost_min))
+```
+
+### Análise de Causa Raiz para o Gestor
+
+A inclusão da **`category`** e da **`description_en`** permite uma auditoria precisa sobre qual processo está retendo o ativo:
+
+-   **1. Design (Plan):** Se observarmos altos tempos com categoria **HOI** (Horas Ociosas Internas) nesta etapa, a engenharia de curto prazo está falhando na entrega dos polígonos digitais, impedindo o uso do HPGPS.
+
+-   **2. Pad Preparation:** Eventos de infraestrutura que impactam o posicionamento ($P_i$). Se o tempo de *Pad Adjustment* for crítico, a frota de apoio (tratores) deve ser cobrada por não preparar as frentes a tempo.
+
+-   **3. Survey Stakeout:** Representa a falha de marcação física. Quando a telemetria registra *Waiting for Survey*, o operador está paralisado aguardando a topografia, o que degrada diretamente o **GDR** (*Gross Drilling Rate*).
+
+## Métodos e Malhas de Perfuração
+
+A tecnologia de perfuração impacta diretamente o tempo de $D_i$ e $H_i$:
+
+-   **Top Hammer:** Indicado para furos menores (\< 140 mm). A percussão ocorre fora do furo, no topo da coluna de hastes.
+
+-   **Down The Hole (DTH):** O martelo atua no fundo do furo, logo acima do bit. É ideal para furos profundos e rochas duras, mantendo o ROP constante independentemente da profundidade.
+
+\[Image comparing Top Hammer vs Down-The-Hole drilling mechanisms cross-section\]
+
+## Estrutura de Dados e Notações
+
+Traduzimos os eventos físicos em variáveis matemáticas padronizadas para facilitar a modelagem e análise de dados:
+
+|  |  |  |  |
+|------------------|------------------|------------------|------------------|
+| **Fase Operacional** | **Notação Matemática** | **Sigla Técnica** | **Variável R (miningKPI)** |
+| Posicionamento | $P_i$ | POS | `pi_min` |
+| Emboquilhamento | $C_i$ | COL | `ci_min` |
+| Penetração Real | $D_i$ | DRI | `di_min` |
+| Manuseio Hastes | $H_i$ | RHT | `hi_min` |
+| Deslocação | $M_i$ | TRA | `mi_min` |
+| **Total do Furo** | $X_i$ | **TBF** | **`xi_min`** |
+
+: Relação entre fases operacionais e notações na perfuração. \[\^1\] {#tbl-notacao-perfuracao}
 
 ## Mensuração da Performance (KPIs)
 
 A transformação dos registros brutos (telemetria) em inteligência de negócio é processada automaticamente pelas funções do pacote `miningKPI`. Os principais indicadores são:
 
-### 1. Metragem Total Perfurada (Total Drilled Meters - TDM)
+### Metragem Total Perfurada (Total Drilled Meters - TDM)
 
 Representa o volume físico total de furos realizados em um intervalo de tempo $t$.
 
@@ -144,7 +311,7 @@ $$TDM = \sum_{i=1}^{N(t)} L_i$$
 
 -   $N(t)$: Número total de furos acumulados no período.
 
-### 2. Taxa de Penetração Líquida (Rate of Penetration - ROP)
+### Taxa de Penetração Líquida (Rate of Penetration - ROP)
 
 Mede a velocidade média de avanço da ferramenta exclusivamente durante o tempo de contato e corte da rocha ($D_i$). É o indicador puro de eficiência mecânica e resposta litológica.
 
@@ -154,15 +321,53 @@ $$ROP = \frac{TDM}{\sum_{i=1}^{N(t)} D_i} \quad [m/h]$$
 
 -   $D_i$: Tempo de perfuração efetiva (convertido para horas).
 
-### 3. Taxa de Perfuração Bruta (Gross Drilling Rate - GDR)
+### Taxa de Perfuração Bruta (Gross Drilling Rate - GDR)
 
 Indica a produtividade global do ativo, considerando todo o tempo de ciclo ($X_i$), incluindo manobras e trocas de haste. É o indicador de eficiência logística da operação.
 
 $$GDR = \frac{TDM}{\sum_{i=1}^{N(t)} X_i} \quad [m/h]$$
 
+## Implementação em R (miningKPI Implementation)
+
+O código abaixo utiliza o dataset `drill_events_mine_d` para calcular a performance real, confrontando a velocidade na rocha com a velocidade da operação.
+
+::: {style="background-color:#e6f9e6; border-left: 4px solid #4CAF50; padding: 1em; margin: 1em 0;"} Exemplo: Mensuração automatizada de performance (KPIs) da frota.
+
+A função drill_summarize_performance() consolida os eventos brutos, aplica as fórmulas da Identidade Fundamental e entrega os indicadores de metragem (TDM), velocidade na rocha (ROP) e produtividade logística (GDR). No código abaixo, observamos a performance da DRILL_100 agrupada por dia.
+:::
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+library(miningKPI)
+library(dplyr)
+
+# Processamento de KPIs de performance
+performance_report <- drill_events_mine_d %>%
+    filter(drill_id == "DRILL_100") %>%
+    add_missing_drill_phases() %>%
+    drill_summarize_performance(
+        per = drill_id, 
+        time_unit = "day"
+    )
+
+# Exibição dos indicadores fundamentais
+performance_report %>%
+    select(drill_id, periodo, TDM, WH, ROP, GDR, n_holes) %>%
+    knitr::kable(digits = 2, caption = "Relatório de Performance - DRILL_100")
+```
+
 ## Integração: Do Bit à Caçamba
 
 Portanto, ao monitorarmos o TDM (Metragem Total Perfurada) e a aderência à malha, estamos, na verdade, garantindo que a Identidade Fundamental do Carregamento, que exploraremos no \@ref(chap-carregamento), apresente os menores valores possíveis de variabilidade.
+
+## Agregação de Ciclos (Nível Borehole)
+
+Nesta etapa, elevamos o nível de granularidade da nossa análise. Enquanto o dataframe `drill_events_mine_d` foca em **eventos e fases** (cada mudança de estado da perfuratriz), o dataframe `drill_cycles_mine_d` consolida esses dados para o nível de **ciclo de perfuração** (o processo completo de um furo/borehole).
+
+Esta agregação é fundamental para validar a **Identidade Fundamental da Perfuração**, permitindo observar o tempo total gasto por furo ($Xi$) e a profundidade real atingida.
 
 ## Referências do Capítulo {.unnumbered}
 

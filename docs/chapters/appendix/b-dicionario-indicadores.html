@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Apêndice B — Dicionário de Indicadores (KPIs) {#app-indicadores .unnumbered} – Sistema de Gestão e Excelência Operacional na Mineração</title>
+<title>Apêndice B — Dicionário de Indicadores (KPIs) – Sistema de Gestão e Excelência Operacional na Mineração</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -218,9 +218,12 @@ window.Quarto = {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#a.-indicadores-de-perfuração" id="toc-a.-indicadores-de-perfuração" class="nav-link active" data-scroll-target="#a.-indicadores-de-perfuração"><span class="header-section-number">B.1</span> A. Indicadores de Perfuração</a></li>
-  <li><a href="#b.-indicadores-de-carregamento" id="toc-b.-indicadores-de-carregamento" class="nav-link" data-scroll-target="#b.-indicadores-de-carregamento"><span class="header-section-number">B.2</span> B. Indicadores de Carregamento</a></li>
-  <li><a href="#c.-indicadores-de-transporte" id="toc-c.-indicadores-de-transporte" class="nav-link" data-scroll-target="#c.-indicadores-de-transporte"><span class="header-section-number">B.3</span> C. Indicadores de Transporte</a></li>
+  <li><a href="#indicadores-de-perfuração-drilling" id="toc-indicadores-de-perfuração-drilling" class="nav-link active" data-scroll-target="#indicadores-de-perfuração-drilling"><span class="header-section-number">B.1</span> Indicadores de Perfuração (Drilling)</a></li>
+  <li><a href="#indicadores-de-carregamento-loading" id="toc-indicadores-de-carregamento-loading" class="nav-link" data-scroll-target="#indicadores-de-carregamento-loading"><span class="header-section-number">B.2</span> Indicadores de Carregamento (Loading)</a></li>
+  <li><a href="#indicadores-de-transporte-hauling" id="toc-indicadores-de-transporte-hauling" class="nav-link" data-scroll-target="#indicadores-de-transporte-hauling"><span class="header-section-number">B.3</span> Indicadores de Transporte (Hauling)</a>
+  <ul class="collapse">
+  <li><a href="#notas-de-notação-matemática" id="toc-notas-de-notação-matemática" class="nav-link" data-scroll-target="#notas-de-notação-matemática"><span class="header-section-number">B.3.1</span> Notas de Notação Matemática</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -229,7 +232,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/appendix/a-dicionario-dados.html">Apêndices</a></li><li class="breadcrumb-item"><a href="../../chapters/appendix/b-dicionario-indicadores.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Dicionário de Indicadores (KPIs)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="app-indicadores" class="quarto-section-identifier">Apêndice B — Dicionário de Indicadores (KPIs) {#app-indicadores .unnumbered}</span></h1>
+<h1 class="title"><span id="app-indicadores" class="quarto-section-identifier">Apêndice B — Dicionário de Indicadores (KPIs)</span></h1>
 </div>
 
 
@@ -246,82 +249,100 @@ window.Quarto = {
 </header>
 
 
-<p>Este apêndice detalha as fórmulas matemáticas para o cálculo de desempenho e as respectivas funções do pacote <code>miningKPI</code>.</p>
-<section id="a.-indicadores-de-perfuração" class="level2" data-number="B.1">
-<h2 data-number="B.1" class="anchored" data-anchor-id="a.-indicadores-de-perfuração"><span class="header-section-number">B.1</span> A. Indicadores de Perfuração</h2>
-<p>Estes indicadores medem a eficiência da perfuratriz e a resposta da rocha ao plano de fogo.</p>
+<p>Este apêndice detalha as formulações matemáticas rigorosas para o cálculo de desempenho e as respectivas funções analíticas do pacote <code>miningKPI</code>. Para todas as métricas de média aritmética, adota-se a notação padrão <span class="math inline">\(\bar{X}\)</span>.</p>
+<section id="indicadores-de-perfuração-drilling" class="level2" data-number="B.1">
+<h2 data-number="B.1" class="anchored" data-anchor-id="indicadores-de-perfuração-drilling"><span class="header-section-number">B.1</span> Indicadores de Perfuração (Drilling)</h2>
+<p>Estes indicadores medem a eficiência da perfuratriz e a resposta da rocha ao plano de fogo, conforme discutido no <strong>@chap-perfuracao</strong>.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <tbody>
 <tr class="odd">
 <td><strong>Indicador</strong></td>
+<td><strong>Nomenclatura Padrão</strong></td>
 <td><strong>Fórmula</strong></td>
 <td><strong>Função R</strong></td>
 <td><strong>Descrição</strong></td>
 </tr>
 <tr class="even">
 <td><strong>Metragem Total</strong></td>
+<td><strong>TDM</strong></td>
 <td><span class="math inline">\(TDM = \sum_{i=1}^{N(t)} L_i\)</span></td>
 <td><code>drill_summary()</code></td>
 <td>Volume físico total perfurado em metros.</td>
 </tr>
 <tr class="odd">
 <td><strong>Taxa de Penetração</strong></td>
-<td><span class="math inline">\(ROP = \frac{TDM}{\sum D_i}\)</span></td>
+<td><strong>MROP</strong> = <span class="math inline">\(\bar{R}\)</span></td>
+<td><span class="math inline">\(MROP = \frac{\sum_{i=1}^{N(t)} L_i}{\sum_{i=1}^{N(t)} D_i} \times 60\)</span></td>
 <td><code>kpi_drill_rop()</code></td>
 <td>Velocidade de avanço durante o corte efetivo da rocha (m/h).</td>
 </tr>
 <tr class="even">
 <td><strong>Taxa Bruta</strong></td>
+<td><strong>GDR</strong> = <span class="math inline">\(\bar{G}\)</span></td>
 <td><span class="math inline">\(GDR = \frac{TDM}{WH}\)</span></td>
 <td><code>kpi_drill_gdr()</code></td>
-<td>Produtividade global considerando manobras e trocas de haste.</td>
+<td>Produtividade global (m/h) considerando todo o ciclo <span class="math inline">\(X_i\)</span>.</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="b.-indicadores-de-carregamento" class="level2" data-number="B.2">
-<h2 data-number="B.2" class="anchored" data-anchor-id="b.-indicadores-de-carregamento"><span class="header-section-number">B.2</span> B. Indicadores de Carregamento</h2>
-<p>Focados na eficiência da unidade de carga (escavadeira/carregadeira) e na interface com o transporte.</p>
+<section id="indicadores-de-carregamento-loading" class="level2" data-number="B.2">
+<h2 data-number="B.2" class="anchored" data-anchor-id="indicadores-de-carregamento-loading"><span class="header-section-number">B.2</span> Indicadores de Carregamento (Loading)</h2>
+<p>Focados na eficiência da unidade de carga e na interface com o transporte. As bases conceituais encontram-se no <strong>@chap-carregamento</strong>.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <tbody>
 <tr class="odd">
 <td><strong>Indicador</strong></td>
+<td><strong>Nomenclatura Padrão</strong></td>
 <td><strong>Fórmula</strong></td>
 <td><strong>Função R</strong></td>
 <td><strong>Descrição</strong></td>
 </tr>
 <tr class="even">
 <td><strong>Produção Total</strong></td>
-<td><span class="math inline">\(TPL = \sum L_i\)</span></td>
+<td><strong>TPL</strong></td>
+<td><span class="math inline">\(TPL = \sum_{i=1}^{N(t)} L_i\)</span></td>
 <td><code>kpi_production_summary()</code></td>
 <td>Soma das massas movimentadas (<em>Total Production Load</em>).</td>
 </tr>
 <tr class="odd">
 <td><strong>Tempo Médio Carga</strong></td>
-<td><span class="math inline">\(MLCT = \frac{1}{N} \sum D_i\)</span></td>
+<td><strong>MLCT</strong> = <span class="math inline">\(\bar{D}\)</span></td>
+<td><span class="math inline">\(MLCT = \frac{1}{N(t)} \sum_{i=1}^{N(t)} D_i\)</span></td>
 <td><code>load_summarize_cycle()</code></td>
 <td>Eficiência técnica média da escavadeira (<em>Mean Loading Cycle Time</em>).</td>
 </tr>
 <tr class="even">
 <td><strong>Ociosidade Média</strong></td>
-<td><span class="math inline">\(MOCT = \frac{1}{N} \sum O_i\)</span></td>
+<td><strong>MOCT</strong> = <span class="math inline">\(\bar{O}\)</span></td>
+<td><span class="math inline">\(MOCT = \frac{1}{N(t)} \sum_{i=1}^{N(t)} O_i\)</span></td>
 <td><code>load_summarize_cycle()</code></td>
 <td>Tempo médio de espera por transporte (<em>Mean Operational Cycle Time</em>).</td>
 </tr>
 <tr class="odd">
+<td><strong>Ritmo de Produção</strong></td>
+<td><strong>MTBC</strong> = <span class="math inline">\(\bar{X}\)</span></td>
+<td><span class="math inline">\(MTBC = \frac{1}{N(t)} \sum_{i=1}^{N(t)} X_i\)</span></td>
+<td><code>load_summarize_cycle()</code></td>
+<td>Média do tempo entre composições atendidas.</td>
+</tr>
+<tr class="even">
 <td><strong>Produtividade</strong></td>
+<td><strong>LP</strong></td>
 <td><span class="math inline">\(LP = \frac{TPL}{WH}\)</span></td>
 <td><code>kpi_productivity_fleet()</code></td>
 <td>Taxa de produção horária efetiva (t/h).</td>
@@ -329,57 +350,72 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="c.-indicadores-de-transporte" class="level2" data-number="B.3">
-<h2 data-number="B.3" class="anchored" data-anchor-id="c.-indicadores-de-transporte"><span class="header-section-number">B.3</span> C. Indicadores de Transporte</h2>
-<p>Indicadores que monitoram o desempenho logístico e a aderência ao plano de transporte.</p>
+<section id="indicadores-de-transporte-hauling" class="level2" data-number="B.3">
+<h2 data-number="B.3" class="anchored" data-anchor-id="indicadores-de-transporte-hauling"><span class="header-section-number">B.3</span> Indicadores de Transporte (Hauling)</h2>
+<p>Indicadores que monitoram o desempenho logístico e a aderência ao plano, detalhados no <strong>@chap-transporte</strong>.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <tbody>
 <tr class="odd">
 <td><strong>Indicador</strong></td>
+<td><strong>Nomenclatura Padrão</strong></td>
 <td><strong>Fórmula</strong></td>
 <td><strong>Função R</strong></td>
 <td><strong>Descrição</strong></td>
 </tr>
 <tr class="even">
 <td><strong>Carga Média</strong></td>
-<td><span class="math inline">\(MPL = \frac{\sum L_j}{N(t)}\)</span></td>
+<td><strong>MPL</strong> = <span class="math inline">\(\bar{L}\)</span></td>
+<td><span class="math inline">\(MPL = \frac{1}{N(t)} \sum_{j=1}^{N(t)} L_j\)</span></td>
 <td><code>haul_summarize_cycle()</code></td>
 <td>Média de massa transportada por viagem (<em>Mean Payload</em>).</td>
 </tr>
 <tr class="odd">
 <td><strong>Produtividade</strong></td>
-<td><span class="math inline">\(HP = \frac{\sum L_j}{WH}\)</span></td>
+<td><strong>HP</strong></td>
+<td><span class="math inline">\(HP = \frac{\sum_{j=1}^{N(t)} L_j}{WH}\)</span></td>
 <td><code>kpi_productivity_fleet()</code></td>
-<td>Produtividade logística do caminhão (<em>Haul Productivity</em>).</td>
+<td>Produtividade logística horária do caminhão (t/h).</td>
 </tr>
 <tr class="even">
 <td><strong>DMT</strong></td>
-<td><span class="math inline">\(DMT = \frac{\sum (L_j \times d_j)}{\sum L_j}\)</span></td>
+<td><strong>DMT</strong></td>
+<td><span class="math inline">\(DMT = \frac{\sum_{j=1}^{N(t)} (L_j \times d_j)}{\sum_{j=1}^{N(t)} L_j}\)</span></td>
 <td><code>haul_summarize_cycle()</code></td>
-<td>Distância Média de Transporte ponderada pela massa.</td>
+<td>Distância Média de Transporte ponderada pela massa (km).</td>
 </tr>
 <tr class="odd">
 <td><strong>Velocidade Média</strong></td>
-<td><span class="math inline">\(V_{mean} = \frac{Dist_{total}}{Tempo_{viagem}}\)</span></td>
+<td><span class="math inline">\(V_{mean}\)</span></td>
+<td><span class="math inline">\(V_{mean} = \frac{\sum Dist_{total}}{\sum Tempo_{viagem}}\)</span></td>
 <td><code>haul_summarize_cycle()</code></td>
-<td>Velocidade média considerando trechos cheios e vazios.</td>
+<td>Velocidade média real (km/h) integrando todos os trechos.</td>
 </tr>
 <tr class="even">
 <td><strong>Aderência</strong></td>
-<td><span class="math inline">\(\text{Var. \%}\)</span></td>
+<td><strong>Compliance</strong></td>
+<td><span class="math inline">\(1 - \left( \frac{\lvert Rate_{Act} - Rate_{Plan} \rvert}{Rate_{Plan}} \right)\)</span></td>
 <td><code>check_payload_compliance()</code></td>
-<td>Desvio entre a carga real e a meta planejada.</td>
+<td>Nível de conformidade em relação à meta planejada.</td>
 </tr>
 </tbody>
 </table>
+<section id="notas-de-notação-matemática" class="level3" data-number="B.3.1">
+<h3 data-number="B.3.1" class="anchored" data-anchor-id="notas-de-notação-matemática"><span class="header-section-number">B.3.1</span> Notas de Notação Matemática</h3>
+<ol type="1">
+<li><p><span class="math inline">\(N(t)\)</span>: Representa o número total de eventos (furos, cargas ou viagens) acumulados no intervalo de tempo analisado.</p></li>
+<li><p><span class="math inline">\(WH\)</span> (Work Hours): Horas Trabalhadas, calculadas como <span class="math inline">\(WH = \frac{\sum X_i}{60}\)</span> (considerando <span class="math inline">\(X_i\)</span> em minutos).</p></li>
+<li><p><strong>Médias Globais</strong>: Note que para indicadores de taxa (como <span class="math inline">\(ROP\)</span> e <span class="math inline">\(V_{mean}\)</span>), o cálculo é realizado pela razão dos somatórios e não pela média aritmética das taxas individuais, garantindo a conciliação física dos dados.</p></li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
