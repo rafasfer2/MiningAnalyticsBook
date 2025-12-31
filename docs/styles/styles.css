@@ -56,12 +56,81 @@ body, html {
   text-rendering: optimizeLegibility;
 }
 
+/* Headers base (cores e famílias serão ajustadas abaixo por nível) */
 h1, h2, h3 {
-  color: var(--color-brown-dark);
   font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
 }
-h1 { border-bottom: 2px solid var(--color-brown); }
-h2 { color: var(--color-brown-med); }
+
+/* ============================
+   Headers: tamanhos e estilos
+   ============================ */
+/* h1: maior */
+h1 {
+  font-size: 2rem !important;
+  color: var(--color-brown-dark) !important;
+  font-weight: 700 !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.75rem !important;
+  padding-bottom: 0.35rem !important; /* espaço para o traço */
+  border-bottom: 1pt solid var(--color-brown-dark) !important; /* traço 1pt abaixo */
+}
+/* cor e traço do número do cabeçalho (se presente) */
+h1 .header-section-number {
+  color: var(--color-brown-dark) !important;
+  display: inline-block !important;
+  margin-right: 0.5rem !important;
+}
+
+/* h2: secundário */
+h2 {
+  font-size: 1.5rem !important;
+  color: var(--color-brown-med) !important;
+  font-weight: 600 !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.6rem !important;
+  padding-bottom: 0.3rem !important;
+  border-bottom: 0.75pt solid var(--color-brown-med) !important; /* traço 3/4pt abaixo */
+}
+h2 .header-section-number {
+  color: var(--color-brown-med) !important;
+  display: inline-block !important;
+  margin-right: 0.45rem !important;
+}
+
+/* h3: terciário */
+h3 {
+  font-size: 1.25rem !important;
+  color: var(--color-brown) !important;
+  font-weight: 600 !important;
+  margin-top: 0.4rem !important;
+  margin-bottom: 0.5rem !important;
+  padding-bottom: 0.2rem !important;
+  border-bottom: 0.5pt solid var(--color-brown) !important; /* traço 1/2pt abaixo */
+}
+h3 .header-section-number {
+  color: var(--color-brown) !important;
+  display: inline-block !important;
+  margin-right: 0.4rem !important;
+}
+
+/* h4: sem numeração */
+h4 {
+  font-size: 1.0rem !important;
+  color: var(--color-teal-dark) !important;
+  font-weight: 600 !important;
+  margin-top: 0.35rem !important;
+  margin-bottom: 0.45rem !important;
+}
+h4 .header-section-number { display: none !important; }
+
+/* h5: mesmo tamanho do corpo do texto */
+h5 {
+  font-size: 12pt !important; /* igual ao body */
+  color: var(--color-teal) !important;
+  font-weight: 600 !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.35rem !important;
+}
 
 main.content p, main.content blockquote { text-align: justify; }
 
