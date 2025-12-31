@@ -334,3 +334,18 @@ span.citation sup.citation-superscript {
 #quarto-header .navbar-container {
   padding-left: 0 !important;
 }
+/* =========================================
+   10. CORREÇÃO DE NUMERAÇÃO DUPLICADA (H4)
+   ========================================= */
+
+/* Oculta a numeração automática do Quarto apenas para o nível 4 */
+h4 .header-section-number {
+  display: none !important;
+}
+
+/* Ajuste opcional: remove o recuo que sobraria se a numeração fosse removida */
+h4 {
+  margin-top: 1.5rem !important;
+  color: var(--color-teal-dark) !important; /* Cor para destacar o tópico manual */
+  font-weight: bold !important;
+}

@@ -19,9 +19,21 @@ book:
       - intro.qmd
       - part: chapters/part1-intro.qmd
         chapters:
-          - chapters/01-ciclo-perfuracao.qmd
-          - chapters/02-ciclo-carregamento.qmd
-          - chapters/03-ciclo-transporte.qmd
+          - chapters/performance-kpi.qmd
+          - chapters/modelagem_manut.qmd
+          - chapters/ciclo-pdca.qmd
+          - chapters/plan-crtl-opera.qmd
+          - chapters/caixa-ferramentas.qmd
+      - part: chapters/part2-intro.qmd
+        chapters:
+          - chapters/ciclo1-perfuracao.qmd
+          - chapters/ciclo2-carregamento.qmd
+          - chapters/ciclo3-transporte.qmd
+      - part: chapters/part3-intro.qmd
+        chapters:
+          - chapters/plan-crtl-opera.qmd
+          - chapters/plan-crtl-manut.qmd
+          - chapters/confiabilidade.qmd
 
   appendices:
     - chapters/appendix/a-dicionario-dados.qmd
@@ -32,6 +44,8 @@ crossref:
   chapters: true
   fig-prefix: "Figura"
   tbl-prefix: "Tabela"
+  exm-title: "Exemplo"
+  exm-prefix: "Exemplo"
 
 bibliography: references.bib
 

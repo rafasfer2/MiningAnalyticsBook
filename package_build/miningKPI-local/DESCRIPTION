@@ -1,0 +1,29 @@
+Package: miningKPI
+Title: Mining Operations and Reliability Analytics
+Version: 0.1.0
+Authors@R: person("Rafael", "da Silva Fernandes", , "rafasfer2@gmail.com", role = c("aut", "cre"))
+Description: Provides datasets and functions for calculating Key Performance Indicators (KPIs) in the mining industry. Includes tools for Overall Equipment Effectiveness (OEE), Reliability Engineering (MTBF, MTTR), and Asset Management. Contains anonymized real-world datasets from Iron Ore and Copper operations (Mina A, B, C, and D).
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Depends: R (>= 3.5.0)
+Imports: dplyr, tidyr, magrittr, rlang, lubridate, tibble
+LazyData: true
+LazyDataCompression: xz
+URL: https://github.com/rafasfer2/miningKPI
+BugReports: https://github.com/rafasfer2/miningKPI/issues
+Author: Rafael da Silva Fernandes [aut, cre]
+Maintainer: Rafael da Silva Fernandes <rafasfer2@gmail.com>
+Built: R 4.5.0; ; 2025-12-27 16:09:06 UTC; windows
+RemoteType: github
+RemoteHost: api.github.com
+RemoteUsername: rafasfer2
+RemoteRepo: miningKPI
+RemoteRef: main
+RemoteSha: 771a0b57a65c0674b5cf594255f7ca1333de0fda
+GithubHost: api.github.com
+GithubRepo: miningKPI
+GithubUsername: rafasfer2
+GithubRef: main
+GithubSHA1: 771a0b57a65c0674b5cf594255f7ca1333de0fda
