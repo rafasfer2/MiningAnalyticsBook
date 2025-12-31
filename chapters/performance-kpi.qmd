@@ -62,10 +62,10 @@ A classificação das horas é dividida hierarquicamente para facilitar a gestã
 
         -   **EIH (External Idle Hours): Horas Ociosas Externas (HOE)** – Equipamento apto, mas parado por fatores externos não gerenciáveis pela unidade (ex: clima adverso, raios ou falta de energia da rede).
 
-![Estratificação das categorias de horas.](/images/fig-estrato-categoria-horas.png){#fig-categoria-horas}
+![Hierarquia de classificação de horas de ativos de mineração.](/images/fig-estrato-categoria-horas-gimini.jpg){#fig-categoria-horas}
 
 ::: {#exm-processamento-categorias}
-## Processamento de Categorias de Horas
+#### Processamento de Categorias de Horas
 
 Como a medição é feita baseada em durações de tempo, os apontamentos são realizados sempre que um determinado equipamento altera o seu status de operação, representando as 10 categorias fundamentais de horas. Para a análise de desempenho, utiliza-se a variável `gap_time`, que representa a duração (em horas) entre o início e o fim de cada evento.
 
@@ -106,13 +106,12 @@ drill_analysis_category %>%
     )
 ```
 
-### Análise de Prontidão Técnica e Operacional
-
-#### Consistência das Horas Calendário ($CH$)
+#### Análise de Prontidão Técnica e Operacional
+##### Consistência das Horas Calendário ($CH$)
 
 A primeira validação de integridade dos dados é a soma das categorias totalizando exatamente **24.0 horas** em todos os dias. Isso demonstra que a telemetria do pacote `miningKPI` está cobrindo o ciclo completo do ativo, sem "buracos" de sinal ou sobreposições, o que é essencial para o cálculo da **Disponibilidade Física (DF)**.
 
-#### Dinâmica da Manutenção (DF)
+##### Dinâmica da Manutenção (DF)
 
 -   **Dia 01/01:** Apresenta o maior volume de manutenção corretiva ($CMH = 3.96$). Isso indica que o equipamento sofreu uma falha não planejada, reduzindo a prontidão técnica.
 
@@ -120,7 +119,7 @@ A primeira validação de integridade dos dados é a soma das categorias totaliz
 
 -   **Dia 03/01:** A saúde técnica do ativo parece estabilizada, com apenas $0.236h$ de corretiva, o que sugere que as intervenções anteriores foram eficazes.
 
-#### Eficiência Operacional e Ociosidade (UF)
+##### Eficiência Operacional e Ociosidade (UF)
 
 Um ponto de atenção crítico aparece no **Dia 03/01**:
 

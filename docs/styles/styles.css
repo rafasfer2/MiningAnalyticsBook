@@ -349,3 +349,111 @@ h4 {
   color: var(--color-teal-dark) !important; /* Cor para destacar o tópico manual */
   font-weight: bold !important;
 }
+
+/* =========================================
+   11. SOMBREAMENTO EM LEGENDAS (FIGURAS E TABELAS)
+   ========================================= */
+
+/* Aplica-se a legendas de figuras, tabelas e floats do Quarto */
+.quarto-float-caption,
+figcaption,
+caption {
+  /* sem sombreamento */
+
+  /* Estilização do Texto */
+  color: var(--color-teal-deep) !important;
+  padding: 8px 15px !important;
+  border-radius: 0 !important;
+  /* sem linha inferior */
+  margin-top: 10px !important;
+  margin-bottom: 15px !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+
+  /* Alinhamento e largura */
+  display: block;
+  width: 100% !important;
+  text-align: left !important;
+  font-weight: 500;
+}
+
+/* Ajuste específico para legendas de tabelas para não colarem nas bordas */
+caption {
+  margin-bottom: 0 !important;
+}
+
+/* =========================================
+   12. AJUSTE DE LARGURA DE IMAGENS
+   ========================================= */
+
+/* Controla a largura máxima das imagens para se ajustarem ao conteúdo */
+main.content img,
+.quarto-figure img,
+figure img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Garante que figuras do Quarto também respeitem a largura */
+.quarto-figure,
+figure {
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* =========================================
+   13. ESTILIZAÇÃO DE EXEMPLOS (EXAMPLES)
+   ========================================= */
+
+/* Estiliza os blocos de exemplo numerados automaticamente pelo Quarto */
+div[id^="exm-"] {
+  background: #faf5e8 !important;
+  border-left: 5px solid var(--color-brown-dark) !important;
+  border-radius: 4px !important;
+  padding: 1.2em 1.5em !important;
+  margin: 1.5em 0 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Título do exemplo (h2 dentro do bloco) */
+div[id^="exm-"] > h2 {
+  color: var(--color-brown-dark) !important;
+  font-size: 1.1em !important;
+  font-weight: 600 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.6em !important; /* garante espaçamento/linha em branco abaixo */
+  padding-bottom: 0 !important;
+  border-bottom: none !important; /* remove a linha inferior */
+}
+
+/* Força uma quebra visual logo após o cabeçalho do exemplo */
+div[id^="exm-"] > h2::after {
+  content: "" !important;
+  display: block !important;
+  height: 0.6em !important;
+}
+
+/* Ajuste para títulos gerados pelo Quarto nas caixas de exemplo (theorem-title) */
+div[id^="exm-"] .theorem-title {
+  display: block !important;
+  color: var(--color-brown-dark) !important;
+  font-size: 1.05em !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.6em !important; /* cria a quebra/espaçamento desejado */
+}
+
+div[id^="exm-"] .theorem-title strong {
+  color: inherit !important;
+  font-weight: 600 !important;
+}
+
+/* Parágrafo dentro do exemplo */
+div[id^="exm-"] > p {
+  margin-bottom: 0.8em !important;
+  line-height: 1.6 !important;
+  color: #2c3e50 !important;
+}

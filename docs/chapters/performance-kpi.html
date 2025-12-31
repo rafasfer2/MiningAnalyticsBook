@@ -323,10 +323,7 @@ window.Quarto = {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#elementos-de-suporte-e-categorização-de-horas" id="toc-elementos-de-suporte-e-categorização-de-horas" class="nav-link active" data-scroll-target="#elementos-de-suporte-e-categorização-de-horas"><span class="header-section-number">1.1</span> Elementos de Suporte e Categorização de Horas</a>
-  <ul class="collapse">
-  <li><a href="#análise-de-prontidão-técnica-e-operacional" id="toc-análise-de-prontidão-técnica-e-operacional" class="nav-link" data-scroll-target="#análise-de-prontidão-técnica-e-operacional"><span class="header-section-number">1.1.1</span> Análise de Prontidão Técnica e Operacional</a></li>
-  </ul></li>
+  <li><a href="#elementos-de-suporte-e-categorização-de-horas" id="toc-elementos-de-suporte-e-categorização-de-horas" class="nav-link active" data-scroll-target="#elementos-de-suporte-e-categorização-de-horas"><span class="header-section-number">1.1</span> Elementos de Suporte e Categorização de Horas</a></li>
   <li><a href="#indicadores-chave-de-desempenho-kpis-globais" id="toc-indicadores-chave-de-desempenho-kpis-globais" class="nav-link" data-scroll-target="#indicadores-chave-de-desempenho-kpis-globais"><span class="header-section-number">1.2</span> Indicadores-Chave de Desempenho (KPIs Globais)</a>
   <ul class="collapse">
   <li><a href="#disponibilidade-física-pa-df" id="toc-disponibilidade-física-pa-df" class="nav-link" data-scroll-target="#disponibilidade-física-pa-df"><span class="header-section-number">1.2.1</span> Disponibilidade Física (PA / DF)</a></li>
@@ -472,10 +469,10 @@ window.Quarto = {
 <div id="fig-categoria-horas" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-categoria-horas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="..\images/fig-estrato-categoria-horas.png" class="img-fluid figure-img">
+<img src="..\images/fig-estrato-categoria-horas-gimini.jpg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-categoria-horas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.1: Estratificação das categorias de horas.
+Figura&nbsp;1.1: Hierarquia de classificação de horas de ativos de mineração.
 </figcaption>
 </figure>
 </div>
@@ -543,22 +540,22 @@ Figura&nbsp;1.1: Estratificação das categorias de horas.
 # ℹ 2 more variables: NSPH &lt;dbl&gt;, CH &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<section id="análise-de-prontidão-técnica-e-operacional" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="análise-de-prontidão-técnica-e-operacional"><span class="header-section-number">1.1.1</span> Análise de Prontidão Técnica e Operacional</h3>
-<section id="consistência-das-horas-calendário-ch" class="level4" data-number="1.1.1.1">
-<h4 data-number="1.1.1.1" class="anchored" data-anchor-id="consistência-das-horas-calendário-ch"><span class="header-section-number">1.1.1.1</span> Consistência das Horas Calendário (<span class="math inline">\(CH\)</span>)</h4>
+<section id="análise-de-prontidão-técnica-e-operacional" class="level4" data-number="1.1.0.1">
+<h4 data-number="1.1.0.1" class="anchored" data-anchor-id="análise-de-prontidão-técnica-e-operacional"><span class="header-section-number">1.1.0.1</span> Análise de Prontidão Técnica e Operacional</h4>
+<section id="consistência-das-horas-calendário-ch" class="level5" data-number="1.1.0.1.1">
+<h5 data-number="1.1.0.1.1" class="anchored" data-anchor-id="consistência-das-horas-calendário-ch"><span class="header-section-number">1.1.0.1.1</span> Consistência das Horas Calendário (<span class="math inline">\(CH\)</span>)</h5>
 <p>A primeira validação de integridade dos dados é a soma das categorias totalizando exatamente <strong>24.0 horas</strong> em todos os dias. Isso demonstra que a telemetria do pacote <code>miningKPI</code> está cobrindo o ciclo completo do ativo, sem “buracos” de sinal ou sobreposições, o que é essencial para o cálculo da <strong>Disponibilidade Física (DF)</strong>.</p>
 </section>
-<section id="dinâmica-da-manutenção-df" class="level4" data-number="1.1.1.2">
-<h4 data-number="1.1.1.2" class="anchored" data-anchor-id="dinâmica-da-manutenção-df"><span class="header-section-number">1.1.1.2</span> Dinâmica da Manutenção (DF)</h4>
+<section id="dinâmica-da-manutenção-df" class="level5" data-number="1.1.0.1.2">
+<h5 data-number="1.1.0.1.2" class="anchored" data-anchor-id="dinâmica-da-manutenção-df"><span class="header-section-number">1.1.0.1.2</span> Dinâmica da Manutenção (DF)</h5>
 <ul>
 <li><p><strong>Dia 01/01:</strong> Apresenta o maior volume de manutenção corretiva (<span class="math inline">\(CMH = 3.96\)</span>). Isso indica que o equipamento sofreu uma falha não planejada, reduzindo a prontidão técnica.</p></li>
 <li><p><strong>Dia 02/01:</strong> Observamos uma transição. Há uma redução na corretiva (<span class="math inline">\(CMH = 0.959\)</span>), mas surge uma manutenção programada (<span class="math inline">\(NSPH = 2.35\)</span>). Isso pode indicar uma intervenção baseada em condição (preditiva) realizada após a falha do dia anterior.</p></li>
 <li><p><strong>Dia 03/01:</strong> A saúde técnica do ativo parece estabilizada, com apenas <span class="math inline">\(0.236h\)</span> de corretiva, o que sugere que as intervenções anteriores foram eficazes.</p></li>
 </ul>
 </section>
-<section id="eficiência-operacional-e-ociosidade-uf" class="level4" data-number="1.1.1.3">
-<h4 data-number="1.1.1.3" class="anchored" data-anchor-id="eficiência-operacional-e-ociosidade-uf"><span class="header-section-number">1.1.1.3</span> Eficiência Operacional e Ociosidade (UF)</h4>
+<section id="eficiência-operacional-e-ociosidade-uf" class="level5" data-number="1.1.0.1.3">
+<h5 data-number="1.1.0.1.3" class="anchored" data-anchor-id="eficiência-operacional-e-ociosidade-uf"><span class="header-section-number">1.1.0.1.3</span> Eficiência Operacional e Ociosidade (UF)</h5>
 <p>Um ponto de atenção crítico aparece no <strong>Dia 03/01</strong>:</p>
 <ul>
 <li><p>Embora o equipamento estivesse tecnicamente disponível (baixa manutenção), ele passou <strong>10.4 horas</strong> em ociosidade interna (<span class="math inline">\(IIH\)</span>).</p></li>
@@ -566,11 +563,11 @@ Figura&nbsp;1.1: Estratificação das categorias de horas.
 <li><p><strong>Impacto:</strong> A <strong>Utilização Física (UF)</strong> deste dia será significativamente menor que a dos dias anteriores, evidenciando um gargalo que não é da manutenção, mas da gestão operacional.</p></li>
 </ul>
 </section>
-<section id="do-processamento-de-eventos-à-consolidação-por-período" class="level4" data-number="1.1.1.4">
-<h4 data-number="1.1.1.4" class="anchored" data-anchor-id="do-processamento-de-eventos-à-consolidação-por-período"><span class="header-section-number">1.1.1.4</span> Do Processamento de Eventos à Consolidação por Período</h4>
+</section>
+<section id="do-processamento-de-eventos-à-consolidação-por-período" class="level4" data-number="1.1.0.2">
+<h4 data-number="1.1.0.2" class="anchored" data-anchor-id="do-processamento-de-eventos-à-consolidação-por-período"><span class="header-section-number">1.1.0.2</span> Do Processamento de Eventos à Consolidação por Período</h4>
 <p>A transição da telemetria bruta para a análise gerencial exige uma etapa intermediária de agregação. O processo de somar as categorias de horas é o que garante que os cálculos dos KPIs reflitam a realidade cronológica do turno ou do mês</p>
 <p>Para este exemplo, como a análise foca em um único equipamento, devemos agregar as categorias por período (<span class="math inline">\(p\)</span>). Tomando a Horas Efetivas (<span class="math inline">\(EFH\)</span>) como exemplo, se em um único período (<span class="math inline">\(p = 1\)</span> dia) o sistema registrou <span class="math inline">\(n\)</span> eventos de perfuração, a disponibilidade efetiva diária é o somatório de cada duração individual<span class="math inline">\(i\)</span>: <span class="math display">\[EFH_{p} = \sum_{i=1}^{n} EFH_i\]</span> Essa lógica de empilhamento de eventos é aplicada a todas as 10 categorias de horas, assegurando que <span class="math inline">\(\sum HC = 24h\)</span>. É a partir dessa base consolidada que estruturamos os indicadores que fundamentam o SGI.</p>
-</section>
 </section>
 </section>
 <section id="indicadores-chave-de-desempenho-kpis-globais" class="level2" data-number="1.2">
@@ -1674,6 +1671,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 </section>
 
 </main> <!-- /main -->
+<script src="scripts/caption-format.js"></script>
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
