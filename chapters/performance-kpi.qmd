@@ -24,7 +24,8 @@ Os elementos de suporte são os dados diretamente monitorados e coletados durant
 
 A classificação das horas é dividida hierarquicamente para facilitar a gestão, permitindo o desdobramento desde a disponibilidade global até a causa raiz do evento. Esta estrutura é o fundamento para o processamento de telemetria e o cálculo de KPIs no pacote `miningKPI`.
 
-**HC – Calendar Hours: Horas Calendário:** Tempo total de existência do ativo no período (24h/dia). $HC = HT + HM + HO$.
+**HC – Calendar Hours: Horas Calendário:** Tempo total de existência do ativo no período (24h/dia). 
+$$HC = HT + HM + HO$$
 
 -   **HT – Worked Hours: Horas Trabalhadas**
 

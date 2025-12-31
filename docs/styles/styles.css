@@ -131,6 +131,7 @@ h5 {
   margin-top: 0.25rem !important;
   margin-bottom: 0.35rem !important;
 }
+h5 .header-section-number { display: none !important; }
 
 main.content p, main.content blockquote { text-align: justify; }
 
@@ -488,8 +489,8 @@ div[id^="exm-"] {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Título do exemplo (h2 dentro do bloco) */
-div[id^="exm-"] > h2 {
+/* Título do exemplo (h4 dentro do bloco) */
+div[id^="exm-"] > h4 {
   color: var(--color-brown-dark) !important;
   font-size: 1.1em !important;
   font-weight: 600 !important;
@@ -500,7 +501,7 @@ div[id^="exm-"] > h2 {
 }
 
 /* Força uma quebra visual logo após o cabeçalho do exemplo */
-div[id^="exm-"] > h2::after {
+div[id^="exm-"] > h4::after {
   content: "" !important;
   display: block !important;
   height: 0.6em !important;
