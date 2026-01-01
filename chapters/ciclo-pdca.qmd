@@ -50,40 +50,40 @@ A @tbl-atividades-pdca-detalhada consolida o cronograma executivo do projeto. A 
 #| echo: false
 #| message: false
 #| warning: false
-
 library(knitr)
 library(kableExtra)
 library(dplyr)
 
 # Criação do dataframe com todo o conteúdo original
 df_pdca <- data.frame(
-  Fases = c(rep("P", 13), rep("D", 3), rep("C", 2), rep("A", 3)),
-  Etapas = c(
-    rep("Identificação do problema", 3),
-    rep("Análise do Fenômeno", 3),
-    rep("Análise do Processo", 3),
-    rep("Estabelecimento do Plano de Ação", 4),
-    rep("Execução do Plano de Ação", 3),
-    rep("Verificação dos Resultados", 2),
-    rep("Padronização", 3)
-  ),
-  Atividades = c(
-    "Identificação das prioridades", "Estabelecimento da meta do projeto", "Quantificação dos ganhos do projeto",
-    "Estratificação do problema", "Estudo das variações", "Definição das metas específicas",
-    "Levantamento das causas potenciais", "Priorização das causas potenciais", "Quantificação das causas priorizadas",
-    "Levantamento das possíveis soluções", "Priorização das possíveis soluções", "Realização de teste piloto (se necessário)", "Estabelecimento do plano de ação",
-    "Comunicação do plano de ação", "Realização de treinamentos dos envolvidos", "Implantação e acompanhamento do plano",
-    "Verificação do alcance da meta geral e específicas", "Quantificação dos ganhos do projeto",
-    "Padronização das novas atividades", "Plano para monitoramento do processo", "Plano de ações corretivas"
-  ),
-  Status = c(rep("OK", 17), "Não Consta", rep("Não Consta", 3))
+    Fases = c(rep("P", 13), rep("D", 3), rep("C", 2), rep("A", 3)),
+    Etapas = c(
+        rep("Identificação do problema", 3),
+        rep("Análise do Fenômeno", 3),
+        rep("Análise do Processo", 3),
+        rep("Estabelecimento do Plano de Ação", 4),
+        rep("Execução do Plano de Ação", 3),
+        rep("Verificação dos Resultados", 2),
+        rep("Padronização", 3)
+    ),
+    Atividades = c(
+        "Identificação das prioridades", "Estabelecimento da meta do projeto", "Quantificação dos ganhos do projeto",
+        "Estratificação do problema", "Estudo das variações", "Definição das metas específicas",
+        "Levantamento das causas potenciais", "Priorização das causas potenciais", "Quantificação das causas priorizadas",
+        "Levantamento das possíveis soluções", "Priorização das possíveis soluções", "Realização de teste piloto (se necessário)", "Estabelecimento do plano de ação",
+        "Comunicação do plano de ação", "Realização de treinamentos dos envolvidos", "Implantação e acompanhamento do plano",
+        "Verificação do alcance da meta geral e específicas", "Quantificação dos ganhos do projeto",
+        "Padronização das novas atividades", "Plano para monitoramento do processo", "Plano de ações corretivas"
+    ),
+    Status = c(rep("OK", 17), "Não Consta", rep("Não Consta", 3))
 )
 
-# Renderização da tabela com mesclagem automática (rowspan)
+# Renderização da tabela com mesclagem automática (rowspan) e aplicação da classe .table
 df_pdca %>%
-  kable(align = "cllc", booktabs = TRUE) %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F) %>%
-  collapse_rows(columns = 1:2, valign = "middle")
+    kable(align = "cllc", booktabs = TRUE, escape = FALSE) %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F, position = "center") %>%
+    collapse_rows(columns = 1:2, valign = "middle") %>%
+    row_spec(0, extra_css = "class='table'")
 ```
 
 #### Análise do Fluxo Metodológico
