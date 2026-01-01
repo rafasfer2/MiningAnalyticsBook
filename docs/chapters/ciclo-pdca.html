@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -91,6 +71,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles/styles.css">
 </head>
@@ -297,7 +306,7 @@ div.csl-indent {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#trilogia-juran" id="toc-trilogia-juran" class="nav-link active" data-scroll-target="#trilogia-juran"><span class="header-section-number">3.1</span> Trilogia Juran</a></li>
+  <li><a href="#trilogia-de-juran" id="toc-trilogia-de-juran" class="nav-link active" data-scroll-target="#trilogia-de-juran"><span class="header-section-number">3.1</span> Trilogia de Juran</a></li>
   <li><a href="#ciclo-pdca" id="toc-ciclo-pdca" class="nav-link" data-scroll-target="#ciclo-pdca"><span class="header-section-number">3.2</span> Ciclo PDCA</a>
   <ul class="collapse">
   <li><a href="#fases-e-atividades-do-ciclo-pdca" id="toc-fases-e-atividades-do-ciclo-pdca" class="nav-link" data-scroll-target="#fases-e-atividades-do-ciclo-pdca"><span class="header-section-number">3.2.1</span> Fases e Atividades do Ciclo PDCA</a></li>
@@ -327,10 +336,16 @@ div.csl-indent {
 </header>
 
 
-<section id="trilogia-juran" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="trilogia-juran"><span class="header-section-number">3.1</span> Trilogia Juran</h2>
-<p>Estudos que visam medir graus de diferença nos processos de produção, focando especialmente na diferença entre cronograma e desempenho, enquadram-se em um escopo mais geral conhecido como Gestão e Avaliação da Qualidade.</p>
-<p>A gestão da qualidade de processos, ou gestão focada na qualidade do processo, é entendida como a adoção de um conjunto de atividades que inclui três processos conhecidos como a trilogia Juran (<span class="citation" data-cites="juran1986">Juran (<a href="#ref-juran1986" role="doc-biblioref">1986</a>)</span>). A <a href="#fig-juran-trilogy" class="quarto-xref">Figura&nbsp;<span>3.1</span></a> exemplifica a trilogia Juran, na qual <strong>o planejamento de qualidade</strong> está associado ao custo da baixa qualidade e ao estabelecimento de limites alvo e/ou especificação, onde a&nbsp; zona <strong>original de controle de qualidade</strong> mostra desvios e picos esporádicos e, consequentemente, desencadeia a busca por resolução de problemas por ferramentas e métodos baseados em PDCA. Como as ações resultam em <strong>melhorias eficazes na qualidade</strong>, por exemplo, redução do custo da baixa qualidade, diminuição da variabilidade do processo e/ou indicadores aprimorados, há uma padronização das ações mais impactantes e uma nova mudança no ciclo PDCA para novas buscas por melhorias. Por fim, <strong>a avaliação de qualidade</strong>, que visa medir o alinhamento dos indicadores com os objetivos da organização.</p>
+<p>A busca pela excelência operacional na mineração exige métodos estruturados que permitam medir a discrepância entre o planejamento (<em>target</em>) e o desempenho real. Este capítulo aborda as bases da Gestão da Qualidade, conectando a teoria clássica de Juran às ferramentas de melhoria contínua aplicadas ao <em>Mining Analytics</em>.</p>
+<section id="trilogia-de-juran" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="trilogia-de-juran"><span class="header-section-number">3.1</span> Trilogia de Juran</h2>
+<p>A gestão focada na qualidade dos processos é sustentada por três pilares fundamentais conhecidos como a <strong>Trilogia de Juran</strong>. Esta metodologia fornece o mapa para a transição entre a estabilidade operacional e o salto de performance operacional.</p>
+<p>A <a href="#fig-juran-trilogy" class="quarto-xref">Figura&nbsp;<span>3.1</span></a> ilustra a dinâmica entre os três processos:</p>
+<ul>
+<li><p><strong>Planejamento da Qualidade:</strong> Fase associada à definição do custo da baixa qualidade e ao estabelecimento de limites alvo e especificações técnicas.</p></li>
+<li><p><strong>Controle da Qualidade:</strong> Durante a operação, a “Zona Original de Controle” monitora desvios e picos esporádicos. No <em>Mining Analytics</em>, esta fase é onde a telemetria e o pacote <code>miningKPI</code> atuam para identificar variações fora do padrão.</p></li>
+<li><p><strong>Melhoria da Qualidade:</strong> Acionada pelo diagnóstico de problemas via ferramentas baseadas no ciclo <span class="math inline">\(PDCA\)</span>. Quando as ações resultam em melhorias eficazes — como a redução da variabilidade ou o aprimoramento de indicadores — ocorre a padronização e a definição de um novo patamar de controle (<em>New Target</em>).</p></li>
+</ul>
 <div id="fig-juran-trilogy" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-juran-trilogy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -341,6 +356,7 @@ Figura&nbsp;3.1 - Diagrama da Trilogia Juran
 </figcaption>
 </figure>
 </div>
+<p>A avaliação final da qualidade visa medir o alinhamento desses indicadores com os objetivos estratégicos da organização mineira.</p>
 </section>
 <section id="ciclo-pdca" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="ciclo-pdca"><span class="header-section-number">3.2</span> Ciclo PDCA</h2>
@@ -365,13 +381,212 @@ Figura&nbsp;3.2 - Detalhamento do Ciclo PDCA
 </ul>
 <section id="fases-e-atividades-do-ciclo-pdca" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="fases-e-atividades-do-ciclo-pdca"><span class="header-section-number">3.2.1</span> Fases e Atividades do Ciclo PDCA</h3>
+<p>Na <a href="#tbl-atividades-pdca" class="quarto-xref">Tabela&nbsp;<span>3.1</span></a>, apresentamos a estrutura completa das fases e etapas que compuseram a elaboração deste trabalho. A utilização do método PDCA forneceu o caminho estruturado necessário para o planejamento, execução, verificação e o aprimoramento contínuo, garantindo que cada métrica de performance fosse investigada em sua causa raiz antes da proposição de soluções.</p>
+<div id="tbl-atividades-pdca" class="kable-table quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-atividades-pdca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;3.1 - Representação das fases e atividades do PDCA no projeto.
+</figcaption>
+<div aria-describedby="tbl-atividades-pdca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="kable-table caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Fases</strong></td>
+<td><strong>Etapas</strong></td>
+<td><strong>Atividades</strong></td>
+<td><strong>Planejado (Início/Fim</strong></td>
+<td><strong>Realizado (Início/Fim</strong></td>
+<td><strong>Status</strong></td>
+</tr>
+<tr class="even">
+<td><strong>P</strong></td>
+<td>Identificação do problema</td>
+<td>Identificação das prioridades</td>
+<td></td>
+<td></td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td><strong>P</strong></td>
+<td></td>
+<td>Estabelecimento da meta do projeto</td>
+<td></td>
+<td></td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td><strong>P</strong></td>
+<td></td>
+<td>Quantificação dos ganhos do projeto</td>
+<td></td>
+<td></td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td><strong>P</strong></td>
+<td>Análise do Fenômeno</td>
+<td>Estratificação do problema</td>
+<td></td>
+<td></td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td><strong>P</strong></td>
+<td></td>
+<td>Estudo das variações</td>
+<td></td>
+<td></td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td><strong>P</strong></td>
+<td></td>
+<td>Definição das metas específicas</td>
+<td></td>
+<td></td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td><strong>P</strong></td>
+<td>Análise do Processo</td>
+<td>Levantamento das causas potenciais</td>
+<td></td>
+<td></td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td><strong>P</strong></td>
+<td></td>
+<td>Priorização das causas potenciais</td>
+<td></td>
+<td></td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td><strong>P</strong></td>
+<td></td>
+<td>Quantificação das causas priorizadas</td>
+<td></td>
+<td></td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td><strong>P</strong></td>
+<td>Plano de Ação</td>
+<td>Levantamento das possíveis soluções</td>
+<td></td>
+<td></td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td><strong>P</strong></td>
+<td></td>
+<td>Priorização das possíveis soluções</td>
+<td></td>
+<td></td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td><strong>P</strong></td>
+<td></td>
+<td>Realização de teste piloto (se necessário)</td>
+<td></td>
+<td></td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td><strong>P</strong></td>
+<td></td>
+<td>Estabelecimento do plano de ação</td>
+<td></td>
+<td></td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td><strong>D</strong></td>
+<td>Execução</td>
+<td>Comunicação do plano de ação</td>
+<td></td>
+<td></td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td><strong>D</strong></td>
+<td></td>
+<td>Realização de treinamentos dos envolvidos</td>
+<td></td>
+<td></td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td><strong>D</strong></td>
+<td></td>
+<td>Implantação e acompanhamento do plano</td>
+<td></td>
+<td></td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td><strong>C</strong></td>
+<td>Verificação</td>
+<td>Verificação do alcance das metas</td>
+<td></td>
+<td></td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td><strong>C</strong></td>
+<td></td>
+<td>Quantificação dos ganhos do projeto</td>
+<td></td>
+<td></td>
+<td>Não Consta</td>
+</tr>
+<tr class="even">
+<td><strong>A</strong></td>
+<td>Padronização</td>
+<td>Padronização das novas atividades</td>
+<td></td>
+<td></td>
+<td>Não Consta</td>
+</tr>
+<tr class="odd">
+<td><strong>A</strong></td>
+<td></td>
+<td>Plano para monitoramento do processo</td>
+<td></td>
+<td></td>
+<td>Não Consta</td>
+</tr>
+<tr class="even">
+<td><strong>A</strong></td>
+<td></td>
+<td>Plano de ações corretivas</td>
+<td></td>
+<td></td>
+<td>Não Consta</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<section id="detalhamento-do-fluxo-operacional" class="level4" data-number="3.2.1.1">
+<h4 data-number="3.2.1.1" class="anchored" data-anchor-id="detalhamento-do-fluxo-operacional"><span class="header-section-number">3.2.1.1</span> Detalhamento do Fluxo Operacional</h4>
+<p>O ciclo inicia-se na fase de <strong>Identificação do Problema</strong>, onde a definição das prioridades e o estabelecimento da meta global servem de base para todas as atividades subsequentes. Na <strong>Análise do Fenômeno</strong>, o foco desloca-se para a estratificação dos dados e o estudo das variações, permitindo que a pesquisa tome forma sobre os principais KPIs a serem utilizados.</p>
+<p>Ao avançar para a <strong>Análise do Processo</strong>, o levantamento e a priorização das causas potenciais aprofundam o exame da ocorrência do problema. Esta fase culmina no <strong>Estabelecimento do Plano de Ação</strong>, onde soluções são testadas (piloto) e priorizadas antes da formalização do plano executivo.</p>
+<p>As etapas de execução sucedem o planejamento, iniciando com a <strong>Comunicação e Treinamento</strong> dos envolvidos, garantindo que as premissas do <em>Mining Analytics</em> sejam compreendidas por quem opera o ativo. Na fase de <strong>Verificação</strong>, realiza-se o confronto entre os resultados alcançados e as metas globais definidas inicialmente. Por fim, a <strong>Padronização</strong> visa consolidar as novas atividades no processo, instituindo planos de monitoramento e ações corretivas para garantir que os ganhos de performance sejam sustentáveis a longo prazo.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-juran1986" class="csl-entry" role="listitem">
-Juran, Joseph M. 1986. <span>“The quality trilogy”</span>. <em>Quality Progress</em> 19 (8): 19–24.
-</div>
-</div>
+</section>
 </section>
 </section>
 

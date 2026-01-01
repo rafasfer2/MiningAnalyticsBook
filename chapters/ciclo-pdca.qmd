@@ -40,19 +40,41 @@ De acordo com Mendes (2007), o ciclo PDCA é um método estruturado para a melho
 
 -   **ACT:** A última fase do ciclo envolve a tomada de ações corretivas ou de melhoria, caso seja identificada a necessidade de ajustes ou aprimoramentos com base na verificação dos resultados.
 
-### Fases e Atividades do Ciclo Operacional
+### Fases e Atividades do Ciclo PDCA
 
-Para a eficiência dos planos de ação, a etapa de **Planejamento** exige rigor analítico. A identificação e priorização de métricas de avaliação permitem uma investigação profunda das causas raiz. A \@tbl-atividades-pdca detalha as fases e etapas que compõem a estrutura metodológica deste trabalho:
+Na @tbl-atividades-pdca, apresentamos a estrutura completa das fases e etapas que compuseram a elaboração deste trabalho. A utilização do método PDCA forneceu o caminho estruturado necessário para o planejamento, execução, verificação e o aprimoramento contínuo, garantindo que cada métrica de performance fosse investigada em sua causa raiz antes da proposição de soluções.
 
-|  |  |  |
-|----|----|----|
-| **Fases** | **Atividades** | **Status** |
-| **P** | **Identificação do problema:** Prioridades e estabelecimento de metas | OK |
-| **P** | **Análise do Fenômeno:** Estratificação do problema e estudo de variações | OK |
-| **P** | **Análise do Processo:** Levantamento e priorização de causas potenciais | OK |
-| **P** | **Plano de Ação:** Levantamento de soluções e teste piloto | OK |
-| **D** | **Execução:** Comunicação, treinamento e implantação | OK |
-| **C** | **Verificação:** Alcance da meta global e quantificação de ganhos | Pendente |
-| **A** | **Padronização:** Novas atividades e planos de monitoramento | Pendente |
+|  |  |  |  |  |  |
+|------------|------------|------------|------------|------------|------------|
+| **Fases** | **Etapas** | **Atividades** | **Planejado (Início/Fim)** | **Realizado (Início/Fim)** | **Status** |
+| **P** | Identificação do problema | Identificação das prioridades |  |  | OK |
+| **P** |  | Estabelecimento da meta do projeto |  |  | OK |
+| **P** |  | Quantificação dos ganhos do projeto |  |  | OK |
+| **P** | Análise do Fenômeno | Estratificação do problema |  |  | OK |
+| **P** |  | Estudo das variações |  |  | OK |
+| **P** |  | Definição das metas específicas |  |  | OK |
+| **P** | Análise do Processo | Levantamento das causas potenciais |  |  | OK |
+| **P** |  | Priorização das causas potenciais |  |  | OK |
+| **P** |  | Quantificação das causas priorizadas |  |  | OK |
+| **P** | Plano de Ação | Levantamento das possíveis soluções |  |  | OK |
+| **P** |  | Priorização das possíveis soluções |  |  | OK |
+| **P** |  | Realização de teste piloto (se necessário) |  |  | OK |
+| **P** |  | Estabelecimento do plano de ação |  |  | OK |
+| **D** | Execução | Comunicação do plano de ação |  |  | OK |
+| **D** |  | Realização de treinamentos dos envolvidos |  |  | OK |
+| **D** |  | Implantação e acompanhamento do plano |  |  | OK |
+| **C** | Verificação | Verificação do alcance das metas |  |  | OK |
+| **C** |  | Quantificação dos ganhos do projeto |  |  | Não Consta |
+| **A** | Padronização | Padronização das novas atividades |  |  | Não Consta |
+| **A** |  | Plano para monitoramento do processo |  |  | Não Consta |
+| **A** |  | Plano de ações corretivas |  |  | Não Consta |
 
-: Representação das fases e atividades do PDCA no projeto. {#tbl-atividades-pdca}
+: Representação das fases e atividades do PDCA no projeto. {#tbl-atividades-pdca .kable-table}
+
+#### Detalhamento do Fluxo Operacional
+
+O ciclo inicia-se na fase de **Identificação do Problema**, onde a definição das prioridades e o estabelecimento da meta global servem de base para todas as atividades subsequentes. Na **Análise do Fenômeno**, o foco desloca-se para a estratificação dos dados e o estudo das variações, permitindo que a pesquisa tome forma sobre os principais KPIs a serem utilizados.
+
+Ao avançar para a **Análise do Processo**, o levantamento e a priorização das causas potenciais aprofundam o exame da ocorrência do problema. Esta fase culmina no **Estabelecimento do Plano de Ação**, onde soluções são testadas (piloto) e priorizadas antes da formalização do plano executivo.
+
+As etapas de execução sucedem o planejamento, iniciando com a **Comunicação e Treinamento** dos envolvidos, garantindo que as premissas do *Mining Analytics* sejam compreendidas por quem opera o ativo. Na fase de **Verificação**, realiza-se o confronto entre os resultados alcançados e as metas globais definidas inicialmente. Por fim, a **Padronização** visa consolidar as novas atividades no processo, instituindo planos de monitoramento e ações corretivas para garantir que os ganhos de performance sejam sustentáveis a longo prazo.
