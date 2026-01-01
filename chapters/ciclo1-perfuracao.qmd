@@ -408,7 +408,7 @@ A execução da perfuração não é um evento isolado, mas o resultado de um fl
 Para facilitar a análise de causa raiz, a tabela abaixo correlaciona as etapas do planejamento com os dados que você encontrará no dataset:
 
 | Planning Stage (Etapa de Planejamento) | Technical Initials (Sigla Técnica) | KPI Category (PT / EN) | Common Descriptions (Descrições Comuns) |
-|:---|:---|:---|:---|
+|:-----------------|:-----------------|:-----------------|:-----------------|
 | **Dimensioning (Design)** | Plano / Plan | HOI / IIH | `Waiting for Planning Demand`, `Missing Polygon` |
 | **Preparation (Pad Prep)** | Infra | HOI / IIH \| HTD / DWH | `Waiting for Pad Adjustment`, `Access Condition` |
 | **Marking (Survey)** | Topo / Survey | HOI / IIH \| HTI / IWH | `Waiting for Survey`, `Pattern Marking` |
@@ -467,7 +467,7 @@ Para viabilizar a modelagem estatística e a análise de excelência operacional
 A @tbl-notacao-perfuracao apresenta o mapeamento das fases operacionais utilizadas ao longo deste capítulo:
 
 |  |  |  |  |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | **Fase Operacional** | **Notação no Livro** | **ID no Script (phase)** | **Termo em Inglês** |
 | Posicionamento | $P_i$ | **1** | Positioning |
 | Emboquilhamento | $C_i$ | **2** | Collaring |
@@ -481,7 +481,7 @@ A @tbl-notacao-perfuracao apresenta o mapeamento das fases operacionais utilizad
 Para converter as observações físicas em indicadores de performance (KPIs), padronizamos as métricas conforme a @tbl-metricas-perfuracao. Esta estrutura permite uma transição fluida entre a teoria de engenharia de minas e a implementação computacional.
 
 |                              |             |                     |               |
-|------------------------------|-------------|---------------------|---------------|
+|------------------------|----------------|-----------------|----------------|
 | **Parâmetro de Performance** | **Notação** | **Variável no R**   | **Unidade**   |
 | Metragem Total Perfurada     | **TDM**     | `allocated_meters`  | metros (m)    |
 | Tempo de Ciclo Total         | $X_i$       | `xi_min`            | minutos (min) |

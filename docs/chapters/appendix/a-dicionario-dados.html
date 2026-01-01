@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Apêndice A — Dicionário de Dados do Pacote miningKPI – Sistema de Gestão e Excelência Operacional na Mineração</title>
+<title>Apêndice A — Dicionário de Dados – Sistema de Gestão e Excelência Operacional na Mineração</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -113,7 +148,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/appendix/a-dicionario-dados.html">Apêndices</a></li><li class="breadcrumb-item"><a href="../../chapters/appendix/a-dicionario-dados.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Dados do Pacote <code>miningKPI</code></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/appendix/a-dicionario-dados.html">Apêndices</a></li><li class="breadcrumb-item"><a href="../../chapters/appendix/a-dicionario-dados.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Dados</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
@@ -174,7 +209,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/ciclo-pdca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">ciclo-pdca</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Trilogia Juran e Ciclo PDCA</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -261,7 +296,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/appendix/a-dicionario-dados.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Dados do Pacote <code>miningKPI</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Dados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -306,19 +341,31 @@ window.Quarto = {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#datasets-de-carregamento" id="toc-datasets-de-carregamento" class="nav-link active" data-scroll-target="#datasets-de-carregamento"><span class="header-section-number">A.1</span> Datasets de Carregamento</a></li>
-  <li><a href="#datasets-de-transporte" id="toc-datasets-de-transporte" class="nav-link" data-scroll-target="#datasets-de-transporte"><span class="header-section-number">A.2</span> Datasets de Transporte</a></li>
-  <li><a href="#datasets-de-perfuração" id="toc-datasets-de-perfuração" class="nav-link" data-scroll-target="#datasets-de-perfuração"><span class="header-section-number">A.3</span> Datasets de Perfuração</a></li>
-  <li><a href="#estrutura-de-consolidação" id="toc-estrutura-de-consolidação" class="nav-link" data-scroll-target="#estrutura-de-consolidação"><span class="header-section-number">A.4</span> Estrutura de Consolidação</a></li>
+  <li><a href="#processo-de-carregamento-mina-a" id="toc-processo-de-carregamento-mina-a" class="nav-link active" data-scroll-target="#processo-de-carregamento-mina-a"><span class="header-section-number">A.1</span> Processo de Carregamento (Mina A)</a>
+  <ul class="collapse">
+  <li><a href="#eventos-de-carregamento-load_events_mine_a" id="toc-eventos-de-carregamento-load_events_mine_a" class="nav-link" data-scroll-target="#eventos-de-carregamento-load_events_mine_a"><span class="header-section-number">A.1.1</span> Eventos de Carregamento (<code>load_events_mine_a</code>)</a></li>
+  <li><a href="#ciclos-de-carregamento-load_cycles_mine_a" id="toc-ciclos-de-carregamento-load_cycles_mine_a" class="nav-link" data-scroll-target="#ciclos-de-carregamento-load_cycles_mine_a"><span class="header-section-number">A.1.2</span> Ciclos de Carregamento (<code>load_cycles_mine_a</code>)</a></li>
+  </ul></li>
+  <li><a href="#processo-de-transporte-mina-a" id="toc-processo-de-transporte-mina-a" class="nav-link" data-scroll-target="#processo-de-transporte-mina-a"><span class="header-section-number">A.2</span> Processo de Transporte (Mina A)</a>
+  <ul class="collapse">
+  <li><a href="#eventos-de-transporte-haul_events_mine_a" id="toc-eventos-de-transporte-haul_events_mine_a" class="nav-link" data-scroll-target="#eventos-de-transporte-haul_events_mine_a"><span class="header-section-number">A.2.1</span> Eventos de Transporte (<code>haul_events_mine_a</code>)</a></li>
+  <li><a href="#ciclos-de-transporte-haul_cycles_mine_a" id="toc-ciclos-de-transporte-haul_cycles_mine_a" class="nav-link" data-scroll-target="#ciclos-de-transporte-haul_cycles_mine_a"><span class="header-section-number">A.2.2</span> Ciclos de Transporte (<code>haul_cycles_mine_a</code>)</a></li>
+  </ul></li>
+  <li><a href="#processo-de-perfuração-mina-d" id="toc-processo-de-perfuração-mina-d" class="nav-link" data-scroll-target="#processo-de-perfuração-mina-d"><span class="header-section-number">A.3</span> Processo de Perfuração (Mina D)</a>
+  <ul class="collapse">
+  <li><a href="#eventos-de-perfuração-drill_events_mine_d" id="toc-eventos-de-perfuração-drill_events_mine_d" class="nav-link" data-scroll-target="#eventos-de-perfuração-drill_events_mine_d"><span class="header-section-number">A.3.1</span> Eventos de Perfuração (<code>drill_events_mine_d</code>)</a></li>
+  <li><a href="#ciclos-de-perfuração-drill_cycles_mine_d" id="toc-ciclos-de-perfuração-drill_cycles_mine_d" class="nav-link" data-scroll-target="#ciclos-de-perfuração-drill_cycles_mine_d"><span class="header-section-number">A.3.2</span> Ciclos de Perfuração (<code>drill_cycles_mine_d</code>)</a></li>
+  <li><a href="#log-de-manutenção-drill_maintenance_log_mine_d" id="toc-log-de-manutenção-drill_maintenance_log_mine_d" class="nav-link" data-scroll-target="#log-de-manutenção-drill_maintenance_log_mine_d"><span class="header-section-number">A.3.3</span> Log de Manutenção (<code>drill_maintenance_log_mine_d</code>)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/appendix/a-dicionario-dados.html">Apêndices</a></li><li class="breadcrumb-item"><a href="../../chapters/appendix/a-dicionario-dados.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Dados do Pacote <code>miningKPI</code></span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/appendix/a-dicionario-dados.html">Apêndices</a></li><li class="breadcrumb-item"><a href="../../chapters/appendix/a-dicionario-dados.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Dados</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="app-dados" class="quarto-section-identifier">Apêndice A — Dicionário de Dados do Pacote <code>miningKPI</code></span></h1>
+<h1 class="title"><span id="app-dicionario" class="quarto-section-identifier">Apêndice A — Dicionário de Dados</span></h1>
 </div>
 
 
@@ -335,277 +382,256 @@ window.Quarto = {
 </header>
 
 
-<p>O pacote <code>miningKPI</code> fornece conjuntos de dados educacionais que simulam operações reais de mineração. Estes dados estão estruturados em formato de eventos (<em>long format</em>) ou ciclos consolidados (<em>wide format</em>).</p>
-<section id="datasets-de-carregamento" class="level2" data-number="A.1">
-<h2 data-number="A.1" class="anchored" data-anchor-id="datasets-de-carregamento"><span class="header-section-number">A.1</span> Datasets de Carregamento</h2>
-<p>Os dados de carregamento são fundamentais para o estudo da performance das unidades de carga. As definições conceituais e a aplicação prática desta base de dados são exploradas detalhadamente no <a href="../ciclo2-carregamento.html">Carregamento</a>.</p>
-<p>A tabela a seguir apresenta a estrutura do dataset <code>load_events_mine_a</code>, que registra as mudanças de estado operacional de cada escavadeira.</p>
-<div id="tbl-dic-loading" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dic-loading-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;A.1: Atributos do dataset de eventos de carregamento (<code>load_events_mine_a</code>).
-</figcaption>
-<div aria-describedby="tbl-dic-loading-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>Este apêndice detalha os conjuntos de dados contidos no pacote miningKPI, utilizados nos estudos de caso de carga, transporte e perfuração. Todos os dados foram anonimizados para proteger informações sensíveis, mantendo a integridade estatística necessária para o aprendizado de Mining Analytics.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Como carregar todos os dados do pacote</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(miningKPI)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package =</span> <span class="st">"miningKPI"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<section id="processo-de-carregamento-mina-a" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="processo-de-carregamento-mina-a"><span class="header-section-number">A.1</span> Processo de Carregamento (Mina A)</h2>
+<p>Os dados de carga representam a interface entre a extração e o transporte. Eles focam na performance das escavadeiras e pás carregadeiras.</p>
+<section id="eventos-de-carregamento-load_events_mine_a" class="level3" data-number="A.1.1">
+<h3 data-number="A.1.1" class="anchored" data-anchor-id="eventos-de-carregamento-load_events_mine_a"><span class="header-section-number">A.1.1</span> Eventos de Carregamento (<code>load_events_mine_a</code>)</h3>
+<p>Dataset em formato <em>long</em>, descrevendo os estados fundamentais do processo estocástico de carga.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><strong>Coluna</strong></td>
-<td><strong>Tipo</strong></td>
+<td><strong>Variável</strong></td>
 <td><strong>Descrição</strong></td>
 </tr>
 <tr class="even">
-<td><code>load_id</code></td>
-<td>Character</td>
-<td>Identificador da unidade de carga.</td>
-</tr>
-<tr class="odd">
-<td><code>haul_id</code></td>
-<td>Character</td>
-<td>Identificador do caminhão atendido (NA se ociosa).</td>
-</tr>
-<tr class="even">
-<td><code>event_type</code></td>
-<td>Character</td>
-<td>Tipo do evento: <em>maneuver</em>, <em>loading</em> ou <em>idle</em>.</td>
-</tr>
-<tr class="odd">
-<td><code>duration_min</code></td>
-<td>Numeric</td>
-<td>Duração do evento em minutos.</td>
-</tr>
-<tr class="even">
-<td><code>payload</code></td>
-<td>Numeric</td>
-<td>Massa carregada (t). Preenchido apenas em <em>loading</em>.</td>
+<td><code>cycle_id</code></td>
+<td>Identificador único do ciclo de carregamento.</td>
 </tr>
 <tr class="odd">
 <td><code>first_time</code></td>
-<td>DateTime</td>
-<td>Timestamp do início do evento.</td>
+<td>Início do evento específico.</td>
 </tr>
 <tr class="even">
 <td><code>exit_time</code></td>
-<td>DateTime</td>
-<td>Timestamp do fim do evento.</td>
+<td>Término do evento (<span class="math inline">\(T_i\)</span>).</td>
 </tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-</section>
-<section id="datasets-de-transporte" class="level2" data-number="A.2">
-<h2 data-number="A.2" class="anchored" data-anchor-id="datasets-de-transporte"><span class="header-section-number">A.2</span> Datasets de Transporte</h2>
-<p>O transporte representa a maior parcela do custo operacional de uma mina. A estrutura de dados de eventos permite o rastreamento ponto a ponto da jornada do caminhão, conforme discutido no <a href="../ciclo3-transporte.html">Transporte</a>.</p>
-<p>A <a href="#tbl-dic-hauling" class="quarto-xref">Tabela&nbsp;<span>A.2</span></a> descreve as colunas do dataset <code>haul_events_mine_a</code>, decomposto em sete estados operacionais que formam o ciclo de transporte.</p>
-<div id="tbl-dic-hauling" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dic-hauling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;A.2: Atributos do dataset de eventos de transporte (<code>haul_events_mine_a</code>).
-</figcaption>
-<div aria-describedby="tbl-dic-hauling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 14%">
-<col style="width: 65%">
-</colgroup>
-<tbody>
 <tr class="odd">
-<td><strong>Coluna</strong></td>
-<td><strong>Tipo</strong></td>
-<td><strong>Descrição</strong></td>
+<td><code>load_fleet</code></td>
+<td>Classe técnica do equipamento de carga.</td>
 </tr>
 <tr class="even">
-<td><code>haul_id</code></td>
-<td>Character</td>
-<td>Identificador da unidade de transporte.</td>
-</tr>
-<tr class="odd">
-<td><code>origin</code></td>
-<td>Character</td>
-<td>Local de origem/carregamento (ex: Bench).</td>
-</tr>
-<tr class="even">
-<td><code>destination</code></td>
-<td>Character</td>
-<td>Local de destino/basculamento (ex: Crusher).</td>
-</tr>
-<tr class="odd">
-<td><code>event_type</code></td>
-<td>Character</td>
-<td>Um dos 7 estados sequenciais (ex: <em>travel_full</em>).</td>
-</tr>
-<tr class="even">
-<td><code>duration_min</code></td>
-<td>Numeric</td>
-<td>Duração do evento em minutos.</td>
-</tr>
-<tr class="odd">
 <td><code>payload</code></td>
-<td>Numeric</td>
-<td>Carga transportada na viagem (toneladas).</td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-</section>
-<section id="datasets-de-perfuração" class="level2" data-number="A.3">
-<h2 data-number="A.3" class="anchored" data-anchor-id="datasets-de-perfuração"><span class="header-section-number">A.3</span> Datasets de Perfuração</h2>
-<p>A perfuração é o ponto de partida do fluxo produtivo. Os dados apresentados nesta seção referem-se à telemetria de micro-eventos e à conciliação oficial discutida no <a href="../ciclo1-perfuracao.html">Perfuração e Desmonte</a>.</p>
-<p>A estrutura apresentada na <a href="#tbl-dic-drill-events" class="quarto-xref">Tabela&nbsp;<span>A.3</span></a> detalha os micro-eventos que compõem a Identidade Fundamental do ciclo de perfuração.</p>
-<div id="tbl-dic-drill-events" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dic-drill-events-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;A.3: Atributos do dataset de eventos de perfuração (<code>drill_events_mine_d</code>).
-</figcaption>
-<div aria-describedby="tbl-dic-drill-events-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>Coluna</strong></td>
-<td><strong>Tipo</strong></td>
-<td><strong>Descrição</strong></td>
-</tr>
-<tr class="even">
-<td><code>drill_id</code></td>
-<td>Character</td>
-<td>Identificador anonimizado da perfuratriz.</td>
+<td>Massa carregada (<span class="math inline">\(L_i\)</span>) em toneladas.</td>
 </tr>
 <tr class="odd">
 <td><code>event_type</code></td>
-<td>Character</td>
-<td>Fases: <em>drilling</em>, <em>setup</em>, <em>tramming</em>, <em>rods</em> ou <em>inoperable</em>.</td>
+<td>Estado operacional: <code>maneuver</code> (manobra), <code>loading</code> (carga) ou <code>idle</code> (ocioso).</td>
 </tr>
 <tr class="even">
 <td><code>duration_min</code></td>
-<td>Numeric</td>
-<td>Duração do evento em minutos (corrigida via <em>dhours</em>).</td>
-</tr>
-<tr class="odd">
-<td><code>allocated_meters</code></td>
-<td>Numeric</td>
-<td>Metragem estimada do evento via rateio proporcional.</td>
-</tr>
-<tr class="even">
-<td><code>category</code></td>
-<td>Character</td>
-<td>Categoria operacional: HEF (Efetiva) ou HOI (Inoperante).</td>
-</tr>
-<tr class="odd">
-<td><code>first_time</code></td>
-<td>DateTime</td>
-<td>Timestamp do início da fase.</td>
+<td>Duração do evento em minutos decimais.</td>
 </tr>
 </tbody>
 </table>
-</div>
-</figure>
-</div>
-<p>Para fins de gestão e análise de aderência ao plano, o pacote fornece uma visão consolidada diária, descrita na <a href="#tbl-dic-drill-cycles" class="quarto-xref">Tabela&nbsp;<span>A.4</span></a>, onde os tempos de telemetria são reconciliados com os indicadores de fechamento operacional.</p>
-<div id="tbl-dic-drill-cycles" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dic-drill-cycles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;A.4: Atributos do dataset de ciclos de perfuração (<code>drill_cycles_mine_d</code>).
-</figcaption>
-<div aria-describedby="tbl-dic-drill-cycles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</section>
+<section id="ciclos-de-carregamento-load_cycles_mine_a" class="level3" data-number="A.1.2">
+<h3 data-number="A.1.2" class="anchored" data-anchor-id="ciclos-de-carregamento-load_cycles_mine_a"><span class="header-section-number">A.1.2</span> Ciclos de Carregamento (<code>load_cycles_mine_a</code>)</h3>
+<p>Dataset agregando os eventos em ciclos completos de atendimento (<span class="math inline">\(X_i\)</span>).</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 16%">
-<col style="width: 13%">
-<col style="width: 69%">
+<col style="width: 21%">
+<col style="width: 78%">
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><strong>Coluna</strong></td>
-<td><strong>Tipo</strong></td>
+<td><strong>Variável</strong></td>
+<td><strong>Descrição</strong></td>
+</tr>
+<tr class="even">
+<td><code>duration_min</code></td>
+<td>Tempo total do ciclo (<span class="math inline">\(X_i = M_i + D_i + O_i\)</span>).</td>
+</tr>
+<tr class="odd">
+<td><code>m_time</code></td>
+<td>Duração da manobra de posicionamento do caminhão (<span class="math inline">\(M_i\)</span>).</td>
+</tr>
+<tr class="even">
+<td><code>l_time</code></td>
+<td>Duração do carregamento efetivo (<span class="math inline">\(D_i\)</span>).</td>
+</tr>
+<tr class="odd">
+<td><code>i_time</code></td>
+<td>Ociosidade operacional (espera por caminhão) (<span class="math inline">\(O_i\)</span>).</td>
+</tr>
+<tr class="even">
+<td><code>load_status</code></td>
+<td>Status qualitativo (Ex: <em>Target Met</em>, <em>Underload</em>).</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="processo-de-transporte-mina-a" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="processo-de-transporte-mina-a"><span class="header-section-number">A.2</span> Processo de Transporte (Mina A)</h2>
+<p>O transporte é o processo de maior custo operacional. Estes datasets cobrem desde a fila na carga até a descarga final.</p>
+<section id="eventos-de-transporte-haul_events_mine_a" class="level3" data-number="A.2.1">
+<h3 data-number="A.2.1" class="anchored" data-anchor-id="eventos-de-transporte-haul_events_mine_a"><span class="header-section-number">A.2.1</span> Eventos de Transporte (<code>haul_events_mine_a</code>)</h3>
+<p>Dataset detalhado descrevendo a jornada de 7 estados do ciclo de transporte.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Variável</strong></td>
+<td><strong>Descrição</strong></td>
+</tr>
+<tr class="even">
+<td><code>event_type</code></td>
+<td>Os 7 estados: <code>queue_at_load</code>, <code>maneuver_at_load</code>, <code>loading</code>, <code>travel_full</code>, <code>queue_at_dump</code>, <code>maneuver_at_dump</code>, <code>dumping</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>destination</code></td>
+<td>Ponto de descarga (Crusher, Waste Dump, etc.).</td>
+</tr>
+<tr class="even">
+<td><code>duration_min</code></td>
+<td>Tempo despendido em cada um dos 7 estados.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ciclos-de-transporte-haul_cycles_mine_a" class="level3" data-number="A.2.2">
+<h3 data-number="A.2.2" class="anchored" data-anchor-id="ciclos-de-transporte-haul_cycles_mine_a"><span class="header-section-number">A.2.2</span> Ciclos de Transporte (<code>haul_cycles_mine_a</code>)</h3>
+<p>Dataset de performance e conformidade, incluindo métricas de distância (DMT) e balança fixa.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Variável</strong></td>
+<td><strong>Descrição</strong></td>
+</tr>
+<tr class="even">
+<td><code>scale_weight</code></td>
+<td>Massa real registrada pela balança fixa (referência de aferição).</td>
+</tr>
+<tr class="odd">
+<td><code>scale_ok</code></td>
+<td>Variável lógica de validação da pesagem.</td>
+</tr>
+<tr class="even">
+<td><code>dmt_total</code></td>
+<td>Distância total percorrida no ciclo (km).</td>
+</tr>
+<tr class="odd">
+<td><code>q_time</code></td>
+<td>Tempo total em fila (Carga + Descarga).</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="processo-de-perfuração-mina-d" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="processo-de-perfuração-mina-d"><span class="header-section-number">A.3</span> Processo de Perfuração (Mina D)</h2>
+<p>Dados focados na preparação de massa para desmonte, com alta densidade de telemetria e taxonomia de manutenção.</p>
+<section id="eventos-de-perfuração-drill_events_mine_d" class="level3" data-number="A.3.1">
+<h3 data-number="A.3.1" class="anchored" data-anchor-id="eventos-de-perfuração-drill_events_mine_d"><span class="header-section-number">A.3.1</span> Eventos de Perfuração (<code>drill_events_mine_d</code>)</h3>
+<p>Dataset de eventos com coordenadas locais anonimizadas e tradução de telemetria.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Variável</strong></td>
+<td><strong>Descrição</strong></td>
+</tr>
+<tr class="even">
+<td><code>phase</code></td>
+<td>Fase produtiva (1: Positioning, 2: Collaring, 3: Drilling, 4: Rods, 5: Tramming).</td>
+</tr>
+<tr class="odd">
+<td><code>category</code></td>
+<td>Categoria de KPI (EFH, IIH, CMH, etc.).</td>
+</tr>
+<tr class="even">
+<td><code>allocated_meters</code></td>
+<td>Metros perfurados alocados proporcionalmente ao tempo do evento.</td>
+</tr>
+<tr class="odd">
+<td><code>local_x</code> / <code>local_y</code></td>
+<td>Coordenadas no plano cartesiano local da mina.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ciclos-de-perfuração-drill_cycles_mine_d" class="level3" data-number="A.3.2">
+<h3 data-number="A.3.2" class="anchored" data-anchor-id="ciclos-de-perfuração-drill_cycles_mine_d"><span class="header-section-number">A.3.2</span> Ciclos de Perfuração (<code>drill_cycles_mine_d</code>)</h3>
+<p>Agregação diária e por ciclo para cálculo de taxas de penetração (ROP).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Variável</strong></td>
 <td><strong>Descrição</strong></td>
 </tr>
 <tr class="even">
 <td><code>xi_min</code></td>
-<td>Numeric</td>
-<td>Soma dos tempos do ciclo (<span class="math inline">\(P+D+H+M\)</span>) em minutos.</td>
+<td>Tempo total do ciclo operacional (<span class="math inline">\(X_i\)</span>).</td>
 </tr>
 <tr class="odd">
-<td><code>ho_off</code></td>
-<td>Numeric</td>
-<td>Horas Operativas Oficiais (Aba Requipam).</td>
+<td><code>avg_rop</code></td>
+<td>Taxa de Penetração Média (<span class="math inline">\(m/h\)</span>).</td>
 </tr>
 <tr class="even">
-<td><code>prod_day</code></td>
-<td>Numeric</td>
-<td>Metragem total oficial do dia.</td>
-</tr>
-<tr class="odd">
-<td><code>delta_ho</code></td>
-<td>Numeric</td>
-<td>Desvio entre a telemetria e o fechamento oficial.</td>
+<td><code>ho_off</code></td>
+<td>Horas Operacionais oficiais vindas do sistema de despacho (Macro).</td>
 </tr>
 </tbody>
 </table>
-</div>
-</figure>
-</div>
 </section>
-<section id="estrutura-de-consolidação" class="level2" data-number="A.4">
-<h2 data-number="A.4" class="anchored" data-anchor-id="estrutura-de-consolidação"><span class="header-section-number">A.4</span> Estrutura de Consolidação</h2>
-<p>A transformação dos dados segue uma lógica de agregação temporal para facilitar o cálculo de indicadores-chave de desempenho (KPIs).</p>
-<p>O processo de sumarização transforma os eventos granulares (formato <em>long</em>) nas variáveis de estado consolidadas (formato <em>wide</em>) representadas na <a href="#tbl-consolidacao" class="quarto-xref">Tabela&nbsp;<span>A.5</span></a>.</p>
-<div id="tbl-consolidacao" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-consolidacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;A.5: Lógica de consolidação de ciclos no pacote <code>miningKPI</code>.
-</figcaption>
-<div aria-describedby="tbl-consolidacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<section id="log-de-manutenção-drill_maintenance_log_mine_d" class="level3" data-number="A.3.3">
+<h3 data-number="A.3.3" class="anchored" data-anchor-id="log-de-manutenção-drill_maintenance_log_mine_d"><span class="header-section-number">A.3.3</span> Log de Manutenção (<code>drill_maintenance_log_mine_d</code>)</h3>
+<p>Dataset especializado em confiabilidade e taxonomia de ativos.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><strong>Processo</strong></td>
-<td><strong>Ciclo de Referência</strong></td>
-<td><strong>Componentes da Soma</strong></td>
+<td><strong>Variável</strong></td>
+<td><strong>Descrição</strong></td>
 </tr>
 <tr class="even">
-<td><strong>Carga</strong></td>
-<td>Ciclo de Carga (<span class="math inline">\(X_i\)</span>)</td>
-<td><em>maneuver</em> + <em>loading</em> + <em>idle</em></td>
+<td><code>maintenance_team</code></td>
+<td>Equipe responsável (Mechanical, Electrical, etc.).</td>
 </tr>
 <tr class="odd">
-<td><strong>Transporte</strong></td>
-<td>Ciclo de Transporte (<span class="math inline">\(X_j\)</span>)</td>
-<td><em>fixed times</em> (<span class="math inline">\(FT_j\)</span>) + <em>variable times</em> (<span class="math inline">\(V_j\)</span>)</td>
+<td><code>system</code> / <code>assembly</code> / <code>component</code></td>
+<td>Hierarquia técnica da falha (Taxonomia).</td>
 </tr>
 <tr class="even">
-<td><strong>Perfuração</strong></td>
-<td>Ciclo de Perfuração (<span class="math inline">\(X_i\)</span>)</td>
-<td><em>setup</em> + <em>drilling</em> + <em>rods</em> + <em>tramming</em></td>
+<td><code>failure_mode</code></td>
+<td>Modo de falha detectado (Ex: <em>Leakage</em>, <em>Crack</em>).</td>
 </tr>
 </tbody>
 </table>
-</div>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>Nota Técnica:</strong> A estrutura em formato <em>long</em> (eventos) é ideal para análise de disponibilidade e identificação de <em>gaps</em>, enquanto o formato <em>wide</em> (ciclos) facilita a análise de produtividade e cálculo de taxas (ROP, GDR).</p>
-</blockquote>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

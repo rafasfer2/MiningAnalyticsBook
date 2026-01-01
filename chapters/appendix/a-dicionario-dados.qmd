@@ -1,87 +1,106 @@
-# Dicionário de Dados do Pacote `miningKPI` {#app-dados}
+# Dicionário de Dados {#app-dicionario}
 
-O pacote `miningKPI` fornece conjuntos de dados educacionais que simulam operações reais de mineração. Estes dados estão estruturados em formato de eventos (*long format*) ou ciclos consolidados (*wide format*).
+Este apêndice detalha os conjuntos de dados contidos no pacote miningKPI, utilizados nos estudos de caso de carga, transporte e perfuração. Todos os dados foram anonimizados para proteger informações sensíveis, mantendo a integridade estatística necessária para o aprendizado de Mining Analytics.
 
-## Datasets de Carregamento
+```{r}
+# Como carregar todos os dados do pacote
+library(miningKPI)
+data(package = "miningKPI")
+```
 
-Os dados de carregamento são fundamentais para o estudo da performance das unidades de carga. As definições conceituais e a aplicação prática desta base de dados são exploradas detalhadamente no [Carregamento](#chap-carregamento).
+## Processo de Carregamento (Mina A)
 
-A tabela a seguir apresenta a estrutura do dataset `load_events_mine_a`, que registra as mudanças de estado operacional de cada escavadeira.
+Os dados de carga representam a interface entre a extração e o transporte. Eles focam na performance das escavadeiras e pás carregadeiras.
 
-|  |  |  |
-|----|----|----|
-| **Coluna** | **Tipo** | **Descrição** |
-| `load_id` | Character | Identificador da unidade de carga. |
-| `haul_id` | Character | Identificador do caminhão atendido (NA se ociosa). |
-| `event_type` | Character | Tipo do evento: *maneuver*, *loading* ou *idle*. |
-| `duration_min` | Numeric | Duração do evento em minutos. |
-| `payload` | Numeric | Massa carregada (t). Preenchido apenas em *loading*. |
-| `first_time` | DateTime | Timestamp do início do evento. |
-| `exit_time` | DateTime | Timestamp do fim do evento. |
+### Eventos de Carregamento (`load_events_mine_a`)
 
-: Atributos do dataset de eventos de carregamento (`load_events_mine_a`). {#tbl-dic-loading}
+Dataset em formato *long*, descrevendo os estados fundamentais do processo estocástico de carga.
 
-## Datasets de Transporte
+|  |  |
+|----|----|
+| **Variável** | **Descrição** |
+| `cycle_id` | Identificador único do ciclo de carregamento. |
+| `first_time` | Início do evento específico. |
+| `exit_time` | Término do evento ($T_i$). |
+| `load_fleet` | Classe técnica do equipamento de carga. |
+| `payload` | Massa carregada ($L_i$) em toneladas. |
+| `event_type` | Estado operacional: `maneuver` (manobra), `loading` (carga) ou `idle` (ocioso). |
+| `duration_min` | Duração do evento em minutos decimais. |
 
-O transporte representa a maior parcela do custo operacional de uma mina. A estrutura de dados de eventos permite o rastreamento ponto a ponto da jornada do caminhão, conforme discutido no [Transporte](#chap-transporte).
+### Ciclos de Carregamento (`load_cycles_mine_a`)
 
-A @tbl-dic-hauling descreve as colunas do dataset `haul_events_mine_a`, decomposto em sete estados operacionais que formam o ciclo de transporte.
+Dataset agregando os eventos em ciclos completos de atendimento ($X_i$).
 
-|                |           |                                                   |
-|----------------|-----------|---------------------------------------------------|
-| **Coluna**     | **Tipo**  | **Descrição**                                     |
-| `haul_id`      | Character | Identificador da unidade de transporte.           |
-| `origin`       | Character | Local de origem/carregamento (ex: Bench).         |
-| `destination`  | Character | Local de destino/basculamento (ex: Crusher).      |
-| `event_type`   | Character | Um dos 7 estados sequenciais (ex: *travel_full*). |
-| `duration_min` | Numeric   | Duração do evento em minutos.                     |
-| `payload`      | Numeric   | Carga transportada na viagem (toneladas).         |
+|                |                                                           |
+|----------------|-----------------------------------------------------------|
+| **Variável**   | **Descrição**                                             |
+| `duration_min` | Tempo total do ciclo ($X_i = M_i + D_i + O_i$).           |
+| `m_time`       | Duração da manobra de posicionamento do caminhão ($M_i$). |
+| `l_time`       | Duração do carregamento efetivo ($D_i$).                  |
+| `i_time`       | Ociosidade operacional (espera por caminhão) ($O_i$).     |
+| `load_status`  | Status qualitativo (Ex: *Target Met*, *Underload*).       |
 
-: Atributos do dataset de eventos de transporte (`haul_events_mine_a`). {#tbl-dic-hauling}
+## Processo de Transporte (Mina A)
 
-## Datasets de Perfuração
+O transporte é o processo de maior custo operacional. Estes datasets cobrem desde a fila na carga até a descarga final.
 
-A perfuração é o ponto de partida do fluxo produtivo. Os dados apresentados nesta seção referem-se à telemetria de micro-eventos e à conciliação oficial discutida no [Perfuração e Desmonte](#chap-perfuracao).
+### Eventos de Transporte (`haul_events_mine_a`)
 
-A estrutura apresentada na @tbl-dic-drill-events detalha os micro-eventos que compõem a Identidade Fundamental do ciclo de perfuração.
+Dataset detalhado descrevendo a jornada de 7 estados do ciclo de transporte.
 
-|  |  |  |
-|----|----|----|
-| **Coluna** | **Tipo** | **Descrição** |
-| `drill_id` | Character | Identificador anonimizado da perfuratriz. |
-| `event_type` | Character | Fases: *drilling*, *setup*, *tramming*, *rods* ou *inoperable*. |
-| `duration_min` | Numeric | Duração do evento em minutos (corrigida via *dhours*). |
-| `allocated_meters` | Numeric | Metragem estimada do evento via rateio proporcional. |
-| `category` | Character | Categoria operacional: HEF (Efetiva) ou HOI (Inoperante). |
-| `first_time` | DateTime | Timestamp do início da fase. |
+|  |  |
+|----|----|
+| **Variável** | **Descrição** |
+| `event_type` | Os 7 estados: `queue_at_load`, `maneuver_at_load`, `loading`, `travel_full`, `queue_at_dump`, `maneuver_at_dump`, `dumping`. |
+| `destination` | Ponto de descarga (Crusher, Waste Dump, etc.). |
+| `duration_min` | Tempo despendido em cada um dos 7 estados. |
 
-: Atributos do dataset de eventos de perfuração (`drill_events_mine_d`). {#tbl-dic-drill-events}
+### Ciclos de Transporte (`haul_cycles_mine_a`)
 
-Para fins de gestão e análise de aderência ao plano, o pacote fornece uma visão consolidada diária, descrita na @tbl-dic-drill-cycles, onde os tempos de telemetria são reconciliados com os indicadores de fechamento operacional.
+Dataset de performance e conformidade, incluindo métricas de distância (DMT) e balança fixa.
 
-|            |          |                                                   |
-|------------|----------|---------------------------------------------------|
-| **Coluna** | **Tipo** | **Descrição**                                     |
-| `xi_min`   | Numeric  | Soma dos tempos do ciclo ($P+D+H+M$) em minutos.  |
-| `ho_off`   | Numeric  | Horas Operativas Oficiais (Aba Requipam).         |
-| `prod_day` | Numeric  | Metragem total oficial do dia.                    |
-| `delta_ho` | Numeric  | Desvio entre a telemetria e o fechamento oficial. |
+|  |  |
+|----|----|
+| **Variável** | **Descrição** |
+| `scale_weight` | Massa real registrada pela balança fixa (referência de aferição). |
+| `scale_ok` | Variável lógica de validação da pesagem. |
+| `dmt_total` | Distância total percorrida no ciclo (km). |
+| `q_time` | Tempo total em fila (Carga + Descarga). |
 
-: Atributos do dataset de ciclos de perfuração (`drill_cycles_mine_d`). {#tbl-dic-drill-cycles}
+## Processo de Perfuração (Mina D)
 
-## Estrutura de Consolidação
+Dados focados na preparação de massa para desmonte, com alta densidade de telemetria e taxonomia de manutenção.
 
-A transformação dos dados segue uma lógica de agregação temporal para facilitar o cálculo de indicadores-chave de desempenho (KPIs).
+### Eventos de Perfuração (`drill_events_mine_d`)
 
-O processo de sumarização transforma os eventos granulares (formato *long*) nas variáveis de estado consolidadas (formato *wide*) representadas na @tbl-consolidacao.
+Dataset de eventos com coordenadas locais anonimizadas e tradução de telemetria.
 
-|  |  |  |
-|----|----|----|
-| **Processo** | **Ciclo de Referência** | **Componentes da Soma** |
-| **Carga** | Ciclo de Carga ($X_i$) | *maneuver* + *loading* + *idle* |
-| **Transporte** | Ciclo de Transporte ($X_j$) | *fixed times* ($FT_j$) + *variable times* ($V_j$) |
-| **Perfuração** | Ciclo de Perfuração ($X_i$) | *setup* + *drilling* + *rods* + *tramming* |
+|  |  |
+|----|----|
+| **Variável** | **Descrição** |
+| `phase` | Fase produtiva (1: Positioning, 2: Collaring, 3: Drilling, 4: Rods, 5: Tramming). |
+| `category` | Categoria de KPI (EFH, IIH, CMH, etc.). |
+| `allocated_meters` | Metros perfurados alocados proporcionalmente ao tempo do evento. |
+| `local_x` / `local_y` | Coordenadas no plano cartesiano local da mina. |
 
-: Lógica de consolidação de ciclos no pacote `miningKPI`. {#tbl-consolidacao}
+### Ciclos de Perfuração (`drill_cycles_mine_d`)
 
-> **Nota Técnica:** A estrutura em formato *long* (eventos) é ideal para análise de disponibilidade e identificação de *gaps*, enquanto o formato *wide* (ciclos) facilita a análise de produtividade e cálculo de taxas (ROP, GDR).
+Agregação diária e por ciclo para cálculo de taxas de penetração (ROP).
+
+|  |  |
+|----|----|
+| **Variável** | **Descrição** |
+| `xi_min` | Tempo total do ciclo operacional ($X_i$). |
+| `avg_rop` | Taxa de Penetração Média ($m/h$). |
+| `ho_off` | Horas Operacionais oficiais vindas do sistema de despacho (Macro). |
+
+### Log de Manutenção (`drill_maintenance_log_mine_d`)
+
+Dataset especializado em confiabilidade e taxonomia de ativos.
+
+|  |  |
+|----|----|
+| **Variável** | **Descrição** |
+| `maintenance_team` | Equipe responsável (Mechanical, Electrical, etc.). |
+| `system` / `assembly` / `component` | Hierarquia técnica da falha (Taxonomia). |
+| `failure_mode` | Modo de falha detectado (Ex: *Leakage*, *Crack*). |

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; ciclo-pdca – Sistema de Gestão e Excelência Operacional na Mineração</title>
+<title>3&nbsp; Trilogia Juran e Ciclo PDCA – Sistema de Gestão e Excelência Operacional na Mineração</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -84,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Sistema de Gestão Integrado (SGI)</a></li><li class="breadcrumb-item"><a href="../chapters/ciclo-pdca.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">ciclo-pdca</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Sistema de Gestão Integrado (SGI)</a></li><li class="breadcrumb-item"><a href="../chapters/ciclo-pdca.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Trilogia Juran e Ciclo PDCA</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
@@ -145,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ciclo-pdca.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">ciclo-pdca</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Trilogia Juran e Ciclo PDCA</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -232,7 +252,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/appendix/a-dicionario-dados.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Dados do Pacote <code>miningKPI</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Dados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -272,15 +292,25 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#trilogia-juran" id="toc-trilogia-juran" class="nav-link active" data-scroll-target="#trilogia-juran"><span class="header-section-number">3.1</span> Trilogia Juran</a></li>
+  <li><a href="#ciclo-pdca" id="toc-ciclo-pdca" class="nav-link" data-scroll-target="#ciclo-pdca"><span class="header-section-number">3.2</span> Ciclo PDCA</a>
+  <ul class="collapse">
+  <li><a href="#fases-e-atividades-do-ciclo-pdca" id="toc-fases-e-atividades-do-ciclo-pdca" class="nav-link" data-scroll-target="#fases-e-atividades-do-ciclo-pdca"><span class="header-section-number">3.2.1</span> Fases e Atividades do Ciclo PDCA</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Sistema de Gestão Integrado (SGI)</a></li><li class="breadcrumb-item"><a href="../chapters/ciclo-pdca.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">ciclo-pdca</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Sistema de Gestão Integrado (SGI)</a></li><li class="breadcrumb-item"><a href="../chapters/ciclo-pdca.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Trilogia Juran e Ciclo PDCA</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">ciclo-pdca</span></h1>
+<h1 class="title"><span id="chap-pdca" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Trilogia Juran e Ciclo PDCA</span></span></h1>
 </div>
 
 
@@ -297,8 +327,53 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="trilogia-juran" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="trilogia-juran"><span class="header-section-number">3.1</span> Trilogia Juran</h2>
+<p>Estudos que visam medir graus de diferença nos processos de produção, focando especialmente na diferença entre cronograma e desempenho, enquadram-se em um escopo mais geral conhecido como Gestão e Avaliação da Qualidade.</p>
+<p>A gestão da qualidade de processos, ou gestão focada na qualidade do processo, é entendida como a adoção de um conjunto de atividades que inclui três processos conhecidos como a trilogia Juran (<span class="citation" data-cites="juran1986">Juran (<a href="#ref-juran1986" role="doc-biblioref">1986</a>)</span>). A <a href="#fig-juran-trilogy" class="quarto-xref">Figura&nbsp;<span>3.1</span></a> exemplifica a trilogia Juran, na qual <strong>o planejamento de qualidade</strong> está associado ao custo da baixa qualidade e ao estabelecimento de limites alvo e/ou especificação, onde a&nbsp; zona <strong>original de controle de qualidade</strong> mostra desvios e picos esporádicos e, consequentemente, desencadeia a busca por resolução de problemas por ferramentas e métodos baseados em PDCA. Como as ações resultam em <strong>melhorias eficazes na qualidade</strong>, por exemplo, redução do custo da baixa qualidade, diminuição da variabilidade do processo e/ou indicadores aprimorados, há uma padronização das ações mais impactantes e uma nova mudança no ciclo PDCA para novas buscas por melhorias. Por fim, <strong>a avaliação de qualidade</strong>, que visa medir o alinhamento dos indicadores com os objetivos da organização.</p>
+<div id="fig-juran-trilogy" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-juran-trilogy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="..\images/fig-juran-trilogy.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-juran-trilogy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.1 - Diagrama da Trilogia Juran
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="ciclo-pdca" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="ciclo-pdca"><span class="header-section-number">3.2</span> Ciclo PDCA</h2>
+<p>O ciclo PDCA, como uma metodologia para melhoria, é uma ferramenta simples que promove alterações graduais no processo, impulsionando assim o desenvolvimento da empresa. O ciclo, conforme apresentado na <a href="#fig-ciclo-pdca" class="quarto-xref">Figura&nbsp;<span>3.2</span></a>, é dividido em etapas de planejamento (PLAN), execução (DO), verificação (CHECK) e ação (ACT).</p>
+<div id="fig-ciclo-pdca" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ciclo-pdca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="..\images/fig-ciclo-pdca.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ciclo-pdca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.2 - Detalhamento do Ciclo PDCA
+</figcaption>
+</figure>
+</div>
+<p>Para que essas etapas sejam realizadas com eficácia, é essencial que as subetapas sejam definidas com precisão. É importante destacar que a etapa de planejamento exige um cuidado maior na execução, pois a identificação e priorização das métricas de avaliação proporcionarão uma investigação mais aprofundada das causas dos problemas. Além disso, a utilização de ferramentas de qualidade para dar suporte ao ciclo PDCA é fundamental e indispensável para a eficiência e eficácia dos planos de ação desenvolvidos. Desta forma, propostas de mudanças, padronização de processos e/ou planos de ação são então embasadas em métodos e ferramentas estruturadas, sendo sempre recomendável estabelecer processo de comunicação e treinamento e formalização documental.</p>
+<p>De acordo com Mendes (2007), o ciclo PDCA é um método estruturado para a melhoria contínua dos processos nas organizações, dividido nas seguintes etapas:</p>
+<ul>
+<li><p><strong>PLAN:</strong> Esta etapa envolve o desenvolvimento de um plano com base nas diretrizes da organização. O objetivo é definir a situação atual, estabelecer metas claras e mensuráveis, e determinar as estratégias para alcançar esses objetivos.</p></li>
+<li><p><strong>DO</strong><em>:</em> Após o planejamento, a fase de execução coloca o plano em ação. Isso inclui a iniciação do processo, a educação e formação dos envolvidos, e a implementação das estratégias definidas para atingir os objetivos estabelecidos.</p></li>
+<li><p><strong>CHECK:</strong> Nesta etapa, os resultados obtidos são analisados e comparados com os padrões esperados. É importante realizar uma avaliação contínua para garantir que o processo esteja sendo executado de acordo com o planejado.</p></li>
+<li><p><strong>ACT:</strong> A última fase do ciclo envolve a tomada de ações corretivas ou de melhoria, caso seja identificada a necessidade de ajustes ou aprimoramentos com base na verificação dos resultados.</p></li>
+</ul>
+<section id="fases-e-atividades-do-ciclo-pdca" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="fases-e-atividades-do-ciclo-pdca"><span class="header-section-number">3.2.1</span> Fases e Atividades do Ciclo PDCA</h3>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-juran1986" class="csl-entry" role="listitem">
+Juran, Joseph M. 1986. <span>“The quality trilogy”</span>. <em>Quality Progress</em> 19 (8): 19–24.
+</div>
+</div>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script src="scripts/set-toc-expanded.js"></script>
