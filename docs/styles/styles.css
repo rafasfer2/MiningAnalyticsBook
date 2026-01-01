@@ -1,3 +1,15 @@
+/* Ajuste para tabelas com células mescladas (kableExtra) */
+table.table td {
+  vertical-align: middle !important;
+  border: 1px solid var(--color-gray-soft) !important;
+}
+
+/* Destaque para a primeira coluna (Fases) */
+table.table td:first-child {
+  font-weight: bold;
+  background-color: var(--color-cyan-light);
+  color: var(--color-teal-dark);
+}
 /* ==============================================================================
    ESTRUTURA FINAL DO LAYOUT (V10.8 - TOC FIXED & NÍVEL 3 FORÇADO)
    ============================================================================== */

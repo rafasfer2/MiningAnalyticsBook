@@ -42,39 +42,54 @@ De acordo com Mendes (2007), o ciclo PDCA é um método estruturado para a melho
 
 ### Fases e Atividades do Ciclo PDCA
 
-Na @tbl-atividades-pdca, apresentamos a estrutura completa das fases e etapas que compuseram a elaboração deste trabalho. A utilização do método PDCA forneceu o caminho estruturado necessário para o planejamento, execução, verificação e o aprimoramento contínuo, garantindo que cada métrica de performance fosse investigada em sua causa raiz antes da proposição de soluções.
+A @tbl-atividades-pdca-detalhada consolida o cronograma executivo do projeto. A estruturação visual com células mescladas permite identificar rapidamente a densidade de atividades concentradas na fase de Planejamento (P), que é o alicerce para a eficácia das fases subsequentes de execução e controle no Mining Analytics.
 
-|  |  |  |  |  |  |
-|------------|------------|------------|------------|------------|------------|
-| **Fases** | **Etapas** | **Atividades** | **Planejado (Início/Fim)** | **Realizado (Início/Fim)** | **Status** |
-| **P** | Identificação do problema | Identificação das prioridades |  |  | OK |
-| **P** |  | Estabelecimento da meta do projeto |  |  | OK |
-| **P** |  | Quantificação dos ganhos do projeto |  |  | OK |
-| **P** | Análise do Fenômeno | Estratificação do problema |  |  | OK |
-| **P** |  | Estudo das variações |  |  | OK |
-| **P** |  | Definição das metas específicas |  |  | OK |
-| **P** | Análise do Processo | Levantamento das causas potenciais |  |  | OK |
-| **P** |  | Priorização das causas potenciais |  |  | OK |
-| **P** |  | Quantificação das causas priorizadas |  |  | OK |
-| **P** | Plano de Ação | Levantamento das possíveis soluções |  |  | OK |
-| **P** |  | Priorização das possíveis soluções |  |  | OK |
-| **P** |  | Realização de teste piloto (se necessário) |  |  | OK |
-| **P** |  | Estabelecimento do plano de ação |  |  | OK |
-| **D** | Execução | Comunicação do plano de ação |  |  | OK |
-| **D** |  | Realização de treinamentos dos envolvidos |  |  | OK |
-| **D** |  | Implantação e acompanhamento do plano |  |  | OK |
-| **C** | Verificação | Verificação do alcance das metas |  |  | OK |
-| **C** |  | Quantificação dos ganhos do projeto |  |  | Não Consta |
-| **A** | Padronização | Padronização das novas atividades |  |  | Não Consta |
-| **A** |  | Plano para monitoramento do processo |  |  | Não Consta |
-| **A** |  | Plano de ações corretivas |  |  | Não Consta |
+``` r
+#| label: tbl-atividades-pdca-detalhada
+#| tbl-cap: "Representação detalhada das fases e atividades do PDCA com mesclagem de categorias."
+#| echo: false
+#| message: false
+#| warning: false
 
-: Representação das fases e atividades do PDCA no projeto. {#tbl-atividades-pdca .kable-table}
+library(knitr)
+library(kableExtra)
+library(dplyr)
 
-#### Detalhamento do Fluxo Operacional
+# Criação do dataframe com todo o conteúdo original
+df_pdca <- data.frame(
+  Fases = c(rep("P", 13), rep("D", 3), rep("C", 2), rep("A", 3)),
+  Etapas = c(
+    rep("Identificação do problema", 3),
+    rep("Análise do Fenômeno", 3),
+    rep("Análise do Processo", 3),
+    rep("Estabelecimento do Plano de Ação", 4),
+    rep("Execução do Plano de Ação", 3),
+    rep("Verificação dos Resultados", 2),
+    rep("Padronização", 3)
+  ),
+  Atividades = c(
+    "Identificação das prioridades", "Estabelecimento da meta do projeto", "Quantificação dos ganhos do projeto",
+    "Estratificação do problema", "Estudo das variações", "Definição das metas específicas",
+    "Levantamento das causas potenciais", "Priorização das causas potenciais", "Quantificação das causas priorizadas",
+    "Levantamento das possíveis soluções", "Priorização das possíveis soluções", "Realização de teste piloto (se necessário)", "Estabelecimento do plano de ação",
+    "Comunicação do plano de ação", "Realização de treinamentos dos envolvidos", "Implantação e acompanhamento do plano",
+    "Verificação do alcance da meta geral e específicas", "Quantificação dos ganhos do projeto",
+    "Padronização das novas atividades", "Plano para monitoramento do processo", "Plano de ações corretivas"
+  ),
+  Status = c(rep("OK", 17), "Não Consta", rep("Não Consta", 3))
+)
 
-O ciclo inicia-se na fase de **Identificação do Problema**, onde a definição das prioridades e o estabelecimento da meta global servem de base para todas as atividades subsequentes. Na **Análise do Fenômeno**, o foco desloca-se para a estratificação dos dados e o estudo das variações, permitindo que a pesquisa tome forma sobre os principais KPIs a serem utilizados.
+# Renderização da tabela com mesclagem automática (rowspan)
+df_pdca %>%
+  kable(align = "cllc", booktabs = TRUE) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F) %>%
+  collapse_rows(columns = 1:2, valign = "middle")
+```
 
-Ao avançar para a **Análise do Processo**, o levantamento e a priorização das causas potenciais aprofundam o exame da ocorrência do problema. Esta fase culmina no **Estabelecimento do Plano de Ação**, onde soluções são testadas (piloto) e priorizadas antes da formalização do plano executivo.
+#### Análise do Fluxo Metodológico
 
-As etapas de execução sucedem o planejamento, iniciando com a **Comunicação e Treinamento** dos envolvidos, garantindo que as premissas do *Mining Analytics* sejam compreendidas por quem opera o ativo. Na fase de **Verificação**, realiza-se o confronto entre os resultados alcançados e as metas globais definidas inicialmente. Por fim, a **Padronização** visa consolidar as novas atividades no processo, instituindo planos de monitoramento e ações corretivas para garantir que os ganhos de performance sejam sustentáveis a longo prazo.
+Conforme observado na \@tbl-atividades-pdca-detalhada, o ciclo inicia-se na **Identificação do Problema**, onde a definição das prioridades e a meta global servem de base para as atividades seguintes. Na **Análise do Fenômeno**, ocorre a estratificação dos dados e o estudo das variações, permitindo que a pesquisa tome forma sobre os principais KPIs a serem utilizados.
+
+Com a **Análise do Processo**, o levantamento e a priorização das causas potenciais aprofundam o exame da ocorrência do problema, culminando no **Estabelecimento do Plano de Ação**, onde soluções são testadas e priorizadas.
+
+As etapas subsequentes à fase de planejamento focam na **Execução**, iniciando com a comunicação e treinamento dos envolvidos. Na **Verificação**, confrontam-se os resultados contra as metas globais e, por fim, a **Padronização** institucionaliza as novas atividades, garantindo que o monitoramento e as ações corretivas sustentem os ganhos de performance a longo prazo.

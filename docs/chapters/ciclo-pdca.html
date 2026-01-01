@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -381,209 +416,51 @@ Figura&nbsp;3.2 - Detalhamento do Ciclo PDCA
 </ul>
 <section id="fases-e-atividades-do-ciclo-pdca" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="fases-e-atividades-do-ciclo-pdca"><span class="header-section-number">3.2.1</span> Fases e Atividades do Ciclo PDCA</h3>
-<p>Na <a href="#tbl-atividades-pdca" class="quarto-xref">Tabela&nbsp;<span>3.1</span></a>, apresentamos a estrutura completa das fases e etapas que compuseram a elaboração deste trabalho. A utilização do método PDCA forneceu o caminho estruturado necessário para o planejamento, execução, verificação e o aprimoramento contínuo, garantindo que cada métrica de performance fosse investigada em sua causa raiz antes da proposição de soluções.</p>
-<div id="tbl-atividades-pdca" class="kable-table quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-atividades-pdca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;3.1 - Representação das fases e atividades do PDCA no projeto.
-</figcaption>
-<div aria-describedby="tbl-atividades-pdca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="kable-table caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>Fases</strong></td>
-<td><strong>Etapas</strong></td>
-<td><strong>Atividades</strong></td>
-<td><strong>Planejado (Início/Fim</strong></td>
-<td><strong>Realizado (Início/Fim</strong></td>
-<td><strong>Status</strong></td>
-</tr>
-<tr class="even">
-<td><strong>P</strong></td>
-<td>Identificação do problema</td>
-<td>Identificação das prioridades</td>
-<td></td>
-<td></td>
-<td>OK</td>
-</tr>
-<tr class="odd">
-<td><strong>P</strong></td>
-<td></td>
-<td>Estabelecimento da meta do projeto</td>
-<td></td>
-<td></td>
-<td>OK</td>
-</tr>
-<tr class="even">
-<td><strong>P</strong></td>
-<td></td>
-<td>Quantificação dos ganhos do projeto</td>
-<td></td>
-<td></td>
-<td>OK</td>
-</tr>
-<tr class="odd">
-<td><strong>P</strong></td>
-<td>Análise do Fenômeno</td>
-<td>Estratificação do problema</td>
-<td></td>
-<td></td>
-<td>OK</td>
-</tr>
-<tr class="even">
-<td><strong>P</strong></td>
-<td></td>
-<td>Estudo das variações</td>
-<td></td>
-<td></td>
-<td>OK</td>
-</tr>
-<tr class="odd">
-<td><strong>P</strong></td>
-<td></td>
-<td>Definição das metas específicas</td>
-<td></td>
-<td></td>
-<td>OK</td>
-</tr>
-<tr class="even">
-<td><strong>P</strong></td>
-<td>Análise do Processo</td>
-<td>Levantamento das causas potenciais</td>
-<td></td>
-<td></td>
-<td>OK</td>
-</tr>
-<tr class="odd">
-<td><strong>P</strong></td>
-<td></td>
-<td>Priorização das causas potenciais</td>
-<td></td>
-<td></td>
-<td>OK</td>
-</tr>
-<tr class="even">
-<td><strong>P</strong></td>
-<td></td>
-<td>Quantificação das causas priorizadas</td>
-<td></td>
-<td></td>
-<td>OK</td>
-</tr>
-<tr class="odd">
-<td><strong>P</strong></td>
-<td>Plano de Ação</td>
-<td>Levantamento das possíveis soluções</td>
-<td></td>
-<td></td>
-<td>OK</td>
-</tr>
-<tr class="even">
-<td><strong>P</strong></td>
-<td></td>
-<td>Priorização das possíveis soluções</td>
-<td></td>
-<td></td>
-<td>OK</td>
-</tr>
-<tr class="odd">
-<td><strong>P</strong></td>
-<td></td>
-<td>Realização de teste piloto (se necessário)</td>
-<td></td>
-<td></td>
-<td>OK</td>
-</tr>
-<tr class="even">
-<td><strong>P</strong></td>
-<td></td>
-<td>Estabelecimento do plano de ação</td>
-<td></td>
-<td></td>
-<td>OK</td>
-</tr>
-<tr class="odd">
-<td><strong>D</strong></td>
-<td>Execução</td>
-<td>Comunicação do plano de ação</td>
-<td></td>
-<td></td>
-<td>OK</td>
-</tr>
-<tr class="even">
-<td><strong>D</strong></td>
-<td></td>
-<td>Realização de treinamentos dos envolvidos</td>
-<td></td>
-<td></td>
-<td>OK</td>
-</tr>
-<tr class="odd">
-<td><strong>D</strong></td>
-<td></td>
-<td>Implantação e acompanhamento do plano</td>
-<td></td>
-<td></td>
-<td>OK</td>
-</tr>
-<tr class="even">
-<td><strong>C</strong></td>
-<td>Verificação</td>
-<td>Verificação do alcance das metas</td>
-<td></td>
-<td></td>
-<td>OK</td>
-</tr>
-<tr class="odd">
-<td><strong>C</strong></td>
-<td></td>
-<td>Quantificação dos ganhos do projeto</td>
-<td></td>
-<td></td>
-<td>Não Consta</td>
-</tr>
-<tr class="even">
-<td><strong>A</strong></td>
-<td>Padronização</td>
-<td>Padronização das novas atividades</td>
-<td></td>
-<td></td>
-<td>Não Consta</td>
-</tr>
-<tr class="odd">
-<td><strong>A</strong></td>
-<td></td>
-<td>Plano para monitoramento do processo</td>
-<td></td>
-<td></td>
-<td>Não Consta</td>
-</tr>
-<tr class="even">
-<td><strong>A</strong></td>
-<td></td>
-<td>Plano de ações corretivas</td>
-<td></td>
-<td></td>
-<td>Não Consta</td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-<section id="detalhamento-do-fluxo-operacional" class="level4" data-number="3.2.1.1">
-<h4 data-number="3.2.1.1" class="anchored" data-anchor-id="detalhamento-do-fluxo-operacional"><span class="header-section-number">3.2.1.1</span> Detalhamento do Fluxo Operacional</h4>
-<p>O ciclo inicia-se na fase de <strong>Identificação do Problema</strong>, onde a definição das prioridades e o estabelecimento da meta global servem de base para todas as atividades subsequentes. Na <strong>Análise do Fenômeno</strong>, o foco desloca-se para a estratificação dos dados e o estudo das variações, permitindo que a pesquisa tome forma sobre os principais KPIs a serem utilizados.</p>
-<p>Ao avançar para a <strong>Análise do Processo</strong>, o levantamento e a priorização das causas potenciais aprofundam o exame da ocorrência do problema. Esta fase culmina no <strong>Estabelecimento do Plano de Ação</strong>, onde soluções são testadas (piloto) e priorizadas antes da formalização do plano executivo.</p>
-<p>As etapas de execução sucedem o planejamento, iniciando com a <strong>Comunicação e Treinamento</strong> dos envolvidos, garantindo que as premissas do <em>Mining Analytics</em> sejam compreendidas por quem opera o ativo. Na fase de <strong>Verificação</strong>, realiza-se o confronto entre os resultados alcançados e as metas globais definidas inicialmente. Por fim, a <strong>Padronização</strong> visa consolidar as novas atividades no processo, instituindo planos de monitoramento e ações corretivas para garantir que os ganhos de performance sejam sustentáveis a longo prazo.</p>
+<p>A <span class="quarto-unresolved-ref">?tbl-atividades-pdca-detalhada</span> consolida o cronograma executivo do projeto. A estruturação visual com células mescladas permite identificar rapidamente a densidade de atividades concentradas na fase de Planejamento (P), que é o alicerce para a eficácia das fases subsequentes de execução e controle no Mining Analytics.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-atividades-pdca-detalhada</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Representação detalhada das fases e atividades do PDCA com mesclagem de categorias."</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Criação do dataframe com todo o conteúdo original</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>df_pdca <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">Fases =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"P"</span>, <span class="dv">13</span>), <span class="fu">rep</span>(<span class="st">"D"</span>, <span class="dv">3</span>), <span class="fu">rep</span>(<span class="st">"C"</span>, <span class="dv">2</span>), <span class="fu">rep</span>(<span class="st">"A"</span>, <span class="dv">3</span>)),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">Etapas =</span> <span class="fu">c</span>(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rep</span>(<span class="st">"Identificação do problema"</span>, <span class="dv">3</span>),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rep</span>(<span class="st">"Análise do Fenômeno"</span>, <span class="dv">3</span>),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rep</span>(<span class="st">"Análise do Processo"</span>, <span class="dv">3</span>),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rep</span>(<span class="st">"Estabelecimento do Plano de Ação"</span>, <span class="dv">4</span>),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rep</span>(<span class="st">"Execução do Plano de Ação"</span>, <span class="dv">3</span>),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rep</span>(<span class="st">"Verificação dos Resultados"</span>, <span class="dv">2</span>),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rep</span>(<span class="st">"Padronização"</span>, <span class="dv">3</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">Atividades =</span> <span class="fu">c</span>(</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Identificação das prioridades"</span>, <span class="st">"Estabelecimento da meta do projeto"</span>, <span class="st">"Quantificação dos ganhos do projeto"</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Estratificação do problema"</span>, <span class="st">"Estudo das variações"</span>, <span class="st">"Definição das metas específicas"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Levantamento das causas potenciais"</span>, <span class="st">"Priorização das causas potenciais"</span>, <span class="st">"Quantificação das causas priorizadas"</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Levantamento das possíveis soluções"</span>, <span class="st">"Priorização das possíveis soluções"</span>, <span class="st">"Realização de teste piloto (se necessário)"</span>, <span class="st">"Estabelecimento do plano de ação"</span>,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Comunicação do plano de ação"</span>, <span class="st">"Realização de treinamentos dos envolvidos"</span>, <span class="st">"Implantação e acompanhamento do plano"</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Verificação do alcance da meta geral e específicas"</span>, <span class="st">"Quantificação dos ganhos do projeto"</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Padronização das novas atividades"</span>, <span class="st">"Plano para monitoramento do processo"</span>, <span class="st">"Plano de ações corretivas"</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">Status =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"OK"</span>, <span class="dv">17</span>), <span class="st">"Não Consta"</span>, <span class="fu">rep</span>(<span class="st">"Não Consta"</span>, <span class="dv">3</span>))</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Renderização da tabela com mesclagem automática (rowspan)</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>df_pdca <span class="sc">%&gt;%</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">align =</span> <span class="st">"cllc"</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>), <span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collapse_rows</span>(<span class="at">columns =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">valign =</span> <span class="st">"middle"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="análise-do-fluxo-metodológico" class="level4" data-number="3.2.1.1">
+<h4 data-number="3.2.1.1" class="anchored" data-anchor-id="análise-do-fluxo-metodológico"><span class="header-section-number">3.2.1.1</span> Análise do Fluxo Metodológico</h4>
+<p>Conforme observado na @tbl-atividades-pdca-detalhada, o ciclo inicia-se na <strong>Identificação do Problema</strong>, onde a definição das prioridades e a meta global servem de base para as atividades seguintes. Na <strong>Análise do Fenômeno</strong>, ocorre a estratificação dos dados e o estudo das variações, permitindo que a pesquisa tome forma sobre os principais KPIs a serem utilizados.</p>
+<p>Com a <strong>Análise do Processo</strong>, o levantamento e a priorização das causas potenciais aprofundam o exame da ocorrência do problema, culminando no <strong>Estabelecimento do Plano de Ação</strong>, onde soluções são testadas e priorizadas.</p>
+<p>As etapas subsequentes à fase de planejamento focam na <strong>Execução</strong>, iniciando com a comunicação e treinamento dos envolvidos. Na <strong>Verificação</strong>, confrontam-se os resultados contra as metas globais e, por fim, a <strong>Padronização</strong> institucionaliza as novas atividades, garantindo que o monitoramento e as ações corretivas sustentem os ganhos de performance a longo prazo.</p>
 
 
 </section>
