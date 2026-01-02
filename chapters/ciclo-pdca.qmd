@@ -42,20 +42,21 @@ De acordo com Mendes (2007), o ciclo PDCA é um método estruturado para a melho
 
 ### Fases e Atividades do Ciclo PDCA
 
-A @tbl-atividades-pdca-detalhada consolida o cronograma executivo do projeto. A estruturação visual com células mescladas permite identificar rapidamente a densidade de atividades concentradas na fase de Planejamento (P), que é o alicerce para a eficácia das fases subsequentes de execução e controle no Mining Analytics.
+A @tbl-atividades-pdca-detalhada consolida a estrutura metodológica e o cronograma do projeto, servindo como a principal ferramenta de controle e auditoria das etapas. A coluna Status é destinada ao acompanhamento qualitativo da evolução das tarefas, podendo ser preenchida com termos como "OK", "Não Consta", "Atrasado", ou outras observações pertinentes, permitindo uma gestão visual rápida sobre a saúde de cada atividade no ciclo PDCA.
 
 ```{r}
 #| label: tbl-atividades-pdca-detalhada
-#| tbl-cap: "Representação detalhada das fases e atividades do PDCA com mesclagem de categorias."
+#| tbl-cap: "Representação exaustiva das fases e atividades do PDCA com controle de cronograma."
 #| echo: false
 #| message: false
 #| warning: false
+
 library(knitr)
 library(kableExtra)
 library(dplyr)
 
-# Criação do dataframe com todo o conteúdo original
-df_pdca <- data.frame(
+# Construção do dataset completo sem redução de texto
+df_pdca_full <- data.frame(
     Fases = c(rep("P", 13), rep("D", 3), rep("C", 2), rep("A", 3)),
     Etapas = c(
         rep("Identificação do problema", 3),
@@ -72,16 +73,31 @@ df_pdca <- data.frame(
         "Levantamento das causas potenciais", "Priorização das causas potenciais", "Quantificação das causas priorizadas",
         "Levantamento das possíveis soluções", "Priorização das possíveis soluções", "Realização de teste piloto (se necessário)", "Estabelecimento do plano de ação",
         "Comunicação do plano de ação", "Realização de treinamentos dos envolvidos", "Implantação e acompanhamento do plano",
-        "Verificação do alcance da meta geral e específicas", "Quantificação dos ganhos do projeto",
-        "Padronização das novas atividades", "Plano para monitoramento do processo", "Plano de ações corretivas"
+        "Verificação do alcance da meta geral e das metas específicas", "Quantificação dos ganhos do projeto",
+        "Padronização das novas atividades", "Implantação de plano para monitoramento do processo", "Implantação de plano de ações corretivas"
     ),
-    Status = c(rep("OK", 17), "Não Consta", rep("Não Consta", 3))
+    P_Inicio = rep("", 21), P_Fim = rep("", 21), # Colunas vazias para preenchimento manual ou via banco
+    R_Inicio = rep("", 21), R_Fim = rep("", 21),
+    Status = rep("", 21)
 )
 
-# Renderização da tabela com mesclagem automática (rowspan) e aplicação da classe .table
-df_pdca %>%
-    kable(align = "cllc", booktabs = TRUE, escape = FALSE, table.attr = 'class="table"') %>%
-    kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F, position = "center") %>%
+df_pdca_full %>%
+    kable(
+        col.names = c("Fases", "Etapas", "Atividades", "Início", "Fim", "Início", "Fim", "Status"),
+        align = "cllcccc",
+        booktabs = TRUE
+    ) %>%
+    kable_styling(
+        bootstrap_options = c("striped", "hover", "condensed"),
+        full_width = FALSE,
+        font_size = 13
+    ) %>%
+    # PASSO 1: Formatar as colunas PRIMEIRO
+    column_spec(1, bold = TRUE, background = "#f2f2f2", width = "1.5cm") %>%
+    column_spec(8, width = "3cm", background = "#fafafa") %>%
+    # PASSO 2: Adicionar cabeçalhos agrupados
+    add_header_above(c(" " = 3, "Planejado" = 2, "Realizado" = 2, " " = 1)) %>%
+    # PASSO 3: Realizar a mesclagem de linhas por ÚLTIMO
     collapse_rows(columns = 1:2, valign = "middle")
 ```
 

@@ -1,3 +1,21 @@
+/* Estilo para cabeçalhos complexos do kableExtra */
+thead tr:first-child th {
+  background-color: var(--color-teal-dark) !important;
+  color: white !important;
+  text-align: center !important;
+  border-bottom: 2px solid var(--color-gold) !important;
+}
+
+thead tr:last-child th {
+  background-color: var(--color-teal) !important;
+  color: white !important;
+  font-size: 0.9rem !important;
+}
+
+/* Garante visibilidade das bordas em tabelas densas */
+.table-condensed th, .table-condensed td {
+  border: 1px solid #e9ecef !important;
+}
 /* Ajuste para tabelas com células mescladas (kableExtra) */
 table.table td {
   vertical-align: middle !important;
