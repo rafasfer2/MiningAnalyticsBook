@@ -44,7 +44,7 @@ De acordo com Mendes (2007), o ciclo PDCA é um método estruturado para a melho
 
 A @tbl-atividades-pdca-detalhada consolida o cronograma executivo do projeto. A estruturação visual com células mescladas permite identificar rapidamente a densidade de atividades concentradas na fase de Planejamento (P), que é o alicerce para a eficácia das fases subsequentes de execução e controle no Mining Analytics.
 
-``` r
+```{r}
 #| label: tbl-atividades-pdca-detalhada
 #| tbl-cap: "Representação detalhada das fases e atividades do PDCA com mesclagem de categorias."
 #| echo: false
@@ -80,10 +80,9 @@ df_pdca <- data.frame(
 
 # Renderização da tabela com mesclagem automática (rowspan) e aplicação da classe .table
 df_pdca %>%
-    kable(align = "cllc", booktabs = TRUE, escape = FALSE) %>%
+    kable(align = "cllc", booktabs = TRUE, escape = FALSE, table.attr = 'class="table"') %>%
     kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F, position = "center") %>%
-    collapse_rows(columns = 1:2, valign = "middle") %>%
-    row_spec(0, extra_css = "class='table'")
+    collapse_rows(columns = 1:2, valign = "middle")
 ```
 
 #### Análise do Fluxo Metodológico
