@@ -2,7 +2,7 @@
 format: html
 ---
 
-# Trilogia Juran e Ciclo PDCA {#chap-pdca}
+# Metodologia PDCA {#chap-pdca}
 
 A busca pela excelência operacional na mineração exige métodos estruturados que permitam medir a discrepância entre o planejamento (*target*) e o desempenho real. Este capítulo aborda as bases da Gestão da Qualidade, conectando a teoria clássica de Juran às ferramentas de melhoria contínua aplicadas ao *Mining Analytics*.
 
@@ -26,7 +26,7 @@ A avaliação final da qualidade visa medir o alinhamento desses indicadores com
 
 O ciclo PDCA, como uma metodologia para melhoria, é uma ferramenta simples que promove alterações graduais no processo, impulsionando assim o desenvolvimento da empresa. O ciclo, conforme apresentado na @fig-ciclo-pdca, é dividido em etapas de planejamento (PLAN), execução (DO), verificação (CHECK) e ação (ACT).
 
-![Detalhamento do Ciclo PDCA](/images/fig-ciclo-pdca.png){#fig-ciclo-pdca}
+![Ciclo PDCA](/images/fig-ciclo-pdca-gimini.jpg){#fig-ciclo-pdca}
 
 Para que essas etapas sejam realizadas com eficácia, é essencial que as subetapas sejam definidas com precisão. É importante destacar que a etapa de planejamento exige um cuidado maior na execução, pois a identificação e priorização das métricas de avaliação proporcionarão uma investigação mais aprofundada das causas dos problemas. Além disso, a utilização de ferramentas de qualidade para dar suporte ao ciclo PDCA é fundamental e indispensável para a eficiência e eficácia dos planos de ação desenvolvidos. Desta forma, propostas de mudanças, padronização de processos e/ou planos de ação são então embasadas em métodos e ferramentas estruturadas, sendo sempre recomendável estabelecer processo de comunicação e treinamento e formalização documental.
 
@@ -45,8 +45,8 @@ De acordo com Mendes (2007), o ciclo PDCA é um método estruturado para a melho
 A @tbl-atividades-pdca-detalhada consolida a estrutura metodológica e o cronograma do projeto, servindo como a principal ferramenta de controle e auditoria das etapas. A coluna Status é destinada ao acompanhamento qualitativo da evolução das tarefas, podendo ser preenchida com termos como "OK", "Não Consta", "Atrasado", ou outras observações pertinentes, permitindo uma gestão visual rápida sobre a saúde de cada atividade no ciclo PDCA.
 
 ```{r}
-#| label: tbl-pdca-google-highlight
-#| tbl-cap: "Cronograma PDCA com colunas de Fases e Etapas coloridas (Google Style)."
+#| label: tbl-atividades-pdca-detalhada
+#| tbl-cap: "Detalhamento das fases, etapas e atividades do ciclo PDCA aplicadas à gestão operacional na mineração."
 #| echo: false
 #| message: false
 #| warning: false
@@ -56,68 +56,141 @@ library(kableExtra)
 library(dplyr)
 
 # 1. Dataset completo (8 colunas)
-df_pdca_google <- data.frame(
+df_pdca <- data.frame(
     Fases = c(rep("P", 13), rep("D", 3), rep("C", 2), rep("A", 3)),
     Etapas = c(
-        rep("Identificação do problema", 3),
-        rep("Análise do Fenômeno", 3),
-        rep("Análise do Processo", 3),
-        rep("Estabelecimento do Plano de Ação", 4),
-        rep("Execução do Plano de Ação", 3),
-        rep("Verificação dos Resultados", 2),
+        rep("Identificação do problema", 3), rep("Análise do Fenômeno", 3),
+        rep("Análise do Processo", 3), rep("Estabelecimento do Plano de Ação", 4),
+        rep("Execução do Plano de Ação", 3), rep("Verificação dos Resultados", 2),
         rep("Padronização", 3)
     ),
     Atividades = c(
         "Identificação das prioridades", "Estabelecimento da meta do projeto", "Quantificação dos ganhos do projeto",
         "Estratificação do problema", "Estudo das variações", "Definição das metas específicas",
-        "Levantamento das causas potencias", "Priorização das causas potenciais", "Quantificação das causas priorizadas",
+        "Levantamento das causas potenciais", "Priorização das causas potenciais", "Quantificação das causas priorizadas",
         "Levantamento das possíveis soluções", "Priorização das possíveis soluções", "Realização de teste piloto (se necessário)", "Estabelecimento do plano de ação",
         "Comunicação do plano de ação", "Realização de treinamentos dos envolvidos", "Implantação e acompanhamento do plano de ação",
         "Verificação do alcance da meta geral e das metas específicas", "Quantificação dos ganhos do projeto",
         "Padronização das novas atividades", "Implantação de plano para monitoramento do processo", "Implantação de plano de ações corretivas"
     ),
-    P_In = rep("", 21), P_Fim = rep("", 21),
-    R_In = rep("", 21), R_Fim = rep("", 21),
+    P_In = rep("", 21), P_Fim = rep("", 21), R_In = rep("", 21), R_Fim = rep("", 21),
     Status = rep("", 21)
 )
 
-# 2. Vetor de Cores Estilo Google (Alto Contraste)
-cores_google <- case_when(
-    df_pdca_google$Fases == "P" & df_pdca_google$Etapas == "Identificação do problema" ~ "#174EA6",
-    df_pdca_google$Fases == "P" & df_pdca_google$Etapas == "Análise do Fenômeno" ~ "#4285F4",
-    df_pdca_google$Fases == "P" & df_pdca_google$Etapas == "Análise do Processo" ~ "#1A73E8",
-    df_pdca_google$Fases == "P" & df_pdca_google$Etapas == "Estabelecimento do Plano de Ação" ~ "#8AB4F8",
-    df_pdca_google$Fases == "D" ~ "#FBBC05",
-    df_pdca_google$Fases == "C" ~ "#EA4335",
-    df_pdca_google$Fases == "A" ~ "#34A853",
+# 2. Configuração de cores (Fases e Etapas com Paleta Viva)
+cores_id <- case_when(
+    df_pdca$Fases == "P" & df_pdca$Etapas == "Identificação do problema" ~ "#174EA6",
+    df_pdca$Fases == "P" & df_pdca$Etapas == "Análise do Fenômeno" ~ "#4285F4",
+    df_pdca$Fases == "P" & df_pdca$Etapas == "Análise do Processo" ~ "#1A73E8",
+    df_pdca$Fases == "P" & df_pdca$Etapas == "Estabelecimento do Plano de Ação" ~ "#8AB4F8",
+    df_pdca$Fases == "D" ~ "#FBBC05",
+    df_pdca$Fases == "C" ~ "#EA4335",
+    df_pdca$Fases == "A" ~ "#34A853",
     TRUE ~ "white"
 )
 
-# 3. Cor do texto para contraste dinâmico
-texto_google <- ifelse(cores_google %in% c("#FBBC05", "#8AB4F8"), "black", "white")
+texto_cor <- ifelse(cores_id %in% c("#FBBC05", "#8AB4F8"), "black", "white")
 
-# 4. Renderização da Tabela com destaque em ambas as colunas
-df_pdca_google %>%
+# 3. Renderização com cabeçalho técnico unificado e sem linha branca
+df_pdca %>%
     kable(
         col.names = c("Fases", "Etapas", "Atividades", "Início", "Fim", "Início", "Fim", "Status"),
         align = "cllcccc",
         booktabs = TRUE
     ) %>%
     kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, font_size = 13) %>%
-    # Coluna 1: Fases
-    column_spec(1, bold = TRUE, color = texto_google, background = cores_google, width = "1.5cm") %>%
-    # Coluna 2: Etapas (Pintada para destacar o Planejamento)
-    column_spec(2, bold = TRUE, color = texto_google, background = cores_google, width = "4.5cm") %>%
-    # Coluna 8: Status
-    column_spec(8, width = "3cm", background = "#fafafa") %>%
-    add_header_above(c(" " = 3, "Planejado" = 2, "Realizado" = 2, " " = 1)) %>%
+    # Destaque dinâmico nas colunas 1 e 2
+    column_spec(1, bold = TRUE, color = texto_cor, background = cores_id, width = "0.7cm") %>%
+    column_spec(2, bold = TRUE, color = texto_cor, background = cores_id, width = "6.5cm") %>%
+    # Coluna Atividades mais larga e sem cor
+    column_spec(3, width = "10cm", background = "white", color = "black") %>%
+    # Colunas Início e Fim mais estreitas
+    column_spec(4, width = "1.2cm") %>%
+    column_spec(5, width = "1.2cm") %>%
+    column_spec(6, width = "1.2cm") %>%
+    column_spec(7, width = "1.2cm") %>%
+    column_spec(8, width = "2.5cm", background = "#fafafa") %>%
+    # Cabeçalho nível 2 (Fases, Etapas...) em Teal Médio
+    row_spec(0, background = "#35978f", color = "white", bold = TRUE) %>%
+    # Cabeçalho nível 1 (Agrupamento) em Teal Dark, Negrito e sem listra dourada
+    add_header_above(
+        c(" " = 3, "Planejado" = 2, "Realizado" = 2, " " = 1),
+        background = "#01665e",
+        color = "white",
+        bold = TRUE,
+        extra_css = "border-top: 0px; padding-top: 10px; padding-bottom: 10px;"
+    ) %>%
     collapse_rows(columns = 1:2, valign = "middle")
 ```
 
-#### Análise do Fluxo Metodológico
+### Planejamento (PLAN)
 
-Conforme observado na \@tbl-atividades-pdca-detalhada, o ciclo inicia-se na **Identificação do Problema**, onde a definição das prioridades e a meta global servem de base para as atividades seguintes. Na **Análise do Fenômeno**, ocorre a estratificação dos dados e o estudo das variações, permitindo que a pesquisa tome forma sobre os principais KPIs a serem utilizados.
+A fase de planejamento é subdividida para garantir que a solução atacada seja a causa raiz e não apenas um sintoma superficial.
 
-Com a **Análise do Processo**, o levantamento e a priorização das causas potenciais aprofundam o exame da ocorrência do problema, culminando no **Estabelecimento do Plano de Ação**, onde soluções são testadas e priorizadas.
+#### Identificação do Problema {.title-p1}
 
-As etapas subsequentes à fase de planejamento focam na **Execução**, iniciando com a comunicação e treinamento dos envolvidos. Na **Verificação**, confrontam-se os resultados contra as metas globais e, por fim, a **Padronização** institucionaliza as novas atividades, garantindo que o monitoramento e as ações corretivas sustentem os ganhos de performance a longo prazo.
+-   **Identificação das prioridades:** Utiliza-se o Princípio de Pareto para separar os "poucos vitais" dos "muitos triviais". Na mineração, isto significa identificar qual frota ou sistema mecânico é responsável pela maior parcela de indisponibilidade.
+
+    -   *Exemplo:* Identificar que 80% dos alarmes de alta temperatura vêm da frota de camiões CAT 793F que opera na Cava Norte.
+
+-   **Estabelecimento da meta do projeto:** A meta deve ser SMART (Específica, Mensurável, Atingível, Relevante e com Prazo).
+
+    -   *Exemplo:* Reduzir o número de paradas por superaquecimento de 15 para menos de 2 por mês em 180 dias.
+
+-   **Quantificação dos ganhos do projeto:** Tradução do ganho operacional em valor financeiro ou horas de produção ganhas.
+
+    -   *Exemplo:* O aumento de 3% na Disponibilidade Física (DF) representa um acréscimo de 50.000 toneladas transportadas por mês.
+
+#### Análise do Fenômeno {.title-p2}
+
+-   **Estratificação do problema:** Decomposição do problema em subgrupos (Turno, Equipe, Fabricante, Posição na Mina) para encontrar padrões.
+
+    -   *Exemplo:* Descobrir que o problema ocorre em 90% das vezes no turno das 12h às 18h.
+
+-   **Estudo das variações:** Análise estatística da dispersão dos dados para entender se o processo é instável ou apenas incapaz.
+
+    -   *Exemplo:* Uso de Boxplots para comparar a temperatura média do motor entre diferentes rampas de transporte.
+
+-   **Definição das metas específicas:** Desdobramento da meta global para os níveis operacionais estratificados.
+
+    -   *Exemplo:* Definir uma meta de temperatura máxima de 95°C para a operação na Rampa Norte.
+
+#### Análise do Processo {.title-p3}
+
+-   **Levantamento das causas potenciais:** Brainstorming com a equipa técnica para listar todos os possíveis motivos da falha.
+
+-   **Priorização das causas potenciais:** Uso do Diagrama de Ishikawa e Matriz GUT (Gravidade, Urgência, Tendência) para focar no que realmente impacta o processo.
+
+-   **Quantificação das causas priorizadas:** Validação das causas através de dados reais (ex: correlação entre horas de operação e nível de saturação do radiador).
+
+#### Estabelecimento do Plano de Ação {.title-p4}
+
+-   **Levantamento das possíveis soluções:** Procura de alternativas técnicas, como mudanças de peças, alterações de software de despacho ou novos procedimentos de manutenção.
+
+-   **Priorização das possíveis soluções:** Avaliação de Custo vs. Benefício vs. Facilidade de implementação.
+
+-   **Realização de teste piloto:** Aplicação da solução num grupo reduzido (ex: 2 camiões) antes do *rollout* total.
+
+-   **Estabelecimento do plano de ação:** Formalização através da metodologia 5W2H (O quê, Quem, Quando, Onde, Porquê, Como, Quanto).
+
+### Execução (DO) {.title-d}
+
+-   **Comunicação do plano de ação:** Divulgação clara para todos os níveis, garantindo que a operação e manutenção saibam o que mudará.
+
+-   **Realização de treinamentos dos envolvidos:** Capacitação técnica sobre os novos padrões ou ferramentas de diagnóstico.
+
+-   **Implantação e acompanhamento do plano de ação:** Execução física das tarefas (ex: nova rotina de lavagem química de radiadores) com verificação *in loco* (Gemba).
+
+### Verificação (CHECK) {.title-c}
+
+-   **Verificação do alcance da meta geral e específica:** Confronto estatístico entre o desempenho histórico (Baseline) e o desempenho pós-melhoria.
+
+-   **Quantificação dos ganhos do projeto:** Auditoria final para confirmar se os ganhos previstos na Identificação (P1) foram efetivamente capturados.
+
+### Padronização (ACT) {.title-a}
+
+-   **Padronização das novas atividades:** Atualização dos Procedimentos Operacionais Padrão (POP) e Planos de Manutenção no ERP (ex: SAP).
+
+-   **Implantação de plano para monitoramento do processo:** Criação de *dashboards* de controle para detetar rapidamente se o processo começar a desviar novamente.
+
+-   **Implantação de plano de ações corretivas:** Definição de gatilhos: "Se o indicador X cair abaixo de Y, a equipa Z deve agir imediatamente".

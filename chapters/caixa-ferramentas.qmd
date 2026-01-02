@@ -1,5 +1,193 @@
 ---
-title: "caixa-ferramentas"
 format: html
 ---
 
+# Caixa de Ferramentas de Gestão {#sec-caixa-ferramentas}
+
+Este capítulo apresenta o arsenal metodológico essencial para o analista de dados na mineração. A aplicação correta destas ferramentas permite transformar terabytes de dados brutos de telemetria e manutenção em diagnósticos precisos para a tomada de decisão.
+
+## Diagrama de Pareto
+
+O Diagrama de Pareto é uma das ferramentas mais clássicas e eficazes no controle da qualidade e gestão de ativos. Trata-se de uma representação gráfica que hierarquiza problemas, causas ou perdas de forma decrescente, destacando os fatores vitais que demandam ação imediata.
+
+Conforme Campos (2004), esta ferramenta operacionaliza o **Princípio de Pareto (80/20)**, permitindo que gestores alcancem resultados significativos focando em poucas, mas críticas, alavancas de atuação. O princípio postula que, em geral, 80% dos efeitos (ex: horas paradas) derivam de apenas 20% das causas (ex: falha no sistema de injeção) (Silva, 2009).
+
+No contexto do *Mining Analytics*, um valor elevado nas primeiras barras do gráfico indica onde a ineficácia se concentra (Franco et al., 2006). A @fig-pareto-mining exemplifica esta aplicação, onde o esforço de manutenção é direcionado para os modos de falha predominantes.
+
+```{r}
+#| label: fig-pareto-mining
+#| fig-cap: "Diagrama de Pareto aplicado aos modos de falha (Paleta Teal/Gold)."
+#| echo: false
+#| warning: false
+#| message: false
+
+library(ggplot2)
+library(dplyr)
+
+# Dados simulados
+df_pareto <- data.frame(
+    Causa = c("Sistema Hidráulico", "Motor Diesel", "Pneus", "Elétrica", "Material Rodante", "Cabine", "Outros"),
+    Ocorrencias = c(120, 85, 40, 25, 15, 10, 5)
+) %>%
+    arrange(desc(Ocorrencias)) %>%
+    mutate(
+        Acumulado = cumsum(Ocorrencias),
+        Freq_Acumulada = Acumulado / sum(Ocorrencias) * 100,
+        Causa = factor(Causa, levels = Causa)
+    )
+
+# Fator de escala para o eixo secundário
+scale_factor <- max(df_pareto$Ocorrencias) / 100
+
+ggplot(df_pareto, aes(x = Causa)) +
+    # Barras (Teal Dark)
+    geom_bar(aes(y = Ocorrencias), stat = "identity", fill = "#01665e") +
+    # Linha Acumulada (Gold)
+    geom_line(aes(y = Freq_Acumulada * scale_factor, group = 1), color = "#d4af37", size = 1.2) +
+    geom_point(aes(y = Freq_Acumulada * scale_factor), color = "#d4af37", size = 3) +
+    # Eixos
+    scale_y_continuous(
+        name = "Frequência de Falhas",
+        sec.axis = sec_axis(~ . / scale_factor, name = "Percentual Acumulado (%)")
+    ) +
+    theme_minimal() +
+    labs(x = "") +
+    theme(
+        axis.text.x = element_text(angle = 45, hjust = 1),
+        axis.title.y.right = element_text(color = "#d4af37"),
+        axis.text.y.right = element_text(color = "#d4af37")
+    )
+```
+
+## Fluxograma
+
+O Fluxograma, conforme Castro (2024), é uma maneira utilizada para representar um processo através de um desenho lógico. É uma ferramenta contendo símbolos gráficos padronizados para detalhar a sequência de ações que compõem um processo, visando facilitar sua compreensão visual.
+
+O propósito do fluxograma é ampliar o entendimento do processo de produção mineral, demonstrar a execução de atividades a serem realizadas (como o ciclo de transporte: *Carregar \> Transportar \> Bascular \> Retornar*) e apontar áreas que necessitam de melhoria ou padronização (Peinado e Graeml, 2007). Slack (2009) afirma que o fluxograma de processo esclarece as suas etapas e a interação entre as atividades relacionadas, sendo vital para a definição de Procedimentos Operacionais Padrão (POPs).
+
+## Diagrama de Build-up (Waterfall)
+
+Perfeito, Rafael. Mantive a integridade total do seu conteúdo técnico, assegurando que nenhuma informação fosse resumida, e apliquei a formatação rigorosa exigida para o seu livro **"Mining Analytics"**.
+
+Abaixo, o texto está preparado para o Quarto (`.qmd`), com as fórmulas em LaTeX e o código R configurado para gerar o diagrama com a identidade visual de cabeçalho em Teal e Ouro que você aprovou.
+
+### Diagrama de Jack Knife {#sec-jack-knife}
+
+O método de Jack-Knife foi concebido para ser uma aprimoração do diagrama de Pareto. A premissa básica do desenvolvimento é a adição de uma análise de dois fatores, ou seja, analisa conjuntamente o MTTR e o NIC, enquanto o diagrama de Pareto é capaz de analisar apenas um fator.
+
+Tipicamente, a utilização do diagrama de Pareto consiste em priorizar, dentre diversas causas, àquelas que representam maior impacto no sistema como um todo. Para exemplificar, a análise de Pareto é frequentemente utilizada para priorizar os setores que mais causaram impacto na etapa de lavra de um processo de mineração. Observa-se que o uso do diagrama de Pareto, isoladamente, leva em consideração apenas um indicador, como as horas de manutenção.
+
+O diagrama Jack Knife (\@fig-jackknife-mining) é uma ferramenta de priorização do tratamento das falhas. O método tem como objetivo associar o NIC (número de intervenções corretivas) e MTTR (tempo médio de reparo), classificando os sistemas em leve, agudo, crônico e crítico (agudo e crônico), conforme a localização no quadrante.
+
+#### Definição de Limites e Equações
+
+A separação dos quadrantes é dada pelos limites determinados de acordo com o banco de dados existente dos sistemas, utilizando as seguintes equações:
+
+$$
+\mathrm{Limite}_{\mathrm{MTTR}} = \frac{\sum\limits_{i=1}^{k} \mathrm{HMC}_i}{\sum\limits_{i=1}^{k} \mathrm{NIC}_i}
+$$ {#eq-mttr}
+
+$$
+\mathrm{Limite}_{\mathrm{NIC}} = \frac{\sum\limits_{i=1}^{k} \mathrm{NIC}_i}{k}
+$$ {#eq-nic}
+
+Onde $k$ é o número de sistemas em análise.
+
+Os sistemas localizados acima da linha de $\text{Limite}_{\text{MTTR}}$ são os que afetam a mantenabilidade, pois apresentam os maiores tempos de reparos. Já os sistemas à direita da linha de $\text{Limite}_{\text{NIC}}$ são os que afetam a confiabilidade, pois possuem os maiores números de falhas (NIC).
+
+#### Classificação por Quadrantes
+
+A classificação dos sistemas ocorre conforme a posição em relação aos limites calculados:
+
+-   **Quadrante Leve**: Ocorre quando $\text{NIC}_{\text{Sistema}} < \text{Limite}_{\text{NIC}}$ e $\text{MTTR}_{\text{Sistema}} < \text{Limite}_{\text{MTTR}}$. Neste quadrante, os sistemas apresentam boa confiabilidade (poucas falhas) e boa mantenabilidade (baixo tempo médio de reparo).
+
+-   **Quadrante Crônico**: Ocorre quando $\text{NIC}_{\text{Sistema}} > \text{Limite}_{\text{NIC}}$ e $\text{MTTR}_{\text{Sistema}} < \text{Limite}_{\text{MTTR}}$. Para estes sistemas, os problemas são repetitivos, incidindo em um alto número de NIC (baixa confiabilidade) mesclada com boa mantenabilidade.
+
+-   **Quadrante Agudo**: Ocorre quando $\text{NIC}_{\text{Sistema}} < \text{Limite}_{\text{NIC}}$ e $\text{MTTR}_{\text{Sistema}} > \text{Limite}_{\text{MTTR}}$. Aqui, a mantenabilidade apresenta ineficiência (reparos longos), embora o sistema possua boa confiabilidade.
+
+-   **Quadrante Crítico (Agudo e Crônico)**: Ocorre quando $\text{NIC}_{\text{Sistema}} > \text{Limite}_{\text{NIC}}$ e $\text{MTTR}_{\text{Sistema}} > \text{Limite}_{\text{MTTR}}$. Estes são os sistemas pouco confiáveis e que apresentam dificuldades em manutenir, exigindo atenção prioritária.
+
+```{r}
+#| label: fig-waterfall
+#| fig-cap: "Gráfico de Build-up (Cascata) demonstrando a decomposição das horas."
+#| echo: false
+#| warning: false
+#| message: false
+
+library(ggplot2)
+library(waterfalls) # Caso não tenha, instale: install.packages("waterfalls")
+
+dados_waterfall <- data.frame(
+    category = c("Horas Calendário", "Manutenção Programada", "Manutenção Corretiva", "Ociosidade", "Atrasos Operacionais", "Horas Produtivas"),
+    value = c(720, -80, -40, -50, -30, 520)
+)
+
+waterfall(dados_waterfall,
+    calc_total = FALSE, # Já calculamos o final manualmente para controle
+    rect_width = 0.6,
+    fill_by_sign = FALSE,
+    fill_colours = c("#003c30", "#EA4335", "#EA4335", "#FBBC05", "#FBBC05", "#35978f")
+) +
+    theme_minimal() +
+    labs(x = "", y = "Horas") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+## Diagrama de Jack-Knife
+
+O método de Jack-Knife foi desenvolvido como uma melhoria do diagrama de Pareto, acrescentando uma análise bidimensional que leva em consideração o **MTTR** (Tempo Médio de Reparo) e o **NIC** (Número de Intervenções Corretivas) simultaneamente (Knights, 2001).
+
+Diferente do Pareto, que analisa apenas um fator, o Jack-Knife permite classificar os ativos em quadrantes estratégicos para a manutenção:
+
+1.  **Coleta de dados:** TTR (*Time To Repair*) e NIC.
+
+2.  **Classificação:** Agrupamento por sistema ou componente.
+
+3.  **Análise dos dados:** Plotagem no gráfico de dispersão (Scatter Plot).
+
+4.  **Decisão:** Identificação de componentes **Agudos** (Alta frequência, baixo reparo) e **Crônicos** (Baixa frequência, alto reparo).
+
+A \@fig-jack-knife exibe essa correlação. Os sistemas posicionados no quadrante superior direito são os mais críticos, pois falham muito e demoram a ser reparados, impactando severamente a disponibilidade física.
+
+```{r}
+#| label: fig-jack-knife
+#| fig-cap: "Diagrama Jack-Knife: Correlacionando Confiabilidade (Eixo X) e Mantenabilidade (Eixo Y)."
+#| echo: false
+#| warning: false
+#| message: false
+
+library(ggplot2)
+library(ggrepel)
+
+# Dados simulados
+dados_jk <- data.frame(
+    Sistema = c("Motor", "Transmissão", "Pneus", "Freios", "Suspensão", "Elétrica", "Arrefecimento"),
+    Num_Falhas = c(45, 10, 80, 25, 15, 60, 35), # NIC (Confiabilidade Inversa)
+    MTTR = c(12, 48, 2, 8, 24, 4, 15) # Mantenabilidade
+)
+
+# Limites (Médias)
+limite_falhas <- mean(dados_jk$Num_Falhas)
+limite_mttr <- mean(dados_jk$MTTR)
+
+ggplot(dados_jk, aes(x = Num_Falhas, y = MTTR, label = Sistema)) +
+    # Linhas de Corte (Médias)
+    geom_hline(yintercept = limite_mttr, linetype = "dashed", color = "#d4af37") +
+    geom_vline(xintercept = limite_falhas, linetype = "dashed", color = "#d4af37") +
+    # Pontos
+    geom_point(aes(color = (Num_Falhas > limite_falhas & MTTR > limite_mttr)), size = 4) +
+    scale_color_manual(values = c("#35978f", "#EA4335")) + # Teal (OK), Red (Crítico)
+    # Rótulos
+    geom_text_repel(fontface = "bold", size = 3.5) +
+    # Anotações dos Quadrantes
+    annotate("text",
+        x = max(dados_jk$Num_Falhas), y = max(dados_jk$MTTR),
+        label = "CRÍTICO\n(Agudo + Crônico)", color = "#EA4335", fontface = "bold", hjust = 1, vjust = 1
+    ) +
+    theme_minimal() +
+    labs(
+        x = "Número de Intervenções (NIC)",
+        y = "Tempo Médio de Reparo (MTTR em horas)"
+    ) +
+    theme(legend.position = "none")
+```

@@ -7,81 +7,97 @@ format: html
 ```{r setup, include=FALSE}
 #| message: false
 #| warning: false
+$$
 # Este bloco SEMPRE executa para carregar as ferramentas necessárias
 library(tidyverse)
 library(miningKPI)
 library(knitr)
 library(lubridate)
+$$
 ```
 
 A mineração contemporânea opera em um cenário de complexidade crescente, onde a volatilidade das commodities e a exaustão de reservas de alto teor exigem uma precisão cirúrgica na gestão de ativos. Nesse contexto, a Excelência Operacional não é apenas um objetivo aspiracional, mas uma disciplina rigorosa fundamentada na capacidade de converter dados brutos em decisões estratégicas em tempo real.
 
 Este capítulo estrutura os indicadores fundamentais que compõem a espinha dorsal do sistema de gestão, organizados por níveis hierárquicos e função dentro do SGI.
+$$
 
 ## Elementos de Suporte e Categorização de Horas
 
 Os elementos de suporte são os dados diretamente monitorados e coletados durante a produção. No ciclo de processos de transporte, os dados coletados em caminhões “off-highway” são obtidos dos horímetros instalados no sistema de medição e denominados tempos operacionais. A partir desses apontamentos, as horas são estratificadas em categorias que permitem a análise do desempenho em diferentes níveis de granularidade.
 
+$$
 A classificação das horas é dividida hierarquicamente para facilitar a gestão, permitindo o desdobramento desde a disponibilidade global até a causa raiz do evento. Esta estrutura é o fundamento para o processamento de telemetria e o cálculo de KPIs no pacote `miningKPI`.
 
-**HC – Calendar Hours: Horas Calendário:** Tempo total de existência do ativo no período (24h/dia). 
+**HC – Calendar Hours: Horas Calendário:** Tempo total de existência do ativo no período (24h/dia).
 $$HC = HT + HM + HO$$
 
+$$
 -   **HT – Worked Hours: Horas Trabalhadas**
 
     -   **HTP – Productive Worked Hours: Horas Trabalhadas Produtivas** ($EFH + ODH$)
 
         -   **EFH (Effective Hours): Horas Efetivas (HEF)** – Tempo em que o equipamento desenvolve trabalho útil na função primária (ex: contato bit-rocha na perfuração).
+$$
 
         -   **ODH (Operational Delay Hours): Horas de Atraso Operacional (HAO)** – Atrasos inerentes ao ciclo perfeito, como esperas por caminhão, manobras de sinalização ou filas curtas.
 
     -   **HNTP – Non-Productive Worked Hours: Horas Trabalhadas Não Produtivas** ($IWH + DWH$)
 
+$$
         -   **IWH (Infrastructure Worked Hours): Horas de Infraestrutura (HTI)** – Atividades de suporte à fase produtiva, como acerto de praça ou manutenção de acessos.
 
         -   **DWH (Different Worked Hours): Horas Trabalhadas Diversas (HTD)** – Trabalho fora do ciclo operacional principal, como locomoções curtas para abastecimento ou apoio a outros processos.
 
 -   **HM – Maintenance Hours: Horas em Manutenção**
+$$
 
     -   **HMCT – Total Corrective Maintenance Hours: Horas de Manutenção Corretiva Total** ($CMH + ACH$)
 
         -   **CMH (Corrective Maintenance Hours): Horas de Manutenção Corretiva (HMC)** – Tempo de indisponibilidade para intervenção corretiva não planejada visando restaurar a função após uma falha.
 
+$$
         -   **ACH (Accident Hours): Horas de Acidente (HAC)** – Tempo sob responsabilidade da manutenção em decorrência de acidentes ou danos causados por fatores externos.
 
     -   **HMP – Planned Maintenance Hours: Horas de Manutenção Preventiva** ($SPH + NSPH$)
 
         -   **SPH (Systematic Preventive Hours): Horas Preventivas Sistemáticas (MPS)** – Manutenções planejadas repetidas em intervalos definidos (horas, km ou data), sem indicação prévia de defeito.
+$$
 
         -   **NSPH (Non-Systematic Programmed Hours): Horas Preventivas Não Sistemáticas (MPNS)** – Intervenções baseadas em monitoramento de condição (preditiva) ou programadas fora de ciclos sistemáticos rígidos.
 
 -   **HO – Idle Hours: Horas Ociosas**
 
+$$
     -   **HO – Total Idle Hours: Horas Ociosas Totais** ($IIH + EIH$)
 
         -   **IIH (Internal Idle Hours): Horas Ociosas Internas (HOI)** – Equipamento apto, mas parado por falta de recursos internos (ex: operador, troca de turno, aguardando projeto ou topografia).
 
         -   **EIH (External Idle Hours): Horas Ociosas Externas (HOE)** – Equipamento apto, mas parado por fatores externos não gerenciáveis pela unidade (ex: clima adverso, raios ou falta de energia da rede).
+$$
 
 ![Hierarquia de classificação de horas de ativos de mineração.](/images/fig-estrato-categoria-horas-gimini.jpg){#fig-categoria-horas}
 
 ::: {#exm-processamento-categorias}
 #### Processamento de Categorias de Horas
+$$
 
 Como a medição é feita baseada em durações de tempo, os apontamentos são realizados sempre que um determinado equipamento altera o seu status de operação, representando as 10 categorias fundamentais de horas. Para a análise de desempenho, utiliza-se a variável `gap_time`, que representa a duração (em horas) entre o início e o fim de cada evento.
 
 No conjunto de dados `drill_events_mine_d`, observando o equipamento de perfuração `DRILL_100` durante um período de 3 dias, identificamos um total de 245 eventos registrados. Ao realizarmos o agrupamento e a soma dos tempos por categoria, teremos a consolidação das 24 horas diárias (Horas Calendário — $HC$ ou $CH$) estratificadas conforme a utilização real do ativo.
 :::
+$$
 
 ```{r}
 #| echo: true
 #| message: false
 
+$$
 # 1. Preparação e filtragem dos eventos por categoria
 drill_analysis_category <- drill_events_mine_d %>%
     mutate(
         gap_time = duration_min / 60,
         day = as_date(first_time)
+$$
     ) %>%
     select(drill_id, category, day, first_time, exit_time, gap_time) %>%
     filter(
@@ -134,7 +150,8 @@ Um ponto de atenção crítico aparece no **Dia 03/01**:
 
 A transição da telemetria bruta para a análise gerencial exige uma etapa intermediária de agregação. O processo de somar as categorias de horas é o que garante que os cálculos dos KPIs reflitam a realidade cronológica do turno ou do mês
 
-Para este exemplo, como a análise foca em um único equipamento, devemos agregar as categorias por período ($p$). Tomando a Horas Efetivas ($EFH$) como exemplo, se em um único período ($p = 1$ dia) o sistema registrou $n$ eventos de perfuração, a disponibilidade efetiva diária é o somatório de cada duração individual$i$: $$EFH_{p} = \sum_{i=1}^{n} EFH_i$$ Essa lógica de empilhamento de eventos é aplicada a todas as 10 categorias de horas, assegurando que $\sum HC = 24h$. É a partir dessa base consolidada que estruturamos os indicadores que fundamentam o SGI.
+Para este exemplo, como a análise foca em um único equipamento, devemos agregar as categorias por período ($p$). Tomando a Horas Efetivas ($EFH$) como exemplo, se em um único período ($p = 1$ dia) o sistema registrou $n$ eventos de perfuração, a disponibilidade efetiva diária é o somatório de cada duração individual$i$: $$EFH_{p} = \sum_{i=1}^{n} EFH_i$$ {#eq-efh-soma}
+Essa lógica de empilhamento de eventos é aplicada a todas as 10 categorias de horas, assegurando que $\sum HC = 24h$. É a partir dessa base consolidada que estruturamos os indicadores que fundamentam o SGI.
 
 ## Indicadores-Chave de Desempenho (KPIs Globais)
 
@@ -150,7 +167,7 @@ A fórmula base para o cálculo da DF é:
 
 $$
 \mathrm{DF} = \left[ \frac{\sum_{i=1}^{p} HC_i - \sum_{i=1}^{n} HM_i}{\sum_{i=1}^{p} HC_i} \right] \times 100
-$$
+$$ {#eq-df}
 
 Onde:
 
@@ -160,7 +177,8 @@ Onde:
 
 #### Considerações Adicionais:
 
-Além do percentual de disponibilidade, a metrologia de performance define o volume absoluto de Horas Disponíveis ($HD$). Este valor representa a janela de tempo em que o ativo esteve efetivamente apto para o uso, subtraindo-se o tempo total de manutenção das horas calendário: $$HD_{p} = \sum_{i=1}^{p} HC_i - \sum_{j=1}^{n} HM_j$$ O cálculo do $HD$ é o elo fundamental entre a manutenção e a operação. Enquanto a manutenção entrega o $HD$ como seu "produto final", a operação o utiliza como o recurso base (o denominador) para medir sua eficiência de ocupação.
+Além do percentual de disponibilidade, a metrologia de performance define o volume absoluto de Horas Disponíveis ($HD$). Este valor representa a janela de tempo em que o ativo esteve efetivamente apto para o uso, subtraindo-se o tempo total de manutenção das horas calendário: $$HD_{p} = \sum_{i=1}^{p} HC_i - \sum_{j=1}^{n} HM_j$$ {#eq-hd}
+O cálculo do $HD$ é o elo fundamental entre a manutenção e a operação. Enquanto a manutenção entrega o $HD$ como seu "produto final", a operação o utiliza como o recurso base (o denominador) para medir sua eficiência de ocupação.
 
 #### Disponibilidade em Processos Unitários
 
@@ -177,8 +195,9 @@ Na pelotização e em plantas de beneficiamento, o cálculo da DF deve considera
 -   Parallel Lines (Linhas em Paralelo): Para processos com duas ou mais linhas operando simultaneamente, a fórmula considera a capacidade total instalada:
 
     $$
-    \mathrm{DF}_{\text{paralela}} = \left[ \frac{(n \times HC) - \sum (HM_1 + HM_2 + \dots + HM_n)}{n \times HC} \right] \times 100
     $$
+    \mathrm{DF}_{\text{paralela}} = \left[ \frac{(n \times HC) - \sum (HM_1 + HM_2 + \dots + HM_n)}{n \times HC} \right] \times 100
+    $$ {#eq-df-paralela}
 
     Onde $n$ é a quantidade de linhas.
 
@@ -189,8 +208,9 @@ A gestão ferroviária exige métricas de disponibilidade adaptadas à natureza 
 -   Iron Ore Wagons (Vagões de Minério): Utiliza-se a relação "vagão-hora" para expressar a disponibilidade da frota.
 
     $$
-    \mathrm{DF}_{\text{mensal}} = \left[ \frac{\text{Qtd}(\text{vagões} \times \text{hora})_{\text{disponível\_mês}}}{\text{Qtd}(\text{vagões} \times \text{hora})_{\text{total}}} \right] \times 100
     $$
+    \mathrm{DF}_{\text{mensal}} = \left[ \frac{\text{Qtd}(\text{vagões} \times \text{hora})_{\text{disponível\_mês}}}{\text{Qtd}(\text{vagões} \times \text{hora})_{\text{total}}} \right] \times 100
+    $$ {#eq-df-mensal-vagoes}
 
     -   *Disponível:* Soma dos status operacionais (DNU, URV, URC, UNR, USI, INT, OUT).
 
@@ -199,14 +219,18 @@ A gestão ferroviária exige métricas de disponibilidade adaptadas à natureza 
 -   General Cargo Wagons (Vagões de Carga Geral): Baseia-se na frota ativa operacional em relação aos vagões retidos para manutenção.
 
     $$
-    \mathrm{DF}_{\text{mensal}} = \left[ \frac{\text{Vagões\_CG}_{\text{frota\_total}} - \text{Vagões\_CG}_{\text{retidos}}}{\text{Vagões\_CG}_{\text{frota\_total}}} \right] \times 100
     $$
+    \mathrm{DF}_{\text{mensal}} = \left[ \frac{\text{Vagões\_CG}_{\text{frota\_total}} - \text{Vagões\_CG}_{\text{retidos}}}{\text{Vagões\_CG}_{\text{frota\_total}}} \right] \times 100
+    $$ {#eq-df-mensal-cg}
 
 -   Locomotives (HP Weighting): Para frotas com modelos e potências distintas, aplica-se a ponderação por Horse Power (HP), garantindo que a indisponibilidade de uma locomotiva de alta potência tenha maior peso no indicador.
 
     $$
-    \mathrm{DF} = \left[ \frac{(HC \times HP_{\text{total\_frota}}) - \sum (HM \times HP)}{HC \times HP_{\text{total\_frota}}} \right] \times 100
     $$
+    \mathrm{DF} = \left[ \frac{(HC \times HP_{\text{total\_frota}}) - \sum (HM \times HP)}{HC \times HP_{\text{total\_frota}}} \right] \times 100
+    $$ {#eq-df-hp}
+$$\mathrm{UF} = \left[ \frac{\sum HT}{HD_p} \right] \times 100$$ {#eq-uf}
+Ou, em sua forma expandida:
 
 ### Physical Utilization (PU / UF)
 
@@ -318,15 +342,13 @@ A fórmula de cálculo é definida por:
 
 $$
 \mathrm{IP\text{-}DF} = \frac{(HM_{\text{prog}} - HM_{\text{real}}) \times PR_{\text{efetiva\_prog}}}{1000}
-$$
-
-Onde:
+$$ {#eq-ip-df}
 
 -   $HM_{prog}$ (Horas de manutenção programada): Total de horas de manutenção previstas no planejamento original (Baseline).
 
--   $HM_{real}$ (Horas de manutenção real): Total de horas de manutenção efetivamente realizadas e apontadas no sistema.
-
--   $PR_{efetiva\_prog}$ (Taxa efetiva programada): A produtividade esperada do equipamento ou processo (ex: toneladas/hora).
+$$
+\mathrm{IP\text{-}UF} = \frac{(%UF_{\text{real}} - %UF_{\text{prog}}) \times HD_{\text{prog}} \times PR_{\text{efetiva\_prog}}}{1000}
+$$ {#eq-ip-uf}
 
 -   1000: Fator de conversão para transformar toneladas em Kilotoneladas (Kt).
 
@@ -360,9 +382,7 @@ A fórmula de cálculo é:
 
 $$
 \mathrm{IP}_{\mathrm{PR}} = \text{Prod. Realizada} - \mathrm{IP}_{\mathrm{DF}} - \mathrm{IP}_{\mathrm{UF}} - \text{Prod. Programada}
-$$
-
--   **Unidade:** Kilotoneladas ($Kt$).
+$$ {#eq-ip-pr}
 
 -   **Interpretação:** Se o resultado for negativo, indica que, apesar de o equipamento ter operado o tempo previsto, ele operou em um ritmo (t/h) abaixo da meta, gerando perda de produção por baixa performance.
 
@@ -380,15 +400,11 @@ Os tempos entre falhas representam as horas trabalhadas ($HT$), dadas pela expre
 
 $$
 HT = \sum_{i=1}^{n} TBF_i
-$$
-
-Para $n = NIC$ eventos, o tempo médio entre falhas é expresso por:
+$$ {#eq-ht-tbf}
 
 $$
 \mathrm{MTBF} = \frac{HT}{NIC}
-$$
-
-#### Time To Repair (TTR) e MTTR
+$$ {#eq-mtbf}
 
 O tempo para reparo é composto pelas horas em manutenções corretivas ($HMC$) e horas de manutenção acidente ($HAC$), dadas pela categoria:
 
@@ -690,7 +706,7 @@ Para a extração e processamento dos dados, aplicam-se os seguintes critérios 
 
     -   *Validade:* Devem ser somadas as capacidades de todos os intervalos e turnos com data de validade dentro do período analisado. Caso o centro de trabalho não possua intervalos e turnos específicos, utiliza-se a capacidade útil standard.
 
-    -   
+    -
 
     -   *Filtro de Centros de Trabalho:* Devem ser considerados apenas os Centros de Trabalho que recebem apropriação direta, seguindo as chaves de processamento interno:
 
