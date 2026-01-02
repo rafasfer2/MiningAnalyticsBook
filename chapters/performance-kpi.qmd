@@ -7,19 +7,16 @@ format: html
 ```{r setup, include=FALSE}
 #| message: false
 #| warning: false
-$$
 # Este bloco SEMPRE executa para carregar as ferramentas necessárias
 library(tidyverse)
-library(miningKPI)
 library(knitr)
 library(lubridate)
-$$
 ```
+
 
 A mineração contemporânea opera em um cenário de complexidade crescente, onde a volatilidade das commodities e a exaustão de reservas de alto teor exigem uma precisão cirúrgica na gestão de ativos. Nesse contexto, a Excelência Operacional não é apenas um objetivo aspiracional, mas uma disciplina rigorosa fundamentada na capacidade de converter dados brutos em decisões estratégicas em tempo real.
 
 Este capítulo estrutura os indicadores fundamentais que compõem a espinha dorsal do sistema de gestão, organizados por níveis hierárquicos e função dentro do SGI.
-$$
 
 ## Elementos de Suporte e Categorização de Horas
 
@@ -87,24 +84,20 @@ No conjunto de dados `drill_events_mine_d`, observando o equipamento de perfura�
 :::
 $$
 
-```{r}
-#| echo: true
-#| message: false
+## Elementos de Suporte e Categorização de Horas
 
-$$
-# 1. Preparação e filtragem dos eventos por categoria
-drill_analysis_category <- drill_events_mine_d %>%
-    mutate(
-        gap_time = duration_min / 60,
-        day = as_date(first_time)
-$$
-    ) %>%
-    select(drill_id, category, day, first_time, exit_time, gap_time) %>%
-    filter(
-        drill_id == "DRILL_100",
-        day >= "2023-01-01" & day <= "2023-01-03"
-    )
+Os elementos de suporte são os dados diretamente monitorados e coletados durante a produção. No ciclo de processos de transporte, os dados coletados em caminhões “off-highway” são obtidos dos horímetros instalados no sistema de medição e denominados tempos operacionais. A partir desses apontamentos, as horas são estratificadas em categorias que permitem a análise do desempenho em diferentes níveis de granularidade.
 
+A classificação das horas é dividida hierarquicamente para facilitar a gestão, permitindo o desdobramento desde a disponibilidade global até a causa raiz do evento. Esta estrutura é o fundamento para o processamento de telemetria e o cálculo de KPIs no pacote `miningKPI`.
+
+**HC – Calendar Hours: Horas Calendário:** Tempo total de existência do ativo no período (24h/dia).
+$$HC = HT + HM + HO$$
+
+-   **HT – Worked Hours: Horas Trabalhadas**
+
+    -   **HTP – Productive Worked Hours: Horas Trabalhadas Produtivas** ($EFH + ODH$)
+
+        -   **EFH (Effective Hours): Horas Efetivas (HEF)** – Tempo em que o equipamento desenvolve trabalho útil na função primária (ex: contato bit-rocha na perfuração).
 # Visualização dos primeiros 10 eventos
 drill_analysis_category %>% print(n = 10)
 

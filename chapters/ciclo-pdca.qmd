@@ -1,8 +1,9 @@
 ---
 format: html
+prefer-html: true
 ---
 
-# Metodologia PDCA {#chap-pdca}
+# Trilogia Juran e Ciclo PDCA {#chap-pdca}
 
 A busca pela excelência operacional na mineração exige métodos estruturados que permitam medir a discrepância entre o planejamento (*target*) e o desempenho real. Este capítulo aborda as bases da Gestão da Qualidade, conectando a teoria clássica de Juran às ferramentas de melhoria contínua aplicadas ao *Mining Analytics*.
 
@@ -26,7 +27,7 @@ A avaliação final da qualidade visa medir o alinhamento desses indicadores com
 
 O ciclo PDCA, como uma metodologia para melhoria, é uma ferramenta simples que promove alterações graduais no processo, impulsionando assim o desenvolvimento da empresa. O ciclo, conforme apresentado na @fig-ciclo-pdca, é dividido em etapas de planejamento (PLAN), execução (DO), verificação (CHECK) e ação (ACT).
 
-![Ciclo PDCA](/images/fig-ciclo-pdca-gimini.jpg){#fig-ciclo-pdca}
+![Detalhamento do Ciclo PDCA](/images/fig-ciclo-pdca.png){#fig-ciclo-pdca}
 
 Para que essas etapas sejam realizadas com eficácia, é essencial que as subetapas sejam definidas com precisão. É importante destacar que a etapa de planejamento exige um cuidado maior na execução, pois a identificação e priorização das métricas de avaliação proporcionarão uma investigação mais aprofundada das causas dos problemas. Além disso, a utilização de ferramentas de qualidade para dar suporte ao ciclo PDCA é fundamental e indispensável para a eficiência e eficácia dos planos de ação desenvolvidos. Desta forma, propostas de mudanças, padronização de processos e/ou planos de ação são então embasadas em métodos e ferramentas estruturadas, sendo sempre recomendável estabelecer processo de comunicação e treinamento e formalização documental.
 
@@ -123,74 +124,10 @@ df_pdca %>%
     collapse_rows(columns = 1:2, valign = "middle")
 ```
 
-### Planejamento (PLAN)
+#### Análise do Fluxo Metodológico
 
-A fase de planejamento é subdividida para garantir que a solução atacada seja a causa raiz e não apenas um sintoma superficial.
+Conforme observado na \@tbl-atividades-pdca-detalhada, o ciclo inicia-se na **Identificação do Problema**, onde a definição das prioridades e a meta global servem de base para as atividades seguintes. Na **Análise do Fenômeno**, ocorre a estratificação dos dados e o estudo das variações, permitindo que a pesquisa tome forma sobre os principais KPIs a serem utilizados.
 
-#### Identificação do Problema {.title-p1}
+Com a **Análise do Processo**, o levantamento e a priorização das causas potenciais aprofundam o exame da ocorrência do problema, culminando no **Estabelecimento do Plano de Ação**, onde soluções são testadas e priorizadas.
 
--   **Identificação das prioridades:** Utiliza-se o Princípio de Pareto para separar os "poucos vitais" dos "muitos triviais". Na mineração, isto significa identificar qual frota ou sistema mecânico é responsável pela maior parcela de indisponibilidade.
-
-    -   *Exemplo:* Identificar que 80% dos alarmes de alta temperatura vêm da frota de camiões CAT 793F que opera na Cava Norte.
-
--   **Estabelecimento da meta do projeto:** A meta deve ser SMART (Específica, Mensurável, Atingível, Relevante e com Prazo).
-
-    -   *Exemplo:* Reduzir o número de paradas por superaquecimento de 15 para menos de 2 por mês em 180 dias.
-
--   **Quantificação dos ganhos do projeto:** Tradução do ganho operacional em valor financeiro ou horas de produção ganhas.
-
-    -   *Exemplo:* O aumento de 3% na Disponibilidade Física (DF) representa um acréscimo de 50.000 toneladas transportadas por mês.
-
-#### Análise do Fenômeno {.title-p2}
-
--   **Estratificação do problema:** Decomposição do problema em subgrupos (Turno, Equipe, Fabricante, Posição na Mina) para encontrar padrões.
-
-    -   *Exemplo:* Descobrir que o problema ocorre em 90% das vezes no turno das 12h às 18h.
-
--   **Estudo das variações:** Análise estatística da dispersão dos dados para entender se o processo é instável ou apenas incapaz.
-
-    -   *Exemplo:* Uso de Boxplots para comparar a temperatura média do motor entre diferentes rampas de transporte.
-
--   **Definição das metas específicas:** Desdobramento da meta global para os níveis operacionais estratificados.
-
-    -   *Exemplo:* Definir uma meta de temperatura máxima de 95°C para a operação na Rampa Norte.
-
-#### Análise do Processo {.title-p3}
-
--   **Levantamento das causas potenciais:** Brainstorming com a equipa técnica para listar todos os possíveis motivos da falha.
-
--   **Priorização das causas potenciais:** Uso do Diagrama de Ishikawa e Matriz GUT (Gravidade, Urgência, Tendência) para focar no que realmente impacta o processo.
-
--   **Quantificação das causas priorizadas:** Validação das causas através de dados reais (ex: correlação entre horas de operação e nível de saturação do radiador).
-
-#### Estabelecimento do Plano de Ação {.title-p4}
-
--   **Levantamento das possíveis soluções:** Procura de alternativas técnicas, como mudanças de peças, alterações de software de despacho ou novos procedimentos de manutenção.
-
--   **Priorização das possíveis soluções:** Avaliação de Custo vs. Benefício vs. Facilidade de implementação.
-
--   **Realização de teste piloto:** Aplicação da solução num grupo reduzido (ex: 2 camiões) antes do *rollout* total.
-
--   **Estabelecimento do plano de ação:** Formalização através da metodologia 5W2H (O quê, Quem, Quando, Onde, Porquê, Como, Quanto).
-
-### Execução (DO) {.title-d}
-
--   **Comunicação do plano de ação:** Divulgação clara para todos os níveis, garantindo que a operação e manutenção saibam o que mudará.
-
--   **Realização de treinamentos dos envolvidos:** Capacitação técnica sobre os novos padrões ou ferramentas de diagnóstico.
-
--   **Implantação e acompanhamento do plano de ação:** Execução física das tarefas (ex: nova rotina de lavagem química de radiadores) com verificação *in loco* (Gemba).
-
-### Verificação (CHECK) {.title-c}
-
--   **Verificação do alcance da meta geral e específica:** Confronto estatístico entre o desempenho histórico (Baseline) e o desempenho pós-melhoria.
-
--   **Quantificação dos ganhos do projeto:** Auditoria final para confirmar se os ganhos previstos na Identificação (P1) foram efetivamente capturados.
-
-### Padronização (ACT) {.title-a}
-
--   **Padronização das novas atividades:** Atualização dos Procedimentos Operacionais Padrão (POP) e Planos de Manutenção no ERP (ex: SAP).
-
--   **Implantação de plano para monitoramento do processo:** Criação de *dashboards* de controle para detetar rapidamente se o processo começar a desviar novamente.
-
--   **Implantação de plano de ações corretivas:** Definição de gatilhos: "Se o indicador X cair abaixo de Y, a equipa Z deve agir imediatamente".
+As etapas subsequentes à fase de planejamento focam na **Execução**, iniciando com a comunicação e treinamento dos envolvidos. Na **Verificação**, confrontam-se os resultados contra as metas globais e, por fim, a **Padronização** institucionaliza as novas atividades, garantindo que o monitoramento e as ações corretivas sustentem os ganhos de performance a longo prazo.

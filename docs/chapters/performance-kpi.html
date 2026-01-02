@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -342,79 +307,83 @@ window.Quarto = {
    
   <ul>
   <li><a href="#elementos-de-suporte-e-categorização-de-horas" id="toc-elementos-de-suporte-e-categorização-de-horas" class="nav-link active" data-scroll-target="#elementos-de-suporte-e-categorização-de-horas"><span class="header-section-number">1.1</span> Elementos de Suporte e Categorização de Horas</a></li>
-  <li><a href="#indicadores-chave-de-desempenho-kpis-globais" id="toc-indicadores-chave-de-desempenho-kpis-globais" class="nav-link" data-scroll-target="#indicadores-chave-de-desempenho-kpis-globais"><span class="header-section-number">1.2</span> Indicadores-Chave de Desempenho (KPIs Globais)</a>
+  <li><a href="#elementos-de-suporte-e-categorização-de-horas-1" id="toc-elementos-de-suporte-e-categorização-de-horas-1" class="nav-link" data-scroll-target="#elementos-de-suporte-e-categorização-de-horas-1"><span class="header-section-number">1.2</span> Elementos de Suporte e Categorização de Horas</a></li>
+  <li><a href="#consolidação-diária-e-cálculo-das-horas-calendário-ch" id="toc-consolidação-diária-e-cálculo-das-horas-calendário-ch" class="nav-link" data-scroll-target="#consolidação-diária-e-cálculo-das-horas-calendário-ch"><span class="header-section-number">2</span> 2. Consolidação diária e cálculo das Horas Calendário (CH)</a>
   <ul class="collapse">
-  <li><a href="#disponibilidade-física-pa-df" id="toc-disponibilidade-física-pa-df" class="nav-link" data-scroll-target="#disponibilidade-física-pa-df"><span class="header-section-number">1.2.1</span> Disponibilidade Física (PA / DF)</a></li>
-  <li><a href="#physical-utilization-pu-uf" id="toc-physical-utilization-pu-uf" class="nav-link" data-scroll-target="#physical-utilization-pu-uf"><span class="header-section-number">1.2.2</span> Physical Utilization (PU / UF)</a></li>
-  <li><a href="#produtividade-pr" id="toc-produtividade-pr" class="nav-link" data-scroll-target="#produtividade-pr"><span class="header-section-number">1.2.3</span> Produtividade (PR)</a></li>
-  <li><a href="#análise-de-impacto-na-produção-contabilização-de-perdas" id="toc-análise-de-impacto-na-produção-contabilização-de-perdas" class="nav-link" data-scroll-target="#análise-de-impacto-na-produção-contabilização-de-perdas"><span class="header-section-number">1.2.4</span> Análise de Impacto na Produção (Contabilização de Perdas)</a></li>
-  <li><a href="#impacto-na-produção---produtividade-ip-pr" id="toc-impacto-na-produção---produtividade-ip-pr" class="nav-link" data-scroll-target="#impacto-na-produção---produtividade-ip-pr"><span class="header-section-number">1.2.5</span> Impacto na Produção - Produtividade (IP-PR)</a></li>
+  <li><a href="#indicadores-chave-de-desempenho-kpis-globais" id="toc-indicadores-chave-de-desempenho-kpis-globais" class="nav-link" data-scroll-target="#indicadores-chave-de-desempenho-kpis-globais"><span class="header-section-number">2.1</span> Indicadores-Chave de Desempenho (KPIs Globais)</a>
+  <ul class="collapse">
+  <li><a href="#disponibilidade-física-pa-df" id="toc-disponibilidade-física-pa-df" class="nav-link" data-scroll-target="#disponibilidade-física-pa-df"><span class="header-section-number">2.1.1</span> Disponibilidade Física (PA / DF)</a></li>
+  <li><a href="#physical-utilization-pu-uf" id="toc-physical-utilization-pu-uf" class="nav-link" data-scroll-target="#physical-utilization-pu-uf"><span class="header-section-number">2.1.2</span> Physical Utilization (PU / UF)</a></li>
+  <li><a href="#produtividade-pr" id="toc-produtividade-pr" class="nav-link" data-scroll-target="#produtividade-pr"><span class="header-section-number">2.1.3</span> Produtividade (PR)</a></li>
+  <li><a href="#análise-de-impacto-na-produção-contabilização-de-perdas" id="toc-análise-de-impacto-na-produção-contabilização-de-perdas" class="nav-link" data-scroll-target="#análise-de-impacto-na-produção-contabilização-de-perdas"><span class="header-section-number">2.1.4</span> Análise de Impacto na Produção (Contabilização de Perdas)</a></li>
+  <li><a href="#impacto-na-produção---produtividade-ip-pr" id="toc-impacto-na-produção---produtividade-ip-pr" class="nav-link" data-scroll-target="#impacto-na-produção---produtividade-ip-pr"><span class="header-section-number">2.1.5</span> Impacto na Produção - Produtividade (IP-PR)</a></li>
   </ul></li>
-  <li><a href="#advanced-maintenance-performance-and-impact-analysis" id="toc-advanced-maintenance-performance-and-impact-analysis" class="nav-link" data-scroll-target="#advanced-maintenance-performance-and-impact-analysis"><span class="header-section-number">1.3</span> Advanced Maintenance Performance and Impact Analysis</a>
+  <li><a href="#advanced-maintenance-performance-and-impact-analysis" id="toc-advanced-maintenance-performance-and-impact-analysis" class="nav-link" data-scroll-target="#advanced-maintenance-performance-and-impact-analysis"><span class="header-section-number">2.2</span> Advanced Maintenance Performance and Impact Analysis</a>
   <ul class="collapse">
-  <li><a href="#medidas-de-performance-da-manutenção" id="toc-medidas-de-performance-da-manutenção" class="nav-link" data-scroll-target="#medidas-de-performance-da-manutenção"><span class="header-section-number">1.3.1</span> Medidas de Performance da Manutenção</a></li>
-  <li><a href="#mensuração-de-impacto-na-incidência-de-corretivas" id="toc-mensuração-de-impacto-na-incidência-de-corretivas" class="nav-link" data-scroll-target="#mensuração-de-impacto-na-incidência-de-corretivas"><span class="header-section-number">1.3.2</span> Mensuração de Impacto na Incidência de Corretivas</a></li>
-  <li><a href="#mensuração-de-impacto-na-disponibilidade" id="toc-mensuração-de-impacto-na-disponibilidade" class="nav-link" data-scroll-target="#mensuração-de-impacto-na-disponibilidade"><span class="header-section-number">1.3.3</span> Mensuração de Impacto na Disponibilidade</a></li>
+  <li><a href="#medidas-de-performance-da-manutenção" id="toc-medidas-de-performance-da-manutenção" class="nav-link" data-scroll-target="#medidas-de-performance-da-manutenção"><span class="header-section-number">2.2.1</span> Medidas de Performance da Manutenção</a></li>
+  <li><a href="#mensuração-de-impacto-na-incidência-de-corretivas" id="toc-mensuração-de-impacto-na-incidência-de-corretivas" class="nav-link" data-scroll-target="#mensuração-de-impacto-na-incidência-de-corretivas"><span class="header-section-number">2.2.2</span> Mensuração de Impacto na Incidência de Corretivas</a></li>
+  <li><a href="#mensuração-de-impacto-na-disponibilidade" id="toc-mensuração-de-impacto-na-disponibilidade" class="nav-link" data-scroll-target="#mensuração-de-impacto-na-disponibilidade"><span class="header-section-number">2.2.3</span> Mensuração de Impacto na Disponibilidade</a></li>
   </ul></li>
-  <li><a href="#indicadores-de-gestão-da-manutenção-pcm" id="toc-indicadores-de-gestão-da-manutenção-pcm" class="nav-link" data-scroll-target="#indicadores-de-gestão-da-manutenção-pcm"><span class="header-section-number">1.4</span> Indicadores de Gestão da Manutenção (PCM)</a>
+  <li><a href="#indicadores-de-gestão-da-manutenção-pcm" id="toc-indicadores-de-gestão-da-manutenção-pcm" class="nav-link" data-scroll-target="#indicadores-de-gestão-da-manutenção-pcm"><span class="header-section-number">2.3</span> Indicadores de Gestão da Manutenção (PCM)</a>
   <ul class="collapse">
-  <li><a href="#systematic-maintenance-adherence-ams" id="toc-systematic-maintenance-adherence-ams" class="nav-link" data-scroll-target="#systematic-maintenance-adherence-ams"><span class="header-section-number">1.4.1</span> Systematic Maintenance Adherence (AMS)</a></li>
-  <li><a href="#conditional-maintenance-adherence-amc" id="toc-conditional-maintenance-adherence-amc" class="nav-link" data-scroll-target="#conditional-maintenance-adherence-amc"><span class="header-section-number">1.4.2</span> Conditional Maintenance Adherence (AMC)</a></li>
-  <li><a href="#maintenance-plan-adherence-apm" id="toc-maintenance-plan-adherence-apm" class="nav-link" data-scroll-target="#maintenance-plan-adherence-apm"><span class="header-section-number">1.4.3</span> Maintenance Plan Adherence (APM)</a></li>
-  <li><a href="#schedule-compliance-apr" id="toc-schedule-compliance-apr" class="nav-link" data-scroll-target="#schedule-compliance-apr"><span class="header-section-number">1.4.4</span> Schedule Compliance (APR)</a></li>
-  <li><a href="#scheduled-labor-utilization-index-imop" id="toc-scheduled-labor-utilization-index-imop" class="nav-link" data-scroll-target="#scheduled-labor-utilization-index-imop"><span class="header-section-number">1.4.5</span> Scheduled Labor Utilization Index (IMOP)</a></li>
-  <li><a href="#labor-appropriation-index-iamo" id="toc-labor-appropriation-index-iamo" class="nav-link" data-scroll-target="#labor-appropriation-index-iamo"><span class="header-section-number">1.4.6</span> Labor Appropriation Index (IAMO)</a></li>
-  <li><a href="#systematic-to-total-maintenance-ratio-rms" id="toc-systematic-to-total-maintenance-ratio-rms" class="nav-link" data-scroll-target="#systematic-to-total-maintenance-ratio-rms"><span class="header-section-number">1.4.7</span> Systematic to Total Maintenance Ratio (RMS)</a></li>
-  <li><a href="#corrective-maintenance-ratio-rmc" id="toc-corrective-maintenance-ratio-rmc" class="nav-link" data-scroll-target="#corrective-maintenance-ratio-rmc"><span class="header-section-number">1.4.8</span> Corrective Maintenance Ratio (RMC)</a></li>
-  <li><a href="#corrective-maintenance-index-imc" id="toc-corrective-maintenance-index-imc" class="nav-link" data-scroll-target="#corrective-maintenance-index-imc"><span class="header-section-number">1.4.9</span> Corrective Maintenance Index (IMC)</a></li>
-  <li><a href="#backlog" id="toc-backlog" class="nav-link" data-scroll-target="#backlog"><span class="header-section-number">1.4.10</span> Backlog</a></li>
-  <li><a href="#maintenance-cost-mc-cm" id="toc-maintenance-cost-mc-cm" class="nav-link" data-scroll-target="#maintenance-cost-mc-cm"><span class="header-section-number">1.4.11</span> Maintenance Cost (MC / CM)</a></li>
-  <li><a href="#failure-class-appropriation-acf" id="toc-failure-class-appropriation-acf" class="nav-link" data-scroll-target="#failure-class-appropriation-acf"><span class="header-section-number">1.4.12</span> Failure Class Appropriation (ACF)</a></li>
-  <li><a href="#gestão-de-fluxo-de-trabalho-e-portfólio" id="toc-gestão-de-fluxo-de-trabalho-e-portfólio" class="nav-link" data-scroll-target="#gestão-de-fluxo-de-trabalho-e-portfólio"><span class="header-section-number">1.4.13</span> Gestão de Fluxo de Trabalho e Portfólio</a></li>
-  <li><a href="#average-maintenance-order-times-by-status-tmoms" id="toc-average-maintenance-order-times-by-status-tmoms" class="nav-link" data-scroll-target="#average-maintenance-order-times-by-status-tmoms"><span class="header-section-number">1.4.14</span> Average Maintenance Order Times by Status (TMOMS)</a></li>
-  <li><a href="#average-age-of-untreated-notifications-imnc" id="toc-average-age-of-untreated-notifications-imnc" class="nav-link" data-scroll-target="#average-age-of-untreated-notifications-imnc"><span class="header-section-number">1.4.15</span> Average Age of Untreated Notifications (IMNC)</a></li>
-  <li><a href="#average-age-of-open-orders-imos" id="toc-average-age-of-open-orders-imos" class="nav-link" data-scroll-target="#average-age-of-open-orders-imos"><span class="header-section-number">1.4.16</span> Average Age of Open Orders (IMOS)</a></li>
-  </ul></li>
-  <li><a href="#production-impact-analysis-loss-accounting" id="toc-production-impact-analysis-loss-accounting" class="nav-link" data-scroll-target="#production-impact-analysis-loss-accounting"><span class="header-section-number">2</span> Production Impact Analysis (Loss Accounting)</a>
-  <ul class="collapse">
-  <li><a href="#production-impact---physical-availability-ip-df" id="toc-production-impact---physical-availability-ip-df" class="nav-link" data-scroll-target="#production-impact---physical-availability-ip-df"><span class="header-section-number">2.1</span> Production Impact - Physical Availability (IP-DF)</a></li>
-  <li><a href="#production-impact---physical-utilization-ip-uf" id="toc-production-impact---physical-utilization-ip-uf" class="nav-link" data-scroll-target="#production-impact---physical-utilization-ip-uf"><span class="header-section-number">2.2</span> Production Impact - Physical Utilization (IP-UF)</a></li>
-  <li><a href="#production-impact---productivity-ip-pr" id="toc-production-impact---productivity-ip-pr" class="nav-link" data-scroll-target="#production-impact---productivity-ip-pr"><span class="header-section-number">2.3</span> Production Impact - Productivity (IP-PR)</a></li>
-  </ul></li>
-  <li><a href="#engineering-and-reliability-indicators" id="toc-engineering-and-reliability-indicators" class="nav-link" data-scroll-target="#engineering-and-reliability-indicators"><span class="header-section-number">3</span> Engineering and Reliability Indicators</a>
-  <ul class="collapse">
-  <li><a href="#event-organization-and-counting-processes" id="toc-event-organization-and-counting-processes" class="nav-link" data-scroll-target="#event-organization-and-counting-processes"><span class="header-section-number">3.1</span> Event Organization and Counting Processes</a></li>
-  <li><a href="#fundamental-performance-measures" id="toc-fundamental-performance-measures" class="nav-link" data-scroll-target="#fundamental-performance-measures"><span class="header-section-number">3.2</span> Fundamental Performance Measures</a></li>
-  <li><a href="#measuring-impact-on-corrective-incidence" id="toc-measuring-impact-on-corrective-incidence" class="nav-link" data-scroll-target="#measuring-impact-on-corrective-incidence"><span class="header-section-number">3.3</span> Measuring Impact on Corrective Incidence</a>
-  <ul class="collapse">
-  <li><a href="#incidence-and-adherence" id="toc-incidence-and-adherence" class="nav-link" data-scroll-target="#incidence-and-adherence"><span class="header-section-number">3.3.1</span> Incidence and Adherence</a></li>
-  <li><a href="#time-adherence-and-maintenance-factor" id="toc-time-adherence-and-maintenance-factor" class="nav-link" data-scroll-target="#time-adherence-and-maintenance-factor"><span class="header-section-number">3.3.2</span> Time Adherence and Maintenance Factor</a></li>
-  </ul></li>
-  <li><a href="#availability-refinements" id="toc-availability-refinements" class="nav-link" data-scroll-target="#availability-refinements"><span class="header-section-number">3.4</span> Availability Refinements</a>
-  <ul class="collapse">
-  <li><a href="#inherent-availability-di" id="toc-inherent-availability-di" class="nav-link" data-scroll-target="#inherent-availability-di"><span class="header-section-number">3.4.1</span> Inherent Availability (DI)</a></li>
+  <li><a href="#systematic-maintenance-adherence-ams" id="toc-systematic-maintenance-adherence-ams" class="nav-link" data-scroll-target="#systematic-maintenance-adherence-ams"><span class="header-section-number">2.3.1</span> Systematic Maintenance Adherence (AMS)</a></li>
+  <li><a href="#conditional-maintenance-adherence-amc" id="toc-conditional-maintenance-adherence-amc" class="nav-link" data-scroll-target="#conditional-maintenance-adherence-amc"><span class="header-section-number">2.3.2</span> Conditional Maintenance Adherence (AMC)</a></li>
+  <li><a href="#maintenance-plan-adherence-apm" id="toc-maintenance-plan-adherence-apm" class="nav-link" data-scroll-target="#maintenance-plan-adherence-apm"><span class="header-section-number">2.3.3</span> Maintenance Plan Adherence (APM)</a></li>
+  <li><a href="#schedule-compliance-apr" id="toc-schedule-compliance-apr" class="nav-link" data-scroll-target="#schedule-compliance-apr"><span class="header-section-number">2.3.4</span> Schedule Compliance (APR)</a></li>
+  <li><a href="#scheduled-labor-utilization-index-imop" id="toc-scheduled-labor-utilization-index-imop" class="nav-link" data-scroll-target="#scheduled-labor-utilization-index-imop"><span class="header-section-number">2.3.5</span> Scheduled Labor Utilization Index (IMOP)</a></li>
+  <li><a href="#labor-appropriation-index-iamo" id="toc-labor-appropriation-index-iamo" class="nav-link" data-scroll-target="#labor-appropriation-index-iamo"><span class="header-section-number">2.3.6</span> Labor Appropriation Index (IAMO)</a></li>
+  <li><a href="#systematic-to-total-maintenance-ratio-rms" id="toc-systematic-to-total-maintenance-ratio-rms" class="nav-link" data-scroll-target="#systematic-to-total-maintenance-ratio-rms"><span class="header-section-number">2.3.7</span> Systematic to Total Maintenance Ratio (RMS)</a></li>
+  <li><a href="#corrective-maintenance-ratio-rmc" id="toc-corrective-maintenance-ratio-rmc" class="nav-link" data-scroll-target="#corrective-maintenance-ratio-rmc"><span class="header-section-number">2.3.8</span> Corrective Maintenance Ratio (RMC)</a></li>
+  <li><a href="#corrective-maintenance-index-imc" id="toc-corrective-maintenance-index-imc" class="nav-link" data-scroll-target="#corrective-maintenance-index-imc"><span class="header-section-number">2.3.9</span> Corrective Maintenance Index (IMC)</a></li>
+  <li><a href="#backlog" id="toc-backlog" class="nav-link" data-scroll-target="#backlog"><span class="header-section-number">2.3.10</span> Backlog</a></li>
+  <li><a href="#maintenance-cost-mc-cm" id="toc-maintenance-cost-mc-cm" class="nav-link" data-scroll-target="#maintenance-cost-mc-cm"><span class="header-section-number">2.3.11</span> Maintenance Cost (MC / CM)</a></li>
+  <li><a href="#failure-class-appropriation-acf" id="toc-failure-class-appropriation-acf" class="nav-link" data-scroll-target="#failure-class-appropriation-acf"><span class="header-section-number">2.3.12</span> Failure Class Appropriation (ACF)</a></li>
+  <li><a href="#gestão-de-fluxo-de-trabalho-e-portfólio" id="toc-gestão-de-fluxo-de-trabalho-e-portfólio" class="nav-link" data-scroll-target="#gestão-de-fluxo-de-trabalho-e-portfólio"><span class="header-section-number">2.3.13</span> Gestão de Fluxo de Trabalho e Portfólio</a></li>
+  <li><a href="#average-maintenance-order-times-by-status-tmoms" id="toc-average-maintenance-order-times-by-status-tmoms" class="nav-link" data-scroll-target="#average-maintenance-order-times-by-status-tmoms"><span class="header-section-number">2.3.14</span> Average Maintenance Order Times by Status (TMOMS)</a></li>
+  <li><a href="#average-age-of-untreated-notifications-imnc" id="toc-average-age-of-untreated-notifications-imnc" class="nav-link" data-scroll-target="#average-age-of-untreated-notifications-imnc"><span class="header-section-number">2.3.15</span> Average Age of Untreated Notifications (IMNC)</a></li>
+  <li><a href="#average-age-of-open-orders-imos" id="toc-average-age-of-open-orders-imos" class="nav-link" data-scroll-target="#average-age-of-open-orders-imos"><span class="header-section-number">2.3.16</span> Average Age of Open Orders (IMOS)</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#maintenance-management-indicators-pcm" id="toc-maintenance-management-indicators-pcm" class="nav-link" data-scroll-target="#maintenance-management-indicators-pcm"><span class="header-section-number">4</span> Maintenance Management Indicators (PCM)</a>
+  <li><a href="#production-impact-analysis-loss-accounting" id="toc-production-impact-analysis-loss-accounting" class="nav-link" data-scroll-target="#production-impact-analysis-loss-accounting"><span class="header-section-number">3</span> Production Impact Analysis (Loss Accounting)</a>
   <ul class="collapse">
-  <li><a href="#systematic-maintenance-adherence-ams-1" id="toc-systematic-maintenance-adherence-ams-1" class="nav-link" data-scroll-target="#systematic-maintenance-adherence-ams-1"><span class="header-section-number">4.1</span> Systematic Maintenance Adherence (AMS)</a></li>
-  <li><a href="#conditional-maintenance-adherence-amc-1" id="toc-conditional-maintenance-adherence-amc-1" class="nav-link" data-scroll-target="#conditional-maintenance-adherence-amc-1"><span class="header-section-number">4.2</span> Conditional Maintenance Adherence (AMC)</a></li>
-  <li><a href="#maintenance-plan-adherence-apm-1" id="toc-maintenance-plan-adherence-apm-1" class="nav-link" data-scroll-target="#maintenance-plan-adherence-apm-1"><span class="header-section-number">4.3</span> Maintenance Plan Adherence (APM)</a></li>
-  <li><a href="#schedule-compliance-apr-1" id="toc-schedule-compliance-apr-1" class="nav-link" data-scroll-target="#schedule-compliance-apr-1"><span class="header-section-number">4.4</span> Schedule Compliance (APR)</a></li>
-  <li><a href="#scheduled-labor-utilization-index-imop-1" id="toc-scheduled-labor-utilization-index-imop-1" class="nav-link" data-scroll-target="#scheduled-labor-utilization-index-imop-1"><span class="header-section-number">4.5</span> Scheduled Labor Utilization Index (IMOP)</a></li>
-  <li><a href="#labor-appropriation-index-iamo-1" id="toc-labor-appropriation-index-iamo-1" class="nav-link" data-scroll-target="#labor-appropriation-index-iamo-1"><span class="header-section-number">4.6</span> Labor Appropriation Index (IAMO)</a></li>
-  <li><a href="#systematic-to-total-maintenance-ratio-rms-1" id="toc-systematic-to-total-maintenance-ratio-rms-1" class="nav-link" data-scroll-target="#systematic-to-total-maintenance-ratio-rms-1"><span class="header-section-number">4.7</span> Systematic to Total Maintenance Ratio (RMS)</a></li>
-  <li><a href="#corrective-maintenance-ratio-rmc-1" id="toc-corrective-maintenance-ratio-rmc-1" class="nav-link" data-scroll-target="#corrective-maintenance-ratio-rmc-1"><span class="header-section-number">4.8</span> Corrective Maintenance Ratio (RMC)</a></li>
-  <li><a href="#corrective-maintenance-index-imc-1" id="toc-corrective-maintenance-index-imc-1" class="nav-link" data-scroll-target="#corrective-maintenance-index-imc-1"><span class="header-section-number">4.9</span> Corrective Maintenance Index (IMC)</a></li>
-  <li><a href="#backlog-1" id="toc-backlog-1" class="nav-link" data-scroll-target="#backlog-1"><span class="header-section-number">4.10</span> Backlog</a></li>
-  <li><a href="#maintenance-cost-mc" id="toc-maintenance-cost-mc" class="nav-link" data-scroll-target="#maintenance-cost-mc"><span class="header-section-number">4.11</span> Maintenance Cost (MC)</a></li>
-  <li><a href="#failure-class-appropriation-acf-1" id="toc-failure-class-appropriation-acf-1" class="nav-link" data-scroll-target="#failure-class-appropriation-acf-1"><span class="header-section-number">4.12</span> Failure Class Appropriation (ACF)</a></li>
+  <li><a href="#production-impact---physical-availability-ip-df" id="toc-production-impact---physical-availability-ip-df" class="nav-link" data-scroll-target="#production-impact---physical-availability-ip-df"><span class="header-section-number">3.1</span> Production Impact - Physical Availability (IP-DF)</a></li>
+  <li><a href="#production-impact---physical-utilization-ip-uf" id="toc-production-impact---physical-utilization-ip-uf" class="nav-link" data-scroll-target="#production-impact---physical-utilization-ip-uf"><span class="header-section-number">3.2</span> Production Impact - Physical Utilization (IP-UF)</a></li>
+  <li><a href="#production-impact---productivity-ip-pr" id="toc-production-impact---productivity-ip-pr" class="nav-link" data-scroll-target="#production-impact---productivity-ip-pr"><span class="header-section-number">3.3</span> Production Impact - Productivity (IP-PR)</a></li>
   </ul></li>
-  <li><a href="#workflow-and-portfolio-management" id="toc-workflow-and-portfolio-management" class="nav-link" data-scroll-target="#workflow-and-portfolio-management"><span class="header-section-number">5</span> Workflow and Portfolio Management</a>
+  <li><a href="#engineering-and-reliability-indicators" id="toc-engineering-and-reliability-indicators" class="nav-link" data-scroll-target="#engineering-and-reliability-indicators"><span class="header-section-number">4</span> Engineering and Reliability Indicators</a>
   <ul class="collapse">
-  <li><a href="#average-maintenance-order-times-by-status-tmoms-1" id="toc-average-maintenance-order-times-by-status-tmoms-1" class="nav-link" data-scroll-target="#average-maintenance-order-times-by-status-tmoms-1"><span class="header-section-number">5.1</span> Average Maintenance Order Times by Status (TMOMS)</a></li>
-  <li><a href="#average-age-of-untreated-notifications-imnc-1" id="toc-average-age-of-untreated-notifications-imnc-1" class="nav-link" data-scroll-target="#average-age-of-untreated-notifications-imnc-1"><span class="header-section-number">5.2</span> Average Age of Untreated Notifications (IMNC)</a></li>
-  <li><a href="#average-age-of-open-orders-imos-1" id="toc-average-age-of-open-orders-imos-1" class="nav-link" data-scroll-target="#average-age-of-open-orders-imos-1"><span class="header-section-number">5.3</span> Average Age of Open Orders (IMOS)</a></li>
+  <li><a href="#event-organization-and-counting-processes" id="toc-event-organization-and-counting-processes" class="nav-link" data-scroll-target="#event-organization-and-counting-processes"><span class="header-section-number">4.1</span> Event Organization and Counting Processes</a></li>
+  <li><a href="#fundamental-performance-measures" id="toc-fundamental-performance-measures" class="nav-link" data-scroll-target="#fundamental-performance-measures"><span class="header-section-number">4.2</span> Fundamental Performance Measures</a></li>
+  <li><a href="#measuring-impact-on-corrective-incidence" id="toc-measuring-impact-on-corrective-incidence" class="nav-link" data-scroll-target="#measuring-impact-on-corrective-incidence"><span class="header-section-number">4.3</span> Measuring Impact on Corrective Incidence</a>
+  <ul class="collapse">
+  <li><a href="#incidence-and-adherence" id="toc-incidence-and-adherence" class="nav-link" data-scroll-target="#incidence-and-adherence"><span class="header-section-number">4.3.1</span> Incidence and Adherence</a></li>
+  <li><a href="#time-adherence-and-maintenance-factor" id="toc-time-adherence-and-maintenance-factor" class="nav-link" data-scroll-target="#time-adherence-and-maintenance-factor"><span class="header-section-number">4.3.2</span> Time Adherence and Maintenance Factor</a></li>
+  </ul></li>
+  <li><a href="#availability-refinements" id="toc-availability-refinements" class="nav-link" data-scroll-target="#availability-refinements"><span class="header-section-number">4.4</span> Availability Refinements</a>
+  <ul class="collapse">
+  <li><a href="#inherent-availability-di" id="toc-inherent-availability-di" class="nav-link" data-scroll-target="#inherent-availability-di"><span class="header-section-number">4.4.1</span> Inherent Availability (DI)</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#maintenance-management-indicators-pcm" id="toc-maintenance-management-indicators-pcm" class="nav-link" data-scroll-target="#maintenance-management-indicators-pcm"><span class="header-section-number">5</span> Maintenance Management Indicators (PCM)</a>
+  <ul class="collapse">
+  <li><a href="#systematic-maintenance-adherence-ams-1" id="toc-systematic-maintenance-adherence-ams-1" class="nav-link" data-scroll-target="#systematic-maintenance-adherence-ams-1"><span class="header-section-number">5.1</span> Systematic Maintenance Adherence (AMS)</a></li>
+  <li><a href="#conditional-maintenance-adherence-amc-1" id="toc-conditional-maintenance-adherence-amc-1" class="nav-link" data-scroll-target="#conditional-maintenance-adherence-amc-1"><span class="header-section-number">5.2</span> Conditional Maintenance Adherence (AMC)</a></li>
+  <li><a href="#maintenance-plan-adherence-apm-1" id="toc-maintenance-plan-adherence-apm-1" class="nav-link" data-scroll-target="#maintenance-plan-adherence-apm-1"><span class="header-section-number">5.3</span> Maintenance Plan Adherence (APM)</a></li>
+  <li><a href="#schedule-compliance-apr-1" id="toc-schedule-compliance-apr-1" class="nav-link" data-scroll-target="#schedule-compliance-apr-1"><span class="header-section-number">5.4</span> Schedule Compliance (APR)</a></li>
+  <li><a href="#scheduled-labor-utilization-index-imop-1" id="toc-scheduled-labor-utilization-index-imop-1" class="nav-link" data-scroll-target="#scheduled-labor-utilization-index-imop-1"><span class="header-section-number">5.5</span> Scheduled Labor Utilization Index (IMOP)</a></li>
+  <li><a href="#labor-appropriation-index-iamo-1" id="toc-labor-appropriation-index-iamo-1" class="nav-link" data-scroll-target="#labor-appropriation-index-iamo-1"><span class="header-section-number">5.6</span> Labor Appropriation Index (IAMO)</a></li>
+  <li><a href="#systematic-to-total-maintenance-ratio-rms-1" id="toc-systematic-to-total-maintenance-ratio-rms-1" class="nav-link" data-scroll-target="#systematic-to-total-maintenance-ratio-rms-1"><span class="header-section-number">5.7</span> Systematic to Total Maintenance Ratio (RMS)</a></li>
+  <li><a href="#corrective-maintenance-ratio-rmc-1" id="toc-corrective-maintenance-ratio-rmc-1" class="nav-link" data-scroll-target="#corrective-maintenance-ratio-rmc-1"><span class="header-section-number">5.8</span> Corrective Maintenance Ratio (RMC)</a></li>
+  <li><a href="#corrective-maintenance-index-imc-1" id="toc-corrective-maintenance-index-imc-1" class="nav-link" data-scroll-target="#corrective-maintenance-index-imc-1"><span class="header-section-number">5.9</span> Corrective Maintenance Index (IMC)</a></li>
+  <li><a href="#backlog-1" id="toc-backlog-1" class="nav-link" data-scroll-target="#backlog-1"><span class="header-section-number">5.10</span> Backlog</a></li>
+  <li><a href="#maintenance-cost-mc" id="toc-maintenance-cost-mc" class="nav-link" data-scroll-target="#maintenance-cost-mc"><span class="header-section-number">5.11</span> Maintenance Cost (MC)</a></li>
+  <li><a href="#failure-class-appropriation-acf-1" id="toc-failure-class-appropriation-acf-1" class="nav-link" data-scroll-target="#failure-class-appropriation-acf-1"><span class="header-section-number">5.12</span> Failure Class Appropriation (ACF)</a></li>
+  </ul></li>
+  <li><a href="#workflow-and-portfolio-management" id="toc-workflow-and-portfolio-management" class="nav-link" data-scroll-target="#workflow-and-portfolio-management"><span class="header-section-number">6</span> Workflow and Portfolio Management</a>
+  <ul class="collapse">
+  <li><a href="#average-maintenance-order-times-by-status-tmoms-1" id="toc-average-maintenance-order-times-by-status-tmoms-1" class="nav-link" data-scroll-target="#average-maintenance-order-times-by-status-tmoms-1"><span class="header-section-number">6.1</span> Average Maintenance Order Times by Status (TMOMS)</a></li>
+  <li><a href="#average-age-of-untreated-notifications-imnc-1" id="toc-average-age-of-untreated-notifications-imnc-1" class="nav-link" data-scroll-target="#average-age-of-untreated-notifications-imnc-1"><span class="header-section-number">6.2</span> Average Age of Untreated Notifications (IMNC)</a></li>
+  <li><a href="#average-age-of-open-orders-imos-1" id="toc-average-age-of-open-orders-imos-1" class="nav-link" data-scroll-target="#average-age-of-open-orders-imos-1"><span class="header-section-number">6.3</span> Average Age of Open Orders (IMOS)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -446,44 +415,41 @@ window.Quarto = {
 <section id="elementos-de-suporte-e-categorização-de-horas" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="elementos-de-suporte-e-categorização-de-horas"><span class="header-section-number">1.1</span> Elementos de Suporte e Categorização de Horas</h2>
 <p>Os elementos de suporte são os dados diretamente monitorados e coletados durante a produção. No ciclo de processos de transporte, os dados coletados em caminhões “off-highway” são obtidos dos horímetros instalados no sistema de medição e denominados tempos operacionais. A partir desses apontamentos, as horas são estratificadas em categorias que permitem a análise do desempenho em diferentes níveis de granularidade.</p>
-<p>A classificação das horas é dividida hierarquicamente para facilitar a gestão, permitindo o desdobramento desde a disponibilidade global até a causa raiz do evento. Esta estrutura é o fundamento para o processamento de telemetria e o cálculo de KPIs no pacote <code>miningKPI</code>.</p>
+<p>$$ A classificação das horas é dividida hierarquicamente para facilitar a gestão, permitindo o desdobramento desde a disponibilidade global até a causa raiz do evento. Esta estrutura é o fundamento para o processamento de telemetria e o cálculo de KPIs no pacote <code>miningKPI</code>.</p>
 <p><strong>HC – Calendar Hours: Horas Calendário:</strong> Tempo total de existência do ativo no período (24h/dia). <span class="math display">\[HC = HT + HM + HO\]</span></p>
+<p>$$ - <strong>HT – Worked Hours: Horas Trabalhadas</strong></p>
+<pre><code>-   **HTP – Productive Worked Hours: Horas Trabalhadas Produtivas** ($EFH + ODH$)
+
+    -   **EFH (Effective Hours): Horas Efetivas (HEF)** – Tempo em que o equipamento desenvolve trabalho útil na função primária (ex: contato bit-rocha na perfuração).</code></pre>
+<p>$$</p>
+<pre><code>    -   **ODH (Operational Delay Hours): Horas de Atraso Operacional (HAO)** – Atrasos inerentes ao ciclo perfeito, como esperas por caminhão, manobras de sinalização ou filas curtas.
+
+-   **HNTP – Non-Productive Worked Hours: Horas Trabalhadas Não Produtivas** ($IWH + DWH$)</code></pre>
+<p>$$ - <strong>IWH (Infrastructure Worked Hours): Horas de Infraestrutura (HTI)</strong> – Atividades de suporte à fase produtiva, como acerto de praça ou manutenção de acessos.</p>
+<pre><code>    -   **DWH (Different Worked Hours): Horas Trabalhadas Diversas (HTD)** – Trabalho fora do ciclo operacional principal, como locomoções curtas para abastecimento ou apoio a outros processos.</code></pre>
 <ul>
-<li><p><strong>HT – Worked Hours: Horas Trabalhadas</strong></p>
-<ul>
-<li><p><strong>HTP – Productive Worked Hours: Horas Trabalhadas Produtivas</strong> (<span class="math inline">\(EFH + ODH\)</span>)</p>
-<ul>
-<li><p><strong>EFH (Effective Hours): Horas Efetivas (HEF)</strong> – Tempo em que o equipamento desenvolve trabalho útil na função primária (ex: contato bit-rocha na perfuração).</p></li>
-<li><p><strong>ODH (Operational Delay Hours): Horas de Atraso Operacional (HAO)</strong> – Atrasos inerentes ao ciclo perfeito, como esperas por caminhão, manobras de sinalização ou filas curtas.</p></li>
-</ul></li>
-<li><p><strong>HNTP – Non-Productive Worked Hours: Horas Trabalhadas Não Produtivas</strong> (<span class="math inline">\(IWH + DWH\)</span>)</p>
-<ul>
-<li><p><strong>IWH (Infrastructure Worked Hours): Horas de Infraestrutura (HTI)</strong> – Atividades de suporte à fase produtiva, como acerto de praça ou manutenção de acessos.</p></li>
-<li><p><strong>DWH (Different Worked Hours): Horas Trabalhadas Diversas (HTD)</strong> – Trabalho fora do ciclo operacional principal, como locomoções curtas para abastecimento ou apoio a outros processos.</p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>HM – Maintenance Hours: Horas em Manutenção</strong></p>
+<li><p><strong>HM – Maintenance Hours: Horas em Manutenção</strong> $$</p>
 <ul>
 <li><p><strong>HMCT – Total Corrective Maintenance Hours: Horas de Manutenção Corretiva Total</strong> (<span class="math inline">\(CMH + ACH\)</span>)</p>
 <ul>
-<li><p><strong>CMH (Corrective Maintenance Hours): Horas de Manutenção Corretiva (HMC)</strong> – Tempo de indisponibilidade para intervenção corretiva não planejada visando restaurar a função após uma falha.</p></li>
-<li><p><strong>ACH (Accident Hours): Horas de Acidente (HAC)</strong> – Tempo sob responsabilidade da manutenção em decorrência de acidentes ou danos causados por fatores externos.</p></li>
-</ul></li>
-<li><p><strong>HMP – Planned Maintenance Hours: Horas de Manutenção Preventiva</strong> (<span class="math inline">\(SPH + NSPH\)</span>)</p>
-<ul>
-<li><p><strong>SPH (Systematic Preventive Hours): Horas Preventivas Sistemáticas (MPS)</strong> – Manutenções planejadas repetidas em intervalos definidos (horas, km ou data), sem indicação prévia de defeito.</p></li>
-<li><p><strong>NSPH (Non-Systematic Programmed Hours): Horas Preventivas Não Sistemáticas (MPNS)</strong> – Intervenções baseadas em monitoramento de condição (preditiva) ou programadas fora de ciclos sistemáticos rígidos.</p></li>
-</ul></li>
-</ul></li>
-<li><p><strong>HO – Idle Hours: Horas Ociosas</strong></p>
-<ul>
-<li><p><strong>HO – Total Idle Hours: Horas Ociosas Totais</strong> (<span class="math inline">\(IIH + EIH\)</span>)</p>
-<ul>
-<li><p><strong>IIH (Internal Idle Hours): Horas Ociosas Internas (HOI)</strong> – Equipamento apto, mas parado por falta de recursos internos (ex: operador, troca de turno, aguardando projeto ou topografia).</p></li>
-<li><p><strong>EIH (External Idle Hours): Horas Ociosas Externas (HOE)</strong> – Equipamento apto, mas parado por fatores externos não gerenciáveis pela unidade (ex: clima adverso, raios ou falta de energia da rede).</p></li>
+<li><strong>CMH (Corrective Maintenance Hours): Horas de Manutenção Corretiva (HMC)</strong> – Tempo de indisponibilidade para intervenção corretiva não planejada visando restaurar a função após uma falha.</li>
 </ul></li>
 </ul></li>
 </ul>
+<p>$$ - <strong>ACH (Accident Hours): Horas de Acidente (HAC)</strong> – Tempo sob responsabilidade da manutenção em decorrência de acidentes ou danos causados por fatores externos.</p>
+<pre><code>-   **HMP – Planned Maintenance Hours: Horas de Manutenção Preventiva** ($SPH + NSPH$)
+
+    -   **SPH (Systematic Preventive Hours): Horas Preventivas Sistemáticas (MPS)** – Manutenções planejadas repetidas em intervalos definidos (horas, km ou data), sem indicação prévia de defeito.</code></pre>
+<p>$$</p>
+<pre><code>    -   **NSPH (Non-Systematic Programmed Hours): Horas Preventivas Não Sistemáticas (MPNS)** – Intervenções baseadas em monitoramento de condição (preditiva) ou programadas fora de ciclos sistemáticos rígidos.</code></pre>
+<ul>
+<li><strong>HO – Idle Hours: Horas Ociosas</strong></li>
+</ul>
+<p>$$ - <strong>HO – Total Idle Hours: Horas Ociosas Totais</strong> (<span class="math inline">\(IIH + EIH\)</span>)</p>
+<pre><code>    -   **IIH (Internal Idle Hours): Horas Ociosas Internas (HOI)** – Equipamento apto, mas parado por falta de recursos internos (ex: operador, troca de turno, aguardando projeto ou topografia).
+
+    -   **EIH (External Idle Hours): Horas Ociosas Externas (HOE)** – Equipamento apto, mas parado por fatores externos não gerenciáveis pela unidade (ex: clima adverso, raios ou falta de energia da rede).</code></pre>
+<p>$$</p>
 <div id="fig-categoria-horas" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-categoria-horas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -495,85 +461,46 @@ Figura&nbsp;1.1: Hierarquia de classificação de horas de ativos de mineração
 </figure>
 </div>
 <div id="exm-processamento-categorias" class="theorem example">
-<p><span class="theorem-title"><strong>Exemplo 1.1 (Processamento de Categorias de Horas)</strong></span> Como a medição é feita baseada em durações de tempo, os apontamentos são realizados sempre que um determinado equipamento altera o seu status de operação, representando as 10 categorias fundamentais de horas. Para a análise de desempenho, utiliza-se a variável <code>gap_time</code>, que representa a duração (em horas) entre o início e o fim de cada evento.</p>
+<p><span class="theorem-title"><strong>Exemplo 1.1 (Processamento de Categorias de Horas)</strong></span> $$</p>
+<p>Como a medição é feita baseada em durações de tempo, os apontamentos são realizados sempre que um determinado equipamento altera o seu status de operação, representando as 10 categorias fundamentais de horas. Para a análise de desempenho, utiliza-se a variável <code>gap_time</code>, que representa a duração (em horas) entre o início e o fim de cada evento.</p>
 <p>No conjunto de dados <code>drill_events_mine_d</code>, observando o equipamento de perfuração <code>DRILL_100</code> durante um período de 3 dias, identificamos um total de 245 eventos registrados. Ao realizarmos o agrupamento e a soma dos tempos por categoria, teremos a consolidação das 24 horas diárias (Horas Calendário — <span class="math inline">\(HC\)</span> ou <span class="math inline">\(CH\)</span>) estratificadas conforme a utilização real do ativo.</p>
 </div>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Preparação e filtragem dos eventos por categoria</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>drill_analysis_category <span class="ot">&lt;-</span> drill_events_mine_d <span class="sc">%&gt;%</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">gap_time =</span> duration_min <span class="sc">/</span> <span class="dv">60</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">day =</span> <span class="fu">as_date</span>(first_time)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(drill_id, category, day, first_time, exit_time, gap_time) <span class="sc">%&gt;%</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        drill_id <span class="sc">==</span> <span class="st">"DRILL_100"</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        day <span class="sc">&gt;=</span> <span class="st">"2023-01-01"</span> <span class="sc">&amp;</span> day <span class="sc">&lt;=</span> <span class="st">"2023-01-03"</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualização dos primeiros 10 eventos</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>drill_analysis_category <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 245 × 6
-   drill_id category day        first_time          exit_time           gap_time
-   &lt;chr&gt;    &lt;chr&gt;    &lt;date&gt;     &lt;dttm&gt;              &lt;dttm&gt;                 &lt;dbl&gt;
- 1 DRILL_1… ODH      2023-01-01 2023-01-01 00:00:53 2023-01-01 00:16:15   0.256 
- 2 DRILL_1… EFH      2023-01-01 2023-01-01 00:16:16 2023-01-01 00:58:52   0.71  
- 3 DRILL_1… IIH      2023-01-01 2023-01-01 00:58:52 2023-01-01 00:59:59   0.0189
- 4 DRILL_1… IIH      2023-01-01 2023-01-01 01:00:00 2023-01-01 01:45:34   0.760 
- 5 DRILL_1… IIH      2023-01-01 2023-01-01 01:45:35 2023-01-01 02:00:19   0.246 
- 6 DRILL_1… ODH      2023-01-01 2023-01-01 02:00:20 2023-01-01 02:04:28   0.0692
- 7 DRILL_1… EFH      2023-01-01 2023-01-01 02:04:29 2023-01-01 02:11:20   0.114 
- 8 DRILL_1… ODH      2023-01-01 2023-01-01 02:11:20 2023-01-01 02:20:43   0.156 
- 9 DRILL_1… EFH      2023-01-01 2023-01-01 02:20:44 2023-01-01 02:24:06   0.0564
-10 DRILL_1… ODH      2023-01-01 2023-01-01 02:24:07 2023-01-01 02:29:49   0.0953
-# ℹ 235 more rows</code></pre>
-</div>
-<details class="code-fold">
-<summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Consolidação diária e cálculo das Horas Calendário (CH)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>drill_analysis_category <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(drill_id, day, category) <span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">time =</span> <span class="fu">sum</span>(gap_time), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> category, <span class="at">values_from =</span> time, <span class="at">values_fill =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adição de colunas ausentes no período para manter a estrutura da Identidade Fundamental</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">DWH =</span> <span class="dv">0</span>, <span class="at">IWH =</span> <span class="dv">0</span>, <span class="at">EIH =</span> <span class="dv">0</span>, <span class="at">ACH =</span> <span class="dv">0</span>, <span class="at">SPH =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ordenação lógica das colunas conforme a Identidade Fundamental</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(drill_id, day, EFH, ODH, DWH, IWH, IIH, EIH, CMH, ACH, SPH, NSPH) <span class="sc">%&gt;%</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Cálculo da Hora Calendário (Soma de todas as categorias)</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">CH =</span> EFH <span class="sc">+</span> ODH <span class="sc">+</span> DWH <span class="sc">+</span> IWH <span class="sc">+</span> IIH <span class="sc">+</span> EIH <span class="sc">+</span> CMH <span class="sc">+</span> ACH <span class="sc">+</span> SPH <span class="sc">+</span> NSPH</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 13
-  drill_id  day          EFH   ODH   DWH   IWH   IIH   EIH   CMH   ACH   SPH
-  &lt;chr&gt;     &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 DRILL_100 2023-01-01 11.3   3.30     0     0  5.44     0 3.96      0     0
-2 DRILL_100 2023-01-02  9.87  3.88     0     0  6.95     0 0.959     0     0
-3 DRILL_100 2023-01-03 10.0   3.31     0     0 10.4      0 0.236     0     0
-# ℹ 2 more variables: NSPH &lt;dbl&gt;, CH &lt;dbl&gt;</code></pre>
-</div>
-</div>
-<section id="análise-de-prontidão-técnica-e-operacional" class="level4" data-number="1.1.0.1">
-<h4 data-number="1.1.0.1" class="anchored" data-anchor-id="análise-de-prontidão-técnica-e-operacional"><span class="header-section-number">1.1.0.1</span> Análise de Prontidão Técnica e Operacional</h4>
-<section id="consistência-das-horas-calendário-ch" class="level5" data-number="1.1.0.1.1">
-<h5 data-number="1.1.0.1.1" class="anchored" data-anchor-id="consistência-das-horas-calendário-ch"><span class="header-section-number">1.1.0.1.1</span> Consistência das Horas Calendário (<span class="math inline">\(CH\)</span>)</h5>
+<p>$$</p>
+</section>
+<section id="elementos-de-suporte-e-categorização-de-horas-1" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="elementos-de-suporte-e-categorização-de-horas-1"><span class="header-section-number">1.2</span> Elementos de Suporte e Categorização de Horas</h2>
+<p>Os elementos de suporte são os dados diretamente monitorados e coletados durante a produção. No ciclo de processos de transporte, os dados coletados em caminhões “off-highway” são obtidos dos horímetros instalados no sistema de medição e denominados tempos operacionais. A partir desses apontamentos, as horas são estratificadas em categorias que permitem a análise do desempenho em diferentes níveis de granularidade.</p>
+<p>A classificação das horas é dividida hierarquicamente para facilitar a gestão, permitindo o desdobramento desde a disponibilidade global até a causa raiz do evento. Esta estrutura é o fundamento para o processamento de telemetria e o cálculo de KPIs no pacote <code>miningKPI</code>.</p>
+<p><strong>HC – Calendar Hours: Horas Calendário:</strong> Tempo total de existência do ativo no período (24h/dia). <span class="math display">\[HC = HT + HM + HO\]</span></p>
+<ul>
+<li><p><strong>HT – Worked Hours: Horas Trabalhadas</strong></p>
+<ul>
+<li><p><strong>HTP – Productive Worked Hours: Horas Trabalhadas Produtivas</strong> (<span class="math inline">\(EFH + ODH\)</span>)</p>
+<ul>
+<li><strong>EFH (Effective Hours): Horas Efetivas (HEF)</strong> – Tempo em que o equipamento desenvolve trabalho útil na função primária (ex: contato bit-rocha na perfuração). # Visualização dos primeiros 10 eventos drill_analysis_category %&gt;% print(n = 10)</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="consolidação-diária-e-cálculo-das-horas-calendário-ch" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> 2. Consolidação diária e cálculo das Horas Calendário (CH)</h1>
+<p>drill_analysis_category %&gt;% group_by(drill_id, day, category) %&gt;% summarise(time = sum(gap_time), .groups = “drop”) %&gt;% pivot_wider(names_from = category, values_from = time, values_fill = 0) %&gt;% # Adição de colunas ausentes no período para manter a estrutura da Identidade Fundamental mutate(DWH = 0, IWH = 0, EIH = 0, ACH = 0, SPH = 0) %&gt;% # Ordenação lógica das colunas conforme a Identidade Fundamental select(drill_id, day, EFH, ODH, DWH, IWH, IIH, EIH, CMH, ACH, SPH, NSPH) %&gt;% # Cálculo da Hora Calendário (Soma de todas as categorias) mutate( CH = EFH + ODH + DWH + IWH + IIH + EIH + CMH + ACH + SPH + NSPH ) ```</p>
+<section id="análise-de-prontidão-técnica-e-operacional" class="level4" data-number="2.0.0.1">
+<h4 data-number="2.0.0.1" class="anchored" data-anchor-id="análise-de-prontidão-técnica-e-operacional"><span class="header-section-number">2.0.0.1</span> Análise de Prontidão Técnica e Operacional</h4>
+<section id="consistência-das-horas-calendário-ch" class="level5" data-number="2.0.0.1.1">
+<h5 data-number="2.0.0.1.1" class="anchored" data-anchor-id="consistência-das-horas-calendário-ch"><span class="header-section-number">2.0.0.1.1</span> Consistência das Horas Calendário (<span class="math inline">\(CH\)</span>)</h5>
 <p>A primeira validação de integridade dos dados é a soma das categorias totalizando exatamente <strong>24.0 horas</strong> em todos os dias. Isso demonstra que a telemetria do pacote <code>miningKPI</code> está cobrindo o ciclo completo do ativo, sem “buracos” de sinal ou sobreposições, o que é essencial para o cálculo da <strong>Disponibilidade Física (DF)</strong>.</p>
 </section>
-<section id="dinâmica-da-manutenção-df" class="level5" data-number="1.1.0.1.2">
-<h5 data-number="1.1.0.1.2" class="anchored" data-anchor-id="dinâmica-da-manutenção-df"><span class="header-section-number">1.1.0.1.2</span> Dinâmica da Manutenção (DF)</h5>
+<section id="dinâmica-da-manutenção-df" class="level5" data-number="2.0.0.1.2">
+<h5 data-number="2.0.0.1.2" class="anchored" data-anchor-id="dinâmica-da-manutenção-df"><span class="header-section-number">2.0.0.1.2</span> Dinâmica da Manutenção (DF)</h5>
 <ul>
 <li><p><strong>Dia 01/01:</strong> Apresenta o maior volume de manutenção corretiva (<span class="math inline">\(CMH = 3.96\)</span>). Isso indica que o equipamento sofreu uma falha não planejada, reduzindo a prontidão técnica.</p></li>
 <li><p><strong>Dia 02/01:</strong> Observamos uma transição. Há uma redução na corretiva (<span class="math inline">\(CMH = 0.959\)</span>), mas surge uma manutenção programada (<span class="math inline">\(NSPH = 2.35\)</span>). Isso pode indicar uma intervenção baseada em condição (preditiva) realizada após a falha do dia anterior.</p></li>
 <li><p><strong>Dia 03/01:</strong> A saúde técnica do ativo parece estabilizada, com apenas <span class="math inline">\(0.236h\)</span> de corretiva, o que sugere que as intervenções anteriores foram eficazes.</p></li>
 </ul>
 </section>
-<section id="eficiência-operacional-e-ociosidade-uf" class="level5" data-number="1.1.0.1.3">
-<h5 data-number="1.1.0.1.3" class="anchored" data-anchor-id="eficiência-operacional-e-ociosidade-uf"><span class="header-section-number">1.1.0.1.3</span> Eficiência Operacional e Ociosidade (UF)</h5>
+<section id="eficiência-operacional-e-ociosidade-uf" class="level5" data-number="2.0.0.1.3">
+<h5 data-number="2.0.0.1.3" class="anchored" data-anchor-id="eficiência-operacional-e-ociosidade-uf"><span class="header-section-number">2.0.0.1.3</span> Eficiência Operacional e Ociosidade (UF)</h5>
 <p>Um ponto de atenção crítico aparece no <strong>Dia 03/01</strong>:</p>
 <ul>
 <li><p>Embora o equipamento estivesse tecnicamente disponível (baixa manutenção), ele passou <strong>10.4 horas</strong> em ociosidade interna (<span class="math inline">\(IIH\)</span>).</p></li>
@@ -582,34 +509,33 @@ Figura&nbsp;1.1: Hierarquia de classificação de horas de ativos de mineração
 </ul>
 </section>
 </section>
-<section id="do-processamento-de-eventos-à-consolidação-por-período" class="level4" data-number="1.1.0.2">
-<h4 data-number="1.1.0.2" class="anchored" data-anchor-id="do-processamento-de-eventos-à-consolidação-por-período"><span class="header-section-number">1.1.0.2</span> Do Processamento de Eventos à Consolidação por Período</h4>
+<section id="do-processamento-de-eventos-à-consolidação-por-período" class="level4" data-number="2.0.0.2">
+<h4 data-number="2.0.0.2" class="anchored" data-anchor-id="do-processamento-de-eventos-à-consolidação-por-período"><span class="header-section-number">2.0.0.2</span> Do Processamento de Eventos à Consolidação por Período</h4>
 <p>A transição da telemetria bruta para a análise gerencial exige uma etapa intermediária de agregação. O processo de somar as categorias de horas é o que garante que os cálculos dos KPIs reflitam a realidade cronológica do turno ou do mês</p>
-<p>Para este exemplo, como a análise foca em um único equipamento, devemos agregar as categorias por período (<span class="math inline">\(p\)</span>). Tomando a Horas Efetivas (<span class="math inline">\(EFH\)</span>) como exemplo, se em um único período (<span class="math inline">\(p = 1\)</span> dia) o sistema registrou <span class="math inline">\(n\)</span> eventos de perfuração, a disponibilidade efetiva diária é o somatório de cada duração individual<span class="math inline">\(i\)</span>: <span class="math display">\[EFH_{p} = \sum_{i=1}^{n} EFH_i\]</span> Essa lógica de empilhamento de eventos é aplicada a todas as 10 categorias de horas, assegurando que <span class="math inline">\(\sum HC = 24h\)</span>. É a partir dessa base consolidada que estruturamos os indicadores que fundamentam o SGI.</p>
+<p>Para este exemplo, como a análise foca em um único equipamento, devemos agregar as categorias por período (<span class="math inline">\(p\)</span>). Tomando a Horas Efetivas (<span class="math inline">\(EFH\)</span>) como exemplo, se em um único período (<span class="math inline">\(p = 1\)</span> dia) o sistema registrou <span class="math inline">\(n\)</span> eventos de perfuração, a disponibilidade efetiva diária é o somatório de cada duração individual<span class="math inline">\(i\)</span>: <span id="eq-efh-soma"><span class="math display">\[EFH_{p} = \sum_{i=1}^{n} EFH_i \tag{2.1}\]</span></span> Essa lógica de empilhamento de eventos é aplicada a todas as 10 categorias de horas, assegurando que <span class="math inline">\(\sum HC = 24h\)</span>. É a partir dessa base consolidada que estruturamos os indicadores que fundamentam o SGI.</p>
 </section>
-</section>
-<section id="indicadores-chave-de-desempenho-kpis-globais" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="indicadores-chave-de-desempenho-kpis-globais"><span class="header-section-number">1.2</span> Indicadores-Chave de Desempenho (KPIs Globais)</h2>
+<section id="indicadores-chave-de-desempenho-kpis-globais" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="indicadores-chave-de-desempenho-kpis-globais"><span class="header-section-number">2.1</span> Indicadores-Chave de Desempenho (KPIs Globais)</h2>
 <p><em>Indicadores globais que medem a performance operacional da frota e dos processos principais.</em></p>
 <p>A gestão e a avaliação da qualidade no processo produtivo são sustentadas por indicadores-chave de desempenho (KPIs), que fornecem informações consistentes para apoiar os processos de tomada de decisão.</p>
-<section id="disponibilidade-física-pa-df" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="disponibilidade-física-pa-df"><span class="header-section-number">1.2.1</span> Disponibilidade Física (PA / DF)</h3>
+<section id="disponibilidade-física-pa-df" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="disponibilidade-física-pa-df"><span class="header-section-number">2.1.1</span> Disponibilidade Física (PA / DF)</h3>
 <p>A Disponibilidade Física (DF) é o indicador macro que mensura a quantidade de horas em que um ativo ou processo está disponível para operação em relação às horas calendário do período. Diferente da Disponibilidade Operacional, a DF foca na prontidão técnica, independentemente de haver demanda ou restrição de mercado.</p>
 <p>A fórmula base para o cálculo da DF é:</p>
-<p><span class="math display">\[
+<p><span id="eq-df"><span class="math display">\[
 \mathrm{DF} = \left[ \frac{\sum_{i=1}^{p} HC_i - \sum_{i=1}^{n} HM_i}{\sum_{i=1}^{p} HC_i} \right] \times 100
-\]</span></p>
+\tag{2.2}\]</span></span></p>
 <p>Onde:</p>
 <ul>
 <li><p><span class="math inline">\(\sum_{i=1}^{p} HC_i\)</span>: É o somatório das horas calendário por <span class="math inline">\(p\)</span> períodos. Por exemplo, em um fechamento mensal onde <span class="math inline">\(p = 30\)</span> dias, teremos <span class="math inline">\(\sum_{i=1}^{30} HC_i = 24h \times 30 = 720 \text{ horas}\)</span></p></li>
 <li><p><span class="math inline">\(\sum_{i=1}^{n} HM_i\)</span>: Representa o total de horas em que o ativo esteve sob responsabilidade da manutenção (soma de todas as intervenções preventivas e corretivas no período).</p></li>
 </ul>
-<section id="considerações-adicionais" class="level4" data-number="1.2.1.1">
-<h4 data-number="1.2.1.1" class="anchored" data-anchor-id="considerações-adicionais"><span class="header-section-number">1.2.1.1</span> Considerações Adicionais:</h4>
-<p>Além do percentual de disponibilidade, a metrologia de performance define o volume absoluto de Horas Disponíveis (<span class="math inline">\(HD\)</span>). Este valor representa a janela de tempo em que o ativo esteve efetivamente apto para o uso, subtraindo-se o tempo total de manutenção das horas calendário: <span class="math display">\[HD_{p} = \sum_{i=1}^{p} HC_i - \sum_{j=1}^{n} HM_j\]</span> O cálculo do <span class="math inline">\(HD\)</span> é o elo fundamental entre a manutenção e a operação. Enquanto a manutenção entrega o <span class="math inline">\(HD\)</span> como seu “produto final”, a operação o utiliza como o recurso base (o denominador) para medir sua eficiência de ocupação.</p>
+<section id="considerações-adicionais" class="level4" data-number="2.1.1.1">
+<h4 data-number="2.1.1.1" class="anchored" data-anchor-id="considerações-adicionais"><span class="header-section-number">2.1.1.1</span> Considerações Adicionais:</h4>
+<p>Além do percentual de disponibilidade, a metrologia de performance define o volume absoluto de Horas Disponíveis (<span class="math inline">\(HD\)</span>). Este valor representa a janela de tempo em que o ativo esteve efetivamente apto para o uso, subtraindo-se o tempo total de manutenção das horas calendário: <span id="eq-hd"><span class="math display">\[HD_{p} = \sum_{i=1}^{p} HC_i - \sum_{j=1}^{n} HM_j \tag{2.3}\]</span></span> O cálculo do <span class="math inline">\(HD\)</span> é o elo fundamental entre a manutenção e a operação. Enquanto a manutenção entrega o <span class="math inline">\(HD\)</span> como seu “produto final”, a operação o utiliza como o recurso base (o denominador) para medir sua eficiência de ocupação.</p>
 </section>
-<section id="disponibilidade-em-processos-unitários" class="level4" data-number="1.2.1.2">
-<h4 data-number="1.2.1.2" class="anchored" data-anchor-id="disponibilidade-em-processos-unitários"><span class="header-section-number">1.2.1.2</span> Disponibilidade em Processos Unitários</h4>
+<section id="disponibilidade-em-processos-unitários" class="level4" data-number="2.1.1.2">
+<h4 data-number="2.1.1.2" class="anchored" data-anchor-id="disponibilidade-em-processos-unitários"><span class="header-section-number">2.1.1.2</span> Disponibilidade em Processos Unitários</h4>
 <p>Na pelotização e em plantas de beneficiamento, o cálculo da DF deve considerar a topologia do sistema (disposição dos equipamentos):</p>
 <ul>
 <li><p><strong>Specific Note for Pelletizing:</strong> O número total de horas de manutenção considera os seguintes tipos de manutenção: Preventiva, corretiva e <strong>atraso de preventiva</strong>.</p></li>
@@ -619,42 +545,39 @@ Figura&nbsp;1.1: Hierarquia de classificação de horas de ativos de mineração
 \]</span></p></li>
 <li><p>Parallel Lines (Linhas em Paralelo): Para processos com duas ou mais linhas operando simultaneamente, a fórmula considera a capacidade total instalada:</p>
 <p><span class="math display">\[
-\mathrm{DF}_{\text{paralela}} = \left[ \frac{(n \times HC) - \sum (HM_1 + HM_2 + \dots + HM_n)}{n \times HC} \right] \times 100
-\]</span></p>
+\]</span> _{} = $$ {#eq-df-paralela}</p>
 <p>Onde <span class="math inline">\(n\)</span> é a quantidade de linhas.</p></li>
 </ul>
 </section>
-<section id="especificidades-do-setor-ferroviário" class="level4" data-number="1.2.1.3">
-<h4 data-number="1.2.1.3" class="anchored" data-anchor-id="especificidades-do-setor-ferroviário"><span class="header-section-number">1.2.1.3</span> Especificidades do Setor Ferroviário</h4>
+<section id="especificidades-do-setor-ferroviário" class="level4" data-number="2.1.1.3">
+<h4 data-number="2.1.1.3" class="anchored" data-anchor-id="especificidades-do-setor-ferroviário"><span class="header-section-number">2.1.1.3</span> Especificidades do Setor Ferroviário</h4>
 <p>A gestão ferroviária exige métricas de disponibilidade adaptadas à natureza da frota (vagões e locomotivas), utilizando ponderações por volume ou potência.</p>
 <ul>
 <li><p>Iron Ore Wagons (Vagões de Minério): Utiliza-se a relação “vagão-hora” para expressar a disponibilidade da frota.</p>
 <p><span class="math display">\[
-\mathrm{DF}_{\text{mensal}} = \left[ \frac{\text{Qtd}(\text{vagões} \times \text{hora})_{\text{disponível\_mês}}}{\text{Qtd}(\text{vagões} \times \text{hora})_{\text{total}}} \right] \times 100
-\]</span></p>
+\]</span> _{} = $$ {#eq-df-mensal-vagoes}</p>
 <ul>
 <li><p><em>Disponível:</em> Soma dos status operacionais (DNU, URV, URC, UNR, USI, INT, OUT).</p></li>
 <li><p><em>Total:</em> Soma do status disponível acrescido dos tempos de manutenção (TIO + TIN).</p></li>
 </ul></li>
 <li><p>General Cargo Wagons (Vagões de Carga Geral): Baseia-se na frota ativa operacional em relação aos vagões retidos para manutenção.</p>
 <p><span class="math display">\[
-\mathrm{DF}_{\text{mensal}} = \left[ \frac{\text{Vagões\_CG}_{\text{frota\_total}} - \text{Vagões\_CG}_{\text{retidos}}}{\text{Vagões\_CG}_{\text{frota\_total}}} \right] \times 100
-\]</span></p></li>
+\]</span> _{} = $$ {#eq-df-mensal-cg}</p></li>
 <li><p>Locomotives (HP Weighting): Para frotas com modelos e potências distintas, aplica-se a ponderação por Horse Power (HP), garantindo que a indisponibilidade de uma locomotiva de alta potência tenha maior peso no indicador.</p>
 <p><span class="math display">\[
-\mathrm{DF} = \left[ \frac{(HC \times HP_{\text{total\_frota}}) - \sum (HM \times HP)}{HC \times HP_{\text{total\_frota}}} \right] \times 100
-\]</span></p></li>
+\]</span> = <span class="math display">\[ {#eq-df-hp}
+\]</span> = $$ {#eq-uf} Ou, em sua forma expandida:</p></li>
 </ul>
 </section>
 </section>
-<section id="physical-utilization-pu-uf" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="physical-utilization-pu-uf"><span class="header-section-number">1.2.2</span> Physical Utilization (PU / UF)</h3>
+<section id="physical-utilization-pu-uf" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="physical-utilization-pu-uf"><span class="header-section-number">2.1.2</span> Physical Utilization (PU / UF)</h3>
 <p>A Utilização Física (UF) mensura o percentual do tempo em que o equipamento ou usina esteve em operação (trabalhando) em relação ao tempo em que ele esteve tecnicamente disponível para tal. Enquanto a Disponibilidade Física (DF) avalia a eficácia da manutenção, a Utilização Física avalia a eficiência da operação em ocupar as janelas de disponibilidade do ativo.</p>
 <p>A fórmula base para o cálculo da UF é definida por:</p>
 <p><span class="math display">\[\mathrm{UF} = \left[ \frac{\sum HT}{HD_p} \right] \times 100\]</span> Ou, em sua forma expandida:</p>
 <p><span class="math display">\[\mathrm{UF} = \left[ \frac{\sum_{i=1}^{n} HT_i}{\sum_{j=1}^{p} HC_j - \sum_{k=1}^{m} HM_k} \right] \times 100\]</span></p>
-<section id="regras-de-negócio-e-particularidades-setoriais-da-uf" class="level4" data-number="1.2.2.1">
-<h4 data-number="1.2.2.1" class="anchored" data-anchor-id="regras-de-negócio-e-particularidades-setoriais-da-uf"><span class="header-section-number">1.2.2.1</span> Regras de Negócio e Particularidades Setoriais da UF</h4>
+<section id="regras-de-negócio-e-particularidades-setoriais-da-uf" class="level4" data-number="2.1.2.1">
+<h4 data-number="2.1.2.1" class="anchored" data-anchor-id="regras-de-negócio-e-particularidades-setoriais-da-uf"><span class="header-section-number">2.1.2.1</span> Regras de Negócio e Particularidades Setoriais da UF</h4>
 <p>O cálculo da UF deve considerar a complexidade da cadeia produtiva de cada unidade de negócio, garantindo que o indicador reflita a real ocupação do ativo disponível:</p>
 <ul>
 <li><p><strong>Pelotização (DIPE):</strong> Para o cálculo consolidado da Diretoria de Pelotização, utiliza-se o somatório das horas de todas as usinas do complexo, tratando a capacidade produtiva de forma agregada para neutralizar gargalos individuais de linhas específicas.</p></li>
@@ -666,8 +589,8 @@ Figura&nbsp;1.1: Hierarquia de classificação de horas de ativos de mineração
 <p>$$\mathrm{UF}_{\text{locomotivas}} = \left[ \frac{\sum_{i=1}^{n} (HP_i \times HT_i)}{\sum_{i=1}^{n} (HP_i \times HD_i)} \right] \times 100$$</p></li>
 </ul>
 </section>
-<section id="definições-de-horas-e-sistemas-de-origem" class="level4" data-number="1.2.2.2">
-<h4 data-number="1.2.2.2" class="anchored" data-anchor-id="definições-de-horas-e-sistemas-de-origem"><span class="header-section-number">1.2.2.2</span> Definições de Horas e Sistemas de Origem</h4>
+<section id="definições-de-horas-e-sistemas-de-origem" class="level4" data-number="2.1.2.2">
+<h4 data-number="2.1.2.2" class="anchored" data-anchor-id="definições-de-horas-e-sistemas-de-origem"><span class="header-section-number">2.1.2.2</span> Definições de Horas e Sistemas de Origem</h4>
 <p>A integridade dos cálculos depende da padronização dos gatilhos de tempo (apontamentos):</p>
 <ul>
 <li><p><strong>Horas Trabalhadas (</strong><span class="math inline">\(HT\)</span>): Somatório do tempo em que o equipamento opera efetivamente na função primária. Os dados são extraídos via telemetria ou sistemas de gerenciamento de frota.</p></li>
@@ -680,16 +603,16 @@ Figura&nbsp;1.1: Hierarquia de classificação de horas de ativos de mineração
 </ul>
 </section>
 </section>
-<section id="produtividade-pr" class="level3" data-number="1.2.3">
-<h3 data-number="1.2.3" class="anchored" data-anchor-id="produtividade-pr"><span class="header-section-number">1.2.3</span> Produtividade (PR)</h3>
+<section id="produtividade-pr" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="produtividade-pr"><span class="header-section-number">2.1.3</span> Produtividade (PR)</h3>
 <p>Enquanto a disponibilidade e a utilização tratam da alocação de “tempo”, a produtividade e sua eficiência tratam do <strong>ritmo</strong> e da <strong>intensidade</strong> do processo. A Produtividade mede o desempenho médio do ativo exclusivamente durante o tempo em que ele está operando (<span class="math inline">\(HT\)</span>). Ela desconsidera paradas de manutenção ou ociosidade, focando na “velocidade” de transformação.</p>
 <p>A fórmula de cálculo consolidada para um período é:</p>
 <p><span class="math display">\[
 \mathrm{PR} = \frac{\sum \text{Unidades de Produção}}{\sum HT}
 \]</span></p>
 <p>As unidades variam conforme o processo, sendo comumente expressas em <span class="math inline">\(t/h\)</span> (toneladas por hora) ou <span class="math inline">\(m/h\)</span> (metros perfurados por hora).</p>
-<section id="especificidades-de-produtividade-operacional" class="level4" data-number="1.2.3.1">
-<h4 data-number="1.2.3.1" class="anchored" data-anchor-id="especificidades-de-produtividade-operacional"><span class="header-section-number">1.2.3.1</span> Especificidades de Produtividade Operacional</h4>
+<section id="especificidades-de-produtividade-operacional" class="level4" data-number="2.1.3.1">
+<h4 data-number="2.1.3.1" class="anchored" data-anchor-id="especificidades-de-produtividade-operacional"><span class="header-section-number">2.1.3.1</span> Especificidades de Produtividade Operacional</h4>
 <p>Para garantir a precisão no pacote <code>miningKPI</code>, as frotas utilizam definições customizadas:</p>
 <ul>
 <li><p><strong>Global Productivity Drill Rigs (GDR):</strong> Razão entre a metragem perfurada e as horas trabalhadas totais (incluindo locomoção e posicionamento).</p>
@@ -707,14 +630,14 @@ Figura&nbsp;1.1: Hierarquia de classificação de horas de ativos de mineração
 <li><p><strong>Meters Drilled (TDM):</strong> Mensuração absoluta da profundidade de perfuração (<span class="math inline">\(\sum \text{Profundidade}\)</span>), aferida via sensores GPS ou sistemas PLC das perfuratrizes.</p></li>
 </ul>
 </section>
-<section id="eficiência-de-produtividade-pe-ep" class="level4" data-number="1.2.3.2">
-<h4 data-number="1.2.3.2" class="anchored" data-anchor-id="eficiência-de-produtividade-pe-ep"><span class="header-section-number">1.2.3.2</span> Eficiência de Produtividade (PE / EP)</h4>
+<section id="eficiência-de-produtividade-pe-ep" class="level4" data-number="2.1.3.2">
+<h4 data-number="2.1.3.2" class="anchored" data-anchor-id="eficiência-de-produtividade-pe-ep"><span class="header-section-number">2.1.3.2</span> Eficiência de Produtividade (PE / EP)</h4>
 <p>A Eficiência da Produtividade (EP) compara o ritmo real com uma referência técnica de excelência, indicando o aproveitamento do potencial do ativo.</p>
 <p><span class="math display">\[
 \mathrm{EP} = \left( \frac{\mathrm{PR}_{\text{real}}}{\mathrm{PR}_{\text{ref}}} \right) \times 100
 \]</span></p>
-<section id="metodologia-de-referência-msr" class="level5" data-number="1.2.3.2.1">
-<h5 data-number="1.2.3.2.1" class="anchored" data-anchor-id="metodologia-de-referência-msr"><span class="header-section-number">1.2.3.2.1</span> Metodologia de Referência (MSR)</h5>
+<section id="metodologia-de-referência-msr" class="level5" data-number="2.1.3.2.1">
+<h5 data-number="2.1.3.2.1" class="anchored" data-anchor-id="metodologia-de-referência-msr"><span class="header-section-number">2.1.3.2.1</span> Metodologia de Referência (MSR)</h5>
 <p>Para garantir uma base comparativa justa, utiliza-se a metodologia <strong>MSR (Maximum Sustainable Rate)</strong> para definir a referência de excelência:</p>
 <ol type="1">
 <li><p><strong>Base de Dados:</strong> Mínimo de 12 meses de dados diários para capturar a sazonalidade.</p></li>
@@ -726,27 +649,29 @@ Figura&nbsp;1.1: Hierarquia de classificação de horas de ativos de mineração
 </section>
 </section>
 </section>
-<section id="análise-de-impacto-na-produção-contabilização-de-perdas" class="level3" data-number="1.2.4">
-<h3 data-number="1.2.4" class="anchored" data-anchor-id="análise-de-impacto-na-produção-contabilização-de-perdas"><span class="header-section-number">1.2.4</span> Análise de Impacto na Produção (Contabilização de Perdas)</h3>
+<section id="análise-de-impacto-na-produção-contabilização-de-perdas" class="level3" data-number="2.1.4">
+<h3 data-number="2.1.4" class="anchored" data-anchor-id="análise-de-impacto-na-produção-contabilização-de-perdas"><span class="header-section-number">2.1.4</span> Análise de Impacto na Produção (Contabilização de Perdas)</h3>
 <p><em>Indicadores que traduzem perdas de disponibilidade, utilização e produtividade em impacto direto na produção.</em></p>
-<section id="impacto-na-produção---disponibilidade-física-ip-df" class="level4" data-number="1.2.4.1">
-<h4 data-number="1.2.4.1" class="anchored" data-anchor-id="impacto-na-produção---disponibilidade-física-ip-df"><span class="header-section-number">1.2.4.1</span> Impacto na Produção - Disponibilidade Física (IP-DF)</h4>
+<section id="impacto-na-produção---disponibilidade-física-ip-df" class="level4" data-number="2.1.4.1">
+<h4 data-number="2.1.4.1" class="anchored" data-anchor-id="impacto-na-produção---disponibilidade-física-ip-df"><span class="header-section-number">2.1.4.1</span> Impacto na Produção - Disponibilidade Física (IP-DF)</h4>
 <p>O IP-DF mensura o impacto na produção gerado pela variação da disponibilidade física real em relação à disponibilidade física que foi programada para um determinado período. Enquanto a DF (Disponibilidade Física) é expressa em percentual, o IP-DF converte essa métrica em Kilotoneladas (Kt), tornando o indicador mais tangível para as áreas de Planejamento e Finanças.</p>
 <p>A lógica do indicador baseia-se na premissa de que cada hora de manutenção a mais ou a menos em relação ao plano resulta em uma variação direta na produção, proporcional à taxa de produtividade esperada.</p>
 <p>A fórmula de cálculo é definida por:</p>
-<p><span class="math display">\[
+<p><span id="eq-ip-df"><span class="math display">\[
 \mathrm{IP\text{-}DF} = \frac{(HM_{\text{prog}} - HM_{\text{real}}) \times PR_{\text{efetiva\_prog}}}{1000}
-\]</span></p>
-<p>Onde:</p>
+\tag{2.4}\]</span></span></p>
 <ul>
-<li><p><span class="math inline">\(HM_{prog}\)</span> (Horas de manutenção programada): Total de horas de manutenção previstas no planejamento original (Baseline).</p></li>
-<li><p><span class="math inline">\(HM_{real}\)</span> (Horas de manutenção real): Total de horas de manutenção efetivamente realizadas e apontadas no sistema.</p></li>
-<li><p><span class="math inline">\(PR_{efetiva\_prog}\)</span> (Taxa efetiva programada): A produtividade esperada do equipamento ou processo (ex: toneladas/hora).</p></li>
-<li><p>1000: Fator de conversão para transformar toneladas em Kilotoneladas (Kt).</p></li>
+<li><span class="math inline">\(HM_{prog}\)</span> (Horas de manutenção programada): Total de horas de manutenção previstas no planejamento original (Baseline).</li>
+</ul>
+<p><span id="eq-ip-uf"><span class="math display">\[
+\mathrm{IP\text{-}UF} = \frac{(%UF_{\text{real}} - %UF_{\text{prog}}) \times HD_{\text{prog}} \times PR_{\text{efetiva\_prog}}}{1000}
+\tag{2.5}\]</span></span></p>
+<ul>
+<li>1000: Fator de conversão para transformar toneladas em Kilotoneladas (Kt).</li>
 </ul>
 </section>
-<section id="impacto-na-produção---utilização-física-ip-uf" class="level4" data-number="1.2.4.2">
-<h4 data-number="1.2.4.2" class="anchored" data-anchor-id="impacto-na-produção---utilização-física-ip-uf"><span class="header-section-number">1.2.4.2</span> Impacto na Produção - Utilização Física (IP-UF)</h4>
+<section id="impacto-na-produção---utilização-física-ip-uf" class="level4" data-number="2.1.4.2">
+<h4 data-number="2.1.4.2" class="anchored" data-anchor-id="impacto-na-produção---utilização-física-ip-uf"><span class="header-section-number">2.1.4.2</span> Impacto na Produção - Utilização Física (IP-UF)</h4>
 <p>O IP-UF mensura o impacto na produção relacionado à variação entre a utilização física real e a utilização física que foi programada para um determinado período. Ele traduz a eficiência (ou ineficiência) operacional de ocupação da frota disponível em Kilotoneladas (Kt).</p>
 <p>A fórmula de cálculo é definida por:</p>
 <p><span class="math display">\[
@@ -762,38 +687,33 @@ Figura&nbsp;1.1: Hierarquia de classificação de horas de ativos de mineração
 </ul>
 </section>
 </section>
-<section id="impacto-na-produção---produtividade-ip-pr" class="level3" data-number="1.2.5">
-<h3 data-number="1.2.5" class="anchored" data-anchor-id="impacto-na-produção---produtividade-ip-pr"><span class="header-section-number">1.2.5</span> Impacto na Produção - Produtividade (IP-PR)</h3>
+<section id="impacto-na-produção---produtividade-ip-pr" class="level3" data-number="2.1.5">
+<h3 data-number="2.1.5" class="anchored" data-anchor-id="impacto-na-produção---produtividade-ip-pr"><span class="header-section-number">2.1.5</span> Impacto na Produção - Produtividade (IP-PR)</h3>
 <p>O IP-Produtividade mensura o impacto na produção relacionado à variação entre o ritmo real e o programado. É um indicador “residual” na ponte de produção: após descontarmos o que se perdeu por manutenção e o que se perdeu por ociosidade operacional, o que sobra é o impacto da velocidade (taxa) de produção.</p>
 <p>A fórmula de cálculo é:</p>
-<p><span class="math display">\[
+<p><span id="eq-ip-pr"><span class="math display">\[
 \mathrm{IP}_{\mathrm{PR}} = \text{Prod. Realizada} - \mathrm{IP}_{\mathrm{DF}} - \mathrm{IP}_{\mathrm{UF}} - \text{Prod. Programada}
-\]</span></p>
+\tag{2.6}\]</span></span></p>
 <ul>
-<li><p><strong>Unidade:</strong> Kilotoneladas (<span class="math inline">\(Kt\)</span>).</p></li>
-<li><p><strong>Interpretação:</strong> Se o resultado for negativo, indica que, apesar de o equipamento ter operado o tempo previsto, ele operou em um ritmo (t/h) abaixo da meta, gerando perda de produção por baixa performance.</p></li>
+<li><strong>Interpretação:</strong> Se o resultado for negativo, indica que, apesar de o equipamento ter operado o tempo previsto, ele operou em um ritmo (t/h) abaixo da meta, gerando perda de produção por baixa performance.</li>
 </ul>
 </section>
 </section>
-<section id="advanced-maintenance-performance-and-impact-analysis" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="advanced-maintenance-performance-and-impact-analysis"><span class="header-section-number">1.3</span> Advanced Maintenance Performance and Impact Analysis</h2>
-<section id="medidas-de-performance-da-manutenção" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="medidas-de-performance-da-manutenção"><span class="header-section-number">1.3.1</span> Medidas de Performance da Manutenção</h3>
+<section id="advanced-maintenance-performance-and-impact-analysis" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="advanced-maintenance-performance-and-impact-analysis"><span class="header-section-number">2.2</span> Advanced Maintenance Performance and Impact Analysis</h2>
+<section id="medidas-de-performance-da-manutenção" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="medidas-de-performance-da-manutenção"><span class="header-section-number">2.2.1</span> Medidas de Performance da Manutenção</h3>
 <p>Após um determinado tempo <span class="math inline">\(t\)</span>, os dados são organizados em eventos de operação (<span class="math inline">\(HT\)</span>) ou de manutenção (<span class="math inline">\(HM\)</span>). Com o objetivo de facilitar a representação em um gráfico de processo de contagem, as horas ociosas (<span class="math inline">\(HO\)</span>) são desconsideradas. Cada conjunto de falhas e de manutenções sistemáticas possíveis de acontecer corresponde a um resultado possível do sistema em operação.</p>
 <p>As falhas ocorrem em <span class="math inline">\(t_1, t_2, t_3, \dots\)</span> e as manutenções são executadas em <span class="math inline">\(\tau_1, \tau_2, \tau_3, \dots\)</span>, onde cada resultado do sistema corresponde a uma função-escada. Após o apontamento do histórico de eventos, definimos <span class="math inline">\(NIC\)</span> como o número de intervenções corretivas e <span class="math inline">\(NIS\)</span> como o número de intervenções sistemáticas.</p>
-<section id="time-between-failures-tbf-e-mtbf" class="level4" data-number="1.3.1.1">
-<h4 data-number="1.3.1.1" class="anchored" data-anchor-id="time-between-failures-tbf-e-mtbf"><span class="header-section-number">1.3.1.1</span> Time Between Failures (TBF) e MTBF</h4>
+<section id="time-between-failures-tbf-e-mtbf" class="level4" data-number="2.2.1.1">
+<h4 data-number="2.2.1.1" class="anchored" data-anchor-id="time-between-failures-tbf-e-mtbf"><span class="header-section-number">2.2.1.1</span> Time Between Failures (TBF) e MTBF</h4>
 <p>Os tempos entre falhas representam as horas trabalhadas (<span class="math inline">\(HT\)</span>), dadas pela expressão:</p>
-<p><span class="math display">\[
+<p><span id="eq-ht-tbf"><span class="math display">\[
 HT = \sum_{i=1}^{n} TBF_i
-\]</span></p>
-<p>Para <span class="math inline">\(n = NIC\)</span> eventos, o tempo médio entre falhas é expresso por:</p>
-<p><span class="math display">\[
+\tag{2.7}\]</span></span></p>
+<p><span id="eq-mtbf"><span class="math display">\[
 \mathrm{MTBF} = \frac{HT}{NIC}
-\]</span></p>
-</section>
-<section id="time-to-repair-ttr-e-mttr" class="level4" data-number="1.3.1.2">
-<h4 data-number="1.3.1.2" class="anchored" data-anchor-id="time-to-repair-ttr-e-mttr"><span class="header-section-number">1.3.1.2</span> Time To Repair (TTR) e MTTR</h4>
+\tag{2.8}\]</span></span></p>
 <p>O tempo para reparo é composto pelas horas em manutenções corretivas (<span class="math inline">\(HMC\)</span>) e horas de manutenção acidente (<span class="math inline">\(HAC\)</span>), dadas pela categoria:</p>
 <p><span class="math display">\[
 HTMC = \sum_{i=1}^{n} TTR_i
@@ -803,15 +723,15 @@ HTMC = \sum_{i=1}^{n} TTR_i
 \mathrm{MTTR} = \frac{HTMC}{NIC}
 \]</span></p>
 </section>
-<section id="time-between-systematics-tbs-e-mtbs" class="level4" data-number="1.3.1.3">
-<h4 data-number="1.3.1.3" class="anchored" data-anchor-id="time-between-systematics-tbs-e-mtbs"><span class="header-section-number">1.3.1.3</span> Time Between Systematics (TBS) e MTBS</h4>
+<section id="time-between-systematics-tbs-e-mtbs" class="level4" data-number="2.2.1.2">
+<h4 data-number="2.2.1.2" class="anchored" data-anchor-id="time-between-systematics-tbs-e-mtbs"><span class="header-section-number">2.2.1.2</span> Time Between Systematics (TBS) e MTBS</h4>
 <p>Representam as horas trabalhadas (<span class="math inline">\(HT\)</span>) considerando o número de intervenções sistemáticas (<span class="math inline">\(NIS\)</span>). O tempo médio entre sistemáticas é expresso por:</p>
 <p><span class="math display">\[
 \mathrm{MTBS} = \frac{HT}{NIS}
 \]</span></p>
 </section>
-<section id="time-to-maintain-ttm-e-mttm" class="level4" data-number="1.3.1.4">
-<h4 data-number="1.3.1.4" class="anchored" data-anchor-id="time-to-maintain-ttm-e-mttm"><span class="header-section-number">1.3.1.4</span> Time To Maintain (TTM) e MTTM</h4>
+<section id="time-to-maintain-ttm-e-mttm" class="level4" data-number="2.2.1.3">
+<h4 data-number="2.2.1.3" class="anchored" data-anchor-id="time-to-maintain-ttm-e-mttm"><span class="header-section-number">2.2.1.3</span> Time To Maintain (TTM) e MTTM</h4>
 <p>Representa o tempo gasto para manutenir um equipamento, dada pela categoria de horas preventivas sistemáticas (<span class="math inline">\(MPS\)</span>):</p>
 <p><span class="math display">\[
 MPS = \sum_{j=1}^{m} TTM_j
@@ -822,18 +742,18 @@ MPS = \sum_{j=1}^{m} TTM_j
 \]</span></p>
 </section>
 </section>
-<section id="mensuração-de-impacto-na-incidência-de-corretivas" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="mensuração-de-impacto-na-incidência-de-corretivas"><span class="header-section-number">1.3.2</span> Mensuração de Impacto na Incidência de Corretivas</h3>
+<section id="mensuração-de-impacto-na-incidência-de-corretivas" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="mensuração-de-impacto-na-incidência-de-corretivas"><span class="header-section-number">2.2.2</span> Mensuração de Impacto na Incidência de Corretivas</h3>
 <p>A análise da eficácia da estratégia preventiva passa pela relação entre o que foi programado e o que foi efetivamente executado em termos de frequência e periodicidade.</p>
-<section id="incidence-of-systematic-interventions-isi" class="level4" data-number="1.3.2.1">
-<h4 data-number="1.3.2.1" class="anchored" data-anchor-id="incidence-of-systematic-interventions-isi"><span class="header-section-number">1.3.2.1</span> Incidence of Systematic Interventions (ISI)</h4>
+<section id="incidence-of-systematic-interventions-isi" class="level4" data-number="2.2.2.1">
+<h4 data-number="2.2.2.1" class="anchored" data-anchor-id="incidence-of-systematic-interventions-isi"><span class="header-section-number">2.2.2.1</span> Incidence of Systematic Interventions (ISI)</h4>
 <p>A razão entre o número de intervenções preventivas programadas (<span class="math inline">\(k\)</span>) e o número de intervenções sistemáticas executadas (<span class="math inline">\(NIS\)</span>), após um determinado tempo de operação <span class="math inline">\(HT &gt; t\)</span>, define a incidência de intervenções sistemáticas:</p>
 <p><span class="math display">\[
 \mathrm{ISI} = \frac{NIS}{k}
 \]</span></p>
 </section>
-<section id="adherence-to-systematic-periodicity-atsp" class="level4" data-number="1.3.2.2">
-<h4 data-number="1.3.2.2" class="anchored" data-anchor-id="adherence-to-systematic-periodicity-atsp"><span class="header-section-number">1.3.2.2</span> Adherence to Systematic Periodicity (ATSP)</h4>
+<section id="adherence-to-systematic-periodicity-atsp" class="level4" data-number="2.2.2.2">
+<h4 data-number="2.2.2.2" class="anchored" data-anchor-id="adherence-to-systematic-periodicity-atsp"><span class="header-section-number">2.2.2.2</span> Adherence to Systematic Periodicity (ATSP)</h4>
 <p>A aderência à periodicidade é a relação entre as manutenções programadas que foram efetivamente executadas dentro da tolerância prevista. Dado que <span class="math inline">\(k\)</span> manutenções são sequenciais e programadas, temos:</p>
 <p><span class="math display">\[
 \mathrm{ATSP} = \frac{\mathrm{MTBS}}{\bar{\chi}}
@@ -846,8 +766,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <p><strong>Exemplo Prático:</strong> Um <span class="math inline">\(ATSP = 1.5\)</span> indica que, para uma periodicidade prevista de <span class="math inline">\(\chi = 250h\)</span>, há um atraso médio de <span class="math inline">\(125h\)</span> para o início da execução, resultando em <span class="math inline">\(ISI &lt; 1\)</span>. Inversamente, um <span class="math inline">\(ATSP = 0.5\)</span> indica uma antecipação de <span class="math inline">\(125h\)</span>.</p>
 </blockquote>
 </section>
-<section id="impact-of-systematic-adherence-on-corrective-isac" class="level4" data-number="1.3.2.3">
-<h4 data-number="1.3.2.3" class="anchored" data-anchor-id="impact-of-systematic-adherence-on-corrective-isac"><span class="header-section-number">1.3.2.3</span> Impact of Systematic Adherence on Corrective (ISAC)</h4>
+<section id="impact-of-systematic-adherence-on-corrective-isac" class="level4" data-number="2.2.2.3">
+<h4 data-number="2.2.2.3" class="anchored" data-anchor-id="impact-of-systematic-adherence-on-corrective-isac"><span class="header-section-number">2.2.2.3</span> Impact of Systematic Adherence on Corrective (ISAC)</h4>
 <p>Para quantificar como o desvio das sistemáticas afeta a confiabilidade, calculamos quantas falhas ocorrem no intervalo de atraso ou antecipação:</p>
 <p><span class="math display">\[
 \mathrm{ISAC} = \frac{\mathrm{MTBS} - \bar{\chi}}{\mathrm{MTBF}} \times NIS
@@ -855,34 +775,34 @@ MPS = \sum_{j=1}^{m} TTM_j
 <p>Se considerarmos um atraso de <span class="math inline">\(125h\)</span> com <span class="math inline">\(MTBF = 25\)</span>, espera-se que ocorram <span class="math inline">\(ISAC = 5\)</span> falhas a mais devido ao atraso. A estratégia ótima visa <span class="math inline">\(ISAC \cong 0\)</span>. Note que se uma pauta não for executada, a próxima ocorrerá em <span class="math inline">\(2\chi\)</span>, configurando uma não aderência crítica que eleva o número de intervenções corretivas (<span class="math inline">\(NCI\)</span>).</p>
 </section>
 </section>
-<section id="mensuração-de-impacto-na-disponibilidade" class="level3" data-number="1.3.3">
-<h3 data-number="1.3.3" class="anchored" data-anchor-id="mensuração-de-impacto-na-disponibilidade"><span class="header-section-number">1.3.3</span> Mensuração de Impacto na Disponibilidade</h3>
+<section id="mensuração-de-impacto-na-disponibilidade" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="mensuração-de-impacto-na-disponibilidade"><span class="header-section-number">2.2.3</span> Mensuração de Impacto na Disponibilidade</h3>
 <p>A extrapolação do tempo de execução das atividades impacta diretamente a prontidão técnica do ativo.</p>
-<section id="adherence-to-maintenance-time-attm" class="level4" data-number="1.3.3.1">
-<h4 data-number="1.3.3.1" class="anchored" data-anchor-id="adherence-to-maintenance-time-attm"><span class="header-section-number">1.3.3.1</span> Adherence to Maintenance Time (ATTM)</h4>
+<section id="adherence-to-maintenance-time-attm" class="level4" data-number="2.2.3.1">
+<h4 data-number="2.2.3.1" class="anchored" data-anchor-id="adherence-to-maintenance-time-attm"><span class="header-section-number">2.2.3.1</span> Adherence to Maintenance Time (ATTM)</h4>
 <p>Define a relação entre o tempo real de execução (<span class="math inline">\(SPH\)</span>) e o tempo previsto (<span class="math inline">\(S\)</span>):</p>
 <p><span class="math display">\[
 \mathrm{ATTM} = \frac{SPH}{S}
 \]</span></p>
 <p>Onde <span class="math inline">\(S\)</span> é o somatório dos tempos previstos para todas as pautas <span class="math inline">\(k\)</span> em um período de operação.</p>
 </section>
-<section id="systematic-maintenance-factor-fms" class="level4" data-number="1.3.3.2">
-<h4 data-number="1.3.3.2" class="anchored" data-anchor-id="systematic-maintenance-factor-fms"><span class="header-section-number">1.3.3.2</span> Systematic Maintenance Factor (FMS)</h4>
+<section id="systematic-maintenance-factor-fms" class="level4" data-number="2.2.3.2">
+<h4 data-number="2.2.3.2" class="anchored" data-anchor-id="systematic-maintenance-factor-fms"><span class="header-section-number">2.2.3.2</span> Systematic Maintenance Factor (FMS)</h4>
 <p>Quando as execuções não são aderentes (<span class="math inline">\(\mathrm{ATTM} &gt; 1\)</span>), o impacto na disponibilidade física é potencializado. O fator de manutenção sistemática é dado por:</p>
 <p><span class="math display">\[
 \mathrm{FMS} = \frac{\mathrm{MTTM}}{(\mathrm{ATTM} - 1) \times HM}
 \]</span></p>
 </section>
-<section id="impact-on-physical-availability-ipa-idf" class="level4" data-number="1.3.3.3">
-<h4 data-number="1.3.3.3" class="anchored" data-anchor-id="impact-on-physical-availability-ipa-idf"><span class="header-section-number">1.3.3.3</span> Impact on Physical Availability (IPA / IDF)</h4>
+<section id="impact-on-physical-availability-ipa-idf" class="level4" data-number="2.2.3.3">
+<h4 data-number="2.2.3.3" class="anchored" data-anchor-id="impact-on-physical-availability-ipa-idf"><span class="header-section-number">2.2.3.3</span> Impact on Physical Availability (IPA / IDF)</h4>
 <p>Considerando o aumento do número de reparos (via ISAC) e a ineficiência de execução (via FMS), o impacto total na disponibilidade física é consolidado por:</p>
 <p><span class="math display">\[
 \mathrm{IPA} = \frac{(\mathrm{ISAC} \times \mathrm{MTTR}) + (\mathrm{FMS} \times HM)}{HC}
 \]</span></p>
 <p>Embora a Disponibilidade Física forneça uma visão macro, a gestão de excelência operacional exige indicadores que isolem o desempenho inerente do equipamento e a sua prontidão durante os períodos de exigência operacional.</p>
 </section>
-<section id="disponibilidade-intrínseca-di" class="level4" data-number="1.3.3.4">
-<h4 data-number="1.3.3.4" class="anchored" data-anchor-id="disponibilidade-intrínseca-di"><span class="header-section-number">1.3.3.4</span> Disponibilidade Intrínseca (DI)</h4>
+<section id="disponibilidade-intrínseca-di" class="level4" data-number="2.2.3.4">
+<h4 data-number="2.2.3.4" class="anchored" data-anchor-id="disponibilidade-intrínseca-di"><span class="header-section-number">2.2.3.4</span> Disponibilidade Intrínseca (DI)</h4>
 <p>A Disponibilidade Intrínseca (<strong><em>Inherent Availability</em></strong>) mede a velocidade da manutenção em retornar um equipamento para a operação após a ocorrência de uma falha ou intervenção não programada. Ela representa a performance do equipamento e do processo, focando no tempo que a equipe demanda para reparar e disponibilizar a máquina para o sistema produtivo.</p>
 <p>Neste indicador, estão contidas todas as ações envolvidas no reparo, sejam elas de execução, planejamento (PCM), suprimentos ou logística. A DI avalia o desempenho do ativo através da inter-relação entre confiabilidade (MTBF) e mantenabilidade (MTTR).</p>
 <p>A fórmula de cálculo varia de acordo com a base de dados utilizada:</p>
@@ -904,8 +824,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p>Fonte de Dados: Exige interface entre sistemas de gerenciamento operacional (Horas Trabalhadas - HT) e de manutenção (Horas de Manutenção Corretiva - HMC).</p></li>
 </ul>
 </section>
-<section id="disponibilidade-operacional-do" class="level4" data-number="1.3.3.5">
-<h4 data-number="1.3.3.5" class="anchored" data-anchor-id="disponibilidade-operacional-do"><span class="header-section-number">1.3.3.5</span> Disponibilidade Operacional (DO)</h4>
+<section id="disponibilidade-operacional-do" class="level4" data-number="2.2.3.5">
+<h4 data-number="2.2.3.5" class="anchored" data-anchor-id="disponibilidade-operacional-do"><span class="header-section-number">2.2.3.5</span> Disponibilidade Operacional (DO)</h4>
 <p>A Disponibilidade Operacional (DO) avalia o quanto do tempo em que o equipamento foi efetivamente exigido pela operação ele estava apto a cumprir sua função primária. Este indicador é aplicado em situações onde o ativo não opera em regime 24x7 por restrições operacionais, de mercado ou legais.</p>
 <p>A fórmula de cálculo é definida por:</p>
 <p><span class="math display">\[
@@ -928,12 +848,12 @@ MPS = \sum_{j=1}^{m} TTM_j
 </section>
 </section>
 </section>
-<section id="indicadores-de-gestão-da-manutenção-pcm" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="indicadores-de-gestão-da-manutenção-pcm"><span class="header-section-number">1.4</span> Indicadores de Gestão da Manutenção (PCM)</h2>
+<section id="indicadores-de-gestão-da-manutenção-pcm" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="indicadores-de-gestão-da-manutenção-pcm"><span class="header-section-number">2.3</span> Indicadores de Gestão da Manutenção (PCM)</h2>
 <p><em>Indicadores voltados ao Planejamento e Controle da Manutenção, com foco em aderência, produtividade da equipe e custos.</em></p>
 <p>Além das métricas de engenharia e impacto, o Planejamento e Controle da Manutenção (PCM) monitora indicadores de processo e custos para garantir a sustentabilidade da operação. Abaixo, detalham-se os principais indicadores de gestão utilizados.</p>
-<section id="systematic-maintenance-adherence-ams" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="systematic-maintenance-adherence-ams"><span class="header-section-number">1.4.1</span> Systematic Maintenance Adherence (AMS)</h3>
+<section id="systematic-maintenance-adherence-ams" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="systematic-maintenance-adherence-ams"><span class="header-section-number">2.3.1</span> Systematic Maintenance Adherence (AMS)</h3>
 <p>A Aderência à Manutenção Sistemática (AMS) tem por objetivo medir a aderência ao cumprimento das ordens geradas pelo sistema oriundas dos planos de manutenção. Este indicador reflete a disciplina da equipe em executar as preventivas dentro das janelas de oportunidade ideais.</p>
 <p>É a relação entre as manutenções sistemáticas (considerando a tolerância técnica) que foram previstas e executadas como aderentes no período, em relação ao total de manutenções sistemáticas previstas para o mesmo período.</p>
 <p>A fórmula de cálculo é dada por:</p>
@@ -945,8 +865,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p><strong>Importância:</strong> O controle da tolerância é vital, pois uma sistemática executada muito cedo desperdiça vida útil de componentes, enquanto a execução tardia expõe o ativo a riscos de falha não monitorada.</p></li>
 </ul>
 </section>
-<section id="conditional-maintenance-adherence-amc" class="level3" data-number="1.4.2">
-<h3 data-number="1.4.2" class="anchored" data-anchor-id="conditional-maintenance-adherence-amc"><span class="header-section-number">1.4.2</span> Conditional Maintenance Adherence (AMC)</h3>
+<section id="conditional-maintenance-adherence-amc" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="conditional-maintenance-adherence-amc"><span class="header-section-number">2.3.2</span> Conditional Maintenance Adherence (AMC)</h3>
 <p>A Aderência à Manutenção Condicional (AMC) tem como objetivo medir se as manutenções baseadas no estado atual do equipamento estão ocorrendo de acordo com a data de necessidade identificada. Diferente da manutenção sistemática, o foco aqui é garantir que os alertas monitorados (preditivos) gerem intervenções no momento exato, otimizando o desempenho antes que ocorra a falha funcional.</p>
 <p>Este indicador estabelece a relação entre as manutenções condicionais que foram aderentes dentro do prazo de tolerância e o total de manutenções condicionais previstas para o período.</p>
 <p>A fórmula de cálculo é definida por:</p>
@@ -961,8 +881,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 </ul>
 <p>A aplicação rigorosa desta métrica permite que a Engenharia de Confiabilidade avalie a eficácia do monitoramento de condição. Uma baixa aderência na AMC indica que, embora os alertas de degradação estejam sendo gerados, a operação ou o PCM não estão conseguindo liberar o ativo no tempo ótimo, o que aumenta o risco de falhas catastróficas e eleva o custo total de manutenção.</p>
 </section>
-<section id="maintenance-plan-adherence-apm" class="level3" data-number="1.4.3">
-<h3 data-number="1.4.3" class="anchored" data-anchor-id="maintenance-plan-adherence-apm"><span class="header-section-number">1.4.3</span> Maintenance Plan Adherence (APM)</h3>
+<section id="maintenance-plan-adherence-apm" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="maintenance-plan-adherence-apm"><span class="header-section-number">2.3.3</span> Maintenance Plan Adherence (APM)</h3>
 <p>O indicador APM é uma composição das parcelas dos indicadores AMS (Aderência à Manutenção Sistemática) e AMC (Aderência à Manutenção Condicional). Seu objetivo é medir a aderência dos itens que compõem o plano de médio prazo da manutenção, bem como a resposta às intervenções condicionais identificadas.</p>
 <p>A fórmula de cálculo é definida pela soma das execuções aderentes dividida pelo total de eventos previstos no período:</p>
 <p><span class="math display">\[
@@ -982,8 +902,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 </ul>
 <p>O acompanhamento do APM é vital para a coordenação entre a Engenharia de Manutenção e o Planejamento, pois uma queda neste índice sugere falhas na integração do plano de médio prazo ou uma sobrecarga de intervenções emergenciais que impedem o cumprimento do cronograma mestre.</p>
 </section>
-<section id="schedule-compliance-apr" class="level3" data-number="1.4.4">
-<h3 data-number="1.4.4" class="anchored" data-anchor-id="schedule-compliance-apr"><span class="header-section-number">1.4.4</span> Schedule Compliance (APR)</h3>
+<section id="schedule-compliance-apr" class="level3" data-number="2.3.4">
+<h3 data-number="2.3.4" class="anchored" data-anchor-id="schedule-compliance-apr"><span class="header-section-number">2.3.4</span> Schedule Compliance (APR)</h3>
 <p>A Aderência à Programação (APR) mede o cumprimento da programação de serviços de manutenção. É o percentual de aderência do que foi programado para cada operação nas Ordens de Manutenção na programação semanal em relação ao que foi efetivamente realizado. Altos níveis indicam gestão eficaz de tempo e recursos.</p>
 <p>A fórmula de cálculo é:</p>
 <p><span class="math display">\[
@@ -1000,8 +920,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p><strong>Quantidade Total de OMs Programadas (Denominador):</strong> Corresponde a todas as operações incluídas na programação da semana analisada (segunda a domingo). Assim como no numerador, considera-se apenas o Baseline da programação semanal, descartando ordens emergenciais ou adicionais (status EXPROG).</p></li>
 </ol>
 </section>
-<section id="scheduled-labor-utilization-index-imop" class="level3" data-number="1.4.5">
-<h3 data-number="1.4.5" class="anchored" data-anchor-id="scheduled-labor-utilization-index-imop"><span class="header-section-number">1.4.5</span> Scheduled Labor Utilization Index (IMOP)</h3>
+<section id="scheduled-labor-utilization-index-imop" class="level3" data-number="2.3.5">
+<h3 data-number="2.3.5" class="anchored" data-anchor-id="scheduled-labor-utilization-index-imop"><span class="header-section-number">2.3.5</span> Scheduled Labor Utilization Index (IMOP)</h3>
 <p>Medir o nível de utilização programada de Homem Hora da manutenção. É a relação entre o somatório do trabalho real nas ordens programadas e o Hh total disponível.</p>
 <p>A fórmula de cálculo é definida por:</p>
 <p><span class="math display">\[
@@ -1020,8 +940,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 </ul></li>
 </ul>
 </section>
-<section id="labor-appropriation-index-iamo" class="level3" data-number="1.4.6">
-<h3 data-number="1.4.6" class="anchored" data-anchor-id="labor-appropriation-index-iamo"><span class="header-section-number">1.4.6</span> Labor Appropriation Index (IAMO)</h3>
+<section id="labor-appropriation-index-iamo" class="level3" data-number="2.3.6">
+<h3 data-number="2.3.6" class="anchored" data-anchor-id="labor-appropriation-index-iamo"><span class="header-section-number">2.3.6</span> Labor Appropriation Index (IAMO)</h3>
 <p>O objetivo deste indicador é medir se a mão de obra utilizada na execução da manutenção está sendo apropriada corretamente no sistema. Ele representa a relação percentual entre a quantidade de horas-homem (<span class="math inline">\(Hh\)</span>) efetivamente apropriadas nas Ordens de Manutenção (OM) e o total de <span class="math inline">\(Hh\)</span> disponível no centro de trabalho analisado.</p>
 <p>A fórmula de cálculo é definida por:</p>
 <p><span class="math display">\[
@@ -1043,8 +963,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 </ul></li>
 </ol>
 </section>
-<section id="systematic-to-total-maintenance-ratio-rms" class="level3" data-number="1.4.7">
-<h3 data-number="1.4.7" class="anchored" data-anchor-id="systematic-to-total-maintenance-ratio-rms"><span class="header-section-number">1.4.7</span> Systematic to Total Maintenance Ratio (RMS)</h3>
+<section id="systematic-to-total-maintenance-ratio-rms" class="level3" data-number="2.3.7">
+<h3 data-number="2.3.7" class="anchored" data-anchor-id="systematic-to-total-maintenance-ratio-rms"><span class="header-section-number">2.3.7</span> Systematic to Total Maintenance Ratio (RMS)</h3>
 <p>A Relação Manutenção Sistemática e Total de Manutenção (RMS) tem como objetivo avaliar o esforço da manutenção aplicado especificamente às intervenções de natureza sistemática. Este indicador demonstra o esforço total sistemático, em termos percentuais de horas-homem (<span class="math inline">\(Hh\)</span>), utilizado na manutenção em relação ao volume total de horas apropriadas.</p>
 <p>A fórmula de cálculo é definida por:</p>
 <p><span class="math display">\[
@@ -1065,8 +985,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 </ul>
 <p>A análise do RMS permite identificar se a estratégia de manutenção está focada na prevenção sistemática ou se a mão de obra está sendo consumida por intervenções não planejadas. Um RMS equilibrado e alinhado ao plano mestre de manutenção é um indicativo de saúde operacional e previsibilidade de custos.</p>
 </section>
-<section id="corrective-maintenance-ratio-rmc" class="level3" data-number="1.4.8">
-<h3 data-number="1.4.8" class="anchored" data-anchor-id="corrective-maintenance-ratio-rmc"><span class="header-section-number">1.4.8</span> Corrective Maintenance Ratio (RMC)</h3>
+<section id="corrective-maintenance-ratio-rmc" class="level3" data-number="2.3.8">
+<h3 data-number="2.3.8" class="anchored" data-anchor-id="corrective-maintenance-ratio-rmc"><span class="header-section-number">2.3.8</span> Corrective Maintenance Ratio (RMC)</h3>
 <p>A Relação de Manutenção Corretiva (RMC) tem por objetivo comparar o volume de esforço (em horas) dedicado à manutenção corretiva em relação ao total de atividades de manutenção realizadas. Este indicador é um termômetro da estratégia da organização: uma alta proporção de RMC indica uma abordagem predominantemente reativa (“quebra-repara”), enquanto uma proporção menor sugere uma gestão mais preventiva e planejada.</p>
 <p>A fórmula de cálculo é expressa por:</p>
 <p><span class="math display">\[
@@ -1077,8 +997,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p><strong>Horas Totais de Manutenção (HM):</strong> Somatório de todas as horas aplicadas em atividades técnicas, incluindo preventivas, preditivas e corretivas.</p></li>
 </ul>
 </section>
-<section id="corrective-maintenance-index-imc" class="level3" data-number="1.4.9">
-<h3 data-number="1.4.9" class="anchored" data-anchor-id="corrective-maintenance-index-imc"><span class="header-section-number">1.4.9</span> Corrective Maintenance Index (IMC)</h3>
+<section id="corrective-maintenance-index-imc" class="level3" data-number="2.3.9">
+<h3 data-number="2.3.9" class="anchored" data-anchor-id="corrective-maintenance-index-imc"><span class="header-section-number">2.3.9</span> Corrective Maintenance Index (IMC)</h3>
 <p>Enquanto a RMC foca no volume de horas, o Índice de Manutenção Corretiva (IMC) mede a frequência das intervenções corretivas em relação ao total de ordens de serviço executadas. Um valor elevado de IMC é um forte indicativo de baixa confiabilidade intrínseca dos equipamentos ou da necessidade de melhorias nos planos de manutenção preventiva.</p>
 <p>A fórmula de cálculo é definida por:</p>
 <p><span class="math display">\[
@@ -1089,8 +1009,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p><strong>Número Total de Intervenções (NTI):</strong> Somatório de todas as intervenções (Corretivas + Sistemáticas/Preventivas) finalizadas no mesmo período.</p></li>
 </ul>
 </section>
-<section id="backlog" class="level3" data-number="1.4.10">
-<h3 data-number="1.4.10" class="anchored" data-anchor-id="backlog"><span class="header-section-number">1.4.10</span> Backlog</h3>
+<section id="backlog" class="level3" data-number="2.3.10">
+<h3 data-number="2.3.10" class="anchored" data-anchor-id="backlog"><span class="header-section-number">2.3.10</span> Backlog</h3>
 <p>O Backlog representa o tempo que a equipe de manutenção deve trabalhar para concluir todos os serviços pendentes, assumindo que não cheguem novos pedidos durante a execução destes serviços. Ele mede a “carteira de serviços” em dias necessários para zerar as demandas abertas no sistema.</p>
 <p>A fórmula de cálculo é dada por:</p>
 <p>$$\mathrm{Backlog} = \frac{(\text{Qtde Total de Horas Planejadas} - \text{Qtde Total de Horas Executadas})}{\text{Qtde Total de Horas Disponível}}$$</p>
@@ -1110,8 +1030,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p><strong>Denominador (Capacidade):</strong> Corresponde à quantidade total de horas disponíveis da equipe (Hh Disponível) para o período de referência.</p></li>
 </ul>
 </section>
-<section id="maintenance-cost-mc-cm" class="level3" data-number="1.4.11">
-<h3 data-number="1.4.11" class="anchored" data-anchor-id="maintenance-cost-mc-cm"><span class="header-section-number">1.4.11</span> Maintenance Cost (MC / CM)</h3>
+<section id="maintenance-cost-mc-cm" class="level3" data-number="2.3.11">
+<h3 data-number="2.3.11" class="anchored" data-anchor-id="maintenance-cost-mc-cm"><span class="header-section-number">2.3.11</span> Maintenance Cost (MC / CM)</h3>
 <p>O Custo de Manutenção (CM) é o indicador que avalia a saúde financeira da gestão de ativos, englobando todas as despesas associadas às atividades de manutenção. O controle e a otimização desses custos são essenciais para garantir que a operação seja financeiramente sustentável e competitiva.</p>
 <p>A composição deste indicador inclui:</p>
 <ul>
@@ -1120,8 +1040,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <p>O Índice de Confiabilidade atua de forma complementar ao custo, medindo a capacidade do sistema operar sem falhas ao longo do tempo, o que impacta diretamente na redução do custo total de manutenção no longo prazo.</p></li>
 </ul>
 </section>
-<section id="failure-class-appropriation-acf" class="level3" data-number="1.4.12">
-<h3 data-number="1.4.12" class="anchored" data-anchor-id="failure-class-appropriation-acf"><span class="header-section-number">1.4.12</span> Failure Class Appropriation (ACF)</h3>
+<section id="failure-class-appropriation-acf" class="level3" data-number="2.3.12">
+<h3 data-number="2.3.12" class="anchored" data-anchor-id="failure-class-appropriation-acf"><span class="header-section-number">2.3.12</span> Failure Class Appropriation (ACF)</h3>
 <p>A Apropriação de Classe de Falhas (ACF) tem por objetivo medir o grau de utilização do sistema informatizado de manutenção (SAP PM) quanto à correta classificação das avarias em Ordens de Manutenção (OM) corretivas. Este indicador é vital para a Engenharia de Confiabilidade, pois garante que os dados necessários para análises de causa raiz (como o Diagrama de Ishikawa ou Árvore de Falhas) estejam disponíveis e completos.</p>
 <p>O ACF representa o percentual de ordens encerradas dos tipos corretivo e emergencial que tiveram a apropriação da Classe de Falha em todos os seus níveis (até o nível de solução) em relação ao total de ordens do mesmo tipo encerradas no período.</p>
 <p>A fórmula de cálculo é definida por:</p>
@@ -1147,13 +1067,13 @@ MPS = \sum_{j=1}^{m} TTM_j
 <p>Importância Analítica</p>
 <p>O preenchimento incompleto da classe de falha (ex: registrar o sintoma, mas omitir a causa ou a solução) inviabiliza a extração de relatórios de Pareto e o cálculo de tendências de modos de falha. Assim como os demais indicadores de gestão do PCM, o fechamento mensal do ACF ocorre às 00:05h do 2º dia útil do mês subsequente, garantindo a consolidação das apropriações realizadas no fechamento do mês anterior.</p>
 </section>
-<section id="gestão-de-fluxo-de-trabalho-e-portfólio" class="level3" data-number="1.4.13">
-<h3 data-number="1.4.13" class="anchored" data-anchor-id="gestão-de-fluxo-de-trabalho-e-portfólio"><span class="header-section-number">1.4.13</span> Gestão de Fluxo de Trabalho e Portfólio</h3>
+<section id="gestão-de-fluxo-de-trabalho-e-portfólio" class="level3" data-number="2.3.13">
+<h3 data-number="2.3.13" class="anchored" data-anchor-id="gestão-de-fluxo-de-trabalho-e-portfólio"><span class="header-section-number">2.3.13</span> Gestão de Fluxo de Trabalho e Portfólio</h3>
 <p><em>Indicadores que monitoram o fluxo das ordens de manutenção e notificações, garantindo visibilidade sobre carteira e pendências.</em></p>
 <p>A eficiência da manutenção não é medida apenas pela execução em campo, mas pela agilidade no tratamento administrativo das demandas. O monitoramento da idade média das notas e ordens permite à gestão técnica identificar se a rotina de tratamento está adequada e se as demandas estão fluindo corretamente pelo ciclo de planejamento.</p>
 </section>
-<section id="average-maintenance-order-times-by-status-tmoms" class="level3" data-number="1.4.14">
-<h3 data-number="1.4.14" class="anchored" data-anchor-id="average-maintenance-order-times-by-status-tmoms"><span class="header-section-number">1.4.14</span> Average Maintenance Order Times by Status (TMOMS)</h3>
+<section id="average-maintenance-order-times-by-status-tmoms" class="level3" data-number="2.3.14">
+<h3 data-number="2.3.14" class="anchored" data-anchor-id="average-maintenance-order-times-by-status-tmoms"><span class="header-section-number">2.3.14</span> Average Maintenance Order Times by Status (TMOMS)</h3>
 <p>O TMOMS tem por objetivo avaliar o tempo médio de permanência das Ordens de Manutenção (OM) estratificado por cada status (ou etapa) dentro do sistema informatizado de manutenção (SAP PM). Este indicador fornece visibilidade sobre o lead time interno de cada fase do processo, permitindo que a gestão atue pontualmente onde o processo está retido.</p>
 <p>A fórmula de cálculo é baseada na soma dos tempos de todas as ordens em um status específico, dividida pela quantidade total de ordens que passaram por esse mesmo status no período:</p>
 <p>$$\text{TMOMS} = \frac{\sum (\text{Tempo da OM no status})}{\sum (\text{Quantidade de OMs no status})}$$</p>
@@ -1171,8 +1091,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <p>O TMOMS é classificado majoritariamente na dimensão de Produtividade, sob a regulação da área de Excelência Operacional - Técnico. Diferente de indicadores de “fotografia” (como o Backlog), o TMOMS utiliza a fórmula de acúmulo por Recálculo. Isso significa que, ao analisar períodos maiores (trimestres ou anos), o sistema reavalia as médias de tempos de permanência para garantir que a tendência reflita a realidade histórica das operações e não apenas uma soma linear de dias.</p>
 <p>A análise conjunta do TMOMS com o Backlog permite diferenciar se um volume alto de trabalho pendente é causado por excesso de demanda (Backlog alto com TMOMS estável) ou por ineficiência de fluxo (Backlog alto acompanhado de aumento no tempo de Planejamento ou Aprovisionamento).</p>
 </section>
-<section id="average-age-of-untreated-notifications-imnc" class="level3" data-number="1.4.15">
-<h3 data-number="1.4.15" class="anchored" data-anchor-id="average-age-of-untreated-notifications-imnc"><span class="header-section-number">1.4.15</span> Average Age of Untreated Notifications (IMNC)</h3>
+<section id="average-age-of-untreated-notifications-imnc" class="level3" data-number="2.3.15">
+<h3 data-number="2.3.15" class="anchored" data-anchor-id="average-age-of-untreated-notifications-imnc"><span class="header-section-number">2.3.15</span> Average Age of Untreated Notifications (IMNC)</h3>
 <p>O indicador IMNC visa medir o tempo médio em que as Notas de Manutenção permanecem na “caixa de entrada” do PCM sem que tenham recebido o tratamento inicial (vinculação a uma Ordem de Manutenção). Este indicador é essencial para garantir que as solicitações de manutenção não fiquem paradas, perdendo a janela de oportunidade de planejamento.</p>
 <p>A fórmula de cálculo é definida por:</p>
 <p>$$IMNC = \frac{\text{Qtde Total do Tempo das Notas sem tratamento}}{\text{Qtde Total das Notas sem tratamento}}$$</p>
@@ -1190,8 +1110,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p><strong>Fechamento:</strong> O fechamento oficial ocorre às 00:05h do 2º dia útil do mês subsequente.</p></li>
 </ul>
 </section>
-<section id="average-age-of-open-orders-imos" class="level3" data-number="1.4.16">
-<h3 data-number="1.4.16" class="anchored" data-anchor-id="average-age-of-open-orders-imos"><span class="header-section-number">1.4.16</span> Average Age of Open Orders (IMOS)</h3>
+<section id="average-age-of-open-orders-imos" class="level3" data-number="2.3.16">
+<h3 data-number="2.3.16" class="anchored" data-anchor-id="average-age-of-open-orders-imos"><span class="header-section-number">2.3.16</span> Average Age of Open Orders (IMOS)</h3>
 <p>O IMOS mede o tempo médio em que uma Ordem de Manutenção (OM) permanece aberta no sistema, desde sua criação até seu encerramento técnico. Diferente do IMNC, que foca na triagem, o IMOS foca no fluxo de planejamento, programação e execução.</p>
 <p>A fórmula de cálculo é definida por:</p>
 <p>$$IMOS = \frac{\text{Qtde Total do Tempo das OMs abertas}}{\text{Qtde Total de OMs abertas}}$$</p>
@@ -1215,10 +1135,11 @@ MPS = \sum_{j=1}^{m} TTM_j
 </ol>
 </section>
 </section>
-<section id="production-impact-analysis-loss-accounting" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Production Impact Analysis (Loss Accounting)</h1>
-<section id="production-impact---physical-availability-ip-df" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="production-impact---physical-availability-ip-df"><span class="header-section-number">2.1</span> Production Impact - Physical Availability (IP-DF)</h2>
+</section>
+<section id="production-impact-analysis-loss-accounting" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Production Impact Analysis (Loss Accounting)</h1>
+<section id="production-impact---physical-availability-ip-df" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="production-impact---physical-availability-ip-df"><span class="header-section-number">3.1</span> Production Impact - Physical Availability (IP-DF)</h2>
 <p>O IP-DF mensura o impacto na produção gerado pela variação da disponibilidade física real em relação à disponibilidade física que foi programada para um determinado período. Enquanto a DF (Disponibilidade Física) é expressa em percentual, o IP-DF converte essa métrica em Kilotoneladas (Kt), tornando o indicador mais tangível para as áreas de Planejamento e Finanças.</p>
 <p>A lógica do indicador baseia-se na premissa de que cada hora de manutenção a mais ou a menos em relação ao plano resulta em uma variação direta na produção, proporcional à taxa de produtividade esperada.</p>
 <p>A fórmula de cálculo é definida por:</p>
@@ -1233,8 +1154,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p>1000: Fator de conversão para transformar toneladas em Kilotoneladas (Kt).</p></li>
 </ul>
 </section>
-<section id="production-impact---physical-utilization-ip-uf" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="production-impact---physical-utilization-ip-uf"><span class="header-section-number">2.2</span> Production Impact - Physical Utilization (IP-UF)</h2>
+<section id="production-impact---physical-utilization-ip-uf" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="production-impact---physical-utilization-ip-uf"><span class="header-section-number">3.2</span> Production Impact - Physical Utilization (IP-UF)</h2>
 <p>O IP-UF mensura o impacto na produção relacionado à variação entre a utilização física real e a utilização física que foi programada para um determinado período. Ele traduz a eficiência (ou ineficiência) operacional de ocupação da frota disponível em Kilotoneladas (Kt).</p>
 <p>A fórmula de cálculo é definida por:</p>
 <p><span class="math display">\[
@@ -1249,8 +1170,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p>1000: Fator de conversão para Kilotoneladas (Kt).</p></li>
 </ul>
 </section>
-<section id="production-impact---productivity-ip-pr" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="production-impact---productivity-ip-pr"><span class="header-section-number">2.3</span> Production Impact - Productivity (IP-PR)</h2>
+<section id="production-impact---productivity-ip-pr" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="production-impact---productivity-ip-pr"><span class="header-section-number">3.3</span> Production Impact - Productivity (IP-PR)</h2>
 <p>O IP-Produtividade mensura o impacto na produção relacionado à variação entre o ritmo real e o programado. É um indicador “residual” na ponte de produção: após descontarmos o que se perdeu por manutenção e o que se perdeu por ociosidade operacional, o que sobra é o impacto da velocidade (taxa) de produção.</p>
 <p>A fórmula de cálculo é:</p>
 <p><span class="math display">\[
@@ -1262,12 +1183,12 @@ MPS = \sum_{j=1}^{m} TTM_j
 </ul>
 </section>
 </section>
-<section id="engineering-and-reliability-indicators" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Engineering and Reliability Indicators</h1>
+<section id="engineering-and-reliability-indicators" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Engineering and Reliability Indicators</h1>
 <p>Os indicadores de manutenção desempenham um papel crucial na gestão eficiente de ativos e equipamentos em diversos setores industriais. Eles fornecem informações valiosas sobre o desempenho e a condição dos ativos, permitindo a otimização das estratégias de manutenção.</p>
 <p>Segundo a literatura especializada, estes indicadores dividem-se em categorias que evidenciam desde o efeito da manutenção no desempenho dos negócios até a confiabilidade e disponibilidade técnica dos ativos. A priorização e programação visam a gestão econômica, alinhando o investimento à eficiência financeira e reduzindo custos decorrentes de interrupções.</p>
-<section id="event-organization-and-counting-processes" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="event-organization-and-counting-processes"><span class="header-section-number">3.1</span> Event Organization and Counting Processes</h2>
+<section id="event-organization-and-counting-processes" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="event-organization-and-counting-processes"><span class="header-section-number">4.1</span> Event Organization and Counting Processes</h2>
 <p>Para o cálculo preciso das métricas de confiabilidade, os dados coletados após um tempo <span class="math inline">\(t\)</span> são organizados em eventos de operação (<span class="math inline">\(HT\)</span>) ou de manutenção (<span class="math inline">\(HM\)</span>). Com o objetivo de facilitar a representação em um gráfico de processo de contagem, as horas ociosas (<span class="math inline">\(HO\)</span>) são desconsideradas nesta etapa.</p>
 <p>A dinâmica do sistema é representada por conjuntos de eventos:</p>
 <ul>
@@ -1276,8 +1197,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 </ul>
 <p>Cada resultado do sistema corresponde a uma função-escada, permitindo a visualização histórica das intervenções. Ao processar este histórico, definimos <span class="math inline">\(NIC\)</span> como o número de intervenções corretivas executadas e <span class="math inline">\(NIS\)</span> como o número de intervenções sistemáticas executadas.</p>
 </section>
-<section id="fundamental-performance-measures" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="fundamental-performance-measures"><span class="header-section-number">3.2</span> Fundamental Performance Measures</h2>
+<section id="fundamental-performance-measures" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="fundamental-performance-measures"><span class="header-section-number">4.2</span> Fundamental Performance Measures</h2>
 <p>A partir da contagem de eventos, estabelecem-se as médias fundamentais, onde <span class="math inline">\(HT = \sum_{i=1}^{n} TBF_i\)</span> (sendo <span class="math inline">\(n = NIC\)</span>):</p>
 <ul>
 <li><p>Mean Time Between Failures (MTBF):</p>
@@ -1298,11 +1219,11 @@ MPS = \sum_{j=1}^{m} TTM_j
 \]</span></p></li>
 </ul>
 </section>
-<section id="measuring-impact-on-corrective-incidence" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="measuring-impact-on-corrective-incidence"><span class="header-section-number">3.3</span> Measuring Impact on Corrective Incidence</h2>
+<section id="measuring-impact-on-corrective-incidence" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="measuring-impact-on-corrective-incidence"><span class="header-section-number">4.3</span> Measuring Impact on Corrective Incidence</h2>
 <p>A eficácia de uma estratégia de manutenção, monitorada pela Engenharia, não reside apenas na execução das pautas, mas na rigorosa sequência e periodicidade dessas ações.</p>
-<section id="incidence-and-adherence" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="incidence-and-adherence"><span class="header-section-number">3.3.1</span> Incidence and Adherence</h3>
+<section id="incidence-and-adherence" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="incidence-and-adherence"><span class="header-section-number">4.3.1</span> Incidence and Adherence</h3>
 <ul>
 <li><p>Systematic Intervention Incidence (ISI):</p>
 <p><span class="math display">\[
@@ -1321,8 +1242,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p><strong>Exemplo de Antecipação:</strong> Um <span class="math inline">\(\mathrm{ATSP} = 0.5\)</span> implica uma antecipação média de <span class="math inline">\(125\,h\)</span>.</p></li>
 </ul></li>
 </ul>
-<section id="impact-of-adherence-on-correctives-isac" class="level5" data-number="3.3.1.0.1">
-<h5 data-number="3.3.1.0.1" class="anchored" data-anchor-id="impact-of-adherence-on-correctives-isac"><span class="header-section-number">3.3.1.0.1</span> Impact of Adherence on Correctives (ISAC)</h5>
+<section id="impact-of-adherence-on-correctives-isac" class="level5" data-number="4.3.1.0.1">
+<h5 data-number="4.3.1.0.1" class="anchored" data-anchor-id="impact-of-adherence-on-correctives-isac"><span class="header-section-number">4.3.1.0.1</span> Impact of Adherence on Correctives (ISAC)</h5>
 <p>Este indicador conecta o desvio do planejamento (atraso) com a consequência na confiabilidade (falha). Ele estima quantas falhas ocorrem no intervalo de desvio das sistemáticas:</p>
 <p><span class="math display">\[
 \mathrm{ISAC} = \frac{\mathrm{MTBS} - \bar{\chi}}{\mathrm{MTBF}} \times NIS
@@ -1332,14 +1253,14 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p><strong>Estratégia Ótima:</strong> A estratégia ótima visa manter <span class="math inline">\(\mathrm{ISAC} \cong 0\)</span>. A não execução de uma pauta dobra o intervalo para a próxima (<span class="math inline">\(2\bar{\chi}\)</span>), configurando não aderência crítica. Tanto <span class="math inline">\(\mathrm{ISI}&lt;1\)</span> quanto <span class="math inline">\(\mathrm{ATSP}&gt;1\)</span> indicam aumento das corretivas.</p></li>
 </ul>
 </section>
-<section id="measuring-impact-on-availability" class="level4" data-number="3.3.1.1">
-<h4 data-number="3.3.1.1" class="anchored" data-anchor-id="measuring-impact-on-availability"><span class="header-section-number">3.3.1.1</span> Measuring Impact on Availability</h4>
+<section id="measuring-impact-on-availability" class="level4" data-number="4.3.1.1">
+<h4 data-number="4.3.1.1" class="anchored" data-anchor-id="measuring-impact-on-availability"><span class="header-section-number">4.3.1.1</span> Measuring Impact on Availability</h4>
 <p>A disponibilidade é definida pela ISO-5462:1994 como a “capacidade de um sistema estar em condições de executar uma certa função em um dado instante ou durante um intervalo de tempo determinado, levando em consideração os aspectos combinados de sua confiabilidade, mantenabilidade e suporte de manutenção, supondo que recursos externos requeridos estejam assegurados”.</p>
 <p>Esta definição evidencia que a mantenabilidade (capacidade de recolocação em operação) impacta diretamente a disponibilidade física. Quando a manutenção é feita sob condições e recursos prescritos, o tempo de execução é controlado, gerando pouco impacto negativo na disponibilidade.</p>
 </section>
 </section>
-<section id="time-adherence-and-maintenance-factor" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="time-adherence-and-maintenance-factor"><span class="header-section-number">3.3.2</span> Time Adherence and Maintenance Factor</h3>
+<section id="time-adherence-and-maintenance-factor" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="time-adherence-and-maintenance-factor"><span class="header-section-number">4.3.2</span> Time Adherence and Maintenance Factor</h3>
 <ul>
 <li><p>Maintenance Time Adherence (ATTM):</p>
 <p>Mede a extrapolação do tempo de execução. Sendo <span class="math inline">\(S = \sum_{j=1}^{k} S_j\)</span> o tempo previsto para as pautas:</p>
@@ -1357,11 +1278,11 @@ MPS = \sum_{j=1}^{m} TTM_j
 </ul>
 </section>
 </section>
-<section id="availability-refinements" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="availability-refinements"><span class="header-section-number">3.4</span> Availability Refinements</h2>
+<section id="availability-refinements" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="availability-refinements"><span class="header-section-number">4.4</span> Availability Refinements</h2>
 <p>Embora a Disponibilidade Física forneça uma visão macro, a gestão de excelência operacional exige indicadores que isolem o desempenho inerente do equipamento e a sua prontidão durante os períodos de exigência operacional.</p>
-<section id="inherent-availability-di" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="inherent-availability-di"><span class="header-section-number">3.4.1</span> Inherent Availability (DI)</h3>
+<section id="inherent-availability-di" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="inherent-availability-di"><span class="header-section-number">4.4.1</span> Inherent Availability (DI)</h3>
 <p>A Disponibilidade Intrínseca (DI) mede a velocidade da manutenção em retornar um equipamento para a operação após a ocorrência de uma falha ou intervenção não programada. Ela representa a performance do equipamento e do processo, focando no tempo que a equipe demanda para reparar e disponibilizar a máquina para o sistema produtivo.</p>
 <p>Neste indicador, estão contidas todas as ações envolvidas no reparo, sejam elas de execução, planejamento (PCM), suprimentos ou logística. A DI avalia o desempenho do ativo através da inter-relação entre confiabilidade (MTBF) e mantenabilidade (MTTR).</p>
 <p>A fórmula de cálculo varia de acordo com a base de dados utilizada:</p>
@@ -1382,8 +1303,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p><strong>Lógica de Acúmulo:</strong> Se calculada via MTBF/MTTR, utiliza-se a Janela Móvel Mensal. Se calculada via HT/HMC, utiliza-se o Acúmulo e Recálculo das parcelas no período.</p></li>
 <li><p><strong>Fonte de Dados:</strong> Exige interface entre sistemas de gerenciamento operacional (Horas Trabalhadas - HT) e de manutenção (Horas de Manutenção Corretiva - HMC).</p></li>
 </ul>
-<section id="operational-availability-do" class="level5" data-number="3.4.1.0.1">
-<h5 data-number="3.4.1.0.1" class="anchored" data-anchor-id="operational-availability-do"><span class="header-section-number">3.4.1.0.1</span> Operational Availability (DO)</h5>
+<section id="operational-availability-do" class="level5" data-number="4.4.1.0.1">
+<h5 data-number="4.4.1.0.1" class="anchored" data-anchor-id="operational-availability-do"><span class="header-section-number">4.4.1.0.1</span> Operational Availability (DO)</h5>
 <p>A Disponibilidade Operacional (DO) avalia o quanto do tempo em que o equipamento foi efetivamente exigido pela operação ele estava apto a cumprir sua função primária. Este indicador é aplicado em situações onde o ativo não opera em regime 24x7 por restrições operacionais, de mercado ou legais.</p>
 <p>A fórmula de cálculo é definida por:</p>
 <p><span class="math display">\[
@@ -1407,11 +1328,11 @@ MPS = \sum_{j=1}^{m} TTM_j
 </section>
 </section>
 </section>
-<section id="maintenance-management-indicators-pcm" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Maintenance Management Indicators (PCM)</h1>
+<section id="maintenance-management-indicators-pcm" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Maintenance Management Indicators (PCM)</h1>
 <p>Além das métricas de engenharia e impacto, o Planejamento e Controle da Manutenção (PCM) monitora indicadores de processo e custos para garantir a sustentabilidade da operação. Abaixo, detalham-se os principais indicadores de gestão utilizados.</p>
-<section id="systematic-maintenance-adherence-ams-1" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="systematic-maintenance-adherence-ams-1"><span class="header-section-number">4.1</span> Systematic Maintenance Adherence (AMS)</h2>
+<section id="systematic-maintenance-adherence-ams-1" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="systematic-maintenance-adherence-ams-1"><span class="header-section-number">5.1</span> Systematic Maintenance Adherence (AMS)</h2>
 <p>A Aderência à Manutenção Sistemática (AMS) tem por objetivo medir a aderência ao cumprimento das ordens geradas pelo sistema oriundas dos planos de manutenção. Este indicador reflete a disciplina da equipe em executar as preventivas dentro das janelas de oportunidade ideais.</p>
 <p>É a relação entre as manutenções sistemáticas (considerando a tolerância técnica) que foram previstas e executadas como aderentes no período, em relação ao total de manutenções sistemáticas previstas para o mesmo período.</p>
 <p>A fórmula de cálculo é dada por:</p>
@@ -1423,8 +1344,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p><strong>Importância:</strong> O controle da tolerância é vital, pois uma sistemática executada muito cedo desperdiça vida útil de componentes, enquanto a execução tardia expõe o ativo a riscos de falha não monitorada.</p></li>
 </ul>
 </section>
-<section id="conditional-maintenance-adherence-amc-1" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="conditional-maintenance-adherence-amc-1"><span class="header-section-number">4.2</span> Conditional Maintenance Adherence (AMC)</h2>
+<section id="conditional-maintenance-adherence-amc-1" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="conditional-maintenance-adherence-amc-1"><span class="header-section-number">5.2</span> Conditional Maintenance Adherence (AMC)</h2>
 <p>A Aderência à Manutenção Condicional (AMC) tem como objetivo medir se as manutenções baseadas no estado atual do equipamento estão ocorrendo de acordo com a data de necessidade identificada. Diferente da manutenção sistemática, o foco aqui é garantir que os alertas monitorados (preditivos) gerem intervenções no momento exato, otimizando o desempenho antes que ocorra a falha funcional.</p>
 <p>Este indicador estabelece a relação entre as manutenções condicionais que foram aderentes dentro do prazo de tolerância e o total de manutenções condicionais previstas para o período.</p>
 <p>A fórmula de cálculo é definida por:</p>
@@ -1439,8 +1360,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 </ul>
 <p>A aplicação rigorosa desta métrica permite que a Engenharia de Confiabilidade avalie a eficácia do monitoramento de condição. Uma baixa aderência na AMC indica que, embora os alertas de degradação estejam sendo gerados, a operação ou o PCM não estão conseguindo liberar o ativo no tempo ótimo, o que aumenta o risco de falhas catastróficas e eleva o custo total de manutenção.</p>
 </section>
-<section id="maintenance-plan-adherence-apm-1" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="maintenance-plan-adherence-apm-1"><span class="header-section-number">4.3</span> Maintenance Plan Adherence (APM)</h2>
+<section id="maintenance-plan-adherence-apm-1" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="maintenance-plan-adherence-apm-1"><span class="header-section-number">5.3</span> Maintenance Plan Adherence (APM)</h2>
 <p>O indicador APM é uma composição das parcelas dos indicadores AMS (Aderência à Manutenção Sistemática) e AMC (Aderência à Manutenção Condicional). Seu objetivo é medir a aderência dos itens que compõem o plano de médio prazo da manutenção, bem como a resposta às intervenções condicionais identificadas.</p>
 <p>A fórmula de cálculo é definida pela soma das execuções aderentes dividida pelo total de eventos previstos no período:</p>
 <p><span class="math display">\[
@@ -1460,8 +1381,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 </ul>
 <p>O acompanhamento do APM é vital para a coordenação entre a Engenharia de Manutenção e o Planejamento, pois uma queda neste índice sugere falhas na integração do plano de médio prazo ou uma sobrecarga de intervenções emergenciais que impedem o cumprimento do cronograma mestre.</p>
 </section>
-<section id="schedule-compliance-apr-1" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="schedule-compliance-apr-1"><span class="header-section-number">4.4</span> Schedule Compliance (APR)</h2>
+<section id="schedule-compliance-apr-1" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="schedule-compliance-apr-1"><span class="header-section-number">5.4</span> Schedule Compliance (APR)</h2>
 <p>A Aderência à Programação (APR) mede o cumprimento da programação de serviços de manutenção. É o percentual de aderência do que foi programado para cada operação nas Ordens de Manutenção na programação semanal em relação ao que foi efetivamente realizado. Altos níveis indicam gestão eficaz de tempo e recursos.</p>
 <p>A fórmula de cálculo é:</p>
 <p><span class="math display">\[
@@ -1478,8 +1399,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p><strong>Quantidade Total de OMs Programadas (Denominador):</strong> Corresponde a todas as operações incluídas na programação da semana analisada (segunda a domingo). Assim como no numerador, considera-se apenas o Baseline da programação semanal, descartando ordens emergenciais ou adicionais (status EXPROG).</p></li>
 </ol>
 </section>
-<section id="scheduled-labor-utilization-index-imop-1" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="scheduled-labor-utilization-index-imop-1"><span class="header-section-number">4.5</span> Scheduled Labor Utilization Index (IMOP)</h2>
+<section id="scheduled-labor-utilization-index-imop-1" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="scheduled-labor-utilization-index-imop-1"><span class="header-section-number">5.5</span> Scheduled Labor Utilization Index (IMOP)</h2>
 <p>Medir o nível de utilização programada de Homem Hora da manutenção. É a relação entre o somatório do trabalho real nas ordens programadas e o Hh total disponível.</p>
 <p>A fórmula de cálculo é definida por:</p>
 <p><span class="math display">\[
@@ -1498,8 +1419,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 </ul></li>
 </ol>
 </section>
-<section id="labor-appropriation-index-iamo-1" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="labor-appropriation-index-iamo-1"><span class="header-section-number">4.6</span> Labor Appropriation Index (IAMO)</h2>
+<section id="labor-appropriation-index-iamo-1" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="labor-appropriation-index-iamo-1"><span class="header-section-number">5.6</span> Labor Appropriation Index (IAMO)</h2>
 <p>O objetivo deste indicador é medir se a mão de obra utilizada na execução da manutenção está sendo apropriada corretamente no sistema. Ele representa a relação percentual entre a quantidade de horas-homem (<span class="math inline">\(Hh\)</span>) efetivamente apropriadas nas Ordens de Manutenção (OM) e o total de <span class="math inline">\(Hh\)</span> disponível no centro de trabalho analisado.</p>
 <p>A fórmula de cálculo é definida por:</p>
 <p><span class="math display">\[
@@ -1520,8 +1441,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 </ul></li>
 </ol>
 </section>
-<section id="systematic-to-total-maintenance-ratio-rms-1" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="systematic-to-total-maintenance-ratio-rms-1"><span class="header-section-number">4.7</span> Systematic to Total Maintenance Ratio (RMS)</h2>
+<section id="systematic-to-total-maintenance-ratio-rms-1" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="systematic-to-total-maintenance-ratio-rms-1"><span class="header-section-number">5.7</span> Systematic to Total Maintenance Ratio (RMS)</h2>
 <p>A Relação Manutenção Sistemática e Total de Manutenção (RMS) tem como objetivo avaliar o esforço da manutenção aplicado especificamente às intervenções de natureza sistemática. Este indicador demonstra o esforço total sistemático, em termos percentuais de horas-homem (<span class="math inline">\(Hh\)</span>), utilizado na manutenção em relação ao volume total de horas apropriadas.</p>
 <p>A fórmula de cálculo é definida por:</p>
 <p><span class="math display">\[
@@ -1542,8 +1463,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 </ul>
 <p>A análise do RMS permite identificar se a estratégia de manutenção está focada na prevenção sistemática ou se a mão de obra está sendo consumida por intervenções não planejadas. Um RMS equilibrado e alinhado ao plano mestre de manutenção é um indicativo de saúde operacional e previsibilidade de custos.</p>
 </section>
-<section id="corrective-maintenance-ratio-rmc-1" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="corrective-maintenance-ratio-rmc-1"><span class="header-section-number">4.8</span> Corrective Maintenance Ratio (RMC)</h2>
+<section id="corrective-maintenance-ratio-rmc-1" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="corrective-maintenance-ratio-rmc-1"><span class="header-section-number">5.8</span> Corrective Maintenance Ratio (RMC)</h2>
 <p>A Relação de Manutenção Corretiva (RMC) tem por objetivo comparar o volume de esforço (em horas) dedicado à manutenção corretiva em relação ao total de atividades de manutenção realizadas. Este indicador é um termômetro da estratégia da organização: uma alta proporção de RMC indica uma abordagem predominantemente reativa (“quebra-repara”), enquanto uma proporção menor sugere uma gestão mais preventiva e planejada.</p>
 <p>A fórmula de cálculo é expressa por:</p>
 <p><span class="math display">\[
@@ -1554,8 +1475,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p><strong>Horas Totais de Manutenção (HM):</strong> Somatório de todas as horas aplicadas em atividades técnicas, incluindo preventivas, preditivas e corretivas.</p></li>
 </ul>
 </section>
-<section id="corrective-maintenance-index-imc-1" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="corrective-maintenance-index-imc-1"><span class="header-section-number">4.9</span> Corrective Maintenance Index (IMC)</h2>
+<section id="corrective-maintenance-index-imc-1" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="corrective-maintenance-index-imc-1"><span class="header-section-number">5.9</span> Corrective Maintenance Index (IMC)</h2>
 <p>Enquanto a RMC foca no volume de horas, o Índice de Manutenção Corretiva (IMC) mede a frequência das intervenções corretivas em relação ao total de ordens de serviço executadas. Um valor elevado de IMC é um forte indicativo de baixa confiabilidade intrínseca dos equipamentos ou da necessidade de melhorias nos planos de manutenção preventiva.</p>
 <p>A fórmula de cálculo é definida por:</p>
 <p><span class="math display">\[
@@ -1566,8 +1487,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p><strong>Número Total de Intervenções (NTI):</strong> Somatório de todas as intervenções (Corretivas + Sistemáticas/Preventivas) finalizadas no mesmo período.</p></li>
 </ul>
 </section>
-<section id="backlog-1" class="level2" data-number="4.10">
-<h2 data-number="4.10" class="anchored" data-anchor-id="backlog-1"><span class="header-section-number">4.10</span> Backlog</h2>
+<section id="backlog-1" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="backlog-1"><span class="header-section-number">5.10</span> Backlog</h2>
 <p>O Backlog representa o tempo que a equipe de manutenção deve trabalhar para concluir todos os serviços pendentes, assumindo que não cheguem novos pedidos durante a execução destes serviços. Ele mede a “carteira de serviços” em dias necessários para zerar as demandas abertas no sistema.</p>
 <p>A fórmula de cálculo é dada por:</p>
 <p>$$\mathrm{Backlog} = \frac{(\text{Qtde Total de Horas Planejadas} - \text{Qtde Total de Horas Executadas})}{\text{Qtde Total de Horas Disponível}}$$</p>
@@ -1587,8 +1508,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p><strong>Denominador (Capacidade):</strong> Corresponde à quantidade total de horas disponíveis da equipe (Hh Disponível) para o período de referência.</p></li>
 </ul>
 </section>
-<section id="maintenance-cost-mc" class="level2" data-number="4.11">
-<h2 data-number="4.11" class="anchored" data-anchor-id="maintenance-cost-mc"><span class="header-section-number">4.11</span> Maintenance Cost (MC)</h2>
+<section id="maintenance-cost-mc" class="level2" data-number="5.11">
+<h2 data-number="5.11" class="anchored" data-anchor-id="maintenance-cost-mc"><span class="header-section-number">5.11</span> Maintenance Cost (MC)</h2>
 <p>O Custo de Manutenção (CM) é o indicador que avalia a saúde financeira da gestão de ativos, englobando todas as despesas associadas às atividades de manutenção. O controle e a otimização desses custos são essenciais para garantir que a operação seja financeiramente sustentável e competitiva.</p>
 <p>A composição deste indicador inclui:</p>
 <ul>
@@ -1597,8 +1518,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 </ul>
 <p>O Índice de Confiabilidade atua de forma complementar ao custo, medindo a capacidade do sistema operar sem falhas ao longo do tempo, o que impacta diretamente na redução do custo total de manutenção no longo prazo.</p>
 </section>
-<section id="failure-class-appropriation-acf-1" class="level2" data-number="4.12">
-<h2 data-number="4.12" class="anchored" data-anchor-id="failure-class-appropriation-acf-1"><span class="header-section-number">4.12</span> Failure Class Appropriation (ACF)</h2>
+<section id="failure-class-appropriation-acf-1" class="level2" data-number="5.12">
+<h2 data-number="5.12" class="anchored" data-anchor-id="failure-class-appropriation-acf-1"><span class="header-section-number">5.12</span> Failure Class Appropriation (ACF)</h2>
 <p>A Apropriação de Classe de Falhas (ACF) tem por objetivo medir o grau de utilização do sistema informatizado de manutenção (SAP PM) quanto à correta classificação das avarias em Ordens de Manutenção (OM) corretivas. Este indicador é vital para a Engenharia de Confiabilidade, pois garante que os dados necessários para análises de causa raiz (como o Diagrama de Ishikawa ou Árvore de Falhas) estejam disponíveis e completos.</p>
 <p>O ACF representa o percentual de ordens encerradas dos tipos corretivo e emergencial que tiveram a apropriação da Classe de Falha em todos os seus níveis (até o nível de solução) em relação ao total de ordens do mesmo tipo encerradas no período.</p>
 <p>A fórmula de cálculo é definida por:</p>
@@ -1625,11 +1546,11 @@ MPS = \sum_{j=1}^{m} TTM_j
 <p>O preenchimento incompleto da classe de falha (ex: registrar o sintoma, mas omitir a causa ou a solução) inviabiliza a extração de relatórios de Pareto e o cálculo de tendências de modos de falha. Assim como os demais indicadores de gestão do PCM, o fechamento mensal do ACF ocorre às 00:05h do 2º dia útil do mês subsequente, garantindo a consolidação das apropriações realizadas no fechamento do mês anterior.</p>
 </section>
 </section>
-<section id="workflow-and-portfolio-management" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Workflow and Portfolio Management</h1>
+<section id="workflow-and-portfolio-management" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Workflow and Portfolio Management</h1>
 <p>A eficiência da manutenção não é medida apenas pela execução em campo, mas pela agilidade no tratamento administrativo das demandas. O monitoramento da idade média das notas e ordens permite à gestão técnica identificar se a rotina de tratamento está adequada e se as demandas estão fluindo corretamente pelo ciclo de planejamento.</p>
-<section id="average-maintenance-order-times-by-status-tmoms-1" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="average-maintenance-order-times-by-status-tmoms-1"><span class="header-section-number">5.1</span> Average Maintenance Order Times by Status (TMOMS)</h2>
+<section id="average-maintenance-order-times-by-status-tmoms-1" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="average-maintenance-order-times-by-status-tmoms-1"><span class="header-section-number">6.1</span> Average Maintenance Order Times by Status (TMOMS)</h2>
 <p>O TMOMS tem por objetivo avaliar o tempo médio de permanência das Ordens de Manutenção (OM) estratificado por cada status (ou etapa) dentro do sistema informatizado de manutenção (SAP PM). Este indicador fornece visibilidade sobre o lead time interno de cada fase do processo, permitindo que a gestão atue pontualmente onde o processo está retido.</p>
 <p>A fórmula de cálculo é baseada na soma dos tempos de todas as ordens em um status específico, dividida pela quantidade total de ordens que passaram por esse mesmo status no período:</p>
 <p>$$\text{TMOMS} = \frac{\sum (\text{Tempo da OM no status})}{\sum (\text{Quantidade de OMs no status})}$$</p>
@@ -1647,8 +1568,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <p>O TMOMS é classificado majoritariamente na dimensão de Produtividade, sob a regulação da área de Excelência Operacional - Técnico. Diferente de indicadores de “fotografia” (como o Backlog), o TMOMS utiliza a fórmula de acúmulo por Recálculo. Isso significa que, ao analisar períodos maiores (trimestres ou anos), o sistema reavalia as médias de tempos de permanência para garantir que a tendência reflita a realidade histórica das operações e não apenas uma soma linear de dias.</p>
 <p>A análise conjunta do TMOMS com o Backlog permite diferenciar se um volume alto de trabalho pendente é causado por excesso de demanda (Backlog alto com TMOMS estável) ou por ineficiência de fluxo (Backlog alto acompanhado de aumento no tempo de Planejamento ou Aprovisionamento).</p>
 </section>
-<section id="average-age-of-untreated-notifications-imnc-1" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="average-age-of-untreated-notifications-imnc-1"><span class="header-section-number">5.2</span> Average Age of Untreated Notifications (IMNC)</h2>
+<section id="average-age-of-untreated-notifications-imnc-1" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="average-age-of-untreated-notifications-imnc-1"><span class="header-section-number">6.2</span> Average Age of Untreated Notifications (IMNC)</h2>
 <p>O indicador IMNC visa medir o tempo médio em que as Notas de Manutenção permanecem na “caixa de entrada” do PCM sem que tenham recebido o tratamento inicial (vinculação a uma Ordem de Manutenção). Este indicador é essencial para garantir que as solicitações de manutenção não fiquem paradas, perdendo a janela de oportunidade de planejamento.</p>
 <p>A fórmula de cálculo é definida por:</p>
 <p>$$IMNC = \frac{\text{Qtde Total do Tempo das Notas sem tratamento}}{\text{Qtde Total das Notas sem tratamento}}$$</p>
@@ -1666,8 +1587,8 @@ MPS = \sum_{j=1}^{m} TTM_j
 <li><p><strong>Fechamento:</strong> O fechamento oficial ocorre às 00:05h do 2º dia útil do mês subsequente.</p></li>
 </ul>
 </section>
-<section id="average-age-of-open-orders-imos-1" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="average-age-of-open-orders-imos-1"><span class="header-section-number">5.3</span> Average Age of Open Orders (IMOS)</h2>
+<section id="average-age-of-open-orders-imos-1" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="average-age-of-open-orders-imos-1"><span class="header-section-number">6.3</span> Average Age of Open Orders (IMOS)</h2>
 <p>O IMOS mede o tempo médio em que uma Ordem de Manutenção (OM) permanece aberta no sistema, desde sua criação até seu encerramento técnico. Diferente do IMNC, que foca na triagem, o IMOS foca no fluxo de planejamento, programação e execução.</p>
 <p>A fórmula de cálculo é definida por:</p>
 <p>$$IMOS = \frac{\text{Qtde Total do Tempo das OMs abertas}}{\text{Qtde Total de OMs abertas}}$$</p>
