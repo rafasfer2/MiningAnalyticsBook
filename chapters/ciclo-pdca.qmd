@@ -45,8 +45,8 @@ De acordo com Mendes (2007), o ciclo PDCA é um método estruturado para a melho
 A @tbl-atividades-pdca-detalhada consolida a estrutura metodológica e o cronograma do projeto, servindo como a principal ferramenta de controle e auditoria das etapas. A coluna Status é destinada ao acompanhamento qualitativo da evolução das tarefas, podendo ser preenchida com termos como "OK", "Não Consta", "Atrasado", ou outras observações pertinentes, permitindo uma gestão visual rápida sobre a saúde de cada atividade no ciclo PDCA.
 
 ```{r}
-#| label: tbl-atividades-pdca-detalhada
-#| tbl-cap: "Representação exaustiva das fases e atividades do PDCA com controle de cronograma."
+#| label: tbl-pdca-google-highlight
+#| tbl-cap: "Cronograma PDCA com colunas de Fases e Etapas coloridas (Google Style)."
 #| echo: false
 #| message: false
 #| warning: false
@@ -55,8 +55,8 @@ library(knitr)
 library(kableExtra)
 library(dplyr)
 
-# Construção do dataset completo sem redução de texto
-df_pdca_full <- data.frame(
+# 1. Dataset completo (8 colunas)
+df_pdca_google <- data.frame(
     Fases = c(rep("P", 13), rep("D", 3), rep("C", 2), rep("A", 3)),
     Etapas = c(
         rep("Identificação do problema", 3),
@@ -70,34 +70,47 @@ df_pdca_full <- data.frame(
     Atividades = c(
         "Identificação das prioridades", "Estabelecimento da meta do projeto", "Quantificação dos ganhos do projeto",
         "Estratificação do problema", "Estudo das variações", "Definição das metas específicas",
-        "Levantamento das causas potenciais", "Priorização das causas potenciais", "Quantificação das causas priorizadas",
+        "Levantamento das causas potencias", "Priorização das causas potenciais", "Quantificação das causas priorizadas",
         "Levantamento das possíveis soluções", "Priorização das possíveis soluções", "Realização de teste piloto (se necessário)", "Estabelecimento do plano de ação",
-        "Comunicação do plano de ação", "Realização de treinamentos dos envolvidos", "Implantação e acompanhamento do plano",
+        "Comunicação do plano de ação", "Realização de treinamentos dos envolvidos", "Implantação e acompanhamento do plano de ação",
         "Verificação do alcance da meta geral e das metas específicas", "Quantificação dos ganhos do projeto",
         "Padronização das novas atividades", "Implantação de plano para monitoramento do processo", "Implantação de plano de ações corretivas"
     ),
-    P_Inicio = rep("", 21), P_Fim = rep("", 21), # Colunas vazias para preenchimento manual ou via banco
-    R_Inicio = rep("", 21), R_Fim = rep("", 21),
+    P_In = rep("", 21), P_Fim = rep("", 21),
+    R_In = rep("", 21), R_Fim = rep("", 21),
     Status = rep("", 21)
 )
 
-df_pdca_full %>%
+# 2. Vetor de Cores Estilo Google (Alto Contraste)
+cores_google <- case_when(
+    df_pdca_google$Fases == "P" & df_pdca_google$Etapas == "Identificação do problema" ~ "#174EA6",
+    df_pdca_google$Fases == "P" & df_pdca_google$Etapas == "Análise do Fenômeno" ~ "#4285F4",
+    df_pdca_google$Fases == "P" & df_pdca_google$Etapas == "Análise do Processo" ~ "#1A73E8",
+    df_pdca_google$Fases == "P" & df_pdca_google$Etapas == "Estabelecimento do Plano de Ação" ~ "#8AB4F8",
+    df_pdca_google$Fases == "D" ~ "#FBBC05",
+    df_pdca_google$Fases == "C" ~ "#EA4335",
+    df_pdca_google$Fases == "A" ~ "#34A853",
+    TRUE ~ "white"
+)
+
+# 3. Cor do texto para contraste dinâmico
+texto_google <- ifelse(cores_google %in% c("#FBBC05", "#8AB4F8"), "black", "white")
+
+# 4. Renderização da Tabela com destaque em ambas as colunas
+df_pdca_google %>%
     kable(
         col.names = c("Fases", "Etapas", "Atividades", "Início", "Fim", "Início", "Fim", "Status"),
         align = "cllcccc",
         booktabs = TRUE
     ) %>%
-    kable_styling(
-        bootstrap_options = c("striped", "hover", "condensed"),
-        full_width = FALSE,
-        font_size = 13
-    ) %>%
-    # PASSO 1: Formatar as colunas PRIMEIRO
-    column_spec(1, bold = TRUE, background = "#f2f2f2", width = "1.5cm") %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, font_size = 13) %>%
+    # Coluna 1: Fases
+    column_spec(1, bold = TRUE, color = texto_google, background = cores_google, width = "1.5cm") %>%
+    # Coluna 2: Etapas (Pintada para destacar o Planejamento)
+    column_spec(2, bold = TRUE, color = texto_google, background = cores_google, width = "4.5cm") %>%
+    # Coluna 8: Status
     column_spec(8, width = "3cm", background = "#fafafa") %>%
-    # PASSO 2: Adicionar cabeçalhos agrupados
     add_header_above(c(" " = 3, "Planejado" = 2, "Realizado" = 2, " " = 1)) %>%
-    # PASSO 3: Realizar a mesclagem de linhas por ÚLTIMO
     collapse_rows(columns = 1:2, valign = "middle")
 ```
 
