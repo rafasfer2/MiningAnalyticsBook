@@ -1,0 +1,579 @@
+/* Títulos com Paleta Google e Estilo Técnico */
+.title-p1 { color: #174EA6 !important; border-left: 5px solid #174EA6; padding-left: 10px; }
+.title-p2 { color: #4285F4 !important; border-left: 5px solid #4285F4; padding-left: 10px; }
+.title-p3 { color: #1A73E8 !important; border-left: 5px solid #1A73E8; padding-left: 10px; }
+.title-p4 { color: #8AB4F8 !important; border-left: 5px solid #8AB4F8; padding-left: 10px; }
+.title-d  { color: #FBBC05 !important; border-left: 5px solid #FBBC05; padding-left: 10px; }
+.title-c  { color: #EA4335 !important; border-left: 5px solid #EA4335; padding-left: 10px; }
+.title-a  { color: #34A853 !important; border-left: 5px solid #34A853; padding-left: 10px; }
+
+/* Estilo para cabeçalhos complexos do kableExtra */
+thead tr:first-child th {
+  background-color: var(--color-teal-dark) !important;
+  color: white !important;
+  text-align: center !important;
+  border-bottom: 2px solid var(--color-gold) !important;
+}
+
+thead tr:last-child th {
+  background-color: var(--color-teal) !important;
+  color: white !important;
+  font-size: 0.9rem !important;
+}
+
+/* Garante visibilidade das bordas em tabelas densas */
+.table-condensed th, .table-condensed td {
+  border: 1px solid #e9ecef !important;
+}
+/* Ajuste para tabelas com células mescladas (kableExtra) */
+table.table td {
+  vertical-align: middle !important;
+  border: 1px solid var(--color-gray-soft) !important;
+}
+
+/* Destaque para a primeira coluna (Fases) */
+table.table td:first-child {
+  font-weight: bold;
+  background-color: var(--color-cyan-light);
+  color: var(--color-teal-dark);
+}
+/* ==============================================================================
+   ESTRUTURA FINAL DO LAYOUT (V10.8 - TOC FIXED & NÍVEL 3 FORÇADO)
+   ============================================================================== */
+
+/* --- 1. VARIÁVEIS E CORES GLOBAIS --- */
+:root {
+  /* 1.1. Paleta Customizada (Completa - BrBG) */
+  --color-brown-dark:   #543005;
+  --color-brown-med:    #8c510a;
+  --color-brown:        #bf812d;
+  --color-brown-light:  #dfc27d;
+  --color-cream:        #f6e8c3;
+  --color-cyan-light:   #c7eae5;
+  --color-cyan-mid:     #80cdc1;
+  --color-teal:         #35978f;
+  --color-teal-dark:    #01665e;
+  --color-teal-deep:    #003c30;
+
+  /* 1.2. ESCALAS DE DESTAQUE E SUPORTE */
+  --color-gold:         #d4af37;
+  --color-gold-base:    #ffd700;
+  --color-gold-darker:  #b39700;
+  --color-gray-soft:    #CCCCCC;
+  --color-hover-gray:   #e3e3e3;
+  --color-gray-med:     #aaaaaa;
+
+  /* 1.3. Layout Dimensions */
+  --sidebar-width:      320px;
+  --toc-width:          320px;
+  --header-height:      60px;
+
+  --content-gap:        -11rem;
+  --text-padding-left:  0.75rem;
+}
+
+/* === COMPONENTES ISOLADOS === */
+.exemplo-book {
+  background-color: #e6f9e6;
+  border-left: 4px solid #4CAF50;
+  padding: 1em;
+  margin: 1em 0;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* =========================================
+   2. RESET GERAL E TIPOGRAFIA BASE
+   ========================================= */
+body, html {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden; /* Nota: Isso impede o sticky de funcionar, por isso usaremos FIXED no TOC */
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+  font-size: 12pt;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headers base (cores e famílias serão ajustadas abaixo por nível) */
+h1, h2, h3 {
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+}
+
+/* ============================
+   Headers: tamanhos e estilos
+   ============================ */
+/* h1: maior */
+h1 {
+  font-size: 2rem !important;
+  color: var(--color-brown-dark) !important;
+  font-weight: 700 !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.75rem !important;
+  padding-bottom: 0.35rem !important; /* espaço para o traço */
+  border-bottom: 1pt solid var(--color-brown-dark) !important; /* traço 1pt abaixo */
+}
+/* cor e traço do número do cabeçalho (se presente) */
+h1 .header-section-number {
+  color: var(--color-brown-dark) !important;
+  display: inline-block !important;
+  margin-right: 0.5rem !important;
+}
+
+/* h2: secundário */
+h2 {
+  font-size: 1.5rem !important;
+  color: var(--color-brown-med) !important;
+  font-weight: 600 !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.6rem !important;
+  padding-bottom: 0.3rem !important;
+  border-bottom: 0.75pt solid var(--color-brown-med) !important; /* traço 3/4pt abaixo */
+}
+h2 .header-section-number {
+  color: var(--color-brown-med) !important;
+  display: inline-block !important;
+  margin-right: 0.45rem !important;
+}
+
+/* h3: terciário */
+h3 {
+  font-size: 1.25rem !important;
+  color: var(--color-brown) !important;
+  font-weight: 600 !important;
+  margin-top: 0.4rem !important;
+  margin-bottom: 0.5rem !important;
+  padding-bottom: 0.2rem !important;
+  border-bottom: 0.5pt solid var(--color-brown) !important; /* traço 1/2pt abaixo */
+}
+h3 .header-section-number {
+  color: var(--color-brown) !important;
+  display: inline-block !important;
+  margin-right: 0.4rem !important;
+}
+
+/* h4: sem numeração */
+h4 {
+  font-size: 1.0rem !important;
+  color: var(--color-teal-dark) !important;
+  font-weight: 600 !important;
+  margin-top: 0.35rem !important;
+  margin-bottom: 0.45rem !important;
+}
+h4 .header-section-number { display: none !important; }
+
+/* h5: mesmo tamanho do corpo do texto */
+h5 {
+  font-size: 12pt !important; /* igual ao body */
+  color: var(--color-teal) !important;
+  font-weight: 600 !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.35rem !important;
+}
+h5 .header-section-number { display: none !important; }
+
+main.content p, main.content blockquote { text-align: justify; }
+
+/* =========================================
+   3. SIDEBAR (ESQUERDA)
+   ========================================= */
+#quarto-sidebar {
+  position: fixed !important;
+  left: 0 !important; top: 0 !important;
+  width: var(--sidebar-width) !important;
+  height: 100vh !important;
+  z-index: 100; padding: 0 !important; margin: 0 !important;
+  background: var(--color-teal-dark) !important;
+}
+
+#quarto-sidebar .sidebar-title {
+  color: white !important;
+  font-weight: 700;
+  padding: 1.2rem 1rem !important;
+  border-bottom: 2px solid var(--color-teal) !important;
+}
+
+#quarto-sidebar .sidebar-item,
+#quarto-sidebar .sidebar-item-container {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#quarto-sidebar .sidebar-item-text {
+  display: flex !important;
+  align-items: center !important;
+  white-space: normal;
+  overflow: hidden;
+  padding: 0.2rem 1rem 0.2rem var(--text-padding-left) !important;
+  margin: 0 !important;
+  color: white !important;
+  font-size: 0.8rem !important;
+  border-left: 4px solid transparent !important;
+}
+
+#quarto-sidebar .chapter-number { color: white !important; }
+
+#quarto-sidebar .sidebar-item-text.active {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: var(--color-gold-base) !important;
+  border-left: 4px solid var(--color-gold-base) !important;
+  font-weight: bold !important;
+}
+
+/* =========================================
+   4. CONTEÚDO PRINCIPAL (LAYOUT)
+   ========================================= */
+#quarto-header {
+  position: fixed !important; top: 0 !important;
+  left: var(--sidebar-width) !important;
+  right: var(--toc-width) !important;
+  height: var(--header-height) !important;
+  background: white !important;
+  z-index: 99 !important;
+}
+
+body.nav-sidebar {
+  padding-left: calc(var(--sidebar-width) + var(--content-gap)) !important;
+  padding-right: calc(var(--toc-width) + var(--content-gap)) !important;
+  padding-top: var(--header-height) !important;
+  margin: 0 !important;
+}
+
+/* Adicionado h3 e h4 para corrigir o desalinhamento de A.1.1 */
+main.content h1, main.content h2, main.content h3, main.content h4,
+main.content p, main.content ul, main.content ol, main.content blockquote {
+  padding-left: var(--text-padding-left) !important;
+  padding-right: var(--text-padding-left) !important;
+  margin: 0 0 1rem 0 !important;
+}
+
+/* --- Ajustes detalhados para listas --- */
+main.content ul, main.content ol {
+  padding-left: 0 !important;
+  list-style-position: outside !important;
+}
+main.content ul { margin-left: 2rem !important; }
+main.content ol {
+  margin-left: 1.6rem !important;
+  padding-left: 1.6rem !important;
+}
+main.content ul li, main.content ol li {
+  margin-bottom: 0.6rem !important;
+}
+
+/* =========================================
+   5. TABLE OF CONTENTS (DIREITA) - CORREÇÃO DE LINHA DUPLICADA
+   ========================================= */
+
+/* 5.1. Container e Fixação */
+#quarto-margin-sidebar {
+  position: fixed !important;
+  top: var(--header-height) !important;
+  right: 0 !important;
+  width: var(--toc-width) !important;
+  height: calc(100vh - var(--header-height)) !important;
+  overflow-y: auto !important;
+  z-index: 90 !important;
+  padding-left: 1rem;
+  background-color: white;
+}
+
+#quarto-toc-target {
+  display: block !important;
+  padding-top: 1.5rem;
+}
+
+/* Título do Índice */
+#quarto-toc-target h2 {
+  font-size: 0.85rem;
+  font-weight: normal;
+  text-transform: none;
+  color: #495057;
+  border-bottom: none;
+  margin-bottom: 1rem;
+}
+
+/* 5.2. Estrutura da Trilha (Linha Única) */
+/* Aplicamos a borda apenas no UL raiz */
+nav[role="doc-toc"] > ul {
+  list-style: none;
+  border-left: 1px solid #dee2e6 !important; /* Linha cinza de fundo */
+  padding-left: 0 !important;
+  margin-left: 0.5rem !important;
+}
+
+/* REMOÇÃO DA LINHA DUPLICADA:
+   Desativa bordas em todos os níveis internos e containers de itens */
+nav[role="doc-toc"] ul ul,
+nav[role="doc-toc"] ul ul ul,
+nav[role="doc-toc"] li {
+  border-left: none !important;
+  margin-bottom: 0 !important;
+}
+
+/* Garante que o nível 3 apareça sem criar novas linhas */
+nav[role="doc-toc"] ul > li > ul > li > ul {
+  display: block !important;
+  visibility: visible !important;
+  height: auto !important;
+}
+
+/* 5.3. Links e Identação */
+nav[role="doc-toc"] a.nav-link {
+  display: block;
+  font-size: 0.8rem !important;
+  line-height: 1.2 !important;
+  padding: 0.25rem 0 0.25rem 1rem !important;
+  color: var(--color-brown-med) !important;
+  text-decoration: none;
+  margin-left: -1px; /* Alinha a borda ativa sobre a cinza */
+  border-left: 2px solid transparent !important;
+}
+
+/* Recuo do texto sem mover a linha */
+nav[role="doc-toc"] ul ul a.nav-link { padding-left: 1.8rem !important; }
+nav[role="doc-toc"] ul ul ul a.nav-link { padding-left: 2.8rem !important; }
+
+/* 5.4. Item Ativo (Destaque na Trilha) */
+nav[role="doc-toc"] a.nav-link.active {
+  color: #637238 !important; /* Cor oliva conforme imagem */
+  font-weight: 700 !important;
+  border-left: 2px solid #637238 !important; /* Barra de destaque */
+}
+
+/* =========================================
+   6. ELEMENTOS ESPECÍFICOS (FIGURES & CITATIONS)
+   ========================================= */
+.quarto-float-caption,
+.quarto-figure .quarto-float-caption,
+.quarto-figure .quarto-float-caption-bottom {
+  margin-left: var(--text-padding-left) !important;
+  padding-left: 0 !important;
+  text-align: left !important;
+  max-width: calc(100% - var(--text-padding-left)) !important;
+}
+
+.citation-superscript,
+a.citation sup.citation-superscript,
+span.citation sup.citation-superscript {
+  font-size: 0.85em;
+  line-height: 1;
+  vertical-align: super;
+}
+
+/* =========================================
+   7. BLOCOS DE CÓDIGO E SAÍDA (R)
+   ========================================= */
+.cell pre.sourceCode {
+  background-color: #fdfdfd !important;
+  border: 1px solid var(--color-gray-soft) !important;
+  border-bottom: none !important;
+  border-radius: 4px 4px 0 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.cell-output-stdout, .cell-output-display {
+  background-color: #f4f4f4 !important;
+  border: 1px solid var(--color-gray-soft) !important;
+  border-top: 1px solid var(--color-hover-gray) !important;
+  border-left: 4px solid var(--color-teal) !important;
+  border-radius: 0 0 4px 4px !important;
+  padding: 0.85rem 1rem !important;
+  margin-top: 0 !important;
+  font-family: 'Fira Code', 'Courier New', monospace !important;
+  font-size: 0.85rem !important;
+}
+
+.cell-output-stdout + .cell-output-stdout,
+.cell-output-display + .cell-output-display {
+  margin-top: -1px !important;
+  border-top: none !important;
+  border-radius: 0 !important;
+}
+
+/* =========================================
+   8. RESPONSIVIDADE
+   ========================================= */
+@media (max-width: 900px) {
+  main.content ul, main.content ol {
+    margin-left: 1rem !important;
+    padding-left: 0.5rem !important;
+  }
+  .quarto-float-caption, .quarto-figure .quarto-float-caption {
+    margin-left: var(--text-padding-left) !important;
+    max-width: calc(100% - var(--text-padding-left)) !important;
+  }
+  body.nav-sidebar {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* =========================================
+   9. CUSTOMIZAÇÃO DO BREADCRUMB (CABEÇALHO)
+   ========================================= */
+
+.quarto-breadcrumb,
+.breadcrumb {
+  font-size: 1.0rem !important;
+  font-weight: 400;
+
+  /* Alinhamento com a margem do conteúdo principal */
+  margin-left: var(--content-gap) !important;
+  padding-left: var(--text-padding-left) !important;
+
+  margin-top: 5px !important;
+  margin-bottom: 0 !important;
+}
+
+/* Cores dos links (Teal) */
+.breadcrumb-item,
+.breadcrumb-item a {
+  color: var(--color-teal) !important;
+  text-decoration: none;
+}
+
+/* Separador ">" */
+.breadcrumb-item + .breadcrumb-item::before {
+  color: var(--color-gray-med) !important;
+  padding: 0 0.5rem;
+}
+
+/* Remove recuo do container pai para garantir o alinhamento */
+#quarto-header .navbar-container {
+  padding-left: 0 !important;
+}
+/* =========================================
+   10. CORREÇÃO DE NUMERAÇÃO DUPLICADA (H4)
+   ========================================= */
+
+/* Oculta a numeração automática do Quarto apenas para o nível 4 */
+h4 .header-section-number {
+  display: none !important;
+}
+
+/* Ajuste opcional: remove o recuo que sobraria se a numeração fosse removida */
+h4 {
+  margin-top: 1.5rem !important;
+  color: var(--color-teal-dark) !important; /* Cor para destacar o tópico manual */
+  font-weight: bold !important;
+}
+
+/* =========================================
+   11. SOMBREAMENTO EM LEGENDAS (FIGURAS E TABELAS)
+   ========================================= */
+
+/* Aplica-se a legendas de figuras, tabelas e floats do Quarto */
+.quarto-float-caption,
+figcaption,
+caption {
+  /* sem sombreamento */
+
+  /* Estilização do Texto */
+  color: var(--color-teal-deep) !important;
+  padding: 8px 15px !important;
+  border-radius: 0 !important;
+  /* sem linha inferior */
+  margin-top: 10px !important;
+  margin-bottom: 15px !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+
+  /* Alinhamento e largura */
+  display: block;
+  width: 100% !important;
+  text-align: left !important;
+  font-weight: 500;
+}
+
+/* Ajuste específico para legendas de tabelas para não colarem nas bordas */
+caption {
+  margin-bottom: 0 !important;
+}
+
+/* =========================================
+   12. AJUSTE DE LARGURA DE IMAGENS
+   ========================================= */
+
+/* Controla a largura máxima das imagens para se ajustarem ao conteúdo */
+main.content img,
+.quarto-figure img,
+figure img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Garante que figuras do Quarto também respeitem a largura */
+.quarto-figure,
+figure {
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* =========================================
+   13. ESTILIZAÇÃO DE EXEMPLOS (EXAMPLES)
+   ========================================= */
+
+/* Estiliza os blocos de exemplo numerados automaticamente pelo Quarto */
+div[id^="exm-"] {
+  background: #faf5e8 !important;
+  border-left: 5px solid var(--color-brown-dark) !important;
+  border-radius: 4px !important;
+  padding: 1.2em 1.5em !important;
+  margin: 1.5em 0 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Título do exemplo (h4 dentro do bloco) */
+div[id^="exm-"] > h4 {
+  color: var(--color-brown-dark) !important;
+  font-size: 1.1em !important;
+  font-weight: 600 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.6em !important; /* garante espaçamento/linha em branco abaixo */
+  padding-bottom: 0 !important;
+  border-bottom: none !important; /* remove a linha inferior */
+}
+
+/* Força uma quebra visual logo após o cabeçalho do exemplo */
+div[id^="exm-"] > h4::after {
+  content: "" !important;
+  display: block !important;
+  height: 0.6em !important;
+}
+
+/* Ajuste para títulos gerados pelo Quarto nas caixas de exemplo (theorem-title) */
+div[id^="exm-"] .theorem-title {
+  display: block !important;
+  color: var(--color-brown-dark) !important;
+  font-size: 1.05em !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.6em !important; /* cria a quebra/espaçamento desejado */
+}
+
+div[id^="exm-"] .theorem-title strong {
+  color: inherit !important;
+  font-weight: 600 !important;
+}
+
+/* Parágrafo dentro do exemplo */
+div[id^="exm-"] > p {
+  margin-bottom: 0.8em !important;
+  line-height: 1.6 !important;
+  color: #2c3e50 !important;
+}
+
+/* ==============================================================================
+   14. TABELAS COM SCROLL
+   ============================================================================== */
+
+/* Classe para tabelas com altura máxima e scroll vertical */
+.kable-table {
+  display: block;
+  max-height: 500px;
+  overflow-y: auto;
+}
