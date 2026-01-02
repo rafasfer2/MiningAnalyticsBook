@@ -1,0 +1,1524 @@
+---
+format: html
+---
+
+# Excelência Operacional e Metrologia de Performance {#chap-kpi}
+
+```{r setup, include=FALSE}
+#| message: false
+#| warning: false
+# Este bloco SEMPRE executa para carregar as ferramentas necessárias
+library(tidyverse)
+library(knitr)
+library(lubridate)
+```
+
+
+A mineração contemporânea opera em um cenário de complexidade crescente, onde a volatilidade das commodities e a exaustão de reservas de alto teor exigem uma precisão cirúrgica na gestão de ativos. Nesse contexto, a Excelência Operacional não é apenas um objetivo aspiracional, mas uma disciplina rigorosa fundamentada na capacidade de converter dados brutos em decisões estratégicas em tempo real.
+
+Este capítulo estrutura os indicadores fundamentais que compõem a espinha dorsal do sistema de gestão, organizados por níveis hierárquicos e função dentro do SGI.
+
+## Elementos de Suporte e Categorização de Horas
+
+Os elementos de suporte são os dados diretamente monitorados e coletados durante a produção. No ciclo de processos de transporte, os dados coletados em caminhões “off-highway” são obtidos dos horímetros instalados no sistema de medição e denominados tempos operacionais. A partir desses apontamentos, as horas são estratificadas em categorias que permitem a análise do desempenho em diferentes níveis de granularidade.
+
+$$
+A classificação das horas é dividida hierarquicamente para facilitar a gestão, permitindo o desdobramento desde a disponibilidade global até a causa raiz do evento. Esta estrutura é o fundamento para o processamento de telemetria e o cálculo de KPIs no pacote `miningKPI`.
+
+**HC – Calendar Hours: Horas Calendário:** Tempo total de existência do ativo no período (24h/dia).
+$$HC = HT + HM + HO$$
+
+$$
+-   **HT – Worked Hours: Horas Trabalhadas**
+
+    -   **HTP – Productive Worked Hours: Horas Trabalhadas Produtivas** ($EFH + ODH$)
+
+        -   **EFH (Effective Hours): Horas Efetivas (HEF)** – Tempo em que o equipamento desenvolve trabalho útil na função primária (ex: contato bit-rocha na perfuração).
+$$
+
+        -   **ODH (Operational Delay Hours): Horas de Atraso Operacional (HAO)** – Atrasos inerentes ao ciclo perfeito, como esperas por caminhão, manobras de sinalização ou filas curtas.
+
+    -   **HNTP – Non-Productive Worked Hours: Horas Trabalhadas Não Produtivas** ($IWH + DWH$)
+
+$$
+        -   **IWH (Infrastructure Worked Hours): Horas de Infraestrutura (HTI)** – Atividades de suporte à fase produtiva, como acerto de praça ou manutenção de acessos.
+
+        -   **DWH (Different Worked Hours): Horas Trabalhadas Diversas (HTD)** – Trabalho fora do ciclo operacional principal, como locomoções curtas para abastecimento ou apoio a outros processos.
+
+-   **HM – Maintenance Hours: Horas em Manutenção**
+$$
+
+    -   **HMCT – Total Corrective Maintenance Hours: Horas de Manutenção Corretiva Total** ($CMH + ACH$)
+
+        -   **CMH (Corrective Maintenance Hours): Horas de Manutenção Corretiva (HMC)** – Tempo de indisponibilidade para intervenção corretiva não planejada visando restaurar a função após uma falha.
+
+$$
+        -   **ACH (Accident Hours): Horas de Acidente (HAC)** – Tempo sob responsabilidade da manutenção em decorrência de acidentes ou danos causados por fatores externos.
+
+    -   **HMP – Planned Maintenance Hours: Horas de Manutenção Preventiva** ($SPH + NSPH$)
+
+        -   **SPH (Systematic Preventive Hours): Horas Preventivas Sistemáticas (MPS)** – Manutenções planejadas repetidas em intervalos definidos (horas, km ou data), sem indicação prévia de defeito.
+$$
+
+        -   **NSPH (Non-Systematic Programmed Hours): Horas Preventivas Não Sistemáticas (MPNS)** – Intervenções baseadas em monitoramento de condição (preditiva) ou programadas fora de ciclos sistemáticos rígidos.
+
+-   **HO – Idle Hours: Horas Ociosas**
+
+$$
+    -   **HO – Total Idle Hours: Horas Ociosas Totais** ($IIH + EIH$)
+
+        -   **IIH (Internal Idle Hours): Horas Ociosas Internas (HOI)** – Equipamento apto, mas parado por falta de recursos internos (ex: operador, troca de turno, aguardando projeto ou topografia).
+
+        -   **EIH (External Idle Hours): Horas Ociosas Externas (HOE)** – Equipamento apto, mas parado por fatores externos não gerenciáveis pela unidade (ex: clima adverso, raios ou falta de energia da rede).
+$$
+
+![Hierarquia de classificação de horas de ativos de mineração.](/images/fig-estrato-categoria-horas-gimini.jpg){#fig-categoria-horas}
+
+::: {#exm-processamento-categorias}
+#### Processamento de Categorias de Horas
+$$
+
+Como a medição é feita baseada em durações de tempo, os apontamentos são realizados sempre que um determinado equipamento altera o seu status de operação, representando as 10 categorias fundamentais de horas. Para a análise de desempenho, utiliza-se a variável `gap_time`, que representa a duração (em horas) entre o início e o fim de cada evento.
+
+No conjunto de dados `drill_events_mine_d`, observando o equipamento de perfuração `DRILL_100` durante um período de 3 dias, identificamos um total de 245 eventos registrados. Ao realizarmos o agrupamento e a soma dos tempos por categoria, teremos a consolidação das 24 horas diárias (Horas Calendário — $HC$ ou $CH$) estratificadas conforme a utilização real do ativo.
+:::
+$$
+
+## Elementos de Suporte e Categorização de Horas
+
+Os elementos de suporte são os dados diretamente monitorados e coletados durante a produção. No ciclo de processos de transporte, os dados coletados em caminhões “off-highway” são obtidos dos horímetros instalados no sistema de medição e denominados tempos operacionais. A partir desses apontamentos, as horas são estratificadas em categorias que permitem a análise do desempenho em diferentes níveis de granularidade.
+
+A classificação das horas é dividida hierarquicamente para facilitar a gestão, permitindo o desdobramento desde a disponibilidade global até a causa raiz do evento. Esta estrutura é o fundamento para o processamento de telemetria e o cálculo de KPIs no pacote `miningKPI`.
+
+**HC – Calendar Hours: Horas Calendário:** Tempo total de existência do ativo no período (24h/dia).
+$$HC = HT + HM + HO$$
+
+-   **HT – Worked Hours: Horas Trabalhadas**
+
+    -   **HTP – Productive Worked Hours: Horas Trabalhadas Produtivas** ($EFH + ODH$)
+
+        -   **EFH (Effective Hours): Horas Efetivas (HEF)** – Tempo em que o equipamento desenvolve trabalho útil na função primária (ex: contato bit-rocha na perfuração).
+# Visualização dos primeiros 10 eventos
+drill_analysis_category %>% print(n = 10)
+
+# 2. Consolidação diária e cálculo das Horas Calendário (CH)
+drill_analysis_category %>%
+    group_by(drill_id, day, category) %>%
+    summarise(time = sum(gap_time), .groups = "drop") %>%
+    pivot_wider(names_from = category, values_from = time, values_fill = 0) %>%
+    # Adição de colunas ausentes no período para manter a estrutura da Identidade Fundamental
+    mutate(DWH = 0, IWH = 0, EIH = 0, ACH = 0, SPH = 0) %>%
+    # Ordenação lógica das colunas conforme a Identidade Fundamental
+    select(drill_id, day, EFH, ODH, DWH, IWH, IIH, EIH, CMH, ACH, SPH, NSPH) %>%
+    # Cálculo da Hora Calendário (Soma de todas as categorias)
+    mutate(
+        CH = EFH + ODH + DWH + IWH + IIH + EIH + CMH + ACH + SPH + NSPH
+    )
+```
+
+#### Análise de Prontidão Técnica e Operacional
+##### Consistência das Horas Calendário ($CH$)
+
+A primeira validação de integridade dos dados é a soma das categorias totalizando exatamente **24.0 horas** em todos os dias. Isso demonstra que a telemetria do pacote `miningKPI` está cobrindo o ciclo completo do ativo, sem "buracos" de sinal ou sobreposições, o que é essencial para o cálculo da **Disponibilidade Física (DF)**.
+
+##### Dinâmica da Manutenção (DF)
+
+-   **Dia 01/01:** Apresenta o maior volume de manutenção corretiva ($CMH = 3.96$). Isso indica que o equipamento sofreu uma falha não planejada, reduzindo a prontidão técnica.
+
+-   **Dia 02/01:** Observamos uma transição. Há uma redução na corretiva ($CMH = 0.959$), mas surge uma manutenção programada ($NSPH = 2.35$). Isso pode indicar uma intervenção baseada em condição (preditiva) realizada após a falha do dia anterior.
+
+-   **Dia 03/01:** A saúde técnica do ativo parece estabilizada, com apenas $0.236h$ de corretiva, o que sugere que as intervenções anteriores foram eficazes.
+
+##### Eficiência Operacional e Ociosidade (UF)
+
+Um ponto de atenção crítico aparece no **Dia 03/01**:
+
+-   Embora o equipamento estivesse tecnicamente disponível (baixa manutenção), ele passou **10.4 horas** em ociosidade interna ($IIH$).
+
+-   Isso significa que mais de **43% do dia** o ativo ficou parado por falta de recursos (possivelmente falta de operador, aguardando frente de serviço ou troca de turno estendida).
+
+-   **Impacto:** A **Utilização Física (UF)** deste dia será significativamente menor que a dos dias anteriores, evidenciando um gargalo que não é da manutenção, mas da gestão operacional.
+
+#### Do Processamento de Eventos à Consolidação por Período
+
+A transição da telemetria bruta para a análise gerencial exige uma etapa intermediária de agregação. O processo de somar as categorias de horas é o que garante que os cálculos dos KPIs reflitam a realidade cronológica do turno ou do mês
+
+Para este exemplo, como a análise foca em um único equipamento, devemos agregar as categorias por período ($p$). Tomando a Horas Efetivas ($EFH$) como exemplo, se em um único período ($p = 1$ dia) o sistema registrou $n$ eventos de perfuração, a disponibilidade efetiva diária é o somatório de cada duração individual$i$: $$EFH_{p} = \sum_{i=1}^{n} EFH_i$$ {#eq-efh-soma}
+Essa lógica de empilhamento de eventos é aplicada a todas as 10 categorias de horas, assegurando que $\sum HC = 24h$. É a partir dessa base consolidada que estruturamos os indicadores que fundamentam o SGI.
+
+## Indicadores-Chave de Desempenho (KPIs Globais)
+
+*Indicadores globais que medem a performance operacional da frota e dos processos principais.*
+
+A gestão e a avaliação da qualidade no processo produtivo são sustentadas por indicadores-chave de desempenho (KPIs), que fornecem informações consistentes para apoiar os processos de tomada de decisão.
+
+### Disponibilidade Física (PA / DF)
+
+A Disponibilidade Física (DF) é o indicador macro que mensura a quantidade de horas em que um ativo ou processo está disponível para operação em relação às horas calendário do período. Diferente da Disponibilidade Operacional, a DF foca na prontidão técnica, independentemente de haver demanda ou restrição de mercado.
+
+A fórmula base para o cálculo da DF é:
+
+$$
+\mathrm{DF} = \left[ \frac{\sum_{i=1}^{p} HC_i - \sum_{i=1}^{n} HM_i}{\sum_{i=1}^{p} HC_i} \right] \times 100
+$$ {#eq-df}
+
+Onde:
+
+-   $\sum_{i=1}^{p} HC_i$: É o somatório das horas calendário por $p$ períodos. Por exemplo, em um fechamento mensal onde $p = 30$ dias, teremos $\sum_{i=1}^{30} HC_i = 24h \times 30 = 720 \text{ horas}$
+
+-   $\sum_{i=1}^{n} HM_i$: Representa o total de horas em que o ativo esteve sob responsabilidade da manutenção (soma de todas as intervenções preventivas e corretivas no período).
+
+#### Considerações Adicionais:
+
+Além do percentual de disponibilidade, a metrologia de performance define o volume absoluto de Horas Disponíveis ($HD$). Este valor representa a janela de tempo em que o ativo esteve efetivamente apto para o uso, subtraindo-se o tempo total de manutenção das horas calendário: $$HD_{p} = \sum_{i=1}^{p} HC_i - \sum_{j=1}^{n} HM_j$$ {#eq-hd}
+O cálculo do $HD$ é o elo fundamental entre a manutenção e a operação. Enquanto a manutenção entrega o $HD$ como seu "produto final", a operação o utiliza como o recurso base (o denominador) para medir sua eficiência de ocupação.
+
+#### Disponibilidade em Processos Unitários
+
+Na pelotização e em plantas de beneficiamento, o cálculo da DF deve considerar a topologia do sistema (disposição dos equipamentos):
+
+-   **Specific Note for Pelletizing:** O número total de horas de manutenção considera os seguintes tipos de manutenção: Preventiva, corretiva e **atraso de preventiva**.
+
+-   Series Equipment (Equipamentos em Série): A disponibilidade do sistema é o produto das disponibilidades individuais. Qualquer parada em um componente interrompe o fluxo total.
+
+    $$
+    \mathrm{DF}_{\text{série}} = DF_1 \times DF_2 \times \dots \times DF_n
+    $$
+
+-   Parallel Lines (Linhas em Paralelo): Para processos com duas ou mais linhas operando simultaneamente, a fórmula considera a capacidade total instalada:
+
+    $$
+    $$
+    \mathrm{DF}_{\text{paralela}} = \left[ \frac{(n \times HC) - \sum (HM_1 + HM_2 + \dots + HM_n)}{n \times HC} \right] \times 100
+    $$ {#eq-df-paralela}
+
+    Onde $n$ é a quantidade de linhas.
+
+#### Especificidades do Setor Ferroviário
+
+A gestão ferroviária exige métricas de disponibilidade adaptadas à natureza da frota (vagões e locomotivas), utilizando ponderações por volume ou potência.
+
+-   Iron Ore Wagons (Vagões de Minério): Utiliza-se a relação "vagão-hora" para expressar a disponibilidade da frota.
+
+    $$
+    $$
+    \mathrm{DF}_{\text{mensal}} = \left[ \frac{\text{Qtd}(\text{vagões} \times \text{hora})_{\text{disponível\_mês}}}{\text{Qtd}(\text{vagões} \times \text{hora})_{\text{total}}} \right] \times 100
+    $$ {#eq-df-mensal-vagoes}
+
+    -   *Disponível:* Soma dos status operacionais (DNU, URV, URC, UNR, USI, INT, OUT).
+
+    -   *Total:* Soma do status disponível acrescido dos tempos de manutenção (TIO + TIN).
+
+-   General Cargo Wagons (Vagões de Carga Geral): Baseia-se na frota ativa operacional em relação aos vagões retidos para manutenção.
+
+    $$
+    $$
+    \mathrm{DF}_{\text{mensal}} = \left[ \frac{\text{Vagões\_CG}_{\text{frota\_total}} - \text{Vagões\_CG}_{\text{retidos}}}{\text{Vagões\_CG}_{\text{frota\_total}}} \right] \times 100
+    $$ {#eq-df-mensal-cg}
+
+-   Locomotives (HP Weighting): Para frotas com modelos e potências distintas, aplica-se a ponderação por Horse Power (HP), garantindo que a indisponibilidade de uma locomotiva de alta potência tenha maior peso no indicador.
+
+    $$
+    $$
+    \mathrm{DF} = \left[ \frac{(HC \times HP_{\text{total\_frota}}) - \sum (HM \times HP)}{HC \times HP_{\text{total\_frota}}} \right] \times 100
+    $$ {#eq-df-hp}
+$$\mathrm{UF} = \left[ \frac{\sum HT}{HD_p} \right] \times 100$$ {#eq-uf}
+Ou, em sua forma expandida:
+
+### Physical Utilization (PU / UF)
+
+A Utilização Física (UF) mensura o percentual do tempo em que o equipamento ou usina esteve em operação (trabalhando) em relação ao tempo em que ele esteve tecnicamente disponível para tal. Enquanto a Disponibilidade Física (DF) avalia a eficácia da manutenção, a Utilização Física avalia a eficiência da operação em ocupar as janelas de disponibilidade do ativo.
+
+A fórmula base para o cálculo da UF é definida por:
+
+$$\mathrm{UF} = \left[ \frac{\sum HT}{HD_p} \right] \times 100$$ Ou, em sua forma expandida:
+
+$$\mathrm{UF} = \left[ \frac{\sum_{i=1}^{n} HT_i}{\sum_{j=1}^{p} HC_j - \sum_{k=1}^{m} HM_k} \right] \times 100$$
+
+#### Regras de Negócio e Particularidades Setoriais da UF
+
+O cálculo da UF deve considerar a complexidade da cadeia produtiva de cada unidade de negócio, garantindo que o indicador reflita a real ocupação do ativo disponível:
+
+-   **Pelotização (DIPE):** Para o cálculo consolidado da Diretoria de Pelotização, utiliza-se o somatório das horas de todas as usinas do complexo, tratando a capacidade produtiva de forma agregada para neutralizar gargalos individuais de linhas específicas.
+
+-   **Operações Portuárias:** A medição apresenta um desafio de rastreabilidade. Frequentemente, a UF é medida no equipamento da "ponta" (ex: carregador de navios). No entanto, isso pode ocultar a ociosidade de equipamentos intermediários.
+
+    -   *Recomendação:* Deve-se rastrear todas as combinações de linhas de produção utilizadas para identificar os reais motivos de ociosidade ($HO$) nos ativos de interface.
+
+-   Ferrovia (Locomotivas): Utiliza-se a ponderação por potência (\$HP \\cdot \\text{Hora}\$) para refletir a utilização da capacidade de tração da frota, e não apenas o tempo cronológico.
+
+    \$\$\\mathrm{UF}\_{\\text{locomotivas}} = \\left\[ \\frac{\\sum\_{i=1}\^{n} (HP_i \\times HT_i)}{\\sum\_{i=1}\^{n} (HP_i \\times HD_i)} \\right\] \\times 100\$\$
+
+#### Definições de Horas e Sistemas de Origem
+
+A integridade dos cálculos depende da padronização dos gatilhos de tempo (apontamentos):
+
+-   **Horas Trabalhadas (**$HT$): Somatório do tempo em que o equipamento opera efetivamente na função primária. Os dados são extraídos via telemetria ou sistemas de gerenciamento de frota.
+
+-   **Horas Calendário (**$HC$): Representa o tempo total do período (24h/dia).
+
+    -   *Início:* Entrega técnica do equipamento à operação.
+
+    -   *Fim:* Baixa definitiva (alienação ou desmobilização) do ativo.
+
+-   **Horas Disponíveis (**$HD$): É o denominador da UF, resultante da diferença entre o calendário e a manutenção ($HD = HC - HM$).
+
+### Produtividade (PR)
+
+Enquanto a disponibilidade e a utilização tratam da alocação de "tempo", a produtividade e sua eficiência tratam do **ritmo** e da **intensidade** do processo. A Produtividade mede o desempenho médio do ativo exclusivamente durante o tempo em que ele está operando ($HT$). Ela desconsidera paradas de manutenção ou ociosidade, focando na "velocidade" de transformação.
+
+A fórmula de cálculo consolidada para um período é:
+
+$$
+\mathrm{PR} = \frac{\sum \text{Unidades de Produção}}{\sum HT}
+$$
+
+As unidades variam conforme o processo, sendo comumente expressas em $t/h$ (toneladas por hora) ou $m/h$ (metros perfurados por hora).
+
+#### Especificidades de Produtividade Operacional
+
+Para garantir a precisão no pacote `miningKPI`, as frotas utilizam definições customizadas:
+
+-   **Global Productivity Drill Rigs (GDR):** Razão entre a metragem perfurada e as horas trabalhadas totais (incluindo locomoção e posicionamento).
+
+    $$
+    \mathrm{GDR} = \frac{\sum \text{Metros Perfurados}}{\sum HT} \quad [m/h]
+    $$
+
+-   **Loading Productivity (LP):** Taxa de produção dos equipamentos de carga baseada na massa movimentada.
+
+    $$
+    \mathrm{LP} = \frac{\sum \text{Massa Carregada}}{\sum HT} \quad [t/h]
+    $$
+
+-   **Transportation Throughput:** Taxa de produção da frota de transporte.
+
+    $$
+    \mathrm{TP} = \frac{\sum \text{Massa Transportada}}{\sum HT} \quad [t/h]
+    $$
+
+-   **Meters Drilled (TDM):** Mensuração absoluta da profundidade de perfuração ($\sum \text{Profundidade}$), aferida via sensores GPS ou sistemas PLC das perfuratrizes.
+
+#### Eficiência de Produtividade (PE / EP)
+
+A Eficiência da Produtividade (EP) compara o ritmo real com uma referência técnica de excelência, indicando o aproveitamento do potencial do ativo.
+
+$$
+\mathrm{EP} = \left( \frac{\mathrm{PR}_{\text{real}}}{\mathrm{PR}_{\text{ref}}} \right) \times 100
+$$
+
+##### Metodologia de Referência (MSR)
+
+Para garantir uma base comparativa justa, utiliza-se a metodologia **MSR (Maximum Sustainable Rate)** para definir a referência de excelência:
+
+1.  **Base de Dados:** Mínimo de 12 meses de dados diários para capturar a sazonalidade.
+
+2.  **Saneamento:** Eliminação de períodos com paradas programadas, falta de demanda ou restrições de alimentação (*feed*).
+
+3.  **Qualidade:** Validação se o volume atende aos requisitos técnicos e ambientais.
+
+4.  **Cálculo:** Seleção do **Percentil 90** do conjunto de dados saneado.
+
+5.  **Revisão:** Atualização anual para refletir mudanças nas condições de mina (ex: dureza do minério).
+
+### Análise de Impacto na Produção (Contabilização de Perdas)
+
+*Indicadores que traduzem perdas de disponibilidade, utilização e produtividade em impacto direto na produção.*
+
+#### Impacto na Produção - Disponibilidade Física (IP-DF)
+
+O IP-DF mensura o impacto na produção gerado pela variação da disponibilidade física real em relação à disponibilidade física que foi programada para um determinado período. Enquanto a DF (Disponibilidade Física) é expressa em percentual, o IP-DF converte essa métrica em Kilotoneladas (Kt), tornando o indicador mais tangível para as áreas de Planejamento e Finanças.
+
+A lógica do indicador baseia-se na premissa de que cada hora de manutenção a mais ou a menos em relação ao plano resulta em uma variação direta na produção, proporcional à taxa de produtividade esperada.
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{IP\text{-}DF} = \frac{(HM_{\text{prog}} - HM_{\text{real}}) \times PR_{\text{efetiva\_prog}}}{1000}
+$$ {#eq-ip-df}
+
+-   $HM_{prog}$ (Horas de manutenção programada): Total de horas de manutenção previstas no planejamento original (Baseline).
+
+$$
+\mathrm{IP\text{-}UF} = \frac{(%UF_{\text{real}} - %UF_{\text{prog}}) \times HD_{\text{prog}} \times PR_{\text{efetiva\_prog}}}{1000}
+$$ {#eq-ip-uf}
+
+-   1000: Fator de conversão para transformar toneladas em Kilotoneladas (Kt).
+
+#### Impacto na Produção - Utilização Física (IP-UF)
+
+O IP-UF mensura o impacto na produção relacionado à variação entre a utilização física real e a utilização física que foi programada para um determinado período. Ele traduz a eficiência (ou ineficiência) operacional de ocupação da frota disponível em Kilotoneladas (Kt).
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{IP\text{-}UF} = \frac{(\%UF_{\text{real}} - \%UF_{\text{prog}}) \times HD_{\text{prog}} \times PR_{\text{efetiva\_prog}}}{1000}
+$$
+
+Onde:
+
+-   $\%UF_{real}$: Percentual de utilização física efetivamente realizado.
+
+-   $\%UF_{prog}$: Percentual de utilização física planejado no baseline.
+
+-   $HD_{prog}$ (Horas Disponíveis Programadas): Total de horas em que se planejou ter o equipamento disponível (Horas Calendário - Horas Manutenção Programadas).
+
+-   $PR_{efetiva\_prog}$ (Taxa Efetiva Programada): Produtividade horária esperada para o ativo.
+
+-   1000: Fator de conversão para Kilotoneladas (Kt).
+
+### Impacto na Produção - Produtividade (IP-PR)
+
+O IP-Produtividade mensura o impacto na produção relacionado à variação entre o ritmo real e o programado. É um indicador "residual" na ponte de produção: após descontarmos o que se perdeu por manutenção e o que se perdeu por ociosidade operacional, o que sobra é o impacto da velocidade (taxa) de produção.
+
+A fórmula de cálculo é:
+
+$$
+\mathrm{IP}_{\mathrm{PR}} = \text{Prod. Realizada} - \mathrm{IP}_{\mathrm{DF}} - \mathrm{IP}_{\mathrm{UF}} - \text{Prod. Programada}
+$$ {#eq-ip-pr}
+
+-   **Interpretação:** Se o resultado for negativo, indica que, apesar de o equipamento ter operado o tempo previsto, ele operou em um ritmo (t/h) abaixo da meta, gerando perda de produção por baixa performance.
+
+## Advanced Maintenance Performance and Impact Analysis
+
+### Medidas de Performance da Manutenção
+
+Após um determinado tempo $t$, os dados são organizados em eventos de operação ($HT$) ou de manutenção ($HM$). Com o objetivo de facilitar a representação em um gráfico de processo de contagem, as horas ociosas ($HO$) são desconsideradas. Cada conjunto de falhas e de manutenções sistemáticas possíveis de acontecer corresponde a um resultado possível do sistema em operação.
+
+As falhas ocorrem em $t_1, t_2, t_3, \dots$ e as manutenções são executadas em $\tau_1, \tau_2, \tau_3, \dots$, onde cada resultado do sistema corresponde a uma função-escada. Após o apontamento do histórico de eventos, definimos $NIC$ como o número de intervenções corretivas e $NIS$ como o número de intervenções sistemáticas.
+
+#### Time Between Failures (TBF) e MTBF
+
+Os tempos entre falhas representam as horas trabalhadas ($HT$), dadas pela expressão:
+
+$$
+HT = \sum_{i=1}^{n} TBF_i
+$$ {#eq-ht-tbf}
+
+$$
+\mathrm{MTBF} = \frac{HT}{NIC}
+$$ {#eq-mtbf}
+
+O tempo para reparo é composto pelas horas em manutenções corretivas ($HMC$) e horas de manutenção acidente ($HAC$), dadas pela categoria:
+
+$$
+HTMC = \sum_{i=1}^{n} TTR_i
+$$
+
+Para $n = NIC$, o tempo médio para reparo é dado por:
+
+$$
+\mathrm{MTTR} = \frac{HTMC}{NIC}
+$$
+
+#### Time Between Systematics (TBS) e MTBS
+
+Representam as horas trabalhadas ($HT$) considerando o número de intervenções sistemáticas ($NIS$). O tempo médio entre sistemáticas é expresso por:
+
+$$
+\mathrm{MTBS} = \frac{HT}{NIS}
+$$
+
+#### Time To Maintain (TTM) e MTTM
+
+Representa o tempo gasto para manutenir um equipamento, dada pela categoria de horas preventivas sistemáticas ($MPS$):
+
+$$
+MPS = \sum_{j=1}^{m} TTM_j
+$$
+
+Para $m = NIS$ eventos, o tempo médio para manutenir é:
+
+$$
+\mathrm{MTTM} = \frac{MPS}{NIS}
+$$
+
+### Mensuração de Impacto na Incidência de Corretivas
+
+A análise da eficácia da estratégia preventiva passa pela relação entre o que foi programado e o que foi efetivamente executado em termos de frequência e periodicidade.
+
+#### Incidence of Systematic Interventions (ISI)
+
+A razão entre o número de intervenções preventivas programadas ($k$) e o número de intervenções sistemáticas executadas ($NIS$), após um determinado tempo de operação $HT > t$, define a incidência de intervenções sistemáticas:
+
+$$
+\mathrm{ISI} = \frac{NIS}{k}
+$$
+
+#### Adherence to Systematic Periodicity (ATSP)
+
+A aderência à periodicidade é a relação entre as manutenções programadas que foram efetivamente executadas dentro da tolerância prevista. Dado que $k$ manutenções são sequenciais e programadas, temos:
+
+$$
+\mathrm{ATSP} = \frac{\mathrm{MTBS}}{\bar{\chi}}
+$$
+
+Onde $\bar{\chi}$ é o tempo médio entre sistemáticas previsto (periodicidade média):
+
+$$
+\bar{\chi} = \frac{1}{k} \sum_{j=1}^{k} \chi_j
+$$
+
+> **Exemplo Prático:** Um $ATSP = 1.5$ indica que, para uma periodicidade prevista de $\chi = 250h$, há um atraso médio de $125h$ para o início da execução, resultando em $ISI < 1$. Inversamente, um $ATSP = 0.5$ indica uma antecipação de $125h$.
+
+#### Impact of Systematic Adherence on Corrective (ISAC)
+
+Para quantificar como o desvio das sistemáticas afeta a confiabilidade, calculamos quantas falhas ocorrem no intervalo de atraso ou antecipação:
+
+$$
+\mathrm{ISAC} = \frac{\mathrm{MTBS} - \bar{\chi}}{\mathrm{MTBF}} \times NIS
+$$
+
+Se considerarmos um atraso de $125h$ com $MTBF = 25$, espera-se que ocorram $ISAC = 5$ falhas a mais devido ao atraso. A estratégia ótima visa $ISAC \cong 0$. Note que se uma pauta não for executada, a próxima ocorrerá em $2\chi$, configurando uma não aderência crítica que eleva o número de intervenções corretivas ($NCI$).
+
+### Mensuração de Impacto na Disponibilidade
+
+A extrapolação do tempo de execução das atividades impacta diretamente a prontidão técnica do ativo.
+
+#### Adherence to Maintenance Time (ATTM)
+
+Define a relação entre o tempo real de execução ($SPH$) e o tempo previsto ($S$):
+
+$$
+\mathrm{ATTM} = \frac{SPH}{S}
+$$
+
+Onde $S$ é o somatório dos tempos previstos para todas as pautas $k$ em um período de operação.
+
+#### Systematic Maintenance Factor (FMS)
+
+Quando as execuções não são aderentes ($\mathrm{ATTM} > 1$), o impacto na disponibilidade física é potencializado. O fator de manutenção sistemática é dado por:
+
+$$
+\mathrm{FMS} = \frac{\mathrm{MTTM}}{(\mathrm{ATTM} - 1) \times HM}
+$$
+
+#### Impact on Physical Availability (IPA / IDF)
+
+Considerando o aumento do número de reparos (via ISAC) e a ineficiência de execução (via FMS), o impacto total na disponibilidade física é consolidado por:
+
+$$
+\mathrm{IPA} = \frac{(\mathrm{ISAC} \times \mathrm{MTTR}) + (\mathrm{FMS} \times HM)}{HC}
+$$
+
+Embora a Disponibilidade Física forneça uma visão macro, a gestão de excelência operacional exige indicadores que isolem o desempenho inerente do equipamento e a sua prontidão durante os períodos de exigência operacional.
+
+#### Disponibilidade Intrínseca (DI)
+
+A Disponibilidade Intrínseca (***Inherent Availability***) mede a velocidade da manutenção em retornar um equipamento para a operação após a ocorrência de uma falha ou intervenção não programada. Ela representa a performance do equipamento e do processo, focando no tempo que a equipe demanda para reparar e disponibilizar a máquina para o sistema produtivo.
+
+Neste indicador, estão contidas todas as ações envolvidas no reparo, sejam elas de execução, planejamento (PCM), suprimentos ou logística. A DI avalia o desempenho do ativo através da inter-relação entre confiabilidade (MTBF) e mantenabilidade (MTTR).
+
+A fórmula de cálculo varia de acordo com a base de dados utilizada:
+
+-   Baseada em Médias (Janela Móvel Mensal):
+
+    $$
+    \mathrm{DI} = \left[ \frac{\mathrm{MTBF}}{\mathrm{MTBF} + \mathrm{MTTR}} \right] \times 100
+    $$
+
+-   Baseada em Horas Acumuladas:
+
+    $$
+    \mathrm{DI} = \left[ \frac{\sum HT}{\sum (HT + HMC)} \right] \times 100
+    $$
+
+**Governança e Premissas:**
+
+-   Dimensão: Qualidade.
+
+-   Área Reguladora: Excelência Operacional - Técnico.
+
+-   Lógica de Acúmulo: Se calculada via MTBF/MTTR, utiliza-se a Janela Móvel Mensal. Se calculada via HT/HMC, utiliza-se o Acúmulo e Recálculo das parcelas no período.
+
+-   Fonte de Dados: Exige interface entre sistemas de gerenciamento operacional (Horas Trabalhadas - HT) e de manutenção (Horas de Manutenção Corretiva - HMC).
+
+#### Disponibilidade Operacional (DO)
+
+A Disponibilidade Operacional (DO) avalia o quanto do tempo em que o equipamento foi efetivamente exigido pela operação ele estava apto a cumprir sua função primária. Este indicador é aplicado em situações onde o ativo não opera em regime 24x7 por restrições operacionais, de mercado ou legais.
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{DO} = \left[ \frac{\sum (\text{Horas Operacionais} - \text{Horas Manutenção})}{\sum \text{Horas Operacionais}} \right] \times 100
+$$
+
+Definição de Horas Operacionais:
+
+Diferente das horas calendário, as horas operacionais são o tempo de exposição ao uso nas áreas de negócio. É necessário identificar os códigos de parada que não configuram "demanda" para obter este valor. Exemplos de horas não operacionais incluem:
+
+-   Aguardando navio na barra;
+
+-   Restrições de mercado ou de demanda;
+
+-   Restrições legais ou ambientais.
+
+Particularidades Setoriais (Ferrovia):
+
+Para ativos ferroviários, aplicam-se regras específicas de apontamento para garantir a integridade da DO:
+
+1.  As horas de deslocamento devem ser computadas como operacionais.
+
+2.  Paradas para manutenção preventiva devem ser computadas como indisponibilidade, independentemente de a equipe ter sido realocada. Toda parada deve ser apontada.
+
+3.  As horas operacionais devem respeitar os turnos de trabalho (ex: 9h ou 18h), e não a janela de 24h.
+
+## Indicadores de Gestão da Manutenção (PCM)
+
+*Indicadores voltados ao Planejamento e Controle da Manutenção, com foco em aderência, produtividade da equipe e custos.*
+
+Além das métricas de engenharia e impacto, o Planejamento e Controle da Manutenção (PCM) monitora indicadores de processo e custos para garantir a sustentabilidade da operação. Abaixo, detalham-se os principais indicadores de gestão utilizados.
+
+### Systematic Maintenance Adherence (AMS)
+
+A Aderência à Manutenção Sistemática (AMS) tem por objetivo medir a aderência ao cumprimento das ordens geradas pelo sistema oriundas dos planos de manutenção. Este indicador reflete a disciplina da equipe em executar as preventivas dentro das janelas de oportunidade ideais.
+
+É a relação entre as manutenções sistemáticas (considerando a tolerância técnica) que foram previstas e executadas como aderentes no período, em relação ao total de manutenções sistemáticas previstas para o mesmo período.
+
+A fórmula de cálculo é dada por:
+
+$$
+\mathrm{AMS} = \frac{\text{Qtde Total de OMs Sistemáticas Aderentes (c/ tolerância)}}{\text{Qtde Total de OMs Sistemáticas Previstas (c/ tolerância)}} \times 100
+$$
+
+-   **OMs Aderentes:** São aquelas executadas dentro do prazo planejado somado à sua margem de tolerância (ex: $\pm 10\%$ do ciclo ou $\pm X$ dias).
+
+-   **Importância:** O controle da tolerância é vital, pois uma sistemática executada muito cedo desperdiça vida útil de componentes, enquanto a execução tardia expõe o ativo a riscos de falha não monitorada.
+
+### Conditional Maintenance Adherence (AMC)
+
+A Aderência à Manutenção Condicional (AMC) tem como objetivo medir se as manutenções baseadas no estado atual do equipamento estão ocorrendo de acordo com a data de necessidade identificada. Diferente da manutenção sistemática, o foco aqui é garantir que os alertas monitorados (preditivos) gerem intervenções no momento exato, otimizando o desempenho antes que ocorra a falha funcional.
+
+Este indicador estabelece a relação entre as manutenções condicionais que foram aderentes dentro do prazo de tolerância e o total de manutenções condicionais previstas para o período.
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{AMC} = \left[ \frac{\text{Qtde Total de Notas Condicionais Previstas e Aderentes}}{\text{Qtde Total de Notas Condicionais Previstas no Período}} \right] \times 100
+$$
+
+Para a composição deste indicador, aplicam-se os seguintes critérios técnicos de aderência:
+
+-   **Janela de Aderência:** Uma nota é considerada aderente se a sua execução ocorrer no intervalo que compreende desde 30 dias antes da data de conclusão desejada até 5 dias após essa mesma data.
+
+-   **Quantidade Total de Notas Condicionais Previstas e Aderentes (Numerador):** Corresponde ao somatório das notas condicionais que foram concluídas dentro da janela de tolerância supracitada (Data de Conclusão Desejada $-30$ dias até $+5$ dias).
+
+-   **Quantidade Total de Notas Condicionais Previstas (Denominador):** Corresponde ao total de notas condicionais que possuíam previsão de execução para o período analisado.
+
+A aplicação rigorosa desta métrica permite que a Engenharia de Confiabilidade avalie a eficácia do monitoramento de condição. Uma baixa aderência na AMC indica que, embora os alertas de degradação estejam sendo gerados, a operação ou o PCM não estão conseguindo liberar o ativo no tempo ótimo, o que aumenta o risco de falhas catastróficas e eleva o custo total de manutenção.
+
+### Maintenance Plan Adherence (APM)
+
+O indicador APM é uma composição das parcelas dos indicadores AMS (Aderência à Manutenção Sistemática) e AMC (Aderência à Manutenção Condicional). Seu objetivo é medir a aderência dos itens que compõem o plano de médio prazo da manutenção, bem como a resposta às intervenções condicionais identificadas.
+
+A fórmula de cálculo é definida pela soma das execuções aderentes dividida pelo total de eventos previstos no período:
+
+$$
+\mathrm{APM} = \frac{\text{AMS}_{\text{num}} + \text{AMC}_{\text{num}}}{\text{AMS}_{\text{den}} + \text{AMC}_{\text{den}}} \times 100
+$$
+
+Onde:
+
+-   **Numerador:** Soma da "Quantidade Total de OMs Sistemáticas (incluindo tolerância) previstas e aderentes no período" com a "Quantidade Total de Notas Condicionais previstas e aderentes no período" (dentro da janela de -30 a +5 dias).
+
+-   **Denominador:** Soma da "Quantidade Total de OMs Sistemáticas (incluindo tolerância) previstas no período" com a "Quantidade Total de Notas Condicionais previstas no período".
+
+Composição e Regras de Negócio
+
+Para que o APM reflita com precisão a realidade da operação, ele herda as premissas técnicas de seus indicadores base:
+
+-   **Aderência Sistemática:** Considera a execução das ordens geradas por planos de manutenção, respeitando as margens de tolerância técnica para evitar a perda de vida útil ou a exposição ao risco de falha.
+
+-   **Aderência Condicional:** Considera o cumprimento das notas baseadas em monitoramento de estado, sendo classificada como aderente a intervenção que ocorre entre 30 dias antes da data de conclusão desejada até 5 dias após esse prazo.
+
+-   **Fechamento Mensal:** Assim como os demais indicadores de gestão do PCM, o fechamento oficial do APM ocorre às 00:05h do 2º dia útil do mês subsequente. Esta regra garante que todas as confirmações de ordens e encerramentos de notas feitos no último dia do mês corrente sejam processados pelo sistema.
+
+O acompanhamento do APM é vital para a coordenação entre a Engenharia de Manutenção e o Planejamento, pois uma queda neste índice sugere falhas na integração do plano de médio prazo ou uma sobrecarga de intervenções emergenciais que impedem o cumprimento do cronograma mestre.
+
+### Schedule Compliance (APR)
+
+A Aderência à Programação (APR) mede o cumprimento da programação de serviços de manutenção. É o percentual de aderência do que foi programado para cada operação nas Ordens de Manutenção na programação semanal em relação ao que foi efetivamente realizado. Altos níveis indicam gestão eficaz de tempo e recursos.
+
+A fórmula de cálculo é:
+
+$$
+\mathrm{APR} = \frac{\text{Qtde Total de OMs Programadas e Executadas}}{\text{Qtde Total de OMs Programadas}} \times 100
+$$
+
+Para o cálculo, aplicam-se as seguintes regras de negócio:
+
+1.  **Quantidade Total de OMs Programadas e Executadas (Numerador):** Corresponde às operações que foram planejadas e executadas com sucesso dentro da semana. Devem atender aos seguintes critérios:
+
+    -   Status do Sistema: Operações com status Encerrada Tecnicamente (ENTE), Encerrada Comercialmente (ENCE), Confirmado (CONF) ou Confirmado Manualmente (CFMN).
+
+    -   Janela de Tempo: A data de programação deve estar dentro da semana analisada (segunda a domingo) e a execução efetiva (data de "Fim Real" ou IEDD) também deve ocorrer dentro desta mesma semana.
+
+    -   Origem: Apenas ordens do Baseline são consideradas. Ordens adicionadas após o fechamento da programação (status EXPROG) são descartadas.
+
+2.  **Quantidade Total de OMs Programadas (Denominador):** Corresponde a todas as operações incluídas na programação da semana analisada (segunda a domingo). Assim como no numerador, considera-se apenas o Baseline da programação semanal, descartando ordens emergenciais ou adicionais (status EXPROG).
+
+### Scheduled Labor Utilization Index (IMOP)
+
+Medir o nível de utilização programada de Homem Hora da manutenção. É a relação entre o somatório do trabalho real nas ordens programadas e o Hh total disponível.
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{IMOP} = \left[ \frac{\text{Quantidade Total de HH Planejado Programado Executado}}{\text{Quantidade Total de HH Disponível}} \right] \times 100
+$$
+
+**Critérios Técnicos e Filtros:**
+
+-   **Numerador (HH Programado Executado):**
+
+    -   Corresponde ao Somatório do ‘trabalho executado” no período (campo trabalho real) da ordem de manutenção que está no **BASELINE** de programação da semana analisada.
+
+    -   *Filtros:* Excluir Ordens com status EXPROG. O trabalho real na semana deve ser \> 0. A turma executante deve ser igual à turma planejada. Desconsiderar confirmações com código de desvio preenchido.
+
+-   **Denominador (HH Disponível):**
+
+    -   Mesmo critério do indicador IAMO. Somatório da capacidade de acordo com o calendário, intervalos e turnos definidos para o centro de trabalho. Considerar apenas centros de trabalho com tipo de capacidade "002 – Mão de obra".
+
+### Labor Appropriation Index (IAMO)
+
+O objetivo deste indicador é medir se a mão de obra utilizada na execução da manutenção está sendo apropriada corretamente no sistema. Ele representa a relação percentual entre a quantidade de horas-homem ($Hh$) efetivamente apropriadas nas Ordens de Manutenção (OM) e o total de $Hh$ disponível no centro de trabalho analisado.
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{IAMO} = \left( \frac{\text{Qtde Total de HH Apropriado}}{\text{Qtde Total de HH Disponível no Centro de Trabalho}} \right) \times 100
+$$
+
+Para a extração e processamento dos dados, aplicam-se os seguintes critérios técnicos:
+
+1.  **Quantidade Total de HH Apropriado (Numerador):** Corresponde ao somatório do campo "Trabalho Real" de todas as apropriações efetuadas no período analisado para todas as Ordens de Manutenção. Este valor reflete o esforço real despendido pela equipe técnica nas intervenções.
+
+2.  **Quantidade Total de HH Disponível no Centro de Trabalho (Denominador):** Representa a capacidade teórica de execução da unidade. O cálculo baseia-se no somatório do campo "Capacidade", observando-se as seguintes regras:
+
+    -   *Calendário e Turnos:* Devem ser considerados os intervalos e turnos definidos para o centro de trabalho no período, respeitando-se os dias úteis conforme o calendário de fábrica vinculado.
+
+    -   *Validade:* Devem ser somadas as capacidades de todos os intervalos e turnos com data de validade dentro do período analisado. Caso o centro de trabalho não possua intervalos e turnos específicos, utiliza-se a capacidade útil standard.
+
+    -
+
+    -   *Filtro de Centros de Trabalho:* Devem ser considerados apenas os Centros de Trabalho que recebem apropriação direta, seguindo as chaves de processamento interno:
+
+        -   Tipo de responsável igual a LDM com Processamento Interno CM0001.
+
+        -   Tipo de responsável igual a LD3 com Processamento Interno CM0002.
+
+### Systematic to Total Maintenance Ratio (RMS)
+
+A Relação Manutenção Sistemática e Total de Manutenção (RMS) tem como objetivo avaliar o esforço da manutenção aplicado especificamente às intervenções de natureza sistemática. Este indicador demonstra o esforço total sistemático, em termos percentuais de horas-homem ($Hh$), utilizado na manutenção em relação ao volume total de horas apropriadas.
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{RMS} = \left[ \frac{(\text{Total HH Sistemáticas} + \text{Total HH Calibração})}{\text{Total HH Apontado em Ordens}} \right] \times 100
+$$
+
+Para a extração e o processamento de dados, especialmente em ambientes que utilizam o módulo de manutenção do SAP, aplicam-se os seguintes critérios e regras de negócio:
+
+Critérios de Classificação e Tipos de Ordem
+
+Para garantir que o indicador reflita o esforço preventivo real, as ordens de manutenção (OM) são filtradas por seus respectivos tipos:
+
+-   **Manutenção Sistemática (Numerador):** São consideradas apenas as horas apropriadas em ordens provenientes de planos de manutenção. Os tipos de ordem aceitos são YPM (Preventiva), YCA (Calibração) e suas respectivas ordens secundárias. No sistema, os planos de manutenção preventiva devem ser criados exclusivamente sob esses tipos.
+
+-   **Total de Manutenção (Denominador):** Corresponde ao somatório das horas em todas as ordens de manutenção do período, abrangendo os tipos: YPM, YCA, YCM, YEM, YSS, YRR, YIM, YCO e YOP.
+
+-   **Tratamento de Ordens Secundárias (YSS):** Ordens do tipo YSS são classificadas como secundárias. O $Hh$ apropriado nessas ordens deve ser contabilizado e atribuído à Ordem de Manutenção principal correspondente.
+
+**Regras de Processamento e Fechamento**
+
+-   *Fonte de Dados:* O cálculo baseia-se no somatório das horas apropriadas (campo "Trabalho Real") dentro do período analisado.
+
+-   *Fechamento Mensal:* O indicador funciona como uma métrica de fechamento de período. A extração final dos dados ocorre às 00:05h do 2º dia útil do mês subsequente, garantindo que todos os apontamentos de horas realizados no final do mês anterior sejam devidamente processados.
+
+A análise do RMS permite identificar se a estratégia de manutenção está focada na prevenção sistemática ou se a mão de obra está sendo consumida por intervenções não planejadas. Um RMS equilibrado e alinhado ao plano mestre de manutenção é um indicativo de saúde operacional e previsibilidade de custos.
+
+### Corrective Maintenance Ratio (RMC)
+
+A Relação de Manutenção Corretiva (RMC) tem por objetivo comparar o volume de esforço (em horas) dedicado à manutenção corretiva em relação ao total de atividades de manutenção realizadas. Este indicador é um termômetro da estratégia da organização: uma alta proporção de RMC indica uma abordagem predominantemente reativa ("quebra-repara"), enquanto uma proporção menor sugere uma gestão mais preventiva e planejada.
+
+A fórmula de cálculo é expressa por:
+
+$$
+\mathrm{RMC} = \left( \frac{\text{Horas de Manutenção Corretiva (HMC)}}{\text{Horas Totais de Manutenção (HM)}} \right) \times 100
+$$
+
+-   **Horas de Manutenção Corretiva (HMC):** Somatório das horas reais apontadas em ordens de manutenção do tipo corretiva (emergencial ou programada).
+
+-   **Horas Totais de Manutenção (HM):** Somatório de todas as horas aplicadas em atividades técnicas, incluindo preventivas, preditivas e corretivas.
+
+### Corrective Maintenance Index (IMC)
+
+Enquanto a RMC foca no volume de horas, o Índice de Manutenção Corretiva (IMC) mede a frequência das intervenções corretivas em relação ao total de ordens de serviço executadas. Um valor elevado de IMC é um forte indicativo de baixa confiabilidade intrínseca dos equipamentos ou da necessidade de melhorias nos planos de manutenção preventiva.
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{IMC} = \left( \frac{\text{Número de Intervenções Corretivas (NIC)}}{\text{Número Total de Intervenções (NTI)}} \right) \times 100
+$$
+
+-   **Número de Intervenções Corretivas (NIC):** Quantidade total de ordens de manutenção corretiva encerradas no período.
+
+-   **Número Total de Intervenções (NTI):** Somatório de todas as intervenções (Corretivas + Sistemáticas/Preventivas) finalizadas no mesmo período.
+
+### Backlog
+
+O Backlog representa o tempo que a equipe de manutenção deve trabalhar para concluir todos os serviços pendentes, assumindo que não cheguem novos pedidos durante a execução destes serviços. Ele mede a "carteira de serviços" em dias necessários para zerar as demandas abertas no sistema.
+
+A fórmula de cálculo é dada por:
+
+\$\$\\mathrm{Backlog} = \\frac{(\\text{Qtde Total de Horas Planejadas} - \\text{Qtde Total de Horas Executadas})}{\\text{Qtde Total de Horas Disponível}}\$\$
+
+Para garantir a precisão deste indicador, aplicam-se os seguintes critérios técnicos:
+
+-   **Critério de Acúmulo Temporal:** O Backlog é tratado como uma "fotografia" da situação atual da área. Na hierarquia de relatórios, considera-se o último cenário analisado (geralmente o 1º dia útil do mês subsequente).
+
+-   **Cálculo do Numerador (Horas Pendentes):**
+
+    -   Considera o somatório do HH Planejado (trabalho) subtraído do HH Realizado (trabalho real).
+
+    -   *Filtro de Operações:* Apenas operações com chaves de controle de manutenção (ex: PM01, PM02, PM03, YPM1, YPM3, ZPM1).
+
+    -   *Filtro de Status:* As operações devem estar abertas.
+
+        -   Status de Sistema: Diferente de Encerrado Tecnicamente (ENTE) e Encerrado Comercialmente (ENCO).
+
+        -   Status de Usuário: Diferente de Cancelado (CANC), Totalmente Concluído (CONF) ou Eliminado (ELIM).
+
+-   **Denominador (Capacidade):** Corresponde à quantidade total de horas disponíveis da equipe (Hh Disponível) para o período de referência.
+
+### Maintenance Cost (MC / CM)
+
+O Custo de Manutenção (CM) é o indicador que avalia a saúde financeira da gestão de ativos, englobando todas as despesas associadas às atividades de manutenção. O controle e a otimização desses custos são essenciais para garantir que a operação seja financeiramente sustentável e competitiva.
+
+A composição deste indicador inclui:
+
+-   **Custos Diretos:** Despesas com mão de obra própria ou terceira, peças de reposição e ferramentas.
+
+-   Custos Indiretos: Impactos financeiros causados pelo tempo de inatividade (lucro cessante) durante as paradas dos equipamentos.
+
+    O Índice de Confiabilidade atua de forma complementar ao custo, medindo a capacidade do sistema operar sem falhas ao longo do tempo, o que impacta diretamente na redução do custo total de manutenção no longo prazo.
+
+### Failure Class Appropriation (ACF)
+
+A Apropriação de Classe de Falhas (ACF) tem por objetivo medir o grau de utilização do sistema informatizado de manutenção (SAP PM) quanto à correta classificação das avarias em Ordens de Manutenção (OM) corretivas. Este indicador é vital para a Engenharia de Confiabilidade, pois garante que os dados necessários para análises de causa raiz (como o Diagrama de Ishikawa ou Árvore de Falhas) estejam disponíveis e completos.
+
+O ACF representa o percentual de ordens encerradas dos tipos corretivo e emergencial que tiveram a apropriação da Classe de Falha em todos os seus níveis (até o nível de solução) em relação ao total de ordens do mesmo tipo encerradas no período.
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{ACF} = \left[ \frac{\text{Qtde Total de OMs Corretivas Encerradas com Classe de Falha}}{\text{Qtde Total de OMs Corretivas Encerradas no Período}} \right] \times 100
+$$
+
+Critérios Técnicos e Regras de Negócio
+
+Para o processamento deste indicador, o sistema observa as seguintes premissas de filtro e status:
+
+-   **Tipos de Ordem Considerados:** São contabilizadas apenas as Ordens de Manutenção de natureza reativa: YCM (Manutenção Corretiva) e YEM (Manutenção Emergencial).
+
+-   **Condição de Encerramento (Numerador):**
+
+    -   A ordem deve possuir status de sistema igual a "Encerrado Tecnicamente" ou "Encerrado Comercialmente".
+
+    -   O status de usuário deve ser diferente de "Cancelada" e sistema diferente de "NEXE".
+
+    -   *Exigência de Preenchimento:* A nota de manutenção associada à ordem deve ter os **5 campos da Classe de Falha** preenchidos (até o nível "Solução") com valores diferentes de "NÃO ENCONTRADO".
+
+-   **Base de Comparação (Denominador):**
+
+    -   Corresponde à quantidade total de ordens YCM e YEM com status de sistema encerrado e data de referência dentro do período pesquisado, independente do preenchimento da classe de falha.
+
+    -   Também exclui ordens com status de usuário "Cancelada".
+
+Importância Analítica
+
+O preenchimento incompleto da classe de falha (ex: registrar o sintoma, mas omitir a causa ou a solução) inviabiliza a extração de relatórios de Pareto e o cálculo de tendências de modos de falha. Assim como os demais indicadores de gestão do PCM, o fechamento mensal do ACF ocorre às 00:05h do 2º dia útil do mês subsequente, garantindo a consolidação das apropriações realizadas no fechamento do mês anterior.
+
+### Gestão de Fluxo de Trabalho e Portfólio
+
+*Indicadores que monitoram o fluxo das ordens de manutenção e notificações, garantindo visibilidade sobre carteira e pendências.*
+
+A eficiência da manutenção não é medida apenas pela execução em campo, mas pela agilidade no tratamento administrativo das demandas. O monitoramento da idade média das notas e ordens permite à gestão técnica identificar se a rotina de tratamento está adequada e se as demandas estão fluindo corretamente pelo ciclo de planejamento.
+
+### Average Maintenance Order Times by Status (TMOMS)
+
+O TMOMS tem por objetivo avaliar o tempo médio de permanência das Ordens de Manutenção (OM) estratificado por cada status (ou etapa) dentro do sistema informatizado de manutenção (SAP PM). Este indicador fornece visibilidade sobre o lead time interno de cada fase do processo, permitindo que a gestão atue pontualmente onde o processo está retido.
+
+A fórmula de cálculo é baseada na soma dos tempos de todas as ordens em um status específico, dividida pela quantidade total de ordens que passaram por esse mesmo status no período:
+
+\$\$\\text{TMOMS} = \\frac{\\sum (\\text{Tempo da OM no status})}{\\sum (\\text{Quantidade de OMs no status})}\$\$
+
+Unidade de medida: Dias.
+
+Estratificação e Visões do Processo
+
+Para uma análise de excelência operacional, o indicador é desdobrado em cinco visões principais, representando o ciclo de vida da manutenção:
+
+1.  **Planejamento:** Tempo médio em que a ordem permanece aguardando a definição de escopo, recursos e procedimentos técnicos.
+
+2.  **Aprovisionamento:** Tempo médio de retenção aguardando a chegada de materiais, peças de reposição ou contratação de serviços externos.
+
+3.  **Programação:** Tempo em que a ordem, já planejada e com recursos disponíveis, aguarda a janela operacional para ser inserida no cronograma semanal.
+
+4.  **Execução:** Tempo decorrido desde o início real da atividade até o seu encerramento em campo.
+
+5.  **Outros Status:** Inclui tempos de retenção em etapas transversais, como aguardando aprovação financeira ou pendências de terceiros.
+
+Dimensões e Acúmulo Temporal
+
+O TMOMS é classificado majoritariamente na dimensão de Produtividade, sob a regulação da área de Excelência Operacional - Técnico. Diferente de indicadores de "fotografia" (como o Backlog), o TMOMS utiliza a fórmula de acúmulo por Recálculo. Isso significa que, ao analisar períodos maiores (trimestres ou anos), o sistema reavalia as médias de tempos de permanência para garantir que a tendência reflita a realidade histórica das operações e não apenas uma soma linear de dias.
+
+A análise conjunta do TMOMS com o Backlog permite diferenciar se um volume alto de trabalho pendente é causado por excesso de demanda (Backlog alto com TMOMS estável) ou por ineficiência de fluxo (Backlog alto acompanhado de aumento no tempo de Planejamento ou Aprovisionamento).
+
+### Average Age of Untreated Notifications (IMNC)
+
+O indicador IMNC visa medir o tempo médio em que as Notas de Manutenção permanecem na "caixa de entrada" do PCM sem que tenham recebido o tratamento inicial (vinculação a uma Ordem de Manutenção). Este indicador é essencial para garantir que as solicitações de manutenção não fiquem paradas, perdendo a janela de oportunidade de planejamento.
+
+A fórmula de cálculo é definida por:
+
+\$\$IMNC = \\frac{\\text{Qtde Total do Tempo das Notas sem tratamento}}{\\text{Qtde Total das Notas sem tratamento}}\$\$
+
+**Premissas e Regras de Negócio:**
+
+-   **Objetivo:** Verificar se a rotina de tratamento das Notas em carteira está adequada, garantindo que as demandas sejam atendidas tempestivamente.
+
+-   **Cálculo do Tempo (Parcela 1):** Corresponde à diferença em dias entre a data atual e a data de criação da nota.
+
+-   **Critérios de Filtro:**
+
+    -   Considerar apenas notas de tipo iniciado com "Y".
+
+    -   Considerar apenas as notas abertas e ainda não vinculadas a uma Ordem de Manutenção.
+
+    -   **Exclusões:** Notas encerradas (status de sistema MSEN), rejeitadas (status de usuário REJE) ou já vinculadas a uma OM.
+
+-   **Frequência e Acúmulo:** A menor frequência de apuração é semanal, utilizando a lógica de Recálculo das parcelas no período analisado.
+
+-   **Fechamento:** O fechamento oficial ocorre às 00:05h do 2º dia útil do mês subsequente.
+
+### Average Age of Open Orders (IMOS)
+
+O IMOS mede o tempo médio em que uma Ordem de Manutenção (OM) permanece aberta no sistema, desde sua criação até seu encerramento técnico. Diferente do IMNC, que foca na triagem, o IMOS foca no fluxo de planejamento, programação e execução.
+
+A fórmula de cálculo é definida por:
+
+\$\$IMOS = \\frac{\\text{Qtde Total do Tempo das OMs abertas}}{\\text{Qtde Total de OMs abertas}}\$\$
+
+**Premissas e Regras de Negócio:**
+
+-   **Objetivo:** Identificar o tempo médio de permanência das ordens na carteira de serviços ativa.
+
+-   **Cálculo do Tempo (Parcela 1):** Corresponde à diferença em dias entre a data atual e a data de entrada (criação) da Ordem.
+
+-   **Critérios de Filtro:**
+
+    -   Considerar todas as ordens que não atingiram o estágio final de encerramento.
+
+    -   **Exclusões:** Ordens Encerradas Tecnicamente (status sistema ENTE), Encerradas Comercialmente (status sistema ENCO) ou Não Executadas (status sistema NEXE).
+
+-   **Lógica de Fotografia:** O IMOS é um "Retrato da situação no momento". Ele não é acumulativo no sentido de soma, mas sim a fotografia da carteira no instante da apuração. Na hierarquia mensal, considera-se o último cenário analisado para representar a situação atual da área.
+
+-   **Frequência e Acúmulo:** Apuração diária com área reguladora em Excelência Operacional - Técnico. \*\* Selecionar o **Percentil 90** deste conjunto de dados saneado.
+
+5.  **Revisão:** A referência deve ser revisada anualmente para refletir alterações no processo (ex: dureza do minério ou profundidade da cava).
+
+    -   *Nota:* Na Pelotização, esta referência é denominada PHL (Produtividade Horária Líquida).
+
+# Production Impact Analysis (Loss Accounting)
+
+## Production Impact - Physical Availability (IP-DF)
+
+O IP-DF mensura o impacto na produção gerado pela variação da disponibilidade física real em relação à disponibilidade física que foi programada para um determinado período. Enquanto a DF (Disponibilidade Física) é expressa em percentual, o IP-DF converte essa métrica em Kilotoneladas (Kt), tornando o indicador mais tangível para as áreas de Planejamento e Finanças.
+
+A lógica do indicador baseia-se na premissa de que cada hora de manutenção a mais ou a menos em relação ao plano resulta em uma variação direta na produção, proporcional à taxa de produtividade esperada.
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{IP\text{-}DF} = \frac{(HM_{\text{prog}} - HM_{\text{real}}) \times PR_{\text{efetiva\_prog}}}{1000}
+$$
+
+Onde:
+
+-   $HM_{prog}$ (Horas de manutenção programada): Total de horas de manutenção previstas no planejamento original (Baseline).
+
+-   $HM_{real}$ (Horas de manutenção real): Total de horas de manutenção efetivamente realizadas e apontadas no sistema.
+
+-   $PR_{efetiva\_prog}$ (Taxa efetiva programada): A produtividade esperada do equipamento ou processo (ex: toneladas/hora).
+
+-   1000: Fator de conversão para transformar toneladas em Kilotoneladas (Kt).
+
+## Production Impact - Physical Utilization (IP-UF)
+
+O IP-UF mensura o impacto na produção relacionado à variação entre a utilização física real e a utilização física que foi programada para um determinado período. Ele traduz a eficiência (ou ineficiência) operacional de ocupação da frota disponível em Kilotoneladas (Kt).
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{IP\text{-}UF} = \frac{(\%UF_{\text{real}} - \%UF_{\text{prog}}) \times HD_{\text{prog}} \times PR_{\text{efetiva\_prog}}}{1000}
+$$
+
+Onde:
+
+-   $\%UF_{real}$: Percentual de utilização física efetivamente realizado.
+
+-   $\%UF_{prog}$: Percentual de utilização física planejado no baseline.
+
+-   $HD_{prog}$ (Horas Disponíveis Programadas): Total de horas em que se planejou ter o equipamento disponível (Horas Calendário - Horas Manutenção Programadas).
+
+-   $PR_{efetiva\_prog}$ (Taxa Efetiva Programada): Produtividade horária esperada para o ativo.
+
+-   1000: Fator de conversão para Kilotoneladas (Kt).
+
+## Production Impact - Productivity (IP-PR)
+
+O IP-Produtividade mensura o impacto na produção relacionado à variação entre o ritmo real e o programado. É um indicador "residual" na ponte de produção: após descontarmos o que se perdeu por manutenção e o que se perdeu por ociosidade operacional, o que sobra é o impacto da velocidade (taxa) de produção.
+
+A fórmula de cálculo é:
+
+$$
+\mathrm{IP}_{\mathrm{PR}} = \text{Prod. Realizada} - \mathrm{IP}_{\mathrm{DF}} - \mathrm{IP}_{\mathrm{UF}} - \text{Prod. Programada}
+$$
+
+-   **Unidade:** Kilotoneladas ($Kt$).
+
+-   **Interpretação:** Se o resultado for negativo, indica que, apesar de o equipamento ter operado o tempo previsto, ele operou em um ritmo (t/h) abaixo da meta, gerando perda de produção por baixa performance.
+
+# Engineering and Reliability Indicators
+
+Os indicadores de manutenção desempenham um papel crucial na gestão eficiente de ativos e equipamentos em diversos setores industriais. Eles fornecem informações valiosas sobre o desempenho e a condição dos ativos, permitindo a otimização das estratégias de manutenção.
+
+Segundo a literatura especializada, estes indicadores dividem-se em categorias que evidenciam desde o efeito da manutenção no desempenho dos negócios até a confiabilidade e disponibilidade técnica dos ativos. A priorização e programação visam a gestão econômica, alinhando o investimento à eficiência financeira e reduzindo custos decorrentes de interrupções.
+
+## Event Organization and Counting Processes
+
+Para o cálculo preciso das métricas de confiabilidade, os dados coletados após um tempo $t$ são organizados em eventos de operação ($HT$) ou de manutenção ($HM$). Com o objetivo de facilitar a representação em um gráfico de processo de contagem, as horas ociosas ($HO$) são desconsideradas nesta etapa.
+
+A dinâmica do sistema é representada por conjuntos de eventos:
+
+-   **Falhas:** Ocorrem nos tempos $t_1, t_2, t_3, \dots$.
+
+-   **Manutenções Sistemáticas:** Executadas nos tempos $\tau_1, \tau_2, \tau_3, \dots$.
+
+Cada resultado do sistema corresponde a uma função-escada, permitindo a visualização histórica das intervenções. Ao processar este histórico, definimos $NIC$ como o número de intervenções corretivas executadas e $NIS$ como o número de intervenções sistemáticas executadas.
+
+## Fundamental Performance Measures
+
+A partir da contagem de eventos, estabelecem-se as médias fundamentais, onde $HT = \sum_{i=1}^{n} TBF_i$ (sendo $n = NIC$):
+
+-   Mean Time Between Failures (MTBF):
+
+    $$
+    \mathrm{MTBF} = \frac{HT}{NIC}
+    $$
+
+-   Mean Time To Repair (MTTR):
+
+    $$
+    \mathrm{MTTR} = \frac{HTMC}{NIC}
+    $$
+
+-   Mean Time Between Systematics (MTBS):
+
+    $$
+    \mathrm{MTBS} = \frac{HT}{NIS}
+    $$
+
+-   Mean Time To Maintain (MTTM):
+
+    $$
+    \mathrm{MTTM} = \frac{MPS}{NIS}
+    $$
+
+## Measuring Impact on Corrective Incidence
+
+A eficácia de uma estratégia de manutenção, monitorada pela Engenharia, não reside apenas na execução das pautas, mas na rigorosa sequência e periodicidade dessas ações.
+
+### Incidence and Adherence
+
+-   Systematic Intervention Incidence (ISI):
+
+    $$
+    \mathrm{ISI} = \frac{NIS}{k}
+    $$
+
+-   Systematic Periodicity Adherence (ATSP):
+
+    $$
+    \mathrm{ATSP} = \frac{\mathrm{MTBS}}{\bar{\chi}}
+    $$
+
+    Onde
+
+    $$
+    \bar{\chi} = \frac{1}{k} \sum_{j=1}^{k} \chi_j
+    $$
+
+    -   **Exemplo de Atraso:** Um $\mathrm{ATSP} = 1.5$ para uma periodicidade alvo de $\bar{\chi}=250\,h$ implica um atraso médio de $125\,h$. Isso resulta em um $\mathrm{ISI} < 1$ (menos intervenções que o necessário no período).
+
+    -   **Exemplo de Antecipação:** Um $\mathrm{ATSP} = 0.5$ implica uma antecipação média de $125\,h$.
+
+##### Impact of Adherence on Correctives (ISAC)
+
+Este indicador conecta o desvio do planejamento (atraso) com a consequência na confiabilidade (falha). Ele estima quantas falhas ocorrem no intervalo de desvio das sistemáticas:
+
+$$
+\mathrm{ISAC} = \frac{\mathrm{MTBS} - \bar{\chi}}{\mathrm{MTBF}} \times NIS
+$$
+
+-   **Exemplo Prático:** Um atraso de $125\,h$ em um equipamento com $\mathrm{MTBF}=25\,h$ resulta em $\mathrm{ISAC}=5$. Ou seja, 5 falhas poderiam ter sido evitadas se a periodicidade fosse respeitada.
+
+-   **Estratégia Ótima:** A estratégia ótima visa manter $\mathrm{ISAC} \cong 0$. A não execução de uma pauta dobra o intervalo para a próxima ($2\bar{\chi}$), configurando não aderência crítica. Tanto $\mathrm{ISI}<1$ quanto $\mathrm{ATSP}>1$ indicam aumento das corretivas.
+
+#### Measuring Impact on Availability
+
+A disponibilidade é definida pela ISO-5462:1994 como a "capacidade de um sistema estar em condições de executar uma certa função em um dado instante ou durante um intervalo de tempo determinado, levando em consideração os aspectos combinados de sua confiabilidade, mantenabilidade e suporte de manutenção, supondo que recursos externos requeridos estejam assegurados".
+
+Esta definição evidencia que a mantenabilidade (capacidade de recolocação em operação) impacta diretamente a disponibilidade física. Quando a manutenção é feita sob condições e recursos prescritos, o tempo de execução é controlado, gerando pouco impacto negativo na disponibilidade.
+
+### Time Adherence and Maintenance Factor
+
+-   Maintenance Time Adherence (ATTM):
+
+    Mede a extrapolação do tempo de execução. Sendo $S = \sum_{j=1}^{k} S_j$ o tempo previsto para as pautas:
+
+    $$
+    \mathrm{ATTM} = \frac{SPH}{S}
+    $$
+
+-   Impact on Physical Availability (IDF):
+
+    Quando $\mathrm{ATTM} > 1$, o impacto negativo aumenta. Utiliza-se o Fator de Manutenção Sistemática (FMS) para compor o indicador final, que consolida o impacto do aumento de reparos e a ineficiência da execução:
+
+    $$
+    \mathrm{FMS} = \frac{\mathrm{MTTM}}{(\mathrm{ATTM}-1)\times HM}
+    $$
+
+    $$
+    \mathrm{IDF} = \frac{(\mathrm{ISAC}\times \mathrm{MTTR}) + (\mathrm{FMS}\times HM)}{HC}
+    $$
+
+## Availability Refinements
+
+Embora a Disponibilidade Física forneça uma visão macro, a gestão de excelência operacional exige indicadores que isolem o desempenho inerente do equipamento e a sua prontidão durante os períodos de exigência operacional.
+
+### Inherent Availability (DI)
+
+A Disponibilidade Intrínseca (DI) mede a velocidade da manutenção em retornar um equipamento para a operação após a ocorrência de uma falha ou intervenção não programada. Ela representa a performance do equipamento e do processo, focando no tempo que a equipe demanda para reparar e disponibilizar a máquina para o sistema produtivo.
+
+Neste indicador, estão contidas todas as ações envolvidas no reparo, sejam elas de execução, planejamento (PCM), suprimentos ou logística. A DI avalia o desempenho do ativo através da inter-relação entre confiabilidade (MTBF) e mantenabilidade (MTTR).
+
+A fórmula de cálculo varia de acordo com a base de dados utilizada:
+
+1.  Baseada em Médias (Janela Móvel Mensal):
+
+    $$
+    \mathrm{DI} = \left[ \frac{\mathrm{MTBF}}{\mathrm{MTBF} + \mathrm{MTTR}} \right] \times 100
+    $$
+
+2.  Baseada em Horas Acumuladas:
+
+    $$
+    \mathrm{DI} = \left[ \frac{\sum HT}{\sum (HT + HMC)} \right] \times 100
+    $$
+
+**Governança e Premissas:**
+
+-   **Dimensão:** Qualidade.
+
+-   **Área Reguladora:** Excelência Operacional - Técnico.
+
+-   **Lógica de Acúmulo:** Se calculada via MTBF/MTTR, utiliza-se a Janela Móvel Mensal. Se calculada via HT/HMC, utiliza-se o Acúmulo e Recálculo das parcelas no período.
+
+-   **Fonte de Dados:** Exige interface entre sistemas de gerenciamento operacional (Horas Trabalhadas - HT) e de manutenção (Horas de Manutenção Corretiva - HMC).
+
+##### Operational Availability (DO)
+
+A Disponibilidade Operacional (DO) avalia o quanto do tempo em que o equipamento foi efetivamente exigido pela operação ele estava apto a cumprir sua função primária. Este indicador é aplicado em situações onde o ativo não opera em regime 24x7 por restrições operacionais, de mercado ou legais.
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{DO} = \left[ \frac{\sum (\text{Horas Operacionais} - \text{Horas Manutenção})}{\sum \text{Horas Operacionais}} \right] \times 100
+$$
+
+Definição de Horas Operacionais:
+
+Diferente das horas calendário, as horas operacionais são o tempo de exposição ao uso nas áreas de negócio. É necessário identificar os códigos de parada que não configuram "demanda" para obter este valor. Exemplos de horas não operacionais incluem:
+
+-   Aguardando navio na barra;
+
+-   Restrições de mercado ou de demanda;
+
+-   Restrições legais ou ambientais.
+
+Particularidades Setoriais (Ferrovia):
+
+Para ativos ferroviários, aplicam-se regras específicas de apontamento para garantir a integridade da DO:
+
+1.  As horas de deslocamento devem ser computadas como operacionais.
+
+2.  Paradas para manutenção preventiva devem ser computadas como indisponibilidade, independentemente de a equipe ter sido realocada. Toda parada deve ser apontada.
+
+3.  As horas operacionais devem respeitar os turnos de trabalho (ex: 9h ou 18h), e não a janela de 24h.
+
+# Maintenance Management Indicators (PCM)
+
+Além das métricas de engenharia e impacto, o Planejamento e Controle da Manutenção (PCM) monitora indicadores de processo e custos para garantir a sustentabilidade da operação. Abaixo, detalham-se os principais indicadores de gestão utilizados.
+
+## Systematic Maintenance Adherence (AMS)
+
+A Aderência à Manutenção Sistemática (AMS) tem por objetivo medir a aderência ao cumprimento das ordens geradas pelo sistema oriundas dos planos de manutenção. Este indicador reflete a disciplina da equipe em executar as preventivas dentro das janelas de oportunidade ideais.
+
+É a relação entre as manutenções sistemáticas (considerando a tolerância técnica) que foram previstas e executadas como aderentes no período, em relação ao total de manutenções sistemáticas previstas para o mesmo período.
+
+A fórmula de cálculo é dada por:
+
+$$
+\mathrm{AMS} = \frac{\text{Qtde Total de OMs Sistemáticas Aderentes (c/ tolerância)}}{\text{Qtde Total de OMs Sistemáticas Previstas (c/ tolerância)}} \times 100
+$$
+
+-   **OMs Aderentes:** São aquelas executadas dentro do prazo planejado somado à sua margem de tolerância (ex: $\pm 10\%$ do ciclo ou $\pm X$ dias).
+
+-   **Importância:** O controle da tolerância é vital, pois uma sistemática executada muito cedo desperdiça vida útil de componentes, enquanto a execução tardia expõe o ativo a riscos de falha não monitorada.
+
+## Conditional Maintenance Adherence (AMC)
+
+A Aderência à Manutenção Condicional (AMC) tem como objetivo medir se as manutenções baseadas no estado atual do equipamento estão ocorrendo de acordo com a data de necessidade identificada. Diferente da manutenção sistemática, o foco aqui é garantir que os alertas monitorados (preditivos) gerem intervenções no momento exato, otimizando o desempenho antes que ocorra a falha funcional.
+
+Este indicador estabelece a relação entre as manutenções condicionais que foram aderentes dentro do prazo de tolerância e o total de manutenções condicionais previstas para o período.
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{AMC} = \left[ \frac{\text{Qtde Total de Notas Condicionais Previstas e Aderentes}}{\text{Qtde Total de Notas Condicionais Previstas no Período}} \right] \times 100
+$$
+
+Para a composição deste indicador, aplicam-se os seguintes critérios técnicos de aderência:
+
+-   **Janela de Aderência:** Uma nota é considerada aderente se a sua execução ocorrer no intervalo que compreende desde 30 dias antes da data de conclusão desejada até 5 dias após essa mesma data.
+
+-   **Quantidade Total de Notas Condicionais Previstas e Aderentes (Numerador):** Corresponde ao somatório das notas condicionais que foram concluídas dentro da janela de tolerância supracitada (Data de Conclusão Desejada $-30$ dias até $+5$ dias).
+
+-   **Quantidade Total de Notas Condicionais Previstas (Denominador):** Corresponde ao total de notas condicionais que possuíam previsão de execução para o período analisado.
+
+A aplicação rigorosa desta métrica permite que a Engenharia de Confiabilidade avalie a eficácia do monitoramento de condição. Uma baixa aderência na AMC indica que, embora os alertas de degradação estejam sendo gerados, a operação ou o PCM não estão conseguindo liberar o ativo no tempo ótimo, o que aumenta o risco de falhas catastróficas e eleva o custo total de manutenção.
+
+## Maintenance Plan Adherence (APM)
+
+O indicador APM é uma composição das parcelas dos indicadores AMS (Aderência à Manutenção Sistemática) e AMC (Aderência à Manutenção Condicional). Seu objetivo é medir a aderência dos itens que compõem o plano de médio prazo da manutenção, bem como a resposta às intervenções condicionais identificadas.
+
+A fórmula de cálculo é definida pela soma das execuções aderentes dividida pelo total de eventos previstos no período:
+
+$$
+\mathrm{APM} = \frac{\text{AMS}_{\text{num}} + \text{AMC}_{\text{num}}}{\text{AMS}_{\text{den}} + \text{AMC}_{\text{den}}} \times 100
+$$
+
+Onde:
+
+-   **Numerador:** Soma da "Quantidade Total de OMs Sistemáticas (incluindo tolerância) previstas e aderentes no período" com a "Quantidade Total de Notas Condicionais previstas e aderentes no período" (dentro da janela de -30 a +5 dias).
+
+-   **Denominador:** Soma da "Quantidade Total de OMs Sistemáticas (incluindo tolerância) previstas no período" com a "Quantidade Total de Notas Condicionais previstas no período".
+
+Composição e Regras de Negócio
+
+Para que o APM reflita com precisão a realidade da operação, ele herda as premissas técnicas de seus indicadores base:
+
+-   **Aderência Sistemática:** Considera a execução das ordens geradas por planos de manutenção, respeitando as margens de tolerância técnica para evitar a perda de vida útil ou a exposição ao risco de falha.
+
+-   **Aderência Condicional:** Considera o cumprimento das notas baseadas em monitoramento de estado, sendo classificada como aderente a intervenção que ocorre entre 30 dias antes da data de conclusão desejada até 5 dias após esse prazo.
+
+-   **Fechamento Mensal:** Assim como os demais indicadores de gestão do PCM, o fechamento oficial do APM ocorre às 00:05h do 2º dia útil do mês subsequente. Esta regra garante que todas as confirmações de ordens e encerramentos de notas feitos no último dia do mês corrente sejam processados pelo sistema.
+
+O acompanhamento do APM é vital para a coordenação entre a Engenharia de Manutenção e o Planejamento, pois uma queda neste índice sugere falhas na integração do plano de médio prazo ou uma sobrecarga de intervenções emergenciais que impedem o cumprimento do cronograma mestre.
+
+## Schedule Compliance (APR)
+
+A Aderência à Programação (APR) mede o cumprimento da programação de serviços de manutenção. É o percentual de aderência do que foi programado para cada operação nas Ordens de Manutenção na programação semanal em relação ao que foi efetivamente realizado. Altos níveis indicam gestão eficaz de tempo e recursos.
+
+A fórmula de cálculo é:
+
+$$
+\mathrm{APR} = \frac{\text{Qtde Total de OMs Programadas e Executadas}}{\text{Qtde Total de OMs Programadas}} \times 100
+$$
+
+Para o cálculo, aplicam-se as seguintes regras de negócio:
+
+1.  **Quantidade Total de OMs Programadas e Executadas (Numerador):** Corresponde às operações que foram planejadas e executadas com sucesso dentro da semana. Devem atender aos seguintes critérios:
+
+    -   *Status do Sistema:* Operações com status Encerrada Tecnicamente (ENTE), Encerrada Comercialmente (ENCE), Confirmado (CONF) ou Confirmado Manualmente (CFMN).
+
+    -   *Janela de Tempo:* A data de programação deve estar dentro da semana analisada (segunda a domingo) e a execução efetiva (data de "Fim Real" ou IEDD) também deve ocorrer dentro desta mesma semana.
+
+    -   *Origem:* Apenas ordens do Baseline são consideradas. Ordens adicionadas após o fechamento da programação (status EXPROG) são descartadas.
+
+2.  **Quantidade Total de OMs Programadas (Denominador):** Corresponde a todas as operações incluídas na programação da semana analisada (segunda a domingo). Assim como no numerador, considera-se apenas o Baseline da programação semanal, descartando ordens emergenciais ou adicionais (status EXPROG).
+
+## Scheduled Labor Utilization Index (IMOP)
+
+Medir o nível de utilização programada de Homem Hora da manutenção. É a relação entre o somatório do trabalho real nas ordens programadas e o Hh total disponível.
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{IMOP} = \left[ \frac{\text{Quantidade Total de HH Planejado Programado Executado}}{\text{Quantidade Total de HH Disponível}} \right] \times 100
+$$
+
+**Critérios Técnicos e Filtros:**
+
+1.  **Numerador (HH Programado Executado):**
+
+    -   Corresponde ao Somatório do ‘trabalho executado” no período (campo trabalho real) da ordem de manutenção que está no **BASELINE** de programação da semana analisada.
+
+    -   *Filtros:* Excluir Ordens com status `EXPROG`. O trabalho real na semana deve ser \> 0. A turma executante deve ser igual à turma planejada. Desconsiderar confirmações com código de desvio preenchido.
+
+2.  **Denominador (HH Disponível):**
+
+    -   Mesmo critério do indicador IAMO. Somatório da capacidade de acordo com o calendário, intervalos e turnos definidos para o centro de trabalho. Considerar apenas centros de trabalho com tipo de capacidade "002 – Mão de obra".
+
+## Labor Appropriation Index (IAMO)
+
+O objetivo deste indicador é medir se a mão de obra utilizada na execução da manutenção está sendo apropriada corretamente no sistema. Ele representa a relação percentual entre a quantidade de horas-homem ($Hh$) efetivamente apropriadas nas Ordens de Manutenção (OM) e o total de $Hh$ disponível no centro de trabalho analisado.
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{IAMO} = \left( \frac{\text{Qtde Total de HH Apropriado}}{\text{Qtde Total de HH Disponível no Centro de Trabalho}} \right) \times 100
+$$
+
+Para a extração e processamento dos dados, aplicam-se os seguintes critérios técnicos:
+
+1.  **Quantidade Total de HH Apropriado (Numerador):** Corresponde ao somatório do campo "Trabalho Real" de todas as apropriações efetuadas no período analisado para todas as Ordens de Manutenção. Este valor reflete o esforço real despendido pela equipe técnica nas intervenções.
+
+2.  **Quantidade Total de HH Disponível no Centro de Trabalho (Denominador):** Representa a capacidade teórica de execução da unidade. O cálculo baseia-se no somatório do campo "Capacidade", observando-se as seguintes regras:
+
+    -   *Calendário e Turnos:* Devem ser considerados os intervalos e turnos definidos para o centro de trabalho no período, respeitando-se os dias úteis conforme o calendário de fábrica vinculado.
+
+    -   *Validade:* Devem ser somadas as capacidades de todos os intervalos e turnos com data de validade dentro do período analisado. Caso o centro de trabalho não possua intervalos e turnos específicos, utiliza-se a capacidade útil standard.
+
+    -   *Filtro de Centros de Trabalho:* Devem ser considerados apenas os Centros de Trabalho que recebem apropriação direta, seguindo as chaves de processamento interno:
+
+        -   Tipo de responsável igual a LDM com Processamento Interno CM0001.
+
+        -   Tipo de responsável igual a LD3 com Processamento Interno CM0002.
+
+## Systematic to Total Maintenance Ratio (RMS)
+
+A Relação Manutenção Sistemática e Total de Manutenção (RMS) tem como objetivo avaliar o esforço da manutenção aplicado especificamente às intervenções de natureza sistemática. Este indicador demonstra o esforço total sistemático, em termos percentuais de horas-homem ($Hh$), utilizado na manutenção em relação ao volume total de horas apropriadas.
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{RMS} = \left[ \frac{(\text{Total HH Sistemáticas} + \text{Total HH Calibração})}{\text{Total HH Apontado em Ordens}} \right] \times 100
+$$
+
+Para a extração e o processamento de dados, especialmente em ambientes que utilizam o módulo de manutenção do SAP, aplicam-se os seguintes critérios e regras de negócio:
+
+Critérios de Classificação e Tipos de Ordem
+
+Para garantir que o indicador reflita o esforço preventivo real, as ordens de manutenção (OM) são filtradas por seus respectivos tipos:
+
+-   **Manutenção Sistemática (Numerador):** São consideradas apenas as horas apropriadas em ordens provenientes de planos de manutenção. Os tipos de ordem aceitos são YPM (Preventiva), YCA (Calibração) e suas respectivas ordens secundárias. No sistema, os planos de manutenção preventiva devem ser criados exclusivamente sob esses tipos.
+
+-   **Total de Manutenção (Denominador):** Corresponde ao somatório das horas em todas as ordens de manutenção do período, abrangendo os tipos: YPM, YCA, YCM, YEM, YSS, YRR, YIM, YCO e YOP.
+
+-   **Tratamento de Ordens Secundárias (YSS):** Ordens do tipo YSS são classificadas como secundárias. O $Hh$ apropriado nessas ordens deve ser contabilizado e atribuído à Ordem de Manutenção principal correspondente.
+
+**Regras de Processamento e Fechamento**
+
+-   *Fonte de Dados:* O cálculo baseia-se no somatório das horas apropriadas (campo "Trabalho Real") dentro do período analisado.
+
+-   *Fechamento Mensal:* O indicador funciona como uma métrica de fechamento de período. A extração final dos dados ocorre às 00:05h do 2º dia útil do mês subsequente, garantindo que todos os apontamentos de horas realizados no final do mês anterior sejam devidamente processados.
+
+A análise do RMS permite identificar se a estratégia de manutenção está focada na prevenção sistemática ou se a mão de obra está sendo consumida por intervenções não planejadas. Um RMS equilibrado e alinhado ao plano mestre de manutenção é um indicativo de saúde operacional e previsibilidade de custos.
+
+## Corrective Maintenance Ratio (RMC)
+
+A Relação de Manutenção Corretiva (RMC) tem por objetivo comparar o volume de esforço (em horas) dedicado à manutenção corretiva em relação ao total de atividades de manutenção realizadas. Este indicador é um termômetro da estratégia da organização: uma alta proporção de RMC indica uma abordagem predominantemente reativa ("quebra-repara"), enquanto uma proporção menor sugere uma gestão mais preventiva e planejada.
+
+A fórmula de cálculo é expressa por:
+
+$$
+\mathrm{RMC} = \left( \frac{\text{Horas de Manutenção Corretiva (HMC)}}{\text{Horas Totais de Manutenção (HM)}} \right) \times 100
+$$
+
+-   **Horas de Manutenção Corretiva (HMC):** Somatório das horas reais apontadas em ordens de manutenção do tipo corretiva (emergencial ou programada).
+
+-   **Horas Totais de Manutenção (HM):** Somatório de todas as horas aplicadas em atividades técnicas, incluindo preventivas, preditivas e corretivas.
+
+## Corrective Maintenance Index (IMC)
+
+Enquanto a RMC foca no volume de horas, o Índice de Manutenção Corretiva (IMC) mede a frequência das intervenções corretivas em relação ao total de ordens de serviço executadas. Um valor elevado de IMC é um forte indicativo de baixa confiabilidade intrínseca dos equipamentos ou da necessidade de melhorias nos planos de manutenção preventiva.
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{IMC} = \left( \frac{\text{Número de Intervenções Corretivas (NIC)}}{\text{Número Total de Intervenções (NTI)}} \right) \times 100
+$$
+
+-   **Número de Intervenções Corretivas (NIC):** Quantidade total de ordens de manutenção corretiva encerradas no período.
+
+-   **Número Total de Intervenções (NTI):** Somatório de todas as intervenções (Corretivas + Sistemáticas/Preventivas) finalizadas no mesmo período.
+
+## Backlog
+
+O Backlog representa o tempo que a equipe de manutenção deve trabalhar para concluir todos os serviços pendentes, assumindo que não cheguem novos pedidos durante a execução destes serviços. Ele mede a "carteira de serviços" em dias necessários para zerar as demandas abertas no sistema.
+
+A fórmula de cálculo é dada por:
+
+\$\$\\mathrm{Backlog} = \\frac{(\\text{Qtde Total de Horas Planejadas} - \\text{Qtde Total de Horas Executadas})}{\\text{Qtde Total de Horas Disponível}}\$\$
+
+Para garantir a precisão deste indicador, aplicam-se os seguintes critérios técnicos:
+
+-   **Critério de Acúmulo Temporal:** O Backlog é tratado como uma "fotografia" da situação atual da área. Na hierarquia de relatórios, considera-se o último cenário analisado (geralmente o 1º dia útil do mês subsequente).
+
+-   **Cálculo do Numerador (Horas Pendentes):**
+
+    -   Considera o somatório do HH Planejado (trabalho) subtraído do HH Realizado (trabalho real).
+
+    -   *Filtro de Operações:* Apenas operações com chaves de controle de manutenção (ex: PM01, PM02, PM03, YPM1, YPM3, ZPM1).
+
+    -   *Filtro de Status:* As operações devem estar abertas.
+
+        -   *Status de Sistema:* Diferente de Encerrado Tecnicamente (ENTE) e Encerrado Comercialmente (ENCO).
+
+        -   *Status de Usuário:* Diferente de Cancelado (CANC), Totalmente Concluído (CONF) ou Eliminado (ELIM).
+
+-   **Denominador (Capacidade):** Corresponde à quantidade total de horas disponíveis da equipe (Hh Disponível) para o período de referência.
+
+## Maintenance Cost (MC)
+
+O Custo de Manutenção (CM) é o indicador que avalia a saúde financeira da gestão de ativos, englobando todas as despesas associadas às atividades de manutenção. O controle e a otimização desses custos são essenciais para garantir que a operação seja financeiramente sustentável e competitiva.
+
+A composição deste indicador inclui:
+
+-   **Custos Diretos:** Despesas com mão de obra própria ou terceira, peças de reposição e ferramentas.
+
+-   **Custos Indiretos:** Impactos financeiros causados pelo tempo de inatividade (lucro cessante) durante as paradas dos equipamentos.
+
+O Índice de Confiabilidade atua de forma complementar ao custo, medindo a capacidade do sistema operar sem falhas ao longo do tempo, o que impacta diretamente na redução do custo total de manutenção no longo prazo.
+
+## Failure Class Appropriation (ACF)
+
+A Apropriação de Classe de Falhas (ACF) tem por objetivo medir o grau de utilização do sistema informatizado de manutenção (SAP PM) quanto à correta classificação das avarias em Ordens de Manutenção (OM) corretivas. Este indicador é vital para a Engenharia de Confiabilidade, pois garante que os dados necessários para análises de causa raiz (como o Diagrama de Ishikawa ou Árvore de Falhas) estejam disponíveis e completos.
+
+O ACF representa o percentual de ordens encerradas dos tipos corretivo e emergencial que tiveram a apropriação da Classe de Falha em todos os seus níveis (até o nível de solução) em relação ao total de ordens do mesmo tipo encerradas no período.
+
+A fórmula de cálculo é definida por:
+
+$$
+\mathrm{ACF} = \left[ \frac{\text{Qtde Total de OMs Corretivas Encerradas com Classe de Falha}}{\text{Qtde Total de OMs Corretivas Encerradas no Período}} \right] \times 100
+$$
+
+Critérios Técnicos e Regras de Negócio
+
+Para o processamento deste indicador, o sistema observa as seguintes premissas de filtro e status:
+
+-   **Tipos de Ordem Considerados:** São contabilizadas apenas as Ordens de Manutenção de natureza reativa: YCM (Manutenção Corretiva) e YEM (Manutenção Emergencial).
+
+-   **Condição de Encerramento (Numerador):**
+
+    -   A ordem deve possuir status de sistema igual a "Encerrado Tecnicamente" ou "Encerrado Comercialmente".
+
+    -   O status de usuário deve ser diferente de "Cancelada" e sistema diferente de "NEXE".
+
+    -   **Exigência de Preenchimento:** A nota de manutenção associada à ordem deve ter os **5 campos da Classe de Falha** preenchidos (até o nível "Solução") com valores diferentes de "NÃO ENCONTRADO".
+
+-   **Base de Comparação (Denominador):**
+
+    -   Corresponde à quantidade total de ordens YCM e YEM com status de sistema encerrado e data de referência dentro do período pesquisado, independente do preenchimento da classe de falha.
+
+    -   Também exclui ordens com status de usuário "Cancelada".
+
+Importância Analítica
+
+O preenchimento incompleto da classe de falha (ex: registrar o sintoma, mas omitir a causa ou a solução) inviabiliza a extração de relatórios de Pareto e o cálculo de tendências de modos de falha. Assim como os demais indicadores de gestão do PCM, o fechamento mensal do ACF ocorre às 00:05h do 2º dia útil do mês subsequente, garantindo a consolidação das apropriações realizadas no fechamento do mês anterior.
+
+# Workflow and Portfolio Management
+
+A eficiência da manutenção não é medida apenas pela execução em campo, mas pela agilidade no tratamento administrativo das demandas. O monitoramento da idade média das notas e ordens permite à gestão técnica identificar se a rotina de tratamento está adequada e se as demandas estão fluindo corretamente pelo ciclo de planejamento.
+
+## Average Maintenance Order Times by Status (TMOMS)
+
+O TMOMS tem por objetivo avaliar o tempo médio de permanência das Ordens de Manutenção (OM) estratificado por cada status (ou etapa) dentro do sistema informatizado de manutenção (SAP PM). Este indicador fornece visibilidade sobre o lead time interno de cada fase do processo, permitindo que a gestão atue pontualmente onde o processo está retido.
+
+A fórmula de cálculo é baseada na soma dos tempos de todas as ordens em um status específico, dividida pela quantidade total de ordens que passaram por esse mesmo status no período:
+
+\$\$\\text{TMOMS} = \\frac{\\sum (\\text{Tempo da OM no status})}{\\sum (\\text{Quantidade de OMs no status})}\$\$
+
+Unidade de medida: Dias.
+
+Estratificação e Visões do Processo
+
+Para uma análise de excelência operacional, o indicador é desdobrado em cinco visões principais, representando o ciclo de vida da manutenção:
+
+1.  **Planejamento:** Tempo médio em que a ordem permanece aguardando a definição de escopo, recursos e procedimentos técnicos.
+
+2.  **Aprovisionamento:** Tempo médio de retenção aguardando a chegada de materiais, peças de reposição ou contratação de serviços externos.
+
+3.  **Programação:** Tempo em que a ordem, já planejada e com recursos disponíveis, aguarda a janela operacional para ser inserida no cronograma semanal.
+
+4.  **Execução:** Tempo decorrido desde o início real da atividade até o seu encerramento em campo.
+
+5.  **Outros Status:** Inclui tempos de retenção em etapas transversais, como aguardando aprovação financeira ou pendências de terceiros.
+
+Dimensões e Acúmulo Temporal
+
+O TMOMS é classificado majoritariamente na dimensão de Produtividade, sob a regulação da área de Excelência Operacional - Técnico. Diferente de indicadores de "fotografia" (como o Backlog), o TMOMS utiliza a fórmula de acúmulo por Recálculo. Isso significa que, ao analisar períodos maiores (trimestres ou anos), o sistema reavalia as médias de tempos de permanência para garantir que a tendência reflita a realidade histórica das operações e não apenas uma soma linear de dias.
+
+A análise conjunta do TMOMS com o Backlog permite diferenciar se um volume alto de trabalho pendente é causado por excesso de demanda (Backlog alto com TMOMS estável) ou por ineficiência de fluxo (Backlog alto acompanhado de aumento no tempo de Planejamento ou Aprovisionamento).
+
+## Average Age of Untreated Notifications (IMNC)
+
+O indicador IMNC visa medir o tempo médio em que as Notas de Manutenção permanecem na "caixa de entrada" do PCM sem que tenham recebido o tratamento inicial (vinculação a uma Ordem de Manutenção). Este indicador é essencial para garantir que as solicitações de manutenção não fiquem paradas, perdendo a janela de oportunidade de planejamento.
+
+A fórmula de cálculo é definida por:
+
+\$\$IMNC = \\frac{\\text{Qtde Total do Tempo das Notas sem tratamento}}{\\text{Qtde Total das Notas sem tratamento}}\$\$
+
+**Premissas e Regras de Negócio:**
+
+-   **Objetivo:** Verificar se a rotina de tratamento das Notas em carteira está adequada, garantindo que as demandas sejam atendidas tempestivamente.
+
+-   **Cálculo do Tempo (Parcela 1):** Corresponde à diferença em dias entre a data atual e a data de criação da nota.
+
+-   **Critérios de Filtro:**
+
+    -   Considerar apenas notas de tipo iniciado com "Y".
+
+    -   Considerar apenas as notas abertas e ainda não vinculadas a uma Ordem de Manutenção.
+
+    -   **Exclusões:** Notas encerradas (status de sistema MSEN), rejeitadas (status de usuário REJE) ou já vinculadas a uma OM.
+
+-   **Frequência e Acúmulo:** A menor frequência de apuração é semanal, utilizando a lógica de Recálculo das parcelas no período analisado.
+
+-   **Fechamento:** O fechamento oficial ocorre às 00:05h do 2º dia útil do mês subsequente.
+
+## Average Age of Open Orders (IMOS)
+
+O IMOS mede o tempo médio em que uma Ordem de Manutenção (OM) permanece aberta no sistema, desde sua criação até seu encerramento técnico. Diferente do IMNC, que foca na triagem, o IMOS foca no fluxo de planejamento, programação e execução.
+
+A fórmula de cálculo é definida por:
+
+\$\$IMOS = \\frac{\\text{Qtde Total do Tempo das OMs abertas}}{\\text{Qtde Total de OMs abertas}}\$\$
+
+**Premissas e Regras de Negócio:**
+
+-   **Objetivo:** Identificar o tempo médio de permanência das ordens na carteira de serviços ativa.
+
+-   **Cálculo do Tempo (Parcela 1):** Corresponde à diferença em dias entre a data atual e a data de entrada (criação) da Ordem.
+
+-   **Critérios de Filtro:**
+
+    -   Considerar todas as ordens que não atingiram o estágio final de encerramento.
+
+    -   **Exclusões:** Ordens Encerradas Tecnicamente (status sistema ENTE), Encerradas Comercialmente (status sistema ENCO) ou Não Executadas (status sistema NEXE).
+
+-   **Lógica de Fotografia:** O IMOS é um "Retrato da situação no momento". Ele não é acumulativo no sentido de soma, mas sim a fotografia da carteira no instante da apuração. Na hierarquia mensal, considera-se o último cenário analisado para representar a situação atual da área.
+
+-   **Frequência e Acúmulo:** Apuração diária com área reguladora em Excelência Operacional - Técnico.

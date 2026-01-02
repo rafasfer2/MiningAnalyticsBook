@@ -1,0 +1,72 @@
+project:
+  type: book
+  output-dir: docs
+lang: pt-BR
+
+book:
+  title: "Sistema de Gestão e Excelência Operacional na Mineração"
+  subtitle: "Análise de Indicadores e Data Science com R"
+  author: "Rafael da Silva Fernandes"
+  date: last-modified
+
+  sidebar:
+    style: docked
+    collapse-level: 3
+    search: true
+
+  chapters:
+      - index.qmd
+      - intro.qmd
+      - part: chapters/part1-intro.qmd
+        chapters:
+          - chapters/performance-kpi.qmd
+          - chapters/modelagem_manut.qmd
+          - chapters/ciclo-pdca.qmd
+          - chapters/plan-crtl-opera.qmd
+          - chapters/caixa-ferramentas.qmd
+      - part: chapters/part2-intro.qmd
+        chapters:
+          - chapters/ciclo1-perfuracao.qmd
+          - chapters/ciclo2-carregamento.qmd
+          - chapters/ciclo3-transporte.qmd
+      - part: chapters/part3-intro.qmd
+        chapters:
+          - chapters/plan-crtl-opera.qmd
+          - chapters/plan-crtl-manut.qmd
+          - chapters/confiabilidade.qmd
+
+  appendices:
+    - chapters/appendix/a-dicionario-dados.qmd
+    - chapters/appendix/b-dicionario-indicadores.qmd
+    - chapters/appendix/c-notacoes-abreviacoes.qmd
+    - chapters/appendix/d-lista-exemplos.qmd
+    - chapters/appendix/e-lista-figuras.qmd
+    - chapters/appendix/f-lista-tabelas.qmd
+
+execute:
+  freeze: auto
+  code-init: source("_common.R") # Executa as cores e o library(miningKPI)
+
+crossref:
+  chapters: true
+  fig-prefix: "Figura"
+  tbl-prefix: "Tabela"
+  exm-title: "Exemplo"
+  exm-prefix: "Exemplo"
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: flatly
+    css: styles/styles.css
+    include-after-body: includes/after-body.html
+    code-fold: true
+    toc: true
+    toc-depth: 3            # Garante que até o nível 3 apareça no TOC lateral
+    number-sections: true
+
+  docx:
+    toc: true
+    number-sections: true
+    highlight-style: github

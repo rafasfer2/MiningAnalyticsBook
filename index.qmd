@@ -1,0 +1,88 @@
+# Prefácio {.unnumbered}
+
+**Bem-vindo(a)** ao guia prático sobre gestão e excelência operacional na mineração.
+
+Este livro apresenta um framework que integra **indicadores de performance**, **ciência de dados** e **modelos de confiabilidade** aplicados ao contexto da mineração. O diferencial desta obra é a união da metodologia analítica **MASP (Método de Análise e Solução de Problemas)** com o poder computacional da linguagem **R**, transformando dados brutos em inteligência acionável para decisões estratégicas em operação, manutenção e engenharia.
+
+A proposta é oferecer uma jornada prática pelos pilares da gestão de ativos. Ao longo dos capítulos, você não apenas entenderá os KPIs, mas aprenderá a processar eventos reais respeitando a **Identidade Fundamental** dos processos de contagem $N(t)$.
+
+## Público-alvo {.unnumbered}
+
+O conteúdo foi desenvolvido para três públicos principais:
+
+1.  **Profissionais de Operação, Manutenção e Engenharia** que buscam aplicar métodos quantitativos para elevar a disponibilidade e produtividade de frotas;
+
+2.  **Analistas de Dados e Engenheiros de Confiabilidade** que desejam dominar o pacote `miningKPI` para automatizar relatórios e diagnósticos;
+
+3.  **Estudantes e Pesquisadores** que precisam de um campo de provas real para teorias de sistemas reparáveis e gestão de ativos industrial.
+
+## Objetivos do Livro {.unnumbered}
+
+-   **Estruturar um Sistema de Gestão Integrado (SGI)** baseado no ciclo PDCA.
+
+-   **Dominar a Identidade Fundamental** dos ciclos operacionais.
+
+-   **Aplicar o MASP** para identificar e bloquear causas raízes de baixa performance.
+
+-   **Executar Data Science com R** focado em confiabilidade e variabilidade operacional.
+
+-   **Utilizar o pacote `miningKPI`** como ferramenta padrão para análise de dados minerários.
+
+## O Caminho da Análise Interativa (Workflow) {.unnumbered}
+
+Seguiremos este fluxo interativo ao longo de todos os estudos de caso deste livro (Minas A a F), integrando a Ciência de Dados ao ciclo **PDCA**:
+
+1.  **P - Planejamento (Identificação)**: Localizamos qual frota ou sistema está desviando dos resultados esperados utilizando `kpi_summary_fleet()`.
+
+2.  **P - Planejamento (Análise)**: Realizamos o "Deep Dive" para entender se o problema reside na frequência de eventos (MTBF) ou na eficiência do reparo/processo (MTTR) com `plot_pareto_failures()`.
+
+3.  **D - Execução**: Com base nos dados, propomos intervenções técnicas e priorização de investimentos.
+
+4.  **C - Verificação**: Validamos se a intervenção alterou o patamar de performance do ativo através de `plot_control_chart()`.
+
+5.  **A - Padronização**: Encerramos o ciclo com a criação de dashboards reprodutíveis para garantir que a melhoria seja sustentável.
+
+## Estrutura do Livro {.unnumbered}
+
+O livro organiza-se de forma **híbrida**, conectando fundamentos teóricos a aplicações práticas:
+
+-   **Bloco Fundamental**: Aborda a gestão de riscos críticos (**MUE**) e a normatização internacional (**ISO 55000/5462**).
+
+-   **Bloco de Lavra (MASP)**: Aplicação detalhada do ciclo PDCA nos processos de Perfuração, Carregamento e Transporte (ex: **Frota 55**).
+
+-   **Bloco de Processamento**: Análise de sistemas contínuos (**IPCC**) e fluxos de beneficiamento de Cobre e Ferro.
+
+## Fundamentos de Confiabilidade {.unnumbered}
+
+Para gerir esses ativos, tratamos a operação como um **sistema reparável**. A análise baseia-se em **processos de contagem e eventos recorrentes**, utilizando as notações:
+
+-   $\{T_i\}$: Tempos das falhas acumulados.
+
+-   $\{X_i\}$: Tempos entre falhas (**TBF**).
+
+-   $\{R_i\}$: Tempos de reparo (**TTR**).
+
+## Pré-requisitos Técnicos {.unnumbered}
+
+Utilizamos o **R** e o ecossistema `tidyverse` ao longo de todo o livro. O pacote **`miningKPI`**, desenvolvido especialmente para este projeto, fornece os datasets reais e as funções analíticas necessárias.
+
+```{r}
+#| eval: false
+#| echo: true
+# Instalação do ecossistema
+install.packages("tidyverse")
+remotes::install_github("rafasfer2/miningKPI")
+
+library(miningKPI)
+library(tidyverse)
+```
+
+::: callout-tip
+## Licença e Acesso
+
+Este material é disponibilizado sob a licença **CC BY-NC-SA 4.0**. O código-fonte e os materiais estão disponíveis no GitHub: <https://github.com/rafasfer2/miningKPI>.
+:::
+
+Rafael da Silva Fernandes
+
+Dezembro de 2025
