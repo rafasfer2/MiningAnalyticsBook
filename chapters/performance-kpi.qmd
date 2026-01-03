@@ -21,69 +21,6 @@ Este capítulo estrutura os indicadores fundamentais que compõem a espinha dors
 ## Elementos de Suporte e Categorização de Horas
 
 Os elementos de suporte são os dados diretamente monitorados e coletados durante a produção. No ciclo de processos de transporte, os dados coletados em caminhões “off-highway” são obtidos dos horímetros instalados no sistema de medição e denominados tempos operacionais. A partir desses apontamentos, as horas são estratificadas em categorias que permitem a análise do desempenho em diferentes níveis de granularidade.
-
-$$
-A classificação das horas é dividida hierarquicamente para facilitar a gestão, permitindo o desdobramento desde a disponibilidade global até a causa raiz do evento. Esta estrutura é o fundamento para o processamento de telemetria e o cálculo de KPIs no pacote `miningKPI`.
-
-**HC – Calendar Hours: Horas Calendário:** Tempo total de existência do ativo no período (24h/dia).
-$$HC = HT + HM + HO$$
-
-$$
--   **HT – Worked Hours: Horas Trabalhadas**
-
-    -   **HTP – Productive Worked Hours: Horas Trabalhadas Produtivas** ($EFH + ODH$)
-
-        -   **EFH (Effective Hours): Horas Efetivas (HEF)** – Tempo em que o equipamento desenvolve trabalho útil na função primária (ex: contato bit-rocha na perfuração).
-$$
-
-        -   **ODH (Operational Delay Hours): Horas de Atraso Operacional (HAO)** – Atrasos inerentes ao ciclo perfeito, como esperas por caminhão, manobras de sinalização ou filas curtas.
-
-    -   **HNTP – Non-Productive Worked Hours: Horas Trabalhadas Não Produtivas** ($IWH + DWH$)
-
-$$
-        -   **IWH (Infrastructure Worked Hours): Horas de Infraestrutura (HTI)** – Atividades de suporte à fase produtiva, como acerto de praça ou manutenção de acessos.
-
-        -   **DWH (Different Worked Hours): Horas Trabalhadas Diversas (HTD)** – Trabalho fora do ciclo operacional principal, como locomoções curtas para abastecimento ou apoio a outros processos.
-
--   **HM – Maintenance Hours: Horas em Manutenção**
-$$
-
-    -   **HMCT – Total Corrective Maintenance Hours: Horas de Manutenção Corretiva Total** ($CMH + ACH$)
-
-        -   **CMH (Corrective Maintenance Hours): Horas de Manutenção Corretiva (HMC)** – Tempo de indisponibilidade para intervenção corretiva não planejada visando restaurar a função após uma falha.
-
-$$
-        -   **ACH (Accident Hours): Horas de Acidente (HAC)** – Tempo sob responsabilidade da manutenção em decorrência de acidentes ou danos causados por fatores externos.
-
-    -   **HMP – Planned Maintenance Hours: Horas de Manutenção Preventiva** ($SPH + NSPH$)
-
-        -   **SPH (Systematic Preventive Hours): Horas Preventivas Sistemáticas (MPS)** – Manutenções planejadas repetidas em intervalos definidos (horas, km ou data), sem indicação prévia de defeito.
-$$
-
-        -   **NSPH (Non-Systematic Programmed Hours): Horas Preventivas Não Sistemáticas (MPNS)** – Intervenções baseadas em monitoramento de condição (preditiva) ou programadas fora de ciclos sistemáticos rígidos.
-
--   **HO – Idle Hours: Horas Ociosas**
-
-$$
-    -   **HO – Total Idle Hours: Horas Ociosas Totais** ($IIH + EIH$)
-
-        -   **IIH (Internal Idle Hours): Horas Ociosas Internas (HOI)** – Equipamento apto, mas parado por falta de recursos internos (ex: operador, troca de turno, aguardando projeto ou topografia).
-
-        -   **EIH (External Idle Hours): Horas Ociosas Externas (HOE)** – Equipamento apto, mas parado por fatores externos não gerenciáveis pela unidade (ex: clima adverso, raios ou falta de energia da rede).
-$$
-
-![Hierarquia de classificação de horas de ativos de mineração.](/images/fig-estrato-categoria-horas-gimini.jpg){#fig-categoria-horas}
-
-::: {#exm-processamento-categorias}
-#### Processamento de Categorias de Horas
-$$
-
-Como a medição é feita baseada em durações de tempo, os apontamentos são realizados sempre que um determinado equipamento altera o seu status de operação, representando as 10 categorias fundamentais de horas. Para a análise de desempenho, utiliza-se a variável `gap_time`, que representa a duração (em horas) entre o início e o fim de cada evento.
-
-No conjunto de dados `drill_events_mine_d`, observando o equipamento de perfuração `DRILL_100` durante um período de 3 dias, identificamos um total de 245 eventos registrados. Ao realizarmos o agrupamento e a soma dos tempos por categoria, teremos a consolidação das 24 horas diárias (Horas Calendário — $HC$ ou $CH$) estratificadas conforme a utilização real do ativo.
-:::
-$$
-
 ## Elementos de Suporte e Categorização de Horas
 
 Os elementos de suporte são os dados diretamente monitorados e coletados durante a produção. No ciclo de processos de transporte, os dados coletados em caminhões “off-highway” são obtidos dos horímetros instalados no sistema de medição e denominados tempos operacionais. A partir desses apontamentos, as horas são estratificadas em categorias que permitem a análise do desempenho em diferentes níveis de granularidade.
@@ -158,7 +95,6 @@ A Disponibilidade Física (DF) é o indicador macro que mensura a quantidade de 
 
 A fórmula base para o cálculo da DF é:
 
-$$
 \mathrm{DF} = \left[ \frac{\sum_{i=1}^{p} HC_i - \sum_{i=1}^{n} HM_i}{\sum_{i=1}^{p} HC_i} \right] \times 100
 $$ {#eq-df}
 
@@ -269,9 +205,7 @@ Enquanto a disponibilidade e a utilização tratam da alocação de "tempo", a p
 
 A fórmula de cálculo consolidada para um período é:
 
-$$
 \mathrm{PR} = \frac{\sum \text{Unidades de Produção}}{\sum HT}
-$$
 
 As unidades variam conforme o processo, sendo comumente expressas em $t/h$ (toneladas por hora) ou $m/h$ (metros perfurados por hora).
 
@@ -303,9 +237,7 @@ Para garantir a precisão no pacote `miningKPI`, as frotas utilizam definições
 
 A Eficiência da Produtividade (EP) compara o ritmo real com uma referência técnica de excelência, indicando o aproveitamento do potencial do ativo.
 
-$$
 \mathrm{EP} = \left( \frac{\mathrm{PR}_{\text{real}}}{\mathrm{PR}_{\text{ref}}} \right) \times 100
-$$
 
 ##### Metodologia de Referência (MSR)
 
@@ -333,13 +265,11 @@ A lógica do indicador baseia-se na premissa de que cada hora de manutenção a 
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{IP\text{-}DF} = \frac{(HM_{\text{prog}} - HM_{\text{real}}) \times PR_{\text{efetiva\_prog}}}{1000}
 $$ {#eq-ip-df}
 
 -   $HM_{prog}$ (Horas de manutenção programada): Total de horas de manutenção previstas no planejamento original (Baseline).
 
-$$
 \mathrm{IP\text{-}UF} = \frac{(%UF_{\text{real}} - %UF_{\text{prog}}) \times HD_{\text{prog}} \times PR_{\text{efetiva\_prog}}}{1000}
 $$ {#eq-ip-uf}
 
@@ -351,9 +281,7 @@ O IP-UF mensura o impacto na produção relacionado à variação entre a utiliz
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{IP\text{-}UF} = \frac{(\%UF_{\text{real}} - \%UF_{\text{prog}}) \times HD_{\text{prog}} \times PR_{\text{efetiva\_prog}}}{1000}
-$$
 
 Onde:
 
@@ -373,7 +301,6 @@ O IP-Produtividade mensura o impacto na produção relacionado à variação ent
 
 A fórmula de cálculo é:
 
-$$
 \mathrm{IP}_{\mathrm{PR}} = \text{Prod. Realizada} - \mathrm{IP}_{\mathrm{DF}} - \mathrm{IP}_{\mathrm{UF}} - \text{Prod. Programada}
 $$ {#eq-ip-pr}
 
@@ -391,47 +318,35 @@ As falhas ocorrem em $t_1, t_2, t_3, \dots$ e as manutenções são executadas e
 
 Os tempos entre falhas representam as horas trabalhadas ($HT$), dadas pela expressão:
 
-$$
 HT = \sum_{i=1}^{n} TBF_i
 $$ {#eq-ht-tbf}
 
-$$
 \mathrm{MTBF} = \frac{HT}{NIC}
 $$ {#eq-mtbf}
 
 O tempo para reparo é composto pelas horas em manutenções corretivas ($HMC$) e horas de manutenção acidente ($HAC$), dadas pela categoria:
 
-$$
 HTMC = \sum_{i=1}^{n} TTR_i
-$$
 
 Para $n = NIC$, o tempo médio para reparo é dado por:
 
-$$
 \mathrm{MTTR} = \frac{HTMC}{NIC}
-$$
 
 #### Time Between Systematics (TBS) e MTBS
 
 Representam as horas trabalhadas ($HT$) considerando o número de intervenções sistemáticas ($NIS$). O tempo médio entre sistemáticas é expresso por:
 
-$$
 \mathrm{MTBS} = \frac{HT}{NIS}
-$$
 
 #### Time To Maintain (TTM) e MTTM
 
 Representa o tempo gasto para manutenir um equipamento, dada pela categoria de horas preventivas sistemáticas ($MPS$):
 
-$$
 MPS = \sum_{j=1}^{m} TTM_j
-$$
 
 Para $m = NIS$ eventos, o tempo médio para manutenir é:
 
-$$
 \mathrm{MTTM} = \frac{MPS}{NIS}
-$$
 
 ### Mensuração de Impacto na Incidência de Corretivas
 
@@ -441,23 +356,17 @@ A análise da eficácia da estratégia preventiva passa pela relação entre o q
 
 A razão entre o número de intervenções preventivas programadas ($k$) e o número de intervenções sistemáticas executadas ($NIS$), após um determinado tempo de operação $HT > t$, define a incidência de intervenções sistemáticas:
 
-$$
 \mathrm{ISI} = \frac{NIS}{k}
-$$
 
 #### Adherence to Systematic Periodicity (ATSP)
 
 A aderência à periodicidade é a relação entre as manutenções programadas que foram efetivamente executadas dentro da tolerância prevista. Dado que $k$ manutenções são sequenciais e programadas, temos:
 
-$$
 \mathrm{ATSP} = \frac{\mathrm{MTBS}}{\bar{\chi}}
-$$
 
 Onde $\bar{\chi}$ é o tempo médio entre sistemáticas previsto (periodicidade média):
 
-$$
 \bar{\chi} = \frac{1}{k} \sum_{j=1}^{k} \chi_j
-$$
 
 > **Exemplo Prático:** Um $ATSP = 1.5$ indica que, para uma periodicidade prevista de $\chi = 250h$, há um atraso médio de $125h$ para o início da execução, resultando em $ISI < 1$. Inversamente, um $ATSP = 0.5$ indica uma antecipação de $125h$.
 
@@ -465,9 +374,7 @@ $$
 
 Para quantificar como o desvio das sistemáticas afeta a confiabilidade, calculamos quantas falhas ocorrem no intervalo de atraso ou antecipação:
 
-$$
 \mathrm{ISAC} = \frac{\mathrm{MTBS} - \bar{\chi}}{\mathrm{MTBF}} \times NIS
-$$
 
 Se considerarmos um atraso de $125h$ com $MTBF = 25$, espera-se que ocorram $ISAC = 5$ falhas a mais devido ao atraso. A estratégia ótima visa $ISAC \cong 0$. Note que se uma pauta não for executada, a próxima ocorrerá em $2\chi$, configurando uma não aderência crítica que eleva o número de intervenções corretivas ($NCI$).
 
@@ -479,9 +386,7 @@ A extrapolação do tempo de execução das atividades impacta diretamente a pro
 
 Define a relação entre o tempo real de execução ($SPH$) e o tempo previsto ($S$):
 
-$$
 \mathrm{ATTM} = \frac{SPH}{S}
-$$
 
 Onde $S$ é o somatório dos tempos previstos para todas as pautas $k$ em um período de operação.
 
@@ -489,17 +394,13 @@ Onde $S$ é o somatório dos tempos previstos para todas as pautas $k$ em um per
 
 Quando as execuções não são aderentes ($\mathrm{ATTM} > 1$), o impacto na disponibilidade física é potencializado. O fator de manutenção sistemática é dado por:
 
-$$
 \mathrm{FMS} = \frac{\mathrm{MTTM}}{(\mathrm{ATTM} - 1) \times HM}
-$$
 
 #### Impact on Physical Availability (IPA / IDF)
 
 Considerando o aumento do número de reparos (via ISAC) e a ineficiência de execução (via FMS), o impacto total na disponibilidade física é consolidado por:
 
-$$
 \mathrm{IPA} = \frac{(\mathrm{ISAC} \times \mathrm{MTTR}) + (\mathrm{FMS} \times HM)}{HC}
-$$
 
 Embora a Disponibilidade Física forneça uma visão macro, a gestão de excelência operacional exige indicadores que isolem o desempenho inerente do equipamento e a sua prontidão durante os períodos de exigência operacional.
 
@@ -539,9 +440,7 @@ A Disponibilidade Operacional (DO) avalia o quanto do tempo em que o equipamento
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{DO} = \left[ \frac{\sum (\text{Horas Operacionais} - \text{Horas Manutenção})}{\sum \text{Horas Operacionais}} \right] \times 100
-$$
 
 Definição de Horas Operacionais:
 
@@ -577,9 +476,7 @@ A Aderência à Manutenção Sistemática (AMS) tem por objetivo medir a aderên
 
 A fórmula de cálculo é dada por:
 
-$$
 \mathrm{AMS} = \frac{\text{Qtde Total de OMs Sistemáticas Aderentes (c/ tolerância)}}{\text{Qtde Total de OMs Sistemáticas Previstas (c/ tolerância)}} \times 100
-$$
 
 -   **OMs Aderentes:** São aquelas executadas dentro do prazo planejado somado à sua margem de tolerância (ex: $\pm 10\%$ do ciclo ou $\pm X$ dias).
 
@@ -593,9 +490,7 @@ Este indicador estabelece a relação entre as manutenções condicionais que fo
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{AMC} = \left[ \frac{\text{Qtde Total de Notas Condicionais Previstas e Aderentes}}{\text{Qtde Total de Notas Condicionais Previstas no Período}} \right] \times 100
-$$
 
 Para a composição deste indicador, aplicam-se os seguintes critérios técnicos de aderência:
 
@@ -613,9 +508,7 @@ O indicador APM é uma composição das parcelas dos indicadores AMS (Aderência
 
 A fórmula de cálculo é definida pela soma das execuções aderentes dividida pelo total de eventos previstos no período:
 
-$$
 \mathrm{APM} = \frac{\text{AMS}_{\text{num}} + \text{AMC}_{\text{num}}}{\text{AMS}_{\text{den}} + \text{AMC}_{\text{den}}} \times 100
-$$
 
 Onde:
 
@@ -641,9 +534,7 @@ A Aderência à Programação (APR) mede o cumprimento da programação de servi
 
 A fórmula de cálculo é:
 
-$$
 \mathrm{APR} = \frac{\text{Qtde Total de OMs Programadas e Executadas}}{\text{Qtde Total de OMs Programadas}} \times 100
-$$
 
 Para o cálculo, aplicam-se as seguintes regras de negócio:
 
@@ -663,9 +554,7 @@ Medir o nível de utilização programada de Homem Hora da manutenção. É a re
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{IMOP} = \left[ \frac{\text{Quantidade Total de HH Planejado Programado Executado}}{\text{Quantidade Total de HH Disponível}} \right] \times 100
-$$
 
 **Critérios Técnicos e Filtros:**
 
@@ -685,9 +574,7 @@ O objetivo deste indicador é medir se a mão de obra utilizada na execução da
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{IAMO} = \left( \frac{\text{Qtde Total de HH Apropriado}}{\text{Qtde Total de HH Disponível no Centro de Trabalho}} \right) \times 100
-$$
 
 Para a extração e processamento dos dados, aplicam-se os seguintes critérios técnicos:
 
@@ -713,9 +600,7 @@ A Relação Manutenção Sistemática e Total de Manutenção (RMS) tem como obj
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{RMS} = \left[ \frac{(\text{Total HH Sistemáticas} + \text{Total HH Calibração})}{\text{Total HH Apontado em Ordens}} \right] \times 100
-$$
 
 Para a extração e o processamento de dados, especialmente em ambientes que utilizam o módulo de manutenção do SAP, aplicam-se os seguintes critérios e regras de negócio:
 
@@ -743,9 +628,7 @@ A Relação de Manutenção Corretiva (RMC) tem por objetivo comparar o volume d
 
 A fórmula de cálculo é expressa por:
 
-$$
 \mathrm{RMC} = \left( \frac{\text{Horas de Manutenção Corretiva (HMC)}}{\text{Horas Totais de Manutenção (HM)}} \right) \times 100
-$$
 
 -   **Horas de Manutenção Corretiva (HMC):** Somatório das horas reais apontadas em ordens de manutenção do tipo corretiva (emergencial ou programada).
 
@@ -757,9 +640,7 @@ Enquanto a RMC foca no volume de horas, o Índice de Manutenção Corretiva (IMC
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{IMC} = \left( \frac{\text{Número de Intervenções Corretivas (NIC)}}{\text{Número Total de Intervenções (NTI)}} \right) \times 100
-$$
 
 -   **Número de Intervenções Corretivas (NIC):** Quantidade total de ordens de manutenção corretiva encerradas no período.
 
@@ -811,9 +692,7 @@ O ACF representa o percentual de ordens encerradas dos tipos corretivo e emergen
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{ACF} = \left[ \frac{\text{Qtde Total de OMs Corretivas Encerradas com Classe de Falha}}{\text{Qtde Total de OMs Corretivas Encerradas no Período}} \right] \times 100
-$$
 
 Critérios Técnicos e Regras de Negócio
 
@@ -939,9 +818,7 @@ A lógica do indicador baseia-se na premissa de que cada hora de manutenção a 
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{IP\text{-}DF} = \frac{(HM_{\text{prog}} - HM_{\text{real}}) \times PR_{\text{efetiva\_prog}}}{1000}
-$$
 
 Onde:
 
@@ -959,9 +836,7 @@ O IP-UF mensura o impacto na produção relacionado à variação entre a utiliz
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{IP\text{-}UF} = \frac{(\%UF_{\text{real}} - \%UF_{\text{prog}}) \times HD_{\text{prog}} \times PR_{\text{efetiva\_prog}}}{1000}
-$$
 
 Onde:
 
@@ -981,9 +856,7 @@ O IP-Produtividade mensura o impacto na produção relacionado à variação ent
 
 A fórmula de cálculo é:
 
-$$
 \mathrm{IP}_{\mathrm{PR}} = \text{Prod. Realizada} - \mathrm{IP}_{\mathrm{DF}} - \mathrm{IP}_{\mathrm{UF}} - \text{Prod. Programada}
-$$
 
 -   **Unidade:** Kilotoneladas ($Kt$).
 
@@ -1067,9 +940,7 @@ A eficácia de uma estratégia de manutenção, monitorada pela Engenharia, não
 
 Este indicador conecta o desvio do planejamento (atraso) com a consequência na confiabilidade (falha). Ele estima quantas falhas ocorrem no intervalo de desvio das sistemáticas:
 
-$$
 \mathrm{ISAC} = \frac{\mathrm{MTBS} - \bar{\chi}}{\mathrm{MTBF}} \times NIS
-$$
 
 -   **Exemplo Prático:** Um atraso de $125\,h$ em um equipamento com $\mathrm{MTBF}=25\,h$ resulta em $\mathrm{ISAC}=5$. Ou seja, 5 falhas poderiam ter sido evitadas se a periodicidade fosse respeitada.
 
@@ -1143,9 +1014,7 @@ A Disponibilidade Operacional (DO) avalia o quanto do tempo em que o equipamento
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{DO} = \left[ \frac{\sum (\text{Horas Operacionais} - \text{Horas Manutenção})}{\sum \text{Horas Operacionais}} \right] \times 100
-$$
 
 Definição de Horas Operacionais:
 
@@ -1179,9 +1048,7 @@ A Aderência à Manutenção Sistemática (AMS) tem por objetivo medir a aderên
 
 A fórmula de cálculo é dada por:
 
-$$
 \mathrm{AMS} = \frac{\text{Qtde Total de OMs Sistemáticas Aderentes (c/ tolerância)}}{\text{Qtde Total de OMs Sistemáticas Previstas (c/ tolerância)}} \times 100
-$$
 
 -   **OMs Aderentes:** São aquelas executadas dentro do prazo planejado somado à sua margem de tolerância (ex: $\pm 10\%$ do ciclo ou $\pm X$ dias).
 
@@ -1195,9 +1062,7 @@ Este indicador estabelece a relação entre as manutenções condicionais que fo
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{AMC} = \left[ \frac{\text{Qtde Total de Notas Condicionais Previstas e Aderentes}}{\text{Qtde Total de Notas Condicionais Previstas no Período}} \right] \times 100
-$$
 
 Para a composição deste indicador, aplicam-se os seguintes critérios técnicos de aderência:
 
@@ -1215,9 +1080,7 @@ O indicador APM é uma composição das parcelas dos indicadores AMS (Aderência
 
 A fórmula de cálculo é definida pela soma das execuções aderentes dividida pelo total de eventos previstos no período:
 
-$$
 \mathrm{APM} = \frac{\text{AMS}_{\text{num}} + \text{AMC}_{\text{num}}}{\text{AMS}_{\text{den}} + \text{AMC}_{\text{den}}} \times 100
-$$
 
 Onde:
 
@@ -1243,9 +1106,7 @@ A Aderência à Programação (APR) mede o cumprimento da programação de servi
 
 A fórmula de cálculo é:
 
-$$
 \mathrm{APR} = \frac{\text{Qtde Total de OMs Programadas e Executadas}}{\text{Qtde Total de OMs Programadas}} \times 100
-$$
 
 Para o cálculo, aplicam-se as seguintes regras de negócio:
 
@@ -1265,9 +1126,7 @@ Medir o nível de utilização programada de Homem Hora da manutenção. É a re
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{IMOP} = \left[ \frac{\text{Quantidade Total de HH Planejado Programado Executado}}{\text{Quantidade Total de HH Disponível}} \right] \times 100
-$$
 
 **Critérios Técnicos e Filtros:**
 
@@ -1287,9 +1146,7 @@ O objetivo deste indicador é medir se a mão de obra utilizada na execução da
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{IAMO} = \left( \frac{\text{Qtde Total de HH Apropriado}}{\text{Qtde Total de HH Disponível no Centro de Trabalho}} \right) \times 100
-$$
 
 Para a extração e processamento dos dados, aplicam-se os seguintes critérios técnicos:
 
@@ -1313,9 +1170,7 @@ A Relação Manutenção Sistemática e Total de Manutenção (RMS) tem como obj
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{RMS} = \left[ \frac{(\text{Total HH Sistemáticas} + \text{Total HH Calibração})}{\text{Total HH Apontado em Ordens}} \right] \times 100
-$$
 
 Para a extração e o processamento de dados, especialmente em ambientes que utilizam o módulo de manutenção do SAP, aplicam-se os seguintes critérios e regras de negócio:
 
@@ -1343,9 +1198,7 @@ A Relação de Manutenção Corretiva (RMC) tem por objetivo comparar o volume d
 
 A fórmula de cálculo é expressa por:
 
-$$
 \mathrm{RMC} = \left( \frac{\text{Horas de Manutenção Corretiva (HMC)}}{\text{Horas Totais de Manutenção (HM)}} \right) \times 100
-$$
 
 -   **Horas de Manutenção Corretiva (HMC):** Somatório das horas reais apontadas em ordens de manutenção do tipo corretiva (emergencial ou programada).
 
@@ -1357,9 +1210,7 @@ Enquanto a RMC foca no volume de horas, o Índice de Manutenção Corretiva (IMC
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{IMC} = \left( \frac{\text{Número de Intervenções Corretivas (NIC)}}{\text{Número Total de Intervenções (NTI)}} \right) \times 100
-$$
 
 -   **Número de Intervenções Corretivas (NIC):** Quantidade total de ordens de manutenção corretiva encerradas no período.
 
@@ -1411,9 +1262,7 @@ O ACF representa o percentual de ordens encerradas dos tipos corretivo e emergen
 
 A fórmula de cálculo é definida por:
 
-$$
 \mathrm{ACF} = \left[ \frac{\text{Qtde Total de OMs Corretivas Encerradas com Classe de Falha}}{\text{Qtde Total de OMs Corretivas Encerradas no Período}} \right] \times 100
-$$
 
 Critérios Técnicos e Regras de Negócio
 
