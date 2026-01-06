@@ -1,0 +1,589 @@
+---
+format: html
+---
+
+# Excelência Operacional e Metrologia de Performance {#chap-kpi}
+
+```{r setup, include=FALSE}
+#| message: false
+#| warning: false
+# Este bloco SEMPRE executa para carregar as ferramentas necessárias
+library(tidyverse)
+library(miningKPI)
+library(knitr)
+library(lubridate)
+library(kableExtra)
+library(lubridate)
+```
+
+A mineração contemporânea opera em um cenário de complexidade crescente, onde a volatilidade das commodities e a exaustão de reservas de alto teor exigem uma precisão cirúrgica na gestão de ativos. Nesse contexto, a Excelência Operacional não é apenas um objetivo aspiracional, mas uma disciplina rigorosa fundamentada na capacidade de converter dados brutos em decisões estratégicas em tempo real.
+
+Este capítulo estrutura os indicadores fundamentais que compõem a espinha dorsal do sistema de gestão, organizados por níveis hierárquicos e função dentro do SGI.
+
+## Metrologia de Performance e Identidade Fundamental
+
+### Elementos de Suporte e Categorização de Horas
+
+Os elementos de suporte são os dados diretamente monitorados e coletados durante a produção. No ciclo de processos de transporte, os dados coletados em caminhões "off-highway" são obtidos dos horímetros instalados no sistema de medição e denominados tempos operacionais.
+
+A classificação das horas é dividida hierarquicamente para facilitar a gestão, permitindo o desdobramento desde a disponibilidade global até a causa raiz do evento. Esta estrutura é o fundamento para o processamento de telemetria e o cálculo de KPIs no pacote `miningKPI`.
+
+**HC – Horas Calendário (Calendar Hours):** Tempo total de existência do ativo no período (24h/dia).
+
+$$HC = HT + HM + HO$$
+
+-   **HT – Horas Trabalhadas (Worked Hours)**
+
+    -   **HTP – Horas Trabalhadas Produtivas (Productive Worked Hours – PWH):** ($PWH = EFH + ODH$)
+
+        -   **HEF – Horas Efetivas (Effective Hours – EFH):** Tempo em que o equipamento desenvolve trabalho útil na função primária (ex: contato bit-rocha na perfuração).
+
+        -   **HAO – Horas de Atraso Operacional (Operational Delay Hours – ODH):** Atrasos inerentes ao ciclo perfeito, como esperas por caminhão, manobras de sinalização ou filas curtas.
+
+    -   **HNTP – Horas Trabalhadas Não Produtivas (Non-Productive Worked Hours – NPWH):** ($NPWH = IWH + DWH$)
+
+        -   **HTI – Horas de Infraestrutura (Infrastructure Worked Hours – IWH):** Atividades de suporte à fase produtiva, como acerto de praça ou manutenção de acessos.
+
+        -   **HTD – Horas Trabalhadas Diversas (Different Worked Hours – DWH):** Trabalho fora do ciclo operacional principal, como locomoções curtas para abastecimento ou apoio a outros processos.
+
+-   **HM – Horas em Manutenção (Maintenance Hours)**
+
+    -   **HMCT – Horas de Manutenção Corretiva Total (Total Corrective Maintenance Hours – TCMH):** ($TCMH = CMH - ACH$)
+
+        -   **HMC – Horas de Manutenção Corretiva (Corrective Maintenance Hours – CMH):** Tempo de indisponibilidade para intervenção corretiva não planejada visando restaurar a função após uma falha.
+
+        -   **HAC – Horas de Acidente (Accident Hours – ACH):** Tempo sob responsabilidade da manutenção em decorrência de acidentes ou danos causados por fatores externos.
+
+    -   **HMP – Horas de Manutenção Preventiva (Preventive Maintenance Hours – PMH):** ($PMH = SPH + NSPH$)
+
+        -   **MPS – Manutenção Preventiva Sistemática (Systematic Preventive Hours – SPH):** Manutenções planejadas repetidas em intervalos definidos (horas, km ou data), sem indicação prévia de defeito.
+
+        -   **MPNS – Manutenção Preventiva Não Sistemática (Non-Systematic Programmed Hours – NSPH):** Intervenções baseadas em monitoramento de condição (preditiva) ou programadas fora de ciclos sistemáticos rígidos.
+
+-   **HO – Horas Ociosas (Idle Hours – IH)**
+
+    -   **HOI – Horas Ociosas Internas (Internal Idle Hours – IIH):** Equipamento apto, mas parado por falta de recursos internos (ex: operador, troca de turno, aguardando projeto ou topografia).
+
+    -   **HOE – Horas Ociosas Externas (External Idle Hours – EIH):** Equipamento apto, mas parado por fatores externos não gerenciáveis pela unidade (ex: clima adverso, raios ou falta de energia da rede).
+
+-   **HD – Horas Disponíveis (Available Hours — AH)**
+
+    Volume absoluto apto para o uso, representando o elo fundamental entre a manutenção e a operação:
+
+    $$HD_{p} = \sum_{i=1}^{p} HC_i - \sum_{j=1}^{n} HM_j$$
+
+::: {#exm-processamento-categorias .callout-note appearance="simple"}
+**Exemplo: Processamento de Categorias de Horas**
+
+Como a medição é feita baseado em durações de tempo, os apontamentos são realizados sempre que um determinado equipamento alterar o seu status de operação. Para análise de categoria de horas, utiliza-se o `gap_time` que é a duração (em horas) do início e fim do evento.
+:::
+
+```{r}
+#| label: tbl-consolidacao-horas
+#| echo: true
+
+# O leitor aprende a converter durações e consolidar categorias em colunas
+tabela_consolidada <- drill_events_mine_d %>%
+  mutate(
+    gap_time = duration_min / 60,              # Converte minutos em horas decimais
+    day = as_date(first_time)                  # Normaliza data para agrupamento
+  ) %>%
+  filter(drill_id == "DRILL_100", day >= "2023-01-01" & day <= "2023-01-03") %>%
+  group_by(drill_id, day, category) %>%
+  summarise(time = sum(gap_time), .groups = "drop") %>%
+  # 'pivot_wider' transforma os nomes das categorias em colunas
+  pivot_wider(names_from = category, values_from = time, values_fill = 0) %>%
+  # Adição de colunas ausentes para garantir a integridade da Identidade Fundamental
+  mutate(DWH = 0, IWH = 0, EIH = 0, ACH = 0, SPH = 0) %>%
+  select(drill_id, day, EFH, ODH, DWH, IWH, IIH, EIH, CMH, ACH, SPH, NSPH) %>%
+  # 'rowSums' valida se a soma das 10 categorias resulta nas 24h do dia
+  mutate(CH = rowSums(across(EFH:NSPH)))
+
+# Formatação institucional (Teal Palette)
+tabela_consolidada %>%
+  kable(digits = 2, align = "c") %>%
+  kable_styling(bootstrap_options = "striped", full_width = TRUE, font_size = 12) %>%
+  row_spec(0, background = "#35978f", color = "white", bold = TRUE) %>%
+  column_spec(13, bold = TRUE, background = "#e0f2f1", color = "#01665e")
+```
+
+#### Análise de Prontidão Técnica e Operacional
+
+A tabela acima nos permite três diagnósticos imediatos:
+
+1.  **Integridade dos Dados (**$CH$): A soma das categorias totaliza exatamente **24.0 horas** em todos os dias. Isso valida que a telemetria do pacote `miningKPI` cobre o ciclo completo do ativo, sem "buracos" de sinal ou sobreposições de eventos.
+
+2.  **Dinâmica da Manutenção (**$DF$): No dia **01/01**, o ativo registrou **3.96h** de Manutenção Corretiva ($CMH$), indicando uma falha funcional que impactou a disponibilidade.
+
+3.  **Eficiência Operacional (**$UF$): No dia **03/01**, apesar de tecnicamente disponível (baixa manutenção), o ativo registrou **10.4h** de Ociosidade Interna ($IIH$). Isso indica que o equipamento ficou parado por mais de 43% do tempo disponível por razões gerenciais (ex: falta de operador ou frente de lavra), e não mecânicas.
+
+#### Do Processamento de Eventos à Consolidação por Período
+
+A transição da telemetria bruta para a análise gerencial exige a agregação por período ($p$). Se em um período ($p=1$ dia) o sistema registrou $n$ eventos de perfuração, a disponibilidade efetiva diária é o somatório de cada duração individual $i$:
+
+$$EFH_{p} = \sum_{i=1}^{n} EFH_i$$
+
+{#eq-efh-soma}
+
+Ao contarmos o número de eventos para o dia 01/01, identificamos 32 registros. Portanto, a disponibilidade consolidada é a soma dessas 32 parcelas discretas, onde cada $i$ representa a ordem cronológica do evento no dia:
+
+$$EFH_{p=1} = \sum_{i=1}^{32} EFH_i = EFH_1 + EFH_2 + ... + EFH_{32} = 11.30h$$
+
+O código abaixo comprova essa identidade aritmética, exibindo os eventos individuais que compõem o total:
+
+```{r}
+#| label: tbl-drill-down-efh-index
+#| echo: true
+
+# O leitor aprende a criar índices (i) e extrair amostras sequenciais (head/tail)
+validacao_efh <- drill_events_mine_d %>%
+  filter(drill_id == "DRILL_100", category == "EFH", as_date(first_time) == "2023-01-01") %>%
+  arrange(first_time) %>%
+  mutate(i = row_number(), gap_time = duration_min / 60)
+
+# Montagem da tabela com reticências para indicar continuidade da série
+amostragem <- bind_rows(
+  head(validacao_efh, 3) %>% mutate(i = as.character(i)),
+  tibble(i = "...", drill_id = "...", category = "...", gap_time = NA),
+  tail(validacao_efh, 2) %>% mutate(i = as.character(i)),
+  tibble(i = "n = 32", drill_id = "TOTAL", category = "EFH", gap_time = sum(validacao_efh$gap_time))
+)
+
+# Renderização com destaque no contador i e no somatório final
+amostragem %>%
+  select(i, drill_id, category, first_time, exit_time, gap_time) %>%
+  kable(digits = 4, align = "clcccc", na_placeholder = "...") %>%
+  kable_styling(bootstrap_options = "condensed", full_width = TRUE) %>%
+  column_spec(1, bold = TRUE, color = "#174EA6", background = "#f1f3f4") %>%
+  row_spec(7, bold = TRUE, background = "#fff9c4", color = "black")
+```
+
+#### Reconciliação Metrológica
+
+Como demonstrado na @tbl-drill-down-efh-index, a presença do índice $i$ permite que o gestor de **PCO** realize a trilha de auditoria de cada fragmento produtivo. Esta abordagem elimina a "caixa-preta" das médias globais e expõe a variabilidade inerente do processo. Se o evento $i=1$ dura 0.71h e o evento $i=2$ dura apenas 0.11h, a análise de causa raiz deve buscar nos dados de telemetria complementares (como dureza da rocha ou habilidade do operador) o motivo de tal dispersão.
+
+### Disponibilidade Física — DF (Physical Availability — PA)
+
+Mensura a prontidão técnica do ativo para operação, independentemente de haver demanda ou restrição de mercado.
+
+$$\mathrm{DF}_p = \left[ \frac{\sum_{i=1}^{p} HC_i - \sum_{j=1}^{n} HM_j}{\sum_{i=1}^{p} HC_i} \right] \times 100$$ {#eq-df}
+
+#### Disponibilidade em Processos Unitários e Topologias
+
+Na pelotização e em plantas de beneficiamento, o cálculo da $\mathrm{DF}_p$ deve considerar a topologia do sistema (disposição dos equipamentos):
+
+**Nota Específica para Pelotização (Specific Note for Pelletizing):** No cálculo do somatório $\sum_{j=1}^{n} HM_j$, devem ser considerados obrigatoriamente os seguintes tipos de apontamento: Manutenção Preventiva, Manutenção Corretiva e Atraso de Preventiva.
+
+**Equipamentos em Série (Series Equipment):** A disponibilidade de um sistema composto por $k$ ativos em série é o produto das disponibilidades individuais. Qualquer parada em um componente interrompe o fluxo total do período $p$.
+
+$$\mathrm{DF}_{p, \text{série}} = \mathrm{DF}_{p,1} \times \mathrm{DF}_{p,2} \times \dots \times \mathrm{DF}_{p,k}$$
+
+**Linhas em Paralelo (Parallel Lines):** Para processos com duas ou mais linhas ($k$) operando simultaneamente, a fórmula considera a capacidade total instalada:
+
+$$\mathrm{DF}_{p, \text{paralela}} = \left[ \frac{\left( k \times \sum_{i=1}^{p} HC_i \right) - \sum_{l=1}^{k} \left( \sum_{j=1}^{n} HM_{j,l} \right)}{k \times \sum_{i=1}^{p} HC_i} \right] \times 100$$ {#eq-df-paralela}
+
+#### Especificidades do Setor Ferroviário (Specifics for the Railway Sector)
+
+**Vagões de Minério de Ferro (Iron Ore Wagons):** Utiliza-se a relação frota-tempo (vagão-hora) no período $p$.
+
+$$\mathrm{DF}_{p, \text{mensal}} = \left[ \frac{\sum (\text{vagões} \times \text{hora})_{\text{disponível\_p}}}{\sum (\text{vagões} \times \text{hora})_{\text{total\_p}}} \right] \times 100$$ {#eq-df-mensal-vagoes}
+
+**Vagões de Carga Geral (General Cargo Wagons):** Baseia-se na frota ativa operacional em relação aos vagões retidos para manutenção.
+
+$$\mathrm{DF}_{p, \text{mensal}} = \left[ \frac{\sum \text{Vagões_CG}_{\text{total}} - \sum \text{Vagões_CG}_{\text{retidos}}}{\sum \text{Vagões_CG}_{\text{total}}} \right] \times 100$$
+
+**Locomotivas (Locomotives) – Ponderação por Potência (HP Weighting):** Para frotas com potências distintas, aplica-se o fator de potência nominal ($HP$) no somatório para garantir que ativos mais potentes tenham maior peso na $\mathrm{DF}_p$.
+
+$$\mathrm{DF}_p = \left[ \frac{\left( \sum_{i=1}^{p} HC_i \times HP_{\text{total}} \right) - \sum_{l=1}^{k} \left( \sum_{j=1}^{n} HM_{j,l} \times HP_l \right)}{\sum_{i=1}^{p} HC_i \times HP_{\text{total}}} \right] \times 100$$ {#eq-df-hp}
+
+### Utilização Física (Physical Utilization — PU / UF)
+
+Avalia a eficiência da operação em ocupar as janelas de disponibilidade técnica ($HD_p$).
+
+$$\mathrm{UF}_p = \left[ \frac{\sum_{i=1}^{n} HT_i}{HD_p} \right] \times 100$$ {#eq-uf}
+
+#### Regras de Negócio e Particularidades Setoriais da UF
+
+**Pelotização (DIPE):** Utiliza-se o somatório das horas de todas as usinas do complexo, tratando a capacidade de forma agregada para neutralizar gargalos individuais.
+
+**Operações Portuárias:** Frequentemente medida na "ponta" (ex: carregador de navios). Recomenda-se rastrear todas as combinações de linhas para identificar os reais motivos de ociosidade ($HO$) nos ativos de interface.
+
+**Ferrovia (Locomotivas):** Utiliza-se a ponderação por potência tração ($HP \cdot \text{Hora}$) para refletir a utilização da capacidade de tração da frota.
+
+$$\mathrm{UF}_{\text{locomotivas}} = \left[ \frac{\sum_{i=1}^{n} (HP_i \times HT_i)}{\sum_{i=1}^{n} (HP_i \times HD_i)} \right] \times 100$$
+
+#### Definições de Horas e Sistemas de Origem
+
+**Horas Trabalhadas (**$HT$): Somatório do tempo em que o equipamento opera efetivamente na função primária. Os dados são extraídos via telemetria ou sistemas de gerenciamento de frota.
+
+**Horas Calendário (**$HC$): Representa o tempo total do período (24h/dia).
+
+-   **Início:** Entrega técnica do equipamento à operação.
+-   **Fim:** Baixa definitiva (alienação ou desmobilização) do ativo.
+
+**Horas Disponíveis (**$HD$): É o denominador da UF, resultante da diferença entre o calendário e a manutenção ($HD = HC - HM$). ::: {#exm-metrologia-aplicada .callout-note appearance="simple"}Exemplo 1.2: Metrologia Aplicada (Calculando PA e PU)Nesta etapa, consolidamos as categorias de horas em métricas de performance ($WH$, $MH$, $AH$) para obter a Disponibilidade e Utilização. :::
+
+```{r}
+#| label: tbl-metrologia-final
+#| echo: true
+
+# O leitor aprende a realizar operações entre colunas para gerar KPIs operacionais
+tabela_metrologia <- tabela_consolidada %>%
+  mutate(
+    WH = EFH + ODH + DWH + IWH,           # Worked Hours (Horas Trabalhadas)
+    MH = CMH + ACH + SPH + NSPH,          # Maintenance Hours (Horas em Manutenção)
+    AH = CH - MH,                         # Available Hours (Horas Disponíveis)
+    PA = (AH / CH) * 100,                 # Disponibilidade Física (PA %)
+    PU = (WH / AH) * 100                  # Utilização Física (PU %)
+  )
+
+# Renderização final com precisão de duas casas decimais
+tabela_metrologia %>%
+  select(drill_id, day, WH, MH, AH, PA, PU) %>%
+  kable(
+    digits = 2,
+    align = "c",
+    col.names = c("Equipamento", "Data", "WH", "MH", "AH", "PA (%)", "PU (%)")
+  ) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = TRUE) %>%
+  row_spec(0, background = "#35978f", color = "white", bold = TRUE) %>%
+  column_spec(6:7, bold = TRUE, background = "#e0f2f1", color = "#01665e")
+```
+
+### Produtividade (Productivity — PR)
+
+Mede o ritmo e a intensidade do processo durante o tempo operado ($\sum HT$). Ela desconsidera paradas de manutenção ou ociosidade.
+
+$$\mathrm{PR} = \frac{\sum \text{Unidades de Produção}}{\sum HT}$$
+
+#### Especificidades de Produtividade Operacional
+
+**GDR – Produtividade Global de Perfuratrizes (Global Productivity Drill Rigs):** Razão entre metros perfurados e horas trabalhadas totais ($m/h$).
+
+$$\mathrm{GDR} = \frac{\sum \text{Metros Perfurados}}{\sum HT} \quad [m/h]$$
+
+**LP – Produtividade de Carga (Loading Productivity):** Taxa de produção baseada na massa carregada ($t/h$).
+
+$$\mathrm{LP} = \frac{\sum \text{Massa Carregada}}{\sum HT} \quad [t/h]$$
+
+**MT – Massa Transportada (*Transport Mass — TM*):** Taxa de produção da frota de transporte baseada na movimentação efetiva de material.\
+porte.
+
+$$MT_p = \sum_{i=1}^{n_p} MT_{i,p}$$
+
+Onde:
+
+-   $MT_p$: Massa Transportada Programada total do período.
+
+-   $n_p$: Número de ciclos programados.
+
+-   $MT_{i\_p}$: Massa programada (alvo ou nominal) para o ciclo $i$.\mathrm{TM} = \frac{\sum \text{Massa Transportada}}{\sum HT} \quad [t/h]\$\$
+
+**Metros Perfurados (Meters Drilled — TDM):** Mensuração absoluta essencial para gestão de custos de consumíveis (bits, hastes) e reconciliação geológica. No SGI, é o dado fundamental para a saúde financeira da infraestrutura e monitoramento da profundidade acumulada ($\sum \text{Profundidade}$).
+
+#### Eficiência de Produtividade **—** EP (Productivity Efficiency)
+
+Compara o ritmo real com a referência técnica de excelência.
+
+$$\mathrm{EP} = \left( \frac{\mathrm{PR}_{\text{real}}}{\mathrm{PR}_{\text{referência}}} \right) \times 100$$
+
+**Metodologia de Referência (Maximum Sustainable Rate — MSR):** Para garantir uma base comparativa justa, utiliza-se o Percentil 90 de dados diários saneados de 12 meses (sem paradas programadas ou falta de demanda). No setor de pelotização, esta referência é denominada Produtividade Horária Líquida (PHL).
+
+::: {#exm-planejamento-ativos}
+#### Planejamento de metas físicas e dimensionamento
+
+As fórmulas de produtividade são o alicerce para o planejamento de ativos (*Asset Planning*). Elas permitem converter diretrizes estratégicas em metas operacionais, utilizando a notação de performance estabelecida no ciclo de perfuração.
+
+**Premissas do Planejamento:**
+
+-   **Horas Calendário (**$HC$): 24 h
+
+-   **Disponibilidade Alvo (**$DF_{alvo}$): 0,812
+
+-   **Utilização Alvo (**$UF_{alvo}$): 0,70 (exceto dia 02/01, com 0,45)
+
+-   **Taxa de Perfuração Bruta Alvo (**$GDR_{alvo}$): 21,4 m/h
+
+**1. Definição das Horas Trabalhadas Planejadas (**$HT_{plan}$):
+
+Determina o tempo em que a máquina passará efetivamente em operação:
+
+$$HT_{plan} = HC \times DF_{alvo} \times UF_{alvo}$$
+
+$$HT_{plan} = 24 \times 0,812 \times 0,7 = 13,64 \text{ h}$$
+
+**2. Cálculo do** $TDM$ Planejado ($TDM_{plan}$):
+
+Aplica-se o indicador de eficiência logística (*GDR*) para obter a meta final de metros perfurados:
+
+$$TDM_{plan} = HT_{plan} \times GDR_{alvo}$$
+
+**3. Visualização e Confronto de Dados (Planejado vs. Realizado):**
+
+O código abaixo consolida o planejamento e extrai o realizado dos eventos brutos para os 3 primeiros dias de 2023:
+
+```{r}
+#| label: tbl-comparativo-metrologia
+#| tbl-cap: "Confronto de indicadores Planejados vs. Realizados — Sandvik DR416i"
+#| echo: true
+#| message: false
+#| warning: false
+
+# 1. Extração do TDM Realizado dos eventos
+tdm_realizado <- drill_events_mine_d %>%
+    mutate(day = as_date(first_time)) %>%
+    group_by(drill_id, day) %>%
+    summarise(TDM_realizado = sum(allocated_meters, na.rm = TRUE), .groups = "drop")
+
+# 2. União do Planejamento com Metrologia e TDM
+comparativo_dados <- drill_planning_mine_d %>%
+    filter(drill_id == "DRILL_100", date >= "2023-01-01" & date <= "2023-01-03") %>%
+    mutate(
+        TDM_planejado = planned_worked_h * target_productivity,
+        PA_planejado  = target_availability * 100,
+        PU_planejado  = target_utilization * 100
+    ) %>%
+    # Join com a tabela de metrologia (PA e PU realizados)
+    left_join(tabela_metrologia, by = c("drill_id", "date" = "day")) %>%
+    # Join com o TDM realizado
+    left_join(tdm_realizado, by = c("drill_id", "date" = "day")) %>%
+    rename(PA_realizado = PA, PU_realizado = PU) %>%
+    select(date, TDM_planejado, TDM_realizado, PA_planejado, PA_realizado, PU_planejado, PU_realizado)
+
+# 3. Renderização com Formatação SGI
+comparativo_dados %>%
+    kable(
+        digits = 2,
+        align = "c",
+        col.names = c("Data", "Planejado", "Realizado", "Planejado (%)", "Realizado (%)", "Planejado (%)", "Realizado (%)"),
+        booktabs = TRUE
+    ) %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = TRUE, font_size = 13) %>%
+    row_spec(0, background = "#35978f", color = "white", bold = TRUE) %>%
+    add_header_above(
+        c(" " = 1, "Produção (TDM)" = 2, "Disponibilidade (PA)" = 2, "Utilização (PU)" = 2),
+        background = "#35978f",
+        color = "white",
+        bold = TRUE,
+        extra_css = "border-bottom: 2px solid #d4af37; border-top: 0px; padding-top: 10px; padding-bottom: 10px;"
+    ) %>%
+    column_spec(c(3, 5, 7), bold = TRUE, background = "#e0f2f1", color = "#01665e")
+```
+
+**4. Análise de Performance Operacional:**
+
+Ao analisarmos o comportamento da `DRILL_100` neste microperíodo, extraímos os seguintes *insights* de gestão:
+
+-   **01/01 e 02/01 (Superação):** O ativo superou as metas de metragem. No dia 02/01, apesar da **Utilização Alvo (**$UF$) reduzida ($0,45$), o $TDM_{real}$ de $356\text{ m}$ indica que a operação conseguiu manter o ativo produtivo por mais tempo que o planejado ou obteve um $GDR$ excepcional.
+
+-   **03/01 (Sub-performance):** Houve um desvio negativo ($259\text{ m}$ realizados contra $291\text{ m}$ planejados). Como as premissas de $DF$ e $UF$ eram idênticas às do dia 01/01, a perda de volume deve ser investigada sob a ótica da **Taxa de Penetração (**$ROP$) ou interferências operacionais que degradaram o $GDR$.
+:::
+
+## Análise de Impacto na Produção (Production Impact Analysis)
+
+Indicadores que traduzem perdas de disponibilidade, utilização e produtividade em impacto direto na produção expressa em Kilotoneladas ($Kt$).
+
+### Impacto na Produção - Disponibilidade Física (IP-DF)
+
+$$\mathrm{IP}_{\mathrm{DF}} = \frac{(HM_{\text{prog}} - HM_{\text{real}}) \times PR_{\text{efetiva_prog}}}{1000}$$ {#eq-ip-df}
+
+### Impacto na Produção - Utilização Física (IP-UF)
+
+$$\mathrm{IP}_{\mathrm{UF}} = \frac{(UF_{\text{real}} - UF_{\text{prog}}) \times HD_{\text{prog}} \times PR_{\text{efetiva_prog}}}{1000}$$ {#eq-ip-uf}
+
+### Impacto na Produção - Produtividade (IP-PR)
+
+Indicador residual que isola o impacto do ritmo (taxa) de produção.
+
+$$\mathrm{IP}_{\mathrm{PR}} = \text{Produção}_\text{real} - \mathrm{IP}_{\mathrm{DF}} - \mathrm{IP}_{\mathrm{UF}} - \text{Produção}_\text{prog}$$ {#eq-ip-pr}
+
+::: {#exm-buildup-producao}
+#### Cálculo de Impactos e Gráfico Build-up (Waterfall)
+
+Neste exemplo, consolidamos os dados anuais de 2023 da frota para identificar os maiores detratores de performance. O objetivo é visualizar o caminho entre a **Produção Programada** e a **Produção Realizada**.
+
+```{r}
+#| label: fig-buildup-perdas
+#| fig-cap: "Build-up de Perdas de Produção (Programado vs. Realizado) - 2023"
+#| echo: true
+#| message: false
+#| warning: false
+
+# 1. Dados consolidados de Impacto (Kt ou Ton)
+buildup_data <- tibble(
+    year = 2023,
+    ROPp = 21465259,   # Programado
+    PPdf = -390173,    # Perda Disponibilidade
+    PPuf = -532023,    # Perda Utilização
+    PPpr = -2230127,   # Perda Produtividade
+    ROP  = 18312936    # Realizado
+)
+
+# 2. Preparação para o gráfico de cascata (Waterfall)
+itens <- c("Programado", "Disponibilidade", "Utilização", "Produtividade", "Realizado")
+
+balance <- buildup_data %>%
+  summarise(across(everything(), as.numeric)) %>%
+  select(ROPp, PPdf, PPuf, PPpr, ROP) %>%
+  pivot_longer(cols = everything(), names_to = "label", values_to = "amount") %>%
+  mutate(
+    desc = factor(itens, levels = itens),
+    id = row_number(),
+    type = case_when(
+      id == 1 ~ "net",
+      id == 5 ~ "per",
+      amount > 0 ~ "in",
+      TRUE ~ "out"
+    ),
+    end = c(head(cumsum(amount), -1), 0),
+    start = c(0, head(end, -1)),
+    pos = ifelse(start > end, start, end)
+  )
+
+# 3. Geração do Gráfico Build-up com Estética SGI (Teal & Gold)
+ggplot(balance, aes(x = desc, fill = type)) +
+  # Barras do waterfall
+  geom_rect(aes(xmin = id - 0.45, xmax = id + 0.45, ymin = end, ymax = start),
+            color = "black", alpha = 0.9) +
+  # Cores SGI: Teal para Totais e Vermelho/Verde para Variações
+  scale_fill_manual(values = c("net" = "#35978f", "out" = "#EA4335", "in" = "#34A853", "per" = "#01665e")) +
+  # Rótulos de dados formatados
+  geom_text(aes(x = desc, y = pos, label = scales::comma(amount)),
+            vjust = -0.5, fontface = "bold", size = 4) +
+  # Formatação de Eixos
+  scale_y_continuous(labels = scales::unit_format(suffix = "M", scale = 1e-6)) +
+  labs(
+    x = NULL,
+    y = "Produção (Ton)",
+    title = "Build-up de Impacto na Produção"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    axis.text.x = element_text(face = "bold", size = 11, color = "#35978f"),
+    axis.title.y = element_text(face = "bold"),
+    panel.grid.major.x = element_blank(),
+    plot.title = element_text(hjust = 0.5, face = "bold", color = "#35978f"),
+    # Borda dourada SGI na base do gráfico
+    axis.line.x = element_line(size = 1.5, colour = "#d4af37")
+  )
+```
+:::
+
+## Advanced Maintenance Performance and Impact Analysis
+
+### Medidas de Performance da Manutenção
+
+Após um determinado tempo $t$, os dados são organizados em eventos de operação ($HT$) ou de manutenção ($HM$), desconsiderando as horas ociosas ($HO$) para o gráfico de processo de contagem. As falhas ocorrem em $t_1, t_2, \dots$ e as manutenções sistemáticas em $\tau_1, \tau_2, \dots$, gerando funções-escada.
+
+#### Mean Time Between Failures (MTBF)
+
+Representam as horas trabalhadas ($HT$), onde $HT = \sum_{i=1}^{NIC} TBF_i$.
+
+$$\mathrm{MTBF} = \frac{HT}{NIC}$$ {#eq-mtbf}
+
+#### Mean Time To Repair (MTTR)
+
+Tempo médio para reparo das intervenções corretivas e acidentes ($HTMC = \sum TTR_i$).
+
+$$\mathrm{MTTR} = \frac{HTMC}{NIC}$$
+
+#### Mean Time Between Systematics (MTBS)
+
+Tempo médio entre manutenções sistemáticas considerando as horas trabalhadas.
+
+$$\mathrm{MTBS} = \frac{HT}{NIS}$$
+
+#### Mean Time To Maintain (MTTM)
+
+Tempo médio gasto para manutenir um equipamento em intervenções preventivas ($MPS = \sum TTM_j$).
+
+$$\mathrm{MTTM} = \frac{MPS}{NIS}$$
+
+### Mensuração de Impacto na Incidência de Corretivas
+
+#### ISI – Incidência de Intervenções Sistemáticas (Systematic Intervention Incidence)
+
+$$\mathrm{ISI} = \frac{NIS}{k} \quad \text{onde } k \text{ é o número de intervenções programadas.}$$
+
+#### ATSP – Aderência à Periodicidade Sistemática (Systematic Periodicity Adherence)
+
+$$\mathrm{ATSP} = \frac{\mathrm{MTBS}}{\bar{\chi}} \quad \text{onde } \bar{\chi} = \frac{1}{k} \sum_{j=1}^{k} \chi_j \text{ é a periodicidade média prevista.}$$
+
+**Exemplo:** $ATSP = 1.5$ indica um atraso médio de 125h para início da execução ($\bar{\chi} = 250h$), resultando em $ISI < 1$.
+
+#### ISAC – Impacto da Aderência Sistemática nas Corretivas (Impact of Systematic Adherence on Corrective)
+
+Estima quantas falhas ocorrem devido ao desvio da periodicidade ótima ($\bar{\chi}$).
+
+$$\mathrm{ISAC} = \frac{\mathrm{MTBS} - \bar{\chi}}{\mathrm{MTBF}} \times NIS$$
+
+**Meta:** $ISAC \cong 0$. A não execução de uma pauta dobra o intervalo ($2\bar{\chi}$), aumentando as intervenções corretivas.
+
+### Mensuração de Impacto na Disponibilidade
+
+#### ATTM – Aderência ao Tempo de Manutenção (Maintenance Time Adherence)
+
+$$\mathrm{ATTM} = \frac{SPH}{S} \quad \text{onde } S \text{ é o tempo previsto para as pautas.}$$
+
+#### FMS – Fator de Manutenção Sistemática (Systematic Maintenance Factor)
+
+$$\mathrm{FMS} = \frac{\mathrm{MTTM}}{(\mathrm{ATTM} - 1) \times HM}$$
+
+#### IPA / IDF – Impacto na Disponibilidade Física (Impact on Physical Availability)
+
+Consolida o aumento de reparos e a ineficiência da execução:
+
+$$\mathrm{IPA} = \frac{(\mathrm{ISAC} \times \mathrm{MTTR}) + (\mathrm{FMS} \times HM)}{HC}$$
+
+### Refinamentos de Disponibilidade Técnica
+
+#### Disponibilidade Intrínseca (DI) / (Inherent Availability)
+
+Foca no desempenho inerente via inter-relação entre confiabilidade e mantenabilidade.
+
+$$\mathrm{DI} = \left[ \frac{\mathrm{MTBF}}{\mathrm{MTBF} + \mathrm{MTTR}} \right] \times 100 \quad \text{ou} \quad \mathrm{DI} = \left[ \frac{\sum HT}{\sum (HT + HMC)} \right] \times 100$$
+
+#### Disponibilidade Operacional (DO) / (Operational Availability)
+
+Avalia o tempo em que o equipamento estava apto durante as janelas de exigência real.
+
+$$\mathrm{DO} = \left[ \frac{\sum (\text{Horas Operacionais} - \text{Horas Manutenção})}{\sum \text{Horas Operacionais}} \right] \times 100$$
+
+## Indicadores de Gestão da Manutenção (PCM)
+
+### Aderências aos Planos e Programação
+
+**AMS – Aderência à Manutenção Sistemática (Systematic Maintenance Adherence):** Cumprimento dentro da tolerância ($\pm 10\%$).
+
+**AMC – Aderência à Manutenção Condicional (Conditional Maintenance Adherence):** Resposta a alertas preditivos (janela de -30 a +5 dias).
+
+**APM – Aderência ao Plano de Manutenção (Maintenance Plan Adherence):** Composição de AMS e AMC.
+
+**APR – Aderência à Programação (Schedule Compliance):** Execução do planejado semanal (Baseline), excluindo ordens emergenciais (EXPROG).
+
+### Gestão de Mão de Obra e Esforço
+
+**IMOP – Índice de Utilização de Mão de Obra Programada (Scheduled Labor Utilization Index):** HH planejado programado executado / HH disponível.
+
+**IAMO – Índice de Apropriação de Mão de Obra (Labor Appropriation Index):** Qualidade do registro de horas-homem nos centros de trabalho.
+
+**RMS, RMC e IMC:** Relações de esforço percentual entre manutenções sistemáticas, corretivas e o índice de frequência de falhas.
+
+### Backlog e Qualidade do Dado
+
+**Backlog (Carteira Pendente):** Tempo em dias necessário para zerar a carteira de serviços pendentes.
+
+$$\mathrm{Backlog} = \frac{\sum \text{HH Planejado} - \sum \text{HH Executado}}{\text{HH Disponível}}$$ {#eq-backlog}
+
+**ACF – Apropriação de Classe de Falha (Failure Class Appropriation):** Percentual de ordens corretivas (YCM/YEM) com preenchimento completo dos 5 níveis de falha no SAP, vital para análises de causa raiz.
+
+## Gestão de Fluxo de Trabalho e Portfólio (Workflow Management)
+
+**TMOMS – Tempo Médio por Status (Average Maintenance Order Times by Status):** Mede o lead time (Planejamento, Aprovisionamento, Programação, Execução).
+
+$$\text{TMOMS} = \frac{\sum (\text{Tempo da OM no status})}{\sum (\text{Quantidade de OMs no status})}$$
+
+**IMNC – Idade Média de Notas Não Tratadas (Average Age of Untreated Notifications):** Tempo de notas sem vinculação à uma ordem de serviço.
+
+**IMOS – Idade Média de Ordens Abertas (Average Age of Open Orders):** Idade média das ordens na carteira ativa.

@@ -568,7 +568,7 @@ div[id^="exm-"] > p {
 }
 
 /* ==============================================================================
-   14. TABELAS COM SCROLL
+   14. TABELAS COM SCROLL E TIPOGRAFIA
    ============================================================================== */
 
 /* Classe para tabelas com altura máxima e scroll vertical */
@@ -576,4 +576,26 @@ div[id^="exm-"] > p {
   display: block;
   max-height: 500px;
   overflow-y: auto;
+}
+
+/* Garantir que tabelas usem a mesma fonte do corpo do texto */
+table, table.table, .table {
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif !important;
+  font-size: 12pt !important;
+  line-height: 1.5 !important;
+}
+
+table th, table td,
+table.table th, table.table td,
+.table th, .table td {
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif !important;
+  font-size: 12pt !important;
+}
+
+/* Headers de tabela mantêm negrito mas mesma família */
+table thead th,
+table.table thead th,
+.table thead th {
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif !important;
+  font-weight: bold !important;
 }

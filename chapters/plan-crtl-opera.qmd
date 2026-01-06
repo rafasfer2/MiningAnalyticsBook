@@ -1,5 +1,159 @@
 ---
-title: "plan-crtl-opera"
 format: html
 ---
 
+# Planejamento e Controle Operacional (PCO) {#chap-pco}
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+```
+
+## O PCO no Contexto do Sistema de Gestão Integrado
+
+O Planejamento e Controle Operacional (PCO) não deve ser interpretado apenas como um setor de agendamento de tarefas, mas como o **núcleo processual do Sistema de Gestão Integrado (SGI)**. Se o SGI define a estratégia e a governança para a excelência organizacional, o PCO é o mecanismo responsável por operacionalizar essas diretrizes, garantindo a integração vertical (da estratégia à operação) e horizontal (entre processos unitários).
+
+Na mineração moderna, marcada pela volatilidade de teores e pela pressão por eficiência de custos, o PCO atua como o sistema nervoso central que coordena a alocação de recursos finitos (equipamentos, insumos e capital humano) para maximizar o fluxo de valor. A sua função primordial é reduzir a variabilidade natural do processo extrativo, convertendo incertezas geológicas e operacionais em planos determinísticos executáveis.
+
+A aderência ao plano de produção não é apenas uma métrica operacional; é um indicador de maturidade do SGI. Conforme a **Curva de Bradley**, operações em estágios avançados de maturidade (níveis 3 e 4) dependem de um PCO preditivo e integrado, capaz de antecipar gargalos e propor correções em tempo real, sustentado pelos pilares da Indústria 4.0.
+
+## Estrutura Hierárquica de Planejamento
+
+Para garantir que o desdobramento da estratégia ocorra sem ruídos, o PCO estrutura-se em horizontes temporais distintos, cada um com granularidade e objetivos específicos, mas todos interconectados por uma cadeia de dados única.
+
+### Planejamento de Longo Prazo (Estratégico)
+
+Este horizonte dialoga diretamente com a viabilidade econômica do empreendimento. Foca na definição da Cava Ótima, no sequenciamento de lavra ao longo da vida útil da mina (*Life of Mine* - LOM) e na definição de investimentos em infraestrutura (*CAPEX*). Utiliza-se de algoritmos de otimização matemática (como Lerchs-Grossmann e Programação Inteira Mista) para maximizar o Valor Presente Líquido (VPL) sob restrições geotécnicas e ambientais.
+
+### Planejamento de Médio Prazo (Tático)
+
+No nível tático, a estratégia de longo prazo é traduzida em orçamentos (*Budgets*) anuais e revisões trimestrais (*Rolling Forecasts*). O foco desloca-se da viabilidade econômica global para a **estabilidade do processo**. As variáveis críticas neste horizonte incluem:
+
+-   **Relação Estéril/Minério (Strip Ratio):** Garantia de exposição de minério futuro.
+
+-   **Controle de Qualidade (Blending):** Assegurar que a alimentação da usina atenda às especificações físico-químicas.
+
+-   **Dimensionamento de Frota:** Ajuste da capacidade de carga e transporte à demanda de movimentação.
+
+### Planejamento de Curto Prazo (Operacional)
+
+É o nível de maior granularidade e interação com o chão de fábrica. O curto prazo é responsável pelo refinamento geométrico das frentes de lavra, sequenciamento semanal e programação diária. Sua função é proteger a operação contra a variabilidade imediata, garantindo que os recursos estejam posicionados para cumprir as metas de turno.
+
+A ferramenta **Line Up** destaca-se neste horizonte como o instrumento de gestão da rotina. Ela consolida as restrições de todas as áreas (Manutenção, Geologia, Geotecnia e Operação) em um plano de execução de 24 horas, servindo como o contrato operacional do dia.
+
+```{r}
+#| label: tbl-metodos-planejamento
+#| tbl-cap: "Matriz de métodos de planejamento de curto prazo e seus impactos na estabilidade operacional."
+#| echo: false
+
+df_metodos <- data.frame(
+  Metodo = c("Line Up Diário", "Diretrizes de Turno", "Sequenciamento Semanal"),
+  Horizonte = c("24 Horas", "Turno (6h/8h/12h)", "7 Dias"),
+  Foco_Controle = c("Aderência e Gestão de Interferências", "Execução Imediata e Segurança", "Geometria e Qualidade (Teor)"),
+  Impacto_SGI = c("Redução de ociosidade por falta de frente.", "Agilidade na tomada de decisão.", "Garantia de alimentação estável da usina.")
+)
+
+df_metodos %>%
+  kable(
+    col.names = c("Método", "Horizonte Temporal", "Foco de Controle", "Impacto no SGI"),
+    align = "clll",
+    booktabs = TRUE
+  ) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = TRUE, font_size = 12) %>%
+  column_spec(1, bold = TRUE, background = "#174EA6", color = "white", width = "3.5cm") %>%
+  row_spec(0, background = "#35978f", color = "white", bold = TRUE) %>%
+  add_header_above(c("Ferramentas de Controle" = 1, "Características Técnicas" = 3), 
+                   background = "#01665e", color = "white", bold = TRUE)
+```
+
+## A Indústria 4.0 e o Despacho Eletrônico
+
+No contexto da Indústria 4.0, a gestão integrada exige a aquisição automática de parâmetros mensuráveis diretamente dos equipamentos. O PCO moderno não depende de apontamentos manuais; ele é alimentado por sistemas de **Despacho Eletrônico (*Fleet Management Systems* - FMS)**.
+
+Estes sistemas realizam a **otimização dinâmica** da frota em tempo real. Algoritmos de despacho, como Programação Linear ou Heurísticas de Melhor Caminho, recalculam continuamente as rotas dos caminhões para minimizar filas em escavadeiras e britadores, maximizando a Utilização Física ($UF$) e a Produtividade.
+
+Além da alocação, o FMS atua como um *hub* de telemetria, coletando dados de saúde do equipamento, consumo de combustível e condições de via. A integração desses dados com o SGI permite calcular KPIs de eficiência energética e segurança operacional com precisão metrológica.
+
+```{r}
+#| label: tbl-sistemas-despacho
+#| tbl-cap: "Sistemas de Despacho e suas funcionalidades para a Gestão Integrada."
+#| echo: false
+
+df_despacho <- data.frame(
+  Sistema = c("Mining Control", "Pitram", "MineVERSE"),
+  Fornecedor = c("Fast2Mine (Weir)", "Micromine", "Vendor Agnostic"),
+  Funcionalidade_Chave = c("Otimização Dinâmica e Mobilidade", "Rastreabilidade e Controle Subterrâneo", "Visualização e Governança de Dados"),
+  Contribuicao_4_0 = c("Algoritmos de IA para alocação preditiva.", "Auditoria de dados para conformidade.", "Integração de silos de dados em Data Lakes.")
+)
+
+df_despacho %>%
+  kable(booktabs = TRUE, align = "llll") %>%
+  kable_styling(bootstrap_options = c("striped", "condensed"), full_width = TRUE, font_size = 12) %>%
+  column_spec(1, bold = TRUE, background = "#1A73E8", color = "white", width = "3cm") %>%
+  row_spec(0, background = "#35978f", color = "white", bold = TRUE)
+```
+
+## Governança de Dados e Análise Preditiva
+
+A inserção de indicadores de desempenho nos processos de negócio requer que os dados sejam tratados como ativos estratégicos. A Resolução ANM 207/2025 reforça a necessidade de uma governança robusta, exigindo rastreabilidade (*data lineage*) e qualidade dos dados operacionais.
+
+Neste cenário, a aplicação de **Ciência de Dados com R** torna-se um diferencial competitivo para o PCO. Ao contrário das análises descritivas tradicionais (o que aconteceu?), o uso de modelos estatísticos e preditivos permite responder "o que acontecerá?" e "como podemos otimizar?".
+
+### Aplicações de R no PCO
+
+1.  **Previsão de Demanda e Produção:** Utilização de modelos ARIMA e SARIMA para projetar a produção futura considerando a sazonalidade e a tendência histórica, essenciais para o S&OP (*Sales and Operations Planning*).
+
+2.  **Simulação de Monte Carlo:** Avaliação de risco no cumprimento das metas, considerando a variabilidade estocástica dos tempos de ciclo e disponibilidade mecânica.
+
+3.  **Controle Estatístico de Processo (CEP):** Monitoramento da variabilidade dos teores e da granulometria, identificando desvios antes que se tornem não conformidades de qualidade.
+
+```{r}
+#| label: tbl-ferramentas-analytics
+#| tbl-cap: "Ecossistema R aplicado à Engenharia de Dados e PCO."
+#| echo: false
+
+df_ferramentas <- data.frame(
+  Pacote = c("tidymodels", "fable / forecast", "ggplot2", "shiny", "dplyr"),
+  Funcao = c("Machine Learning", "Séries Temporais", "Visualização de Dados", "Dashboards Interativos", "Manipulação de Dados"),
+  Aplicacao_PCO = c("Previsão de falhas e otimização de blend.", "Projeção de metas de produção (S&OP).", "Análise visual de tendências operacionais.", "Monitoramento em tempo real (Torre de Controle).", "Tratamento de logs de despacho e telemetria.")
+)
+
+df_ferramentas %>%
+  kable(col.names = c("Pacote R", "Função Principal", "Aplicação no PCO"), align = "lll", booktabs = TRUE) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = TRUE, font_size = 12) %>%
+  column_spec(1, bold = TRUE, color = "white", background = "#673AB7", width = "4cm") %>%
+  row_spec(0, background = "#35978f", color = "white", bold = TRUE)
+```
+
+## KPIs: A Metrologia do Desempenho
+
+A eficácia do PCO é medida pela sua capacidade de entregar resultados consistentes. Os Indicadores-Chave de Desempenho (KPIs) devem ser definidos conforme as dimensões de desempenho organizacional citadas no SGI (financeiro, operacional e qualidade).
+
+Para evitar ambiguidades que comprometam a análise comparativa (*benchmarking*), as fórmulas dos KPIs devem seguir rigor metrológico. A análise vetorial destes indicadores permite decompor as perdas operacionais e direcionar ações de melhoria contínua (Kaizen).
+
+```{r}
+#| label: tbl-kpis-operacionais
+#| tbl-cap: "Definição formal dos KPIs de PCO para avaliação de desempenho."
+#| echo: false
+
+df_kpis <- data.frame(
+  Indicador = c("Disponibilidade Física (DF)", "Utilização Física (UF)", "Produtividade (Prod)", "OEE (Eficiência Global)"),
+  Sigla = c("DF", "UF", "Prod", "OEE"),
+  Definicao_Matematica = c(
+    "$\\frac{\\text{Horas Disponíveis}}{\\text{Horas Calendário}} \\times 100$",
+    "$\\frac{\\text{Horas Trabalhadas}}{\\text{Horas Disponíveis}} \\times 100$",
+    "$\\frac{\\text{Produção Total}}{\\text{Horas Trabalhadas}}$",
+    "$\\text{DF} \\times \\text{UF} \\times \\text{Eficiência de Performance}$"
+  ),
+  Dimensao_SGI = c("Confiabilidade e Manutenção", "Eficiência de Alocação de Ativos", "Ritmo e Intensidade Operacional", "Excelência Operacional Integrada")
+)
+
+df_kpis %>%
+  kable(escape = FALSE, booktabs = TRUE, align = "clll") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = TRUE, font_size = 12) %>%
+  column_spec(1, bold = TRUE, background = "#174EA6", color = "white", width = "4cm") %>%
+  row_spec(0, background = "#35978f", color = "white", bold = TRUE)
+```
