@@ -63,4 +63,65 @@ Figure: (fig:boladeneve-termometro) Imagem ilustrativa da Bola de Neve / Termôm
 
 O fato de o termo Qualidade ser de uso comum não é, implicitamente, algo ruim. Na verdade, isso pode decorrer de profundo esforço feito em passado recente para popularizar o termo. A questão é que os conceitos usados para definir Qualidade nem sempre são corretos — ou, melhor, quase sempre são incorretos. Isto sim é um problema, porque não se pode “redefinir” um termo que todo o mundo já conhece, nem restringir seu uso em situações específicas, se ele for de domínio público.
 
+## A Função Qualidade Total do Produto (QTP)
+
+A qualidade do produto é então avaliada pelo usuário a partir do conjunto de características. As características de qualidade de um objeto são muitas e de diversos tipos. Para efeito de simplificação é conveniente agrupá-las em parâmetros que permitam representar, de forma viável, as dimensões perceptíveis da qualidade.
+
+Chamaremos de parâmetros da qualidade de um objeto a uma característica específica ou a um conjunto de características que representam uma dimensão particular da qualidade que é requisitada pela parte interessada.
+
+A Qualidade Total do objeto seria, portanto, a qualidade experimentada e avaliada pelo consumidor, objetiva e subjetivamente, na etapa de consumo do objeto e em todas as suas dimensões:
+
+$$
+\mathrm{QTP} = f(Q_i) = \sum_{i=1}^{n} A_i \times Q_i
+$$
+
+onde $A_i$ representa a contribuição de cada característica ($C_i$) de qualidade para a qualidade do produto. Para cada característica ($C_i$) do produto existe uma qualidade ($Q_i$).
+
+As dimensões e características podem ser detalhadas da seguinte forma:
+
+- **Desempenho:** O produto realizará a tarefa pretendida?
+- **Característica:** O que o produto faz?
+- **Facilidade ou conveniência de uso (funções secundárias):**
+	- Características que contribuem para a realização da missão básica.
+	- Características que elevam a conveniência e facilidade de uso do produto.
+	- Funções adicionais incorporadas ao produto que oferecem outros serviços ao usuário.
+- **Disponibilidade:** Está pronto para uso?
+- **Confiabilidade:** Qual a frequência de falhas do produto?
+- **Durabilidade:** Quanto tempo o produto durará?
+- **Características de conformação ou ajustamento:** Está conforme a especificação?
+	- Refere-se ao produto ou lote estar ou não conforme as especificações de projeto.
+	- Refere-se à medida de desempenho da atividade de produção: atingir as especificações de projeto, produtividade do processo e custo mínimo.
+- **Características dos serviços associados ao produto:**
+	- Instalação e orientação de uso (facilidade e apoio oferecido).
+	- Assistência técnica (rapidez, cortesia e competência no atendimento).
+- **Características associadas à interface do produto com o meio:**
+	- Interface com o usuário: facilidade de operação, manuseio e riscos de acidentes.
+	- Interface e impacto no meio ambiente: impactos negativos da produção, efeitos no consumo e riscos de rejeitos poluentes.
+- **Características subjetivas associadas ao produto:**
+	- Estética: O produto é bonito?
+	- Imagem da marca: reputação da marca no mercado.
+- **Características de custo do ciclo de vida:** custos presentes e futuros implicados na compra do produto.
+
+Embora essas dimensões permitam uma análise técnica detalhada do objeto, a forma como as organizações priorizam cada uma delas mudou drasticamente ao longo das décadas. Essa mudança reflete a necessidade de alinhar a visão interna da engenharia (focada no produto) com a percepção externa do mercado (focada no uso), dando origem ao que conhecemos como a evolução dos níveis de adequação da qualidade.
+
+## A Evolução do Conceito de Qualidade
+
+Apesar do interesse das empresas, essa confusão conceitual exige um alinhamento. Diversas contribuições teóricas permitiram um melhor entendimento e ampliaram a aplicação desse conceito a nível empresarial. A evolução do conceito de qualidade é caracterizada por quatro adequações ou níveis:
+
+- **Adequação ao Padrão:** Define a qualidade como o produto que faz estritamente aquilo que os projetistas pretenderam que ele fizesse.
+- **Adequação ao Uso:** Garantia da satisfação das necessidades de mercado — o produto pode ser utilizado da maneira como os clientes querem?
+- **Adequação ao Custo:** Alta qualidade associada a custo baixo; qualidade entendida como baixa variabilidade no processo.
+- **Adequação à Necessidade Latente:** Satisfação de necessidades do cliente antes mesmo que ele esteja consciente delas.
+
+Este conceito moderno de Qualidade exerce uma função dupla: satisfaz os clientes e permite à companhia operar da forma mais eficiente possível. A qualidade é uma área com grande alinhamento entre metas dos clientes e metas da organização.
+
+Pressupõe-se uma concordância entre produtor e consumidor sobre o conceito. Para o consumidor, a qualidade envolve um equilíbrio entre:
+
+- Qualidade intrínseca do produto.
+- Qualidade do atendimento (quantidade ofertada, prazos de entrega, etc.).
+- Qualidade dos serviços associados ao uso do produto.
+- Custo total.
+
+A satisfação total do consumidor deve ser alcançada em todos esses fatores. Para transformar essa expectativa (frequentemente subjetiva) em algo gerenciável e auditável, a indústria precisou estabelecer uma linguagem universal, traduzindo o "sentido genérico" em normas técnicas rigorosas.
+
 
