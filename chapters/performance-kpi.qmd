@@ -22,50 +22,40 @@ Este capítulo estrutura os indicadores fundamentais que compõem a espinha dors
 
 ## Metrologia de Performance e Identidade Fundamental
 
-### Elementos de Suporte e Categorização de Horas
+### Elementos de Suporte e Extratificação de Horas
 
 Os elementos de suporte são os dados diretamente monitorados e coletados durante a produção. No ciclo de processos de transporte, os dados coletados dos equipamentos são denominados tempos operacionais.
 
 A classificação das horas é dividida hierarquicamente para facilitar a gestão, permitindo o desdobramento desde a disponibilidade global até a causa raiz do evento. Esta estrutura é o fundamento para o processamento de telemetria e o cálculo de KPIs no pacote `miningKPI`.
 
-**HC – Horas Calendário (Calendar Hours - CH)**[^performance-kpi-1]: Tempo total de existência do ativo no período $(p)$ 24h/dia, 7 dias/semana, resultando em\
-$365 \times 24 = 8760\ h/ano$ (ou $8784$ h em anos bissextos). $$HC_{p} = HT_{p} + HO_{p} + HM_{p}$$ onde:
+HC – Horas Calendário (Calendar Hours - CH)[^performance-kpi-1]: Tempo total de existência do ativo no período $(p)$ 24h/dia, 7 dias/semana, resultando em\
+$365 \times 24 = 8760\ h/ano$ (ou $8784$ h em anos bissextos). $$HC_{p} = HT_{p} + HO_{p} + HM_{p}$$ {#eq-hc} onde:
 
 [^performance-kpi-1]: A hora calendário de um equipamento novo inicia-se quando for realizada a entrega técnica à operação e termina quando é feita a baixa definitiva do equipamento pela manutenção.Para um determinado período $p$ considerado, tem-se que:
 
--   **HT – Horas Trabalhadas (Worked Hours – WH):** ($HT = HTP + HTNP$)
+-   HT – Horas Trabalhadas (Worked Hours – WH)
+    -   HTP – Horas Trabalhadas Produtivas (Productive Worked Hours – PWH)
+        -   HEF – Horas Efetivas (Effective Hours – EFH): Tempo em que o equipamento desenvolve trabalho útil na função primária (ex: contato bit-rocha na perfuração).
+        -   HAO – Horas de Atraso Operacional (Operational Delay Hours – ODH): Atrasos inerentes ao ciclo perfeito, como esperas por caminhão, manobras de sinalização ou filas curtas.
+    -   HNTP – Horas Trabalhadas Não Produtivas (Non-Productive Worked Hours – NPWH)
+        -   HTI – Horas de Infraestrutura (Infrastructure Worked Hours – IWH): Atividades de suporte à fase produtiva, como acerto de praça ou manutenção de acessos.
+        -   HTD – Horas Trabalhadas Diversas (Different Worked Hours – DWH): Trabalho fora do ciclo operacional principal, como locomoções curtas para abastecimento ou apoio a outros processos.
 
-    -   **HTP – Horas Trabalhadas Produtivas (Productive Worked Hours – PWH):** ($HTP = HEF + HAO$)
+$$HT = HTP + HNTP = HEF + HAO + HTI + HTD$$ - HO – Horas Ociosas (Idle Hours – IH) - HOI – Horas Ociosas Internas (Internal Idle Hours – IIH): Equipamento apto, mas parado por falta de recursos internos (ex: operador, troca de turno, aguardando projeto ou topografia). - HOE – Horas Ociosas Externas (External Idle Hours – EIH): Equipamento apto, mas parado por fatores externos não gerenciáveis pela unidade (ex: clima adverso, raios ou falta de energia da rede).
 
-        -   **HEF – Horas Efetivas (Effective Hours – EFH):** Tempo em que o equipamento desenvolve trabalho útil na função primária (ex: contato bit-rocha na perfuração).
+$$HO = HOI + HOE$$ - HM
+– Horas em Manutenção (Maintenance Hours)
+- HMCT – Horas de Manutenção Corretiva Total (Total Corrective Maintenance Hours – TCMH) - HMC – Horas de Manutenção Corretiva (Corrective Maintenance Hours – CMH): Tempo de indisponibilidade para intervenção corretiva não planejada visando restaurar a função após uma falha. - HAC – Horas de Acidente (Accident Hours – ACH): Tempo sob responsabilidade da manutenção em decorrência de acidentes ou danos causados por fatores externos. - HMP – Horas de Manutenção Preventiva (Preventive Maintenance Hours – PMH) - MPS – Manutenção Preventiva Sistemática (Systematic Preventive Hours – SPH): Manutenções planejadas repetidas em intervalos definidos (horas, km ou data), sem indicação prévia de defeito. - MPNS – Manutenção Preventiva Não Sistemática (Non-Systematic Programmed Hours – NSPH): Intervenções baseadas em monitoramento de condição (preditiva) ou programadas fora de ciclos sistemáticos rígidos.
 
-        -   **HAO – Horas de Atraso Operacional (Operational Delay Hours – ODH):** Atrasos inerentes ao ciclo perfeito, como esperas por caminhão, manobras de sinalização ou filas curtas.
+$$HM = HMCT + HMP = HMC + HAC + MPS + MPNS$$
 
-    -   **HNTP – Horas Trabalhadas Não Produtivas (Non-Productive Worked Hours – NPWH):** ($HTNP = HTI + HTD$)
+Assim, a relação fundamental pode ser reescrita da seguinte forma:
 
-        -   **HTI – Horas de Infraestrutura (Infrastructure Worked Hours – IWH):** Atividades de suporte à fase produtiva, como acerto de praça ou manutenção de acessos.
+$$HC_{p} = HTP_{p} + HNTP_{p} + HOI_{p} + HOE_{p} + HMCT_{p} + HMP_{p} = HEF_{p} + HAO_{p} + HTI_{p} + HTD_{p} + HOI_{p} + HOE_{p} + HMC_{p} + HAC_{p} + MPS_{p} + MPNS_{p}$$
 
-        -   **HTD – Horas Trabalhadas Diversas (Different Worked Hours – DWH):** Trabalho fora do ciclo operacional principal, como locomoções curtas para abastecimento ou apoio a outros processos.
+A @fig-extrato-horas apresenta os
 
--   **HO – Horas Ociosas (Idle Hours – IH):** ($HO = HOI + HOE$)
-
-    -   **HOI – Horas Ociosas Internas (Internal Idle Hours – IIH):** Equipamento apto, mas parado por falta de recursos internos (ex: operador, troca de turno, aguardando projeto ou topografia).
-
-    -   **HOE – Horas Ociosas Externas (External Idle Hours – EIH):** Equipamento apto, mas parado por fatores externos não gerenciáveis pela unidade (ex: clima adverso, raios ou falta de energia da rede).
-
-**HM – Horas em Manutenção (Maintenance Hours):** ($HM = HTMCT + HMP$)
-
--   **HMCT – Horas de Manutenção Corretiva Total (Total Corrective Maintenance Hours – TCMH):** ($HMCT = HMC + HAC$)
-
-    -   **HMC – Horas de Manutenção Corretiva (Corrective Maintenance Hours – CMH):** Tempo de indisponibilidade para intervenção corretiva não planejada visando restaurar a função após uma falha.
-
-    -   **HAC – Horas de Acidente (Accident Hours – ACH):** Tempo sob responsabilidade da manutenção em decorrência de acidentes ou danos causados por fatores externos.
-
--   **HMP – Horas de Manutenção Preventiva (Preventive Maintenance Hours – PMH):** ($HMP = MPS + MPNS$)
-
-    -   **MPS – Manutenção Preventiva Sistemática (Systematic Preventive Hours – SPH):** Manutenções planejadas repetidas em intervalos definidos (horas, km ou data), sem indicação prévia de defeito.
-
-    -   **MPNS – Manutenção Preventiva Não Sistemática (Non-Systematic Programmed Hours – NSPH):** Intervenções baseadas em monitoramento de condição (preditiva) ou programadas fora de ciclos sistemáticos rígidos.
+![Estratificação das horas](/images/fig-categoria-horas.png){#fig-extrato-horas}
 
 #### Nota sobre Nomenclatura e Siglas Internacionais
 
@@ -73,18 +63,18 @@ Para garantir a compatibilidade com os sistemas de telemetria globais e o uso do
 
 A tabela abaixo estabelece a correlação direta entre as siglas utilizadas no corpo do texto e as variáveis que o leitor encontrará nos blocos de código:
 
-|                               |                      |                        |
-|----------------------------|---------------------|-----------------------|
-| **Descrição (PT-BR)**         | **Sigla Livro (PT)** | **Sigla Técnica (EN)** |
-| Horas Efetivas                | **HEF**              | **EFH**                |
-| Horas de Atraso Operacional   | **HAO**              | **ODH**                |
-| Horas de Infraestrutura       | **HTI**              | **IWH**                |
-| Horas Trabalhadas Diversas    | **HTD**              | **DWH**                |
-| Horas Paradas Operacionais    | **HPO**              | **SOH**                |
-| Horas de Manutenção Corretiva | **HMC**              | **CMH**                |
-| Manutenção Prev. Sistemática  | **MPS**              | **SPH**                |
-| Horas Ociosas Internas        | **HOI**              | **IIH**                |
-| Horas Ociosas Externas        | **HOE**              | **EIH**                |
+|                               |                  |                    |
+|-------------------------------|------------------|--------------------|
+| Descrição (PT-BR)             | Sigla Livro (PT) | Sigla Técnica (EN) |
+| Horas Efetivas                | HEF              | EFH                |
+| Horas de Atraso Operacional   | HAO              | ODH                |
+| Horas de Infraestrutura       | HTI              | IWH                |
+| Horas Trabalhadas Diversas    | HTD              | DWH                |
+| Horas Paradas Operacionais    | HPO              | SOH                |
+| Horas de Manutenção Corretiva | HMC              | CMH                |
+| Manutenção Prev. Sistemática  | MPS              | SPH                |
+| Horas Ociosas Internas        | HOI              | IIH                |
+| Horas Ociosas Externas        | HOE              | EIH                |
 
 #### Categorias de Estado e Mensuração
 
@@ -98,7 +88,7 @@ Diferente das categorias de estado, as **HD** e **HPO** possuem um tratamento me
 
 A **HD** não é um apontamento direto, mas sim o volume absoluto de tempo em que o ativo está tecnicamente apto para o uso. Ela representa o elo fundamental entre a manutenção e a operação: a manutenção "entrega" Horas Disponíveis, e a operação as "consome".
 
-$$HD_{p} = HC_{p} - HM_{p}$$
+$$HD_{p} = HC_{p} - HM_{p}$$ {#eq-hd}
 
 Nesta lógica, a **HD** é o balizador da confiabilidade técnica. Se a manutenção reduz o $HM$, o "estoque" de horas para a operação ($HD$) aumenta automaticamente.
 
@@ -111,7 +101,7 @@ A **HPO** é tratada de forma segregada por representar paradas que impactam a p
 > Enquanto as demais horas são classificadas por estado físico do ativo, a HD é uma categoria de capacidade e a HPO é uma categoria de perda de processo. No pacote miningKPI, a HPO (sigla técnica SOH) deve ser monitorada rigorosamente para identificar gargalos de infraestrutura que a Utilização Física (UF) muitas vezes mascara.
 
 ::: {#exm-processamento-categorias}
-**Processamento de Categorias de Horas**
+Processamento de Categorias de Horas
 
 Como a medição é feita baseado em durações de tempo, os apontamentos são realizados sempre que um determinado equipamento alterar o seu status de operação. Para análise de categoria de horas, utiliza-se o `gap_time` que é a duração (em horas) do início e fim do evento.
 :::
@@ -191,9 +181,7 @@ As **Horas de Manutenção Corretiva (CMH)** registraram **3,96h** em um **únic
 
 Vimos no @exm-processamento-categorias que para cada categoria de horas, tem-se $n >=1$ eventos que podem ocorrer para um mesmo período. Logo, a transição da telemetria bruta para a análise gerencial exige a agregação por período ($p$). Se em um período ($p=1$ dia) o sistema registrou $n$ eventos de perfuração, a disponibilidade efetiva diária é o somatório de cada duração individual $i$:
 
-$$EFH_{p} = \sum_{i=1}^{n} EFH_i$$
-
-{#eq-efh-soma}
+$$EFH_{p} = \sum_{i=1}^{n} EFH_i$$ {#eq-efh-soma}
 
 Ao contarmos o número de eventos para o dia 01/01, identificamos 32 registros. Portanto, a disponibilidade consolidada é a soma dessas 32 parcelas discretas, onde cada $i$ representa a ordem cronológica do evento no dia:
 
@@ -242,9 +230,9 @@ df_display %>%
   )
 ```
 
-## Reconciliação Metrológica
+## Reconciliação Metrológica e Indicadores-Chave de Desempenho
 
-Como demonstrado na @tbl-drill-down-efh-index, a presença do índice $i$ permite que o gestor de **PCO** realize a trilha de auditoria de cada fragmento produtivo. Esta abordagem elimina a "caixa-preta" das médias globais e expõe a variabilidade inerente do processo. Se o evento $i=1$ dura 0.71h e o evento $i=2$ dura apenas 0.11h, a análise de causa raiz deve buscar nos dados de telemetria complementares (como dureza da rocha ou habilidade do operador) o motivo de tal dispersão.
+A presença do índice $i$ permite que o gestor de **PCO** realize a trilha de auditoria de cada fragmento produtivo. Esta abordagem elimina a "caixa-preta" das médias globais e expõe a variabilidade inerente do processo. Se o evento $i=1$ dura 0.71h e o evento $i=2$ dura apenas 0.11h, a análise de causa raiz deve buscar nos dados de telemetria complementares (como dureza da rocha ou habilidade do operador) o motivo de tal dispersão.
 
 ### DF — Disponibilidade Física (Physical Availability — PA)
 
@@ -270,12 +258,14 @@ $$\mathrm{RO_{p}} = \mathrm{DF}_{p} \times \mathrm{UF}_{p} = \frac{HT_{p}}{HC_{p
 
 Mede o ritmo e a intensidade do processo durante o tempo operado ($\sum HT$). Ela desconsidera paradas de manutenção ou ociosidade.
 
-$$\mathrm{PR_{p}} = \frac{\sum \text{Unidades de Produção}}{HT_{p}}$$ ::: {#exm-metrologia-aplicada .callout-note appearance="simple"}
+$$\mathrm{PR_{p}} = \frac{\sum \text{Unidades de Produção}}{HT_{p}}$$ {#eq-pr}
 
 ::: {#exm-calculando-kpis}
-#### **Metrologia Aplicada (Calculando KPIs)**
+#### Metrologia Aplicada (Calculando KPIs)
 
-Para obter a os valores diários para os KPIs Disponibilidade (DF), Utilização (UF) e Produtividade (PR), executamos o cálculo das categorias de horas em métricas de performance ($WH$, $IH$, $MH$, $AH$). Cabe ressaltar que a produção das perfuratrizes é a soma dos metros perfurados (Meters Drilled) qem que $Meters Drilled =\sum \text{allocated_meters}$
+Para obter a os valores diários para os KPIs Disponibilidade (DF), Utilização (UF) e Produtividade (PR), executamos o cálculo das categorias de horas em métricas de performance ($WH$, $IH$, $MH$, $AH$). Cabe ressaltar que a produção das perfuratrizes é a soma dos metros perfurados (Meters Drilled):
+
+$$\text{Meters Drilled} = \sum \text{allocated\_meters}$$ {#eq-mp}
 :::
 
 ```{r}
@@ -351,9 +341,8 @@ Já no dia 09/01, a produtividade caiu para **13,1 m/h**. Comparando com o dia 0
 A visualização abaixo consolida o desempenho da perfuratriz ao longo de quase um ano de operação, permitindo ao gestor correlacionar as variações de metragem com os KPIs de disponibilidade e utilização discutidos anteriormente.
 :::
 
+::: {#fig-evolucao-producao .figure}
 ```{r}
-#| label: fig-evolucao-producao
-#| fig-cap: "Evolução temporal da produção diária (metros perfurados)"
 #| fig-width: 10
 #| fig-height: 5
 
@@ -363,19 +352,15 @@ kpi_final %>%
   geom_line(color = "#35978f", linewidth = 1, alpha = 0.6) +
   # Pontos para marcar as medições diárias discretas
   geom_point(color = "#01665e", size = 2, alpha = 0.8) +
-  # Estética e Labels
-  labs(
-    x = "Data (p)",
-    y = "Produção Acumulada (m)",
-    title = "Série Histórica de Perfuração - DRILL_100"
-  ) +
   theme_minimal() +
   scale_x_date(date_breaks = "1 month", date_labels = "%b/%y") +
   theme(
-    plot.title = element_text(face = "bold", color = "#373854"),
     panel.grid.minor = element_blank()
   )
 ```
+
+Evolução temporal da produção diária (metros perfurados)
+:::
 
 ##### Fase 1: Estabilidade e Picos de Performance (Janeiro a Março)
 
@@ -408,7 +393,7 @@ Ao cruzarmos estes dados com o conceito de **Rendimento Operacional (RO)**, vemo
 > **Resumo para o Leitor:** A série histórica da **DRILL_100** é o retrato de um ativo que "morreu" operacionalmente no meio do ano. Enquanto o primeiro trimestre mostrou que o equipamento tinha capacidade técnica (atingindo \>500m/dia), a inatividade prolongada no segundo semestre sugere uma falha grave de planejamento ou gestão de ativos. Em uma operação de excelência, este equipamento deveria ter sido transferido para outra unidade ou alienado para evitar a depreciação improdutiva.
 
 ::: {#exm-dados-budget}
-#### **Base de Planejamento Estratégico (Budget)**
+#### Base de Planejamento Estratégico (Budget)
 
 A transição da Metrologia de Performance para a Excelência Operacional exige um referencial comparativo. No sistema de gestão, este referencial é extraído do **Budget** (Orçamento Anual), que define as premissas de capacidade e as metas de entrega para cada ativo.
 
@@ -459,9 +444,7 @@ A integração entre o plano de lavra e a execução é realizada através do cr
 
 A **Eficiência de Produtividade** é o indicador que mensura a aderência do ritmo real de perfuração em relação à meta técnica estabelecida no planejamento (*Budget*). Ela reflete a qualidade da execução técnica, isolando a performance do ativo durante o tempo em que ele esteve efetivamente operando.
 
-$$\mathrm{EP}_p = \left( \frac{\mathrm{PR}_{real}}{\mathrm{PR}_{plan}} \right) \times 100$$
-
-{#eq-ep}
+$$\mathrm{EP}_p = \left( \frac{\mathrm{PR}_{real}}{\mathrm{PR}_{plan}} \right) \times 100$$ {#eq-ep}
 
 Onde a **PR** (Produtividade) é expressa em metros por hora ($m/h$) ou toneladas por hora ($t/h$). Uma **EP** de 100% indica que o processo operou exatamente no ritmo previsto pela engenharia.
 
@@ -473,9 +456,7 @@ Os indicadores de impacto são ferramentas de diagnóstico da **Excelência Oper
 
 Este indicador mensura o impacto na produção relacionado à variação da disponibilidade física real em relação à programada. Ele isola a performance da manutenção, quantificando o volume de produção ganho ou perdido devido ao tempo em que o equipamento ficou parado para intervenções (corretivas ou preventivas).
 
-$$\Delta DF = (HM_{plan} - HM_{real}) \times PR_{plan}$$
-
-{#eq-ip-df}
+$$\Delta DF = (HM_{plan} - HM_{real}) \times PR_{plan}$$ {#eq-ip-df}
 
 -   **HM Plan:** Total de horas de manutenção programadas.
 
@@ -489,9 +470,7 @@ Um resultado positivo indica que a manutenção entregou o ativo com maior dispo
 
 O **IP-UF** mensura o impacto gerado pela variação na utilização do ativo. Ele foca na eficiência da gestão operacional em ocupar as janelas de tempo em que o equipamento estava disponível. Perdas aqui são geralmente causadas por falta de operador, infraestrutura deficiente ou falhas no sequenciamento de lavra.
 
-$$\Delta PU = (UF_{real} - UF_{plan}) \times HD_{plan} \times PR_{plan}$$
-
-{#eq-ip-uf}
+$$\Delta PU = (UF_{real} - UF_{plan}) \times HD_{plan} \times PR_{plan}$$ {#eq-ip-uf}
 
 -   **UF Real/Plan:** Percentual de utilização física (realizado vs. programado).
 
@@ -501,18 +480,16 @@ $$\Delta PU = (UF_{real} - UF_{plan}) \times HD_{plan} \times PR_{plan}$$
 
 O impacto de produtividade quantifica o ganho ou perda decorrente da intensidade do ritmo de operação. Diferente dos impactos de tempo (DF e UF), este foca na performance intrínseca do processo e é calculado de forma residual para garantir que a soma de todos os impactos seja igual ao desvio total de produção.
 
-$$\Delta PR = Prod_{real} - \Delta PA - \Delta PU - Prod_{plan}$$
-
-{#eq-ip-pr}
+$$\Delta PR = Prod_{real} - \Delta PA - \Delta PU - Prod_{plan}$$ {#eq-ip-pr}
 
 -   **Prod Real/Plan:** Volume total de produção (Realizado vs. Programado) no período.
 
 ::: {#exm-decomposicao-impactos}
-### **Decomposição dos Impactos (Production Gap)**
+### Decomposição dos Impactos (Production Gap)
 
 A integração entre o plano de lavra (Budget) e a execução (Metrologia) é realizada através da análise de desvios. O objetivo é converter variações de tempo e ritmo em metros lineares, isolando as responsabilidades de cada área.
 
-#### **Cálculo dos Indicadores de Impacto**
+#### Cálculo dos Indicadores de Impacto
 
 Neste estágio, unificamos o realizado (`kpi_final`) com o planejado (`drill_planning_mine_d`) para extrair os indicadores de impacto ($\Delta$).
 :::
@@ -567,7 +544,7 @@ kpi_impacto %>%
   row_spec(10, extra_css = "border-bottom: 1.5pt solid black;")
 ```
 
-#### **Interpretação e Gestão de Desvios**
+#### Interpretação e Gestão de Desvios
 
 A tabela de impactos permite uma leitura direta da "saúde" operacional da **DRILL_100**:
 
@@ -577,21 +554,21 @@ A tabela de impactos permite uma leitura direta da "saúde" operacional da **DRI
 
 -   **Δ PR (Processo/Engenharia):** Isola a performance da perfuração em si. Se negativo, a máquina perfurou mais devagar que a meta de **21.4 m/h**, possivelmente por dureza da rocha ou falha técnica no bit.
 
-#### **Nota Técnica: Identidade da Reconciliação**
+#### Nota Técnica: Identidade da Reconciliação
 
 Para garantir a integridade dos dados no sistema de gestão, o somatório dos impactos deve reconciliar exatamente o desvio total observado. Matematicamente, para cada intervalo $p$:
 
-$$(Prod_{Real} - Prod_{Plan})_p = \Delta PI_{PA} + \Delta PI_{PU} + \Delta PI_{PR}$$
+$$(Prod_{Real} - Prod_{Plan})_p = \Delta PI_{PA} + \Delta PI_{PU} + \Delta PI_{PR}$$ {#eq-reconciliacao}
 
 Esta identidade assegura que não existam "metros fantasmas" na análise. Todo metro não perfurado tem um dono e uma causa raiz identificável, eliminando a subjetividade nas reuniões de resultados.
 
-### **Representação Visual do Production Gap**
+### Representação Visual do Production Gap
 
 Abaixo, consolidamos a decomposição de impactos em um gráfico de cascata (*Waterfall*). Note o uso da simbologia técnica ($\Delta$) para identificar os desvios de Disponibilidade, Utilização e Produtividade.
 
+::: {#fig-waterfall-final .figure}
 ```{r}
 #| label: fig-waterfall-final
-#| fig-cap: "Decomposição do Gap de Perfuração - Metrologia vs. Planejamento"
 #| fig-width: 10
 #| fig-height: 6
 
@@ -636,22 +613,18 @@ ggplot(df_plot, aes(x = Categoria, fill = tipo)) +
     expression(Delta[PR]),
     "Realizado"
   )) +
-  labs(
-    title = expression(bold("Waterfall: Decomposição do Production Gap (m)")),
-    subtitle = "Ativo: DRILL_100 | Análise de Aderência ao Planejamento",
-    x = "Indicadores de Performance",
-    y = "Metros Perfurados (m)"
-  ) +
   theme_minimal() +
   theme(
     legend.position = "none",
     axis.text.x = element_text(size = 11, color = "#373854"),
-    plot.title = element_text(size = 14, color = "#373854"),
     panel.grid.minor = element_blank()
   )
 ```
 
-#### **Interpretação da Visualização**
+Decomposição do Gap de Perfuração - Metrologia vs. Planejamento
+:::
+
+#### Interpretação da Visualização
 
 Nesta representação, o leitor consegue identificar visualmente a "escada" de performance:
 
@@ -661,21 +634,21 @@ Nesta representação, o leitor consegue identificar visualmente a "escada" de p
 
 -   **Simetria de Rótulos:** Note que os valores estão todos posicionados no topo das barras (`ymax`), garantindo que o gestor visualize o número final de metros perfurados ou perdidos de forma clara, sem obstrução pelo corpo da barra.
 
-#### **Nota Técnica sobre ROP e Metrologia**
+#### Nota Técnica sobre ROP e Metrologia
 
 Observe que o $\Delta_{PR}$ (Produtividade) isola a variabilidade da rocha e do operador. Se a barra do $\Delta_{PR}$ for a maior queda no gráfico, o problema não é o tempo disponível, mas sim a **taxa de penetração (ROP)**, exigindo uma revisão nos parâmetros de perfuração ou na seleção dos acessórios de corte (bits).
 
-### **OEE – Eficiência Global do Equipamento (*Overall Equipment Effectiveness*)**
+### OEE – Eficiência Global do Equipamento (Overall Equipment Effectiveness)
 
-O indicador **OEE – Eficiência Global do Equipamento (*Overall Equipment Effectiveness*)**, baseia-se no índice de performance múltiplo de indicadores, aliando os processos de manutenção e produção. Ele serve não apenas como um medidor de falhas, mas como um ponto focal de melhorias sucessivas (AMORIM, 2009).
+O indicador OEE – Eficiência Global do Equipamento (Overall Equipment Effectiveness), baseia-se no índice de performance múltiplo de indicadores, aliando os processos de manutenção e produção. Ele serve não apenas como um medidor de falhas, mas como um ponto focal de melhorias sucessivas (AMORIM, 2009).
 
 Sua origem remonta ao Japão, oriundo da **TPM – Gestão Produtiva Total (*Total Productive Maintenance*)**. Nakajima (1989), idealizador da filosofia supracitada, definiu que a gestão produtiva total busca a manutenção participativa, com o intuito de se obter máquinas sempre aptas, sem quebras, falhas e defeito mínimo.
 
 Nesse contexto, este indicador visa aumentar a confiabilidade dos equipamentos, sendo um parâmetro efetivo para medição da eficácia das máquinas, assim como para a gestão da produtividade (PALOMINO, 2010). A OEE das perfuratrizes é calculada pela multiplicação de três ICDs: **PA – Disponibilidade Física (*Physical Availability*)**, **PU – Utilização Física (*Physical Use*)** e **EP – Eficiência de Produtividade (*Productivity Efficiency*)**, de acordo com a Equação (6).
 
-$$OEE = PA \times PU \times \left( \frac{PR_{real}}{PR_{plan}} \right)$$
+$$OEE = PA \times PU \times \left( \frac{PR_{real}}{PR_{plan}} \right)$$ {#eq-oee}
 
-### **Cálculo e Implementação do OEE**
+### Cálculo e Implementação do OEE
 
 No processamento abaixo, consolidamos o OEE da **DRILL_100**. Note que o cálculo utiliza os resultados obtidos na metrologia e na análise de impacto anteriores.
 
@@ -707,7 +680,7 @@ kpi_oee %>%
   row_spec(10, extra_css = "border-bottom: 1.5pt solid black;")
 ```
 
-### **Nota Técnica: A Matemática da Eficiência**
+### Nota Técnica: A Matemática da Eficiência
 
 Para fins de padronização no SGI (Sistema de Gestão Integrado), a fórmula do OEE no R deve sempre garantir que os inputs de $PA$ e $PU$ reflitam a realidade metrológica processada anteriormente:
 
@@ -719,11 +692,11 @@ $$OEE = RO \times EP$$
 
 > **Insight para o Leitor:** Enquanto o RO nos diz quanto tempo o calendário foi aproveitado, o OEE nos diz quão bem esse tempo foi convertido em metros perfurados em relação à meta de engenharia.
 
-### **Árvore de Perdas e Hierarquia do OEE**
+### Árvore de Perdas e Hierarquia do OEE
 
 Para que o **OEE** deixe de ser apenas um número e se torne uma ferramenta de diagnóstico, é necessário decompor seus três pilares em indicadores de causa raiz. A hierarquia abaixo detalha como a performance da **DRILL_100** é influenciada por fatores de manutenção, operação e geologia.
 
-#### **1. Pilar de DF – Disponibilidade Física (*Physical Availability*)**
+#### 1. Pilar de DF – Disponibilidade Física
 
 A disponibilidade é governada pelas **HM – Horas de Manutenção (*Maintenance Hours*)**. Para otimizar este pilar, analisamos:
 
@@ -731,11 +704,11 @@ A disponibilidade é governada pelas **HM – Horas de Manutenção (*Maintenanc
 
 -   **MTBF – Tempo Médio Entre Falhas (*Mean Time Between Failures*):** Mede a confiabilidade do ativo ($AH / \text{número de falhas}$).
 
-#### **2. Pilar de UF – Utilização Física (*Physical Use*)**
+#### 2. Pilar de UF – Utilização Física
 
 A utilização é impactada diretamente pelas **HI – Horas Improdutivas (*Unproductive Hours*)**. Este pilar reflete a gestão da frota e a eficiência operacional na mina, sendo influenciado por esperas de infraestrutura, trocas de turno e posicionamento.
 
-#### **3. Pilar de Prod – Produtividade (*Productivity*)**
+#### 3. Pilar de Prod – Produtividade
 
 A produtividade (m/h) na perfuração não depende apenas do equipamento, mas do meio em que ele atua:
 
@@ -745,7 +718,7 @@ A produtividade (m/h) na perfuração não depende apenas do equipamento, mas do
 
 -   **HT – Horas Trabalhadas (*Worked Hours*):** Foco na redução de horas trabalhadas não efetivas para maximizar a taxa de penetração.
 
-### **Implementação dos Indicadores de Confiabilidade no R**
+### Implementação dos Indicadores de Confiabilidade no R
 
 Para complementar a análise da **DRILL_100**, podemos calcular os drivers de manutenção (**MTTR** e **MTBF**) que alimentam o pilar de disponibilidade da nossa árvore:
 
@@ -780,7 +753,7 @@ kpi_confiabilidade %>%
   row_spec(0, background = "#35978f", color = "white", bold = TRUE)
 ```
 
-### **Nota Técnica: O Fluxo de Diagnóstico**
+### Nota Técnica: O Fluxo de Diagnóstico
 
 No modelo de excelência apresentado, o fluxo de análise deve seguir a hierarquia de cima para baixo:
 

@@ -1,6 +1,7 @@
 project:
   type: book
   output-dir: docs
+
 lang: pt-BR
 
 book:
@@ -15,25 +16,32 @@ book:
     search: true
 
   chapters:
-      - index.qmd
-      - intro.qmd
-      - part: chapters/part1-intro.qmd
-        chapters:
-          - chapters/performance-kpi.qmd
-          - chapters/modelagem_manut.qmd
-          - chapters/ciclo-pdca.qmd
-          - chapters/plan-crtl-opera.qmd
-          - chapters/caixa-ferramentas.qmd
-      - part: chapters/part2-intro.qmd
-        chapters:
-          - chapters/ciclo1-perfuracao.qmd
-          - chapters/ciclo2-carregamento.qmd
-          - chapters/ciclo3-transporte.qmd
-      - part: chapters/part3-intro.qmd
-        chapters:
-          - chapters/plan-crtl-opera.qmd
-          - chapters/plan-crtl-manut.qmd
-          - chapters/confiabilidade.qmd
+    - index.qmd
+    - intro.qmd
+
+    # PARTE 1: Fundamentos, Gestão e Modelagem da Qualidade
+    - part: chapters/part1-intro.qmd
+      chapters:
+        - chapters/cap1-fundamentos.qmd          # Conteúdo do Capítulo 1 (Evolução, QTP, ISO)
+        - chapters/cap2-gestao-qualidade.qmd     # Conteúdo do Capítulo 2 (Juran, Metas, TQM, CCQ)
+        - chapters/cap3-controle-diretrizes.qmd  # Conteúdo do Capítulo 3 (Liderança, Hoshin Kanri, KPIs)
+        - chapters/cap4-ciclo-pdca.qmd           # Conteúdo do Capítulo 4 (Método MASP passo a passo)
+        - chapters/cap5-caixa-ferramentas.qmd    # Conteúdo do Capítulo 5 (Qualidade 4.0, Custos, FMEA)
+
+    # PARTE 2: Aplicação Operacional na Mineração (Ciclo de Mina)
+    - part: chapters/part2-intro.qmd
+      chapters:
+        - chapters/ciclo1-perfuracao.qmd
+        - chapters/ciclo2-carregamento.qmd
+        - chapters/ciclo3-transporte.qmd
+
+    # PARTE 3: Gestão de Ativos, Manutenção e Confiabilidade
+    - part: chapters/part3-intro.qmd
+      chapters:
+        - chapters/plan-crtl-opera.qmd
+        - chapters/plan-crtl-manut.qmd
+        - chapters/modelagem_manut.qmd
+        - chapters/confiabilidade.qmd
 
   appendices:
     - chapters/appendix/a-dicionario-dados.qmd
@@ -45,7 +53,7 @@ book:
 
 execute:
   freeze: auto
-  code-init: source("_common.R") # Executa as cores e o library(miningKPI)
+  code-init: source("_common.R")
 
 crossref:
   chapters: true
@@ -53,6 +61,7 @@ crossref:
   tbl-prefix: "Tabela"
   exm-title: "Exemplo"
   exm-prefix: "Exemplo"
+  eq-prefix: "Eq."
 
 bibliography: references.bib
 
@@ -63,5 +72,5 @@ format:
     include-after-body: includes/after-body.html
     code-fold: true
     toc: true
-    toc-depth: 3            # Garante que até o nível 3 apareça no TOC lateral
+    toc-depth: 3
     number-sections: true

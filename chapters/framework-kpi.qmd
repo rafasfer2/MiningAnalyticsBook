@@ -1,0 +1,261 @@
+---
+format: html
+---
+
+# Indicadores Chave de Desempenho (KPI) {#chap-modelagem-manut}
+
+## Análise de dados recorrentes
+
+Suponha que um equipamento industrial novo seja instalado em uma fábrica. Após sua instalação e testes iniciais, o equipamento então é posto em operação para realizar as atividades ao qual foi proposto. Tem-se então, que o tempo de início da operação é caracterizado por $T_{0} = 0$. Após um período em operação, o equipamento falha no tempo $T_{1}$ e sua operação é interrompida. O tempo decorrido de operação (Time to Failure) é dado por
+
+$$
+X_{1} = T_{1} - T_{0}.
+$$
+
+Para que o equipamento volte a operar, é realizado uma intervenção de manutenção (ou reparo) com duração $R_{1}$. Assim, reinicia-se a contagem de operação após o tempo $T_{1^+}$. Outra falha ocorre no tempo $T_{2}$ ao qual novamente é realizado um reparo $R_{2}$ e, de forma similar, o tempo de operação é
+
+$$
+X_{2} = T_{2} - T_{1}.
+$$
+
+Isso ocorre sucessivamente durante um longo período $\tau$, onde é realizado uma manutenção pré-determinada. A @fig-tempos abaixo ilustra o processo de funcionamento do equipamento industrial (Operação vs. Falha/Reparo).
+
+![Tempos em operação e manutenção de um sistema](/images/fig-tempos-oper-manut.png){#fig-tempos}
+
+::: {#def-sistema .example}
+Definição — Sistema: Sistema é qualquer parte, componente, dispositivo, subsistema, unidade funcional, equipamento ou item que possa ser considerado individualmente (ISO-5462:1994, 1994).
+:::
+
+::: {#def-falha .example}
+Definição — Falha: A falha é o termo usado para descrever a situação em que um item não é mais capaz de desempenhar a função requerida, o que leva à indisponibilidade do equipamento (ISO-5462:1994, 1994).
+:::
+
+::: {#def-sistema-reparável .example}
+Definição — Sistemas Reparáveis: Sistema reparável é caracterizado como aquele no qual, uma vez ocorrida a falha, este pode ser restaurado a uma condição operacional através de alguma operação de reparo, sem que haja a necessidade de substituição do sistema como um todo.
+:::
+
+Um evento recorrente, também conhecido como processo de contagem, é então um modelo estocástico para um fenômeno físico caracterizado por eventos distribuídos aleatoriamente ao longo do tempo. A escala usada para caracterizar as distribuições dos eventos é em unidades de tempo, porém outras escalas podem ser usadas.
+
+A @fig-dinamica-falhas apresenta o processo ilustrativo de uma operação e manutenção para um sistema reparável. Observe que após o início da operação em $T_{0}=0$, em decorrência de um período $X_1$ ocorre uma falha inesperada e que, por sua vez, uma intervenção de manutenção corretiva é necessária. Neste momento, inicia-se o processo de contagem das falhas, sendo $N(T_1)=1$ a ocorrência da primeira falha até o tempo $T_1$. Logo, o tempo necessário para reparar essa falha é $R_{1}$ e, imediatamente após o reparo, o equipamento retorna para operação em $T_{1^+}$ e indica que neste momento houve uma intervenção corretiva, ou seja, o número de intervenções corretivas antes de $T_{1^+}$ é $\mathrm{NIC}(t\leq T_{1^+})=1$
+
+![Dinâmica ilustrativa da ocorrência de falha e intervenção de manutenção num sistema reparável](/images/fig-dinamica-falhas.png){#fig-dinamica-falhas}
+
+Para um único processo de eventos recorrentes, ou processo de falhas e reparos, introduzimos as seguintes notações:
+
+-   $\{T_i\}$: tempos das falhas (ou tempos de início da manutenção corretiva) com $0=T_{0}<T_{1}<T_{2}<\dots<\tau$, onde $\tau$ é o tempo de truncamento; para truncamento por falha tem-se $\tau=T_{N}$.
+
+-   $\{X_i\}$: tempos entre as falhas, $X_{i}=T_{i}-T_{i-1}$, $i=1,2,\dots$. Cabe ressaltar que o tempo entre falhas usualmente é representado por TBF (do inglês “Time Between Failures”), em que o tempo de reparo é desconsiderado. Em outras palavras, $X_i$ representa apenas o tempo do sistema em operação.
+
+-   $\{R_i\}$: tempos de reparo, ou tempo gasto para manutenir um equipamento após ocorrência de uma falha. Tipicamente, os tempos de reparo são representados por TTR (do inglês “Time to Repair”).
+
+-   $N = \{N_t\}_{t \geq 0}$ – Processo de contagem de falhas: Representa o número de falhas acumuladas ao longo do tempo. Especificamente, $N_t = \sum_{k=1}^\infty I(T_k \leq t)$ define o número de falhas no intervalo $(0, t]$, enquanto $N_{a,b} = N_b - N_a$ representa o número de falhas no intervalo $(a, b]$. O termo $N$ é denominado variável aleatória de contagem.
+
+-   $NIC_{t^+}$ – Número de Intervenções Corretivas: Representa o número de execuções de reparo no intervalo $(0, t]$, sendo definido formalmente como $\sum_{k=1}^\infty I(t \geq T_{k^+})$. $NIC_{a^+, b^+} = NIC_{b^+} - NIC_{a^+}$: Corresponde ao número de intervenções corretivas ocorridas no intervalo $(a^+, b^+]$. Considerando que, no modelo de gestão de ativos, sempre haverá uma intervenção de manutenção corretiva imediatamente após a ocorrência de uma falha $NIC_{t^+} = N_t$.
+
+Ao considerar os tempos $\{T_i\}$ de falhas que ocorrem num sistema em operação, temos a contagem das falhas $\{N_t\}$ até um determinado tempo $T$ ou $T_N$. Podemos representar cada resultado possível deste sistema por meio da função escada como ilustrado na @fig-processo-contagem.
+
+![Processo ilustrativo para o processo de contagem.](/images/fig-processo-contagem.png){#fig-processo-contagem}
+
+## Política de Manutenção Preventiva Periódica
+
+#### Disponibilidade e Mantenabilidade
+
+Segundo a norma **ISO-5462 (1994, p. 2)**, disponibilidade é definida como a:
+
+::: {#def-disponinbilidade .example}
+Definição — Disponibilidade: Disponibilidade é a capacidade de um sistema estar em condições de executar uma certa função em um dado instante ou durante um intervalo de tempo determinado, levando em consideração os aspectos combinados de sua confiabilidade, mantenabilidade e suporte de manutenção, supondo que os recursos externos requeridos estejam assegurados.
+:::
+
+A partir desta definição, observa-se que a capacidade de um equipamento ser recolocado em operação (mantenabilidade) e o desempenho do suporte de manutenção impactam diretamente na **Disponibilidade Física**. Portanto, quando a manutenção é executada sob condições preestabelecidas, utilizando procedimentos padronizados e recursos prescritos, o tempo de execução (MTTR) torna-se controlado e mantido dentro do intervalo determinado, minimizando o impacto negativo na disponibilidade do ativo.
+
+Adicionalmente, a subdivisão das atividades por setores e entre técnicos visa gerar equilíbrio na carga de trabalho da equipe e otimizar a execução. O nível de intervenção é determinado por fatores como a complexidade do equipamento, a acessibilidade aos subitens, a competência técnica da equipe, a disponibilidade de equipamentos de ensaio e, fundamentalmente, as considerações de segurança.
+
+Nesse contexto, uma política (ou estratégia) de manutenção determinará as pautas de **Manutenção Preventiva Sistemática (MPS)**. Estas intervenções são repetidas periodicamente em intervalos predefinidos, independentemente da indicação prévia de falha. A estruturação do conteúdo dessas pautas associa-se frequentemente à ferramenta de qualidade **5W2H**, acrônimo referente às iniciais das diretrizes em inglês: *What* (O que), *Where* (Onde), *Who* (Quem), *Why* (Por que), *When* (Quando), *How* (Como) e *How Much* (Quanto) (Ishikawa, 1985).
+
+O termo “sistemática” indica especificamente que, na construção das pautas de MPS ao longo do tempo, as atividades são planejadas de modo a permitir a avaliação precisa de seus custos e a determinação dos recursos necessários para a conclusão de cada tarefa. A medição de desempenho dessas atividades baseia-se na relação entre o tempo decorrido e o grau de conclusão física.
+
+#### Confiabilidade e Periodicidade Ótima
+
+Na literatura especializada, o objetivo central tem sido determinar a política ótima de manutenção preventiva (PM), isto é, a periodicidade ideal para a realização de intervenções que evitem a ocorrência de falhas. Historicamente, **Barlow & Hunter (1960)** introduziram o conceito de política de substituição periódica com intervenções corretivas em caso de falha. Posteriormente, **Nakagawa (1989)** derivou a primeira política de manutenção preventiva ótima focada na maximização da disponibilidade, enquanto **Barlow & Proschan (1987)** definiram uma política que minimiza o custo total e maximiza a disponibilidade, baseando-se em uma função objetivo de custo esperado por unidade de tempo.
+
+Avançando na modelagem, **Gilardoni & Colosimo (2007)** apresentaram um estudo onde os sistemas operavam sob uma estratégia mista: manutenções preventivas (PM) em tempos predeterminados e manutenções corretivas (CM) na ocorrência de falhas. **Toledo et al. (2016)** expandiram esse modelo, considerando PM com reparo perfeito (restauração às condições de novo), mas assumindo CM com reparo imperfeito.
+
+Dessa forma, reconhece-se que qualquer tipo de manutenção (corretiva ou preventiva) incorre em custos, sejam eles diretos ou indiretos. Assim, o aumento indiscriminado da frequência de manutenções preventivas, visando apenas reduzir o número esperado de falhas, não constitui necessariamente uma estratégia eficiente sob a ótica econômica e operacional.
+
+Para a modelagem de um processo único de manutenções sistemáticas, adotam-se as seguintes notações:
+
+-   $\{\tau_k\}$ — Tempo da sistemática: Representa as periodicidades das intervenções sistemáticas, onde $0 = \tau_0 < \tau_1 < \tau_2 < \dots < \tau_k$, sendo $k$ o número de manutenções sistemáticas realizadas até um determinado tempo $t \geq \tau_k$.
+
+-   $\{\chi_j\}$ — Tempo entre sistemáticas: Definido por $\chi_j = \tau_j - \tau_{j-1}$ para $j = (1, 2, 3 \dots)$. Este intervalo é denominado **TBS** (*Time Between Systematics*). Para uma estratégia de manutenções sistemáticas em intervalos fixos, tem-se $\tau_k = k\Delta_\tau$ para $k \geq 1$.
+
+-   $\{S_j\}$ — Tempo de manutenção: Corresponde ao tempo necessário para manutenir um equipamento (MTTM), considerando tanto as atividades programadas quanto as não programadas contidas na pauta.
+
+-   $M = \{M_t\}_{t \geq 0}$: Processo de contagem associado ao número acumulado de manutenções realizadas.
+
+Assim, ao considerar um determinado equipamento sujeito a uma estratégia ótima, planejam-se $k$ pautas de MPS com periodicidades $0 = \tau_0 < \tau_1 < \tau_2 < \dots < \tau_k$, e seus respectivos tempos de manutenção $\{S_j\}$ até um horizonte de tempo $t$.
+
+### Medidas de Performance da Manutenção
+
+Após um determinado tempo $t$, os dados operacionais são organizados em eventos de operação (**HT**) ou de manutenção (**HM**). Para facilitar a representação em um gráfico de processo de contagem, as horas ociosas (**HO**) são desconsideradas nesta análise específica.
+
+Neste modelo, cada conjunto de falhas e de manutenções sistemáticas possíveis corresponde a um resultado do sistema em operação, gerando uma função-escada onde:
+
+-   As falhas ocorrem nos instantes $t_1, t_2, t_3, \dots$
+
+-   As manutenções sistemáticas são executadas nos instantes $\tau_1, \tau_2, \tau_3, \dots$
+
+Após o apontamento do histórico de eventos, definimos **NIC** como o número de intervenções corretivas executadas e **NIS** como o número de intervenções sistemáticas executadas. A partir dessas contagens, derivam-se as métricas fundamentais:
+
+#### TBF – Time Between Failures
+
+O tempo entre falhas representa os intervalos de operação efetiva. A soma desses intervalos constitui as horas trabalhadas (HT), dada pela expressão $HT = \sum_{i=1}^{n} TBF_i$, para $n = NIC$ eventos. O tempo médio entre falhas (**MTBF**) é expresso por:
+
+$$MTBF = \frac{HT}{NIC}$$
+
+{#eq-mtbf-adv}
+
+#### TTR – Time To Repair
+
+O tempo para reparo é composto pelas horas em manutenções corretivas (**HMC**) e horas de manutenção por acidente (**HAC**). Esta categoria é definida por $HTMC = \sum_{i=1}^{n} TTR_i$, para $n = NIC$. O tempo médio para reparo (**MTTR**) é dado por:
+
+$$MTTR = \frac{HTMC}{NIC}$$ {#eq-mttr-adv}
+
+#### TBS – Time Between Systematics
+
+O tempo entre sistemáticas representa as horas trabalhadas (**HT**) normalizadas pelo número de intervenções preventivas realizadas (**NIS**). O tempo médio entre sistemáticas (**MTBS**) é expresso por:
+
+$$MTBS = \frac{HT}{NIS}$$ {#eq-mtbs}
+
+#### TTM – Time To Maintain
+
+Representa o tempo gasto para manutenir um equipamento em intervenções planejadas. É dado pelo somatório das horas preventivas, $MPS = \sum_{j=1}^{m} TTM_j$, para $m = NIS$ eventos. O tempo médio para manutenir (**MTTM**) é dado por:
+
+$$MTTM = \frac{MPS}{NIS}$$ {#eq-mttm}
+
+### Mensuração de Impacto na Incidência de Corretivas
+
+A avaliação da eficácia da estratégia de manutenção exige medir não apenas se a manutenção foi feita, mas se foi feita no momento correto.
+
+#### ISI – Incidência de Intervenções Sistemáticas
+
+A razão entre o número de intervenções sistemáticas efetivamente executadas (**NIS**) e o número de intervenções programadas ($k$), após um determinado tempo de operação $HT > t$, define a incidência de intervenções sistemáticas (*Incidence of Systematic Interventions*):
+
+$$ISI = \frac{NIS}{k}$$
+
+{#eq-isi}
+
+#### ATSP – Aderência à Periodicidade Sistemática
+
+Para além da quantidade de pautas realizadas, as execuções devem ocorrer em tempos sequenciais ou periodicidades pré-determinadas. A aderência à periodicidade (*Adherence to Systematic Periodicity*) relaciona a frequência real de execução com a tolerância prevista. Dado que $k$ manutenções preventivas são sequenciais e programadas com antecedência:
+
+$$ATSP = \frac{MTBS}{\chi}$$
+
+{#eq-atsp}
+
+Onde $\chi = \frac{1}{k} \sum_{j=1}^{k} \chi_j$ é o tempo médio entre sistemáticas previsto (periodicidade média alvo).
+
+::: {.callout-note icon="false"}
+**Interpretação do ATSP**
+
+-   **ATSP = 1.5:** Indica que, para uma periodicidade prevista de $\chi = 250h$, há um **atraso médio de 125h** para o início da execução. Consequentemente, para um mesmo intervalo de tempo, haverá menos execuções de sistemáticas que o esperado ($ISI < 1$).
+
+-   ATSP = 0.5: Indica que, para a mesma periodicidade, há uma antecipação média de 125h.
+:::
+
+#### ISAC – Impacto da Aderência Sistemática nas Corretivas
+
+Para quantificar como o atraso ou antecipação das preventivas afeta a confiabilidade, utilizamos o ISAC (*Impact of Systematic Adherence on Corrective*). Este indicador estima quantas falhas ocorrem especificamente no intervalo de desvio da periodicidade:
+
+$$ISAC = \frac{MTBS - \chi}{MTBF} \times NIS$$
+
+{#eq-isac}
+
+> Exemplo Prático:
+>
+> Considere uma manutenção sistemática com atraso de 125h, onde \$\\chi = 250\$ e \$MTBF = 25\$. É esperado que ocorram \$ISAC = 5\$ falhas adicionais devido a este atraso.
+>
+> Por outro lado, se a próxima sistemática ocorrer antecipadamente (após 200h), espera-se uma redução teórica de falhas.
+
+A estratégia ótima de manutenção visa $ISAC \cong 0$ (ou valores negativos que indiquem prevenção de falhas). Em suma, o ISAC representa o número médio de intervenções corretivas que poderiam ter sido evitadas caso todas as intervenções sistemáticas fossem realizadas na periodicidade ótima.
+
+**Nota de Risco:** Caso uma pauta sistemática não seja executada, a próxima intervenção ocorrerá após $2\chi$, configurando uma grave não aderência. Tanto um $ISI < 1$ quanto um $ATSP > 1$ sinalizam degradação da condição do equipamento e tendência de aumento no número de intervenções corretivas ($NIC$).
+
+### Mensuração de Impacto na Disponibilidade
+
+A extrapolação do tempo programado para a realização das atividades de uma determinada pauta causa uma indisponibilidade do equipamento superior àquela planejada. Assim, a **Aderência ao Tempo de Manutenção (ATTM)** é definida pela razão entre o tempo real consumido e o tempo padrão estipulado:
+
+$$ATTM = \frac{SPH}{S}$$
+
+{#eq-attm}
+
+Onde:
+
+-   $S = \sum_{j=1}^{k} S_j$ é o tempo previsto para a execução de todas as pautas planejadas para um determinado tempo de operação $WH$.
+
+-   $SPH$ é o somatório das horas de manutenção preventiva sistemática efetivamente realizadas.
+
+Dado que a escolha por uma estratégia ótima de manutenção preventiva visa maximizar a disponibilidade, espera-se que as ações de controle privilegiem as manutenções preventivas em detrimento das corretivas. No entanto, quando a execução das pautas apresenta baixa aderência (isto é, $ATTM > 1$, indicando que o tempo real excedeu o planejado), o impacto negativo da manutenção preventiva na disponibilidade física pode ser significativo.
+
+Para mensurar essa distorção, utiliza-se o **Fator de Manutenção Sistemática (FMS)**, dado por:
+
+$$FMS = \frac{MTTM}{(ATTM - 1) \times MH}$$
+
+{#eq-fms}
+
+Por fim, o **Impacto na Disponibilidade Física (IDF)** — denotado na equação como IPA (*Impact on Physical Availability*) — consolida o efeito do aumento do número de reparos (decorrente de falhas não evitadas) e a ineficiência da execução preventiva:
+
+$$IPA = \frac{(ISAC \times MTTR) + (FMS \times MH)}{CH}$$
+
+{#eq-ipa}
+
+Onde:
+
+-   $ISAC$: Impacto da aderência sistemática nas corretivas (número de falhas excedentes).
+
+-   $MTTR$: Tempo médio para reparo.
+
+-   $MH$: Horas totais de manutenção (*Maintenance Hours*).
+
+-   $CH$: Horas calendário totais do período (*Calendar Hours*).
+
+## Categoria de Horas
+
+::: {#def-categoria-horas .example}
+Definição — Categoria de horas: Categoria de horas corresponde à divisão do tempo em classes de serviço ou condição dos equipamentos, detalhando as horas na execução de atividades de operação e manutenção no equipamento. Os tempos de funcionamento são agrupados em horas dependendo da ocorrência dos eventos e do conjunto de equipamentos que compõe o sistema produtivo.
+:::
+
+De acordo com a @def-categorias-horas, podemos dividir os tempos em duas categorias:
+
+-   $\{HM_t\}$ - Horas de Manutenção: Tempo total em que o equipamento se encontra indisponível para operar por estar sob intervenção da manutenção.
+
+$$HM_t = \sum_{i=1}^{n_i} HM_i$$
+
+onde $n_i$ é o número de intervenções de manutenção ocorridas no intervalo $(a^+, b^+]$
+
+-   $HM_t$ - Horas de Manutenção: Tempo(h) em que o equipamento se encontra indisponível para operar por estar sob intervenção da manutenção.
+
+A indisponibilidade é novamente dividida em duas categorias:
+
+-   $\{HMP_t\}$ - Horas de Manutenção Planejada: Tempo de manutenção planejada para o ativo. $$HMP_t = \sum_{j=1}^{n_j} MPS_j + \sum_{k=1}^{n_k} MPNS_k$$
+
+onde $n_j$ e $n_k$ representa o número de intervenções de MPS e MPNS, respectivamente, ocorridas no intervalo $(a^+, b^+]$.
+
+-   $\{HD_t\}$ - Horas Disponíveis: Tempo(h) durante o qual o equipamento tem que ser usado pela operação após dedução das horas de manutenção do tempo do calendário.
+
+$$HM_t = \sum_{k=1}^n HM_i$$ onde $n$ é o número de intervenções de manutenção ocorridas no intervalo $(a^+, b^+]$ - $HM_t$ - Horas de Manutenção: Tempo(h) em que o equipamento se encontra indisponível para operar por estar sob intervenção da manutenção.
+
+Desta forma, os dados são organizados em eventos de operação ou de manutenção com o objetivo de facilitar a representação em gráficos de processo de contagem. Cada conjunto de falhas possível de acontecer corresponde a um resultado possível do sistema em operação (onde as falhas ocorrem em $t_1, t_2, \dots, t_n$), e cada resultado do sistema corresponde a uma função-escada. Diante das informações, podemos extrair:
+
+-   **TBF** – Tempo entre falhas (Time Between Failures): A soma total de $TBF$ representa as HT – Horas Trabalhadas (Worked Hours). A relação é dada pela expressão:
+
+$$HT = \sum_{i=1}^{NIC} TBF_i= \sum_{i=1}^{N_t} X_i$$ Onde $NIC$ representa o número de intervenções corretivas (falhas). O tempo médio entre falhas é expresso por:
+
+$$MTBF = \frac{HT}{NIC}$$ - **TTR** – Tempo de reparo (Time To Repair): A soma das durações de reparo compõe as HMC – Horas de Manutenção Corretiva (Corrective Maintenance Hours). A relação é dada pela expressão:
+
+$$HMC = \sum_{i=1}^{NIC} TTR_i$$ O tempo médio para reparo (manutenibilidade) é dado por:
+
+$$MTTR = \frac{HMC}{NIC}$$
+
+-   **A** – Disponibilidade (Availability): Representa a probabilidade de o sistema estar funcionando no tempo \$t\$. Por aproximação, a expressão de cálculo baseada nos drivers de confiabilidade e manutenibilidade é:
+
+$$A = \left( \frac{MTBF}{MTBF + MTTR} \right) \times 100$$
