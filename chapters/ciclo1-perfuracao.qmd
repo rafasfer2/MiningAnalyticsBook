@@ -251,7 +251,7 @@ Disponibilizamos o banco de dados `drill_events_mine_d`. Este dataset contém a 
 # Exemplo de dois ciclos da perfuratriz DRILL_100
 drill_events_mine_d %>%
     filter(drill_id == "DRILL_100", cycle %in% 1:2) %>%
-    kable(caption = "Sequência de eventos brutos da DRILL_100")
+    knitr::kable(caption = "(#tab:drill-events) Sequência de eventos brutos da DRILL_100")
 ```
 
 #### Analisando a sequência cronológica
