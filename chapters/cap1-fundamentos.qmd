@@ -496,6 +496,132 @@ Os objetivos da qualidade são estabelecidos coerentemente com a política da qu
 
 ---
 
+## Modelagem da Qualidade: Aplicações Práticas no Setor Mineral
+
+### Simulação de Parâmetros Didáticos
+
+#### Exemplo Prático 1.8 — Minério de Ferro tipo Sinter Feed
+
+Neste cenário, a siderúrgica (usuário) avalia a qualidade do minério baseada em três parâmetros principais: o Teor de Ferro ($Q_1$), o Teor de Sílica ($Q_2$) e a Granulometria ($Q_3$).
+
+Ponderação (pesos):
+
+- $A_1 = 0{,}6$ (60%): Teor de ferro.
+- $A_2 = 0{,}3$ (30%): Teor de sílica.
+- $A_3 = 0{,}1$ (10%): Granulometria.
+
+Avaliação (escala 0–10):
+
+- $Q_1 = 9{,}0$; $Q_2 = 5{,}0$; $Q_3 = 8{,}0$.
+
+Aplicando a função qualidade:
+
+$$
+\mathrm{QTP} = A_1Q_1 + A_2Q_2 + A_3Q_3
+$$
+
+Substituindo:
+
+$$
+\mathrm{QTP} = (0{,}6\times9{,}0)+(0{,}3\times5{,}0)+(0{,}1\times8{,}0) = 7{,}7
+$$
+
+Interpretação: apesar do elevado teor de ferro, o alto conteúdo de sílica (peso significativo) reduz a nota final, indicando prioridade de melhoria no controle de sílica.
+
+---
+
+#### Exemplo Prático 1.9 — Serviço de Escoamento Ferroviário
+
+Parâmetros e pesos:
+
+- $A_1=0{,}5$ (Pontualidade), $A_2=0{,}3$ (Integridade da carga), $A_3=0{,}2$ (Disponibilidade de vagões).
+
+Notas (0–10): $Q_1=6{,}0$, $Q_2=10{,}0$, $Q_3=9{,}0$.
+
+$$
+\mathrm{QTP} = 0{,}5\times6{,}0 + 0{,}3\times10{,}0 + 0{,}2\times9{,}0 = 7{,}8
+$$
+
+Conclusão: a pontualidade (maior peso) puxa a nota para baixo; foco de melhoria deve priorizar planejamento e redução de atrasos.
+
+---
+
+#### Exemplo Prático 1.10 — Qualidade pelo Atingimento de Metas (Gestão)
+
+Parâmetros e pesos definidos pela alta direção:
+
+- $A_1=0{,}4$ (Volume), $A_2=0{,}4$ (Custo operacional), $A_3=0{,}2$ (Treinamento).
+
+Desempenho: $Q_1=10{,}0$, $Q_2=4{,}0$, $Q_3=8{,}5$.
+
+$$
+\mathrm{QTP}=(0{,}4\times10{,}0)+(0{,}4\times4{,}0)+(0{,}2\times8{,}5)=7{,}3
+$$
+
+Interpretação: volume excelente, mas falha financeira compromete a qualidade global; priorizar controle de custos.
+
+---
+
+### Estudo de Caso I — O Desafio do Minério de Alta Sílica
+
+Objeto: Produto B, minério de alto teor de sílica com forte abrasividade e baixa série histórica.
+
+Parâmetros selecionados (exemplo): $Q_1$ (Fe), $Q_2$ (SiO2), $Q_3$ (Volume), $Q_4$ (Carga Circulante), $Q_5$ (Fração +19 mm).
+
+Pesos estratégicos adotados: $A_1=0{,}30$, $A_2=0{,}25$, $A_3=0{,}20$, $A_4=0{,}15$, $A_5=0{,}10$.
+
+Notas aplicadas: $Q_1=9{,}0$, $Q_2=7{,}0$, $Q_3=9{,}9$, $Q_4=4{,}0$, $Q_5=1{,}0$.
+
+Processamento:
+
+$$
+\mathrm{QTP}=(0{,}30\times9{,}0)+(0{,}25\times7{,}0)+(0{,}20\times9{,}9)+(0{,}15\times4{,}0)+(0{,}10\times1{,}0)=7{,}13
+$$
+
+Diagnóstico: sucesso químico e de volume, mas fragilidade no processo e na qualidade física (granulometria); ações recomendadas: ajuste de peneiras e setpoints dos britadores para reduzir oversize.
+
+---
+
+### Estudo de Caso II — Acurácia de Estoque e Medição (PPCJ)
+
+Objeto: processo de produção e estocagem do produto PPCJ, com divergências entre estoque contábil e físico.
+
+Parâmetros propostos: $Q_1$ (Teor de Fe), $Q_2$ (Conformidade de Estoque), $Q_3$ (Aderência à Produção), $Q_4$ (Confiabilidade de Medição), $Q_5$ (Controle de Umidade).
+
+Pesos: $A_1=0{,}20$, $A_2=0{,}35$, $A_3=0{,}15$, $A_4=0{,}20$, $A_5=0{,}10$.
+
+Notas: $Q_1=9{,}5$, $Q_2=3{,}0$, $Q_3=8{,}0$, $Q_4=4{,}0$, $Q_5=6{,}0$.
+
+$$
+\mathrm{QTP}=(0{,}20\times9{,}5)+(0{,}35\times3{,}0)+(0{,}15\times8{,}0)+(0{,}20\times4{,}0)+(0{,}10\times6{,}0)=5{,}55
+$$
+
+Diagnóstico: sistema sob estresse, com baixa acurácia de estoque e calibração inadequada; ações imediatas: rever periodicidade de calibração e atualizar rotinas de medição e densidade das pilhas.
+
+---
+
+### Critérios de Robustez e Boas-Práticas
+
+- Utilize número moderado de parâmetros (3–6) para equilibrar granularidade e simplicidade.
+- Inclua parâmetros contratuais/legais como obrigatórios.
+- Evite diluição de peso ao adicionar muitas características; priorize criticidade e poder de atuação.
+- Realize análises de sensibilidade para validar robustez do modelo ponderado.
+
+### Tabela de Avaliação — Caso PPCJ (exemplo com 6 características)
+
+| Parâmetro (Q_i) | Descrição técnica | Peso (A_i) | Nota (Q_i) | Observação |
+|---|---:|---:|---:|---|
+| Q_1: Teor de Ferro | Característica química (Fe) | 0,20 | 9,5 | Média 49,17% |
+| Q_2: Teor de Sílica | Controle de abrasividade (SiO2) | 0,20 | 6,5 | Média 26,12% |
+| Q_3: Acurácia de Estoque | Conformidade físico vs contábil (±2%) | 0,25 | 3,0 | Desvios frequentes |
+| Q_4: Calibração | Periodicidade de calibração | 0,15 | 4,0 | Prioridade GUT alta |
+| Q_5: Granulometria | Fração +19 mm | 0,10 | 1,0 | Meta 4,0% não atingida |
+| Q_6: Pluviosidade | Impacto ambiental no pátio | 0,10 | 8,0 | Baixo poder de atuação |
+
+---
+
+Esta seção oferece ferramentas práticas para aplicar a Função Qualidade (QTP) em cenários reais do setor mineral, orientar decisões de priorização e conectar análise técnica a ações de melhoria concretas.
+
 
 
 
