@@ -88,7 +88,7 @@ A porção superior do furo preenchida com material inerte (geralmente brita ou 
 
 -   *Impacto:* Confina os gases da detonação dentro do furo para maximizar o trabalho útil de fragmentação e impede o escape prematuro de energia pela boca do furo.
 
-![Parâmetros geométricos fundamentais para o dimensionamento do desmonte de rochas.](/images/fig-parametros-bancada-gimini.jpg)
+![Parâmetros geométricos fundamentais para o dimensionamento do desmonte de rochas.](../images/fig-parametros-bancada-gimini.jpg){#fig-parametros-bancada}
 
 ### Tipos de Malhas de Perfuração
 
@@ -146,7 +146,7 @@ A face do *bit* é a interface direta de transferência de energia. Como ilustra
 
 -   **Uniface (UF):** Recomendável para as condições mais severas de rochas muito duras e altamente abrasivas, onde a durabilidade do acessório é testada ao limite.
 
-![Tipos de Faces de Bits para perfuração DTH.](/images/fig-faces-bits.jpg){#fig-faces-bits}
+![Tipos de Faces de Bits para perfuração DTH.](../images/fig-faces-bits.jpg){#fig-faces-bits}
 
 #### Hastes de Perfuração (*Drill Rods*)
 
@@ -190,7 +190,7 @@ A estratégia consistiu na redução da área da malha de desmonte de **33** $m^
 
 A @fig-malha-perfuracao ilustra a sobreposição do plano de perfuração (pontos brancos) com as áreas geológicas de material compacto (manchas azuis). Nota-se a transição operacional: na região à direita, a malha seguia o padrão de 33 $m^2$, enquanto na região central e esquerda, onde a dureza da rocha é superior, aplicou-se o adensamento para 22 $m^2$.
 
-![Plano de fogo com a necessidade de adensamento devido ao aumento da área compacta.](/images/fig-malha-perfura-gimini.jpg){#fig-malha-perfuracao}
+![Plano de fogo com a necessidade de adensamento devido ao aumento da área compacta.](../images/fig-malha-perfura-gimini.jpg){#fig-malha-perfuracao}
 
 #### Redução de Tampão (*Stemming Reduction*)
 
@@ -232,7 +232,7 @@ O ciclo operacional de uma perfuratriz não se resume apenas a "furar o chão". 
 
 5.  **Deslocação (Tramming -** $M_i$): Movimentação para o próximo ponto de furo dentro da mesma malha.
 
-![Ciclo de Perfuração.](/images/fig-ciclo-perfuracao-gimini.png){#fig-ciclo-perfuracao}
+![Ciclo de Perfuração.](../images/fig-ciclo-perfuracao-gimini.png){#fig-ciclo-perfuracao}
 
 ### Análise de Dados com `miningKPI`
 
@@ -296,7 +296,7 @@ Como o `drill_events_mine_d` é um objeto de eventos brutos, aplicamos a funçã
 drill_events_mine_d %>%
     filter(drill_id %in% "DRILL_100", cycle %in% 1:2) %>%
     add_missing_drill_phases() %>%
-    knitr::kable(caption = "Detalhamento de eventos com fases imputadas (DRILL_100)")
+    knitr::kable(caption = "(#tab:imputed-phases) Detalhamento de eventos com fases imputadas (DRILL_100)")
 ```
 
 Note que os seguintes eventos foram gerados automaticamente pelo algoritmo:
