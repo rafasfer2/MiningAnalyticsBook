@@ -55,7 +55,7 @@ $$HC_{p} = HTP_{p} + HNTP_{p} + HOI_{p} + HOE_{p} + HMCT_{p} + HMP_{p} = HEF_{p}
 
 A @fig-extrato-horas apresenta os
 
-![Estratificação das horas](/images/fig-categoria-horas.png){#fig-extrato-horas}
+![Estratificação das horas](../images/fig-categoria-horas.png){#fig-categoria-horas fig-align="center"}
 
 #### Nota sobre Nomenclatura e Siglas Internacionais
 
@@ -100,7 +100,7 @@ A **HPO** é tratada de forma segregada por representar paradas que impactam a p
 >
 > Enquanto as demais horas são classificadas por estado físico do ativo, a HD é uma categoria de capacidade e a HPO é uma categoria de perda de processo. No pacote miningKPI, a HPO (sigla técnica SOH) deve ser monitorada rigorosamente para identificar gargalos de infraestrutura que a Utilização Física (UF) muitas vezes mascara.
 
-::: {#exm-processamento-categorias}
+::: example {#exm-processamento-categorias}
 Processamento de Categorias de Horas
 
 Como a medição é feita baseado em durações de tempo, os apontamentos são realizados sempre que um determinado equipamento alterar o seu status de operação. Para análise de categoria de horas, utiliza-se o `gap_time` que é a duração (em horas) do início e fim do evento.
