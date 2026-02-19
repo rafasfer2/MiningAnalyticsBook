@@ -393,5 +393,109 @@ Transformar práticas de qualidade isoladas em um SGQ estruturado permite que a 
 
 Em suma, o SGQ formaliza o que já deve acontecer de maneira informal: alinhar processos, pessoas e recursos para entregar valor sustentável ao cliente e à sociedade.
 
+## O Ciclo de Produção e as Perspectivas da Qualidade
+
+Para consolidar as vertentes teóricas da qualidade (Adequação ao Uso e Conformidade) e a visão prática de Produto versus Processo, é fundamental visualizar como esses conceitos se comportam ao longo da esteira produtiva. A Figura \@ref(fig:ciclo-producao-qualidade) ilustra o Ciclo de Produção e Qualidade, dividindo a operação em quatro etapas cronológicas e lógicas. O ciclo transita entre as visões mercadológicas (externas) e técnicas (internas), mostrando que a Adequação ao Uso é o grande guarda-chuva que norteia todo o sistema, enquanto as Especificações estão confinadas ao ambiente de manufatura.
+
+Figure: (fig:ciclo-producao-qualidade) Ciclo de Produção e Qualidade
+
+![](../images/fig-ciclo-producao-qualidade.png){fig-align="center"}
+
+### Etapa 1: Qualidade do Projeto do Produto (Pré-Produção)
+
+Esta etapa pertence à Vertente Mercadológica. Pode ser compreendida como o conjunto de todas as atividades que traduzem o conhecimento das necessidades do mercado e as oportunidades tecnológicas em informações concretas para a produção. Os produtos são projetados tendo em mente o nicho de mercado a que se destinam. A existência de diferentes nichos dá origem a “padrões” intencionais de variação da qualidade do produto. A qualidade nesta etapa é definida pela estratégia de mercado e determinada pela capacitação tecnológica e mercadológica da empresa. Suas principais atividades incluem:
+
+- Identificação das necessidades do mercado (Qualidade de pesquisa).
+- Geração e escolha do conceito (Qualidade de concepção).
+- Planejamento do produto (Qualidade de planejamento).
+- Engenharia do Produto (Qualidade de especificação).
+
+#### O Projeto Informacional e o Índice de Atendimento dos Requisitos (IAR)
+
+Dentro desta primeira etapa, o desafio do engenheiro é transformar a subjetividade do cliente em dados quantitativos. Esse processo é chamado de Projeto Informacional (Figura \@ref(fig:projeto-informacional)). O objetivo é identificar os requisitos dos clientes, convertê-los em requisitos de projeto e, por fim, definir as especificações meta (valores e limites técnicos).
+
+Figure: (fig:projeto-informacional) Projeto Informacional
+
+![](../images/fig-projeto-informacional.png){fig-align="center"}
+
+##### Exemplo Prático 1.7 — O Desdobramento do Projeto Informacional
+
+Para ilustrar como o Projeto Informacional converte a subjetividade em parâmetros técnicos, tomemos como exemplo o projeto de um Dispositivo Automático de Senhas. A entrada de informações compreende a declaração do escopo, o ciclo de vida do produto e a definição exata de quem são os clientes (internos e externos). A engenharia realiza então tarefas sequenciais de coleta, agrupamento, tradução em requisitos e valoração.
+
+##### Tarefa 1.2: Agrupar e classificar as necessidades (Elementos Primários)
+
+Quando há um conjunto muito grande de valores coletados, é necessário agrupar e classificar essas necessidades. A Figura \@ref(fig:agrupa-elementos-primario) demonstra como as necessidades soltas do cliente externo são distribuídas em "Elementos Primários de Especificação".
+
+Figure: (fig:agrupa-elementos-primario) Agrupamento em Elementos Primários
+
+![](../images/fig-agrupa-elementos-primario.png){fig-align="center"}
+
+##### Tarefa 2.1: Converter requisitos dos clientes em expressões mensuráveis
+
+Utiliza-se a construção de Mapas Mentais baseados na Cadeia de Meios e Fins. A Figura \@ref(fig:cadeia-meios-fins) ilustra o Mapa Mental para o elemento primário "Ergonomia" do nosso exemplo.
+
+Figure: (fig:cadeia-meios-fins) Mapa Mental — Cadeia de Meios e Fins
+
+![](../images/fig-cadeia-meios-fins.png){fig-align="center"}
+
+##### Tarefa 2.2: Analisar, classificar e valorar os requisitos — Árvore de Valor
+
+Com as expressões mensuráveis definidas, o próximo passo é organizá-las hierarquicamente construindo uma Árvore de Valor. A Figura \@ref(fig:arvore-valor-proj-produto) mostra a estrutura completa da Árvore de Valor do projeto.
+
+Figure: (fig:arvore-valor-proj-produto) Árvore de Valor do Projeto do Produto
+
+![](../images/fig-arvore-valor-proj-produto.png){fig-align="center"}
+
+##### A Valoração Matemática: Diagrama de Mudge e Pesos A_i
+
+Para evitar o viés do projetista, a valoração é feita comparando objetivos aos pares no Diagrama de Mudge. A Figura \@ref(fig:diagrama-mudge) mostra um exemplo de aplicação à eficiência.
+
+Figure: (fig:diagrama-mudge) Diagrama de Mudge aplicado à Eficiência
+
+![](../images/fig-diagrama-mudge.png){fig-align="center"}
+
+A Figura \@ref(fig:arvore-valor-taxa-substituicao) apresenta a Árvore de Valor preenchida com as respectivas porcentagens (Taxas de Substituição A_i).
+
+Figure: (fig:arvore-valor-taxa-substituicao) Árvore de Valor com as Taxas de Substituição (A_i)
+
+![](../images/fig-arvore-valor-taxa-substituicao.png){fig-align="center"}
+
+##### Conexão com a Função Qualidade Total do Produto (QTP)
+
+As Taxas de Substituição (A_i) representam a contribuição relativa de cada característica de qualidade na função QTP. Ao combinar as Funções de Valor (FV) com os pesos A_i obtidos via Mudge, obtém‑se o Índice de Atendimento dos Requisitos (IAR). Uma forma simplificada da equação é:
+
+$$
+\mathrm{IAR} = \sum_{c\in\{CE,CI\}} TS_c \times \left( \sum_{k} TS^{EP}_k \times \left[ \sum_{j} TS^{ES}_j \times \left( \sum_{i} TS^{NF}_i \times FV_i \right) \right] \right)
+$$
+
+onde as várias somatórias representam a decomposição em Clientes (CE, CI), Elementos Primários (EP), Elementos Secundários (ES) e Níveis/Fins (NF), e $FV_i$ são as Funções de Valor no nível mais baixo.
+
+Figure: (fig-escala-funcao-valor) Escala da Função de Valor (ex.: Matéria-Prima)
+
+![](../images/fig-escala-funcao-valor.png){fig-align="center"}
+
+##### Tarefas Finais do Projeto Informacional
+
+Com o modelo e os pesos calculados, as etapas finais incluem análise de sensibilidade, verificação de restrições legais e contratuais, e a elaboração das especificações‑meta que servirão de saída formal para a manufatura.
+
+### Etapa 2: Qualidade do Projeto do Processo
+
+Ao entrar na Vertente Técnica, a qualidade foca no desenvolvimento do processo e na definição da capacidade produtiva. O projeto de processo traduz as especificações de engenharia em layout, equipamentos, ferramentas e rotinas de trabalho.
+
+### Etapa 3: Qualidade de Conformação ou Ajustamento (Produção)
+
+Nesta etapa a qualidade refere-se à conformidade do produto com as especificações do projeto e ao desempenho do processo (produtividade, custo e variabilidade).
+
+### Etapa 4: Qualidade de Comercialização e Pós‑venda (Pós‑Produção)
+
+Envolve vendas, marketing, logística e serviços pós‑venda. É aqui que o mercado retroalimenta o projeto inicial, reiniciando o ciclo e promovendo melhoria contínua.
+
+### Objetivos da Qualidade e Disciplinas de Gestão
+
+Os objetivos da qualidade são estabelecidos coerentemente com a política da qualidade e são alcançados por meio integrado de planejamento, garantia, controle e melhoria da qualidade.
+
+---
+
+
 
 
