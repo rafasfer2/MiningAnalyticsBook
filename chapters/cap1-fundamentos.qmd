@@ -362,131 +362,277 @@ O ciclo PDCA (Plan-Do-Check-Act) é uma ferramenta prática para estruturar a me
 
 Aplicar PDCA em todos os níveis — da alta direção às operações — garante ciclos de aprendizado e ajuste contínuo.
 
-### Papel da liderança e comprometimento
+## Modelagem da Qualidade: Aplicações Práticas no Setor Mineral
 
-A alta direção deve demonstrar liderança e compromisso, definindo política de qualidade, assegurando recursos, promovendo cultura de responsabilidade e garantindo que objetivos de qualidade estejam alinhados à estratégia organizacional. Sem alinhamento da liderança, o SGQ tende a ser reativo e fragmentado.
+Simulação de Parâmetros Didáticos
 
-### Gestão de riscos e oportunidades
+Exemplo Prático — Minério de Ferro tipo Sinter Feed
 
-Incorporar o pensamento baseado em riscos significa identificar, avaliar e tratar incertezas que possam comprometer os requisitos ou gerar oportunidades de melhoria. As ações de tratamento devem ser proporcionais ao impacto e probabilidade, e sua eficácia deve ser monitorada.
+Neste cenário, a siderúrgica (usuário) avalia a qualidade do minério baseada em três parâmetros principais: o Teor de Ferro (Q_1), o Teor de Sílica (Q_2) e a Granulometria (Q_3).
 
-### Implementação prática e auditoria
+Atribuição de Pesos (A_i)
 
-Para implementar um SGQ de forma pragmática:
+O cliente define o que é mais importante para o processo dele. A soma da importância deve totalizar 100% (ou 1,0).
 
-- Comece pelo mapeamento dos processos de maior impacto na entrega de valor ao cliente.
-- Defina indicadores simples e fáceis de medir.
-- Estabeleça registros mínimos que demonstrem evidência objetiva das atividades críticas.
-- Realize auditorias internas periódicas para verificar conformidade e eficácia do SGQ.
+- A_1=0,6(60%): O teor de ferro é o mais importante para a produtividade do alto-forno.
+- A_2=0,3(30%): A sílica é um contaminante que gera custo de remoção.
+- A_3=0,1(10%): A granulometria afeta a permeabilidade, mas é o item de menor peso neste contrato.
 
-As auditorias (internas e externas) fornecem feedback objetivo para a melhoria e servem como base para a tomada de decisão da direção.
+Avaliação da Qualidade (Q_i)
 
-### Conclusão e implicações para a gestão operacional
+Durante a entrega, o laboratório mede o desempenho de cada característica em uma escala de 0 a 10 (onde 10 é a perfeição em relação ao requisito):
 
-Transformar práticas de qualidade isoladas em um SGQ estruturado permite que a organização:
+- Q_1=9,0: O teor de ferro veio excelente (ex: 65% de Fe).
+- Q_2=5,0: A sílica veio acima do esperado, prejudicando este parâmetro.
+- Q_3=8,0: A granulometria está dentro da faixa aceitável.
 
-- Garanta consistência na entrega de requisitos;
-- Reduza variabilidade e desperdícios;
-- Aumente a capacidade de demonstrar conformidade a clientes e reguladores;
-- Promova melhoria contínua com base em evidências;
-- Relacione diretamente iniciativas de qualidade a resultados financeiros e operacionais mensuráveis.
+Cálculo da Função Qualidade
 
-Em suma, o SGQ formaliza o que já deve acontecer de maneira informal: alinhar processos, pessoas e recursos para entregar valor sustentável ao cliente e à sociedade.
+Aplicamos a fórmula:
 
-## O Ciclo de Produção e as Perspectivas da Qualidade
+QTP=(A_1×Q_1 )+(A_2×Q_2 )+(A_3×Q_3 )
 
-Para consolidar as vertentes teóricas da qualidade (Adequação ao Uso e Conformidade) e a visão prática de Produto versus Processo, é fundamental visualizar como esses conceitos se comportam ao longo da esteira produtiva. A Figura \@ref(fig:ciclo-producao-qualidade) ilustra o Ciclo de Produção e Qualidade, dividindo a operação em quatro etapas cronológicas e lógicas. O ciclo transita entre as visões mercadológicas (externas) e técnicas (internas), mostrando que a Adequação ao Uso é o grande guarda-chuva que norteia todo o sistema, enquanto as Especificações estão confinadas ao ambiente de manufatura.
+Substituindo os valores:
 
-Figure: (fig:ciclo-producao-qualidade) Ciclo de Produção e Qualidade
+QTP=(0,6×9,0)+(0,3×5,0)+(0,1×8,0)
 
-![](../images/fig-ciclo-producao-qualidade.png){fig-align="center"}
+QTP=5,4+1,5+0,8
 
-### Etapa 1: Qualidade do Projeto do Produto (Pré-Produção)
+QTP=7,7
 
-Esta etapa pertence à Vertente Mercadológica. Pode ser compreendida como o conjunto de todas as atividades que traduzem o conhecimento das necessidades do mercado e as oportunidades tecnológicas em informações concretas para a produção. Os produtos são projetados tendo em mente o nicho de mercado a que se destinam. A existência de diferentes nichos dá origem a “padrões” intencionais de variação da qualidade do produto. A qualidade nesta etapa é definida pela estratégia de mercado e determinada pela capacitação tecnológica e mercadológica da empresa. Suas principais atividades incluem:
+Análise do Resultado
 
-- Identificação das necessidades do mercado (Qualidade de pesquisa).
-- Geração e escolha do conceito (Qualidade de concepção).
-- Planejamento do produto (Qualidade de planejamento).
-- Engenharia do Produto (Qualidade de especificação).
+Neste exemplo, a Qualidade Total do Produto foi 7,7.
 
-#### O Projeto Informacional e o Índice de Atendimento dos Requisitos (IAR)
+- Interpretação Didática: Embora o minério tenha um teor de ferro excelente (Q_1=9), o resultado final da qualidade foi "puxado para baixo" pelo desempenho ruim da sílica (Q_2=5), que possui um peso significativo (30%) na percepção de valor do cliente.
+- Conclusão: Este cálculo permite que o gestor identifique exatamente onde investir em Melhoria da Qualidade (3.3.8): neste caso, focar no controle da sílica trará um ganho maior na percepção de qualidade do que melhorar a granulometria, que tem peso baixo.
 
-Dentro desta primeira etapa, o desafio do engenheiro é transformar a subjetividade do cliente em dados quantitativos. Esse processo é chamado de Projeto Informacional (Figura \@ref(fig:projeto-informacional)). O objetivo é identificar os requisitos dos clientes, convertê-los em requisitos de projeto e, por fim, definir as especificações meta (valores e limites técnicos).
+Exemplo Prático — Serviço de Escoamento Ferroviário
 
-Figure: (fig:projeto-informacional) Projeto Informacional
+Neste cenário, o usuário (o terminal portuário) avalia a qualidade do serviço prestado pela ferrovia através de três parâmetros: Pontualidade (Q_1), Integridade da Carga (Q_2) e Disponibilidade de Vagões (Q_3).
 
-![](../images/fig-projeto-informacional.png){fig-align="center"}
+Atribuição de Pesos(A_i)
 
-##### Exemplo Prático 1.7 — O Desdobramento do Projeto Informacional
+O porto define os pesos com base no impacto no custo de operação (demurrage de navios):
 
-Para ilustrar como o Projeto Informacional converte a subjetividade em parâmetros técnicos, tomemos como exemplo o projeto de um Dispositivo Automático de Senhas. A entrada de informações compreende a declaração do escopo, o ciclo de vida do produto e a definição exata de quem são os clientes (internos e externos). A engenharia realiza então tarefas sequenciais de coleta, agrupamento, tradução em requisitos e valoração.
+- A_1=0,5(50%): A pontualidade é crítica para não perder a janela de atracação.
+- A_2=0,3(30%): A integridade (não haver mistura de minérios diferentes no trajeto) é essencial para o contrato.
+- A_3=0,2(20%): A quantidade de vagões disponíveis conforme o plano nominal.
 
-##### Tarefa 1.2: Agrupar e classificar as necessidades (Elementos Primários)
+Avaliação da Qualidade (Q_i)
 
-Quando há um conjunto muito grande de valores coletados, é necessário agrupar e classificar essas necessidades. A Figura \@ref(fig:agrupa-elementos-primario) demonstra como as necessidades soltas do cliente externo são distribuídas em "Elementos Primários de Especificação".
+Avaliação do desempenho do serviço no último mês (escala de 0 a 10):
 
-Figure: (fig:agrupa-elementos-primario) Agrupamento em Elementos Primários
+- Q_1=6,0: Ocorreram atrasos frequentes nas descargas (nota baixa).
+- Q_2=10,0: Nenhuma contaminação ou perda de carga foi registrada.
+- Q_3=9,0: A ferrovia entregou quase a totalidade da frota prometida.
 
-![](../images/fig-agrupa-elementos-primario.png){fig-align="center"}
+Cálculo da Função Qualidade
 
-##### Tarefa 2.1: Converter requisitos dos clientes em expressões mensuráveis
+Aplicamos a fórmula:
 
-Utiliza-se a construção de Mapas Mentais baseados na Cadeia de Meios e Fins. A Figura \@ref(fig:cadeia-meios-fins) ilustra o Mapa Mental para o elemento primário "Ergonomia" do nosso exemplo.
+QTP=(0,5×6,0)+(0,3×10,0)+(0,2×9,0)
 
-Figure: (fig:cadeia-meios-fins) Mapa Mental — Cadeia de Meios e Fins
+QTP=3,0+3,0+1,8
 
-![](../images/fig-cadeia-meios-fins.png){fig-align="center"}
+QTP=7,8
 
-##### Tarefa 2.2: Analisar, classificar e valorar os requisitos — Árvore de Valor
+Análise do Resultado
 
-Com as expressões mensuráveis definidas, o próximo passo é organizá-las hierarquicamente construindo uma Árvore de Valor. A Figura \@ref(fig:arvore-valor-proj-produto) mostra a estrutura completa da Árvore de Valor do projeto.
+Embora a ferrovia tenha sido perfeita na integridade da carga (Q_2=10) e muito boa na oferta de vagões (Q_3=9), a Qualidade Total do Serviço foi 7,8.
 
-Figure: (fig:arvore-valor-proj-produto) Árvore de Valor do Projeto do Produto
+- Interpretação Didática: O parâmetro de maior peso para o cliente era a Pontualidade (50%). Como o desempenho nesse item foi baixo (6,0), ele comprometeu severamente a nota final, apesar da excelência nos outros pontos.
+- Conclusão: Para aumentar a Qualidade Total percebida, o gestor logístico deve priorizar o Planejamento da Qualidade (3.3.5) sobre o fluxo de tráfego ferroviário para reduzir atrasos, pois é onde reside a maior expectativa do cliente.
 
-![](../images/fig-arvore-valor-proj-produto.png){fig-align="center"}
+Exemplo Prático — Qualidade pelo Atingimento de Metas (Gestão)
 
-##### A Valoração Matemática: Diagrama de Mudge e Pesos A_i
+Para finalizar a aplicação da função qualidade, utilizaremos como objeto a própria Organização (3.2.1) e sua eficácia no cumprimento do plano estratégico. Aqui, a qualidade é medida pelo atendimento aos Objetivos da Qualidade (3.7.2).
 
-Para evitar o viés do projetista, a valoração é feita comparando objetivos aos pares no Diagrama de Mudge. A Figura \@ref(fig:diagrama-mudge) mostra um exemplo de aplicação à eficiência.
+Atribuição de Pesos(A_i)
 
-Figure: (fig:diagrama-mudge) Diagrama de Mudge aplicado à Eficiência
+A Alta Direção define o que é prioritário para o sucesso do negócio no trimestre:
 
-![](../images/fig-diagrama-mudge.png){fig-align="center"}
+- A_1=0,4(40%): Aderência ao Plano de Produção (Volume).
+- A_2=0,4(40%): Custo Operacional Unitário (Eficiência financeira).
+- A_3=0,2(20%): Índice de Treinamento e Capacitação (Desenvolvimento de pessoas).
 
-A Figura \@ref(fig:arvore-valor-taxa-substituicao) apresenta a Árvore de Valor preenchida com as respectivas porcentagens (Taxas de Substituição A_i).
+Avaliação da Qualidade (Q_i)
 
-Figure: (fig:arvore-valor-taxa-substituicao) Árvore de Valor com as Taxas de Substituição (A_i)
+Desempenho apurado no fechamento do período (escala de 0 a 10):
 
-![](../images/fig-arvore-valor-taxa-substituicao.png){fig-align="center"}
+- Q_1=10,0: O volume produzido superou a meta estabelecida.
+- Q_2=4,0: O custo foi muito superior ao orçado devido a gastos imprevistos (nota baixa).
+- Q_3=8,5: A maioria das horas de treinamento previstas foi executada.
 
-##### Conexão com a Função Qualidade Total do Produto (QTP)
+Cálculo da Função Qualidade
 
-As Taxas de Substituição (A_i) representam a contribuição relativa de cada característica de qualidade na função QTP. Ao combinar as Funções de Valor (FV) com os pesos A_i obtidos via Mudge, obtém‑se o Índice de Atendimento dos Requisitos (IAR). Uma forma simplificada da equação é:
+Aplicamos a fórmula:
 
-$$
-\mathrm{IAR} = \sum_{c\in\{CE,CI\}} TS_c \times \left( \sum_{k} TS^{EP}_k \times \left[ \sum_{j} TS^{ES}_j \times \left( \sum_{i} TS^{NF}_i \times FV_i \right) \right] \right)
-$$
+QTP=(0,4×10,0)+(0,4×4,0)+(0,2×8,5)
 
-onde as várias somatórias representam a decomposição em Clientes (CE, CI), Elementos Primários (EP), Elementos Secundários (ES) e Níveis/Fins (NF), e $FV_i$ são as Funções de Valor no nível mais baixo.
+QTP=4,0+1,6+1,7
 
-Figure: (fig-escala-funcao-valor) Escala da Função de Valor (ex.: Matéria-Prima)
+QTP=7,3
 
-![](../images/fig-escala-funcao-valor.png){fig-align="center"}
+Análise do Resultado
 
-##### Tarefas Finais do Projeto Informacional
+Neste cenário de gestão, a Qualidade Total da Organização foi 7,3.
 
-Com o modelo e os pesos calculados, as etapas finais incluem análise de sensibilidade, verificação de restrições legais e contratuais, e a elaboração das especificações‑meta que servirão de saída formal para a manufatura.
+- Interpretação Didática: O sucesso operacional em volume (Q_1=10) não foi suficiente para garantir uma nota de excelência, pois a gestão financeira (Q_2 ) falhou e possuía o mesmo peso estratégico.
+- Conclusão: Através desta função, a organização percebe que, para melhorar a qualidade global, a Melhoria da Qualidade (3.3.8) deve focar urgentemente no controle de custos, sob pena de o volume produzido não se traduzir em valor real para o sistema.
 
-### Etapa 2: Qualidade do Projeto do Processo
+Estudo de Caso I: O Desafio do Minério de Alta Sílica
 
-Ao entrar na Vertente Técnica, a qualidade foca no desenvolvimento do processo e na definição da capacidade produtiva. O projeto de processo traduz as especificações de engenharia em layout, equipamentos, ferramentas e rotinas de trabalho.
+Para este estudo de caso, o objeto (3.6.1) é o "Produto B", um minério de ferro com alta sílica processado em uma usina na região Norte. O desafio reside no fato de este material ser altamente abrasivo e não possuir dados históricos, exigindo um monitoramento rigoroso via KPIs.
 
-### Etapa 3: Qualidade de Conformação ou Ajustamento (Produção)
+Passo 1: Definição dos Parâmetros da Qualidade (Q_i )
 
-Nesta etapa a qualidade refere-se à conformidade do produto com as especificações do projeto e ao desempenho do processo (produtividade, custo e variabilidade).
+Com base no problema de pesquisa e nos ofensores identificados, selecionamos cinco parâmetros fundamentais que representam as dimensões da qualidade exigidas pelas partes interessadas:
 
-### Etapa 4: Qualidade de Comercialização e Pós‑venda (Pós‑Produção)
+	Q_1 (Teor de Ferro - Fe): Indicador de qualidade química e valor de mercado.
+	Q_2 (Teor de Sílica - SiO2): Parâmetro crítico de controle devido à abrasividade e impacto nos equipamentos.
+	Q_3 (Volume de Produção - Massa): Capacidade de entrega frente ao plano replanejado.
+	Q_4 Eficiência do Processo - Carga Circulante): Saúde do sistema de britagem e peneiramento.
+	Q_5 (Qualidade Física - Fração +19 mm): Conformidade granulométrica necessária para os processos subsequentes.
+
+Passo 2: Ponderação Estratégica (A_i )
+
+Nesta etapa, a organização (3.2.1) atribui pesos conforme a prioridade do teste. Note que a soma dos pesos deve ser igual a 1,0 (100%):
+
+	A_1=0,30(30%): O ferro é a missão básica do produto.
+	A_2=0,25(25%): A sílica é o maior risco operacional deste teste.
+	A_3=0,20(20%): O cumprimento do volume é um requisito contratual.
+	A_4=0,15(15%): A carga circulante indica a estabilidade da usina.
+	A_5=0,10(10%): A granulometria, embora importante, teve menor peso estratégico nesta campanha.
+
+Passo 3: Atribuição de Notas de Desempenho (Q_i )
+
+As notas (de 0 a 10) são dadas comparando o realizado com o requisito (3.6.4) estabelecido:
+
+	Q_1=9,0: Desempenho excelente; a média de 49,42% superou as expectativas.
+	Q_2=7,0: Resultado satisfatório; a sílica ficou próxima do limite inferior esperado (25,43%).
+	Q_3=9,9: Aderência quase total ao plano; produzidos 338.910 t para uma meta de 339 kt.
+	Q_4=4,0: Desempenho crítico; a carga circulante atingiu 204% (muito acima do padrão de 145%).
+	Q_5=1,0: Falha no requisito físico; obtido 0,27% de fração retida para uma meta de 4,0%.
+
+Passo 4: Processamento Matemático da Função
+
+Aplicamos a fórmula da Qualidade Total do Produto:
+
+QTP=∑_(i=1)^n▒(A_i×Q_i )
+
+QTP=(0,30×9,0)+(0,25×7,0)+(0,20×9,9)+(0,15×4,0)+(0,10×1,0)
+
+QTP=2,7+1,75+1,98+0,6+0,1
+
+QTP=7,13
+
+Passo 5: Diagnóstico Gerencial e Tomada de Decisão
+
+O resultado de 7,13 indica que, embora o teste tenha sido um sucesso sob a ótica química e comercial, ele apresentou falhas graves sob a ótica de processo e física. Didaticamente, a função qualidade nos permite concluir que:
+
+Eficácia vs. Eficiência: A organização foi eficaz em entregar o produto (Q_1  e Q_3 ), mas ineficiente no processo (Q_4 ). O alto nível de recirculado na britagem terciária gerou restrições na alimentação.
+
+Oportunidade de Melhoria (3.3.8): O baixo valor em Q_5 e Q_4 aponta que o foco do próximo ciclo de planejamento da qualidade (3.3.5) deve ser o ajuste das telas de peneiramento e setpoints dos britadores para reduzir o oversize.
+
+Gerenciamento de Riscos: A abrasividade da sílica, embora controlada quimicamente (Q_2 ), manifestou-se fisicamente no processo através do aumento da carga circulante, o que valida a necessidade de monitorar KPIs preventivos para evitar quebras prematuras.
+
+Estudo de Caso II: Acurácia de Estoque e Medição (PPCJ))
+
+Neste cenário, o objeto (3.6.1) é o processo de produção e estocagem do produto PPCJ. O principal desafio é a divergência entre o estoque contábil (balanças) e o estoque físico (topografia), que frequentemente supera o limite aceitável de ±2%.
+
+Passo 1: Definição dos Parâmetros da Qualidade (Q_i )
+
+Para representar a qualidade total deste sistema, selecionamos cinco parâmetros fundamentais baseados nos dados coletados:
+
+	Q_1 (Qualidade Química - Teor de Fe): Requisito básico do produto.
+	Q_2 (Conformidade de Estoque): Acurácia entre o físico e o contábil (limite de ±2%).
+	Q_3 (Aderência à Produção): Cumprimento do volume planejado (Realizado vs. SOE).
+	Q_4 (Confiabilidade de Medição): Desempenho das balanças e periodicidade de calibração.
+	Q_5 (Controle de Umidade - H2O): Essencial para a densidade e pesagem correta.
+
+Passo 2: Ponderação Estratégica (A_i )
+
+A organização define a importância de cada item para a confiabilidade das informações:
+
+	A_1=0,20(20%): Importância padrão para o teor metálico.
+	A_2=0,35(35%):  Peso maior devido ao impacto em auditorias e bolsas de valores.
+	A_3=0,15(15%):  Aderência ao plano diário de produção.
+	A_4=0,20(20%): Reflete o "Poder de Atuação" identificado na Matriz GUT.
+	A_5=0,10(10%):  Parâmetro técnico de suporte.
+
+Passo 3: Atribuição de Notas de Desempenho (Q_i )
+
+As notas (0 a 10) são extraídas dos dados reais do período:
+
+	Q_1=9,5: Excelente desempenho químico médio de 49,17% de Fe (alcançando picos de 61,58%).
+	Q_2=3,0: Nota baixa; os desvios de estoque apresentam picos muito além dos ±2% aceitáveis.
+	Q_3=8,0: Boa aderência; volume total de 338.910 t contra o planejado, apesar de oscilações diárias.
+	Q_4=4,0:  Crítico; a Matriz GUT aponta periodicidade inadequada de calibração (Resultado 256).
+	Q_5=6,0: Regular; média de umidade em 6,14%, impactando a densidade calculada (m=V×d).
+
+Passo 4: Processamento Matemático da Função
+
+Aplicamos a fórmula da Qualidade Total:
+
+QTP=∑_(i=1)^n▒(A_i×Q_i )
+
+QTP=(0,20×9,5)+(0,35×3,0)+(0,15×8,0)+(0,20×4,0)+(0,10×6,0)
+
+QTP=1,9+1,05+1,2+0,8+0,6
+
+QTP=5,55
+
+Passo 5: Diagnóstico Gerencial e Tomada de Decisão
+
+O resultado de 5,55 revela um sistema de gestão sob estresse. Didaticamente, o exemplo demonstra:
+
+	O "Paradoxo da Qualidade": A organização produz um minério de excelente teor químico (Q_1=9,5), mas falha na garantia da qualidade (3.3.6) da informação.
+	Causa Raiz Identificada: A baixa nota global é puxada pela falta de acurácia no estoque (Q_2 ) e falhas de calibração (Q_4 ), que tiveram os maiores pesos na Matriz GUT.
+	Ação de Melhoria (3.3.8): O foco imediato deve ser a revisão da periodicidade de calibração e a atualização da densidade das pilhas, conforme priorizado na matriz de decisão. Sem isso, a "qualidade" percebida pelos órgãos auditores continuará baixa, independente da excelência do produto físico.
+
+Critérios de Robustez do Modelo Ponderado
+
+Por que selecionamos 5 características no exemplo?
+
+Em contextos didáticos e práticos de gestão, o número 5 é frequentemente utilizado para equilibrar dois fatores críticos: Granularidade (detalhamento suficiente para enxergar o problema) e Simplicidade (clareza para a tomada de decisão).
+
+A escolha das 5 características no caso do PPCJ foi baseada nos seguintes critérios técnicos:
+
+	Representatividade das Classes: Conforme a Nota 3 do item 3.10.1, as características podem ser físicas, sensoriais, comportamentais, temporais, entre outras. Selecionamos parâmetros que cobrem as principais classes da mineração: químicas (Fe), físicas (+19 mm), temporais (entrega) e funcionais (processo).
+	Criticidade (Matriz GUT): A matriz de priorização fornecida revelou que problemas como a "periodicidade de calibração" e a "desatualização da densidade" possuíam os maiores resultados de impacto (256 e 240, respectivamente). Por isso, essas variáveis foram elevadas à categoria de parâmetros da função qualidade.
+	Alinhamento com Objetivos (3.7.2): Os objetivos da qualidade podem ser estratégicos, táticos ou operacionais. Ao escolher 5 pontos, conseguimos incluir desde a meta estratégica de volume até o controle operacional de umidade.
+
+Poderiam ser mais características?
+
+Sim. A função qualidade é infinitamente expansível. Se a organização decidir que o impacto ambiental ou a segurança do trabalho são requisitos (3.6.4) indissociáveis da "Qualidade do Produto B", eles podem ser inseridos como Q_6 e Q_7.
+
+No entanto, adicionar características excessivas pode gerar o fenômeno da "diluição de peso". No limite, se tivermos 50 características com pesos iguais de 2%, uma falha crítica em um parâmetro passará despercebida no resultado final da função.
+
+Critérios para adicionar ou remover características
+
+Para decidir se você deve utilizar mais ou menos de 5 parâmetros, utilize a seguinte lógica:
+
+	Requisito Obrigatório (3.6.4): Se uma característica é uma exigência legal ou contratual, ela obrigatoriamente deve ser um parâmetro (Q_i ).
+	Poder de Atuação: Se a matriz GUT indica que a equipe não tem poder de atuação sobre aquela variável no momento, ela pode ser monitorada como KPI, mas não necessariamente compor a nota de qualidade do sistema.
+	Variabilidade: Características que são naturalmente estáveis e raramente saem do controle podem ser agrupadas ou removidas para dar foco às variáveis críticas (como a Sílica no seu teste).
+
+A inclusão de uma sexta característica permite uma análise ainda mais sistêmica, incorporando variáveis ambientais que, embora tenham baixo poder de atuação, influenciam a variabilidade do processo. Conforme a definição de sistema (3.5.1), os elementos são inter-relacionados, e a pluviosidade impacta diretamente a umidade e a densidade do material estocado.
+
+Abaixo, apresentamos a tabela robusta com seis características aplicada ao caso do Pellet Feed Especial (PPCJ).
+
+Tabela 2: Avaliação da Qualidade Total (QTP) – Caso PPCJ
+Parâmetro (Q_i )	Descrição Técnica	Peso (A_i )	Nota (Q_i )	Justificativa do Desempenho
+Q_1: Teor de Ferro	Característica química inerente (Fe).	0,2	9,5	Média de 49,17%, com picos de excelência acima de 60%.
+Q_2: Teor de Sílica	Controle de abrasividade (SiO2).	0,2	6,5	Média de 26,12%; ponto crítico para desgaste de componentes.
+Q_3: Acurácia de Estoque	Conformidade entre físico e contábil (±2%)	0,25	3	Desvios frequentes fora dos limites de controle estabelecidos.
+Q_4: Calibração	Periodicidade de calibração das balanças.	0,15	4	Identificado na Matriz GUT como o maior ofensor (Resultado: 256).
+Q_5: Granulometria	Qualidade física (Fração retida +19 mm).	0,1	1	Resultado de 0,48% para uma meta de 4,0%.
+Q_6: Pluviosidade	Impacto ambiental no pátio e umidade.	0,1	8	Baixo poder de atuação (GUT: 12), mas estável no período.
+
+---
+
+Esta seção oferece ferramentas práticas para aplicar a Função Qualidade (QTP) em cenários reais do setor mineral, orientar decisões de priorização e conectar análise técnica a ações de melhoria concretas.
 
 Envolve vendas, marketing, logística e serviços pós‑venda. É aqui que o mercado retroalimenta o projeto inicial, reiniciando o ciclo e promovendo melhoria contínua.
 
