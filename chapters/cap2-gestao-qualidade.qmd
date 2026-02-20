@@ -1,5 +1,443 @@
 ---
-title: "cap2-gestao-qualidade"
+title: "Gestão da Qualidade: Planejamento, Controle e Melhoria"
 format: html
 ---
 
+# Gestão da Qualidade: Planejamento, Controle e Melhoria
+
+A definição do termo qualidade é um exercício desafiador, sobretudo porque ela se encontra em um contínuo processo de evolução. Para que uma organização alcance um estado de excelência em nível mundial, ela precisa projetar, controlar e melhorar continuamente seus bens e produtos, superando as expectativas do mercado e adquirindo o respeito de seus clientes.
+
+Como a qualidade possui múltiplos significados e facetas, é comum que ocorram confusões nos diferentes níveis hierárquicos de uma organização. Para evitar ambiguidades que prejudiquem a tomada de decisão, é necessário compreender como as práticas de gestão amadureceram ao longo do tempo, estruturando-se no que hoje conhecemos como os pilares da excelência operacional.
+
+## As Eras e a Evolução das Práticas de Qualidade
+
+Desde a Idade Média, a necessidade de diferir os produtos oferecidos em um mercado competitivo forçou a evolução do significado e das práticas de qualidade. Historicamente, a literatura divide essa evolução em três grandes eras operacionais:
+
+### A Era da Inspeção
+
+O período de fiscalização teve seus primeiros traços na Idade Média, com os artesãos que trabalhavam para garantir a qualidade individual de seus produtos. Nesse período, começaram a ser definidos padrões básicos de qualidade para bens e serviços, bem como níveis primários de desempenho do trabalho.
+
+Com o advento da produção em massa, surgiu a necessidade de uma "inspeção formal", impulsionada primordialmente pela exigência de verificação de peças intercambiáveis nas linhas de montagem. Em 1922, a obra "The Control of Quality in Manufacturing" de G.S. Radford apresentou, de forma pioneira, as atividades de inspeção ligadas ao controle da qualidade. Pela primeira vez, a qualidade foi vista como uma responsabilidade gerencial distinta e uma função independente.
+
+Nesta primeira era, a preocupação central estava em examinar o produto detalhadamente, um a um, com o objetivo exclusivo de encontrar possíveis falhas para impedir que o defeito chegasse ao cliente. Essa atividade era majoritariamente corretiva e realizada sem metodologias analíticas preestabelecidas. As principais conquistas foram a introdução de sistemas racionais de medidas, gabaritos e acessórios de verificação.
+
+### A Era do Controle Estatístico da Qualidade
+
+A segunda fase da evolução ocorreu quando o aumento em larga escala da produção tornou inviável (tanto física quanto financeiramente) a verificação de produtos um a um. A inspeção precisou evoluir e passou a ser realizada através da amostragem e da utilização de técnicas estatísticas.
+
+As ferramentas estatísticas foram desenvolvidas com o intuito de satisfazer as reais necessidades de controle de qualidade em ambientes de alto volume. É nesta fase que a engenharia introduz conceitos fundamentais e preditivos, tais como: risco do produtor e do consumidor, probabilidade de aceitação, fração tolerada defeituosa e o Nível Aceitável de Qualidade (AQL).
+
+### A Era da Garantia e Gestão Estratégica da Qualidade
+
+Todo esse movimento de racionalização ganhou força monumental após a 2ª Guerra Mundial e estende-se até os dias de hoje, marcando a terceira era. Nela, a qualidade deixa de ser apenas uma ferramenta de fábrica e passa a ser vista como parte indissociável do gerenciamento estratégico da organização.
+
+A era contemporânea é caracterizada pelo surgimento de novos elementos integradores, como a quantificação dos custos da qualidade, a engenharia de confiabilidade, o conceito de "zero falhas" (introduzido por Crosby) e o Controle Total da Qualidade (liderado por Feigenbaum). A gestão deslocou-se definitivamente do foco em "encontrar o defeito" para o foco em "garantir que o sistema não produza o defeito".
+
+## A Trilogia de Juran
+
+Em sistemas de produção industriais, a discrepância entre o que foi programado pela engenharia e o que foi efetivamente executado no chão de fábrica é o grande ofensor da lucratividade. A avaliação desses níveis de variação está inserida na disciplina de Gestão da Qualidade.
+
+Para operacionalizar essa gestão no dia a dia, Joseph M. Juran (1986) consolidou um conjunto de práticas estruturadas em três processos gerenciais, mundialmente conhecidos como a Trilogia de Juran.
+
+### Planejamento da Qualidade: Definindo o Programado
+
+Para Juran, o Planejamento da Qualidade é definido estritamente como a "atividade de desenvolvimento dos produtos e processos exigidos para a satisfação das necessidades dos clientes".
+
+Nesta etapa, a engenharia não está executando a operação, mas sim projetando como ela deverá ocorrer. O planejamento exige um mapa lógico rigoroso, onde cada passo executado pela gestão gera um resultado (um documento ou diretriz) obrigatório para a fase seguinte. A @fig-planejamento-juran detalha a cascata de passos e resultados do planejamento idealizado por Juran.
+
+![Mapa de Passos e Resultados do Planejamento da Qualidade](images/fig-planejamento-juran.png){#fig-planejamento-juran}
+
+O objetivo central desta estrutura é garantir que o processo produtivo final não seja obra do acaso, mas sim um "processo pronto para produzir" que responda rigorosamente às metas de qualidade estabelecidas.
+
+#### Projeções, Guidance e o Conceito de Meta
+
+No ambiente corporativo da grande mineração (como na produção global de minério de ferro, pelotas e metais básicos), o planejamento lida com três conceitos que frequentemente são confundidos: Projeção (Guidance), Meta e Plano.
+
+**A Projeção (Guidance)**
+
+Constitui-se de informações que uma empresa de capital aberto oferece ao mercado como uma indicação oficial do seu desempenho futuro. Trata-se de prever o futuro com a maior precisão possível, levando em conta os dados históricos e o conhecimento de eventos futuros que possam impactar as operações. A @fig-form-ref-projecao-vale ilustra um formulário de referência corporativo, demonstrando que antes de se cobrar um resultado, é necessário realizar e divulgar a projeção dos volumes de produção estimados.
+
+![Formulário de Referência e o Objeto da Projeção](images/fig-form-ref-projecao-vale.png){#fig-form-ref-projecao-vale}
+
+**A Meta**
+
+Se a projeção é o que provavelmente vai acontecer, a meta é o que você gostaria que acontecesse. Para que uma meta seja gerencialmente válida, ela precisa seguir o critério SMART (@fig-criterios-meta-smart), ou seja, deve ser Específica (Specific), Mensurável (Measurable), Alcançável (Achievable), Realista (Realistic) e com Prazo definido (Timely).
+
+![Critérios para Metas SMART](images/fig-criterios-meta-smart.png){#fig-criterios-meta-smart}
+
+**O Planejamento da Qualidade**
+
+Muitas vezes, as metas são definidas sem qualquer plano de como alcançá-las. O planejamento é justamente a resposta (o conjunto de ações operacionais e de engenharia) para garantir que as previsões correspondam aos objetivos estipulados.
+
+Quando a operação começa, ocorre o acompanhamento. A @fig-acompanha-projecoes-vale demonstra a apuração da diferença (a lacuna) entre a projeção (ex: produzir ~310Mt de minério) e o realizado (307,8 Mt). Acompanhar essa variação é a essência do controle de qualidade.
+
+![Acompanhamento de Projeções e Identificação da Diferença](images/fig-acompanha-projecoes-vale.png){#fig-acompanha-projecoes-vale}
+
+#### O "Programado" na Prática Operacional
+
+Para tangibilizar o "Programado" na rotina de mina, observe o exemplo de planejamento de frota extraído do estudo de Adriane e Elizeth. A @tbl-planejamento-frota estabelece o número exato de caminhões fora de estrada programados e disponíveis para um período de 41 meses.
+
+| **Período** | **Programado** | **Disponível** |
+|-------------|----------------|----------------|
+| 2020-01     | 45             | 43             |
+| 2020-02     | 45             | 44             |
+| ...         | ...            | ...            |
+| 2023-05     | 50             | 48             |
+
+: Planejamento Programado de Frota Disponível (2020 a 2023) {#tbl-planejamento-frota}
+
+*Fonte: Adaptado de TCC Adriane e Elizeth.*
+
+A @fig-desempenho-real-prog traduz graficamente essa dinâmica. A linha contínua vermelha (monthly_programmed) representa o alvo gerencial planejado (os degraus do que deveria ocorrer). A nuvem de pontos mostra o desempenho real diário da massa transportada. A função do planejamento é criar a linha vermelha; a função do controle é forçar os pontos a ficarem o mais próximo possível dela.
+
+![Desempenho Realizado vs. Programado (Transporte de Massa)](images/fig-desempenho-real-prog.png){#fig-desempenho-real-prog}
+
+#### Baseline, Benchmarking e a Captura da Lacuna
+
+Definir um indicador de qualidade exige primeiramente conhecer a "Lacuna" (o tamanho do problema ou oportunidade) para então definir a meta. A lacuna é a diferença entre a referência de excelência desejada e a base de desempenho atual do processo (o seu Baseline).
+
+**Técnicas Estatísticas para o Baseline**
+
+Para calcular o Baseline de um equipamento ou planta sem ser traído por anomalias estatísticas, a engenharia utiliza a técnica da Média Aparada (@fig-media-aparada-baseline). Apare os dados extremos (outliers) utilizando a Amplitude Interquartílica ou Interpercentílica (ex: cortando P20-P80 ou P05-P95). A praxe é aparar entre 5% e 25% da informação; o que determina o percentual exato é o equilíbrio entre o tamanho do banco de dados e a perda aceitável de informação representativa.
+
+![Critérios Estatísticos para Aparar o Baseline](images/fig-media-aparada-baseline.png){#fig-media-aparada-baseline}
+
+**Práticas de Benchmarking (Definição da Referência)**
+
+O benchmarking é um processo sistemático de avaliação comparativa (estudo de referências) para definir onde o indicador deveria estar. As referências usuais na mineração incluem:
+
+- **Referência do Setor**: A melhor média móvel de três meses na série histórica do KPI dos últimos 12 meses.
+- **Referência da Empresa**: O melhor resultado para esse KPI comparado entre todas as minas do mesmo grupo.
+- **Referência Técnica (Padrão Ouro)**: Baseada em documentos de engenharia (manuais de fabricante, EPS), considerando a capacidade nominal e vida útil do ativo.
+- **Referência Externa**: Consultorias e dados abertos de concorrentes de classe mundial.
+
+A partir destas referências, o gestor escolhe a agressividade da sua meta projetando três cenários:
+
+- **Cenário Conservador**: Média aritmética dos 5 melhores meses do último ano.
+- **Cenário Moderado**: Média aritmética dos 3 melhores meses do último ano.
+- **Cenário Agressivo**: Espelhar o valor do melhor mês absoluto do ano passado.
+
+**Quanto capturar da lacuna?**
+
+Identificada a lacuna entre o Baseline e o Benchmark, o gestor precisa responder: Quanto desta lacuna nós vamos buscar no próximo ciclo? A resposta dependerá do nível de maturidade e capacidade da equipe (@fig-matriz-captura-lacuna).
+
+A decisão baseia-se em cinco pilares: 1) Conhecimento histórico do processo, 2) Dados confiáveis e granulares, 3) Disponibilidade financeira/orçamento, 4) Conhecimento técnico do time e 5) Maturidade em gestão.
+
+- Se a equipe possui todas as condições operacionais e analíticas, é prudente assumir uma captura ≥50% da lacuna como meta anual.
+- Se a equipe possui apenas parte das condições, mas suporta desafios de melhoria, a captura da lacuna gira em torno de 20% a 50%.
+- Se a equipe se encontra em estágio reativo, limitando-se a fazer gestão da rotina, a captura da lacuna deve ser conservadora, girando em torno de 10% a 20% do gap disponível.
+
+![Matriz de Captura da Lacuna para o Próximo Desafio](images/fig-matriz-captura-lacuna.png){#fig-matriz-captura-lacuna}
+
+O objetivo desta primeira etapa é definir os alvos de produção, de qualidade e de manutenção da planta. Esses alvos são materializados por meio de indicadores específicos, denominados "indicadores programados". Eles são estabelecidos pela alta gestão no começo do período de análise e servem como as metas primárias a serem atingidas pela operação.
+
+### Controle da Qualidade: Monitoramento e Manutenção do Alvo
+
+Trata-se do esforço de rotina. Refere-se a um conjunto de ações operacionais, administrativas e técnicas desenvolvidas durante as operações para assegurar a manutenção dos indicadores dentro das faixas (limites) aceitáveis. Esse controle é caracterizado por um processo de monitoramento contínuo, que exige o uso constante de ferramentas apropriadas (como gráficos de controle e inspeções padronizadas).
+
+### Melhoria da Qualidade: A Busca por Novos Padrões
+
+Caso os indicadores apresentem variações significativas (picos esporádicos ou falhas crônicas) que ultrapassem os limites de controle estabelecidos, iniciam-se os esforços de engenharia voltados para a diminuição dessa variabilidade. Esta etapa é vista como a fase final (avaliação de efeitos). A melhoria está intrinsecamente relacionada à resolução de problemas com o intuito não apenas de devolver a estabilidade ao processo, mas de elevá-lo a um patamar de desempenho superior.
+
+### A Integração da Trilogia com o Ciclo PDCA
+
+A @fig-trilogia-juran-destacado ilustra magistralmente a dinâmica da Trilogia de Juran ao longo do tempo e a sua integração com os métodos de solução de problemas.
+
+O gráfico demonstra que o Planejamento da Qualidade estabelece o Indicador Programado (Alvo) inicial. A partir do início das operações, o Controle da Qualidade atua para manter a variabilidade do processo restrita à Zona Original de Controle (a faixa cinza do gráfico).
+
+No entanto, quando ocorre um "Pico Esporádico" (um desvio além dos limites aceitáveis da variabilidade), a organização aciona a fase de Melhoria da Qualidade. É neste exato ponto que a gestão utiliza metodologias estruturadas, como o Ciclo PDCA (Plan, Do, Check, Act). Conforme ilustrado na parte inferior da figura, o ciclo desdobra-se em passos metódicos para solucionar a causa raiz do pico esporádico:
+
+1. Identificar e priorizar o indicador de qualidade afetado.
+2. Descrever e coletar dados do processo.
+3. Identificar todas as possíveis causas.
+4. Desenvolver um plano de ação (Plan).
+5. Executar o plano (Do / Execution).
+6. Checar os resultados (Check).
+7. Padronizar as melhorias (Act / Standardization).
+8. Conclusão e registro das lições aprendidas.
+
+Uma vez que as ações do PDCA resultam em melhorias efetivas, o processo estabiliza-se em um Novo Alvo (um patamar superior de desempenho), criando uma Nova Zona de Controle da Qualidade com menor variabilidade. Por fim, a Avaliação da Qualidade contínua visa medir o alinhamento desses novos indicadores com as metas organizacionais de longo prazo.
+
+![Diagrama da Trilogia de Juran e Integração com PDCA](images/fig-trilogia-juran-destacado.png){#fig-trilogia-juran-destacado}
+
+### Os Elementos Estratégicos da Avaliação da Qualidade
+
+Para garantir que o planejamento, o controle e a melhoria sejam executados com rigor, é crucial avaliar tanto a "qualidade em si" quanto o sistema que a produz. Essa avaliação determina se os resultados alcançados após a implementação de mudanças são viáveis para o planejamento da empresa.
+
+Paladini (2019) destaca cinco elementos estratégicos que devem compor esse processo de Avaliação da Qualidade:
+
+1. **Consumidores e Clientes**: A base mercadológica da avaliação.
+2. **Objetivos Estratégicos**: O alinhamento com as metas corporativas da empresa.
+3. **Processo Produtivo**: A avaliação operacional direta da linha de manufatura.
+4. **Recursos Humanos**: A gestão tática e o engajamento das pessoas na qualidade.
+5. **Suporte ao Processo**: Elementos que garantem a continuidade operacional.
+
+::: {.tech-note}
+**Nota de Mining Analytics**
+
+Um exemplo vital de "Suporte ao Processo" (Elemento 5) é a manutenção industrial. Historicamente, ela não era avaliada por si só, mas de forma indireta (assumia-se que a manutenção era boa se o processo não sofresse falhas de equipamento em um período específico). No entanto, na era da Indústria 4.0 e da Gestão de Ativos, a manutenção deixou de ser um mero suporte invisível e adotou seus próprios indicadores vitais de avaliação e confiabilidade, integrando-se organicamente à gestão da qualidade.
+:::
+
+## Abordagens e Metodologias de Excelência Operacional
+
+A gestão da qualidade é uma disciplina amplamente reconhecida como essencial para a melhoria contínua dos processos e produtos em diversas indústrias. Ela envolve a aplicação de metodologias e princípios que visam garantir a excelência operacional, a satisfação do cliente e a minimização de falhas.
+
+Dentro deste campo, várias metodologias se destacam, oferecendo abordagens específicas para aprimorar processos, identificar e eliminar desperdícios e promover a padronização. A aplicação correta dessas ferramentas tem o potencial de transformar a cultura organizacional e a maneira como os programas de controle e manutenção são planejados e executados.
+
+### Gestão da Qualidade Total (TQM / GQT)
+
+A Gestão da Qualidade Total (do inglês Total Quality Management – TQM) enfatiza a importância da liderança, do compromisso com a excelência e do envolvimento de todos os membros da organização na busca por melhores resultados. Quando aplicado corretamente, o TQM promove uma cultura onde a qualidade reflete-se na execução diária de cada tarefa e na busca contínua por melhores práticas.
+
+#### O Desafio da Maturidade e da Mensuração
+
+Apesar de seus benefícios inquestionáveis, a implementação do TQM esbarra em um desafio analítico. Questionamentos frequentes surgem em pesquisas e auditorias que visam investigar os Fatores Críticos de Sucesso (FCS) da GQT nas organizações:
+
+- Como modelar o grau de dificuldade de uma organização ao implantar uma prática específica da GQT?
+- Como modelar a discriminação (diferenciação) entre as organizações quanto ao seu grau de maturidade?
+- Como representar o nível de maturidade organizacional por intermédio de uma escala de medida padrão?
+- Como medir a evolução dessa implantação ao longo do tempo?
+- Como comparar o desempenho entre organizações de setores diferentes utilizando um mesmo modelo?
+
+Respostas a essas questões permitem uma efetiva comparação e uma análise profunda dos itens (práticas da qualidade) que compõem o instrumento de medida da empresa. A obtenção dessas respostas exige a utilização de modelos que priorizem a avaliação item a item, construindo uma métrica confiável de maturidade.
+
+#### A Estrutura de Avaliação da GQT
+
+Para parametrizar essa evolução, a literatura técnica e gerencial consolida o TQM em um modelo estruturado. O grau de maturidade de uma organização pode ser auditado e medido através do acompanhamento sistemático de 9 grandes pilares (Fatores Críticos), desdobrados em práticas gerenciais específicas:
+
+**1. Comprometimento da Alta Administração**
+
+A qualidade deve começar no topo da hierarquia. A liderança não deve apenas apoiar, mas patrocinar ativamente o sistema.
+
+- Avaliação periódica da qualidade executada pela alta gestão.
+- Discussão constante da importância da qualidade nos fóruns executivos.
+- Alocação de verbas e recursos específicos para a qualidade definidos em orçamento.
+- Definição, identificação e documentação clara das metas.
+- Inserção das metas da qualidade diretamente no planejamento estratégico da empresa.
+- Comunicação ativa e visível do compromisso da direção para com toda a empresa.
+
+**2. Foco no Consumidor**
+
+O mercado dita o que é valor. O TQM exige ouvir e reagir às necessidades do cliente.
+
+- Comparação da satisfação do cliente com indicadores internos e de concorrentes.
+- Fornecimento e transparência das reclamações dos consumidores a todos os departamentos (não apenas ao SAC).
+- Utilização das reclamações como base estrutural para a melhoria de processos.
+- Manutenção de um serviço ágil e resolutivo de atendimento ao consumidor.
+- Realização periódica de pesquisas de satisfação e expectativas.
+
+**3. Parceria com o Fornecedor**
+
+A qualidade do produto final depende intrinsecamente da qualidade dos insumos recebidos.
+
+- Utilização da qualidade (e não apenas do preço) como critério de peso para a seleção de fornecedores.
+- Estabelecimento de contratos de longo prazo, gerando estabilidade.
+- Fornecimento de assistência técnica da contratante para desenvolver o fornecedor.
+- Participação do fornecedor desde o processo de desenvolvimento e projeto do produto.
+
+**4. Envolvimento dos Funcionários**
+
+A qualidade é construída pelas pessoas que operam o processo diariamente.
+
+- Realização periódica de reuniões em cada área específica para discussão sobre qualidade.
+- Criação de equipes interfuncionais (multidisciplinares) para tratar de problemas sistêmicos.
+- Avaliação rigorosa de todas as sugestões emitidas pelos funcionários.
+- Implantação efetiva das sugestões aprovadas.
+- Concessão de prêmios e recompensas não financeiras pelo engajamento e boas ideias.
+
+**5. Treinamento**
+
+A capacitação é o motor da estabilidade do processo.
+
+- Alocação de recursos financeiros e de tempo necessários para o treinamento.
+- Envolvimento de todos os escalões da empresa (da diretoria ao chão de fábrica) nos treinamentos de qualidade.
+- Capacitação de uma grande base de funcionários em técnicas metódicas de solução de problemas.
+- Treinamento técnico em ferramentas e controle estatístico.
+
+**6. Mensuração da Qualidade**
+
+O que não se mede, não se gerencia. A coleta de dados deve ser confiável e contínua.
+
+- Execução de inspeções por amostragem durante o processo de produção (preventivo).
+- Avaliação da qualidade em múltiplas etapas, não se limitando apenas à inspeção final do produto pronto.
+- Medição periódica dos índices de desperdícios, retrabalho e falhas de produtos não-conformes.
+- Manutenção rigorosa de registros e históricos das avaliações.
+- Transparência no fornecimento dos resultados das avaliações a todos os funcionários.
+- Utilização real dos resultados como suporte primário para a melhoria.
+
+**7. Melhoria Contínua**
+
+A busca incessante por estabelecer novos e melhores padrões de desempenho.
+
+- Manutenção de uma estrutura organizacional específica dedicada a apoiar a qualidade.
+- Existência de programas formais para a redução de tempo e custo nos processos internos.
+- Execução de avaliações profundas nos processos-chave (gargalos) de produção.
+- Programas formais para a redução do Lead Time (tempo de entrega do produto ao cliente).
+- Programas formais para a redução do tempo de ciclo de fabricação.
+
+**8. Benchmarking**
+
+Olhar para o mercado e aprender com os melhores, independentemente do setor.
+
+- Realização de visitas técnicas a outras organizações reconhecidamente líderes.
+- Procedimento efetivo de benchmarking para monitorar os competidores diretos mais fortes.
+- Procedimento de benchmarking com empresas líderes de outros setores (não competidores) para importar inovações.
+- Manutenção do benchmarking não como uma ação isolada, mas como uma política contínua da empresa.
+
+**9. Empowerment (Delegação de Poderes)**
+
+Dar autonomia à operação para agir rapidamente sobre os desvios.
+
+- Delegação de autoridade aos funcionários da linha de frente para a solução imediata de problemas operacionais.
+- Fornecimento de apoio gerencial e técnico para que os funcionários tomem essas decisões.
+- Transferência da execução da inspeção da qualidade para os próprios operadores (autocontrole), reduzindo a dependência de inspetores externos.
+- Divulgação e celebração interna das experiências de sucesso na solução de problemas.
+
+#### A Evolução para o CWQC e Modelos de Referência
+
+A origem da Qualidade Total remonta a 1950 e desdobrou-se em duas correntes históricas fundamentais:
+
+- **Visão Norte-Americana (TQC - Total Quality Control)**: Fundamentada nos trabalhos de Armand Feigenbaum, propunha um sistema eficaz para integrar a manutenção e os esforços de melhoria, mas com um viés onde o controle deveria ser conduzido majoritariamente por especialistas do departamento de qualidade.
+
+- **Visão Japonesa (CWQC - Company-wide Quality Control)**: Diferente do modelo americano, o CWQC depende do engajamento de todos os departamentos da empresa. Ele exige o envolvimento de todas as áreas funcionais, conduz o foco organizacional às metas do plano estratégico utilizando o ciclo PDCA e propõe autonomia aos funcionários na rotina diária.
+
+A @fig-evolucao-gestao-qualidade ilustra essa evolução conceitual, partindo da inspeção básica até alcançar a Gestão Estratégica da Qualidade Total.
+
+![Evolução da Abordagem da Gestão da Qualidade](images/fig-evolucao-gestao-qualidade.png){#fig-evolucao-gestao-qualidade}
+
+Para materializar essa gestão holística, a engenharia utiliza frameworks como o Modelo de Zairi, que organiza o TQM em "Blocos de Construção":
+
+- **Fundação**: Melhoria contínua, envolvimento dos funcionários e gerenciamento de atividades que agregam valor.
+- **Pilares**: Controle estatístico, gestão da cadeia de fornecedores, flexibilidade do processo e projeto do local de trabalho.
+- **Topo**: Liderança, planejamento e visão para competitividade de classe mundial.
+
+### Gestão da Qualidade Seis Sigma (6σ)
+
+O Seis Sigma é uma metodologia estruturada cujo conceito inicial foi difundido por gigantes industriais como Motorola e General Electric. Sua característica principal é a análise sistemática e a redução drástica da variabilidade dos processos críticos, utilizando métodos estatísticos para aumentar diretamente a lucratividade da empresa.
+
+Diferente de iniciativas subjetivas, o Seis Sigma opera como uma Gestão de Portfólio. A organização administra uma lista de projetos ativos, selecionando e priorizando aqueles mais alinhados com a estratégia financeira (Projetos Prioritários, Estratégicos e Lucrativos).
+
+A seleção de um projeto Seis Sigma exige responder a perguntas vitais:
+
+- Quais são as Características Críticas para a Qualidade Interna ($CTQ_{in}$) e Externa ($CTQ_{ex}$)?
+- Existe uma lacuna de desempenho (gap) significativa em relação aos concorrentes que justifique o projeto?
+
+#### A Estrutura Organizacional (Belt System)
+
+Para conduzir esses projetos sem perder o foco corporativo, o Seis Sigma cria uma estrutura hierárquica paralela baseada em capacitação técnica:
+
+- **Executivo Líder**: Conduz, incentiva e supervisiona as iniciativas, selecionando os "Campeões".
+- **Campeão (Champion)**: Lidera os executivos-chave em direção aos objetivos do projeto e acompanha a implementação em toda a organização.
+- **Master Black Belts**: Especialistas com treinamento intensivo em estatística que dão suporte aos Campeões e são fundamentais no processo de mudança.
+- **Black Belts**: Profissionais dedicados integralmente a liderar equipes na condução direta dos projetos e solução de problemas.
+- **Green Belts**: Profissionais com dedicação parcial aos projetos, que auxiliam na coleta de dados e lideram pequenas melhorias em suas respectivas áreas de atuação.
+
+#### O Método DMAIC
+
+A execução técnica dos projetos Seis Sigma segue rigorosamente o roteiro DMAIC:
+
+1. **D (Define - Definir)**: Identificar as prioridades, os requisitos do cliente (CTQs) e mapear os processos críticos que os impactam.
+2. **M (Measure - Medir)**: Desenhar as entradas e saídas (onde Q=f(x)), estabelecendo o sistema de medição adequado e coletando dados por meio de amostragem representativa.
+3. **A (Analyze - Analisar)**: Utilizar ferramentas estatísticas para analisar os dados coletados, identificando as causas vitais (raízes) que geram defeitos e variações.
+4. **I (Improve - Melhorar)**: Eliminar as causas dos defeitos modificando os elementos geradores dos problemas e quantificar os efeitos obtidos nas CTQs.
+5. **C (Control - Controlar)**: Definir sistemas de controle contínuos para garantir que o novo patamar de qualidade seja mantido ao longo do tempo.
+
+### O Modelo Toyota de Produção (Lean Manufacturing)
+
+A Manufatura Enxuta foca na eliminação de perdas e desperdícios em toda a cadeia de valor. O referencial definitivo desta metodologia é o Modelo Toyota, estruturado em 14 princípios divididos em quatro grandes blocos:
+
+**1. Filosofia (Pensamento de longo prazo)**
+
+Basear as decisões administrativas em uma filosofia duradoura, mesmo que isso ocorra em detrimento de metas financeiras imediatas de curto prazo.
+
+**2. Processos (Eliminação de perdas)**
+
+Criar um "fluxo" contínuo para trazer os problemas à tona. Utilizar sistemas de produção "puxada" para evitar superprodução, nivelar a carga de trabalho, padronizar tarefas e usar controles visuais. O princípio do Jidoka (automação com toque humano) garante que a linha pare imediatamente quando houver um problema de qualidade.
+
+**3. Funcionários e Parceiros**
+
+Respeitar, desafiar e desenvolver líderes, equipes de trabalho e fornecedores, garantindo que vivenciem a filosofia da empresa.
+
+**4. Solução de Problemas (Melhoria contínua)**
+
+Promover a aprendizagem contínua através do Kaizen. A liderança deve "ver por si mesma" (ir ao chão de fábrica) para compreender a situação real, tomando decisões lentamente por consenso, mas implementando-as com rapidez.
+
+### Metodologias de Suporte Estratégico e Analítico
+
+Para que filosofias como TQM, Seis Sigma e Lean não atuem de forma isolada, as organizações utilizam metodologias de suporte para alinhar a estratégia e organizar a solução de problemas na rotina.
+
+#### O Balanced Scorecard (BSC)
+
+O BSC atua como o grande tradutor da estratégia corporativa. Como ilustrado na @fig-perspectivas-bsc, ele desdobra a visão da empresa em indicadores, metas e iniciativas através de quatro perspectivas interdependentes: Financeira, Clientes, Processos Internos e Aprendizado/Crescimento. A Gestão da Qualidade atua como a engrenagem que melhora os "Processos Internos", impactando o "Cliente" e gerando rentabilidade na perspectiva "Financeira".
+
+![Perspectivas do Balanced Scorecard - BSC](images/fig-perspectivas-bsc.png){#fig-perspectivas-bsc}
+
+#### A Metodologia de Análise e Solução de Problemas (MASP)
+
+Criada pela União dos Cientistas e Engenheiros Japoneses (JUSE), a MASP tem o objetivo de prevenir e corrigir falhas de processos de forma altamente estruturada. A metodologia auxilia na identificação da causa raiz, propõe ações corretivas e sugere o uso de ferramentas específicas (como Brainstorming, 5W2H e 5S) para convergir ideias.
+
+Conforme detalhado na @fig-estrutura-masp, a MASP é a personificação prática do ciclo PDCA:
+
+- **Plan (Planejar)**: Envolve a identificação do problema, a observação das características locais, a análise das causas influentes/prováveis e a elaboração do Plano de Ação. O Brainstorming atua fortemente nesta etapa para gerar e selecionar ideias.
+- **Do (Executar)**: A colocação estrita do plano de ação em prática.
+- **Check (Verificar)**: A avaliação quantitativa e qualitativa da efetividade das ações tomadas.
+- **Action (Agir/Padronizar)**: A padronização das ações que se provaram eficazes e a conclusão com a avaliação global do processo de melhoria.
+
+![A Estrutura do MASP alinhada ao PDCA](images/fig-estrutura-masp.png){#fig-estrutura-masp}
+
+## A Construção Coletiva da Qualidade e o Foco na Operação
+
+Por mais robustas que sejam as metodologias de excelência como o Seis Sigma ou o Lean Manufacturing, elas correm o risco de se tornarem puramente burocráticas se não estiverem ancoradas em dois alicerces práticos: o engajamento genuíno das pessoas que executam o trabalho e a confiabilidade física dos equipamentos que processam o produto.
+
+::: {.callout-tip title="Princípio Fundamental" icon=false}
+**A qualidade verdadeira não é imposta de cima para baixo; ela é construída na operação.**
+:::
+
+### O Papel das Pessoas: Círculos de Controle de Qualidade (CCQ)
+
+O Círculo de Controle da Qualidade, amplamente conhecido como CCQ, é uma forma estruturada de reunir o pessoal que atua no dia a dia da operação para debater as oportunidades de melhoria. Consiste em encontros periódicos onde a equipe compartilha experiências, aponta problemas que atrapalham a rotina e pensa em soluções que realmente funcionem na prática.
+
+A grande vantagem conceitual do CCQ é que os participantes são os próprios trabalhadores. Eles conhecem de perto os gargalos, as ineficiências e os riscos de segurança, pois sentem na pele o que dá certo e o que precisa mudar. Quando a ideia de melhoria surge de quem vive o problema, a chance de a solução ser sustentável e bem-sucedida é exponencialmente maior.
+
+#### Dinâmica e Vantagens do CCQ
+
+O grupo escolhe um problema específico da sua área, analisa as causas e tenta encontrar uma solução prática. Se a intervenção funcionar, essa melhoria é padronizada e vira o novo método de trabalho para toda a empresa. As principais vantagens incluem:
+
+- **Simplicidade**: Tudo acontece de forma direta, sem a necessidade imediata de grandes recursos financeiros ou aprovações complexas.
+- **Espírito de Equipe**: Além de otimizar o processo, a iniciativa faz a equipe trabalhar de maneira unida. O operador sente-se ouvido e valorizado.
+- **Aplicação Prática (O Exemplo da EFC)**: Em operações de alta complexidade, como a Estrada de Ferro Carajás (EFC), os CCQs têm sido fundamentais para resolver anomalias crônicas que antes pareciam difíceis de mapear, utilizando unicamente o conhecimento empírico de quem está na linha de frente da ferrovia.
+
+::: {.tech-note}
+**Reflexão de Mining Analytics**
+
+Como destaca Oliveira (2009), a qualidade precisa ser construída de forma coletiva, envolvendo todas as pessoas no compromisso com padrões estáveis. Essa visão é corroborada por Deming (1990), que enfatiza que a verdadeira melhoria contínua só acontece quando existe método, uso disciplinado de dados e a valorização profunda do conhecimento de quem vive a rotina de produção. O CCQ é, portanto, o caminho mais simples, direto e eficiente para materializar o Empowerment discutido no TQM.
+:::
+
+### A Integração da Gestão da Qualidade com a Manutenção Industrial
+
+Se as pessoas são o motor intelectual da qualidade, as máquinas são o meio físico. Em ambientes de capital intensivo, como a mineração e a siderurgia, a capacidade gerencial (SGI) deve estar intimamente ligada à capacidade de utilização dos recursos de produção. Isso significa que a Gestão da Qualidade é diretamente dependente da Gestão de Ativos e da Manutenção Industrial.
+
+As metodologias consagradas de qualidade encontram na manutenção um terreno fértil para aplicação:
+
+- **O TQM na Manutenção**: Promove uma cultura onde a qualidade reflete-se na execução precisa das tarefas de manutenção (evitando retrabalhos mecânicos) e na busca por melhores práticas de lubrificação e inspeção.
+- **O Seis Sigma na Manutenção**: Foca na redução da variabilidade do desgaste dos componentes e na minimização de quebras inesperadas, o que é crítico para garantir a confiabilidade dos ativos e a disponibilidade física da planta.
+- **O Lean na Manutenção**: Concentra-se na eliminação de desperdícios (ferramentas distantes, excesso de peças no almoxarifado, tempo de espera por liberação de área), otimizando o fluxo de trabalho dos mecânicos e eletricistas.
+
+#### A Gestão de Ativos e o Ciclo de Vida
+
+A integração entre qualidade e manutenção atinge seu ápice na Gestão de Ativos. Essa abordagem estabelece que o valor da organização é gerado pelo desempenho de seus equipamentos. O período compreendido entre a decisão de compra de um ativo (como um caminhão fora de estrada ou um britador) e o seu descarte é conhecido como vida útil do ativo (Zampolli, 2019).
+
+Para que a qualidade do processo produtivo não sofra variações ao longo dos anos, o ciclo de vida do ativo deve ser rigorosamente gerenciado em sete etapas:
+
+1. **Decisão**: Análise sobre a real necessidade do ativo para o processo de produção.
+2. **Especificação**: Determinação de suas especificações técnicas rigorosas para o uso pretendido.
+3. **Aquisição**: Compra baseada no equilíbrio entre custo, desempenho garantido e risco operacional.
+4. **Instalação e Operação**: O comissionamento (testes) e a introdução do produto no processo produtivo.
+5. **Manutenção**: O foco central para manter ou restaurar o ativo, garantindo que ele execute a função requerida sem perder o rendimento nominal.
+6. **Reforma ou Expansão**: Melhorias no equipamento (retrofits) ou substituições parciais para prolongar sua utilidade.
+7. **Descarte**: O encerramento seguro e ambientalmente correto ao final da vida útil.
+
+::: {.tech-note}
+**Conclusão de Mining Analytics**
+
+Para que os objetivos estratégicos da qualidade sejam alcançados sem sobressaltos, as propostas de manutenção, reforma e renovação dos ativos devem obrigatoriamente fazer parte do planejamento anual da empresa. Afinal, um processo cujos equipamentos falham constantemente jamais será capaz de entregar um produto em conformidade com as exigências do cliente.
+:::
