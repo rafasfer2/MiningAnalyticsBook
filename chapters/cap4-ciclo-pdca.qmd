@@ -1,27 +1,27 @@
 ---
+title: "Trilogia Juran e Ciclo PDCA"
 format: html
-prefer-html: true
 ---
-
-# Trilogia Juran e Ciclo PDCA {#chap-pdca}
 
 A busca pela excelência operacional na mineração exige métodos estruturados que permitam medir a discrepância entre o planejamento (*target*) e o desempenho real. Este capítulo aborda as bases da Gestão da Qualidade, conectando a teoria clássica de Juran às ferramentas de melhoria contínua aplicadas ao *Mining Analytics*.
 
 ## Trilogia de Juran
 
-A gestão focada na qualidade dos processos é sustentada por três pilares fundamentais conhecidos como a **Trilogia de Juran**. Esta metodologia fornece o mapa para a transição entre a estabilidade operacional e o salto de performance operacional.
+A gestão focada na qualidade dos processos é sustentada por três pilares fundamentais conhecidos como a **Trilogia de Juran**. Esta metodologia fornece o mapa para a transição entre a estabilidade operacional e o salto de performance.
 
 A @fig-juran-trilogy ilustra a dinâmica entre os três processos:
 
--   **Planejamento da Qualidade:** Fase associada à definição do custo da baixa qualidade e ao estabelecimento de limites alvo e especificações técnicas.
-
--   **Controle da Qualidade:** Durante a operação, a "Zona Original de Controle" monitora desvios e picos esporádicos. No *Mining Analytics*, esta fase é onde a telemetria e o pacote `miningKPI` atuam para identificar variações fora do padrão.
-
--   **Melhoria da Qualidade:** Acionada pelo diagnóstico de problemas via ferramentas baseadas no ciclo $PDCA$. Quando as ações resultam em melhorias eficazes — como a redução da variabilidade ou o aprimoramento de indicadores — ocorre a padronização e a definição de um novo patamar de controle (*New Target*).
+* **Planejamento da Qualidade:** Fase associada à definição do custo da baixa qualidade e ao estabelecimento de limites alvo e especificações técnicas.
+* **Controle da Qualidade:** Durante a operação, a "Zona Original de Controle" monitora desvios e picos esporádicos. No *Mining Analytics*, esta fase é onde a telemetria e os pacotes de R atuam para identificar variações fora do padrão.
+* **Melhoria da Qualidade:** Acionada pelo diagnóstico de problemas via ferramentas baseadas no ciclo **PDCA**. Quando as ações resultam em melhorias eficazes — como a redução da variabilidade ou o aprimoramento de indicadores — ocorre a padronização e a definição de um novo patamar de controle (*New Target*).
 
 ![Diagrama da Trilogia Juran](/images/fig-juran-trilogy.png){#fig-juran-trilogy}
 
 A avaliação final da qualidade visa medir o alinhamento desses indicadores com os objetivos estratégicos da organização mineira.
+
+::: {.callout-tip title="💡 INSIGHT OPERACIONAL"}
+Na prática da mineração, o "Pico Esporádico" de Juran pode ser a quebra inesperada da frota de caminhões fora de estrada em um dia de chuva, reduzindo a massa transportada. O Controle detecta a falha, mas é a fase de Melhoria (via PDCA) que vai investigar se o problema foi drenagem da pista, falha mecânica ou erro de operação.
+:::
 
 ## Ciclo PDCA
 
@@ -29,23 +29,25 @@ O ciclo PDCA, como uma metodologia para melhoria, é uma ferramenta simples que 
 
 ![Detalhamento do Ciclo PDCA](/images/fig-ciclo-pdca.png){#fig-ciclo-pdca}
 
-Para que essas etapas sejam realizadas com eficácia, é essencial que as subetapas sejam definidas com precisão. É importante destacar que a etapa de planejamento exige um cuidado maior na execução, pois a identificação e priorização das métricas de avaliação proporcionarão uma investigação mais aprofundada das causas dos problemas. Além disso, a utilização de ferramentas de qualidade para dar suporte ao ciclo PDCA é fundamental e indispensável para a eficiência e eficácia dos planos de ação desenvolvidos. Desta forma, propostas de mudanças, padronização de processos e/ou planos de ação são então embasadas em métodos e ferramentas estruturadas, sendo sempre recomendável estabelecer processo de comunicação e treinamento e formalização documental.
-
+::: {.callout-note title="📌 DEFINIÇÃO NORMATIVA"}
 De acordo com Mendes (2007), o ciclo PDCA é um método estruturado para a melhoria contínua dos processos nas organizações, dividido nas seguintes etapas:
+* **PLAN (Planejar):** Definir a situação atual, estabelecer metas mensuráveis e estratégias para alcançá-las.
+* **DO (Executar):** Iniciar o processo, educar/treinar os envolvidos e implementar as estratégias definidas.
+* **CHECK (Verificar):** Analisar e comparar os resultados obtidos contra os padrões esperados (metas).
+* **ACT (Agir/Padronizar):** Tomar ações corretivas ou padronizar a melhoria com base na verificação dos resultados.
+:::
 
--   **PLAN:** Esta etapa envolve o desenvolvimento de um plano com base nas diretrizes da organização. O objetivo é definir a situação atual, estabelecer metas claras e mensuráveis, e determinar as estratégias para alcançar esses objetivos.
+Para que essas etapas sejam realizadas com eficácia, é essencial que as subetapas sejam definidas com precisão. É importante destacar que a etapa de planejamento (PLAN) exige o maior rigor e dedicação de tempo do projeto. A identificação e priorização das métricas proporcionarão uma investigação aprofundada das causas dos problemas, embasando as propostas de mudança em métodos estruturados.
 
--   **DO***:* Após o planejamento, a fase de execução coloca o plano em ação. Isso inclui a iniciação do processo, a educação e formação dos envolvidos, e a implementação das estratégias definidas para atingir os objetivos estabelecidos.
-
--   **CHECK:** Nesta etapa, os resultados obtidos são analisados e comparados com os padrões esperados. É importante realizar uma avaliação contínua para garantir que o processo esteja sendo executado de acordo com o planejado.
-
--   **ACT:** A última fase do ciclo envolve a tomada de ações corretivas ou de melhoria, caso seja identificada a necessidade de ajustes ou aprimoramentos com base na verificação dos resultados.
+::: {.callout-warning title="⚠️ ARMADILHA DE ENGENHARIA"}
+O erro mais comum em projetos de melhoria é a "Miopia de Ação": a equipe pular a fase de Planejamento (P) e ir direto para a Execução (D). Implementar soluções baseadas em "achismos" e não em dados estratificados consome recursos financeiros da empresa e, na esmagadora maioria das vezes, ataca apenas o sintoma, permitindo que a falha real retorne no mês seguinte.
+:::
 
 ### Fases e Atividades do Ciclo PDCA
 
-A @tbl-atividades-pdca-detalhada consolida a estrutura metodológica e o cronograma do projeto, servindo como a principal ferramenta de controle e auditoria das etapas. A coluna Status é destinada ao acompanhamento qualitativo da evolução das tarefas, podendo ser preenchida com termos como "OK", "Não Consta", "Atrasado", ou outras observações pertinentes, permitindo uma gestão visual rápida sobre a saúde de cada atividade no ciclo PDCA.
+A tabela a seguir consolida a estrutura metodológica e o cronograma do projeto, servindo como a principal ferramenta de controle e auditoria das etapas (o MASP - Método de Análise e Solução de Problemas). A coluna *Status* é destinada ao acompanhamento qualitativo da evolução das tarefas.
 
-```{r}
+```r
 #| label: tbl-atividades-pdca-detalhada
 #| tbl-cap: "Detalhamento das fases, etapas e atividades do ciclo PDCA aplicadas à gestão operacional na mineração."
 #| echo: false
@@ -100,20 +102,15 @@ df_pdca %>%
         booktabs = TRUE
     ) %>%
     kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, font_size = 13) %>%
-    # Destaque dinâmico nas colunas 1 e 2
     column_spec(1, bold = TRUE, color = texto_cor, background = cores_id, width = "0.7cm") %>%
     column_spec(2, bold = TRUE, color = texto_cor, background = cores_id, width = "6.5cm") %>%
-    # Coluna Atividades mais larga e sem cor
     column_spec(3, width = "10cm", background = "white", color = "black") %>%
-    # Colunas Início e Fim mais estreitas
     column_spec(4, width = "1.2cm") %>%
     column_spec(5, width = "1.2cm") %>%
     column_spec(6, width = "1.2cm") %>%
     column_spec(7, width = "1.2cm") %>%
     column_spec(8, width = "2.5cm", background = "#fafafa") %>%
-    # Cabeçalho nível 2 (Fases, Etapas...) em Teal Médio
     row_spec(0, background = "#35978f", color = "white", bold = TRUE) %>%
-    # Cabeçalho nível 1 (Agrupamento) em Teal Dark, Negrito e sem listra dourada
     add_header_above(
         c(" " = 3, "Planejado" = 2, "Realizado" = 2, " " = 1),
         background = "#01665e",
@@ -126,8 +123,103 @@ df_pdca %>%
 
 #### Análise do Fluxo Metodológico
 
-Conforme observado na \@tbl-atividades-pdca-detalhada, o ciclo inicia-se na **Identificação do Problema**, onde a definição das prioridades e a meta global servem de base para as atividades seguintes. Na **Análise do Fenômeno**, ocorre a estratificação dos dados e o estudo das variações, permitindo que a pesquisa tome forma sobre os principais KPIs a serem utilizados.
+Conforme observado na tabela executiva, o ciclo inicia-se na **Identificação do Problema**, onde a definição das prioridades e a meta global servem de base para as atividades seguintes. Na **Análise do Fenômeno**, ocorre a estratificação dos dados e o estudo das variações, permitindo que a pesquisa tome forma sobre os principais KPIs a serem utilizados.
 
-Com a **Análise do Processo**, o levantamento e a priorização das causas potenciais aprofundam o exame da ocorrência do problema, culminando no **Estabelecimento do Plano de Ação**, onde soluções são testadas e priorizadas.
+::: {.callout-important title="🛠️ LABORATÓRIO DE ENGENHARIA: Fase 1 (Identificação do Problema)"}
+**Mão na massa:** Chegou a hora de iniciar o seu projeto aplicado!
+Para esta etapa, crie um documento contendo:
 
-As etapas subsequentes à fase de planejamento focam na **Execução**, iniciando com a comunicação e treinamento dos envolvidos. Na **Verificação**, confrontam-se os resultados contra as metas globais e, por fim, a **Padronização** institucionaliza as novas atividades, garantindo que o monitoramento e as ações corretivas sustentem os ganhos de performance a longo prazo.
+1. **Termo de Abertura (TAP):** Nome do projeto, justificativa (por que este problema afeta a operação?), objetivos SMART e restrições.
+2. **Matriz de Responsabilidades (RACI):** Quem executa, aprova, é consultado e informado.
+3. **Definição do *Gap*:** Construa um comparativo gráfico entre o Indicador Real x Planejado. O "problema" do seu projeto será a diferença métrica entre esses dois valores.
+:::
+
+Com a **Análise do Processo**, o levantamento e a priorização das causas potenciais aprofundam o exame da ocorrência, culminando no **Estabelecimento do Plano de Ação**. As etapas subsequentes focam na **Execução** (treinamento e implantação), seguida da **Verificação** dos resultados contra as metas. Por fim, a **Padronização** institucionaliza as novas atividades.
+
+::: {.callout-note title="💻 TECH NOTE: R & DATA SCIENCE"}
+A "Análise do Fenômeno" exige um volume imenso de processamento de dados para separar o "sinal" do "ruído". Ao invés de usar planilhas limitadas, nos próximos capítulos aplicaremos pacotes como o `dplyr` (para manipulação de grandes bases de dados da mina) e o `ggplot2` (para a criação de Gráficos de Pareto automatizados).
+:::
+
+::: {.callout-tip title="📄 MODELO PRÁTICO: Termo de Abertura de Projeto (TAP)" collapse="true"}
+**Instrução:** Utilize a estrutura abaixo para formalizar o início do seu projeto de melhoria.
+
+**1. Cabeçalho do Projeto**
+* **Nome do Projeto:** [Ex: Redução do MTTR da Frota de Caminhões 793D]
+* **Patrocinador (*Sponsor*):** [Quem aprova os recursos do projeto?]
+* **Líder do Projeto:** [Nome do engenheiro ou aluno responsável]
+* **Data de Início:** ___/___/20__ | **Data de Término Estimada:** ___/___/20__
+
+**2. Justificativa (O "Porquê")**
+*Descreva a dor da operação. Qual é o impacto financeiro, de segurança ou de qualidade?*
+> **Exemplo:** A frota apresenta uma disponibilidade física de 82% (target: 88%). Esse *gap* de 6% representa uma perda estimada de 150 mil toneladas movimentadas/mês.
+
+**3. Objetivos SMART (O "O Quê")**
+*A meta deve ser Específica, Mensurável, Alcançável, Realista e Temporal.*
+> **Exemplo:** Reduzir o tempo de fila de carregamento na mina de 12 para 8 minutos (redução de 33%) até o dia 30/11/2026.
+
+**4. Escopo e Fronteiras**
+* **O que ESTÁ no escopo:** [Ex: Otimização da troca de turno dos operadores]
+* **O que NÃO ESTÁ no escopo:** [Ex: Compra de novos equipamentos ou alteração de layout]
+
+**5. Premissas e Restrições**
+* **Premissas (Assumido como verdade):** [Ex: A equipe terá 2 horas semanais para reuniões]
+* **Restrições (Limitações de tempo/custo):** [Ex: O projeto não possui CAPEX aprovado]
+
+**6. Matriz RACI (Macro)**
+* **Executa (R):** [Quem coloca a mão na massa?]
+* **Aprova (A):** [Quem tem a palavra final?]
+* **Consultado (C):** [Quem fornece informações técnicas?]
+* **Informado (I):** [Quem recebe o relatório final?]
+:::
+
+## A Fase de Planejamento (*Plan*) e as Ferramentas de Causa Raiz
+
+A fase de planejamento é o alicerce metodológico do MASP. A engenharia não deve tentar resolver um problema complexo baseado na intuição. Para isso, o método desdobra o problema macro em pedaços menores através da análise de dados e, em seguida, investiga as causas físicas e sistêmicas da falha.
+
+### Análise do Fenômeno: Estratificação e Pareto
+
+O primeiro passo investigativo é a **Análise do Fenômeno**. O objetivo aqui é entender as características do problema (o "Gap" definido no TAP) observando-o sob diferentes ângulos. Isso é feito através da **estratificação de dados**: o desdobramento do problema anual ou mensal em visões menores (por turno, por tipo de falha, por equipamento ou por operador).
+
+A principal ferramenta desta etapa é o **Gráfico de Pareto**. Baseado no princípio 80/20, o gráfico de barras ordenadas demonstra que, na grande maioria dos processos industriais, aproximadamente 80% dos problemas (ou custos) são gerados por apenas 20% das causas.
+
+::: {.callout-note title="📌 DEFINIÇÃO NORMATIVA"}
+O Gráfico de Pareto separa os "poucos vitais" dos "muitos triviais". Na gestão da qualidade, a engenharia deve atacar implacavelmente a barra mais alta do gráfico (o poucos vitais) antes de gastar energia com problemas menores, garantindo o maior Retorno sobre o Investimento (ROI) de tempo e capital da equipe.
+:::
+
+::: {.callout-important title="🛠️ LABORATÓRIO DE ENGENHARIA: Fase 2 (Análise do Fenômeno)"}
+**Mão na massa: (Tarefa 05)**
+1. **Estratificação:** Pegue o seu banco de dados e desdobre o problema macro. Onde estão os picos de perda? (Ex: A maior falha é mecânica, elétrica ou de operação?).
+2. **Gráfico de Pareto:** Construa o gráfico identificando a classe que representa o maior impacto (os 80%).
+3. **Metas Específicas e Ganhos:** Com base no Pareto, defina exatamente quanto do "gap" será reduzido e faça uma estimativa financeira (Ex: "Reduzir 10% da falha X gerará R$ Y de economia").
+:::
+
+### Análise do Processo: Ishikawa, 5 Porquês e Matriz GUT
+
+Uma vez que o Gráfico de Pareto indicou *onde* o problema está concentrado, a fase passa para a **Análise do Processo**, que visa responder *por que* o problema ocorre.
+
+A ferramenta primária é o **Diagrama de Ishikawa** (também conhecido como Diagrama de Espinha de Peixe ou Causa e Efeito). Ele organiza o *Brainstorming* da equipe classificando as possíveis origens do problema em seis categorias clássicas (os 6M):
+1. **Máquina:** Falhas no equipamento ou manutenção inadequada.
+2. **Material:** Insumos fora de especificação ou peças de má qualidade.
+3. **Mão de Obra:** Falta de treinamento, desatenção ou fadiga do operador.
+4. **Método:** Procedimentos operacionais (POPs) falhos ou inexistentes.
+5. **Medida:** Erros de calibração em sensores ou indicadores mal calculados.
+6. **Meio Ambiente:** Condições externas (chuva na mina, poeira, temperatura).
+
+::: {.callout-tip title="💡 INSIGHT OPERACIONAL"}
+Um erro comum é preencher o Ishikawa com "Falta de..." (ex: falta de treinamento, falta de peça). A falta de algo é uma solução ausente, não uma causa. A equipe deve descrever a anomalia real (ex: "Treinamento desatualizado para o modelo 793D" ou "Peça sofreu desgaste abrasivo prematuro").
+:::
+
+Com o diagrama preenchido, a equipe utiliza a **Matriz GUT** (Gravidade, Urgência e Tendência) para pontuar as causas e priorizar qual braço do diagrama será atacado primeiro.
+
+Finalmente, para a causa vencedora da matriz GUT, aplica-se a técnica dos **5 Porquês**. A equipe deve perguntar o motivo do problema sucessivas vezes até ultrapassar os sintomas superficiais e atingir a verdadeira causa raiz (a anomalia sistêmica que, se removida, impede que o problema volte a acontecer).
+
+::: {.callout-important title="🛠️ LABORATÓRIO DE ENGENHARIA: Fase 3 (Análise do Processo)"}
+**Mão na massa: (Tarefa 06)**
+1. **Ishikawa (6M):** Reúna sua equipe e faça um *Brainstorming* para mapear as possíveis causas do problema que venceu no seu Gráfico de Pareto.
+2. **Priorização (GUT):** Utilize a Matriz GUT para decidir, de forma técnica e fria, quais causas mapeadas no Ishikawa serão efetivamente atacadas.
+3. **Os 5 Porquês:** Aplique a técnica para a causa prioritária. Garanta que o plano de ação não foque em sintomas, mas sim na origem do problema.
+:::
+
+::: {.callout-note title="💻 TECH NOTE: R & DATA SCIENCE"}
+Construir Paretos e Diagramas de Causa e Efeito pode ser feito rapidamente no R. O pacote `qcc` (*Quality Control Charts*) possui a função `pareto.chart()` e a função `cause.and.effect()`, permitindo automatizar a geração visual desses gráficos a partir das bases de dados industriais diretamente no seu *script*.
+:::
