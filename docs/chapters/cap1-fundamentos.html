@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; Fundamentos e Conceitos da Qualidade – Sistema de Gestão e Excelência Operacional na Mineração</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/cap2-gestao-qualidade.html" rel="next">
+<link href="../chapters/part1-intro.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-eb767fe655e6f8c8224c258eed8bcfd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Sistema de Gestão Integrado (SGI)</a></li><li class="breadcrumb-item"><a href="../chapters/cap1-fundamentos.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos e Conceitos da Qualidade</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Sistema de Gestão e Excelência Operacional na Mineração</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introdução</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../chapters/part1-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sistema de Gestão Integrado (SGI)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap1-fundamentos.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos e Conceitos da Qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap2-gestao-qualidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">cap2-gestao-qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap3-controle-diretrizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">cap3-controle-diretrizes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap4-ciclo-pdca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Trilogia Juran e Ciclo PDCA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap5-caixa-ferramentas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Caixa de Ferramentas de Gestão</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../chapters/part2-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parte I: Análise e Processos de Mina</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ciclo1-perfuracao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ciclo2-carregamento.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">A Identidade Fundamental do Carregamento</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ciclo3-transporte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">A Jornada de 7 Eventos e o Ciclo de Transporte</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../chapters/part3-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">part3-intro</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/plan-crtl-opera.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Planejamento e Controle Operacional (PCO)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/plan-crtl-manut.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">plan-crtl-manut</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/modelagem_manut.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Indicadores Chave de Desempenho (KPI)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/confiabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">confiabilidade</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apêndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/a-dicionario-dados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Dados</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/b-dicionario-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Dicionário de Indicadores (KPIs)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/c-notacoes-abreviacoes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Notações, Símbolos e Abreviações</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/d-lista-exemplos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Lista de Exemplos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/e-lista-figuras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Lista de Figuras</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/f-lista-tabelas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Lista de Tabelas</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#fundamentos-e-conceitos-da-qualidade" id="toc-fundamentos-e-conceitos-da-qualidade" class="nav-link active" data-scroll-target="#fundamentos-e-conceitos-da-qualidade"><span class="header-section-number">2</span> Fundamentos e Conceitos da Qualidade</a>
+  <ul class="collapse">
+  <li><a href="#evolução-histórica-e-definições" id="toc-evolução-histórica-e-definições" class="nav-link" data-scroll-target="#evolução-histórica-e-definições"><span class="header-section-number">2.1</span> Evolução Histórica e Definições</a>
+  <ul class="collapse">
+  <li><a href="#o-conceito-geral-e-a-subjetividade-da-qualidade" id="toc-o-conceito-geral-e-a-subjetividade-da-qualidade" class="nav-link" data-scroll-target="#o-conceito-geral-e-a-subjetividade-da-qualidade"><span class="header-section-number">2.1.1</span> O Conceito Geral e a Subjetividade da Qualidade</a></li>
+  </ul></li>
+  <li><a href="#a-função-qualidade-total-do-produto-qtp" id="toc-a-função-qualidade-total-do-produto-qtp" class="nav-link" data-scroll-target="#a-função-qualidade-total-do-produto-qtp"><span class="header-section-number">2.2</span> A Função Qualidade Total do Produto (QTP)</a></li>
+  <li><a href="#a-evolução-do-conceito-de-qualidade" id="toc-a-evolução-do-conceito-de-qualidade" class="nav-link" data-scroll-target="#a-evolução-do-conceito-de-qualidade"><span class="header-section-number">2.3</span> A Evolução do Conceito de Qualidade</a></li>
+  <li><a href="#vertentes-no-conceito-de-qualidade" id="toc-vertentes-no-conceito-de-qualidade" class="nav-link" data-scroll-target="#vertentes-no-conceito-de-qualidade"><span class="header-section-number">2.4</span> Vertentes no Conceito de Qualidade</a>
+  <ul class="collapse">
+  <li><a href="#a-qualidade-sob-a-ótica-da-adequação-ao-uso" id="toc-a-qualidade-sob-a-ótica-da-adequação-ao-uso" class="nav-link" data-scroll-target="#a-qualidade-sob-a-ótica-da-adequação-ao-uso"><span class="header-section-number">2.4.1</span> A Qualidade sob a Ótica da Adequação ao Uso</a></li>
+  <li><a href="#a-qualidade-como-conformidade-com-o-projeto" id="toc-a-qualidade-como-conformidade-com-o-projeto" class="nav-link" data-scroll-target="#a-qualidade-como-conformidade-com-o-projeto"><span class="header-section-number">2.4.2</span> A Qualidade como Conformidade com o Projeto</a></li>
+  <li><a href="#a-qualidade-mensurada-pelas-perdas-à-sociedade" id="toc-a-qualidade-mensurada-pelas-perdas-à-sociedade" class="nav-link" data-scroll-target="#a-qualidade-mensurada-pelas-perdas-à-sociedade"><span class="header-section-number">2.4.3</span> A Qualidade Mensurada pelas Perdas à Sociedade</a></li>
+  <li><a href="#a-qualidade-definida-pela-satisfação-plena-do-cliente" id="toc-a-qualidade-definida-pela-satisfação-plena-do-cliente" class="nav-link" data-scroll-target="#a-qualidade-definida-pela-satisfação-plena-do-cliente"><span class="header-section-number">2.4.4</span> A Qualidade Definida pela Satisfação Plena do Cliente</a></li>
+  <li><a href="#aplicação-prática-avaliando-um-cenário-real" id="toc-aplicação-prática-avaliando-um-cenário-real" class="nav-link" data-scroll-target="#aplicação-prática-avaliando-um-cenário-real"><span class="header-section-number">2.4.5</span> Aplicação Prática: Avaliando um Cenário Real</a></li>
+  <li><a href="#a-visão-dos-autores-clássicos-gurus-da-qualidade" id="toc-a-visão-dos-autores-clássicos-gurus-da-qualidade" class="nav-link" data-scroll-target="#a-visão-dos-autores-clássicos-gurus-da-qualidade"><span class="header-section-number">2.4.6</span> A Visão dos Autores Clássicos (Gurus da Qualidade)</a></li>
+  </ul></li>
+  <li><a href="#fixação-de-conceitos" id="toc-fixação-de-conceitos" class="nav-link" data-scroll-target="#fixação-de-conceitos"><span class="header-section-number">2.5</span> Fixação de Conceitos</a>
+  <ul class="collapse">
+  <li><a href="#exemplo-prático-conceito-de-qualidade" id="toc-exemplo-prático-conceito-de-qualidade" class="nav-link" data-scroll-target="#exemplo-prático-conceito-de-qualidade"><span class="header-section-number">2.5.1</span> Exemplo Prático — Conceito de Qualidade</a></li>
+  </ul></li>
+  <li><a href="#por-que-gerenciar-a-qualidade-se-tornou-tão-importante" id="toc-por-que-gerenciar-a-qualidade-se-tornou-tão-importante" class="nav-link" data-scroll-target="#por-que-gerenciar-a-qualidade-se-tornou-tão-importante"><span class="header-section-number">2.6</span> Por que gerenciar a qualidade se tornou tão importante?</a>
+  <ul class="collapse">
+  <li><a href="#as-relações-econômicas-da-qualidade" id="toc-as-relações-econômicas-da-qualidade" class="nav-link" data-scroll-target="#as-relações-econômicas-da-qualidade"><span class="header-section-number">2.6.1</span> As Relações Econômicas da Qualidade</a></li>
+  <li><a href="#o-impacto-sistêmico-o-ciclo-negativo-vs.-positivo" id="toc-o-impacto-sistêmico-o-ciclo-negativo-vs.-positivo" class="nav-link" data-scroll-target="#o-impacto-sistêmico-o-ciclo-negativo-vs.-positivo"><span class="header-section-number">2.6.2</span> O Impacto Sistêmico: O Ciclo Negativo vs.&nbsp;Positivo</a></li>
+  <li><a href="#a-evolução-da-iso-9001-e-o-foco-em-resultados-retomada" id="toc-a-evolução-da-iso-9001-e-o-foco-em-resultados-retomada" class="nav-link" data-scroll-target="#a-evolução-da-iso-9001-e-o-foco-em-resultados-retomada"><span class="header-section-number">2.6.3</span> A Evolução da ISO 9001 e o Foco em Resultados (retomada)</a></li>
+  </ul></li>
+  <li><a href="#da-qualidade-ao-sistema-de-gestão-da-qualidade" id="toc-da-qualidade-ao-sistema-de-gestão-da-qualidade" class="nav-link" data-scroll-target="#da-qualidade-ao-sistema-de-gestão-da-qualidade"><span class="header-section-number">2.7</span> Da Qualidade ao Sistema de Gestão da Qualidade</a>
+  <ul class="collapse">
+  <li><a href="#introdução" id="toc-introdução" class="nav-link" data-scroll-target="#introdução"><span class="header-section-number">2.7.1</span> Introdução</a></li>
+  <li><a href="#definições-normativas-essenciais" id="toc-definições-normativas-essenciais" class="nav-link" data-scroll-target="#definições-normativas-essenciais"><span class="header-section-number">2.7.2</span> Definições normativas essenciais</a></li>
+  <li><a href="#abordagem-por-processos-e-pensamento-sistêmico" id="toc-abordagem-por-processos-e-pensamento-sistêmico" class="nav-link" data-scroll-target="#abordagem-por-processos-e-pensamento-sistêmico"><span class="header-section-number">2.7.3</span> Abordagem por processos e pensamento sistêmico</a></li>
+  <li><a href="#pdca-e-melhoria-contínua" id="toc-pdca-e-melhoria-contínua" class="nav-link" data-scroll-target="#pdca-e-melhoria-contínua"><span class="header-section-number">2.7.4</span> PDCA e melhoria contínua</a></li>
+  </ul></li>
+  <li><a href="#modelagem-da-qualidade-aplicações-práticas-no-setor-mineral" id="toc-modelagem-da-qualidade-aplicações-práticas-no-setor-mineral" class="nav-link" data-scroll-target="#modelagem-da-qualidade-aplicações-práticas-no-setor-mineral"><span class="header-section-number">2.8</span> Modelagem da Qualidade: Aplicações Práticas no Setor Mineral</a>
+  <ul class="collapse">
+  <li><a href="#simulação-de-parâmetros-didáticos" id="toc-simulação-de-parâmetros-didáticos" class="nav-link" data-scroll-target="#simulação-de-parâmetros-didáticos"><span class="header-section-number">2.8.1</span> Simulação de Parâmetros Didáticos</a></li>
+  <li><a href="#estudo-de-caso-i-o-desafio-do-minério-de-alta-sílica" id="toc-estudo-de-caso-i-o-desafio-do-minério-de-alta-sílica" class="nav-link" data-scroll-target="#estudo-de-caso-i-o-desafio-do-minério-de-alta-sílica"><span class="header-section-number">2.8.2</span> Estudo de Caso I — O Desafio do Minério de Alta Sílica</a></li>
+  <li><a href="#estudo-de-caso-ii-acurácia-de-estoque-e-medição-ppcj" id="toc-estudo-de-caso-ii-acurácia-de-estoque-e-medição-ppcj" class="nav-link" data-scroll-target="#estudo-de-caso-ii-acurácia-de-estoque-e-medição-ppcj"><span class="header-section-number">2.8.3</span> Estudo de Caso II — Acurácia de Estoque e Medição (PPCJ)</a></li>
+  <li><a href="#critérios-de-robustez-e-boas-práticas" id="toc-critérios-de-robustez-e-boas-práticas" class="nav-link" data-scroll-target="#critérios-de-robustez-e-boas-práticas"><span class="header-section-number">2.8.4</span> Critérios de Robustez e Boas-Práticas</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Sistema de Gestão Integrado (SGI)</a></li><li class="breadcrumb-item"><a href="../chapters/cap1-fundamentos.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos e Conceitos da Qualidade</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos e Conceitos da Qualidade</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="fundamentos-e-conceitos-da-qualidade" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Fundamentos e Conceitos da Qualidade</h1>
+<section id="evolução-histórica-e-definições" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="evolução-histórica-e-definições"><span class="header-section-number">2.1</span> Evolução Histórica e Definições</h2>
+<section id="o-conceito-geral-e-a-subjetividade-da-qualidade" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="o-conceito-geral-e-a-subjetividade-da-qualidade"><span class="header-section-number">2.1.1</span> O Conceito Geral e a Subjetividade da Qualidade</h3>
+<p>A popularização do termo “Qualidade” é fruto de um esforço histórico para disseminar o conceito, o que não é, por si só, um aspecto negativo. O problema central reside na imprecisão das definições adotadas pelo senso comum, que frequentemente se distanciam do rigor técnico necessário. Para a gestão, isso representa um desafio considerável: é extremamente complexo tentar “redefinir” ou restringir o uso de uma expressão que já se tornou patrimônio do domínio público e que todos acreditam compreender plenamente.</p>
+<p>Em seu sentido genérico, a Qualidade é definida como:</p>
+<blockquote class="blockquote">
+<p>“Propriedade, atributo, característica ou condição das coisas ou das pessoas capaz de distingui-las das outras e de lhes determinar a essência ou a natureza”.</p>
+</blockquote>
+<p>Dessa definição, extraímos três pilares fundamentais:</p>
+<ul>
+<li>A Qualidade é um atributo ou característica inerente ao objeto.</li>
+<li>Ela atua como um fator de distinção ou diferenciação.</li>
+<li>Ela é o que determina a essência ou a natureza do que se avalia.</li>
+</ul>
+<p>A dificuldade de observar a Qualidade de forma isolada ocorre porque ela só se materializa através de seus atributos. Consideremos a afirmação: “Napoleão Bonaparte possuía as qualidades de um grande general”.</p>
+<p>Reflexão sobre o uso do termo: A ambiguidade que cerca a palavra “Qualidade” decorre, em grande parte, da omissão do contexto por parte de quem a utiliza. Tecnicamente, a Qualidade não deveria ser tratada como um adjetivo isolado, mas sim como um termo composto. É indispensável atrelá-la sempre a um substantivo específico, pois as competências que definem a excelência de um estrategista não guardam relação direta com as características exigidas de um líder político. Sem essa delimitação contextual, o atributo perde seu sentido prático na gestão.</p>
+<p>A Qualidade não é algo identificável e observável diretamente de forma isolada; ela é definida por meio de seus atributos. Para ilustrar, considere a frase genérica: “Napoleão Bonaparte tinha todas as qualidades de um grande general”. O que isso significa na prática? Significa que as palavras “qualidades”, “propriedades”, “atributos” ou “características” são intercambiáveis. Ele possuía os atributos de um grande general (como rigor, sabedoria, coragem, sinceridade e benevolência).</p>
+<p>Essas qualidades podem se manifestar de diferentes formas:</p>
+<ul>
+<li><strong>Possuídas:</strong> Podem ser adquiridas, aprendidas e treinadas. (Ex.: Napoleão pode adquirir, aprender e treinar as características de um grande general.)</li>
+<li><strong>Atribuídas e Exigidas:</strong> O ambiente ou a função exige essas características, forçando a sua busca. (Ex.: outras pessoas atribuíram ou reconheceram essas características a Napoleão.)</li>
+<li><strong>Percebidas:</strong> As pessoas notam essas características. (Ex.: as histórias transmitidas produziram ideias sobre a figura do general.)</li>
+</ul>
+<p>O emprego genérico da palavra Qualidade para representar coisas distintas deve-se ao fato de que, geralmente, o usuário da expressão não explica a que aspecto se refere o atributo. A palavra Qualidade deveria ser sempre empregada de forma composta — é preciso explicitar sempre qual o substantivo a que se refere (por exemplo: as qualidades de um grande líder, de um grande político ou de um grande estrategista formam conjuntos de características completamente diferentes).</p>
+<p>A Figura @ref(fig:caracteristicas-general) exemplifica as características de um grande general. Observa-se que uma pessoa pode definir características e associá-las com intensidades ou pesos diferentes do que fariam outras pessoas. Isso representa a propriedade (i) da definição de qualidade. Além disso, estas mesmas pessoas podem atribuir características e pesos diferentes para outro personagem (como Dom Pedro I), a partir da sua percepção, o que representa a propriedade (ii) da definição. Por fim, a propriedade (iii) diz respeito à palavra “general” — que indica hoje o mais alto posto das Forças Armadas de inúmeros países e deriva da palavra latina <em>generalis</em> (em sua forma <em>generale</em>), que significa “geral”, “universal”, “comum a todos”.</p>
+<div id="fig-caracteristicas-general" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-caracteristicas-general-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/fig-características-general.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-caracteristicas-general-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.1: Características de um grande general
+</figcaption>
+</figure>
+</div>
+<p>A qualidade:</p>
+<ul>
+<li>A definição de quais características pode ser subjetiva</li>
+<li>A intensidade da associação das características pode ser subjetiva</li>
+<li>A forma de mensuração e interpretação das características pode ser subjetiva</li>
+<li>A própria característica pode ser subjetiva</li>
+</ul>
+<p>Esta subjetividade divide a compreensão da Qualidade em duas dimensões:</p>
+<ul>
+<li><strong>Dimensão Objetiva (ou primária):</strong> Refere-se à qualidade intrínseca das coisas. É aquilo que faz parte da essência e é inerente ao objeto, independente do ponto de vista humano.</li>
+<li><strong>Dimensão Subjetiva (ou secundária):</strong> Refere-se à percepção que as pessoas têm das características. Está associada à capacidade humana de pensar, sentir e diferenciar.</li>
+</ul>
+<p>Uma bola de neve, por exemplo, pode produzir em nós a ideia de “redonda, fria e branca” (Figura @ref(fig:boladeneve-termometro)). Esta distinção dificulta a verificação de um qualificativo, uma vez que a noção de qualidade indetectável é difícil de combinar com a qualidade de ser uma potência para produzir uma ideia. Suponha que seja atribuída ao Sol a qualidade de causar a subida do mercúrio no termômetro. Um “homem das cavernas” poderia perceber o mercúrio subindo (dimensão subjetiva da visão), mas não teria nenhuma ideia do papel intrínseco que o Sol exerce no equipamento (dimensão objetiva).</p>
+<div id="fig-boladeneve-termometro" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-boladeneve-termometro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/fig-boladeneve-termometro.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boladeneve-termometro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.2: Imagem ilustrativa da Bola de Neve / Termômetro
+</figcaption>
+</figure>
+</div>
+<p>O fato de o termo Qualidade ser de uso comum não é, implicitamente, algo ruim. Na verdade, isso pode decorrer de profundo esforço feito em passado recente para popularizar o termo. A questão é que os conceitos usados para definir Qualidade nem sempre são corretos — ou, melhor, quase sempre são incorretos. Isto sim é um problema, porque não se pode “redefinir” um termo que todo o mundo já conhece, nem restringir seu uso em situações específicas, se ele for de domínio público.</p>
+</section>
+</section>
+<section id="a-função-qualidade-total-do-produto-qtp" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="a-função-qualidade-total-do-produto-qtp"><span class="header-section-number">2.2</span> A Função Qualidade Total do Produto (QTP)</h2>
+<p>A qualidade do produto é então avaliada pelo usuário a partir do conjunto de características. As características de qualidade de um objeto são muitas e de diversos tipos. Para efeito de simplificação é conveniente agrupá-las em parâmetros que permitam representar, de forma viável, as dimensões perceptíveis da qualidade.</p>
+<p>Chamaremos de parâmetros da qualidade de um objeto a uma característica específica ou a um conjunto de características que representam uma dimensão particular da qualidade que é requisitada pela parte interessada.</p>
+<p>A Qualidade Total do objeto seria, portanto, a qualidade experimentada e avaliada pelo consumidor, objetiva e subjetivamente, na etapa de consumo do objeto e em todas as suas dimensões:</p>
+<p><span class="math display">\[
+\mathrm{QTP} = f(Q_i) = \sum_{i=1}^{n} A_i \times Q_i
+\]</span></p>
+<p>onde <span class="math inline">\(A_i\)</span> representa a contribuição de cada característica (<span class="math inline">\(C_i\)</span>) de qualidade para a qualidade do produto. Para cada característica (<span class="math inline">\(C_i\)</span>) do produto existe uma qualidade (<span class="math inline">\(Q_i\)</span>).</p>
+<p>As dimensões e características podem ser detalhadas da seguinte forma:</p>
+<ul>
+<li><strong>Desempenho:</strong> O produto realizará a tarefa pretendida?</li>
+<li><strong>Característica:</strong> O que o produto faz?</li>
+<li><strong>Facilidade ou conveniência de uso (funções secundárias):</strong>
+<ul>
+<li>Características que contribuem para a realização da missão básica.</li>
+<li>Características que elevam a conveniência e facilidade de uso do produto.</li>
+<li>Funções adicionais incorporadas ao produto que oferecem outros serviços ao usuário.</li>
+</ul></li>
+<li><strong>Disponibilidade:</strong> Está pronto para uso?</li>
+<li><strong>Confiabilidade:</strong> Qual a frequência de falhas do produto?</li>
+<li><strong>Durabilidade:</strong> Quanto tempo o produto durará?</li>
+<li><strong>Características de conformação ou ajustamento:</strong> Está conforme a especificação?
+<ul>
+<li>Refere-se ao produto ou lote estar ou não conforme as especificações de projeto.</li>
+<li>Refere-se à medida de desempenho da atividade de produção: atingir as especificações de projeto, produtividade do processo e custo mínimo.</li>
+</ul></li>
+<li><strong>Características dos serviços associados ao produto:</strong>
+<ul>
+<li>Instalação e orientação de uso (facilidade e apoio oferecido).</li>
+<li>Assistência técnica (rapidez, cortesia e competência no atendimento).</li>
+</ul></li>
+<li><strong>Características associadas à interface do produto com o meio:</strong>
+<ul>
+<li>Interface com o usuário: facilidade de operação, manuseio e riscos de acidentes.</li>
+<li>Interface e impacto no meio ambiente: impactos negativos da produção, efeitos no consumo e riscos de rejeitos poluentes.</li>
+</ul></li>
+<li><strong>Características subjetivas associadas ao produto:</strong>
+<ul>
+<li>Estética: O produto é bonito?</li>
+<li>Imagem da marca: reputação da marca no mercado.</li>
+</ul></li>
+<li><strong>Características de custo do ciclo de vida:</strong> custos presentes e futuros implicados na compra do produto.</li>
+</ul>
+<p>Embora essas dimensões permitam uma análise técnica detalhada do objeto, a forma como as organizações priorizam cada uma delas mudou drasticamente ao longo das décadas. Essa mudança reflete a necessidade de alinhar a visão interna da engenharia (focada no produto) com a percepção externa do mercado (focada no uso), dando origem ao que conhecemos como a evolução dos níveis de adequação da qualidade.</p>
+</section>
+<section id="a-evolução-do-conceito-de-qualidade" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="a-evolução-do-conceito-de-qualidade"><span class="header-section-number">2.3</span> A Evolução do Conceito de Qualidade</h2>
+<p>Apesar do interesse das empresas, essa confusão conceitual exige um alinhamento. Diversas contribuições teóricas permitiram um melhor entendimento e ampliaram a aplicação desse conceito a nível empresarial. A evolução do conceito de qualidade é caracterizada por quatro adequações ou níveis:</p>
+<ul>
+<li><strong>Adequação ao Padrão:</strong> Define a qualidade como o produto que faz estritamente aquilo que os projetistas pretenderam que ele fizesse.</li>
+<li><strong>Adequação ao Uso:</strong> Garantia da satisfação das necessidades de mercado — o produto pode ser utilizado da maneira como os clientes querem?</li>
+<li><strong>Adequação ao Custo:</strong> Alta qualidade associada a custo baixo; qualidade entendida como baixa variabilidade no processo.</li>
+<li><strong>Adequação à Necessidade Latente:</strong> Satisfação de necessidades do cliente antes mesmo que ele esteja consciente delas.</li>
+</ul>
+<p>Este conceito moderno de Qualidade exerce uma função dupla: satisfaz os clientes e permite à companhia operar da forma mais eficiente possível. A qualidade é uma área com grande alinhamento entre metas dos clientes e metas da organização.</p>
+<p>Pressupõe-se uma concordância entre produtor e consumidor sobre o conceito. Para o consumidor, a qualidade envolve um equilíbrio entre:</p>
+<ul>
+<li>Qualidade intrínseca do produto.</li>
+<li>Qualidade do atendimento (quantidade ofertada, prazos de entrega, etc.).</li>
+<li>Qualidade dos serviços associados ao uso do produto.</li>
+<li>Custo total.</li>
+</ul>
+<p>A satisfação total do consumidor deve ser alcançada em todos esses fatores. Para transformar essa expectativa (frequentemente subjetiva) em algo gerenciável e auditável, a indústria precisou estabelecer uma linguagem universal, traduzindo o “sentido genérico” em normas técnicas rigorosas.</p>
+</section>
+<section id="vertentes-no-conceito-de-qualidade" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="vertentes-no-conceito-de-qualidade"><span class="header-section-number">2.4</span> Vertentes no Conceito de Qualidade</h2>
+<p>A evolução da qualidade, partindo de uma visão estritamente subjetiva para um modelo de gestão pragmático, pode ser compreendida através de diferentes correntes de pensamento. Para facilitar o entendimento de como as empresas gerenciam essa complexidade, dividiremos o conceito em quatro abordagens centrais. É importante notar que as duas primeiras vertentes são construídas sob a ótica interna da organização (perspectiva da empresa), ao passo que as duas últimas priorizam o olhar externo, focando nas expectativas do mercado e da sociedade.</p>
+<section id="a-qualidade-sob-a-ótica-da-adequação-ao-uso" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="a-qualidade-sob-a-ótica-da-adequação-ao-uso"><span class="header-section-number">2.4.1</span> A Qualidade sob a Ótica da Adequação ao Uso</h3>
+<p>Esta corrente defende que um produto detém qualidade se ele cumpre de forma satisfatória a função para a qual foi adquirido pelo usuário final. Ou seja, a sua excelência é medida pela sua utilidade prática no dia a dia.</p>
+<p>Sob essa ótica, a premissa mercadológica de que “o cliente sempre sabe o que quer” nem sempre é absoluta, uma vez que, em diversos setores industriais, as inovações são empurradas para o mercado, gerando novas necessidades antes mesmo que o consumidor as exija. Ao se distanciar da busca por uma perfeição técnica utópica, essa visão pragmática permite que as empresas incorporem a qualidade em suas estratégias comerciais, tornando-a uma verdadeira ferramenta de competitividade.</p>
+<p>As demandas do mercado são naturalmente dinâmicas; elas se transformam com o tempo e variam de exigências contratuais explícitas a expectativas totalmente implícitas. Além disso, consumidores diferentes possuem rotinas e níveis de exigência distintos para um mesmo item. Por isso, a qualidade não deve ser tratada como um valor engessado ou mero sinônimo de luxo, devendo sempre estar atrelada à disposição financeira do cliente.</p>
+<section id="exemplo-prático-a-relatividade-do-uso" class="level4" data-number="2.4.1.1">
+<h4 data-number="2.4.1.1" class="anchored" data-anchor-id="exemplo-prático-a-relatividade-do-uso"><span class="header-section-number">2.4.1.1</span> Exemplo Prático — A Relatividade do Uso</h4>
+<p>Imagine a venda de bebidas nas arquibancadas de um estádio de futebol. Um copo de plástico descartável atende de forma brilhante à necessidade do evento, combinando facilidade de manuseio, segurança para o público e baixo custo. Contudo, se tentarmos utilizar este exato recipiente para servir um café recém-coado, ele perderá completamente a sua “adequação ao uso”. A alta condutividade térmica do plástico fino e a falta de uma alça causariam grande desconforto, ou até queimaduras, tornando a experiência desastrosa.</p>
+<p>A Figura @ref(fig:copos-descartaveis) ilustra visualmente essa relatividade. Ao analisarmos um copo de vidro com acabamento refinado e um copo de acrílico simples isoladamente, a tendência natural é rotular o vidro como um item de “qualidade superior”. Entretanto, sob a lente da adequação ao uso, a resposta gerencial correta sempre dependerá de questionamentos de contorno: “Quem vai manipular o objeto?” e “Em qual contexto ambiental?”.</p>
+<div id="fig-copos-descartaveis" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-copos-descartaveis-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/fig-copos-descartaveis.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-copos-descartaveis-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.3: Comparativo de Qualidade entre Copos - Adequação ao Uso
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="a-qualidade-como-conformidade-com-o-projeto" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="a-qualidade-como-conformidade-com-o-projeto"><span class="header-section-number">2.4.2</span> A Qualidade como Conformidade com o Projeto</h3>
+<p>Esta segunda abordagem argumenta que a gestão da qualidade só se torna viável, na prática diária de uma operação, se for balizada por métricas e especificações técnicas estabelecidas antes do início da fabricação. Nesse cenário, o nível de excelência é determinado rigorosamente pelo alinhamento exato entre o item entregue e o que foi parametrizado no projeto da engenharia.</p>
+<section id="exemplo-prático-ótica-laboratorial" class="level4" data-number="2.4.2.1">
+<h4 data-number="2.4.2.1" class="anchored" data-anchor-id="exemplo-prático-ótica-laboratorial"><span class="header-section-number">2.4.2.1</span> Exemplo Prático (Ótica laboratorial)</h4>
+<p>Retomando o exemplo do copo descartável, para atestar sua qualidade sob essa ótica laboratorial, a linha de produção precisaria de uma ficha técnica detalhando sua espessura em milímetros, seu diâmetro, a resistência à tração e a composição química exata do polímero utilizado.</p>
+<p>A avaliação neste método costuma ser categórica (binária): ou a peça cumpre as especificações (estando conforme) ou não as cumpre (sendo não conforme). Na rotina industrial, a qualidade do processo é frequentemente avaliada pelo índice percentual de rejeição de um lote.</p>
+<p>Para a série de normas ISO 9000, tanto a conformidade técnica quanto a adequação ao uso são engrenagens de um sistema maior. A diretriz normativa estabelece que a capacidade de satisfazer demandas advém da totalidade das características de uma entidade, utilizando os seguintes pilares:</p>
+<ul>
+<li><strong>Qualidade:</strong> Nível em que um conjunto de características inerentes alcança e preenche os requisitos estipulados.</li>
+<li><strong>Inerente:</strong> Refere-se a algo que faz parte da constituição ou da essência do objeto, uma propriedade que existe de forma permanente.</li>
+<li><strong>Requisito:</strong> Trata-se da necessidade documentada, mandatória ou subentendida. Quando a norma cita “geralmente implícito”, ela aponta para expectativas tão básicas que clientes e fornecedores já as dão como certas.</li>
+</ul>
+</section>
+</section>
+<section id="a-qualidade-mensurada-pelas-perdas-à-sociedade" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="a-qualidade-mensurada-pelas-perdas-à-sociedade"><span class="header-section-number">2.4.3</span> A Qualidade Mensurada pelas Perdas à Sociedade</h3>
+<p>Ao contrário das visões tradicionais focadas no lucro, esta vertente analisa o problema sob a ótica da falha, ou da “não qualidade”. Aqui, a avaliação fundamenta-se no impacto financeiro ou socioambiental que um produto gera para a comunidade após ser comercializado e entrar em uso. Essas perdas são categorizadas em duas frentes principais:</p>
+<ol type="1">
+<li><strong>Perdas por desvios na função principal:</strong> Ocorrem quando a operação básica do produto apresenta ineficiência estrutural. Considere um motor elétrico de grande porte: o cenário ideal é que ele entregue potência contínua sem oscilações de desempenho. Se, durante o regime de trabalho, ele desperdiçar energia sob a forma de vibração excessiva ou ruído ensurdecedor, ele será classificado como um equipamento de baixa qualidade por não cumprir sua função de maneira adequada.</li>
+<li><strong>Perdas por impactos colaterais:</strong> Estão ligadas aos prejuízos externos gerados não pela falha, mas pelo próprio consumo do produto. Utilizando o mesmo maquinário, caso ele apresente vazamentos crônicos de fluidos hidráulicos no solo ou emita níveis atmosféricos tóxicos, ele estará impondo um passivo direto ao meio ambiente e, consequentemente, à sociedade.</li>
+</ol>
+<section id="exemplo-prático-custo-invisível" class="level4" data-number="2.4.3.1">
+<h4 data-number="2.4.3.1" class="anchored" data-anchor-id="exemplo-prático-custo-invisível"><span class="header-section-number">2.4.3.1</span> Exemplo Prático — Custo Invisível</h4>
+<p>O copo de plástico ilustra perfeitamente esses custos invisíveis. Em primeiro lugar, falhas de injeção plástica podem gerar copos rachados que obrigam o usuário a usar dois ou três recipientes para não vazar a bebida, gerando perdas e frustração. Em segundo lugar, o descarte irregular deste material descartável em vias públicas cria um gravíssimo passivo ecológico, cujo custo de limpeza e remediação recairá sobre o sistema público e a sociedade como um todo.</p>
+</section>
+</section>
+<section id="a-qualidade-definida-pela-satisfação-plena-do-cliente" class="level3" data-number="2.4.4">
+<h3 data-number="2.4.4" class="anchored" data-anchor-id="a-qualidade-definida-pela-satisfação-plena-do-cliente"><span class="header-section-number">2.4.4</span> A Qualidade Definida pela Satisfação Plena do Cliente</h3>
+<p>Nesta quarta vertente, a busca por atender expectativas evolui para o conceito macro de “Qualidade Total”. Significa a entrega contínua de soluções que sejam não apenas corretas, mas profundamente confiáveis, seguras, acessíveis e no prazo exato para o usuário.</p>
+<p>Para dominar esse nível estratégico, é imprescindível entender a transição da filosofia de produção voltada estritamente para dentro da fábrica (Product-out) para a filosofia voltada para o mercado (Market-in).</p>
+<ul>
+<li><strong>Na cultura Market-in,</strong> o cliente dita o ritmo e o escopo do negócio. As informações e tendências do mercado alimentam o planejamento produtivo, e a missão corporativa só é dada como cumprida quando o grau de satisfação do usuário atinge a plenitude.</li>
+<li><strong>Na gestão contemporânea,</strong> esse princípio vai além de simplesmente “atender pedidos”. A qualidade passa a englobar a habilidade da empresa em prever movimentos e despertar necessidades adormecidas (latentes) que o próprio consumidor ainda não sabia que possuía.</li>
+</ul>
+<p>Outro pilar revolucionário dessa vertente é a consciência de que toda pessoa dentro da organização possui um cliente. Existem os compradores tradicionais no fim da cadeia (externos), mas internamente, a equipe de britagem é “cliente” da equipe de perfuração e desmonte de mina. Essa rede de “cliente-fornecedor interno” exige que todos os departamentos operem sob o mesmo padrão de excelência, eliminando barreiras entre os setores.</p>
+<p>O rol de partes interessadas se amplia drasticamente, envolvendo colaboradores diretos, parceiros de negócios, investidores, órgãos reguladores e a comunidade local. Sob essa perspectiva, o setor de Controle de Qualidade deixa de ser um departamento isolado e evolui para a gestão da Qualidade Total, onde desde o operador até a Alta Direção tornam-se responsáveis diretos pela garantia da excelência.</p>
+</section>
+<section id="aplicação-prática-avaliando-um-cenário-real" class="level3" data-number="2.4.5">
+<h3 data-number="2.4.5" class="anchored" data-anchor-id="aplicação-prática-avaliando-um-cenário-real"><span class="header-section-number">2.4.5</span> Aplicação Prática: Avaliando um Cenário Real</h3>
+<p>Para tangibilizar essas teorias, vamos utilizar o cenário da prestação de um Serviço de Manutenção Eletromecânica em uma Planta de Mineração.</p>
+<ul>
+<li><strong>Fase 1:</strong> O olhar genérico. A essência deste serviço reside na sua capacidade técnica de sustentar a continuidade da operação. A qualidade, de forma ampla, seria o pacote de atributos que envolve o conhecimento da equipe, o uso de ferramentas precisas e a segurança na execução.</li>
+<li><strong>Fase 2:</strong> O peso da subjetividade. O conceito mudará radicalmente conforme o avaliador interno. O gerente da usina julgará o serviço excelente se a máquina voltar a rodar no menor tempo possível (foco em disponibilidade). Já o engenheiro de segurança do trabalho focará estritamente no cumprimento minucioso dos protocolos de bloqueio de energias perigosas, independentemente da urgência produtiva.</li>
+<li><strong>Fase 3:</strong> Construção da percepção. Uma equipe de manutenção organizada e assertiva incute na operação ideias de “tranquilidade” e “capacidade”. Inversamente, reparos malfeitos que quebram no dia seguinte geram sentimentos de “desperdício” e “risco iminente”.</li>
+<li><strong>Fase 4:</strong> Análise sob as quatro vertentes.
+<ul>
+<li>Adequação ao Uso: A intervenção mecânica garantiu que o britador voltasse a processar minério em sua capacidade nominal sem superaquecer?</li>
+<li>Conformidade: Os torques aplicados nos parafusos e o alinhamento a laser dos mancais respeitaram rigorosamente as tolerâncias descritas no manual do fabricante original?</li>
+<li>Perdas à Sociedade: O óleo lubrificante drenado durante o serviço foi coletado adequadamente ou gerou contaminação no piso e canaletas da usina? A falha exigirá re-trabalho?</li>
+<li>Satisfação Plena: A gerência da mina recebeu o equipamento liberado no horário combinado, pagou um valor justo pelo contrato e teve a absoluta certeza de que não houve acidentes durante a atividade?</li>
+</ul></li>
+<li><strong>Fase 5:</strong> A visão do cliente interno. O operador do britador, assumindo o papel de consumidor interno, deseja receber a máquina em perfeito estado para bater suas metas de turno sem sofrer desgastes operacionais extras.</li>
+<li><strong>Fase 6:</strong> A estratégia corporativa. A contratada de manutenção que compreende a vertente Market-in não se limita a trocar o componente quebrado. Ela utiliza dados históricos e sensores para propor uma manutenção preditiva antes que a quebra ocorra, antecipando uma necessidade e blindando a operação do cliente contra paradas surpresas.</li>
+</ul>
+</section>
+<section id="a-visão-dos-autores-clássicos-gurus-da-qualidade" class="level3" data-number="2.4.6">
+<h3 data-number="2.4.6" class="anchored" data-anchor-id="a-visão-dos-autores-clássicos-gurus-da-qualidade"><span class="header-section-number">2.4.6</span> A Visão dos Autores Clássicos (Gurus da Qualidade)</h3>
+<p>Embora tenhamos consolidado uma definição normativa e prática, é fundamental reconhecer que o conceito de qualidade na literatura técnica apresenta uma vasta variação, onde diferentes autores enfatizam aspectos específicos de acordo com sua escola de pensamento. Essa diversidade teórica não deve ser vista como uma contradição, mas como camadas de entendimento que amadureceram paralelamente à própria profissão de gestor da qualidade.</p>
+<table class="caption-top table">
+<caption>(#tab:gurus) Definições de Qualidade</caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Autor</th>
+<th>Definição</th>
+<th>Ênfase</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Deming</td>
+<td>Grau possível de uniformização e fiabilidade a um custo baixo, adequado às necessidades de mercado</td>
+<td>Conformidade do produto com as suas especificações técnicas; empenho continuado da gestão de topo</td>
+</tr>
+<tr class="even">
+<td>Juran</td>
+<td>Adequação ao uso</td>
+<td>Satisfação da necessidade dos clientes</td>
+</tr>
+<tr class="odd">
+<td>Feigenbaum</td>
+<td>Total das características de um produto ou serviço, referente ao marketing, engenharia, manufatura e manutenção, pelas quais o produto ou serviço, quando em uso, atenderá às expectativas</td>
+<td>Satisfação do cliente; melhoria da comunicação entre departamentos funcionais</td>
+</tr>
+<tr class="even">
+<td>Crosby</td>
+<td>Conformidade com as exigências (requisitos, especificações)</td>
+<td>Produto sem defeitos; envolvimento e motivação dos recursos humanos</td>
+</tr>
+</tbody>
+</table>
+<p>Fonte: Os autores, 2020. (adaptado de Lopes, 2014)</p>
+</section>
+</section>
+<section id="fixação-de-conceitos" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="fixação-de-conceitos"><span class="header-section-number">2.5</span> Fixação de Conceitos</h2>
+<section id="exemplo-prático-conceito-de-qualidade" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="exemplo-prático-conceito-de-qualidade"><span class="header-section-number">2.5.1</span> Exemplo Prático — Conceito de Qualidade</h3>
+<p><strong>PERGUNTA 01 – Por que o conceito de Qualidade depende do contexto a que ele se refere?</strong></p>
+<p><strong>Resposta:</strong> Porque a qualidade não é um atributo isolado, mas uma propriedade que determina a essência de um objeto específico. Como a qualidade não é observável diretamente, ela deve ser sempre empregada de forma composta, explicitando o substantivo a que se refere (por exemplo: qualidade de um líder vs.&nbsp;qualidade de um estrategista), pois as características que distinguem um objeto variam conforme sua finalidade.</p>
+<p><strong>PERGUNTA 02 – Por que o conceito de Qualidade depende do momento em que se vive?</strong></p>
+<p><strong>Resposta:</strong> Porque as necessidades e expectativas do mercado são dinâmicas e evoluem continuamente. O que era considerado um requisito de alta qualidade em um período pode tornar‑se obsoleto no momento seguinte, exigindo que a organização se adapte às novas demandas surgidas no mercado.</p>
+<p><strong>PERGUNTA 03 – Quais são os dois aspectos necessários para uma adequada conceituação de Qualidade num contexto específico?</strong></p>
+<p><strong>Resposta:</strong> Para conceituar adequadamente a qualidade, é necessário: (1) explicitar o substantivo (objeto) a que o termo se refere; e (2) definir os atributos e características que permitem distinguir esse objeto dos demais e determinar sua natureza particular.</p>
+<p><strong>PERGUNTA 04 – Quais são as etapas necessárias para atingir a satisfação do cliente?</strong></p>
+<p><strong>Resposta:</strong> A satisfação total é alcançada pelo equilíbrio entre quatro fatores fundamentais:</p>
+<ul>
+<li>Qualidade intrínseca do produto;</li>
+<li>Qualidade do atendimento (quantidade ofertada, prazos de entrega, etc.);</li>
+<li>Qualidade dos serviços associados ao uso do produto;</li>
+<li>Custo total.</li>
+</ul>
+<p><strong>PERGUNTA 05 – Refaça as perguntas utilizando um exemplo de produto/serviço (Exemplo: Ferramenta Elétrica)</strong></p>
+<p><strong>Resposta (Exemplo: Ferramenta Elétrica):</strong></p>
+<ul>
+<li><strong>Contexto:</strong> A qualidade da ferramenta para um hobbista (facilidade de uso) difere da qualidade para um profissional (durabilidade sob uso contínuo).</li>
+<li><strong>Momento:</strong> Uma ferramenta sem bateria de lítio hoje pode não atender ao requisito de conveniência que o mercado atual exige.</li>
+<li><strong>Aspectos:</strong> Definir como “Parafusadeira Profissional” (substantivo) e listar “Torque” e “Autonomia” (características).</li>
+<li><strong>Satisfação:</strong> O profissional estará satisfeito se a ferramenta tiver potência (intrínseca), for entregue na obra no prazo (atendimento), possuir assistência técnica rápida (serviços) e custo operacional baixo (custo total).</li>
+</ul>
+</section>
+</section>
+<section id="por-que-gerenciar-a-qualidade-se-tornou-tão-importante" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="por-que-gerenciar-a-qualidade-se-tornou-tão-importante"><span class="header-section-number">2.6</span> Por que gerenciar a qualidade se tornou tão importante?</h2>
+<p>Em um mercado dinâmico e altamente competitivo, as necessidades dos clientes evoluem constantemente. Nesse cenário, gerenciar a qualidade deixou de ser apenas uma métrica de chão de fábrica e tornou-se um imperativo de sobrevivência e um componente estratégico fundamental. Para isso, a Gestão da Qualidade precisa ter um impacto demonstrável sobre a base de negócios, estando intimamente associada a medidas-chave do desempenho empresarial, como o custo, a participação no mercado e a rentabilidade.</p>
+<p>A capacidade de projetar produtos que incorporem características e atributos otimizados para atender aos desejos dos usuários sempre foi uma prioridade dominante no meio industrial. O desenvolvimento de um produto para o mercado geralmente segue uma progressão estratégica de agregação de valor:</p>
+<ul>
+<li>A empresa investe fortemente na marca ou nome fantasia, pois se a marca é conhecida, os produtos e serviços transmitem maior confiança e parecem menos arriscados para o consumidor.</li>
+<li>Há uma grande preocupação com o preço, que define a faixa de mercado pretendida. Ao informar aos consumidores as diferenças de qualidade de seus produtos (o chamado efeito contraste), torna-se possível justificar a cobrança de preços mais altos, aumentando o faturamento.</li>
+<li>A empresa investe em propaganda para sinalizar que o produto apresenta as características adequadas, buscando aumentar sua participação no mercado.</li>
+<li>O objetivo central é que o mercado perceba no produto um conjunto de características motivadoras para a aquisição. Desde que o projeto seja bem desenvolvido, espera-se que ele seja fabricado exatamente de acordo com as especificações.</li>
+</ul>
+<p>Portanto, adicionar ou agregar valor significa fornecer benefícios adicionais ao produto ou serviço sem que isso afete os custos envolvidos na sua aquisição.</p>
+<p><span class="math display">\[\mathrm{Valor\ Agregado} = \mathrm{Benefícios} - \mathrm{Custos}\]</span></p>
+<p>A partir dessa percepção de valor pelo cliente, definimos a escala evolutiva da competitividade das organizações:</p>
+<ul>
+<li><strong>Competitividade:</strong> É o ato de ter valor agregado aos seus produtos. Significa que o produto atende aos requisitos qualificadores — o nível mínimo de desempenho exigido pelos clientes para que a empresa possa sequer disputar aquele mercado com os concorrentes.</li>
+<li><strong>Vantagem Competitiva:</strong> É gerar mais valor que os seus concorrentes. Ocorre quando o produto possui critérios ganhadores de pedido, que são os aspectos que contribuem direta e significativamente para a venda.</li>
+<li><strong>Vantagem Competitiva Sustentável:</strong> É gerar mais valor que seus concorrentes por um longo período de tempo. Exige possuir aspectos, características ou atributos de qualidade difíceis de serem copiados.</li>
+</ul>
+<section id="as-relações-econômicas-da-qualidade" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="as-relações-econômicas-da-qualidade"><span class="header-section-number">2.6.1</span> As Relações Econômicas da Qualidade</h3>
+<p>Para compreender o impacto da qualidade na base de negócios, é necessário analisar como ela se relaciona com as principais variáveis econômicas de uma organização:</p>
+<ul>
+<li><strong>Relação Qualidade vs.&nbsp;Preço:</strong> É considerada uma relação fraca e sem direção clara. Existe uma força negativa ditada pela Lei da Demanda e uma força positiva, onde o preço mais alto atua como um “símbolo” de qualidade extra percebida pelo consumidor. A Figura @ref(fig:relacao-qualidade-preco) ilustra essa dinâmica.</li>
+</ul>
+<div id="fig-relacao-qualidade-preco" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-relacao-qualidade-preco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/fig-relacao-qualidade-preco.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-relacao-qualidade-preco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.4: Relação Qualidade x Preço
+</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Relação Qualidade vs.&nbsp;Propaganda:</strong> Também apresenta uma relação fraca e sem direção clara. O investimento em publicidade é útil para sinalizar menor risco e criar contraste frente à concorrência, mas eleva diretamente os custos operacionais na tentativa de alavancar o volume de vendas. Veja a Figura @ref(fig:relacao-qualidade-propaganda).</li>
+</ul>
+<div id="fig-relacao-qualidade-propaganda" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-relacao-qualidade-propaganda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/fig-relacao-qualidade-propaganda.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-relacao-qualidade-propaganda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.5: Relação Qualidade x Propaganda
+</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Relação Qualidade vs.&nbsp;Participação no Mercado:</strong> Apresenta uma relação média e com direção mais clara, dependendo profundamente da dimensão da qualidade explorada. A Figura @ref(fig:relacao-qualidade-participacao) ilustra esse ponto.</li>
+</ul>
+<div id="fig-relacao-qualidade-participacao" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-relacao-qualidade-participacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/fig-relacao-qualidade-participacao.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-relacao-qualidade-participacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.6: Relação Qualidade x Participação no Mercado
+</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Relação Qualidade vs.&nbsp;Custo e Produtividade:</strong> Esta é a relação forte e de direção inquestionável. A qualidade está diretamente ligada à redução da variabilidade e das falhas operacionais.</li>
+</ul>
+</section>
+<section id="o-impacto-sistêmico-o-ciclo-negativo-vs.-positivo" class="level3" data-number="2.6.2">
+<h3 data-number="2.6.2" class="anchored" data-anchor-id="o-impacto-sistêmico-o-ciclo-negativo-vs.-positivo"><span class="header-section-number">2.6.2</span> O Impacto Sistêmico: O Ciclo Negativo vs.&nbsp;Positivo</h3>
+<p>Para ilustrar por que o gerenciamento se tornou vital, podemos contrastar os impactos sistêmicos de uma operação a partir do nível de qualidade alcançado:</p>
+<ul>
+<li><strong>Ciclo Negativo:</strong> Uma qualidade ruim gera desperdícios imediatos e baixa eficiência produtiva, elevando custos e prejudicando faturamento e reputação.</li>
+<li><strong>Ciclo Positivo:</strong> Foco na qualidade reduz desperdícios, aumenta eficiência, melhora percepção de valor e alavanca faturamento e geração de caixa.</li>
+</ul>
+</section>
+<section id="a-evolução-da-iso-9001-e-o-foco-em-resultados-retomada" class="level3" data-number="2.6.3">
+<h3 data-number="2.6.3" class="anchored" data-anchor-id="a-evolução-da-iso-9001-e-o-foco-em-resultados-retomada"><span class="header-section-number">2.6.3</span> A Evolução da ISO 9001 e o Foco em Resultados (retomada)</h3>
+<p>Foi justamente para induzir as organizações a abandonarem o ciclo negativo e adotarem o ciclo positivo que as normas internacionais de gestão precisaram evoluir e se adaptar ao mundo corporativo moderno. A série ISO 9001 passou por transformações cruciais em sua história e hoje enfatiza evidências, liderança, melhoria contínua e gestão de riscos.</p>
+</section>
+</section>
+<section id="da-qualidade-ao-sistema-de-gestão-da-qualidade" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="da-qualidade-ao-sistema-de-gestão-da-qualidade"><span class="header-section-number">2.7</span> Da Qualidade ao Sistema de Gestão da Qualidade</h2>
+<section id="introdução" class="level3" data-number="2.7.1">
+<h3 data-number="2.7.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">2.7.1</span> Introdução</h3>
+<p>A transformação do conceito de qualidade em um Sistema de Gestão da Qualidade (SGQ) representa a passagem de ideias e práticas isoladas para um conjunto integrado de políticas, processos e responsabilidades que permitem alcançar objetivos de qualidade de forma repetível e auditável. As normas (por exemplo, a família ISO 9000/9001) fornecem vocabulário e princípios que padronizam essa transição.</p>
+</section>
+<section id="definições-normativas-essenciais" class="level3" data-number="2.7.2">
+<h3 data-number="2.7.2" class="anchored" data-anchor-id="definições-normativas-essenciais"><span class="header-section-number">2.7.2</span> Definições normativas essenciais</h3>
+<ul>
+<li><strong>Objeto:</strong> Entidade que pode ser produto, serviço, processo ou recurso, objeto de análise ou gestão.</li>
+<li><strong>Característica:</strong> Atributo mensurável ou observável do objeto que contribui para sua aptidão ao uso.</li>
+<li><strong>Requisito:</strong> Necessidade ou expectativa estabelecida, geralmente documentada, que deve ser atendida pelo objeto.</li>
+<li><strong>Processo:</strong> Conjunto de atividades inter-relacionadas ou interativas que transformam entradas em saídas.</li>
+<li><strong>Sistema de Gestão:</strong> Conjunto de elementos inter-relacionados ou interativos para estabelecer políticas e objetivos e para atingir esses objetivos.</li>
+<li><strong>Melhoria contínua:</strong> Ação recorrente para aumentar a capacidade de atender requisitos e elevar o desempenho.</li>
+<li><strong>Parte interessada (stakeholder):</strong> Pessoa ou organização que pode afetar, ser afetada ou perceber-se afetada por uma decisão ou atividade.</li>
+<li><strong>Risco e oportunidade:</strong> Incertidões (positivas ou negativas) que afetam a capacidade do sistema de gestão em alcançar resultados previstos.</li>
+<li><strong>Evidência objetiva:</strong> Registros ou fatos verificáveis que demonstram conformidade ou desempenho.</li>
+</ul>
+</section>
+<section id="abordagem-por-processos-e-pensamento-sistêmico" class="level3" data-number="2.7.3">
+<h3 data-number="2.7.3" class="anchored" data-anchor-id="abordagem-por-processos-e-pensamento-sistêmico"><span class="header-section-number">2.7.3</span> Abordagem por processos e pensamento sistêmico</h3>
+<p>Um SGQ eficaz organiza a atividade da organização como um conjunto de processos conectados. A abordagem por processos exige identificar entradas, saídas, responsáveis, recursos, critérios de desempenho e métodos de monitoramento. O pensamento sistêmico integra esses processos com foco em objetivos estratégicos, coerência entre áreas e gestão de riscos.</p>
+<section id="elementos-chave-da-abordagem-por-processos" class="level4" data-number="2.7.3.1">
+<h4 data-number="2.7.3.1" class="anchored" data-anchor-id="elementos-chave-da-abordagem-por-processos"><span class="header-section-number">2.7.3.1</span> Elementos-chave da abordagem por processos</h4>
+<ul>
+<li>Mapeamento dos processos críticos.</li>
+<li>Definição de indicadores e metas para cada processo.</li>
+<li>Estabelecimento de interfaces entre processos (responsabilidades e transferências de informação/insumos).</li>
+<li>Controle de mudanças e gestão de riscos nas mudanças de processo.</li>
+</ul>
+</section>
+</section>
+<section id="pdca-e-melhoria-contínua" class="level3" data-number="2.7.4">
+<h3 data-number="2.7.4" class="anchored" data-anchor-id="pdca-e-melhoria-contínua"><span class="header-section-number">2.7.4</span> PDCA e melhoria contínua</h3>
+<p>O ciclo PDCA (Plan-Do-Check-Act) é uma ferramenta prática para estruturar a melhoria contínua dentro do SGQ:</p>
+<ul>
+<li><strong>Plan (Planejar):</strong> Definir objetivos, processos e recursos necessários.</li>
+<li><strong>Do (Executar):</strong> Implementar os processos conforme planejado.</li>
+<li><strong>Check (Verificar):</strong> Monitorar e medir os processos e produtos contra políticas, objetivos e requisitos.</li>
+<li><strong>Act (Agir):</strong> Tomar ações para melhorar continuamente o desempenho dos processos.</li>
+</ul>
+<p>Aplicar PDCA em todos os níveis — da alta direção às operações — garante ciclos de aprendizado e ajuste contínuo.</p>
+</section>
+</section>
+<section id="modelagem-da-qualidade-aplicações-práticas-no-setor-mineral" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="modelagem-da-qualidade-aplicações-práticas-no-setor-mineral"><span class="header-section-number">2.8</span> Modelagem da Qualidade: Aplicações Práticas no Setor Mineral</h2>
+<section id="simulação-de-parâmetros-didáticos" class="level3" data-number="2.8.1">
+<h3 data-number="2.8.1" class="anchored" data-anchor-id="simulação-de-parâmetros-didáticos"><span class="header-section-number">2.8.1</span> Simulação de Parâmetros Didáticos</h3>
+<section id="exemplo-prático-minério-de-ferro-tipo-sinter-feed" class="level4" data-number="2.8.1.1">
+<h4 data-number="2.8.1.1" class="anchored" data-anchor-id="exemplo-prático-minério-de-ferro-tipo-sinter-feed"><span class="header-section-number">2.8.1.1</span> Exemplo Prático — Minério de Ferro tipo Sinter Feed</h4>
+<p>Neste cenário, a siderúrgica (usuário) avalia a qualidade do minério baseada em três parâmetros principais: o Teor de Ferro (<span class="math inline">\(Q_1\)</span>), o Teor de Sílica (<span class="math inline">\(Q_2\)</span>) e a Granulometria (<span class="math inline">\(Q_3\)</span>).</p>
+<p><strong>Atribuição de Pesos (<span class="math inline">\(A_i\)</span>):</strong></p>
+<ul>
+<li><span class="math inline">\(A_1 = 0{,}6\)</span> (60%): Teor de ferro.</li>
+<li><span class="math inline">\(A_2 = 0{,}3\)</span> (30%): Teor de sílica.</li>
+<li><span class="math inline">\(A_3 = 0{,}1\)</span> (10%): Granulometria.</li>
+</ul>
+<p><strong>Avaliação da Qualidade (<span class="math inline">\(Q_i\)</span>):</strong></p>
+<ul>
+<li><span class="math inline">\(Q_1 = 9{,}0\)</span> (Excelente).</li>
+<li><span class="math inline">\(Q_2 = 5{,}0\)</span> (Ruim/Acima do esperado).</li>
+<li><span class="math inline">\(Q_3 = 8{,}0\)</span> (Aceitável).</li>
+</ul>
+<p><strong>Cálculo da Função Qualidade:</strong></p>
+<p><span class="math display">\[
+\mathrm{QTP} = A_1Q_1 + A_2Q_2 + A_3Q_3
+\]</span></p>
+<p>Substituindo:</p>
+<p><span class="math display">\[
+\mathrm{QTP} = (0{,}6 \times 9{,}0) + (0{,}3 \times 5{,}0) + (0{,}1 \times 8{,}0) = 7{,}7
+\]</span></p>
+<p><strong>Análise do Resultado:</strong></p>
+<p>Apesar do elevado teor de ferro, o alto conteúdo de sílica (peso significativo) reduz a nota final, indicando prioridade de melhoria no controle de sílica.</p>
+</section>
+<section id="exemplo-prático-serviço-de-escoamento-ferroviário" class="level4" data-number="2.8.1.2">
+<h4 data-number="2.8.1.2" class="anchored" data-anchor-id="exemplo-prático-serviço-de-escoamento-ferroviário"><span class="header-section-number">2.8.1.2</span> Exemplo Prático — Serviço de Escoamento Ferroviário</h4>
+<p>Neste cenário, o usuário (o terminal portuário) avalia a qualidade do serviço prestado pela ferrovia através de três parâmetros.</p>
+<p><strong>Atribuição de Pesos (<span class="math inline">\(A_i\)</span>):</strong></p>
+<ul>
+<li><span class="math inline">\(A_1=0{,}5\)</span> (Pontualidade).</li>
+<li><span class="math inline">\(A_2=0{,}3\)</span> (Integridade da carga).</li>
+<li><span class="math inline">\(A_3=0{,}2\)</span> (Disponibilidade de vagões).</li>
+</ul>
+<p><strong>Avaliação da Qualidade (<span class="math inline">\(Q_i\)</span>):</strong></p>
+<ul>
+<li><span class="math inline">\(Q_1=6{,}0\)</span> (Atrasos frequentes).</li>
+<li><span class="math inline">\(Q_2=10{,}0\)</span> (Nenhuma contaminação).</li>
+<li><span class="math inline">\(Q_3=9{,}0\)</span> (Boa oferta).</li>
+</ul>
+<p><strong>Cálculo da Função Qualidade:</strong></p>
+<p><span class="math display">\[
+\mathrm{QTP} = (0{,}5 \times 6{,}0) + (0{,}3 \times 10{,}0) + (0{,}2 \times 9{,}0) = 7{,}8
+\]</span></p>
+<p><strong>Análise do Resultado:</strong></p>
+<p>A pontualidade (maior peso) puxa a nota para baixo; foco de melhoria deve priorizar planejamento e redução de atrasos.</p>
+</section>
+<section id="exemplo-prático-qualidade-pelo-atingimento-de-metas-gestão" class="level4" data-number="2.8.1.3">
+<h4 data-number="2.8.1.3" class="anchored" data-anchor-id="exemplo-prático-qualidade-pelo-atingimento-de-metas-gestão"><span class="header-section-number">2.8.1.3</span> Exemplo Prático — Qualidade pelo Atingimento de Metas (Gestão)</h4>
+<p><strong>Atribuição de Pesos (<span class="math inline">\(A_i\)</span>):</strong></p>
+<ul>
+<li><span class="math inline">\(A_1=0{,}4\)</span> (Volume).</li>
+<li><span class="math inline">\(A_2=0{,}4\)</span> (Custo operacional).</li>
+<li><span class="math inline">\(A_3=0{,}2\)</span> (Treinamento).</li>
+</ul>
+<p><strong>Avaliação da Qualidade (<span class="math inline">\(Q_i\)</span>):</strong></p>
+<ul>
+<li><span class="math inline">\(Q_1=10{,}0\)</span> (Superou meta).</li>
+<li><span class="math inline">\(Q_2=4{,}0\)</span> (Custo muito superior).</li>
+<li><span class="math inline">\(Q_3=8{,}5\)</span> (Treinamento ok).</li>
+</ul>
+<p><strong>Cálculo da Função Qualidade:</strong></p>
+<p><span class="math display">\[
+\mathrm{QTP}=(0{,}4 \times 10{,}0) + (0{,}4 \times 4{,}0) + (0{,}2 \times 8{,}5) = 7{,}3
+\]</span></p>
+<p><strong>Análise do Resultado:</strong></p>
+<p>Volume excelente, mas falha financeira compromete a qualidade global; priorizar controle de custos.</p>
+</section>
+</section>
+<section id="estudo-de-caso-i-o-desafio-do-minério-de-alta-sílica" class="level3" data-number="2.8.2">
+<h3 data-number="2.8.2" class="anchored" data-anchor-id="estudo-de-caso-i-o-desafio-do-minério-de-alta-sílica"><span class="header-section-number">2.8.2</span> Estudo de Caso I — O Desafio do Minério de Alta Sílica</h3>
+<p><strong>Objeto:</strong> Produto B, minério de alto teor de sílica com forte abrasividade e baixa série histórica.</p>
+<p><strong>Passo 1: Definição dos Parâmetros da Qualidade (<span class="math inline">\(Q_i\)</span>):</strong></p>
+<ul>
+<li><span class="math inline">\(Q_1\)</span> (Teor de Ferro - Fe): Indicador de qualidade química.</li>
+<li><span class="math inline">\(Q_2\)</span> (Teor de Sílica - SiO2): Parâmetro crítico de controle.</li>
+<li><span class="math inline">\(Q_3\)</span> (Volume de Produção - Massa): Capacidade de entrega.</li>
+<li><span class="math inline">\(Q_4\)</span> (Eficiência do Processo - Carga Circulante): Saúde do sistema de britagem.</li>
+<li><span class="math inline">\(Q_5\)</span> (Qualidade Física - Fração +19 mm): Conformidade granulométrica.</li>
+</ul>
+<p><strong>Passo 2: Ponderação Estratégica (<span class="math inline">\(A_i\)</span>):</strong></p>
+<ul>
+<li><span class="math inline">\(A_1=0{,}30\)</span> (30%): Ferro é a missão básica.</li>
+<li><span class="math inline">\(A_2=0{,}25\)</span> (25%): Sílica é o maior risco.</li>
+<li><span class="math inline">\(A_3=0{,}20\)</span> (20%): Volume é requisito contratual.</li>
+<li><span class="math inline">\(A_4=0{,}15\)</span> (15%): Carga circulante indica estabilidade.</li>
+<li><span class="math inline">\(A_5=0{,}10\)</span> (10%): Granulometria teve menor peso.</li>
+</ul>
+<p><strong>Passo 3: Atribuição de Notas (<span class="math inline">\(Q_i\)</span>):</strong></p>
+<ul>
+<li><span class="math inline">\(Q_1=9{,}0\)</span> (Excelente).</li>
+<li><span class="math inline">\(Q_2=7{,}0\)</span> (Satisfatório).</li>
+<li><span class="math inline">\(Q_3=9{,}9\)</span> (Aderência quase total).</li>
+<li><span class="math inline">\(Q_4=4{,}0\)</span> (Crítico).</li>
+<li><span class="math inline">\(Q_5=1{,}0\)</span> (Falha no requisito físico).</li>
+</ul>
+<p><strong>Passo 4: Processamento Matemático:</strong></p>
+<p><span class="math display">\[
+\mathrm{QTP}=(0{,}30 \times 9{,}0) + (0{,}25 \times 7{,}0) + (0{,}20 \times 9{,}9) + (0{,}15 \times 4{,}0) + (0{,}10 \times 1{,}0) = 7{,}13
+\]</span></p>
+<p><strong>Passo 5: Diagnóstico Gerencial:</strong></p>
+<p>Sucesso químico e de volume, mas fragilidade no processo e na qualidade física. Ações: ajuste de peneiras e setpoints dos britadores.</p>
+</section>
+<section id="estudo-de-caso-ii-acurácia-de-estoque-e-medição-ppcj" class="level3" data-number="2.8.3">
+<h3 data-number="2.8.3" class="anchored" data-anchor-id="estudo-de-caso-ii-acurácia-de-estoque-e-medição-ppcj"><span class="header-section-number">2.8.3</span> Estudo de Caso II — Acurácia de Estoque e Medição (PPCJ)</h3>
+<p><strong>Objeto:</strong> Processo de produção e estocagem do produto PPCJ.</p>
+<p><strong>Passo 1: Definição dos Parâmetros (<span class="math inline">\(Q_i\)</span>):</strong></p>
+<ul>
+<li><span class="math inline">\(Q_1\)</span> (Teor de Fe).</li>
+<li><span class="math inline">\(Q_2\)</span> (Conformidade de Estoque).</li>
+<li><span class="math inline">\(Q_3\)</span> (Aderência à Produção).</li>
+<li><span class="math inline">\(Q_4\)</span> (Confiabilidade de Medição).</li>
+<li><span class="math inline">\(Q_5\)</span> (Controle de Umidade).</li>
+</ul>
+<p><strong>Passo 2: Ponderação Estratégica (<span class="math inline">\(A_i\)</span>):</strong></p>
+<ul>
+<li><span class="math inline">\(A_1=0{,}20\)</span> (Teor).</li>
+<li><span class="math inline">\(A_2=0{,}35\)</span> (Auditoria).</li>
+<li><span class="math inline">\(A_3=0{,}15\)</span> (Plano).</li>
+<li><span class="math inline">\(A_4=0{,}20\)</span> (Poder de Atuação).</li>
+<li><span class="math inline">\(A_5=0{,}10\)</span> (Suporte).</li>
+</ul>
+<p><strong>Passo 3: Atribuição de Notas (<span class="math inline">\(Q_i\)</span>):</strong></p>
+<ul>
+<li><span class="math inline">\(Q_1=9{,}5\)</span> (Excelente).</li>
+<li><span class="math inline">\(Q_2=3{,}0\)</span> (Crítico).</li>
+<li><span class="math inline">\(Q_3=8{,}0\)</span> (Bom).</li>
+<li><span class="math inline">\(Q_4=4{,}0\)</span> (Crítico).</li>
+<li><span class="math inline">\(Q_5=6{,}0\)</span> (Regular).</li>
+</ul>
+<p><strong>Passo 4: Processamento Matemático:</strong></p>
+<p><span class="math display">\[
+\mathrm{QTP}=(0{,}20 \times 9{,}5) + (0{,}35 \times 3{,}0) + (0{,}15 \times 8{,}0) + (0{,}20 \times 4{,}0) + (0{,}10 \times 6{,}0) = 5{,}55
+\]</span></p>
+<p><strong>Passo 5: Diagnóstico:</strong></p>
+<p>Sistema sob estresse. O foco imediato deve ser a revisão da periodicidade de calibração e a atualização da densidade das pilhas.</p>
+</section>
+<section id="critérios-de-robustez-e-boas-práticas" class="level3" data-number="2.8.4">
+<h3 data-number="2.8.4" class="anchored" data-anchor-id="critérios-de-robustez-e-boas-práticas"><span class="header-section-number">2.8.4</span> Critérios de Robustez e Boas-Práticas</h3>
+<ul>
+<li>Utilize número moderado de parâmetros (3–6) para equilibrar granularidade e simplicidade.</li>
+<li>Inclua parâmetros contratuais/legais como obrigatórios.</li>
+<li>Evite diluição de peso ao adicionar muitas características.</li>
+<li>Realize análises de sensibilidade.</li>
+</ul>
+<table class="caption-top table">
+<caption>(#tab:ppcj-case) Avaliação da Qualidade Total (QTP) – Caso PPCJ</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parâmetro (<span class="math inline">\(Q_i\)</span>)</th>
+<th>Descrição Técnica</th>
+<th>Peso (<span class="math inline">\(A_i\)</span>)</th>
+<th>Nota (<span class="math inline">\(Q_i\)</span>)</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(Q_1\)</span>: Teor de Ferro</td>
+<td>Característica química</td>
+<td>0,20</td>
+<td>9,5</td>
+<td>Média 49,17%</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Q_2\)</span>: Teor de Sílica</td>
+<td>Controle de abrasividade</td>
+<td>0,20</td>
+<td>6,5</td>
+<td>Média 26,12%</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Q_3\)</span>: Acurácia de Estoque</td>
+<td>Conformidade físico vs contábil</td>
+<td>0,25</td>
+<td>3,0</td>
+<td>Desvios frequentes</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Q_4\)</span>: Calibração</td>
+<td>Periodicidade de calibração</td>
+<td>0,15</td>
+<td>4,0</td>
+<td>Prioridade GUT alta</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Q_5\)</span>: Granulometria</td>
+<td>Fração +19 mm</td>
+<td>0,10</td>
+<td>1,0</td>
+<td>Meta 4,0% não atingida</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Q_6\)</span>: Pluviosidade</td>
+<td>Impacto ambiental</td>
+<td>0,10</td>
+<td>8,0</td>
+<td>Baixo poder de atuação</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script src="scripts/set-toc-expanded.js"></script>
+
+<script src="scripts/caption-format.js"></script>
+
+<script src="scripts/toc-expand-on-click.js"></script>
+
+<script src="scripts/set-toc-expanded.js"></script>
+
+<script src="scripts/caption-format.js"></script>
+
+<script src="scripts/toc-expand-on-click.js"></script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/part1-intro.html" class="pagination-link" aria-label="Sistema de Gestão Integrado (SGI)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Sistema de Gestão Integrado (SGI)</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/cap2-gestao-qualidade.html" class="pagination-link" aria-label="cap2-gestao-qualidade">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">cap2-gestao-qualidade</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
