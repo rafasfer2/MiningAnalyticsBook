@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,40 +105,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Procurar"
   }
 }</script>
-<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
 
-<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles/styles.css">
 </head>
@@ -321,6 +323,11 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#fases-e-atividades-do-ciclo-pdca" id="toc-fases-e-atividades-do-ciclo-pdca" class="nav-link" data-scroll-target="#fases-e-atividades-do-ciclo-pdca"><span class="header-section-number">4.2.1</span> Fases e Atividades do Ciclo PDCA</a></li>
   </ul></li>
+  <li><a href="#a-fase-de-planejamento-plan-e-as-ferramentas-de-causa-raiz" id="toc-a-fase-de-planejamento-plan-e-as-ferramentas-de-causa-raiz" class="nav-link" data-scroll-target="#a-fase-de-planejamento-plan-e-as-ferramentas-de-causa-raiz"><span class="header-section-number">4.3</span> A Fase de Planejamento (<em>Plan</em>) e as Ferramentas de Causa Raiz</a>
+  <ul class="collapse">
+  <li><a href="#análise-do-fenômeno-estratificação-e-pareto" id="toc-análise-do-fenômeno-estratificação-e-pareto" class="nav-link" data-scroll-target="#análise-do-fenômeno-estratificação-e-pareto"><span class="header-section-number">4.3.1</span> Análise do Fenômeno: Estratificação e Pareto</a></li>
+  <li><a href="#análise-do-processo-ishikawa-5-porquês-e-matriz-gut" id="toc-análise-do-processo-ishikawa-5-porquês-e-matriz-gut" class="nav-link" data-scroll-target="#análise-do-processo-ishikawa-5-porquês-e-matriz-gut"><span class="header-section-number">4.3.2</span> Análise do Processo: Ishikawa, 5 Porquês e Matriz GUT</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -329,7 +336,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Sistema de Gestão Integrado (SGI)</a></li><li class="breadcrumb-item"><a href="../chapters/cap4-ciclo-pdca.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Trilogia Juran e Ciclo PDCA</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="chap-pdca" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Trilogia Juran e Ciclo PDCA</span></span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Trilogia Juran e Ciclo PDCA</span></h1>
 </div>
 
 
@@ -349,12 +356,12 @@ window.Quarto = {
 <p>A busca pela excelência operacional na mineração exige métodos estruturados que permitam medir a discrepância entre o planejamento (<em>target</em>) e o desempenho real. Este capítulo aborda as bases da Gestão da Qualidade, conectando a teoria clássica de Juran às ferramentas de melhoria contínua aplicadas ao <em>Mining Analytics</em>.</p>
 <section id="trilogia-de-juran" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="trilogia-de-juran"><span class="header-section-number">4.1</span> Trilogia de Juran</h2>
-<p>A gestão focada na qualidade dos processos é sustentada por três pilares fundamentais conhecidos como a <strong>Trilogia de Juran</strong>. Esta metodologia fornece o mapa para a transição entre a estabilidade operacional e o salto de performance operacional.</p>
+<p>A gestão focada na qualidade dos processos é sustentada por três pilares fundamentais conhecidos como a <strong>Trilogia de Juran</strong>. Esta metodologia fornece o mapa para a transição entre a estabilidade operacional e o salto de performance.</p>
 <p>A <a href="#fig-juran-trilogy" class="quarto-xref">Figura&nbsp;<span>4.1</span></a> ilustra a dinâmica entre os três processos:</p>
 <ul>
-<li><p><strong>Planejamento da Qualidade:</strong> Fase associada à definição do custo da baixa qualidade e ao estabelecimento de limites alvo e especificações técnicas.</p></li>
-<li><p><strong>Controle da Qualidade:</strong> Durante a operação, a “Zona Original de Controle” monitora desvios e picos esporádicos. No <em>Mining Analytics</em>, esta fase é onde a telemetria e o pacote <code>miningKPI</code> atuam para identificar variações fora do padrão.</p></li>
-<li><p><strong>Melhoria da Qualidade:</strong> Acionada pelo diagnóstico de problemas via ferramentas baseadas no ciclo <span class="math inline">\(PDCA\)</span>. Quando as ações resultam em melhorias eficazes — como a redução da variabilidade ou o aprimoramento de indicadores — ocorre a padronização e a definição de um novo patamar de controle (<em>New Target</em>).</p></li>
+<li><strong>Planejamento da Qualidade:</strong> Fase associada à definição do custo da baixa qualidade e ao estabelecimento de limites alvo e especificações técnicas.</li>
+<li><strong>Controle da Qualidade:</strong> Durante a operação, a “Zona Original de Controle” monitora desvios e picos esporádicos. No <em>Mining Analytics</em>, esta fase é onde a telemetria e os pacotes de R atuam para identificar variações fora do padrão.</li>
+<li><strong>Melhoria da Qualidade:</strong> Acionada pelo diagnóstico de problemas via ferramentas baseadas no ciclo <strong>PDCA</strong>. Quando as ações resultam em melhorias eficazes — como a redução da variabilidade ou o aprimoramento de indicadores — ocorre a padronização e a definição de um novo patamar de controle (<em>New Target</em>).</li>
 </ul>
 <div id="fig-juran-trilogy" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -367,6 +374,19 @@ Figura&nbsp;4.1: Diagrama da Trilogia Juran
 </figure>
 </div>
 <p>A avaliação final da qualidade visa medir o alinhamento desses indicadores com os objetivos estratégicos da organização mineira.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="💡 INSIGHT OPERACIONAL">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>💡 INSIGHT OPERACIONAL
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Na prática da mineração, o “Pico Esporádico” de Juran pode ser a quebra inesperada da frota de caminhões fora de estrada em um dia de chuva, reduzindo a massa transportada. O Controle detecta a falha, mas é a fase de Melhoria (via PDCA) que vai investigar se o problema foi drenagem da pista, falha mecânica ou erro de operação.</p>
+</div>
+</div>
 </section>
 <section id="ciclo-pdca" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="ciclo-pdca"><span class="header-section-number">4.2</span> Ciclo PDCA</h2>
@@ -381,253 +401,248 @@ Figura&nbsp;4.2: Detalhamento do Ciclo PDCA
 </figcaption>
 </figure>
 </div>
-<p>Para que essas etapas sejam realizadas com eficácia, é essencial que as subetapas sejam definidas com precisão. É importante destacar que a etapa de planejamento exige um cuidado maior na execução, pois a identificação e priorização das métricas de avaliação proporcionarão uma investigação mais aprofundada das causas dos problemas. Além disso, a utilização de ferramentas de qualidade para dar suporte ao ciclo PDCA é fundamental e indispensável para a eficiência e eficácia dos planos de ação desenvolvidos. Desta forma, propostas de mudanças, padronização de processos e/ou planos de ação são então embasadas em métodos e ferramentas estruturadas, sendo sempre recomendável estabelecer processo de comunicação e treinamento e formalização documental.</p>
-<p>De acordo com Mendes (2007), o ciclo PDCA é um método estruturado para a melhoria contínua dos processos nas organizações, dividido nas seguintes etapas:</p>
-<ul>
-<li><p><strong>PLAN:</strong> Esta etapa envolve o desenvolvimento de um plano com base nas diretrizes da organização. O objetivo é definir a situação atual, estabelecer metas claras e mensuráveis, e determinar as estratégias para alcançar esses objetivos.</p></li>
-<li><p><strong>DO</strong><em>:</em> Após o planejamento, a fase de execução coloca o plano em ação. Isso inclui a iniciação do processo, a educação e formação dos envolvidos, e a implementação das estratégias definidas para atingir os objetivos estabelecidos.</p></li>
-<li><p><strong>CHECK:</strong> Nesta etapa, os resultados obtidos são analisados e comparados com os padrões esperados. É importante realizar uma avaliação contínua para garantir que o processo esteja sendo executado de acordo com o planejado.</p></li>
-<li><p><strong>ACT:</strong> A última fase do ciclo envolve a tomada de ações corretivas ou de melhoria, caso seja identificada a necessidade de ajustes ou aprimoramentos com base na verificação dos resultados.</p></li>
-</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="📌 DEFINIÇÃO NORMATIVA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>📌 DEFINIÇÃO NORMATIVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>De acordo com Mendes (2007), o ciclo PDCA é um método estruturado para a melhoria contínua dos processos nas organizações, dividido nas seguintes etapas: * <strong>PLAN (Planejar):</strong> Definir a situação atual, estabelecer metas mensuráveis e estratégias para alcançá-las. * <strong>DO (Executar):</strong> Iniciar o processo, educar/treinar os envolvidos e implementar as estratégias definidas. * <strong>CHECK (Verificar):</strong> Analisar e comparar os resultados obtidos contra os padrões esperados (metas). * <strong>ACT (Agir/Padronizar):</strong> Tomar ações corretivas ou padronizar a melhoria com base na verificação dos resultados.</p>
+</div>
+</div>
+<p>Para que essas etapas sejam realizadas com eficácia, é essencial que as subetapas sejam definidas com precisão. É importante destacar que a etapa de planejamento (PLAN) exige o maior rigor e dedicação de tempo do projeto. A identificação e priorização das métricas proporcionarão uma investigação aprofundada das causas dos problemas, embasando as propostas de mudança em métodos estruturados.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="⚠️ ARMADILHA DE ENGENHARIA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Aviso</span>⚠️ ARMADILHA DE ENGENHARIA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O erro mais comum em projetos de melhoria é a “Miopia de Ação”: a equipe pular a fase de Planejamento (P) e ir direto para a Execução (D). Implementar soluções baseadas em “achismos” e não em dados estratificados consome recursos financeiros da empresa e, na esmagadora maioria das vezes, ataca apenas o sintoma, permitindo que a falha real retorne no mês seguinte.</p>
+</div>
+</div>
 <section id="fases-e-atividades-do-ciclo-pdca" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="fases-e-atividades-do-ciclo-pdca"><span class="header-section-number">4.2.1</span> Fases e Atividades do Ciclo PDCA</h3>
-<p>A <a href="#tbl-atividades-pdca-detalhada" class="quarto-xref">Tabela&nbsp;<span>4.1</span></a> consolida a estrutura metodológica e o cronograma do projeto, servindo como a principal ferramenta de controle e auditoria das etapas. A coluna Status é destinada ao acompanhamento qualitativo da evolução das tarefas, podendo ser preenchida com termos como “OK”, “Não Consta”, “Atrasado”, ou outras observações pertinentes, permitindo uma gestão visual rápida sobre a saúde de cada atividade no ciclo PDCA.</p>
-<div class="cell">
-<div id="tbl-atividades-pdca-detalhada" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-atividades-pdca-detalhada-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;4.1: Detalhamento das fases, etapas e atividades do ciclo PDCA aplicadas à gestão operacional na mineração.
-</figcaption>
-<div aria-describedby="tbl-atividades-pdca-detalhada-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed do-not-create-environment cell caption-top table-sm small">
-<colgroup>
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-</colgroup>
-<thead>
-<tr class="header">
-<th colspan="3" data-quarto-table-cell-role="th" style="text-align: center; empty-cells: hide; border-bottom: hidden;"></th>
-<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px; font-weight: bold; color: white !important; padding-right: 4px; padding-left: 4px; background-color: rgba(1, 102, 94, 255) !important; border-top: 0px; padding-top: 10px; padding-bottom: 10px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-Planejado
-</div></th>
-<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px; font-weight: bold; color: white !important; padding-right: 4px; padding-left: 4px; background-color: rgba(1, 102, 94, 255) !important; border-top: 0px; padding-top: 10px; padding-bottom: 10px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-Realizado
-</div></th>
-<th data-quarto-table-cell-role="th" style="text-align: center; empty-cells: hide; border-bottom: hidden;"></th>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(53, 151, 143, 255) !important;">Fases</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(53, 151, 143, 255) !important;">Etapas</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(53, 151, 143, 255) !important;">Atividades</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(53, 151, 143, 255) !important;">Início</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(53, 151, 143, 255) !important;">Fim</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(53, 151, 143, 255) !important;">Início</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(53, 151, 143, 255) !important;">Fim</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(53, 151, 143, 255) !important;">Status</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td rowspan="13" style="text-align: center; width: 0.7cm; font-weight: bold; color: white !important; background-color: rgba(23, 78, 166, 255) !important; vertical-align: middle !important;">P</td>
-<td rowspan="3" style="text-align: left; width: 6.5cm; font-weight: bold; color: white !important; background-color: rgba(23, 78, 166, 255) !important; vertical-align: middle !important;">Identificação do problema</td>
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Identificação das prioridades</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Estabelecimento da meta do projeto</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Quantificação dos ganhos do projeto</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="even">
-<td rowspan="3" style="text-align: left; width: 6.5cm; font-weight: bold; color: white !important; background-color: rgba(66, 133, 244, 255) !important; vertical-align: middle !important;">Análise do Fenômeno</td>
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Estratificação do problema</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Estudo das variações</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Definição das metas específicas</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="odd">
-<td rowspan="3" style="text-align: left; width: 6.5cm; font-weight: bold; color: white !important; background-color: rgba(26, 115, 232, 255) !important; vertical-align: middle !important;">Análise do Processo</td>
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Levantamento das causas potenciais</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Priorização das causas potenciais</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Quantificação das causas priorizadas</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="even">
-<td rowspan="4" style="text-align: left; width: 6.5cm; font-weight: bold; color: black !important; background-color: rgba(138, 180, 248, 255) !important; vertical-align: middle !important;">Estabelecimento do Plano de Ação</td>
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Levantamento das possíveis soluções</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Priorização das possíveis soluções</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Realização de teste piloto (se necessário)</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Estabelecimento do plano de ação</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="even">
-<td rowspan="3" style="text-align: center; width: 0.7cm; font-weight: bold; color: black !important; background-color: rgba(251, 188, 5, 255) !important; vertical-align: middle !important;">D</td>
-<td rowspan="3" style="text-align: left; width: 6.5cm; font-weight: bold; color: black !important; background-color: rgba(251, 188, 5, 255) !important; vertical-align: middle !important;">Execução do Plano de Ação</td>
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Comunicação do plano de ação</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Realização de treinamentos dos envolvidos</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Implantação e acompanhamento do plano de ação</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="odd">
-<td rowspan="2" style="text-align: center; width: 0.7cm; font-weight: bold; color: white !important; background-color: rgba(234, 67, 53, 255) !important; vertical-align: middle !important;">C</td>
-<td rowspan="2" style="text-align: left; width: 6.5cm; font-weight: bold; color: white !important; background-color: rgba(234, 67, 53, 255) !important; vertical-align: middle !important;">Verificação dos Resultados</td>
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Verificação do alcance da meta geral e das metas específicas</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Quantificação dos ganhos do projeto</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="odd">
-<td rowspan="3" style="text-align: center; width: 0.7cm; font-weight: bold; color: white !important; background-color: rgba(52, 168, 83, 255) !important; vertical-align: middle !important;">A</td>
-<td rowspan="3" style="text-align: left; width: 6.5cm; font-weight: bold; color: white !important; background-color: rgba(52, 168, 83, 255) !important; vertical-align: middle !important;">Padronização</td>
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Padronização das novas atividades</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Implantação de plano para monitoramento do processo</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; width: 10cm; color: black !important; background-color: white !important;">Implantação de plano de ações corretivas</td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 1.2cm;"></td>
-<td style="text-align: center; width: 2.5cm; background-color: rgba(250, 250, 250, 255) !important;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</figure>
-</div>
-</div>
+<p>A tabela a seguir consolida a estrutura metodológica e o cronograma do projeto, servindo como a principal ferramenta de controle e auditoria das etapas (o MASP - Método de Análise e Solução de Problemas). A coluna <em>Status</em> é destinada ao acompanhamento qualitativo da evolução das tarefas.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-atividades-pdca-detalhada</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Detalhamento das fases, etapas e atividades do ciclo PDCA aplicadas à gestão operacional na mineração."</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Dataset completo (8 colunas)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>df_pdca <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Fases =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"P"</span>, <span class="dv">13</span>), <span class="fu">rep</span>(<span class="st">"D"</span>, <span class="dv">3</span>), <span class="fu">rep</span>(<span class="st">"C"</span>, <span class="dv">2</span>), <span class="fu">rep</span>(<span class="st">"A"</span>, <span class="dv">3</span>)),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Etapas =</span> <span class="fu">c</span>(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="fu">rep</span>(<span class="st">"Identificação do problema"</span>, <span class="dv">3</span>), <span class="fu">rep</span>(<span class="st">"Análise do Fenômeno"</span>, <span class="dv">3</span>),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">rep</span>(<span class="st">"Análise do Processo"</span>, <span class="dv">3</span>), <span class="fu">rep</span>(<span class="st">"Estabelecimento do Plano de Ação"</span>, <span class="dv">4</span>),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">rep</span>(<span class="st">"Execução do Plano de Ação"</span>, <span class="dv">3</span>), <span class="fu">rep</span>(<span class="st">"Verificação dos Resultados"</span>, <span class="dv">2</span>),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">rep</span>(<span class="st">"Padronização"</span>, <span class="dv">3</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">Atividades =</span> <span class="fu">c</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Identificação das prioridades"</span>, <span class="st">"Estabelecimento da meta do projeto"</span>, <span class="st">"Quantificação dos ganhos do projeto"</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Estratificação do problema"</span>, <span class="st">"Estudo das variações"</span>, <span class="st">"Definição das metas específicas"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Levantamento das causas potenciais"</span>, <span class="st">"Priorização das causas potenciais"</span>, <span class="st">"Quantificação das causas priorizadas"</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Levantamento das possíveis soluções"</span>, <span class="st">"Priorização das possíveis soluções"</span>, <span class="st">"Realização de teste piloto (se necessário)"</span>, <span class="st">"Estabelecimento do plano de ação"</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Comunicação do plano de ação"</span>, <span class="st">"Realização de treinamentos dos envolvidos"</span>, <span class="st">"Implantação e acompanhamento do plano de ação"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Verificação do alcance da meta geral e das metas específicas"</span>, <span class="st">"Quantificação dos ganhos do projeto"</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Padronização das novas atividades"</span>, <span class="st">"Implantação de plano para monitoramento do processo"</span>, <span class="st">"Implantação de plano de ações corretivas"</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">P_In =</span> <span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">21</span>), <span class="at">P_Fim =</span> <span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">21</span>), <span class="at">R_In =</span> <span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">21</span>), <span class="at">R_Fim =</span> <span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">21</span>),</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">Status =</span> <span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">21</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Configuração de cores (Fases e Etapas com Paleta Viva)</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>cores_id <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    df_pdca<span class="sc">$</span>Fases <span class="sc">==</span> <span class="st">"P"</span> <span class="sc">&amp;</span> df_pdca<span class="sc">$</span>Etapas <span class="sc">==</span> <span class="st">"Identificação do problema"</span> <span class="sc">~</span> <span class="st">"#174EA6"</span>,</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    df_pdca<span class="sc">$</span>Fases <span class="sc">==</span> <span class="st">"P"</span> <span class="sc">&amp;</span> df_pdca<span class="sc">$</span>Etapas <span class="sc">==</span> <span class="st">"Análise do Fenômeno"</span> <span class="sc">~</span> <span class="st">"#4285F4"</span>,</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    df_pdca<span class="sc">$</span>Fases <span class="sc">==</span> <span class="st">"P"</span> <span class="sc">&amp;</span> df_pdca<span class="sc">$</span>Etapas <span class="sc">==</span> <span class="st">"Análise do Processo"</span> <span class="sc">~</span> <span class="st">"#1A73E8"</span>,</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    df_pdca<span class="sc">$</span>Fases <span class="sc">==</span> <span class="st">"P"</span> <span class="sc">&amp;</span> df_pdca<span class="sc">$</span>Etapas <span class="sc">==</span> <span class="st">"Estabelecimento do Plano de Ação"</span> <span class="sc">~</span> <span class="st">"#8AB4F8"</span>,</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    df_pdca<span class="sc">$</span>Fases <span class="sc">==</span> <span class="st">"D"</span> <span class="sc">~</span> <span class="st">"#FBBC05"</span>,</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    df_pdca<span class="sc">$</span>Fases <span class="sc">==</span> <span class="st">"C"</span> <span class="sc">~</span> <span class="st">"#EA4335"</span>,</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    df_pdca<span class="sc">$</span>Fases <span class="sc">==</span> <span class="st">"A"</span> <span class="sc">~</span> <span class="st">"#34A853"</span>,</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"white"</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>texto_cor <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(cores_id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"#FBBC05"</span>, <span class="st">"#8AB4F8"</span>), <span class="st">"black"</span>, <span class="st">"white"</span>)</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Renderização com cabeçalho técnico unificado e sem linha branca</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>df_pdca <span class="sc">%&gt;%</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>        <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Fases"</span>, <span class="st">"Etapas"</span>, <span class="st">"Atividades"</span>, <span class="st">"Início"</span>, <span class="st">"Fim"</span>, <span class="st">"Início"</span>, <span class="st">"Fim"</span>, <span class="st">"Status"</span>),</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>        <span class="at">align =</span> <span class="st">"cllcccc"</span>,</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>        <span class="at">booktabs =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">font_size =</span> <span class="dv">13</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> texto_cor, <span class="at">background =</span> cores_id, <span class="at">width =</span> <span class="st">"0.7cm"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column_spec</span>(<span class="dv">2</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> texto_cor, <span class="at">background =</span> cores_id, <span class="at">width =</span> <span class="st">"6.5cm"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column_spec</span>(<span class="dv">3</span>, <span class="at">width =</span> <span class="st">"10cm"</span>, <span class="at">background =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column_spec</span>(<span class="dv">4</span>, <span class="at">width =</span> <span class="st">"1.2cm"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column_spec</span>(<span class="dv">5</span>, <span class="at">width =</span> <span class="st">"1.2cm"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column_spec</span>(<span class="dv">6</span>, <span class="at">width =</span> <span class="st">"1.2cm"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column_spec</span>(<span class="dv">7</span>, <span class="at">width =</span> <span class="st">"1.2cm"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column_spec</span>(<span class="dv">8</span>, <span class="at">width =</span> <span class="st">"2.5cm"</span>, <span class="at">background =</span> <span class="st">"#fafafa"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">background =</span> <span class="st">"#35978f"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_header_above</span>(</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>        <span class="fu">c</span>(<span class="st">" "</span> <span class="ot">=</span> <span class="dv">3</span>, <span class="st">"Planejado"</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"Realizado"</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">" "</span> <span class="ot">=</span> <span class="dv">1</span>),</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>        <span class="at">background =</span> <span class="st">"#01665e"</span>,</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>        <span class="at">bold =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>        <span class="at">extra_css =</span> <span class="st">"border-top: 0px; padding-top: 10px; padding-bottom: 10px;"</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>    <span class="fu">collapse_rows</span>(<span class="at">columns =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">valign =</span> <span class="st">"middle"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="análise-do-fluxo-metodológico" class="level4" data-number="4.2.1.1">
 <h4 data-number="4.2.1.1" class="anchored" data-anchor-id="análise-do-fluxo-metodológico"><span class="header-section-number">4.2.1.1</span> Análise do Fluxo Metodológico</h4>
-<p>Conforme observado na @tbl-atividades-pdca-detalhada, o ciclo inicia-se na <strong>Identificação do Problema</strong>, onde a definição das prioridades e a meta global servem de base para as atividades seguintes. Na <strong>Análise do Fenômeno</strong>, ocorre a estratificação dos dados e o estudo das variações, permitindo que a pesquisa tome forma sobre os principais KPIs a serem utilizados.</p>
-<p>Com a <strong>Análise do Processo</strong>, o levantamento e a priorização das causas potenciais aprofundam o exame da ocorrência do problema, culminando no <strong>Estabelecimento do Plano de Ação</strong>, onde soluções são testadas e priorizadas.</p>
-<p>As etapas subsequentes à fase de planejamento focam na <strong>Execução</strong>, iniciando com a comunicação e treinamento dos envolvidos. Na <strong>Verificação</strong>, confrontam-se os resultados contra as metas globais e, por fim, a <strong>Padronização</strong> institucionaliza as novas atividades, garantindo que o monitoramento e as ações corretivas sustentem os ganhos de performance a longo prazo.</p>
-
-
+<p>Conforme observado na tabela executiva, o ciclo inicia-se na <strong>Identificação do Problema</strong>, onde a definição das prioridades e a meta global servem de base para as atividades seguintes. Na <strong>Análise do Fenômeno</strong>, ocorre a estratificação dos dados e o estudo das variações, permitindo que a pesquisa tome forma sobre os principais KPIs a serem utilizados.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="🛠️ LABORATÓRIO DE ENGENHARIA: Fase 1 (Identificação do Problema)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>🛠️ LABORATÓRIO DE ENGENHARIA: Fase 1 (Identificação do Problema)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Mão na massa:</strong> Chegou a hora de iniciar o seu projeto aplicado! Para esta etapa, crie um documento contendo:</p>
+<ol type="1">
+<li><strong>Termo de Abertura (TAP):</strong> Nome do projeto, justificativa (por que este problema afeta a operação?), objetivos SMART e restrições.</li>
+<li><strong>Matriz de Responsabilidades (RACI):</strong> Quem executa, aprova, é consultado e informado.</li>
+<li><strong>Definição do <em>Gap</em>:</strong> Construa um comparativo gráfico entre o Indicador Real x Planejado. O “problema” do seu projeto será a diferença métrica entre esses dois valores.</li>
+</ol>
+</div>
+</div>
+<p>Com a <strong>Análise do Processo</strong>, o levantamento e a priorização das causas potenciais aprofundam o exame da ocorrência, culminando no <strong>Estabelecimento do Plano de Ação</strong>. As etapas subsequentes focam na <strong>Execução</strong> (treinamento e implantação), seguida da <strong>Verificação</strong> dos resultados contra as metas. Por fim, a <strong>Padronização</strong> institucionaliza as novas atividades.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="💻 TECH NOTE: R &amp; DATA SCIENCE">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>💻 TECH NOTE: R &amp; DATA SCIENCE
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A “Análise do Fenômeno” exige um volume imenso de processamento de dados para separar o “sinal” do “ruído”. Ao invés de usar planilhas limitadas, nos próximos capítulos aplicaremos pacotes como o <code>dplyr</code> (para manipulação de grandes bases de dados da mina) e o <code>ggplot2</code> (para a criação de Gráficos de Pareto automatizados).</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="📄 MODELO PRÁTICO: Termo de Abertura de Projeto (TAP)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>📄 MODELO PRÁTICO: Termo de Abertura de Projeto (TAP)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Instrução:</strong> Utilize a estrutura abaixo para formalizar o início do seu projeto de melhoria.</p>
+<p><strong>1. Cabeçalho do Projeto</strong> * <strong>Nome do Projeto:</strong> [Ex: Redução do MTTR da Frota de Caminhões 793D] * <strong>Patrocinador (<em>Sponsor</em>):</strong> [Quem aprova os recursos do projeto?] * <strong>Líder do Projeto:</strong> [Nome do engenheiro ou aluno responsável] * <strong>Data de Início:</strong> <strong><em>/</em></strong>/20__ | <strong>Data de Término Estimada:</strong> <strong><em>/</em></strong>/20__</p>
+<p><strong>2. Justificativa (O “Porquê”)</strong> <em>Descreva a dor da operação. Qual é o impacto financeiro, de segurança ou de qualidade?</em> &gt; <strong>Exemplo:</strong> A frota apresenta uma disponibilidade física de 82% (target: 88%). Esse <em>gap</em> de 6% representa uma perda estimada de 150 mil toneladas movimentadas/mês.</p>
+<p><strong>3. Objetivos SMART (O “O Quê”)</strong> <em>A meta deve ser Específica, Mensurável, Alcançável, Realista e Temporal.</em> &gt; <strong>Exemplo:</strong> Reduzir o tempo de fila de carregamento na mina de 12 para 8 minutos (redução de 33%) até o dia 30/11/2026.</p>
+<p><strong>4. Escopo e Fronteiras</strong> * <strong>O que ESTÁ no escopo:</strong> [Ex: Otimização da troca de turno dos operadores] * <strong>O que NÃO ESTÁ no escopo:</strong> [Ex: Compra de novos equipamentos ou alteração de layout]</p>
+<p><strong>5. Premissas e Restrições</strong> * <strong>Premissas (Assumido como verdade):</strong> [Ex: A equipe terá 2 horas semanais para reuniões] * <strong>Restrições (Limitações de tempo/custo):</strong> [Ex: O projeto não possui CAPEX aprovado]</p>
+<p><strong>6. Matriz RACI (Macro)</strong> * <strong>Executa (R):</strong> [Quem coloca a mão na massa?] * <strong>Aprova (A):</strong> [Quem tem a palavra final?] * <strong>Consultado (C):</strong> [Quem fornece informações técnicas?] * <strong>Informado (I):</strong> [Quem recebe o relatório final?]</p>
+</div>
+</div>
+</div>
 </section>
+</section>
+</section>
+<section id="a-fase-de-planejamento-plan-e-as-ferramentas-de-causa-raiz" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="a-fase-de-planejamento-plan-e-as-ferramentas-de-causa-raiz"><span class="header-section-number">4.3</span> A Fase de Planejamento (<em>Plan</em>) e as Ferramentas de Causa Raiz</h2>
+<p>A fase de planejamento é o alicerce metodológico do MASP. A engenharia não deve tentar resolver um problema complexo baseado na intuição. Para isso, o método desdobra o problema macro em pedaços menores através da análise de dados e, em seguida, investiga as causas físicas e sistêmicas da falha.</p>
+<section id="análise-do-fenômeno-estratificação-e-pareto" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="análise-do-fenômeno-estratificação-e-pareto"><span class="header-section-number">4.3.1</span> Análise do Fenômeno: Estratificação e Pareto</h3>
+<p>O primeiro passo investigativo é a <strong>Análise do Fenômeno</strong>. O objetivo aqui é entender as características do problema (o “Gap” definido no TAP) observando-o sob diferentes ângulos. Isso é feito através da <strong>estratificação de dados</strong>: o desdobramento do problema anual ou mensal em visões menores (por turno, por tipo de falha, por equipamento ou por operador).</p>
+<p>A principal ferramenta desta etapa é o <strong>Gráfico de Pareto</strong>. Baseado no princípio 80/20, o gráfico de barras ordenadas demonstra que, na grande maioria dos processos industriais, aproximadamente 80% dos problemas (ou custos) são gerados por apenas 20% das causas.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="📌 DEFINIÇÃO NORMATIVA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>📌 DEFINIÇÃO NORMATIVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O Gráfico de Pareto separa os “poucos vitais” dos “muitos triviais”. Na gestão da qualidade, a engenharia deve atacar implacavelmente a barra mais alta do gráfico (o poucos vitais) antes de gastar energia com problemas menores, garantindo o maior Retorno sobre o Investimento (ROI) de tempo e capital da equipe.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="🛠️ LABORATÓRIO DE ENGENHARIA: Fase 2 (Análise do Fenômeno)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>🛠️ LABORATÓRIO DE ENGENHARIA: Fase 2 (Análise do Fenômeno)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Mão na massa: (Tarefa 05)</strong> 1. <strong>Estratificação:</strong> Pegue o seu banco de dados e desdobre o problema macro. Onde estão os picos de perda? (Ex: A maior falha é mecânica, elétrica ou de operação?). 2. <strong>Gráfico de Pareto:</strong> Construa o gráfico identificando a classe que representa o maior impacto (os 80%). 3. <strong>Metas Específicas e Ganhos:</strong> Com base no Pareto, defina exatamente quanto do “gap” será reduzido e faça uma estimativa financeira (Ex: “Reduzir 10% da falha X gerará R$ Y de economia”).</p>
+</div>
+</div>
+</section>
+<section id="análise-do-processo-ishikawa-5-porquês-e-matriz-gut" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="análise-do-processo-ishikawa-5-porquês-e-matriz-gut"><span class="header-section-number">4.3.2</span> Análise do Processo: Ishikawa, 5 Porquês e Matriz GUT</h3>
+<p>Uma vez que o Gráfico de Pareto indicou <em>onde</em> o problema está concentrado, a fase passa para a <strong>Análise do Processo</strong>, que visa responder <em>por que</em> o problema ocorre.</p>
+<p>A ferramenta primária é o <strong>Diagrama de Ishikawa</strong> (também conhecido como Diagrama de Espinha de Peixe ou Causa e Efeito). Ele organiza o <em>Brainstorming</em> da equipe classificando as possíveis origens do problema em seis categorias clássicas (os 6M): 1. <strong>Máquina:</strong> Falhas no equipamento ou manutenção inadequada. 2. <strong>Material:</strong> Insumos fora de especificação ou peças de má qualidade. 3. <strong>Mão de Obra:</strong> Falta de treinamento, desatenção ou fadiga do operador. 4. <strong>Método:</strong> Procedimentos operacionais (POPs) falhos ou inexistentes. 5. <strong>Medida:</strong> Erros de calibração em sensores ou indicadores mal calculados. 6. <strong>Meio Ambiente:</strong> Condições externas (chuva na mina, poeira, temperatura).</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="💡 INSIGHT OPERACIONAL">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>💡 INSIGHT OPERACIONAL
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Um erro comum é preencher o Ishikawa com “Falta de…” (ex: falta de treinamento, falta de peça). A falta de algo é uma solução ausente, não uma causa. A equipe deve descrever a anomalia real (ex: “Treinamento desatualizado para o modelo 793D” ou “Peça sofreu desgaste abrasivo prematuro”).</p>
+</div>
+</div>
+<p>Com o diagrama preenchido, a equipe utiliza a <strong>Matriz GUT</strong> (Gravidade, Urgência e Tendência) para pontuar as causas e priorizar qual braço do diagrama será atacado primeiro.</p>
+<p>Finalmente, para a causa vencedora da matriz GUT, aplica-se a técnica dos <strong>5 Porquês</strong>. A equipe deve perguntar o motivo do problema sucessivas vezes até ultrapassar os sintomas superficiais e atingir a verdadeira causa raiz (a anomalia sistêmica que, se removida, impede que o problema volte a acontecer).</p>
+<div class="callout callout-style-default callout-important callout-titled" title="🛠️ LABORATÓRIO DE ENGENHARIA: Fase 3 (Análise do Processo)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>🛠️ LABORATÓRIO DE ENGENHARIA: Fase 3 (Análise do Processo)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Mão na massa: (Tarefa 06)</strong> 1. <strong>Ishikawa (6M):</strong> Reúna sua equipe e faça um <em>Brainstorming</em> para mapear as possíveis causas do problema que venceu no seu Gráfico de Pareto. 2. <strong>Priorização (GUT):</strong> Utilize a Matriz GUT para decidir, de forma técnica e fria, quais causas mapeadas no Ishikawa serão efetivamente atacadas. 3. <strong>Os 5 Porquês:</strong> Aplique a técnica para a causa prioritária. Garanta que o plano de ação não foque em sintomas, mas sim na origem do problema.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="💻 TECH NOTE: R &amp; DATA SCIENCE">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>💻 TECH NOTE: R &amp; DATA SCIENCE
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Construir Paretos e Diagramas de Causa e Efeito pode ser feito rapidamente no R. O pacote <code>qcc</code> (<em>Quality Control Charts</em>) possui a função <code>pareto.chart()</code> e a função <code>cause.and.effect()</code>, permitindo automatizar a geração visual desses gráficos a partir das bases de dados industriais diretamente no seu <em>script</em>.</p>
+</div>
+</div>
+
+
 </section>
 </section>
 
