@@ -50,7 +50,7 @@ Utiliza martelo de impacto baixo com pistão leve de curso curto, gerando alta f
 
 ### Parâmetros Geométricos da Bancada
 
-O dimensionamento correto do plano de fogo depende do equilíbrio entre diversas variáveis geométricas. A \@fig-parametros-bancada ilustra os principais parâmetros que definem como a energia do explosivo será distribuída na massa rochosa:
+O dimensionamento correto do plano de fogo depende do equilíbrio entre diversas variáveis geométricas. A @fig-parametros-bancada ilustra os principais parâmetros que definem como a energia do explosivo será distribuída na massa rochosa:
 
 #### Afastamento (Burden - $B$):
 
@@ -136,7 +136,7 @@ Entre os componentes mais críticos para a performance, destacam-se o **Bit DTH*
 
 #### Geometria de Face dos Bits (*Bit Face Geometry*)
 
-A face do *bit* é a interface direta de transferência de energia. Como ilustrado na \@fig-faces-bits, existem quatro geometrias principais identificadas por siglas técnicas para diferentes condições de terreno:
+A face do *bit* é a interface direta de transferência de energia. Como ilustrado na @fig-faces-bits, existem quatro geometrias principais identificadas por siglas técnicas para diferentes condições de terreno:
 
 -   **Face Côncava (*Concave Face* - CC):** Especialmente indicada para formações de média dureza. Sua geometria auxilia na estabilidade do furo e possibilita perfurações de grandes diâmetros com bom alinhamento (*hole alignment*).
 
@@ -251,7 +251,7 @@ Disponibilizamos o banco de dados `drill_events_mine_d`. Este dataset contém a 
 # Exemplo de dois ciclos da perfuratriz DRILL_100
 drill_events_mine_d %>%
     filter(drill_id == "DRILL_100", cycle %in% 1:2) %>%
-    knitr::kable(caption = "(#tab:drill-events) Sequência de eventos brutos da DRILL_100")
+    kable(caption = "Sequência de eventos brutos da DRILL_100")
 ```
 
 #### Analisando a sequência cronológica
@@ -296,7 +296,7 @@ Como o `drill_events_mine_d` é um objeto de eventos brutos, aplicamos a funçã
 drill_events_mine_d %>%
     filter(drill_id %in% "DRILL_100", cycle %in% 1:2) %>%
     add_missing_drill_phases() %>%
-    knitr::kable(caption = "(#tab:imputed-phases) Detalhamento de eventos com fases imputadas (DRILL_100)")
+    kable(caption = "Detalhamento de eventos com fases imputadas (DRILL_100)")
 ```
 
 Note que os seguintes eventos foram gerados automaticamente pelo algoritmo:
@@ -476,7 +476,7 @@ A @tbl-notacao-perfuracao apresenta o mapeamento das fases operacionais utilizad
 | Deslocação (Tramming) | $M_i$ | **5** | Tramming |
 | Fim de Ciclo (Técnico) | $X_i$ | **6** | Exit Cycle / Total |
 
-: Relação entre fases operacionais e notações na perfuração. \[\^1\] {#tbl-notacao-perfuracao}
+: Relação entre fases operacionais e notações na perfuração {#tbl-notacao-perfuracao}
 
 Para converter as observações físicas em indicadores de performance (KPIs), padronizamos as métricas conforme a @tbl-metricas-perfuracao. Esta estrutura permite uma transição fluida entre a teoria de engenharia de minas e a implementação computacional.
 
@@ -500,7 +500,11 @@ $$TDM = \sum_{i=1}^{N(t)} L_i$$
 
 -   $N(t)$: Número total de furos acumulados no período.
 
-> **Exemplo Prático:** Se a perfuratriz DRILL_100 executou 20 furos em um turno, cada um com 15 metros de profundidade, o TDM será de 300 metros. Se houver sobre-perfuração (*sub-drilling*) para garantir a quebra do pé da bancada, esses metros adicionais também devem ser contabilizados no $L_i$.
+::: {.callout-note title="Exemplo Prático" icon=false}
+**TDM no Turno**
+
+Se a perfuratriz DRILL_100 executou 20 furos em um turno, cada um com 15 metros de profundidade, o TDM será de 300 metros. Se houver sobre-perfuração (*sub-drilling*) para garantir a quebra do pé da bancada, esses metros adicionais também devem ser contabilizados no $L_i$.
+:::
 
 ### Taxa de Penetração Líquida (Rate of Penetration - ROP)
 
@@ -512,7 +516,11 @@ $$ROP = \frac{TDM}{\sum_{i=1}^{N(t)} D_i} \quad [m/h]$$
 
 -   $D_i$: Tempo de perfuração efetiva (convertido para horas - HEF).
 
-> **Exemplo Prático:** Utilizando o TDM de 300m anterior, se o tempo somado apenas com o bit no fundo cortando rocha foi de 5 horas, o ROP é de **60 m/h**. Este valor é comparado com o *benchmark* geológico para validar se o bit utilizado é o correto para aquela dureza de rocha.
+::: {.callout-note title="Exemplo Prático" icon=false}
+**Cálculo do ROP**
+
+Utilizando o TDM de 300m anterior, se o tempo somado apenas com o bit no fundo cortando rocha foi de 5 horas, o ROP é de **60 m/h**. Este valor é comparado com o *benchmark* geológico para validar se o bit utilizado é o correto para aquela dureza de rocha.
+:::
 
 ### Taxa de Perfuração Bruta (Gross Drilling Rate - GDR)
 
@@ -614,7 +622,11 @@ A @fig-fases-breakdown representa a **"dieta de tempo"** do ativo, permitindo um
 
 Este gráfico materializa a diferença entre a **capacidade mecânica** e a **eficiência logística**. Um erro comum na gestão de perfuração é focar apenas na velocidade do bit.
 
-> **Conclusão de Mining Analytics:** A análise prova que perfurar rápido (**alto ROP**) não garante a entrega da meta se as fases acessórias não forem controladas. Nos dias em que a área de *Drilling* é "comprimida" por manobras e posicionamentos excessivos, a oportunidade de melhoria não está na perfuratriz, mas na preparação da frente de trabalho e na logística de suprimentos.
+::: {.tech-note}
+**Conclusão de Mining Analytics**
+
+A análise prova que perfurar rápido (**alto ROP**) não garante a entrega da meta se as fases acessórias não forem controladas. Nos dias em que a área de *Drilling* é “comprimida” por manobras e posicionamentos excessivos, a oportunidade de melhoria não está na perfuratriz, mas na preparação da frente de trabalho e na logística de suprimentos.
+:::
 
 ## Anonimização Espacial e Plano Cartesiano Local
 

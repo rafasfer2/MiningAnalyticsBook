@@ -451,7 +451,7 @@ Figura&nbsp;6.1: Top Hammer vs Down-The-Hole.
 </section>
 <section id="parâmetros-geométricos-da-bancada" class="level3" data-number="6.1.2">
 <h3 data-number="6.1.2" class="anchored" data-anchor-id="parâmetros-geométricos-da-bancada"><span class="header-section-number">6.1.2</span> Parâmetros Geométricos da Bancada</h3>
-<p>O dimensionamento correto do plano de fogo depende do equilíbrio entre diversas variáveis geométricas. A @fig-parametros-bancada ilustra os principais parâmetros que definem como a energia do explosivo será distribuída na massa rochosa:</p>
+<p>O dimensionamento correto do plano de fogo depende do equilíbrio entre diversas variáveis geométricas. A <a href="#fig-parametros-bancada" class="quarto-xref">Figura&nbsp;<span>6.2</span></a> ilustra os principais parâmetros que definem como a energia do explosivo será distribuída na massa rochosa:</p>
 <section id="afastamento-burden---b" class="level4" data-number="6.1.2.1">
 <h4 data-number="6.1.2.1" class="anchored" data-anchor-id="afastamento-burden---b"><span class="header-section-number">6.1.2.1</span> Afastamento (Burden - <span class="math inline">\(B\)</span>):</h4>
 <p>É a distância perpendicular da linha de furos até a face livre da bancada, ou a distância entre linhas de furos consecutivas.</p>
@@ -557,7 +557,7 @@ Figura&nbsp;6.3: Representação esquemática das malhas de perfuração.
 <p>Entre os componentes mais críticos para a performance, destacam-se o <strong>Bit DTH</strong> e as hastes (<em>drill rods</em>). A escolha dessas ferramentas não é arbitrária; ela deve ser orientada pelo diâmetro do furo almejado e, principalmente, pelas características geomecânicas do solo e da rocha.</p>
 <section id="geometria-de-face-dos-bits-bit-face-geometry" class="level4" data-number="6.1.4.1">
 <h4 data-number="6.1.4.1" class="anchored" data-anchor-id="geometria-de-face-dos-bits-bit-face-geometry"><span class="header-section-number">6.1.4.1</span> Geometria de Face dos Bits (<em>Bit Face Geometry</em>)</h4>
-<p>A face do <em>bit</em> é a interface direta de transferência de energia. Como ilustrado na @fig-faces-bits, existem quatro geometrias principais identificadas por siglas técnicas para diferentes condições de terreno:</p>
+<p>A face do <em>bit</em> é a interface direta de transferência de energia. Como ilustrado na <a href="#fig-faces-bits" class="quarto-xref">Figura&nbsp;<span>6.4</span></a>, existem quatro geometrias principais identificadas por siglas técnicas para diferentes condições de terreno:</p>
 <ul>
 <li><p><strong>Face Côncava (<em>Concave Face</em> - CC):</strong> Especialmente indicada para formações de média dureza. Sua geometria auxilia na estabilidade do furo e possibilita perfurações de grandes diâmetros com bom alinhamento (<em>hole alignment</em>).</p></li>
 <li><p><strong>Face Convexa (<em>Convex Face</em> - CV):</strong> Projetada para enfrentar rochas duras e abrasivas. O diâmetro da perfuração é mantido por duas fileiras de botões na coroa, o que aumenta a resistência ao desgaste lateral.</p></li>
@@ -711,11 +711,11 @@ Figura&nbsp;6.9: Ciclo de Perfuração.
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo de dois ciclos da perfuratriz DRILL_100</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>drill_events_mine_d <span class="sc">%&gt;%</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(drill_id <span class="sc">==</span> <span class="st">"DRILL_100"</span>, cycle <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"(#tab:drill-events) Sequência de eventos brutos da DRILL_100"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Sequência de eventos brutos da DRILL_100"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<caption>(#tab:drill-events) Sequência de eventos brutos da DRILL_100</caption>
+<caption>Sequência de eventos brutos da DRILL_100</caption>
 <colgroup>
 <col style="width: 3%">
 <col style="width: 5%">
@@ -1077,11 +1077,11 @@ Figura&nbsp;6.9: Ciclo de Perfuração.
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>drill_events_mine_d <span class="sc">%&gt;%</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(drill_id <span class="sc">%in%</span> <span class="st">"DRILL_100"</span>, cycle <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_missing_drill_phases</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"(#tab:imputed-phases) Detalhamento de eventos com fases imputadas (DRILL_100)"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Detalhamento de eventos com fases imputadas (DRILL_100)"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<caption>(#tab:imputed-phases) Detalhamento de eventos com fases imputadas (DRILL_100)</caption>
+<caption>Detalhamento de eventos com fases imputadas (DRILL_100)</caption>
 <colgroup>
 <col style="width: 3%">
 <col style="width: 2%">
@@ -1799,7 +1799,7 @@ Figura&nbsp;6.9: Ciclo de Perfuração.
 <div id="tbl-notacao-perfuracao" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-notacao-perfuracao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;6.1: Relação entre fases operacionais e notações na perfuração. [^1]
+Tabela&nbsp;6.1: Relação entre fases operacionais e notações na perfuração
 </figcaption>
 <div aria-describedby="tbl-notacao-perfuracao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1916,9 +1916,20 @@ Tabela&nbsp;6.2: Definições de métricas e variáveis para análise de perform
 <li><p><span class="math inline">\(L_i\)</span>: Profundidade líquida do furo <span class="math inline">\(i\)</span> (m).</p></li>
 <li><p><span class="math inline">\(N(t)\)</span>: Número total de furos acumulados no período.</p></li>
 </ul>
-<blockquote class="blockquote">
-<p><strong>Exemplo Prático:</strong> Se a perfuratriz DRILL_100 executou 20 furos em um turno, cada um com 15 metros de profundidade, o TDM será de 300 metros. Se houver sobre-perfuração (<em>sub-drilling</em>) para garantir a quebra do pé da bancada, esses metros adicionais também devem ser contabilizados no <span class="math inline">\(L_i\)</span>.</p>
-</blockquote>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Exemplo Prático">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Exemplo Prático
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>TDM no Turno</strong></p>
+<p>Se a perfuratriz DRILL_100 executou 20 furos em um turno, cada um com 15 metros de profundidade, o TDM será de 300 metros. Se houver sobre-perfuração (<em>sub-drilling</em>) para garantir a quebra do pé da bancada, esses metros adicionais também devem ser contabilizados no <span class="math inline">\(L_i\)</span>.</p>
+</div>
+</div>
 </section>
 <section id="taxa-de-penetração-líquida-rate-of-penetration---rop" class="level3" data-number="6.3.3">
 <h3 data-number="6.3.3" class="anchored" data-anchor-id="taxa-de-penetração-líquida-rate-of-penetration---rop"><span class="header-section-number">6.3.3</span> Taxa de Penetração Líquida (Rate of Penetration - ROP)</h3>
@@ -1928,9 +1939,20 @@ Tabela&nbsp;6.2: Definições de métricas e variáveis para análise de perform
 <li><p><span class="math inline">\(ROP\)</span>: Taxa de Penetração Líquida (m/h).</p></li>
 <li><p><span class="math inline">\(D_i\)</span>: Tempo de perfuração efetiva (convertido para horas - HEF).</p></li>
 </ul>
-<blockquote class="blockquote">
-<p><strong>Exemplo Prático:</strong> Utilizando o TDM de 300m anterior, se o tempo somado apenas com o bit no fundo cortando rocha foi de 5 horas, o ROP é de <strong>60 m/h</strong>. Este valor é comparado com o <em>benchmark</em> geológico para validar se o bit utilizado é o correto para aquela dureza de rocha.</p>
-</blockquote>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Exemplo Prático">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Exemplo Prático
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Cálculo do ROP</strong></p>
+<p>Utilizando o TDM de 300m anterior, se o tempo somado apenas com o bit no fundo cortando rocha foi de 5 horas, o ROP é de <strong>60 m/h</strong>. Este valor é comparado com o <em>benchmark</em> geológico para validar se o bit utilizado é o correto para aquela dureza de rocha.</p>
+</div>
+</div>
 </section>
 <section id="taxa-de-perfuração-bruta-gross-drilling-rate---gdr" class="level3" data-number="6.3.4">
 <h3 data-number="6.3.4" class="anchored" data-anchor-id="taxa-de-perfuração-bruta-gross-drilling-rate---gdr"><span class="header-section-number">6.3.4</span> Taxa de Perfuração Bruta (Gross Drilling Rate - GDR)</h3>
@@ -2118,9 +2140,10 @@ Figura&nbsp;6.10: Participação percentual das fases no ciclo operacional
 <section id="insight-para-o-gestor-o-performance-gap" class="level4" data-number="6.3.8.4">
 <h4 data-number="6.3.8.4" class="anchored" data-anchor-id="insight-para-o-gestor-o-performance-gap"><span class="header-section-number">6.3.8.4</span> Insight para o Gestor: O Performance Gap</h4>
 <p>Este gráfico materializa a diferença entre a <strong>capacidade mecânica</strong> e a <strong>eficiência logística</strong>. Um erro comum na gestão de perfuração é focar apenas na velocidade do bit.</p>
-<blockquote class="blockquote">
-<p><strong>Conclusão de Mining Analytics:</strong> A análise prova que perfurar rápido (<strong>alto ROP</strong>) não garante a entrega da meta se as fases acessórias não forem controladas. Nos dias em que a área de <em>Drilling</em> é “comprimida” por manobras e posicionamentos excessivos, a oportunidade de melhoria não está na perfuratriz, mas na preparação da frente de trabalho e na logística de suprimentos.</p>
-</blockquote>
+<div class="tech-note">
+<p><strong>Conclusão de Mining Analytics</strong></p>
+<p>A análise prova que perfurar rápido (<strong>alto ROP</strong>) não garante a entrega da meta se as fases acessórias não forem controladas. Nos dias em que a área de <em>Drilling</em> é “comprimida” por manobras e posicionamentos excessivos, a oportunidade de melhoria não está na perfuratriz, mas na preparação da frente de trabalho e na logística de suprimentos.</p>
+</div>
 </section>
 </section>
 </section>
