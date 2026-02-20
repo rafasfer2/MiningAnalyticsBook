@@ -47,12 +47,13 @@ O erro mais comum em projetos de melhoria é a "Miopia de Ação": a equipe pula
 
 A tabela a seguir consolida a estrutura metodológica e o cronograma do projeto, servindo como a principal ferramenta de controle e auditoria das etapas (o MASP - Método de Análise e Solução de Problemas). A coluna *Status* é destinada ao acompanhamento qualitativo da evolução das tarefas.
 
-```r
+```{r}
 #| label: tbl-atividades-pdca-detalhada
 #| tbl-cap: "Detalhamento das fases, etapas e atividades do ciclo PDCA aplicadas à gestão operacional na mineração."
 #| echo: false
 #| message: false
 #| warning: false
+#| results: "asis"
 
 library(knitr)
 library(kableExtra)
