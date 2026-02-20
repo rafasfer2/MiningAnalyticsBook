@@ -606,7 +606,7 @@ Figura&nbsp;6.5: Detalhe de uma haste de perfuração e suas conexões.
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Quando o bit está devidamente afiado, a transferência de energia percussiva é máxima, resultando em uma Taxa de Penetração ($ROP$) otimizada. Conforme os botões sofrem desgaste (perda de projeção), o bit torna-se menos eficaz, exigindo maior pressão de avanço (pull-down) e gerando dissipação de energia em forma de calor em vez de fragmentação mecânica.</p>
+<p>Quando o bit está devidamente afiado, a transferência de energia percussiva é máxima, resultando em uma Taxa de Penetração (<span class="math inline">\(ROP\)</span>) otimizada. Conforme os botões sofrem desgaste (perda de projeção), o bit torna-se menos eficaz, exigindo maior pressão de avanço (pull-down) e gerando dissipação de energia em forma de calor em vez de fragmentação mecânica.</p>
 </div>
 </div>
 <p>O monitoramento sistemático do desgaste é crucial por três pilares de gestão:</p>
@@ -702,7 +702,7 @@ Figura&nbsp;6.9: Ciclo de Perfuração.
 <section id="análise-de-dados-com-miningkpi" class="level3" data-number="6.2.1">
 <h3 data-number="6.2.1" class="anchored" data-anchor-id="análise-de-dados-com-miningkpi"><span class="header-section-number">6.2.1</span> Análise de Dados com <code>miningKPI</code></h3>
 <p>No pacote <code>miningKPI</code>, traduzimos esses eventos físicos em estruturas de dados para análise de performance.</p>
-<div id="exm-dados-eventos-perfuracao" class="theorem example">
+<div id="exm-dados-eventos-perfuracao" class="example theorem">
 <p><span class="theorem-title"><strong>Exemplo 6.1 (Dados de eventos de perfuração – Mina D)</strong></span> Disponibilizamos o banco de dados <code>drill_events_mine_d</code>. Este dataset contém a telemetria detalhada (formato <em>long</em>), permitindo identificar cada fase da Identidade Fundamental. Note que, na prática, os dados brutos podem apresentar falhas de registro (fases ausentes) ou repetições.</p>
 </div>
 <div class="cell">
@@ -1067,7 +1067,7 @@ Figura&nbsp;6.9: Ciclo de Perfuração.
 <section id="consolidação-e-higienização-com-add_missing_drill_phases" class="level3" data-number="6.2.2">
 <h3 data-number="6.2.2" class="anchored" data-anchor-id="consolidação-e-higienização-com-add_missing_drill_phases"><span class="header-section-number">6.2.2</span> Consolidação e Higienização com <code>add_missing_drill_phases()</code></h3>
 <p>Para que a análise estatística seja robusta, utilizamos a função <code>add_missing_drill_phases()</code>. Ela identifica fases ausentes e as imputa com duração zero, garantindo que cada ciclo contenha as 5 fases fundamentais, além da Fase 6 (<code>exit_cycle</code>), um marcador técnico necessário para o motor de cálculo.</p>
-<div id="exm-fases-faltantes" class="theorem example">
+<div id="exm-fases-faltantes" class="example theorem">
 <p><span class="theorem-title"><strong>Exemplo 6.2 (Análise de input das fases faltantes)</strong></span> Como o <code>drill_events_mine_d</code> é um objeto de eventos brutos, aplicamos a função para observar o preenchimento das lacunas:</p>
 </div>
 <div class="cell">
@@ -1526,7 +1526,7 @@ Figura&nbsp;6.9: Ciclo de Perfuração.
 <li><p><strong>Elevação de</strong> <span class="math inline">\(M_i\)</span>: Problemas de infraestrutura (praça mal preparada) ou layout de malha ineficiente.</p></li>
 </ul>
 <p>Utilizamos o agrupamento por ciclo para consolidar os tempos e validar a identidade fundamental:</p>
-<div id="exm-identidade-fundamental" class="theorem example">
+<div id="exm-identidade-fundamental" class="example theorem">
 <p><span class="theorem-title"><strong>Exemplo 6.3 (Calculando a identidade fundamental do ciclo de perfuração)</strong></span> Utilizamos o agrupamento por ciclo para consolidar os tempos e validar a identidade fundamental:</p>
 </div>
 <div class="cell">
@@ -1610,7 +1610,8 @@ Figura&nbsp;6.9: Ciclo de Perfuração.
 <h3 data-number="6.2.4" class="anchored" data-anchor-id="do-planejamento-à-marcação-de-campo"><span class="header-section-number">6.2.4</span> Do Planejamento à Marcação de Campo</h3>
 <p>A execução da perfuração não é um evento isolado, mas o resultado de um fluxo de planejamento rigoroso. No pacote <code>miningKPI</code>, podemos rastrear as falhas nesse fluxo através das descrições operacionais (<code>description_en</code>) e categorias de ociosidade interna (HOI/IIH).</p>
 <ol type="1">
-<li><p><strong>Dimensionamento do Plano:</strong> Os polígonos de perfuração são desenhados em softwares de engenharia, definindo coordenadas <span class="math inline">\((x,y,z)\)</span>, <em>burdens</em> (afastamento) e espaçamentos (<em>spacing</em>).</p>
+<li><strong>Dimensionamento do Plano:</strong> Os polígonos de perfuração são desenhados em softwares de engenharia, definindo coordenadas <span class="math inline">\((x,y,z)\)</span>, <em>burdens</em> (afastamento) e espaçamentos (<em>spacing</em>).</li>
+</ol>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1620,8 +1621,10 @@ Figura&nbsp;6.9: Ciclo de Perfuração.
 <p><strong>Evidência nos Dados:</strong> Quando o plano não chega à cabine, observamos a descrição <code>"Waiting for Planning Demand"</code> ou comentários como <code>"Missing Polygon/Pattern"</code>. Sem o polígono digital, a perfuratriz fica impossibilitada de operar com HPGPS.</p>
 </div>
 </div>
-</div></li>
-<li><p><strong>Preparação da Área (Pad Preparation):</strong> Liberação de ordens para tratores de esteira (<em>Dozers</em>) limparem e nivelarem a praça. Uma praça mal preparada aumenta drasticamente o tempo de Posicionamento (<span class="math inline">\(P_i\)</span>).</p>
+</div>
+<ol start="2" type="1">
+<li><strong>Preparação da Área (Pad Preparation):</strong> Liberação de ordens para tratores de esteira (<em>Dozers</em>) limparem e nivelarem a praça. Uma praça mal preparada aumenta drasticamente o tempo de Posicionamento (<span class="math inline">\(P_i\)</span>).</li>
+</ol>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1631,8 +1634,10 @@ Figura&nbsp;6.9: Ciclo de Perfuração.
 <p><strong>Evidência nos Dados:</strong> Este gargalo é identificado pelas descrições <code>"Waiting for Pad Adjustment"</code> e <code>"Waiting for Access Condition"</code>. Na prática, se o tempo acumulado nessas categorias for alto, a oportunidade de melhoria não está na perfuratriz, mas na frota de apoio (infraestrutura).</p>
 </div>
 </div>
-</div></li>
-<li><p><strong>Marcação Topográfica (Survey Stakeout):</strong> É a materialização física (piquetes) ou via GPS de alta precisão (HPGPS) do local exato onde o operador inicia o ciclo.</p>
+</div>
+<ol start="3" type="1">
+<li><strong>Marcação Topográfica (Survey Stakeout):</strong> É a materialização física (piquetes) ou via GPS de alta precisão (HPGPS) do local exato onde o operador inicia o ciclo.</li>
+</ol>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1642,8 +1647,7 @@ Figura&nbsp;6.9: Ciclo de Perfuração.
 <p><strong>Evidência nos Dados:</strong> Falhas nesta etapa geram descrições como <code>"Waiting for Survey"</code> e <code>"Waiting for Drill Pattern Mark."</code>. O comentário <code>"Project Not Updating / No Physical Marking"</code> é o exemplo clássico de um erro de redundância: o sistema digital falhou e a marcação física (tradicional) não foi realizada, paralisando o ativo.</p>
 </div>
 </div>
-</div></li>
-</ol>
+</div>
 <section id="resumo-de-correlação-para-investigação" class="level4" data-number="6.2.4.1">
 <h4 data-number="6.2.4.1" class="anchored" data-anchor-id="resumo-de-correlação-para-investigação"><span class="header-section-number">6.2.4.1</span> Resumo de Correlação para Investigação</h4>
 <p>Para facilitar a análise de causa raiz, a tabela abaixo correlaciona as etapas do planejamento com os dados que você encontrará no dataset:</p>
@@ -1683,7 +1687,7 @@ Figura&nbsp;6.9: Ciclo de Perfuração.
 </tr>
 </tbody>
 </table>
-<div id="exm-falhas-planejamento" class="theorem example">
+<div id="exm-falhas-planejamento" class="example theorem">
 <p><span class="theorem-title"><strong>Exemplo 6.4 (Investigando Falhas no Fluxo de Planejamento)</strong></span> Abaixo, demonstramos como utilizar os dados de telemetria para identificar qual etapa do planejamento — Design (<em>Plan</em>), <em>Pad Preparation</em> ou <em>Survey Stakeout</em> — está impactando a disponibilidade física da frota. Neste exemplo, filtramos apenas os eventos que não possuem fase produtiva (<code>is.na(phase)</code>) e os categorizamos utilizando as descrições e comentários traduzidos.</p>
 </div>
 <div class="cell">
@@ -2134,7 +2138,7 @@ Figura&nbsp;6.10: Participação percentual das fases no ciclo operacional
 <li><p><strong>Preservação Geométrica:</strong> As distâncias entre os furos (Burdens e Spacings) permanecem em metros reais, permitindo cálculos de densidade de malha.</p></li>
 <li><p><strong>Simplicidade Computacional:</strong> Trabalhar com valores de 0 a 5.000 é mais eficiente e menos propenso a erros de precisão do que manipular coordenadas na casa dos milhões.</p></li>
 </ol>
-<div id="exm-visualizacao-malha" class="theorem example">
+<div id="exm-visualizacao-malha" class="example theorem">
 <p><span class="theorem-title"><strong>Exemplo 6.5 (Visualização da Malha de Perfuração)</strong></span> Através das variáveis <code>local_x</code> e <code>local_y</code>, podemos reconstruir a malha de perfuração para validar a execução do plano de fogo. No exemplo abaixo, visualizamos a distribuição espacial dos eventos de perfuração da <strong>Mina D</strong>:</p>
 </div>
 <div class="cell">

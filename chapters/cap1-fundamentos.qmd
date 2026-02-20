@@ -1,9 +1,8 @@
 ---
-title: "cap1-fundamentos"
+title: "Fundamentos e Conceitos da Qualidade"
 format: html
 ---
 
-# Fundamentos e Conceitos da Qualidade
 
 ## Evolução Histórica e Definições
 
@@ -23,9 +22,15 @@ Dessa definição, extraímos três pilares fundamentais:
 
 A dificuldade de observar a Qualidade de forma isolada ocorre porque ela só se materializa através de seus atributos. Consideremos a afirmação: "Napoleão Bonaparte possuía as qualidades de um grande general".
 
-Reflexão sobre o uso do termo: A ambiguidade que cerca a palavra "Qualidade" decorre, em grande parte, da omissão do contexto por parte de quem a utiliza. Tecnicamente, a Qualidade não deveria ser tratada como um adjetivo isolado, mas sim como um termo composto. É indispensável atrelá-la sempre a um substantivo específico, pois as competências que definem a excelência de um estrategista não guardam relação direta com as características exigidas de um líder político. Sem essa delimitação contextual, o atributo perde seu sentido prático na gestão.
+::: {.nota-tecnica}
+**Reflexão sobre o uso do termo "Qualidade"**
 
-A Qualidade não é algo identificável e observável diretamente de forma isolada; ela é definida por meio de seus atributos. Para ilustrar, considere a frase genérica: "Napoleão Bonaparte tinha todas as qualidades de um grande general". O que isso significa na prática? Significa que as palavras "qualidades", "propriedades", "atributos" ou "características" são intercambiáveis. Ele possuía os atributos de um grande general (como rigor, sabedoria, coragem, sinceridade e benevolência).
+A ambiguidade que cerca a palavra "Qualidade" decorre, em grande parte, da omissão do contexto por parte de quem a utiliza. Tecnicamente, a Qualidade não deveria ser tratada como um adjetivo isolado, mas sim como um termo composto.
+
+É indispensável atrelá-la sempre a um substantivo específico, pois as competências que definem a excelência de um estrategista não guardam relação direta com as características exigidas de um líder político. Sem essa delimitação contextual, o atributo perde seu sentido prático na gestão.
+:::
+
+A Qualidade não é algo identificável e observável diretamente de forma isolada; ela é definida por meio de seus atributos. Para ilustrar, considere a frase genérica: *"Napoleão Bonaparte tinha todas as qualidades de um grande general"*. O que isso significa na prática? Significa que as palavras "qualidades", "propriedades", "atributos" ou "características" são intercambiáveis. Ele possuía os atributos de um grande general (como rigor, sabedoria, coragem, sinceridade e benevolência).
 
 Essas qualidades podem se manifestar de diferentes formas:
 
@@ -35,17 +40,16 @@ Essas qualidades podem se manifestar de diferentes formas:
 
 O emprego genérico da palavra Qualidade para representar coisas distintas deve-se ao fato de que, geralmente, o usuário da expressão não explica a que aspecto se refere o atributo. A palavra Qualidade deveria ser sempre empregada de forma composta — é preciso explicitar sempre qual o substantivo a que se refere (por exemplo: as qualidades de um grande líder, de um grande político ou de um grande estrategista formam conjuntos de características completamente diferentes).
 
-
 A Figura \@ref(fig:caracteristicas-general) exemplifica as características de um grande general. Observa-se que uma pessoa pode definir características e associá-las com intensidades ou pesos diferentes do que fariam outras pessoas. Isso representa a propriedade (i) da definição de qualidade. Além disso, estas mesmas pessoas podem atribuir características e pesos diferentes para outro personagem (como Dom Pedro I), a partir da sua percepção, o que representa a propriedade (ii) da definição. Por fim, a propriedade (iii) diz respeito à palavra "general" — que indica hoje o mais alto posto das Forças Armadas de inúmeros países e deriva da palavra latina *generalis* (em sua forma *generale*), que significa "geral", "universal", "comum a todos".
 
-![Características de um grande general](../images/fig-características-general.png){#fig-caracteristicas-general fig-align="center"}
+![Características de um grande general](../images/fig-características-general.png){#fig:caracteristicas-general fig-align="center"}
 
 A qualidade:
 
-- A definição de quais características pode ser subjetiva
-- A intensidade da associação das características pode ser subjetiva
-- A forma de mensuração e interpretação das características pode ser subjetiva
-- A própria característica pode ser subjetiva
+- A **definição** de quais características pode ser subjetiva
+- A **intensidade** da associação das características pode ser subjetiva
+- A **forma de mensuração** e **interpretação** das características pode ser subjetiva
+- A **própria** característica pode ser subjetiva
 
 Esta subjetividade divide a compreensão da Qualidade em duas dimensões:
 
@@ -55,7 +59,7 @@ Esta subjetividade divide a compreensão da Qualidade em duas dimensões:
 
 Uma bola de neve, por exemplo, pode produzir em nós a ideia de "redonda, fria e branca" (Figura \@ref(fig:boladeneve-termometro)). Esta distinção dificulta a verificação de um qualificativo, uma vez que a noção de qualidade indetectável é difícil de combinar com a qualidade de ser uma potência para produzir uma ideia. Suponha que seja atribuída ao Sol a qualidade de causar a subida do mercúrio no termômetro. Um "homem das cavernas" poderia perceber o mercúrio subindo (dimensão subjetiva da visão), mas não teria nenhuma ideia do papel intrínseco que o Sol exerce no equipamento (dimensão objetiva).
 
-![Imagem ilustrativa da Bola de Neve / Termômetro](../images/fig-boladeneve-termometro.png){#fig-boladeneve-termometro fig-align="center"}
+![Imagem ilustrativa da Bola de Neve / Termômetro](../images/fig-boladeneve-termometro.png){#fig:boladeneve-termometro fig-align="center"}
 
 O fato de o termo Qualidade ser de uso comum não é, implicitamente, algo ruim. Na verdade, isso pode decorrer de profundo esforço feito em passado recente para popularizar o termo. A questão é que os conceitos usados para definir Qualidade nem sempre são corretos — ou, melhor, quase sempre são incorretos. Isto sim é um problema, porque não se pode “redefinir” um termo que todo o mundo já conhece, nem restringir seu uso em situações específicas, se ele for de domínio público.
 
@@ -67,6 +71,7 @@ Chamaremos de parâmetros da qualidade de um objeto a uma característica espec�
 
 A Qualidade Total do objeto seria, portanto, a qualidade experimentada e avaliada pelo consumidor, objetiva e subjetivamente, na etapa de consumo do objeto e em todas as suas dimensões:
 
+(#eq:qtp)
 $$
 \mathrm{QTP} = f(Q_i) = \sum_{i=1}^{n} A_i \times Q_i
 $$
@@ -132,19 +137,24 @@ Sob essa ótica, a premissa mercadológica de que "o cliente sempre sabe o que q
 
 As demandas do mercado são naturalmente dinâmicas; elas se transformam com o tempo e variam de exigências contratuais explícitas a expectativas totalmente implícitas. Além disso, consumidores diferentes possuem rotinas e níveis de exigência distintos para um mesmo item. Por isso, a qualidade não deve ser tratada como um valor engessado ou mero sinônimo de luxo, devendo sempre estar atrelada à disposição financeira do cliente.
 
-#### Exemplo Prático — A Relatividade do Uso
+
+::: {.example #exm-relatividade-uso}
+**Exemplo Prático — A Relatividade do Uso**
 
 Imagine a venda de bebidas nas arquibancadas de um estádio de futebol. Um copo de plástico descartável atende de forma brilhante à necessidade do evento, combinando facilidade de manuseio, segurança para o público e baixo custo. Contudo, se tentarmos utilizar este exato recipiente para servir um café recém-coado, ele perderá completamente a sua "adequação ao uso". A alta condutividade térmica do plástico fino e a falta de uma alça causariam grande desconforto, ou até queimaduras, tornando a experiência desastrosa.
 
 A Figura \@ref(fig:copos-descartaveis) ilustra visualmente essa relatividade. Ao analisarmos um copo de vidro com acabamento refinado e um copo de acrílico simples isoladamente, a tendência natural é rotular o vidro como um item de "qualidade superior". Entretanto, sob a lente da adequação ao uso, a resposta gerencial correta sempre dependerá de questionamentos de contorno: "Quem vai manipular o objeto?" e "Em qual contexto ambiental?".
 
-![Comparativo de Qualidade entre Copos - Adequação ao Uso](../images/fig-copos-descartaveis.png){#fig-copos-descartaveis fig-align="center"}
+![Comparativo de Qualidade entre Copos - Adequação ao Uso](../images/fig-copos-descartaveis.png){#fig:copos-descartaveis fig-align="center"}
+
+:::
 
 ### A Qualidade como Conformidade com o Projeto
 
 Esta segunda abordagem argumenta que a gestão da qualidade só se torna viável, na prática diária de uma operação, se for balizada por métricas e especificações técnicas estabelecidas antes do início da fabricação. Nesse cenário, o nível de excelência é determinado rigorosamente pelo alinhamento exato entre o item entregue e o que foi parametrizado no projeto da engenharia.
 
-#### Exemplo Prático (Ótica laboratorial)
+::: {.example #exm-otica-laboratorial}
+**Exemplo Prático — Ótica laboratorial**
 
 Retomando o exemplo do copo descartável, para atestar sua qualidade sob essa ótica laboratorial, a linha de produção precisaria de uma ficha técnica detalhando sua espessura em milímetros, seu diâmetro, a resistência à tração e a composição química exata do polímero utilizado.
 
@@ -156,6 +166,8 @@ Para a série de normas ISO 9000, tanto a conformidade técnica quanto a adequa�
 - **Inerente:** Refere-se a algo que faz parte da constituição ou da essência do objeto, uma propriedade que existe de forma permanente.
 - **Requisito:** Trata-se da necessidade documentada, mandatória ou subentendida. Quando a norma cita "geralmente implícito", ela aponta para expectativas tão básicas que clientes e fornecedores já as dão como certas.
 
+:::
+
 ### A Qualidade Mensurada pelas Perdas à Sociedade
 
 Ao contrário das visões tradicionais focadas no lucro, esta vertente analisa o problema sob a ótica da falha, ou da "não qualidade". Aqui, a avaliação fundamenta-se no impacto financeiro ou socioambiental que um produto gera para a comunidade após ser comercializado e entrar em uso. Essas perdas são categorizadas em duas frentes principais:
@@ -163,9 +175,12 @@ Ao contrário das visões tradicionais focadas no lucro, esta vertente analisa o
 1. **Perdas por desvios na função principal:** Ocorrem quando a operação básica do produto apresenta ineficiência estrutural. Considere um motor elétrico de grande porte: o cenário ideal é que ele entregue potência contínua sem oscilações de desempenho. Se, durante o regime de trabalho, ele desperdiçar energia sob a forma de vibração excessiva ou ruído ensurdecedor, ele será classificado como um equipamento de baixa qualidade por não cumprir sua função de maneira adequada.
 2. **Perdas por impactos colaterais:** Estão ligadas aos prejuízos externos gerados não pela falha, mas pelo próprio consumo do produto. Utilizando o mesmo maquinário, caso ele apresente vazamentos crônicos de fluidos hidráulicos no solo ou emita níveis atmosféricos tóxicos, ele estará impondo um passivo direto ao meio ambiente e, consequentemente, à sociedade.
 
-#### Exemplo Prático — Custo Invisível
+::: {.example #exm-custo-invisivel}
+**Exemplo Prático — Custo Invisível**
 
 O copo de plástico ilustra perfeitamente esses custos invisíveis. Em primeiro lugar, falhas de injeção plástica podem gerar copos rachados que obrigam o usuário a usar dois ou três recipientes para não vazar a bebida, gerando perdas e frustração. Em segundo lugar, o descarte irregular deste material descartável em vias públicas cria um gravíssimo passivo ecológico, cujo custo de limpeza e remediação recairá sobre o sistema público e a sociedade como um todo.
+
+:::
 
 ### A Qualidade Definida pela Satisfação Plena do Cliente
 
@@ -199,7 +214,7 @@ Para tangibilizar essas teorias, vamos utilizar o cenário da prestação de um 
 
 Embora tenhamos consolidado uma definição normativa e prática, é fundamental reconhecer que o conceito de qualidade na literatura técnica apresenta uma vasta variação, onde diferentes autores enfatizam aspectos específicos de acordo com sua escola de pensamento. Essa diversidade teórica não deve ser vista como uma contradição, mas como camadas de entendimento que amadureceram paralelamente à própria profissão de gestor da qualidade.
 
-Table: (#tab:gurus) Definições de Qualidade
+Table: (\#tab:gurus) Definições de Qualidade
 
 | Autor | Definição | Ênfase |
 |---|---|---|
@@ -212,7 +227,8 @@ Fonte: Os autores, 2020. (adaptado de Lopes, 2014)
 
 ## Fixação de Conceitos
 
-### Exemplo Prático — Conceito de Qualidade
+::: {.example #exm-conceito-qualidade}
+**Exemplo Prático — Conceito de Qualidade**
 
 **PERGUNTA 01 – Por que o conceito de Qualidade depende do contexto a que ele se refere?**
 
@@ -245,6 +261,8 @@ Fonte: Os autores, 2020. (adaptado de Lopes, 2014)
 - **Satisfação:** O profissional estará satisfeito se a ferramenta tiver potência (intrínseca), for entregue na obra no prazo (atendimento), possuir assistência técnica rápida (serviços) e custo operacional baixo (custo total).
 
 
+:::
+
 ## Por que gerenciar a qualidade se tornou tão importante?
 
 Em um mercado dinâmico e altamente competitivo, as necessidades dos clientes evoluem constantemente. Nesse cenário, gerenciar a qualidade deixou de ser apenas uma métrica de chão de fábrica e tornou-se um imperativo de sobrevivência e um componente estratégico fundamental. Para isso, a Gestão da Qualidade precisa ter um impacto demonstrável sobre a base de negócios, estando intimamente associada a medidas-chave do desempenho empresarial, como o custo, a participação no mercado e a rentabilidade.
@@ -272,15 +290,15 @@ Para compreender o impacto da qualidade na base de negócios, é necessário ana
 
 - **Relação Qualidade vs. Preço:** É considerada uma relação fraca e sem direção clara. Existe uma força negativa ditada pela Lei da Demanda e uma força positiva, onde o preço mais alto atua como um "símbolo" de qualidade extra percebida pelo consumidor. A Figura \@ref(fig:relacao-qualidade-preco) ilustra essa dinâmica.
 
-![Relação Qualidade x Preço](../images/fig-relacao-qualidade-preco.png){#fig-relacao-qualidade-preco fig-align="center"}
+![Relação Qualidade x Preço](../images/fig-relacao-qualidade-preco.png){#fig:relacao-qualidade-preco fig-align="center"}
 
 - **Relação Qualidade vs. Propaganda:** Também apresenta uma relação fraca e sem direção clara. O investimento em publicidade é útil para sinalizar menor risco e criar contraste frente à concorrência, mas eleva diretamente os custos operacionais na tentativa de alavancar o volume de vendas. Veja a Figura \@ref(fig:relacao-qualidade-propaganda).
 
-![Relação Qualidade x Propaganda](../images/fig-relacao-qualidade-propaganda.png){#fig-relacao-qualidade-propaganda fig-align="center"}
+![Relação Qualidade x Propaganda](../images/fig-relacao-qualidade-propaganda.png){#fig:relacao-qualidade-propaganda fig-align="center"}
 
 - **Relação Qualidade vs. Participação no Mercado:** Apresenta uma relação média e com direção mais clara, dependendo profundamente da dimensão da qualidade explorada. A Figura \@ref(fig:relacao-qualidade-participacao) ilustra esse ponto.
 
-![Relação Qualidade x Participação no Mercado](../images/fig-relacao-qualidade-participacao.png){#fig-relacao-qualidade-participacao fig-align="center"}
+![Relação Qualidade x Participação no Mercado](../images/fig-relacao-qualidade-participacao.png){#fig:relacao-qualidade-participacao fig-align="center"}
 
 - **Relação Qualidade vs. Custo e Produtividade:** Esta é a relação forte e de direção inquestionável. A qualidade está diretamente ligada à redução da variabilidade e das falhas operacionais.
 
@@ -303,15 +321,29 @@ A transformação do conceito de qualidade em um Sistema de Gestão da Qualidade
 
 ### Definições normativas essenciais
 
-- **Objeto:** Entidade que pode ser produto, serviço, processo ou recurso, objeto de análise ou gestão.
-- **Característica:** Atributo mensurável ou observável do objeto que contribui para sua aptidão ao uso.
-- **Requisito:** Necessidade ou expectativa estabelecida, geralmente documentada, que deve ser atendida pelo objeto.
-- **Processo:** Conjunto de atividades inter-relacionadas ou interativas que transformam entradas em saídas.
-- **Sistema de Gestão:** Conjunto de elementos inter-relacionados ou interativos para estabelecer políticas e objetivos e para atingir esses objetivos.
-- **Melhoria contínua:** Ação recorrente para aumentar a capacidade de atender requisitos e elevar o desempenho.
-- **Parte interessada (stakeholder):** Pessoa ou organização que pode afetar, ser afetada ou perceber-se afetada por uma decisão ou atividade.
-- **Risco e oportunidade:** Incertidões (positivas ou negativas) que afetam a capacidade do sistema de gestão em alcançar resultados previstos.
-- **Evidência objetiva:** Registros ou fatos verificáveis que demonstram conformidade ou desempenho.
+### Objeto (3.6.1)
+
+Entidade que pode ser produto, serviço, processo ou recurso, objeto de análise ou gestão.
+
+### Característica (3.10.1)
+
+Atributo mensurável ou observável do objeto que contribui para sua aptidão ao uso.
+
+### Requisito (3.6.4)
+
+Necessidade ou expectativa estabelecida, geralmente documentada, que deve ser atendida pelo objeto.
+
+**Processo:** Conjunto de atividades inter-relacionadas ou interativas que transformam entradas em saídas.
+
+**Sistema de Gestão:** Conjunto de elementos inter-relacionados ou interativos para estabelecer políticas e objetivos e para atingir esses objetivos.
+
+**Melhoria contínua:** Ação recorrente para aumentar a capacidade de atender requisitos e elevar o desempenho.
+
+**Parte interessada (stakeholder):** Pessoa ou organização que pode afetar, ser afetada ou perceber-se afetada por uma decisão ou atividade.
+
+**Risco e oportunidade:** Incertidões (positivas ou negativas) que afetam a capacidade do sistema de gestão em alcançar resultados previstos.
+
+**Evidência objetiva:** Registros ou fatos verificáveis que demonstram conformidade ou desempenho.
 
 ### Abordagem por processos e pensamento sistêmico
 
@@ -339,65 +371,75 @@ Aplicar PDCA em todos os níveis — da alta direção às operações — garan
 
 ### Simulação de Parâmetros Didáticos
 
-#### Exemplo Prático — Minério de Ferro tipo Sinter Feed
-
+::: {.example #exm-sinter-feed name="Minério de Ferro tipo Sinter Feed"}
 Neste cenário, a siderúrgica (usuário) avalia a qualidade do minério baseada em três parâmetros principais: o Teor de Ferro ($Q_1$), o Teor de Sílica ($Q_2$) e a Granulometria ($Q_3$).
 
-**Atribuição de Pesos ($A_i$):**
+#### Atribuição de Pesos ($A_i$)
+O cliente define o que é mais importante para o processo dele. A soma da importância deve totalizar 100% (ou 1,0).
+- $A_1 = 0,6$ (60%): O teor de ferro é o mais importante para a produtividade do alto-forno.
+- $A_2 = 0,3$ (30%): A sílica é um contaminante que gera custo de remoção.
+- $A_3 = 0,1$ (10%): A granulometria afeta a permeabilidade, mas é o item de menor peso neste contrato.
 
-- $A_1 = 0{,}6$ (60%): Teor de ferro.
-- $A_2 = 0{,}3$ (30%): Teor de sílica.
-- $A_3 = 0{,}1$ (10%): Granulometria.
+#### Avaliação da Qualidade ($Q_i$)
+Durante a entrega, o laboratório mede o desempenho de cada característica em uma escala de 0 a 10 (onde 10 é a perfeição em relação ao requisito):
+- $Q_1 = 9,0$: O teor de ferro veio excelente (ex: 65% de Fe).
+- $Q_2 = 5,0$: A sílica veio acima do esperado, prejudicando este parâmetro.
+- $Q_3 = 8,0$: A granulometria está dentro da faixa aceitável.
 
-**Avaliação da Qualidade ($Q_i$):**
-
-- $Q_1 = 9{,}0$ (Excelente).
-- $Q_2 = 5{,}0$ (Ruim/Acima do esperado).
-- $Q_3 = 8{,}0$ (Aceitável).
-
-**Cálculo da Função Qualidade:**
-
+#### Cálculo da Função Qualidade
+Aplicamos a fórmula:
 $$
-\mathrm{QTP} = A_1Q_1 + A_2Q_2 + A_3Q_3
-$$
-
-Substituindo:
-
-$$
-\mathrm{QTP} = (0{,}6 \times 9{,}0) + (0{,}3 \times 5{,}0) + (0{,}1 \times 8{,}0) = 7{,}7
+QTP = (A_1 \times Q_1) + (A_2 \times Q_2) + (A_3 \times Q_3)
 $$
 
-**Análise do Resultado:**
+Substituindo os valores:
+$$
+QTP = (0,6 \times 9,0) + (0,3 \times 5,0) + (0,1 \times 8,0)
+$$
+$$
+QTP = 5,4 + 1,5 + 0,8
+$$
+$$
+QTP = 7,7
+$$
 
-Apesar do elevado teor de ferro, o alto conteúdo de sílica (peso significativo) reduz a nota final, indicando prioridade de melhoria no controle de sílica.
+#### Análise do Resultado
+Neste exemplo, a Qualidade Total do Produto foi **7,7**.
+- **Interpretação Didática:** Embora o minério tenha um teor de ferro excelente ($Q_1 = 9$), o resultado final da qualidade foi "puxado para baixo" pelo desempenho ruim da sílica ($Q_2 = 5$), que possui um peso significativo (30%) na percepção de valor do cliente.
+- **Conclusão:** Este cálculo permite que o gestor identifique exatamente onde investir em Melhoria da Qualidade. Neste caso, focar no controle da sílica trará um ganho maior na percepção de qualidade do que melhorar a granulometria, que tem peso baixo.
+:::
 
-#### Exemplo Prático — Serviço de Escoamento Ferroviário
+::: {.example #exm-escoamento-ferroviario}
+**Exemplo Prático — Serviço de Escoamento Ferroviário**
 
 Neste cenário, o usuário (o terminal portuário) avalia a qualidade do serviço prestado pela ferrovia através de três parâmetros.
 
-**Atribuição de Pesos ($A_i$):**
+#### Atribuição de Pesos ($A_i$)
 
 - $A_1=0{,}5$ (Pontualidade).
 - $A_2=0{,}3$ (Integridade da carga).
 - $A_3=0{,}2$ (Disponibilidade de vagões).
 
-**Avaliação da Qualidade ($Q_i$):**
+#### Avaliação da Qualidade ($Q_i$)
 
 - $Q_1=6{,}0$ (Atrasos frequentes).
 - $Q_2=10{,}0$ (Nenhuma contaminação).
 - $Q_3=9{,}0$ (Boa oferta).
 
-**Cálculo da Função Qualidade:**
+#### Cálculo da Função Qualidade
 
 $$
 \mathrm{QTP} = (0{,}5 \times 6{,}0) + (0{,}3 \times 10{,}0) + (0{,}2 \times 9{,}0) = 7{,}8
 $$
 
-**Análise do Resultado:**
+#### Análise do Resultado
 
 A pontualidade (maior peso) puxa a nota para baixo; foco de melhoria deve priorizar planejamento e redução de atrasos.
 
-#### Exemplo Prático — Qualidade pelo Atingimento de Metas (Gestão)
+:::
+
+::: {.example #exm-qualidade-metas}
+**Exemplo Prático — Qualidade pelo Atingimento de Metas (Gestão)**
 
 **Atribuição de Pesos ($A_i$):**
 
@@ -421,11 +463,15 @@ $$
 
 Volume excelente, mas falha financeira compromete a qualidade global; priorizar controle de custos.
 
+:::
+
 ### Estudo de Caso I — O Desafio do Minério de Alta Sílica
 
-**Objeto:** Produto B, minério de alto teor de sílica com forte abrasividade e baixa série histórica.
+#### Objeto
 
-**Passo 1: Definição dos Parâmetros da Qualidade ($Q_i$):**
+Produto B, minério de alto teor de sílica com forte abrasividade e baixa série histórica.
+
+#### Passo 1: Definição dos Parâmetros da Qualidade ($Q_i$)
 
 - $Q_1$ (Teor de Ferro - Fe): Indicador de qualidade química.
 - $Q_2$ (Teor de Sílica - SiO2): Parâmetro crítico de controle.
@@ -433,7 +479,7 @@ Volume excelente, mas falha financeira compromete a qualidade global; priorizar 
 - $Q_4$ (Eficiência do Processo - Carga Circulante): Saúde do sistema de britagem.
 - $Q_5$ (Qualidade Física - Fração +19 mm): Conformidade granulométrica.
 
-**Passo 2: Ponderação Estratégica ($A_i$):**
+#### Passo 2: Ponderação Estratégica ($A_i$)
 
 - $A_1=0{,}30$ (30%): Ferro é a missão básica.
 - $A_2=0{,}25$ (25%): Sílica é o maior risco.
@@ -441,7 +487,7 @@ Volume excelente, mas falha financeira compromete a qualidade global; priorizar 
 - $A_4=0{,}15$ (15%): Carga circulante indica estabilidade.
 - $A_5=0{,}10$ (10%): Granulometria teve menor peso.
 
-**Passo 3: Atribuição de Notas ($Q_i$):**
+#### Passo 3: Atribuição de Notas ($Q_i$)
 
 - $Q_1=9{,}0$ (Excelente).
 - $Q_2=7{,}0$ (Satisfatório).
@@ -449,21 +495,23 @@ Volume excelente, mas falha financeira compromete a qualidade global; priorizar 
 - $Q_4=4{,}0$ (Crítico).
 - $Q_5=1{,}0$ (Falha no requisito físico).
 
-**Passo 4: Processamento Matemático:**
+#### Passo 4: Processamento Matemático
 
 $$
 \mathrm{QTP}=(0{,}30 \times 9{,}0) + (0{,}25 \times 7{,}0) + (0{,}20 \times 9{,}9) + (0{,}15 \times 4{,}0) + (0{,}10 \times 1{,}0) = 7{,}13
 $$
 
-**Passo 5: Diagnóstico Gerencial:**
+#### Passo 5: Diagnóstico Gerencial
 
 Sucesso químico e de volume, mas fragilidade no processo e na qualidade física. Ações: ajuste de peneiras e setpoints dos britadores.
 
 ### Estudo de Caso II — Acurácia de Estoque e Medição (PPCJ)
 
-**Objeto:** Processo de produção e estocagem do produto PPCJ.
+#### Objeto
 
-**Passo 1: Definição dos Parâmetros ($Q_i$):**
+Processo de produção e estocagem do produto PPCJ.
+
+#### Passo 1: Definição dos Parâmetros ($Q_i$)
 
 - $Q_1$ (Teor de Fe).
 - $Q_2$ (Conformidade de Estoque).
@@ -471,7 +519,7 @@ Sucesso químico e de volume, mas fragilidade no processo e na qualidade física
 - $Q_4$ (Confiabilidade de Medição).
 - $Q_5$ (Controle de Umidade).
 
-**Passo 2: Ponderação Estratégica ($A_i$):**
+#### Passo 2: Ponderação Estratégica ($A_i$)
 
 - $A_1=0{,}20$ (Teor).
 - $A_2=0{,}35$ (Auditoria).
@@ -479,7 +527,7 @@ Sucesso químico e de volume, mas fragilidade no processo e na qualidade física
 - $A_4=0{,}20$ (Poder de Atuação).
 - $A_5=0{,}10$ (Suporte).
 
-**Passo 3: Atribuição de Notas ($Q_i$):**
+#### Passo 3: Atribuição de Notas ($Q_i$)
 
 - $Q_1=9{,}5$ (Excelente).
 - $Q_2=3{,}0$ (Crítico).
@@ -487,13 +535,13 @@ Sucesso químico e de volume, mas fragilidade no processo e na qualidade física
 - $Q_4=4{,}0$ (Crítico).
 - $Q_5=6{,}0$ (Regular).
 
-**Passo 4: Processamento Matemático:**
+#### Passo 4: Processamento Matemático
 
 $$
 \mathrm{QTP}=(0{,}20 \times 9{,}5) + (0{,}35 \times 3{,}0) + (0{,}15 \times 8{,}0) + (0{,}20 \times 4{,}0) + (0{,}10 \times 6{,}0) = 5{,}55
 $$
 
-**Passo 5: Diagnóstico:**
+#### Passo 5: Diagnóstico
 
 Sistema sob estresse. O foco imediato deve ser a revisão da periodicidade de calibração e a atualização da densidade das pilhas.
 
@@ -504,7 +552,7 @@ Sistema sob estresse. O foco imediato deve ser a revisão da periodicidade de ca
 - Evite diluição de peso ao adicionar muitas características.
 - Realize análises de sensibilidade.
 
-Table: (#tab:ppcj-case) Avaliação da Qualidade Total (QTP) – Caso PPCJ
+Table: (\#tab:ppcj-case) Avaliação da Qualidade Total (QTP) – Caso PPCJ
 
 | Parâmetro ($Q_i$) | Descrição Técnica | Peso ($A_i$) | Nota ($Q_i$) | Observação |
 |---|---|---|---|---|

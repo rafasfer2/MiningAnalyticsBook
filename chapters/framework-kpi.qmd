@@ -22,15 +22,15 @@ Isso ocorre sucessivamente durante um longo período $\tau$, onde é realizado u
 
 ![Tempos em operação e manutenção de um sistema](/images/fig-tempos-oper-manut.png){#fig-tempos}
 
-::: {#def-sistema .example}
+::: {.example #def-sistema}
 Definição — Sistema: Sistema é qualquer parte, componente, dispositivo, subsistema, unidade funcional, equipamento ou item que possa ser considerado individualmente (ISO-5462:1994, 1994).
 :::
 
-::: {#def-falha .example}
+::: {.example #def-falha}
 Definição — Falha: A falha é o termo usado para descrever a situação em que um item não é mais capaz de desempenhar a função requerida, o que leva à indisponibilidade do equipamento (ISO-5462:1994, 1994).
 :::
 
-::: {#def-sistema-reparável .example}
+::: {.example #def-sistema-reparável}
 Definição — Sistemas Reparáveis: Sistema reparável é caracterizado como aquele no qual, uma vez ocorrida a falha, este pode ser restaurado a uma condição operacional através de alguma operação de reparo, sem que haja a necessidade de substituição do sistema como um todo.
 :::
 
@@ -62,7 +62,7 @@ Ao considerar os tempos $\{T_i\}$ de falhas que ocorrem num sistema em operaçã
 
 Segundo a norma **ISO-5462 (1994, p. 2)**, disponibilidade é definida como a:
 
-::: {#def-disponinbilidade .example}
+::: {.example #def-disponinbilidade}
 Definição — Disponibilidade: Disponibilidade é a capacidade de um sistema estar em condições de executar uma certa função em um dado instante ou durante um intervalo de tempo determinado, levando em consideração os aspectos combinados de sua confiabilidade, mantenabilidade e suporte de manutenção, supondo que os recursos externos requeridos estejam assegurados.
 :::
 
@@ -220,7 +220,7 @@ Onde:
 
 ## Categoria de Horas
 
-::: {#def-categoria-horas .example}
+::: {.example #def-categoria-horas}
 Definição — Categoria de horas: Categoria de horas corresponde à divisão do tempo em classes de serviço ou condição dos equipamentos, detalhando as horas na execução de atividades de operação e manutenção no equipamento. Os tempos de funcionamento são agrupados em horas dependendo da ocorrência dos eventos e do conjunto de equipamentos que compõe o sistema produtivo.
 :::
 

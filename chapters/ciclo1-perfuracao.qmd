@@ -163,7 +163,7 @@ As hastes de perfuração (*drill rods*) são as ferramentas percussivas que com
 A análise de performance no **Mining Analytics** deve considerar rigorosamente o ciclo de vida dos acessórios. Existe uma correlação física direta entre o estado de afiação dos botões de metal duro (*carbide buttons*) do **Bit DTH** e a eficácia da fratura da rocha.
 
 ::: {.callout-note title="Insight Técnico: Sharp vs. Dull Bits"}
-Quando o bit está devidamente afiado, a transferência de energia percussiva é máxima, resultando em uma Taxa de Penetração (\$ROP\$) otimizada. Conforme os botões sofrem desgaste (perda de projeção), o bit torna-se menos eficaz, exigindo maior pressão de avanço (pull-down) e gerando dissipação de energia em forma de calor em vez de fragmentação mecânica.
+Quando o bit está devidamente afiado, a transferência de energia percussiva é máxima, resultando em uma Taxa de Penetração ($ROP$) otimizada. Conforme os botões sofrem desgaste (perda de projeção), o bit torna-se menos eficaz, exigindo maior pressão de avanço (pull-down) e gerando dissipação de energia em forma de calor em vez de fragmentação mecânica.
 :::
 
 O monitoramento sistemático do desgaste é crucial por três pilares de gestão:
@@ -238,7 +238,7 @@ O ciclo operacional de uma perfuratriz não se resume apenas a "furar o chão". 
 
 No pacote `miningKPI`, traduzimos esses eventos físicos em estruturas de dados para análise de performance.
 
-::: {#exm-dados-eventos-perfuracao}
+::: {.example #exm-dados-eventos-perfuracao}
 ## Dados de eventos de perfuração – Mina D
 
 Disponibilizamos o banco de dados `drill_events_mine_d`. Este dataset contém a telemetria detalhada (formato *long*), permitindo identificar cada fase da Identidade Fundamental. Note que, na prática, os dados brutos podem apresentar falhas de registro (fases ausentes) ou repetições.
@@ -282,7 +282,7 @@ A repetição das fases 3 e 4, característica de furos que exigem múltiplas ha
 
 Para que a análise estatística seja robusta, utilizamos a função `add_missing_drill_phases()`. Ela identifica fases ausentes e as imputa com duração zero, garantindo que cada ciclo contenha as 5 fases fundamentais, além da Fase 6 (`exit_cycle`), um marcador técnico necessário para o motor de cálculo.
 
-::: {#exm-fases-faltantes}
+::: {.example #exm-fases-faltantes}
 ## Análise de input das fases faltantes
 
 Como o `drill_events_mine_d` é um objeto de eventos brutos, aplicamos a função para observar o preenchimento das lacunas:
@@ -321,7 +321,7 @@ Esta igualdade permite identificar a natureza dos gargalos operacionais:
 
 Utilizamos o agrupamento por ciclo para consolidar os tempos e validar a identidade fundamental:
 
-::: {#exm-identidade-fundamental}
+::: {.example #exm-identidade-fundamental}
 ## Calculando a identidade fundamental do ciclo de perfuração
 
 Utilizamos o agrupamento por ciclo para consolidar os tempos e validar a identidade fundamental:
@@ -387,21 +387,21 @@ A execução da perfuração não é um evento isolado, mas o resultado de um fl
 
 1.  **Dimensionamento do Plano:** Os polígonos de perfuração são desenhados em softwares de engenharia, definindo coordenadas $(x,y,z)$, *burdens* (afastamento) e espaçamentos (*spacing*).
 
-    ::: {.callout-note appearance="simple" icon="false"}
-    **Evidência nos Dados:** Quando o plano não chega à cabine, observamos a descrição `"Waiting for Planning Demand"` ou comentários como `"Missing Polygon/Pattern"`. Sem o polígono digital, a perfuratriz fica impossibilitada de operar com HPGPS.
-    :::
+::: {.callout-note appearance="simple" icon="false"}
+**Evidência nos Dados:** Quando o plano não chega à cabine, observamos a descrição `"Waiting for Planning Demand"` ou comentários como `"Missing Polygon/Pattern"`. Sem o polígono digital, a perfuratriz fica impossibilitada de operar com HPGPS.
+:::
 
 2.  **Preparação da Área (Pad Preparation):** Liberação de ordens para tratores de esteira (*Dozers*) limparem e nivelarem a praça. Uma praça mal preparada aumenta drasticamente o tempo de Posicionamento ($P_i$).
 
-    ::: {.callout-note appearance="simple" icon="false"}
-    **Evidência nos Dados:** Este gargalo é identificado pelas descrições `"Waiting for Pad Adjustment"` e `"Waiting for Access Condition"`. Na prática, se o tempo acumulado nessas categorias for alto, a oportunidade de melhoria não está na perfuratriz, mas na frota de apoio (infraestrutura).
-    :::
+::: {.callout-note appearance="simple" icon="false"}
+**Evidência nos Dados:** Este gargalo é identificado pelas descrições `"Waiting for Pad Adjustment"` e `"Waiting for Access Condition"`. Na prática, se o tempo acumulado nessas categorias for alto, a oportunidade de melhoria não está na perfuratriz, mas na frota de apoio (infraestrutura).
+:::
 
 3.  **Marcação Topográfica (Survey Stakeout):** É a materialização física (piquetes) ou via GPS de alta precisão (HPGPS) do local exato onde o operador inicia o ciclo.
 
-    ::: {.callout-note appearance="simple" icon="false"}
-    **Evidência nos Dados:** Falhas nesta etapa geram descrições como `"Waiting for Survey"` e `"Waiting for Drill Pattern Mark."`. O comentário `"Project Not Updating / No Physical Marking"` é o exemplo clássico de um erro de redundância: o sistema digital falhou e a marcação física (tradicional) não foi realizada, paralisando o ativo.
-    :::
+::: {.callout-note appearance="simple" icon="false"}
+**Evidência nos Dados:** Falhas nesta etapa geram descrições como `"Waiting for Survey"` e `"Waiting for Drill Pattern Mark."`. O comentário `"Project Not Updating / No Physical Marking"` é o exemplo clássico de um erro de redundância: o sistema digital falhou e a marcação física (tradicional) não foi realizada, paralisando o ativo.
+:::
 
 #### Resumo de Correlação para Investigação
 
@@ -413,7 +413,7 @@ Para facilitar a análise de causa raiz, a tabela abaixo correlaciona as etapas 
 | **Preparation (Pad Prep)** | Infra | HOI / IIH \| HTD / DWH | `Waiting for Pad Adjustment`, `Access Condition` |
 | **Marking (Survey)** | Topo / Survey | HOI / IIH \| HTI / IWH | `Waiting for Survey`, `Pattern Marking` |
 
-::: {#exm-falhas-planejamento}
+::: {.example #exm-falhas-planejamento}
 ## Investigando Falhas no Fluxo de Planejamento
 
 Abaixo, demonstramos como utilizar os dados de telemetria para identificar qual etapa do planejamento — Design (*Plan*), *Pad Preparation* ou *Survey Stakeout* — está impactando a disponibilidade física da frota. Neste exemplo, filtramos apenas os eventos que não possuem fase produtiva (`is.na(phase)`) e os categorizamos utilizando as descrições e comentários traduzidos.
@@ -636,7 +636,7 @@ Esta abordagem garante três benefícios fundamentais para o analista de dados:
 
 3.  **Simplicidade Computacional:** Trabalhar com valores de 0 a 5.000 é mais eficiente e menos propenso a erros de precisão do que manipular coordenadas na casa dos milhões.
 
-::: {#exm-visualizacao-malha}
+::: {.example #exm-visualizacao-malha}
 ## Visualização da Malha de Perfuração
 
 Através das variáveis `local_x` e `local_y`, podemos reconstruir a malha de perfuração para validar a execução do plano de fogo. No exemplo abaixo, visualizamos a distribuição espacial dos eventos de perfuração da **Mina D**:

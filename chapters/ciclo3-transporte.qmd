@@ -26,7 +26,7 @@ Para fins de análise de performance e modelagem estatística no pacote `miningK
 
 7.  **Tempo de Basculamento (**$D_j$): Tempo efetivo de descarga do material no destino.
 
-::: {style="background-color:#e6f9e6; border-left: 4px solid #4CAF50; padding: 1em; margin: 1em 0;"}
+::: {.callout-inline style="background-color:#e6f9e6; border-left: 4px solid #4CAF50; padding: 1em; margin: 1em 0;"}
 **Exemplo:** Dados de eventos de transporte – Mina A
 
 No pacote `miningKPI`, o banco de dados `haul_events_mine_a` contém o rastreamento detalhado de cada viagem. Diferente dos ciclos de carregamento, o transporte exige a integração de dados de localização (origem e destino) com os tempos de deslocamento e espera.

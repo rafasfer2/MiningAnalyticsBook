@@ -1,11 +1,66 @@
-/* Títulos com Paleta Google e Estilo Técnico */
-.title-p1 { color: #174EA6 !important; border-left: 5px solid #174EA6; padding-left: 10px; }
-.title-p2 { color: #4285F4 !important; border-left: 5px solid #4285F4; padding-left: 10px; }
-.title-p3 { color: #1A73E8 !important; border-left: 5px solid #1A73E8; padding-left: 10px; }
-.title-p4 { color: #8AB4F8 !important; border-left: 5px solid #8AB4F8; padding-left: 10px; }
+/* ==============================================================================
+   ESTRUTURA FINAL DO LAYOUT (V11.0 - PALETA AZUL EXPANDIDA)
+   ============================================================================== */
+
+/* --- 1. VARIÁVEIS E CORES GLOBAIS --- */
+:root {
+  /* 1.1. Paleta Principal Existente (BrBG - Marrons e Teals) */
+  --color-brown-dark:   #543005;
+  --color-brown-med:    #8c510a;
+  --color-brown:        #bf812d;
+  --color-brown-light:  #dfc27d;
+  --color-cream:        #f6e8c3;
+  --color-cyan-light:   #c7eae5;
+  --color-cyan-mid:     #80cdc1;
+  --color-teal:         #35978f;
+  --color-teal-dark:    #01665e;
+  --color-teal-deep:    #003c30;
+
+  /* 1.2. NOVA EXTENSÃO DE AZUIS (Solicitado) */
+  --color-blue-deep:    #083C92; /* Azul profundo */
+  --color-blue-bright:  #0C59DB; /* Azul vibrante */
+  --color-blue-standard:#4285F4; /* Azul padrão Google */
+
+  /* 1.3. ACENTOS E SUPORTE */
+  --color-gold:         #d4af37;
+  --color-gold-base:    #ffd700;
+  /* Vermelho mantido apenas como variável, usado menos no layout principal */
+  --color-accent-red:   #EA4335;
+
+  --color-gray-soft:    #CCCCCC;
+  --color-hover-gray:   #e3e3e3;
+  --color-gray-med:     #aaaaaa;
+
+  /* 1.4. Layout Dimensions */
+  --sidebar-width:      320px;
+  --toc-width:          320px;
+  --header-height:      60px;
+
+  --content-gap:        -11rem;
+  --text-padding-left:  0.75rem;
+}
+
+/* --- CLASSES AUXILIARES DE TÍTULOS (Atualizadas com novos Azuis) --- */
+/* Substituímos os antigos azuis fixos e o vermelho pelas novas variáveis */
+
+/* Azul Profundo (Deep) */
+.title-p1 { color: var(--color-blue-deep) !important; border-left: 5px solid var(--color-blue-deep); padding-left: 10px; }
+
+/* Azul Vibrante (Bright) */
+.title-p2 { color: var(--color-blue-bright) !important; border-left: 5px solid var(--color-blue-bright); padding-left: 10px; }
+
+/* Azul Padrão (Standard) */
+.title-p3 { color: var(--color-blue-standard) !important; border-left: 5px solid var(--color-blue-standard); padding-left: 10px; }
+
+/* A antiga classe .title-c (que era vermelha) agora usa o azul padrão para reduzir a presença de vermelho */
+.title-c  { color: var(--color-blue-standard) !important; border-left: 5px solid var(--color-blue-standard); padding-left: 10px; }
+
+/* Mantidas as cores de Amarelo e Verde */
 .title-d  { color: #FBBC05 !important; border-left: 5px solid #FBBC05; padding-left: 10px; }
-.title-c  { color: #EA4335 !important; border-left: 5px solid #EA4335; padding-left: 10px; }
 .title-a  { color: #34A853 !important; border-left: 5px solid #34A853; padding-left: 10px; }
+
+/* Se você precisar MUITO usar o vermelho em algum ponto específico, use esta nova classe: */
+.title-red-alert { color: var(--color-accent-red) !important; border-left: 5px solid var(--color-accent-red); padding-left: 10px; }
 
 /* Estilo para cabeçalhos complexos do kableExtra */
 thead tr:first-child th {
@@ -599,3 +654,289 @@ table.table thead th,
   font-family: 'Roboto', 'Segoe UI', Arial, sans-serif !important;
   font-weight: bold !important;
 }
+
+
+/* ==============================================================================
+   15. ESTUDOS DE CASO E EXEMPLOS PRÁTICOS (CUSTOM CLASSES)
+   ============================================================================== */
+
+/* Estudo de Caso (Foco em análise, com cores da paleta Teal) */
+.estudo-caso {
+  background-color: #f4f8f9; /* Fundo bem claro / levemente azulado */
+  border-left: 5px solid var(--color-teal);
+  padding: 1.5rem 1.5rem 0.5rem 1.5rem !important;
+  margin: 1.5rem 0 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+}
+
+.estudo-caso h4, .estudo-caso .titulo {
+  color: var(--color-teal-dark) !important;
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  border-bottom: 1px solid var(--color-cyan-light);
+  padding-bottom: 0.5rem;
+}
+
+/* Exemplo Prático (Foco na execução, com cores da paleta Gold/Brown) */
+.exemplo-pratico {
+  background-color: #fdfbf7; /* Fundo creme super leve */
+  border-left: 5px solid var(--color-gold);
+  padding: 1.2rem 1.5rem 0.5rem 1.5rem !important;
+  margin: 1.5rem 0 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+.exemplo-pratico h4, .exemplo-pratico .titulo {
+  color: var(--color-brown-dark) !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.8rem !important;
+}
+
+/* ==============================================================================
+   16. NOTAS, CALLOUTS E AVISOS
+   ============================================================================== */
+
+/* Ajustes para Callouts Nativos do Quarto (.callout-note, .callout-tip, etc.) */
+.callout {
+  margin: 1.5rem 0 !important;
+  border-radius: 5px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+}
+
+.callout-body-container {
+  text-align: justify !important; /* Garante alinhamento justificado dentro do callout */
+}
+
+/* Nota Técnica (Classe customizada para insights e notas teóricas) */
+.nota-tecnica {
+  background-color: #f6f8fa;
+  border-left: 4px solid #5b7290; /* Azul acinzentado */
+  padding: 1rem 1.2rem !important;
+  margin: 1.2rem 0 !important;
+  font-size: 0.95rem !important;
+  border-radius: 0 4px 4px 0 !important;
+}
+
+.nota-tecnica strong:first-child {
+  color: #34495e;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+/* ==============================================================================
+   17. EQUAÇÕES MATEMÁTICAS E FÓRMULAS
+   ============================================================================== */
+
+/* Garante que equações longas tenham barra de rolagem e visual de textbook */
+.math.display, .equation {
+  overflow-x: auto !important; /* Adiciona scroll horizontal se a equação for muito longa */
+  overflow-y: hidden !important;
+  padding: 1.2rem 1rem !important;
+  margin: 1.5rem 0 !important;
+  background-color: #fdfdfd !important;
+  border: 1px solid var(--color-gray-soft) !important;
+  border-radius: 5px !important;
+  text-align: center !important;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.02) !important;
+}
+
+/* Alinha o número da equação (se houver crossref) no canto direito */
+.math.display span.math {
+  display: inline-block;
+  width: 100%;
+}
+
+/* ==============================================================================
+   18. LEGENDAS DE TABELA (FORÇAR ACIMA DA TABELA)
+   ============================================================================== */
+
+/* Configuração rigorosa para mover a legenda da tabela para o topo */
+table caption, .table caption {
+  caption-side: top !important; /* Propriedade chave para a legenda ficar acima */
+  text-align: left !important;
+  color: var(--color-teal-dark) !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  padding-bottom: 0.6rem !important;
+  padding-top: 0 !important;
+  margin-bottom: 0 !important;
+  border-bottom: none !important;
+}
+
+/* ==============================================================================
+   19. NOTAS DE RODAPÉ (FOOTNOTES)
+   ============================================================================== */
+
+/* Container geral das notas no final do capítulo/página */
+section.footnotes {
+  margin-top: 3rem !important;
+  padding-top: 1.5rem !important;
+  border-top: 1px solid var(--color-gray-med) !important;
+  font-size: 0.85rem !important;
+  color: #555555 !important;
+}
+
+/* Título gerado automaticamente (se houver) na seção de notas */
+section.footnotes h2 {
+  font-size: 1.1rem !important;
+  color: var(--color-gray-med) !important;
+  margin-bottom: 1rem !important;
+  border-bottom: none !important;
+}
+
+section.footnotes p {
+  margin-bottom: 0.5rem !important;
+  line-height: 1.4 !important;
+  text-align: left !important;
+}
+
+/* Links dos números das notas de rodapé ao longo do texto */
+a.footnote-ref {
+  color: var(--color-teal) !important;
+  text-decoration: none !important;
+  vertical-align: super !important;
+  font-size: 0.75em !important;
+  line-height: 0 !important;
+  padding: 0 2px !important;
+}
+
+a.footnote-ref:hover {
+  text-decoration: underline !important;
+  color: var(--color-teal-dark) !important;
+}
+
+/* Link de retorno (a setinha de volta na nota de rodapé) */
+a.footnote-back {
+  color: var(--color-brown) !important;
+  text-decoration: none !important;
+  margin-left: 0.3rem !important;
+}
+
+a.footnote-back:hover {
+  color: var(--color-brown-dark) !important;
+}
+
+/* ==============================================================================
+   20. TAXONOMIA DE DESIGN INSTRUCIONAL (HARMONIA AZUL/TEAL/RED)
+   ============================================================================== */
+
+/* Ajuste Geral para todos os Callouts */
+.callout {
+  margin: 1.5rem 0 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06) !important;
+  border-left-width: 5px !important; /* Borda lateral mais expressiva */
+}
+
+.callout-header {
+  font-weight: 700 !important;
+  font-size: 1.05rem !important;
+  padding: 0.8rem 1rem 0.5rem 1rem !important;
+}
+
+.callout-body {
+  padding: 0 1rem 0.8rem 1rem !important;
+}
+
+/* ------------------------------------------------------------------
+   1. 📌 DEFINIÇÃO NORMATIVA (.callout-note)
+   Cor: Azul Profundo (--color-blue-deep) - Autoridade e Regras
+   ------------------------------------------------------------------ */
+.callout-note {
+  border-left-color: var(--color-blue-deep) !important;
+  background-color: #f0f4fa !important; /* Fundo azul bem leve e acinzentado */
+}
+.callout-note .callout-header {
+  color: var(--color-blue-deep) !important;
+}
+
+/* ------------------------------------------------------------------
+   2. 💡 INSIGHT OPERACIONAL (.callout-tip)
+   Cor: Teal / Ouro - Operação, Mina, "Pulo do Gato"
+   ------------------------------------------------------------------ */
+.callout-tip {
+  border-left-color: var(--color-gold) !important;
+  background-color: #fdfcf7 !important; /* Fundo creme/ouro super leve */
+}
+.callout-tip .callout-header {
+  color: var(--color-brown-dark) !important;
+}
+
+/* ------------------------------------------------------------------
+   3. 💻 TECH NOTE: R & DATA SCIENCE (.tech-note)
+   Cor: Azul Padrão (--color-blue-standard) - Tecnologia e Código
+   ------------------------------------------------------------------ */
+.tech-note {
+  background-color: #f4f8fe !important; /* Fundo tech note azulado */
+  border-left: 5px solid var(--color-blue-standard) !important;
+  border-radius: 6px !important;
+  margin: 1.5rem 0 !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06) !important;
+}
+.tech-note-header {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-weight: 700;
+  color: var(--color-blue-standard);
+  padding: 0.8rem 1rem 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+}
+.tech-note-header::before {
+  content: "💻 ";
+  margin-right: 8px;
+}
+.tech-note-body {
+  padding: 0 1rem 0.8rem 1rem;
+  color: #333333; /* Texto escuro para contraste */
+}
+
+/* ------------------------------------------------------------------
+   4. ⚠️ ARMADILHA DE ENGENHARIA (.callout-warning)
+   Cor: Vermelho (--color-accent-red) - Alerta e Erros Comuns
+   ------------------------------------------------------------------ */
+.callout-warning {
+  border-left-color: var(--color-accent-red) !important;
+  background-color: #fdf4f3 !important; /* Fundo vermelho MUITO suave para não agredir a leitura */
+}
+.callout-warning .callout-header {
+  color: var(--color-accent-red) !important;
+}
+
+/* ------------------------------------------------------------------
+   5. 🛠️ LABORATÓRIO PRÁTICO (.callout-important)
+   Cor: Azul Vibrante (--color-blue-bright) - Ação e Execução
+   ------------------------------------------------------------------ */
+.callout-important {
+  border-left-color: var(--color-blue-bright) !important;
+  background-color: #f2f6fd !important; /* Fundo combinando com o azul vibrante */
+}
+.callout-important .callout-header {
+  color: var(--color-blue-bright) !important;
+}
+
+/* ------------------------------------------------------------------
+   6. 📘 GUIA PEDAGÓGICO / NOTAS TÉCNICAS (Classe Genérica Opcional)
+   Cor: Cinza / Teal
+   ------------------------------------------------------------------ */
+.nota-tecnica {
+  background-color: #f8f9fa;
+  border-left: 4px solid var(--color-teal);
+  padding: 1rem 1.2rem !important;
+  margin: 1.2rem 0 !important;
+  font-size: 0.95rem !important;
+  border-radius: 0 4px 4px 0 !important;
+}
+.nota-tecnica strong:first-child {
+  color: var(--color-teal-dark);
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem !important;
+}
+

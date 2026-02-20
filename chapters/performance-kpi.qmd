@@ -100,7 +100,7 @@ A **HPO** é tratada de forma segregada por representar paradas que impactam a p
 >
 > Enquanto as demais horas são classificadas por estado físico do ativo, a HD é uma categoria de capacidade e a HPO é uma categoria de perda de processo. No pacote miningKPI, a HPO (sigla técnica SOH) deve ser monitorada rigorosamente para identificar gargalos de infraestrutura que a Utilização Física (UF) muitas vezes mascara.
 
-::: example {#exm-processamento-categorias}
+::: {.example #exm-processamento-categorias}
 Processamento de Categorias de Horas
 
 Como a medição é feita baseado em durações de tempo, os apontamentos são realizados sempre que um determinado equipamento alterar o seu status de operação. Para análise de categoria de horas, utiliza-se o `gap_time` que é a duração (em horas) do início e fim do evento.
@@ -260,7 +260,7 @@ Mede o ritmo e a intensidade do processo durante o tempo operado ($\sum HT$). El
 
 $$\mathrm{PR_{p}} = \frac{\sum \text{Unidades de Produção}}{HT_{p}}$$ {#eq-pr}
 
-::: {#exm-calculando-kpis}
+::: {.example #exm-calculando-kpis}
 #### Metrologia Aplicada (Calculando KPIs)
 
 Para obter a os valores diários para os KPIs Disponibilidade (DF), Utilização (UF) e Produtividade (PR), executamos o cálculo das categorias de horas em métricas de performance ($WH$, $IH$, $MH$, $AH$). Cabe ressaltar que a produção das perfuratrizes é a soma dos metros perfurados (Meters Drilled):
@@ -335,7 +335,7 @@ Já no dia 09/01, a produtividade caiu para **13,1 m/h**. Comparando com o dia 0
 
 > **Resumo para o Leitor:** A série histórica revela que a **DRILL_100** sofre mais com perdas de utilização do que com indisponibilidade técnica. O baixo rendimento operacional (**RO**) na metade do período é reflexo direto de ociosidade interna (IIH), indicando que os esforços de melhoria devem ser focados no planejamento de lavra e alocação de operadores, e não apenas na redução de tempos de manutenção.
 
-::: {#exm-evolucao_temporal}
+::: {.example #exm-evolucao_temporal}
 #### Evolução Temporal da Produção
 
 A visualização abaixo consolida o desempenho da perfuratriz ao longo de quase um ano de operação, permitindo ao gestor correlacionar as variações de metragem com os KPIs de disponibilidade e utilização discutidos anteriormente.
@@ -392,7 +392,7 @@ Ao cruzarmos estes dados com o conceito de **Rendimento Operacional (RO)**, vemo
 
 > **Resumo para o Leitor:** A série histórica da **DRILL_100** é o retrato de um ativo que "morreu" operacionalmente no meio do ano. Enquanto o primeiro trimestre mostrou que o equipamento tinha capacidade técnica (atingindo \>500m/dia), a inatividade prolongada no segundo semestre sugere uma falha grave de planejamento ou gestão de ativos. Em uma operação de excelência, este equipamento deveria ter sido transferido para outra unidade ou alienado para evitar a depreciação improdutiva.
 
-::: {#exm-dados-budget}
+::: {.example #exm-dados-budget}
 #### Base de Planejamento Estratégico (Budget)
 
 A transição da Metrologia de Performance para a Excelência Operacional exige um referencial comparativo. No sistema de gestão, este referencial é extraído do **Budget** (Orçamento Anual), que define as premissas de capacidade e as metas de entrega para cada ativo.
@@ -484,7 +484,7 @@ $$\Delta PR = Prod_{real} - \Delta PA - \Delta PU - Prod_{plan}$$ {#eq-ip-pr}
 
 -   **Prod Real/Plan:** Volume total de produção (Realizado vs. Programado) no período.
 
-::: {#exm-decomposicao-impactos}
+::: {.example #exm-decomposicao-impactos}
 ### Decomposição dos Impactos (Production Gap)
 
 A integração entre o plano de lavra (Budget) e a execução (Metrologia) é realizada através da análise de desvios. O objetivo é converter variações de tempo e ritmo em metros lineares, isolando as responsabilidades de cada área.

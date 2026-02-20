@@ -26,7 +26,7 @@ Para uma análise precisa da frente de lavra, é necessário distinguir o objeto
 
 Suponha que uma unidade de carregamento esteja em operação em um determinado turno de trabalho. Ao iniciar sua operação, a escavadeira aguarda que o caminhão realize a manobra e, em seguida, inicia o primeiro carregamento. Este é o marco zero do nosso processo de contagem. Após finalizar o carregamento, pode haver alguma ociosidade antes que o próximo ciclo inicie. Os tempos e estados são coletados para cada ciclo de forma recorrente.
 
-::: {style="background-color:#e6f9e6; border-left: 4px solid #4CAF50; padding: 1em; margin: 1em 0;"}
+::: {.callout-inline style="background-color:#e6f9e6; border-left: 4px solid #4CAF50; padding: 1em; margin: 1em 0;"}
 **Exemplo:** Dados de eventos de carregamento – Mina A
 
 No pacote `miningKPI`, disponibilizamos o banco de dados `load_events_mine_a`. Este dataset é um conjunto de dados primário estruturado em eventos sequenciais (formato long), onde cada linha representa a mudança de estado da unidade de carga.
