@@ -105,7 +105,7 @@ Esta corrente defende que um produto detém qualidade se ele cumpre de forma sat
 
 Sob essa ótica, a premissa mercadológica de que "o cliente sempre sabe o que quer" nem sempre é absoluta, uma vez que inovações são empurradas para o mercado, gerando novas necessidades antes mesmo que o consumidor as exija. Ao se distanciar da busca por uma perfeição técnica utópica, essa visão pragmática permite que as empresas incorporem a qualidade em suas estratégias comerciais.
 
-As demandas do mercado são naturalmente dinâmicas. Consumidores diferentes possuem rotinas e níveis de exigência distintos para um mesmo item. Por isso, a qualidade não deve ser tratada como um valor engessado ou mero sinônimo de luxo, devendo sempre estar atrelada à disposição financeira do cliente.
+As demandas do mercado são naturalmente dinâmicas. Consumidores diferentes possuem rotinas e níveis de exigência distintos para um mesmo item. Por isso, a qualidade não deve ser treateda como um valor engessado ou mero sinônimo de luxo, devendo sempre estar atrelada à disposição financeira do cliente.
 
 ::: {.example #exm-relatividade-uso name="A Relatividade do Uso"}
 Imagine a venda de bebidas nas arquibancadas de um estádio de futebol. Um copo de plástico descartável atende de forma brilhante à necessidade do evento (fácil manuseio, segurança para o público e baixo custo). Contudo, se tentarmos utilizar este exato recipiente para servir um café recém-coado, ele perderá completamente a sua "adequação ao uso". A alta condutividade térmica do plástico fino causaria desconforto ou queimaduras.
@@ -317,7 +317,49 @@ Para facilitar o controle, as características **inerentes** são as nossas vari
   * *Imagem da Marca:* Refere-se à reputação da marca do produto no mercado.
 * **Características do custo do ciclo de vida do produto para o usuário:** Refere diretamente aos custos presentes e futuros implícitos na compra do produto.
 
-Embora essas dimensões permitam uma análise técnica detalhada do objeto, a forma como as organizações priorizam cada uma delas mudou drasticamente ao longo das décadas. Essa mudança reflete a necessidade de alinhar a visão interna da engenharia (focada no produto) com a percepção externa do mercado (focada no uso), dando origem ao que conhecemos como a evolução dos níveis de adequação da qualidade.
+### As Múltiplas Dimensões da Qualidade em Modelos de Gestão {#sec-multiplas-dimensoes}
+
+Embora as dimensões inerentes listadas anteriormente permitam uma análise técnica detalhada do objeto físico, a avaliação total da qualidade em sistemas complexos exige uma visão sistêmica das interações operacionais. Quando o alvo da análise deixa de ser apenas o minério e passa a ser o próprio **Modelo de Gestão** da organização, a literatura demonstra que a qualidade percebida deve ser subdividida em várias dimensões para refletir os diferentes contextos, aplicações e sujeitos envolvidos no processo (Cronin & Taylor, 1994; Petrick, 2002).
+
+A principal motivação para estruturar essa avaliação gerencial decorre dos desafios práticos relatados nas indústrias: a dificuldade de alinhar a equipe de apoio (engenharia, planejamento, RH) com a equipe de operação (mina, usina, ferrovia) durante a implementação de diretrizes e metas.
+
+Diante desse cenário, a avaliação total da qualidade de um modelo de gestão pode ser dividida em quatro dimensões estruturais (sinalizadas na @fig-dimensoes-modelo):
+
+1. **Qualidade dos Transformadores:** Representa os recursos, ferramentas e métodos necessários para *transformar* os indicadores específicos (advindos do desdobramento da estratégia) em produtos, serviços, treinamentos e informações prontas para uso. É a base para que a equipe de apoio compreenda seu papel e cumpra as metas estabelecidas.
+2. **Qualidade Percebida dos Serviços:** Remete à satisfação do *cliente interno*. Compõe o conjunto de produtos, serviços, treinamentos e informações gerados pelas áreas de suporte para sustentar a operação diária.
+3. **Qualidade Operacional:** Vai além da conformidade técnica. É medida pelo cumprimento das metas de produção estabelecidas e avaliada pela capacidade da equipe de operação em gerir e alcançar os indicadores traçados pelo desdobramento estratégico.
+4. **Qualidade do Ambiente:** É a capacidade em que as equipes de apoio conseguem dar suporte às equipes de operação, transmitindo efetivamente as informações. Esta dimensão possui via de mão dupla: avalia o ofertante (ao entregar o serviço adequado ao propósito) e o cliente interno (ao fornecer informações claras sobre demandas, necessidades e dificuldades de área).
+
+::: {.callout-note title="💡 Insight Operacional: O Fator Humano"}
+Conjuntamente, essas quatro dimensões guiam a geração de resultados operacionais. A conceituação desse formato deixa claro que a excelência técnica (transformadores) e o batimento de metas (operacional) são insuficientes se não houver harmonia na interface de serviços e no ambiente. É a interação alinhada entre diferentes perfis de profissionais que sustenta os objetivos da empresa.
+:::
+
+Embora essas dimensões sejam uma proposição adaptada à realidade da gestão de processos dinâmicos, elas são amplamente fundamentadas pelos conceitos de satisfação do cliente e valor percebido. Essa flexibilidade estrutural evidencia que a qualidade nunca deve ser interpretada de forma estática; sua aplicação exige um desdobramento alinhado ao contexto específico no qual o processo está inserido.
+
+![Dimensões da Qualidade no Modelo de Gestão](../images/fig-dimensoes-modelo.png){#fig-dimensoes-modelo fig-align="center"}
+
+### A Abordagem de Processos e o Ambiente de Relacionamento Interno (ARI) {#sec-ari-processos}
+
+Para que as múltiplas dimensões da qualidade funcionem de forma harmônica, a organização não pode ser vista como um aglomerado de departamentos isolados, mas sim como um grande ecossistema de transformação. A ISO 9001 (2015) fundamenta essa visão através da **Abordagem de Processos**, onde a qualidade é garantida pela compreensão de que a saída de uma área é, inevitavelmente, a entrada da outra.
+
+A figura clássica do Sistema de Produção ilustra que todo processo é um conjunto de atividades estruturadas em uma sequência lógico-temporal. Ele utiliza **recursos a serem transformados** (materiais, informações) e **recursos transformadores** (instalações, tecnologia, funcionários) sob uma metodologia preestabelecida, gerando produtos e serviços para um cliente, ao mesmo tempo em que precisa gerenciar externalidades (impactos ambientais, sociais e de segurança).
+
+No entanto, quando aplicamos essa mesma lógica de engenharia de produção para a **dinâmica da gestão da informação**, o chão de fábrica dá lugar ao **Ambiente de Relacionamento Interno (ARI)**.
+
+No ARI, a informação que percorre o fluxo vertical — da alta gestão até o cliente final — é desdobrada em indicadores mensuráveis. Para que esse fluxo tenha qualidade e gere valor, torna-se estritamente necessário mapear o processo de geração de demandas e definir as responsabilidades das partes envolvidas:
+
+**1. A Alta Gestão (Os Fornecedores de Entrada)**
+É responsável por fornecer o conjunto de elementos, diretrizes e indicadores desdobrados dos objetivos estratégicos da empresa. No fluxo de processos do ARI, os "produtos" gerados pela alta gestão formam as informações de entrada (*recursos a serem transformados*) que alimentarão o sistema.
+
+**2. A Equipe de Apoio (Os Recursos Transformadores)**
+Visando fortalecer a cultura de excelência, áreas como engenharia, planejamento e RH são responsáveis por processar as diretrizes da alta gestão e transformá-las em produtos, serviços e treinamentos de apoio. O objetivo é subsidiar a linha de frente para o cumprimento das metas anuais de produção e especificações de qualidade.
+* *Dinâmica Operacional:* Ao transmitir e transformar essas informações, a equipe de apoio exerce um papel de **educador/facilitador**, desenvolvendo as demandas conjuntamente com a área de atendimento.
+
+**3. A Equipe de Operação (O Cliente Interno)**
+Prioritariamente, sua responsabilidade é executar a metodologia de processamento físico e cumprir as metas estabelecidas. No entanto, o modelo de gestão exige que a operação compreenda a necessidade de integrar atividades gerenciais ao seu dia a dia operacional.
+* *Dinâmica Operacional:* No ARI, a equipe de operação assume o papel de **aprendiz** e cliente. Para garantir a melhoria contínua (*feedback*), ela torna-se responsável por retroalimentar o sistema, informando com clareza suas demandas, necessidades e dificuldades de campo para que a equipe de apoio refine os produtos ofertados.
+
+Para garantir a aderência de todo esse fluxo, as entregas entre essas três partes devem ser acompanhadas em frequências determinadas. Através do resultado dos indicadores alcançados, o relacionamento interno é medido e o ciclo de gestão se consolida.
 
 ### Requisito e Grau (Diferenciando Qualidade de Luxo) {#sec-requisito-grau}
 
@@ -338,11 +380,11 @@ Um produto de **baixo grau** (o caminhão menor, com menos tecnologia embarcada)
 
 Ao compreendermos todas essas variáveis normativas (Objeto, Característica, Requisito e Grau), o segredo para a engenharia não é tratá-las apenas como jargão técnico, mas sim como os elementos básicos de uma equação.
 
-Para quantificar a excelência de um produto no dia a dia da indústria, nós pegamos a terminologia exata da ISO e a traduzimos para variáveis matemáticas, criando uma ponte conceitual estruturada:
+Para quantificar a excelência de um produto ou de um processo no dia a dia da indústria, nós pegamos a terminologia exata da ISO e a traduzimos para variáveis matemáticas, criando uma ponte conceitual estruturada:
 
-* **O Objeto (ISO) $\rightarrow$ O Produto Total (QTP):** É o resultado final da equação, o índice global de excelência ($f(Q_i)$).
-* **As Características da Qualidade (ISO) $\rightarrow$ As Dimensões Avaliadas ($C_i$):** São as variáveis de desempenho, estética e durabilidade que a engenharia vai efetivamente medir no processo.
-* **O Requisito e o Grau (ISO) $\rightarrow$ O Peso de Importância ($A_i$):** É a exigência do cliente (ou da norma) que dita qual característica vale mais na composição da nota final.
-* **A Conformidade / Desempenho (ISO) $\rightarrow$ A Nota de Qualidade ($Q_i$):** É o valor numérico extraído da inspeção na fábrica. Se o atendimento ao requisito for alto, o $Q_i$ é alto.
+* **O Objeto (ISO) $\rightarrow$ O Produto Final ($ARM$):** É o resultado final da equação, o índice global de excelência do modelo analítico.
+* **As Características da Qualidade (ISO) $\rightarrow$ As Variáveis Avaliadas ($V_i$ e $D_j$):** São os atributos de desempenho, estética e durabilidade que a engenharia vai efetivamente medir (*Features*).
+* **O Requisito e o Grau (ISO) $\rightarrow$ O Peso de Importância ($W_i$):** É a exigência do cliente (ou da norma) que dita qual característica pesa mais (*Weight*) na composição da nota final.
+* **A Conformidade / Desempenho (ISO) $\rightarrow$ A Nota de Qualidade ($S_i$):** É o valor numérico extraído da inspeção na fábrica (*Score*). Se o atendimento ao requisito for alto, a nota será alta.
 
-Com essa ponte estabelecida, o próximo passo da engenharia é executar a matemática por trás da norma. No próximo capítulo, aprofundaremos esse cálculo por meio do modelo da **Função Qualidade Total do Produto (QTP)** e do **Índice de Atendimento dos Requisitos (IAR)**.
+Com essa ponte estabelecida, o próximo passo da engenharia é executar a matemática por trás da norma. No próximo capítulo, aprofundaremos esse cálculo e a modelagem estrutural por meio da **Modelagem Analítica de Requisitos (ARM)**.
