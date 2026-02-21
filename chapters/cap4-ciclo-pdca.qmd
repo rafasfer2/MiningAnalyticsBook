@@ -23,15 +23,17 @@ A avaliação final da qualidade visa medir o alinhamento desses indicadores com
 Na prática da mineração, o "Pico Esporádico" de Juran pode ser a quebra inesperada da frota de caminhões fora de estrada em um dia de chuva, reduzindo a massa transportada. O Controle detecta a falha, mas é a fase de Melhoria (via PDCA) que vai investigar se o problema foi drenagem da pista, falha mecânica ou erro de operação.
 :::
 
-### O Paralelo: Teoria Clássica vs. Engenharia Aplicada
+### O Paralelo: O Mapa de Juran e o Projeto Informacional
 
-Embora a Trilogia de Juran tenha sido formulada no século XX, seus passos originais para o "Planejamento da Qualidade" continuam sendo o alicerce da engenharia de processos moderna. A grande diferença contemporânea, abordada nos capítulos iniciais desta obra, é a capacidade de quantificar matematicamente etapas que antes eram apenas conceituais.
+Embora a Trilogia de Juran tenha sido formulada no século XX, seu roteiro original de "Planejamento da Qualidade" (composto por 9 passos) continua sendo o alicerce da engenharia de processos. A grande diferença contemporânea é a capacidade de quantificar matematicamente etapas que antes eram apenas conceituais.
 
-A @tbl-paralelo-juran demonstra como o roteiro original de 9 passos de Juran se traduz diretamente no modelo de Sistema de Gestão da Qualidade operado nos dias de hoje:
+No Capítulo 1 desta obra, detalhamos o **Projeto Informacional** e o cálculo da Qualidade Total do Produto (QTP). Aquela estrutura matemática é, na prática, a execução rigorosa e moderna dos passos clássicos de Juran.
+
+A @tbl-paralelo-juran demonstra como a teoria de Juran se conecta com as ferramentas de modelagem que construímos anteriormente:
 
 ```{r}
 #| label: tbl-paralelo-juran
-#| tbl-cap: "Paralelo entre o Mapa de Planejamento da Qualidade de Juran e as ferramentas de Engenharia Aplicada."
+#| tbl-cap: "Paralelo entre o Mapa de Planejamento de Juran e a Modelagem da Qualidade (IAR e QTP)."
 #| echo: false
 #| message: false
 #| warning: false
@@ -42,35 +44,37 @@ library(kableExtra)
 df_juran <- data.frame(
   Passo = c("1 e 2", "3", "4 e 5", "6 e 7", "8 e 9"),
   Juran = c(
-    "Identificar os clientes e determinar suas necessidades reais.",
-    "Traduzir essas necessidades para a linguagem técnica da empresa.",
+    "Identificar os clientes (internos/externos) e determinar suas necessidades reais.",
+    "Traduzir as necessidades para a linguagem técnica da empresa.",
     "Desenvolver o produto e otimizar suas características.",
     "Desenvolver o processo capaz de produzir as características e otimizá-lo.",
     "Provar a capacidade do processo e transferi-lo para a Operação (Controle)."
   ),
   Aplicacao = c(
-    "Levantamento da 'Adequação ao Uso' e das Vertentes da Qualidade (Visão do Cliente vs. Fábrica).",
-    "Desenvolvimento do Projeto Informacional e utilização do Diagrama de Mudge para gerar pesos ($A_i$).",
-    "Cálculo da Qualidade Total do Produto (QTP) e definição das tolerâncias técnicas.",
-    "Integração com o Ciclo de Produção e definição de Metas SMART (Baseline e Target).",
-    "Monitoramento através de KPIs, telemetria analítica e início da Zona de Controle de Qualidade."
+    "Levantamento da 'Adequação ao Uso' e separação dos Valores (Cliente Externo vs. Fábrica).",
+    "Uso da Cadeia de Meios e Fins para converter desejos em 'Elementos Primários' e 'Secundários'.",
+    "Cálculo da Função QTP e do IAR, utilizando o Diagrama de Mudge para gerar os pesos ($A_i$).",
+    "Integração com a Vertente Técnica (Projeto do Processo) e definição das Metas SMART.",
+    "Produção (Conformação/Ajustamento) e início da Zona de Controle da Qualidade operacional."
   )
 )
 
 df_juran %>%
   kable(
-    col.names = c("Passos Clássicos", "O Mapa de Juran (Teoria Clássica)", "A Engenharia de Qualidade (Prática Atual)"),
+    col.names = c("Passos", "O Mapa de Juran (Teoria Clássica)", "A Modelagem da Qualidade (Capítulo 1)"),
     align = "cll",
     booktabs = TRUE
   ) %>%
   kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE, font_size = 14) %>%
-  column_spec(1, bold = TRUE, width = "2cm") %>%
+  column_spec(1, bold = TRUE, width = "1.5cm") %>%
   column_spec(2, width = "6.5cm", background = "#f9f9f9") %>%
-  column_spec(3, width = "8cm", border_left = TRUE) %>%
+  column_spec(3, width = "8.5cm", border_left = TRUE) %>%
   row_spec(0, background = "#2c3e50", color = "white", bold = TRUE)
 ```
 
-Essa correlação evidencia que o processo de "Planejamento" não é um fim em si mesmo. Quando o Passo 9 é atingido e a operação assume a rotina, o processo entra na **Zona de Controle**. É apenas quando esse controle detecta uma anomalia (um "Pico Esporádico" ou um desvio crônico) que a organização aciona a terceira perna da trilogia: a **Melhoria da Qualidade**, executada através de metodologias como o PDCA.
+Essa correlação evidencia que o "Planejamento" termina quando o Passo 9 é atingido e a equipe de engenharia entrega o **IAR (Índice de Atendimento dos Requisitos)** para o chão de fábrica executar. Neste momento, o processo entra na **Zona de Controle**.
+
+É apenas quando a Qualidade de Conformação (Etapa 3 do Ciclo de Produção) falha e o controle detecta um "Pico Esporádico" que a organização é forçada a acionar a terceira perna da trilogia: a **Melhoria da Qualidade**, operada por meio do ciclo PDCA.
 
 ## Ciclo PDCA
 
