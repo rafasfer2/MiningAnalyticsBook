@@ -287,7 +287,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#trilogia-de-juran" id="toc-trilogia-de-juran" class="nav-link active" data-scroll-target="#trilogia-de-juran"><span class="header-section-number">4.1</span> Trilogia de Juran</a></li>
+  <li><a href="#trilogia-de-juran" id="toc-trilogia-de-juran" class="nav-link active" data-scroll-target="#trilogia-de-juran"><span class="header-section-number">4.1</span> Trilogia de Juran</a>
+  <ul class="collapse">
+  <li><a href="#o-paralelo-teoria-clássica-vs.-engenharia-aplicada" id="toc-o-paralelo-teoria-clássica-vs.-engenharia-aplicada" class="nav-link" data-scroll-target="#o-paralelo-teoria-clássica-vs.-engenharia-aplicada"><span class="header-section-number">4.1.1</span> O Paralelo: Teoria Clássica vs.&nbsp;Engenharia Aplicada</a></li>
+  </ul></li>
   <li><a href="#ciclo-pdca" id="toc-ciclo-pdca" class="nav-link" data-scroll-target="#ciclo-pdca"><span class="header-section-number">4.2</span> Ciclo PDCA</a>
   <ul class="collapse">
   <li><a href="#fases-e-atividades-do-ciclo-pdca" id="toc-fases-e-atividades-do-ciclo-pdca" class="nav-link" data-scroll-target="#fases-e-atividades-do-ciclo-pdca"><span class="header-section-number">4.2.1</span> Fases e Atividades do Ciclo PDCA</a></li>
@@ -356,6 +359,61 @@ Figura&nbsp;4.1: Diagrama da Trilogia Juran
 <p>Na prática da mineração, o “Pico Esporádico” de Juran pode ser a quebra inesperada da frota de caminhões fora de estrada em um dia de chuva, reduzindo a massa transportada. O Controle detecta a falha, mas é a fase de Melhoria (via PDCA) que vai investigar se o problema foi drenagem da pista, falha mecânica ou erro de operação.</p>
 </div>
 </div>
+<section id="o-paralelo-teoria-clássica-vs.-engenharia-aplicada" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="o-paralelo-teoria-clássica-vs.-engenharia-aplicada"><span class="header-section-number">4.1.1</span> O Paralelo: Teoria Clássica vs.&nbsp;Engenharia Aplicada</h3>
+<p>Embora a Trilogia de Juran tenha sido formulada no século XX, seus passos originais para o “Planejamento da Qualidade” continuam sendo o alicerce da engenharia de processos moderna. A grande diferença contemporânea, abordada nos capítulos iniciais desta obra, é a capacidade de quantificar matematicamente etapas que antes eram apenas conceituais.</p>
+<p>A <a href="#tbl-paralelo-juran" class="quarto-xref">Tabela&nbsp;<span>4.1</span></a> demonstra como o roteiro original de 9 passos de Juran se traduz diretamente no modelo de Sistema de Gestão da Qualidade operado nos dias de hoje:</p>
+<div class="cell">
+<div id="tbl-paralelo-juran" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-paralelo-juran-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;4.1: Paralelo entre o Mapa de Planejamento da Qualidade de Juran e as ferramentas de Engenharia Aplicada.
+</figcaption>
+<div aria-describedby="tbl-paralelo-juran-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-striped table-hover do-not-create-environment cell caption-top table-sm small">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(44, 62, 80, 255) !important;">Passos Clássicos</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(44, 62, 80, 255) !important;">O Mapa de Juran (Teoria Clássica)</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(44, 62, 80, 255) !important;">A Engenharia de Qualidade (Prática Atual)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center; width: 2cm; font-weight: bold;">1 e 2</td>
+<td style="text-align: left; width: 6.5cm; background-color: rgba(249, 249, 249, 255) !important;">Identificar os clientes e determinar suas necessidades reais.</td>
+<td style="text-align: left; width: 8cm; border-left: 1px solid;">Levantamento da 'Adequação ao Uso' e das Vertentes da Qualidade (Visão do Cliente vs. Fábrica).</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; width: 2cm; font-weight: bold;">3</td>
+<td style="text-align: left; width: 6.5cm; background-color: rgba(249, 249, 249, 255) !important;">Traduzir essas necessidades para a linguagem técnica da empresa.</td>
+<td style="text-align: left; width: 8cm; border-left: 1px solid;">Desenvolvimento do Projeto Informacional e utilização do Diagrama de Mudge para gerar pesos ($A_i$).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; width: 2cm; font-weight: bold;">4 e 5</td>
+<td style="text-align: left; width: 6.5cm; background-color: rgba(249, 249, 249, 255) !important;">Desenvolver o produto e otimizar suas características.</td>
+<td style="text-align: left; width: 8cm; border-left: 1px solid;">Cálculo da Qualidade Total do Produto (QTP) e definição das tolerâncias técnicas.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; width: 2cm; font-weight: bold;">6 e 7</td>
+<td style="text-align: left; width: 6.5cm; background-color: rgba(249, 249, 249, 255) !important;">Desenvolver o processo capaz de produzir as características e otimizá-lo.</td>
+<td style="text-align: left; width: 8cm; border-left: 1px solid;">Integração com o Ciclo de Produção e definição de Metas SMART (Baseline e Target).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; width: 2cm; font-weight: bold;">8 e 9</td>
+<td style="text-align: left; width: 6.5cm; background-color: rgba(249, 249, 249, 255) !important;">Provar a capacidade do processo e transferi-lo para a Operação (Controle).</td>
+<td style="text-align: left; width: 8cm; border-left: 1px solid;">Monitoramento através de KPIs, telemetria analítica e início da Zona de Controle de Qualidade.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Essa correlação evidencia que o processo de “Planejamento” não é um fim em si mesmo. Quando o Passo 9 é atingido e a operação assume a rotina, o processo entra na <strong>Zona de Controle</strong>. É apenas quando esse controle detecta uma anomalia (um “Pico Esporádico” ou um desvio crônico) que a organização aciona a terceira perna da trilogia: a <strong>Melhoria da Qualidade</strong>, executada através de metodologias como o PDCA.</p>
+</section>
 </section>
 <section id="ciclo-pdca" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="ciclo-pdca"><span class="header-section-number">4.2</span> Ciclo PDCA</h2>
@@ -404,7 +462,7 @@ Figura&nbsp;4.2: Detalhamento do Ciclo PDCA
 <div id="tbl-atividades-pdca-detalhada" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-atividades-pdca-detalhada-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;4.1: Detalhamento das fases, etapas e atividades do ciclo PDCA aplicadas à gestão operacional na mineração.
+Tabela&nbsp;4.2: Detalhamento das fases, etapas e atividades do ciclo PDCA aplicadas à gestão operacional na mineração.
 </figcaption>
 <div aria-describedby="tbl-atividades-pdca-detalhada-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
