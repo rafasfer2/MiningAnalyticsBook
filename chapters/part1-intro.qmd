@@ -1,93 +1,69 @@
+# Introdução à Engenharia da Qualidade {.unnumbered}
+
+::: {.callout-tip title="🎯 O FUNIL DE CONVERGÊNCIA: A LÓGICA DA OBRA"}
+**Bem-vindo à Engenharia da Qualidade.** Esta obra, intitulada *Sistema de Gestão e Excelência Operacional na Mineração*, foi desenhada para ser um mapa tático para autores, engenheiros e gestores. Diferente do padrão tradicional, não isolamos a teoria da prática; nós as fundimos em um **Funil de Convergência** estruturado para transformar conceitos subjetivos em decisões financeiras e operacionais inquestionáveis.
+:::
+
+Abaixo, apresentamos a trilha lógica que você percorrerá através dos capítulos:
+
 ---
-format: html
+
+### **Bloco I: A Fundação e a Medida**
+Nesta primeira parte, saímos da abstração e entramos no mundo dos números e fatos.
+
+#### **Degrau 1: Fundamentos e Conceitos** (@cap1-fundamentos)
+
+* **Passo 1: A Desmistificação do Conceito**
+    * *O que faz:* Quebra o senso comum e apresenta as filosofias clássicas.
+    * *Por que está aqui:* Para dar um "choque de realidade". Mostramos que a qualidade depende da vertente escolhida: a fábrica busca conformidade, enquanto o cliente busca adequação ao uso.
+* **Passo 2: A Justificativa Econômica**
+    * *O que faz:* Responde à pergunta central da diretoria: *"Por que devo gastar dinheiro com isso?"*.
+    * *Por que está aqui:* O engenheiro precisa saber "vender" seu projeto. Este passo liga a qualidade diretamente ao caixa da empresa, provando que investir em excelência aumenta a rentabilidade.
+
+#### **Degrau 2: A Quantificação e Modelagem** (@cap2-quantificacao)
+
+* **Passo 3: A Estruturação do Sistema e o Projeto**
+    * *O que faz:* Transforma a teoria normativa (ISO 9000) em especificações técnicas sólidas através do Projeto Informacional.
+    * *Por que está aqui:* É a ponte entre o "eu acho" e o "eu meço". Utilizamos ferramentas como a Cadeia de Meios e Fins e o Diagrama de Mudge para gerar dados inquestionáveis.
+* **Passo 4: A Mão na Massa e a Decisão**
+    * *O que faz:* A consolidação prática através da Função QTP e do Índice de Atendimento dos Requisitos (IAR).
+    * *Por que está aqui:* O *gran finale* do bloco. O aluno aprende a calcular a nota de qualidade em cenários reais da mineração (Sinter Feed, Alta Sílica, Ferrovia) e a tomar decisões gerenciais baseadas em números.
+
 ---
 
-# Sistema de Gestão Integrado (SGI)
+### **Bloco II: O Motor da Gestão**
+Agora que sabemos medir, precisamos aprender a gerenciar a rotina, os ativos e as pessoas.
 
-## Introdução
+#### **Degrau 3: Gestão da Qualidade e o Método** (@cap3-gestao-qualidade)
 
-O Sistema de Gestão Integrado (SGI) corresponde ao processo de implantação e execução estratégica com foco na excelência organizacional. Ele deve ser capaz de proporcionar o desdobramento das estratégias em indicadores mensuráveis, aplicáveis a setores específicos de operação.
+* **Passo 1: O Contexto Histórico e as Eras**
+    * *O que faz:* Mostra a evolução da simples inspeção até a Gestão Estratégica.
+    * *Por que está aqui:* Para quebrar o paradigma de que a qualidade é "coisa do inspetor" e mostrar que é responsabilidade de toda a organização.
+* **Passo 2: O Motor da Gestão (Trilogia de Juran)**
+    * *O que faz:* Apresenta o ciclo Planejar, Controlar e Melhorar sob a ótica da mineração.
+    * *Por que está aqui:* Juran é o coração operacional. Mostramos como ler o *Guidance* corporativo, estabelecer metas SMART e calcular lacunas frente ao *Benchmark*.
+* **Passo 3: Os Sistemas de Execução (Como fazer)**
+    * *O que faz:* Apresenta as metodologias de excelência (TQM, Seis Sigma, Lean).
+    * *Por que está aqui:* Mostra como as grandes mineradoras se organizam em larga escala para sustentar a maturidade organizacional.
+* **Passo 4: O Chão de Fábrica (Quem e Onde)**
+    * *O que faz:* Foca nas pessoas (CCQ) e nas máquinas (Gestão de Ativos).
+    * *Por que está aqui:* Nenhuma estratégia funciona se o operador não estiver engajado e se o equipamento quebrar. A qualidade exige operários participativos e manutenção confiável.
 
-Além da integração vertical, necessária para garantir a disseminação da estratégia em todos os níveis hierárquicos e promover um ciclo de análise e revisão de objetivos, metas e processos, também deve haver integração horizontal, para promover sinergia entre processos, departamentos e equipes.
+---
 
-## Contexto da Mineração
+### **Bloco III: Sustentação e Ferramentas**
+Finalizamos a jornada garantindo que o sistema de gestão seja robusto o suficiente para não permitir retrocessos.
 
-O grande objetivo das mineradoras é aumentar a eficiência dos processos conduzidos. Processos eficientes determinam a eficiência de toda a organização e dependem do sistema de gestão estabelecido na empresa. A questão crucial é saber como aproveitar os dados coletados para melhorar o desempenho organizacional.
+#### **Degrau 4: Controle e Diretrizes** (@cap4-controle-diretrizes)
 
-No escopo da Gestão da Qualidade (GQ), a implementação de um sistema de gestão da qualidade (SGQ) é o processo de estabelecimento, documentação, implementação, manutenção e melhoria contínua. O sistema de gestão é entendido como um conjunto de elementos inter-relacionados ou interativos de uma organização para estabelecer políticas, objetivos e processos.
+* **O que faz:** Aborda o desdobramento da estratégia (*Hoshin Kanri*) e a criação de painéis de indicadores (KPIs).
+* **Por que está aqui:* Garante que as melhorias alcançadas no PDCA tornem-se o novo padrão da companhia, mantendo os resultados sob controle.
 
-Quatro pontos se destacam:
+#### **Degrau 5: Ferramentas da Qualidade** (@cap5-ferramentas)
 
--   **Dimensões de desempenho organizacional:** desempenho financeiro, operacional, atendimento ao cliente e qualidade do produto.
--   **Modelos inter-relacionados e integrados:** distinção entre variáveis de decisão de uma função versus otimização simultânea de múltiplas funções.
--   **Estabelecimento de políticas, objetivos e processos:** formulação de metas específicas, seleção de medidas adequadas, coleta de dados e uso para melhorias institucionais.
--   **Objetivos estratégicos da mineração:** confiabilidade das informações, redução dos custos de produção, teor de minério de ferro e capacidade de escoamento.
+* **O que faz:** Abre a "Caixa de Ferramentas" técnica (Pareto, Ishikawa, Histogramas, Cartas de Controle).
+* **Por que está aqui:* Para executar o método MASP com precisão cirúrgica. Aqui, o gestor aprende a coletar dados e identificar causas-raiz para bloquear anomalias definitivamente.
 
-A inserção de indicadores de sustentabilidade nos processos de negócios requer interação contínua com as partes interessadas e formas inovadoras de projetar, revisar e atualizar processos. Essa dinâmica exige desenvolvimento de competências internas e conhecimento institucional para lidar com questões emergentes.
+---
 
-## Planejamento e Controle da Produção na Mineração
-
-No contexto da indústria da mineração, atenção especial é dada ao planejamento de produção de curto prazo, para garantir o cumprimento das metas e restrições impostas pelo plano de longo prazo.
-
-Dada a especificidade do processo de exploração, é necessário um planejamento e controle de produção (PPC) eficiente, combinado com os fatores moderadores da manutenção dos equipamentos, exercidos pela equipe de programação e controle de manutenção (MPC). Essa integração assegura a disponibilidade, confiabilidade e mantenabilidade dos equipamentos.
-
-A integração eficiente entre PPC e MPC garante que a produção seja realizada conforme as especificações de qualidade do produto e as metas anuais de produção, resultando em excelente desempenho operacional.
-
-Um desafio atual para profissionais de Gestão de Processos de Negócio (BPM) é adaptar as operações de produção à transição para um ambiente industrial marcado pelas tecnologias digitais.
-
-## Indústria 4.0 e Gestão Integrada
-
-No contexto da Indústria 4.0, o desenvolvimento tecnológico busca permitir a aquisição de parâmetros mensuráveis diretamente dos equipamentos, integrando múltiplos dispositivos em um sistema único. Esse sistema coleta dados de toda a infraestrutura e ambiente, possibilitando melhor medição e gestão da conformidade espacial e temporal do plano em minas a céu aberto, de forma holística e integrada.
-
-Considerando os conceitos de Indústria 4.0, práticas de Gestão da Qualidade Total (TQM) e desempenho organizacional, três questões-chave surgem no contexto da mineração:
-
--   O projeto de exploração deve considerar a vida útil da mina, combinada com o preço de venda menos o custo de exploração, estabelecendo uma perspectiva de lucro que determina a viabilidade do projeto.
--   A escolha do processo de manufatura deve priorizar o critério econômico, dado pelo menor custo unitário, considerando todas as restrições operacionais.
--   Um sistema de gestão integrado (SGI/IMS) capaz de desdobrar estratégias em indicadores mensuráveis, aplicáveis a setores específicos da operação.
-
-## Processo de Avaliação de Qualidade no SGI
-
-Ao incorporar objetivos estratégicos, uma quantidade substancial de dados internos e externos estará disponível para apoiar a gestão do negócio. Esses dados são essenciais para a formulação e implementação eficientes de modelos de negócio sustentáveis, traduzindo objetivos estratégicos em elementos mensuráveis.
-
-O conceito de Qualidade é entendido como o grau em que um conjunto de características inerentes a um objeto satisfaz requisitos especificados, implícitos ou obrigatórios.
-
-A avaliação é semelhante à Garantia da Qualidade (IQA), cujo objetivo é fornecer evidências de prestação de contas às partes interessadas, garantir o processamento confiável das informações e permitir que a empresa funcione da maneira mais eficiente possível.
-
-Três direcionamentos de sistemas de medição eficazes:
-
--   Melhoria da capacidade organizacional, associada à avaliação do desempenho operacional por meio de KPIs.
--   Suporte consistente de alto nível, por meio da avaliação de maturidade.
--   Reconhecimento e consciência dos problemas, impulsionando melhorias à medida que as pessoas se tornam esclarecidas.
-
-## Medindo o Desempenho Organizacional
-
-### Indicadores Chave de Desempenho (KPIs)
-
-O desempenho operacional é medido por KPIs, que permitem comparar o desempenho real versus a meta programada.
-
-KPIs podem ser classificados em diferentes dimensões: técnica, temporal, espacial, segurança e manutenção, atendendo diferentes grupos de pessoas (superintendentes, supervisores, operadores e gerentes).
-
-De forma padronizada, normas internacionais especificam os principais KPIs utilizados nas operações de manufatura. Estruturas de relacionamentos entre KPIs e seus elementos de suporte permitem análises dinâmicas e simulações de produção.
-
-Os elementos estratégicos da gestão orientam como os recursos são distribuídos no processo produtivo. O não atendimento das metas programadas pelos KPIs constitui a identificação e priorização de oportunidades de melhoria.
-
-Na prática, o SGI adotado pela empresa constitui a referência para um processo de operação eficiente. Os objetivos estratégicos são desdobrados em critérios, que descrevem os estados ou dinâmicas de um macroprocesso da mineração. A verificação do cumprimento de cada critério é feita por meio da avaliação de indicadores ou práticas específicas, quantitativas ou qualitativas.
-
-## Processo de Avaliação de Maturidade
-
-O processo de produção na mineração envolve várias operações, cada uma com múltiplos objetivos. Essa complexidade demanda integração de ferramentas de gestão que traduzam objetivos estratégicos em elementos mensuráveis.
-
-A eficiência da organização é o conjunto das eficiências de cada processo. A excelência operacional é medida pelo cumprimento das metas anuais de produção e pela avaliação da performance operacional por meio dos KPIs.
-
-A medição do SGI é feita pela Avaliação de Maturidade, inspirada na Curva de Bradley, categorizada em cinco estágios:
-
--   **0 – inexistência ou prática não implementada**
--   **1 – fraco ou em início de implantação**
--   **2 – em implantação, mas ainda não abrangente**
--   **3 – implantado e atingindo resultados esperados**
--   **4 – excelência, internalizado e melhorado continuamente**
-
-### Etapas principais da avaliação
-
--   **Desdobramento e comunicação da estratégia:** conversão dos objetivos estratégicos em elementos mensuráveis para todos os níveis organizacionais.
--   **Gerenciamento da rotina:** análise contínua de indicadores, exposição de problemas, alinhamento de prioridades e execução de ações necessárias para alcançar a excelência operacional.
+Ao percorrer estes degraus, seu objetivo principal será dominar a visão sistêmica: compreender a qualidade não apenas como uma métrica de laboratório, mas como a ferramenta técnica mais poderosa para a geração de vantagem competitiva sustentável.
