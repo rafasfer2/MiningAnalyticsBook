@@ -229,7 +229,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../chapters/part3-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Gestão de Ativos, Manutenção e Confiabilidade</span></a>
+ <span class="menu-text">Parte III: Gestão de Ativos, Manutenção e Confiabilidade</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -318,13 +318,16 @@ window.Quarto = {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#diagrama-de-pareto" id="toc-diagrama-de-pareto" class="nav-link active" data-scroll-target="#diagrama-de-pareto"><span class="header-section-number">5.1</span> Diagrama de Pareto</a></li>
-  <li><a href="#fluxograma" id="toc-fluxograma" class="nav-link" data-scroll-target="#fluxograma"><span class="header-section-number">5.2</span> Fluxograma</a></li>
-  <li><a href="#diagrama-de-build-up-waterfall" id="toc-diagrama-de-build-up-waterfall" class="nav-link" data-scroll-target="#diagrama-de-build-up-waterfall"><span class="header-section-number">5.3</span> Diagrama de Build-up (Waterfall)</a>
+  <li><a href="#sec-cap5" id="toc-sec-cap5" class="nav-link active" data-scroll-target="#sec-cap5"><span class="header-section-number">6</span> Caixa de Ferramentas</a>
   <ul class="collapse">
-  <li><a href="#sec-jack-knife" id="toc-sec-jack-knife" class="nav-link" data-scroll-target="#sec-jack-knife"><span class="header-section-number">5.3.1</span> Diagrama de Jack Knife</a></li>
+  <li><a href="#diagrama-de-pareto" id="toc-diagrama-de-pareto" class="nav-link" data-scroll-target="#diagrama-de-pareto"><span class="header-section-number">6.1</span> Diagrama de Pareto</a></li>
+  <li><a href="#fluxograma" id="toc-fluxograma" class="nav-link" data-scroll-target="#fluxograma"><span class="header-section-number">6.2</span> Fluxograma</a></li>
+  <li><a href="#diagrama-de-build-up-waterfall" id="toc-diagrama-de-build-up-waterfall" class="nav-link" data-scroll-target="#diagrama-de-build-up-waterfall"><span class="header-section-number">6.3</span> Diagrama de Build-up (Waterfall)</a>
+  <ul class="collapse">
+  <li><a href="#sec-jack-knife" id="toc-sec-jack-knife" class="nav-link" data-scroll-target="#sec-jack-knife"><span class="header-section-number">6.3.1</span> Diagrama de Jack Knife</a></li>
   </ul></li>
-  <li><a href="#diagrama-de-jack-knife" id="toc-diagrama-de-jack-knife" class="nav-link" data-scroll-target="#diagrama-de-jack-knife"><span class="header-section-number">5.4</span> Diagrama de Jack-Knife</a></li>
+  <li><a href="#diagrama-de-jack-knife" id="toc-diagrama-de-jack-knife" class="nav-link" data-scroll-target="#diagrama-de-jack-knife"><span class="header-section-number">6.4</span> Diagrama de Jack-Knife</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -333,7 +336,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Parte I: Introdução à Engenharia da Qualidade</a></li><li class="breadcrumb-item"><a href="../chapters/cap5-ferramentas.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Caixa de Ferramentas</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-cap5" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Caixa de Ferramentas</span></span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Caixa de Ferramentas</span></h1>
 </div>
 
 
@@ -350,12 +353,14 @@ window.Quarto = {
 </header>
 
 
+<section id="sec-cap5" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Caixa de Ferramentas</h1>
 <p>Este capítulo apresenta o arsenal metodológico essencial para o analista de dados na mineração. A aplicação correta destas ferramentas permite transformar terabytes de dados brutos de telemetria e manutenção em diagnósticos precisos para a tomada de decisão.</p>
-<section id="diagrama-de-pareto" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="diagrama-de-pareto"><span class="header-section-number">5.1</span> Diagrama de Pareto</h2>
+<section id="diagrama-de-pareto" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="diagrama-de-pareto"><span class="header-section-number">6.1</span> Diagrama de Pareto</h2>
 <p>O Diagrama de Pareto é uma das ferramentas mais clássicas e eficazes no controle da qualidade e gestão de ativos. Trata-se de uma representação gráfica que hierarquiza problemas, causas ou perdas de forma decrescente, destacando os fatores vitais que demandam ação imediata.</p>
 <p>Conforme Campos (2004), esta ferramenta operacionaliza o <strong>Princípio de Pareto (80/20)</strong>, permitindo que gestores alcancem resultados significativos focando em poucas, mas críticas, alavancas de atuação. O princípio postula que, em geral, 80% dos efeitos (ex: horas paradas) derivam de apenas 20% das causas (ex: falha no sistema de injeção) (Silva, 2009).</p>
-<p>No contexto do <em>Mining Analytics</em>, um valor elevado nas primeiras barras do gráfico indica onde a ineficácia se concentra (Franco et al., 2006). A <a href="#fig-pareto-mining" class="quarto-xref">Figura&nbsp;<span>5.1</span></a> exemplifica esta aplicação, onde o esforço de manutenção é direcionado para os modos de falha predominantes.</p>
+<p>No contexto do <em>Mining Analytics</em>, um valor elevado nas primeiras barras do gráfico indica onde a ineficácia se concentra (Franco et al., 2006). A <a href="#fig-pareto-mining" class="quarto-xref">Figura&nbsp;<span>6.1</span></a> exemplifica esta aplicação, onde o esforço de manutenção é direcionado para os modos de falha predominantes.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-pareto-mining" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -364,41 +369,41 @@ window.Quarto = {
 <img src="cap5-ferramentas_files/figure-html/fig-pareto-mining-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pareto-mining-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;5.1: Diagrama de Pareto aplicado aos modos de falha (Paleta Teal/Gold).
+Figura&nbsp;6.1: Diagrama de Pareto aplicado aos modos de falha (Paleta Teal/Gold).
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="fluxograma" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="fluxograma"><span class="header-section-number">5.2</span> Fluxograma</h2>
+<section id="fluxograma" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="fluxograma"><span class="header-section-number">6.2</span> Fluxograma</h2>
 <p>O Fluxograma, conforme Castro (2024), é uma maneira utilizada para representar um processo através de um desenho lógico. É uma ferramenta contendo símbolos gráficos padronizados para detalhar a sequência de ações que compõem um processo, visando facilitar sua compreensão visual.</p>
 <p>O propósito do fluxograma é ampliar o entendimento do processo de produção mineral, demonstrar a execução de atividades a serem realizadas (como o ciclo de transporte: <em>Carregar &gt; Transportar &gt; Bascular &gt; Retornar</em>) e apontar áreas que necessitam de melhoria ou padronização (Peinado e Graeml, 2007). Slack (2009) afirma que o fluxograma de processo esclarece as suas etapas e a interação entre as atividades relacionadas, sendo vital para a definição de Procedimentos Operacionais Padrão (POPs).</p>
 </section>
-<section id="diagrama-de-build-up-waterfall" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="diagrama-de-build-up-waterfall"><span class="header-section-number">5.3</span> Diagrama de Build-up (Waterfall)</h2>
+<section id="diagrama-de-build-up-waterfall" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="diagrama-de-build-up-waterfall"><span class="header-section-number">6.3</span> Diagrama de Build-up (Waterfall)</h2>
 <p>Perfeito, Rafael. Mantive a integridade total do seu conteúdo técnico, assegurando que nenhuma informação fosse resumida, e apliquei a formatação rigorosa exigida para o seu livro <strong>“Mining Analytics”</strong>.</p>
 <p>Abaixo, o texto está preparado para o Quarto (<code>.qmd</code>), com as fórmulas em LaTeX e o código R configurado para gerar o diagrama com a identidade visual de cabeçalho em Teal e Ouro que você aprovou.</p>
-<section id="sec-jack-knife" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="sec-jack-knife"><span class="header-section-number">5.3.1</span> Diagrama de Jack Knife</h3>
+<section id="sec-jack-knife" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="sec-jack-knife"><span class="header-section-number">6.3.1</span> Diagrama de Jack Knife</h3>
 <p>O método de Jack-Knife foi concebido para ser uma aprimoração do diagrama de Pareto. A premissa básica do desenvolvimento é a adição de uma análise de dois fatores, ou seja, analisa conjuntamente o MTTR e o NIC, enquanto o diagrama de Pareto é capaz de analisar apenas um fator.</p>
 <p>Tipicamente, a utilização do diagrama de Pareto consiste em priorizar, dentre diversas causas, àquelas que representam maior impacto no sistema como um todo. Para exemplificar, a análise de Pareto é frequentemente utilizada para priorizar os setores que mais causaram impacto na etapa de lavra de um processo de mineração. Observa-se que o uso do diagrama de Pareto, isoladamente, leva em consideração apenas um indicador, como as horas de manutenção.</p>
 <p>O diagrama Jack Knife (@fig-jackknife-mining) é uma ferramenta de priorização do tratamento das falhas. O método tem como objetivo associar o NIC (número de intervenções corretivas) e MTTR (tempo médio de reparo), classificando os sistemas em leve, agudo, crônico e crítico (agudo e crônico), conforme a localização no quadrante.</p>
-<section id="definição-de-limites-e-equações" class="level4" data-number="5.3.1.1">
-<h4 data-number="5.3.1.1" class="anchored" data-anchor-id="definição-de-limites-e-equações"><span class="header-section-number">5.3.1.1</span> Definição de Limites e Equações</h4>
+<section id="definição-de-limites-e-equações" class="level4" data-number="6.3.1.1">
+<h4 data-number="6.3.1.1" class="anchored" data-anchor-id="definição-de-limites-e-equações"><span class="header-section-number">6.3.1.1</span> Definição de Limites e Equações</h4>
 <p>A separação dos quadrantes é dada pelos limites determinados de acordo com o banco de dados existente dos sistemas, utilizando as seguintes equações:</p>
 <p><span id="eq-mttr"><span class="math display">\[
 \mathrm{Limite}_{\mathrm{MTTR}} = \frac{\sum\limits_{i=1}^{k} \mathrm{HMC}_i}{\sum\limits_{i=1}^{k} \mathrm{NIC}_i}
-\tag{5.1}\]</span></span></p>
+\tag{6.1}\]</span></span></p>
 <p><span id="eq-nic"><span class="math display">\[
 \mathrm{Limite}_{\mathrm{NIC}} = \frac{\sum\limits_{i=1}^{k} \mathrm{NIC}_i}{k}
-\tag{5.2}\]</span></span></p>
+\tag{6.2}\]</span></span></p>
 <p>Onde <span class="math inline">\(k\)</span> é o número de sistemas em análise.</p>
 <p>Os sistemas localizados acima da linha de <span class="math inline">\(\text{Limite}_{\text{MTTR}}\)</span> são os que afetam a mantenabilidade, pois apresentam os maiores tempos de reparos. Já os sistemas à direita da linha de <span class="math inline">\(\text{Limite}_{\text{NIC}}\)</span> são os que afetam a confiabilidade, pois possuem os maiores números de falhas (NIC).</p>
 </section>
-<section id="classificação-por-quadrantes" class="level4" data-number="5.3.1.2">
-<h4 data-number="5.3.1.2" class="anchored" data-anchor-id="classificação-por-quadrantes"><span class="header-section-number">5.3.1.2</span> Classificação por Quadrantes</h4>
+<section id="classificação-por-quadrantes" class="level4" data-number="6.3.1.2">
+<h4 data-number="6.3.1.2" class="anchored" data-anchor-id="classificação-por-quadrantes"><span class="header-section-number">6.3.1.2</span> Classificação por Quadrantes</h4>
 <p>A classificação dos sistemas ocorre conforme a posição em relação aos limites calculados:</p>
 <ul>
 <li><p><strong>Quadrante Leve</strong>: Ocorre quando <span class="math inline">\(\text{NIC}_{\text{Sistema}} &lt; \text{Limite}_{\text{NIC}}\)</span> e <span class="math inline">\(\text{MTTR}_{\text{Sistema}} &lt; \text{Limite}_{\text{MTTR}}\)</span>. Neste quadrante, os sistemas apresentam boa confiabilidade (poucas falhas) e boa mantenabilidade (baixo tempo médio de reparo).</p></li>
@@ -414,7 +419,7 @@ Figura&nbsp;5.1: Diagrama de Pareto aplicado aos modos de falha (Paleta Teal/Gol
 <img src="cap5-ferramentas_files/figure-html/fig-waterfall-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-waterfall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;5.2: Gráfico de Build-up (Cascata) demonstrando a decomposição das horas.
+Figura&nbsp;6.2: Gráfico de Build-up (Cascata) demonstrando a decomposição das horas.
 </figcaption>
 </figure>
 </div>
@@ -423,8 +428,8 @@ Figura&nbsp;5.2: Gráfico de Build-up (Cascata) demonstrando a decomposição da
 </section>
 </section>
 </section>
-<section id="diagrama-de-jack-knife" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="diagrama-de-jack-knife"><span class="header-section-number">5.4</span> Diagrama de Jack-Knife</h2>
+<section id="diagrama-de-jack-knife" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="diagrama-de-jack-knife"><span class="header-section-number">6.4</span> Diagrama de Jack-Knife</h2>
 <p>O método de Jack-Knife foi desenvolvido como uma melhoria do diagrama de Pareto, acrescentando uma análise bidimensional que leva em consideração o <strong>MTTR</strong> (Tempo Médio de Reparo) e o <strong>NIC</strong> (Número de Intervenções Corretivas) simultaneamente (Knights, 2001).</p>
 <p>Diferente do Pareto, que analisa apenas um fator, o Jack-Knife permite classificar os ativos em quadrantes estratégicos para a manutenção:</p>
 <ol type="1">
@@ -442,7 +447,7 @@ Figura&nbsp;5.2: Gráfico de Build-up (Cascata) demonstrando a decomposição da
 <img src="cap5-ferramentas_files/figure-html/fig-jack-knife-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-jack-knife-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;5.3: Diagrama Jack-Knife: Correlacionando Confiabilidade (Eixo X) e Mantenabilidade (Eixo Y).
+Figura&nbsp;6.3: Diagrama Jack-Knife: Correlacionando Confiabilidade (Eixo X) e Mantenabilidade (Eixo Y).
 </figcaption>
 </figure>
 </div>
@@ -450,6 +455,7 @@ Figura&nbsp;5.3: Diagrama Jack-Knife: Correlacionando Confiabilidade (Eixo X) e 
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
