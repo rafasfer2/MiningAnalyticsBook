@@ -2,7 +2,7 @@
 format: html
 ---
 
-# Sustentação e Controle {#sec-cap4}
+# Desdobramento Estratégico e Controle Operacional {#sec-cap4}
 
 No capítulo anterior, aprofundamo-nos no motor da melhoria contínua. Aprendemos a identificar anomalias, investigar causas raízes através do MASP e implementar soluções práticas no chão de fábrica e na manutenção de ativos. No entanto, resolver um problema é apenas metade da batalha na engenharia de produção; a outra metade, frequentemente mais desafiadora, é **manter o ganho** ao longo do tempo.
 
@@ -66,7 +66,7 @@ Para que a visão de futuro (horizonte de 5 anos) se torne uma ação no chão d
 12. Revisar o plano anualmente.
 13. Revisar o plano de longo prazo (3 a 5 anos).
 
-#### Especificação de Metas e o Balanced Scorecard (BSC)
+### Especificação de Metas e o Balanced Scorecard (BSC)
 
 Uma meta estratégica bem construída não pode ser subjetiva. Ela deve obrigatoriamente conter: **Objetivo + Valor + Prazo** (Ex: *Aumentar a produção do produto A em 1.500 unidades no ano de 2024*).
 
@@ -90,11 +90,11 @@ A @tbl-bsc-exemplo demonstra a aplicação prática do desdobramento destas quat
 | **Perspectiva financeira:** Melhorar o capital de giro da empresa | 30% de aumento no capital de giro | Fluxo de caixa | Diminuir o número de meses para o parcelamento do cliente.<br><br>Pesquisar fornecedores internacionais. |
 | **Perspectiva do cliente:** Conquistar novos perfis de consumidores | 12% de aumento no faturamento | DRE (Demonstrativo de Resultado em Exercício) | Ampliar o portfólio e mix de produtos. |
 | **Perspectiva interna:** Otimizar o espaço e a qualidade da exposição de produtos | 1) Aumento de 25% do ticket médio por metro quadrado<br><br>2) Aumento de 18% do número de vendas por tipo de produto | 1) Ticket médio por metro quadrado<br><br>2) Índices de venda por tipo de produto | 1) Atualizar o visual merchandising da loja.<br><br>2) Instalar telas nos núcleos de exposição para explorar a variedade de modelos e cores de um mesmo tipo de móvel |
-| **Perspectiva de aprendizagem e inovação:** Abordagem e atendimento consultivos | 1) 100% de participation<br><br>2) 30% no aumento do ticket médio por venda | 1) Lista de presença de participação<br><br>2) Aumento de ticket médio por venda de cada consultor | Atualização dos funcionários sobre tendências do setor e treinamento em técnicas de venda com o auxílio de tecnologias |
+| **Perspectiva de aprendizagem e inovação:** Abordagem e atendimento consultivos | 1) 100% de participação<br><br>2) 30% no aumento do ticket médio por venda | 1) Lista de presença de participação<br><br>2) Aumento de ticket médio por venda de cada consultor | Atualização dos funcionários sobre tendências do setor e treinamento em técnicas de venda com o auxílio de tecnologias |
 
 : Exemplo prático de BSC desdobrado para uma Loja de Móveis {#tbl-bsc-exemplo}
 
-#### A Ferramenta de Amarração: A Matriz X
+### A Ferramenta de Amarração: A Matriz X
 
 Quando uma empresa possui dezenas de metas e centenas de ações táticas, o acompanhamento torna-se caótico. Para resolver isso, o *Hoshin Kanri* utiliza a **Matriz X** (@fig-matriz-x).
 
@@ -103,8 +103,21 @@ Quando uma empresa possui dezenas de metas e centenas de ações táticas, o aco
 Esta matriz visual de correlação cruza, num único diagrama de uma página: as prioridades de nível superior, os objetivos anuais, as metas de longo prazo, as métricas de acompanhamento e os responsáveis diretos pelos recursos. A Matriz X força a diretoria a enxergar se existe alguma "meta órfã" ou um "recurso desperdiçado".
 
 ### Hierarquia e Interligação de Metas
-*(...aqui continua exatamente com o seu texto original...)*
+
 Os objetivos gerenciais devem ser oriundos de um desdobramento direto das diretrizes. Como ilustrado na @fig-desdobramento-metas, as metas de cada nível estão interligadas: se as metas de um nível (ex: Supervisor) são alcançadas, as do nível superior (Gerente e Diretor) também serão.
+
+![Desdobramento e Interligação de Metas](../images/image_cbe59e.png){#fig-desdobramento-metas fig-align="center"}
+
+* **Meta do Diretor:** Ex: Aumentar o OEE em 20% até o fim do ano.
+* **Meta do Gerente:** Desdobra-se em aumentar a disponibilidade física e a utilização.
+* **Meta do Supervisor:** Atua diretamente nos processos, como reduzir em 60% o tempo de manutenção corretiva ou as paradas operacionais.
+
+::: {.callout-note title="📊 Exemplos de Indicadores (KPIs)"}
+* **Reduzir o consumo de diesel:** Indicador medido em l/t movimentada.
+* **Aumentar produtividade de descarga:** Indicador medido em t/h.
+:::
+
+As metas são estabelecidas para aumentar ou reduzir um indicador fixado, focando sempre nos fins, que são os resultados dos processos.
 
 ### A Taxonomia dos Indicadores: Eficácia vs. Eficiência
 
@@ -149,6 +162,8 @@ A Gestão da Qualidade Total ensina que o processo empregado determina o resulta
 ### Estabilização e Variabilidade ao Longo do Tempo
 
 O objetivo central da Engenharia da Qualidade é a redução sistemática da variabilidade. Durante a operação, o Controle da Qualidade acompanha indicadores ao longo do tempo através da seguinte dinâmica:
+
+
 
 1.  **Zona Original de Controle:** O processo flutua dentro de uma variabilidade histórica esperada.
 2.  **Pico Esporádico:** Ocorre uma falha ou um desvio agudo (uma causa especial).

@@ -4,57 +4,17 @@ format: html
 
 # Caixa de Ferramentas {#sec-cap5}
 
-Este capítulo apresenta o arsenal metodológico essencial para o analista de dados na mineração. A aplicação correta destas ferramentas permite transformar terabytes de dados brutos de telemetria e manutenção em diagnósticos precisos para a tomada de decisão.
+Este capítulo apresenta o arsenal metodológico e estatístico essencial para o analista de dados na mineração. A aplicação correta destas ferramentas permite transformar terabytes de dados brutos de telemetria e manutenção em diagnósticos precisos para a tomada de decisão.
 
-As ferramentas aqui apresentadas não devem ser utilizadas de forma aleatória. Elas seguem o fluxo lógico do MASP (Método de Análise e Solução de Problemas) e do ciclo PDCA, garantindo que a engenharia identifique o problema correto, descubra a causa raiz e estabilize o processo operacional.
+Conforme detalhado no Capítulo 3, estas ferramentas não devem ser utilizadas de forma aleatória. Elas são o motor tático que faz o método MASP funcionar. Enquanto o Capítulo 3 focou em *quando* usar cada técnica dentro do ciclo PDCA, este capítulo funciona como um manual prático de *como* construí-las, calculá-las e programá-las na rotina da engenharia.
 
-## O Caminho da Solução: PDCA e MASP {#sec-caminho-solucao}
+## Mapeamento e Visão de Processos {#sec-mapeamento-processos}
 
-O ciclo PDCA é uma ferramenta simples que promove alterações graduais no processo, impulsionando o desenvolvimento contínuo da organização. O ciclo é dividido em etapas de planejamento (PLAN), execução (DO), verificação (CHECK) e ação (ACT).
+Antes de aplicar a estatística, a equipe precisa visualizar o problema. Embora o SIPOC (visto no Capítulo 3) defina perfeitamente as fronteiras de responsabilidade, ele não detalha os desvios operacionais. Para isso, a ferramenta de execução é o **Fluxograma**.
 
-::: {.callout-note title="📌 DEFINIÇÃO NORMATIVA"}
-De acordo com Mendes (2007), o ciclo PDCA é um método estruturado para a melhoria contínua dividido nas seguintes etapas:
+Conforme Castro (2024), o fluxograma é uma representação lógica que utiliza símbolos gráficos padronizados (retângulos para ações, losangos para decisões, elipses para atrasos) para detalhar a sequência exata de eventos.
 
-* **PLAN (Planejar):**
-  Definir a situação atual, estabelecer metas mensuráveis e estratégias.
-* **DO (Executar):**
-  Educar os envolvidos e implementar as estratégias.
-* **CHECK (Verificar):**
-  Comparar os resultados obtidos contra as metas.
-* **ACT (Agir/Padronizar):**
-  Tomar ações corretivas ou padronizar a melhoria.
-:::
-
-A fase de planejamento (PLAN) exige o maior rigor e dedicação de tempo do projeto. Para que essas etapas sejam realizadas com eficácia, a engenharia utiliza o **MASP** como ferramenta de controle e auditoria, estruturando a pesquisa das causas de forma científica.
-
-::: {.callout-warning title="⚠️ ARMADILHA DE ENGENHARIA"}
-O erro mais comum em projetos de melhoria é a "Miopia de Ação": a equipe pular a fase de Planejamento (P) e ir direto para a Execução (D). Implementar soluções baseadas em "achismos" e não em dados estratificados consome recursos financeiros e, na maioria das vezes, ataca apenas o sintoma.
-:::
-
-## Mapeamento de Fronteiras: SIPOC e Fluxograma {#sec-mapeamento-fronteiras}
-
-Antes de mergulhar nas causas de um problema usando ferramentas estatísticas, a equipe de engenharia precisa garantir que todos compreendam o fluxo macro do processo e as suas fronteiras. O maior erro de um projeto é tentar "abraçar o mundo".
-
-### A Matriz SIPOC {#sec-matriz-sipoc}
-
-Para delimitar esse escopo, utilizamos a ferramenta SIPOC, que padroniza o mapeamento de qualquer processo na operação mineral:
-
-* **S (*Supplier* / Fornecedor):**
-  Quem fornece os insumos? *(Ex: Topografia).*
-* **I (*Input* / Entrada):**
-  Quais recursos são fornecidos? *(Ex: Malha de perfuração).*
-* **P (*Process* / Processo):**
-  Quais são as macroatividades? *(Ex: Furar $\rightarrow$ Carregar $\rightarrow$ Detonar).*
-* **O (*Output* / Saída):**
-  O que o processo gera? *(Ex: Minério desmontado).*
-* **C (*Customer* / Cliente):**
-  Quem recebe a saída? *(Ex: Operadores de Escavadeira).*
-
-### O Fluxograma {#sec-fluxograma}
-
-Enquanto o SIPOC define as fronteiras, o Fluxograma detalha o caminho. Conforme Castro (2024), é uma representação lógica que utiliza símbolos gráficos padronizados para detalhar a sequência de ações.
-
-O propósito do fluxograma é ampliar o entendimento do processo de produção mineral (como o ciclo de transporte: *Carregar $\rightarrow$ Transportar $\rightarrow$ Bascular $\rightarrow$ Retornar*) e apontar áreas que necessitam de padronização (Peinado e Graeml, 2007). Slack (2009) afirma que essa clareza visual é vital para a criação de Procedimentos Operacionais Padrão (POPs).
+O propósito do fluxograma é dar um "raio-x" do processo de produção mineral (como o ciclo de transporte: *Carregar $\rightarrow$ Transportar $\rightarrow$ Bascular $\rightarrow$ Retornar*) e apontar os gargalos invisíveis (Peinado e Graeml, 2007). Slack (2009) afirma que essa clareza visual é vital para a criação ou auditoria de Procedimentos Operacionais Padrão (POPs).
 
 ## Ferramentas de Priorização e Diagnóstico {#sec-priorizacao-diagnostico}
 
@@ -110,11 +70,17 @@ ggplot(df_pareto, aes(x = Causa)) +
     )
 ```
 
-### Ishikawa, 5 Porquês e Matriz GUT {#sec-ishikawa-5porques-gut}
+### Diagrama de Ishikawa e Matriz GUT {#sec-ishikawa-gut}
 
-Uma vez que o Gráfico de Pareto indicou onde atuar, utiliza-se o Diagrama de Ishikawa (Espinha de Peixe) para realizar o brainstorming das causas raízes, dividindo-as nos 6M: Máquina, Material, Mão de Obra, Método, Medida e Meio Ambiente.
+Uma vez que o Gráfico de Pareto indicou *onde* atuar, a ferramenta qualitativa principal é o **Diagrama de Ishikawa** (Espinha de Peixe). Ele força a equipe a estruturar o *brainstorming* categorizando os problemas em 6M: Máquina, Material, Mão de Obra, Método, Medida e Meio Ambiente.
 
-Em seguida, aplica-se a Matriz GUT (Gravidade, Urgência e Tendência) para pontuar e priorizar a causa vencedora. Por fim, utiliza-se a técnica dos 5 Porquês para aprofundar a investigação até a anomalia sistêmica original.
+No entanto, o Ishikawa costuma levantar dezenas de causas possíveis, e a engenharia não possui recursos para atacar todas. Para filtrar matematicamente essas ideias, aplica-se a **Matriz GUT**. Trata-se de uma ferramenta de pontuação onde a equipe de analistas atribui notas de 1 a 5 para três variáveis:
+
+* **Gravidade (G):** Qual o impacto (financeiro ou de segurança) se o problema ocorrer? (5 = Extremamente grave; 1 = Sem gravidade).
+* **Urgência (U):** O tempo disponível para resolver é curto? (5 = Requer ação imediata; 1 = Pode esperar).
+* **Tendência (T):** Se nada for feito, o problema vai piorar? (5 = Vai piorar rapidamente; 1 = Não vai mudar).
+
+A prioridade de ação é obtida pela multiplicação dos três fatores ($G \times U \times T$). A causa que obtiver a maior pontuação (máximo de 125) será o alvo exclusivo da técnica dos **5 Porquês**, garantindo que o plano de ação seja desenhado sobre a anomalia sistêmica mais crítica.
 
 ## Ferramentas Avançadas de Engenharia e Manutenção {#sec-ferramentas-avancadas}
 
@@ -219,3 +185,232 @@ ggplot(dados_jk, aes(x = Num_Falhas, y = MTTR, label = Sistema)) +
     ) +
     theme(legend.position = "none")
 ```
+## Ferramentas de Estabilização e Correlação {#sec-estabilizacao-correlacao}
+
+Nesta secção, introduziremos as ferramentas estatísticas vitais para as fases de Verificação (*Check*) e Padronização (*Act*) do ciclo PDCA. O objetivo aqui não é descobrir um problema novo, mas garantir que o processo não sofra entropia e regrida após a implementação da melhoria.
+
+### Cartas de Controle Estatístico de Processo (CEP) {#sec-cartas-controle}
+
+A Carta de Controlo (ou Gráfico de Controlo) é a ferramenta suprema do Controlo Estatístico de Processo (CEP). Foi desenvolvida por Walter A. Shewhart na década de 1920 e serve como um "eletrocardiograma" da operação. A sua principal função é monitorizar a variabilidade de um indicador ao longo do tempo, permitindo à equipa de engenharia distinguir estatisticamente dois tipos de anomalias:
+
+* **Causas Comuns (Aleatórias):** É o "ruído" natural e inevitável do sistema. Resulta da ligeira variação na vibração das máquinas, pequenas flutuações na densidade do minério ou mudanças normais de temperatura. Quando um processo opera apenas com causas comuns, diz-se que está **sob controlo estatístico**.
+* **Causas Especiais (Atribuíveis):** São eventos anómalos e imprevisíveis que retiram o processo do seu estado de estabilidade. Pode ser a quebra de um sensor, a falha de um operador ou um lote de explosivo defeituoso. Exigem paragem e intervenção imediata da operação.
+
+#### Formulação Matemática (Limites de Controlo)
+
+Para evitar que a operação reaja de forma exagerada ao "ruído" (causas comuns), o CEP estabelece fronteiras matemáticas baseadas no desvio padrão ($\sigma$). Num processo com distribuição normal, aproximadamente 99,73% dos dados devem cair dentro de uma faixa de 3 desvios padrões em torno da média ($\mu$).
+
+As equações para as Cartas por Variáveis (como o gráfico de médias $\bar{X}$) são definidas por:
+
+$$LSC = \bar{\bar{x}} + 3\frac{\bar{s}}{c_4\sqrt{n}}$$
+$$LC = \bar{\bar{x}}$$
+$$LIC = \bar{\bar{x}} - 3\frac{\bar{s}}{c_4\sqrt{n}}$$
+
+Onde:
+* **LSC e LIC:** Limite Superior e Limite Inferior de Controlo.
+* **LC:** Linha Central (Média global do processo).
+* **n:** Tamanho do subgrupo (tamanho da amostra).
+* **c₄:** Constante estatística tabelada que depende do tamanho da amostra.
+
+::: {.callout-warning title="⚠️ ARMADILHA DE ENGENHARIA"}
+**Limites de Controlo NÃO são Limites de Especificação!** O Limite de Controlo (calculado pelo CEP) mostra o que o processo *é capaz de fazer*. O Limite de Especificação (definido pela usina ou cliente) mostra o que a empresa *deseja* que ele faça. Um processo pode estar perfeitamente sob controlo estatístico e, ainda assim, estar a gerar 100% de produtos fora da especificação.
+:::
+
+#### Aplicação Prática em R: Monitorização do Teor de Ferro
+
+Abaixo, utilizamos o ambiente `R` e o pacote `qcc` (*Quality Control Charts*) para monitorizar o Teor de Ferro (% Fe) na alimentação de uma usina de beneficiamento. Vamos simular a recolha de 5 amostras por turno ao longo de 30 turnos.
+
+```{r}
+#| label: fig-carta-controlo-xbar
+#| fig-cap: "Carta de Controlo X-barra demonstrando a estabilidade do Teor de Ferro (% Fe)."
+#| warning: false
+#| message: false
+
+# Carregar o pacote estatístico para Controlo da Qualidade
+library(qcc)
+
+# 1. Simulação de Dados: 30 turnos, 5 amostras/turno (Teor Alvo: 62.5% Fe)
+set.seed(42)
+amostras_teor <- matrix(rnorm(150, mean = 62.5, sd = 0.8), ncol = 5)
+
+# 2. Injeção de uma Causa Especial (Anomalia) nos turnos 20 e 21
+# Simulando a alimentação de minério de uma frente de lavra mais pobre
+amostras_teor[20:21, ] <- amostras_teor[20:21, ] - 2.5
+
+# 3. Geração da Carta de Controlo X-Barra (Médias)
+grafico_cep <- qcc(amostras_teor, type = "xbar",
+                   title = "Controlo Estatístico: Teor de Ferro (% Fe) na Alimentação",
+                   xlab = "Turnos Operacionais",
+                   ylab = "Média do Teor (% Fe)",
+                   plot = TRUE)
+
+### Histograma e Capacidade do Processo (Cp e Cpk) {#sec-histograma-cpk}
+
+Enquanto a Carta de Controle avalia a estabilidade de um processo *ao longo do tempo*, o **Histograma** é a ferramenta estatística que tira uma "fotografia" de todo o volume de dados para revelar a sua *forma*, *tendência central* e *dispersão*.
+
+Na mineração, apenas ter um processo estável (sem causas especiais) não é suficiente. É vital saber se a variação natural dessa operação é estreita o bastante para caber dentro das exigências do cliente (a usina de pelotização, por exemplo). É aqui que entra o estudo da **Capacidade do Processo**.
+
+
+
+A capacidade do processo compara matematicamente a "Voz do Processo" (a variação natural de $6\sigma$) com a "Voz do Cliente" (a distância entre os Limites de Especificação). Para quantificar essa relação, a engenharia utiliza dois índices de capacidade:
+
+#### 1. Índice de Capacidade Potencial ($C_p$)
+Mede a largura da variação do processo em relação à largura da especificação, **ignorando a centralização**. Responde à pergunta: *"Se o meu processo estivesse perfeitamente centralizado na meta, ele seria capaz de atender ao cliente?"*
+
+$$C_p = \frac{LSE - LIE}{6\sigma}$$
+
+Onde:
+* $LSE$: Limite Superior de Especificação (exigido pelo projeto/cliente).
+* $LIE$: Limite Inferior de Especificação.
+* $\sigma$: Desvio padrão estimado do processo.
+
+#### 2. Índice de Capacidade Real ($C_{pk}$)
+Na prática, as máquinas sofrem desgaste e o processo quase nunca está perfeitamente centrado. O $C_{pk}$ mede o cenário real, penalizando o índice de acordo com o quão distante a média ($\mu$) do processo está do alvo.
+
+$$C_{pk} = \min\left(\frac{LSE - \mu}{3\sigma}, \frac{\mu - LIE}{3\sigma}\right)$$
+
+::: {.callout-important title="🎯 REFERÊNCIA DE CLASSE MUNDIAL"}
+* $C_{pk} < 1$: O processo é **incapaz**. Está gerando sucata/refugo além do aceitável.
+* $C_{pk} = 1$: O processo é **marginalmente capaz**. O limite natural coincide com a especificação (risco alto de falha).
+* $C_{pk} \ge 1.33$: O processo é **capaz**. É o padrão mínimo exigido na indústria automotiva e na mineração de excelência.
+* $C_{pk} \ge 2.0$: O processo possui qualidade **Six Sigma** (apenas 3,4 defeitos por milhão).
+:::
+
+#### Aplicação Prática em R: Análise de Granulometria
+
+Abaixo, utilizaremos o pacote `ggplot2` no R para analisar o $C_{pk}$ da granulometria (em mm) do minério britado. A usina exige que o minério tenha entre **10 mm (LIE)** e **20 mm (LSE)**.
+
+```{r}
+#| label: fig-histograma-cpk
+#| fig-cap: "Histograma de Granulometria do Britador com Curva Normal e Limites de Especificação."
+#| warning: false
+#| message: false
+
+library(ggplot2)
+
+# 1. Simulação de Dados de Granulometria (Britador Primário)
+# Média real = 16 mm (Deslocada do centro ideal de 15 mm) / Desvio Padrão = 1.5 mm
+set.seed(123)
+granulometria <- rnorm(1000, mean = 16, sd = 1.5)
+df_gran <- data.frame(Medida = granulometria)
+
+# 2. Parâmetros de Especificação
+LSE <- 20
+LIE <- 10
+media_proc <- mean(granulometria)
+desvio_proc <- sd(granulometria)
+
+# 3. Cálculos de Cp e Cpk
+Cp <- (LSE - LIE) / (6 * desvio_proc)
+Cpk <- min((LSE - media_proc) / (3 * desvio_proc), (media_proc - LIE) / (3 * desvio_proc))
+
+# 4. Geração do Histograma com Densidade Normal
+ggplot(df_gran, aes(x = Medida)) +
+    geom_histogram(aes(y = ..density..), bins = 30, fill = "#35978f", color = "white", alpha = 0.7) +
+    stat_function(fun = dnorm, args = list(mean = media_proc, sd = desvio_proc), color = "#01665e", size = 1.2) +
+    geom_vline(xintercept = LSE, color = "#EA4335", linetype = "dashed", size = 1) +
+    geom_vline(xintercept = LIE, color = "#EA4335", linetype = "dashed", size = 1) +
+    geom_vline(xintercept = media_proc, color = "#FBBC05", size = 1) +
+    annotate("text", x = 20.5, y = 0.2, label = "LSE", color = "#EA4335", fontface = "bold", angle = 90) +
+    annotate("text", x = 9.5, y = 0.2, label = "LIE", color = "#EA4335", fontface = "bold", angle = 90) +
+    labs(
+        title = "Análise de Capacidade: Granulometria do Britador",
+        subtitle = sprintf("Cp: %.2f | Cpk: %.2f", Cp, Cpk),
+        x = "Granulometria (mm)",
+        y = "Densidade"
+    ) +
+    theme_minimal()
+
+### Diagrama de Dispersão e Correlação {#sec-diagrama-dispersao}
+
+O Diagrama de Dispersão (ou Gráfico de Dispersão) é a ferramenta de diagnóstico visual utilizada para identificar e confirmar se existe uma relação de causa e efeito entre duas variáveis numéricas.
+
+Antes de a engenharia investir tempo e recursos financeiros na estruturação de um complexo Planeamento de Experimentos (DOE), é estritamente necessário validar se a alteração num parâmetro operacional (variável independente, $X$) tem, de facto, impacto significativo no resultado final (variável dependente, $Y$). Caso o gráfico mostre uma nuvem de pontos completamente aleatória, o engenheiro sabe imediatamente que a variável $X$ não é a causa raiz do problema em $Y$.
+
+
+
+Para quantificar a força desta relação matemática, a estatística utiliza o **Coeficiente de Correlação de Pearson ($r$)** e o **Coeficiente de Determinação ($R^2$)**.
+
+O $R^2$ varia de 0 a 1 (ou 0% a 100%) e indica a percentagem da variação da variável $Y$ que é explicada pela variável $X$. A interpretação de referência na indústria é:
+* **$R^2 > 0.70$:** Correlação forte (a variável $X$ dita fortemente o comportamento de $Y$).
+* **$R^2$ entre 0.30 e 0.70:** Correlação moderada (existem outros fatores ocultos a influenciar o resultado).
+* **$R^2 < 0.30$:** Correlação fraca ou inexistente.
+
+#### Aplicação Prática em R: Carga Transportada vs. Consumo de Combustível
+
+Abaixo, utilizamos o `ggplot2` para plotar a dispersão entre a **Carga Transportada (Toneladas)** e o **Consumo de Combustível (Litros/hora)** de uma frota de camiões fora de estrada, calculando a linha de tendência (regressão linear) e o $R^2$.
+
+```{r}
+#| label: fig-dispersao-correlacao
+#| fig-cap: "Diagrama de Dispersão e Regressão Linear: Carga Transportada vs. Consumo de Diesel."
+#| warning: false
+#| message: false
+
+library(ggplot2)
+
+# 1. Simulação de Dados Operacionais (Frota de Camiões)
+set.seed(45)
+# Carga a variar entre 200 e 320 toneladas
+carga_ton <- runif(100, min = 200, max = 320)
+# Consumo (L/h) dependente da carga + ruído estatístico (variações de rampa, operador, etc.)
+consumo_lh <- 50 + 0.6 * carga_ton + rnorm(100, mean = 0, sd = 15)
+
+df_dispersao <- data.frame(Carga = carga_ton, Consumo = consumo_lh)
+
+# 2. Cálculo Matemático da Correlação e R²
+correlacao <- cor(df_dispersao$Carga, df_dispersao$Consumo)
+r2 <- correlacao^2
+
+# 3. Geração do Gráfico de Dispersão com Regressão Linear
+ggplot(df_dispersao, aes(x = Carga, y = Consumo)) +
+    geom_point(color = "#01665e", size = 3, alpha = 0.6) +
+    geom_smooth(method = "lm", color = "#EA4335", fill = "#FBBC05", se = TRUE) +
+    labs(
+        title = "Análise de Causa e Efeito: Camiões Fora de Estrada",
+        subtitle = sprintf("Coeficiente de Determinação (R²) = %.2f", r2),
+        x = "Carga Transportada (Toneladas)",
+        y = "Consumo de Combustível (Litros/hora)"
+    ) +
+    theme_minimal() +
+    theme(
+        plot.title = element_text(face = "bold"),
+        plot.subtitle = element_text(color = "#555555")
+    )
+
+## A Execução: O Plano de Ação 5W2H {#sec-plano-acao-5w2h}
+
+Todo o rigor estatístico das Cartas de Controle, o cálculo do $C_{pk}$ e a descoberta da causa raiz pelo Diagrama de Ishikawa perdem completamente o valor se a solução não for implementada de forma disciplinada. O MASP exige uma transição perfeita entre a fase de Planejamento (*Plan*) e a fase de Execução (*Do*).
+
+No ambiente industrial, delegar uma tarefa dizendo apenas *"precisamos consertar o britador"* é a receita para o fracasso. Tarefas sem responsáveis diretos, sem prazos e sem orçamento definido raramente saem do papel. Para garantir o controle da execução, a engenharia utiliza a matriz **5W2H**.
+
+
+
+O 5W2H é um *checklist* gerencial que mapeia todas as dimensões de uma ação corretiva ou preventiva, eliminando qualquer ambiguidade. O acrônimo deriva de sete perguntas em inglês que devem ser respondidas para cada contramedida proposta:
+
+1. **What (O que será feito?):** A descrição clara e objetiva da ação.
+2. **Why (Por que será feito?):** A justificativa técnica (qual causa raiz identificada no Ishikawa esta ação ataca?).
+3. **Where (Onde será feito?):** O local físico, equipamento ou departamento exato (ex: Britador Primário 01).
+4. **When (Quando será feito?):** O cronograma, com data de início e prazo limite de entrega.
+5. **Who (Quem fará?):** O responsável pela execução. **Atenção:** Deve ser o nome de uma pessoa (CPF), e não o nome de um departamento (ex: "João da Silva", e não "Equipe de Manutenção").
+6. **How (Como será feito?):** O método, o passo a passo ou o procedimento operacional que será utilizado.
+7. **How much (Quanto custará?):** O orçamento alocado em horas-homem, custo de peças ou CAPEX necessário. Se não houver custo financeiro direto, registra-se o tempo investido.
+
+### Aplicação Prática: O Ajuste do Britador
+
+Para ilustrar a ferramenta, vamos retomar o diagnóstico do nosso Histograma na @sec-histograma-cpk. Descobrimos estatisticamente que o $C_{pk}$ do britador era de 0.86 (incapaz) porque a média da granulometria estava deslocada para 16 mm. O plano não é comprar um equipamento novo, mas ajustar a máquina existente.
+
+A @tbl-5w2h-exemplo demonstra como essa decisão estatística é traduzida em uma ordem de serviço clara através do 5W2H.
+
+| Pergunta | Definição | Exemplo Prático (Ajuste de Granulometria) |
+| :--- | :--- | :--- |
+| **What?** | O que fazer? | Ajustar o *Closed-Side Setting* (CSS) do Britador. |
+| **Why?** | Por que fazer? | Centralizar a curva do processo em 15 mm para elevar o $C_{pk}$ acima de 1.33 e evitar a geração de matacões. |
+| **Where?** | Onde fazer? | Britador Mandíbula Primário - Linha A (Planta 2). |
+| **When?** | Quando fazer? | Próxima parada programada (25/11/2026, das 08h às 10h). |
+| **Who?** | Quem fará? | Carlos Eduardo (Supervisor de Manutenção Mecânica). |
+| **How?** | Como fazer? | Seguir o POP-MEC-045 (Desvincular energia, ajustar as cunhas hidráulicas para reduzir a abertura em 1 mm e travar). |
+| **How much?**| Quanto custa? | R$ 0,00 (Sem custo de peças, apenas 2 horas-homem de rotina). |
+
+: Matriz 5W2H aplicada à manutenção do britador. {#tbl-5w2h-exemplo}
+
+Ao formalizar o plano de ação nesta matriz, a equipe de engenharia garante que o esforço analítico (*Mining Analytics*) seja convertido em uma intervenção física auditável. Assim que a ação for executada, a roda do PDCA gira para a fase de Verificação (*Check*), onde o engenheiro rodará novamente o código no R para gerar um novo Histograma e comprovar matematicamente que a melhoria foi, de fato, sustentada.
