@@ -58,11 +58,13 @@ Esta subjetividade divide a compreensão da Qualidade em duas dimensões:
 
 Para compreender a complexidade de medir e atestar a qualidade de um produto, precisamos separar a característica real do objeto da forma como o observador o interpreta. Essa dicotomia entre a dimensão objetiva e a subjetiva é ilustrada na **Figura 2.2** através de dois cenários distintos:
 
-**Exemplo 1: A Percepção Sensorial (A Bola de Neve)**
+::: {.example #exm-percepcao-sensorial name="A Percepção Sensorial (A Bola de Neve)"}
 No primeiro cenário, temos o exemplo clássico da bola de neve. Fisicamente, ela possui propriedades materiais exatas. No entanto, o "poder" desse objeto na nossa percepção é a capacidade de gerar em nossa mente ideias qualitativas e sensoriais, como "esférica", "gelada" e "branca". O desafio gerencial surge exatamente dessa distinção: é extremamente difícil padronizar ou verificar um atributo de qualidade se ele depender puramente da capacidade de "produzir uma sensação" no cliente, pois essa percepção varia de pessoa para pessoa.
+:::
 
-**Exemplo 2: A Causalidade Oculta (O Sol e o Termômetro)**
+::: {.example #exm-causalidade-oculta name="A Causalidade Oculta (O Sol e o Termômetro)"}
 A dificuldade de verificação se torna ainda mais evidente quando o observador capta o efeito, mas ignora a causa, como demonstrado na segunda parte da figura. Sabemos, de forma objetiva, que o Sol emite energia térmica com a propriedade física de dilatar o mercúrio dentro de um termômetro. Contudo, se entregarmos esse instrumento a um "homem das cavernas", ele perceberá visualmente a coluna de líquido subindo (experimentando a dimensão subjetiva do fenômeno), mas não fará a menor ideia da relação físico-química que a radiação solar exerce sobre o equipamento (a dimensão objetiva real).
+:::
 
 Na engenharia de produção, esse segundo exemplo é um alerta crítico: não podemos atestar a qualidade de um processo baseando-nos apenas naquilo que conseguimos enxergar superficialmente, sem compreender a variável raiz que governa o sistema.
 
@@ -86,10 +88,15 @@ Apesar do interesse das empresas, essa confusão conceitual exige um alinhamento
 Este conceito moderno exerce uma função dupla: satisfaz os clientes e permite à companhia funcionar da forma mais eficiente possível. A qualidade é, talvez, a única área na qual há grande alinhamento entre as metas dos clientes e as metas da organização.
 
 Pressupõe-se que deve existir uma concordância de conceituação entre o produtor e o consumidor. Para o consumidor, o conceito de qualidade gravita em torno de um ponto de equilíbrio entre os seguintes fatores:
-* Qualidade Intrínseca do Produto.
-* Qualidade do Atendimento (quantidade ofertada, prazos de entrega, etc.).
-* Qualidade dos Serviços Associados ao uso do Produto.
-* Custo Total.
+
+* **Qualidade Intrínseca do Produto:**
+  Refere-se aos atributos intrínsecos do produto (funcionalidade, durabilidade, confiabilidade).
+* **Qualidade do Atendimento:**
+  Envolve quantidade ofertada, prazos de entrega, disponibilidade e responsividade comercial.
+* **Qualidade dos Serviços Associados ao uso do Produto:**
+  Inclui assistência técnica, garantia, suporte pós-venda e facilidade de manutenção.
+* **Custo Total:**
+  Soma de todos os gastos envolvidos na aquisição, uso e descarte do produto.
 
 A satisfação total do consumidor deve ser alcançada em todos esses fatores. Para transformar essa expectativa em algo gerenciável e auditável, a indústria precisou estabelecer uma linguagem universal.
 
@@ -209,7 +216,7 @@ A capacidade de projetar produtos que incorporem características e atributos ot
 
 Portanto, adicionar ou agregar valor significa fornecer benefícios adicionais ao produto ou serviço sem que isso afete os custos envolvidos na sua aquisição.
 
-$$Valor Agregado = Benefícios - Custos$$
+$$Valor\,Agregado = Benefícios - Custos$$ {#eq-valor-agregado}
 
 ::: {.example #exm-show-artista name="A Matemática Intuitiva do Valor Agregado"}
 Para materializar essa equação, vamos analisar uma decisão de consumo cotidiana. Faça a si mesmo a seguinte pergunta: **Qual é o valor máximo que você estaria disposto a pagar para ir a um show do seu artista preferido?**
@@ -276,46 +283,55 @@ Para visualizar a evolução dessa competitividade, imagine uma praça de alimen
 * **A Vantagem Competitiva (Ganhadores de Pedido):** Em um determinado dia, a hamburgueria atrai uma fila de clientes visivelmente maior que a do restaurante de macarrão ao lado. Ela possui uma vantagem competitiva porque entrega *critérios ganhadores de pedido*. Os benefícios (que nascem de forma subjetiva e individual na cabeça de cada consumidor) tornaram-se evidentes e formaram um consenso coletivo: seja pelo sabor exclusivo de um molho, pela rapidez imbatível ou pelo preço agressivo. Ela gera mais valor do que as demais.
 * **A Vantagem Sustentável (O Atributo Oculto):** Ao ver o sucesso da hamburgueria, o restaurante vizinho tenta copiar: abaixa seus preços e lança um molho parecido. Mesmo assim, um ano depois, a fila da hamburgueria continua reinando. Por quê? Porque a vantagem da hamburgueria não era apenas o molho (que é visual e copiável), mas um sistema complexo: uma logística refinada que entrega ingredientes frescos diariamente e uma cultura de treinamento que zera os erros de anotação de pedidos. A dificuldade de copiar esses atributos reside no fato de que eles não são evidentes na vitrine.
 
-**A Conexão com a Engenharia e o Modelo ARM:**
-Aqui reside o grande trunfo da **Modelagem Analítica de Requisitos (ARM)**. O sucesso comercial nasce de um conjunto de características subjetivas que, quando consolidadas, geram a vantagem competitiva. No entanto, o atributo que garante a sustentabilidade desse sucesso raramente é óbvio ou comum.
+**A Conexão com a Engenharia e a Necessidade de Quantificação:**
+Aqui reside o grande desafio da engenharia de produção. O sucesso comercial nasce de um conjunto de características subjetivas que, quando consolidadas, geram a vantagem competitiva. No entanto, o atributo que garante a sustentabilidade desse sucesso raramente é óbvio ou comum.
 
-O papel do modelo $ARM$ é exatamente entrar nessa operação e transformar o "sucesso aparentemente subjetivo" em variáveis matemáticas. O modelo desdobra a percepção do cliente nas variáveis independentes ($V_i$), como tempo de fila e acurácia do pedido, e calibra os pesos de importância ($W_i$). Sem essa quantificação da engenharia, a vantagem competitiva é apenas um palpite; com o $ARM$, ela se torna um sistema replicável e gerenciável.
+Como gerenciar e replicar algo que é, na sua essência, subjetivo? A resposta está na quantificação. O papel da engenharia é entrar nessa operação e transformar o "sucesso aparentemente subjetivo" em um modelo matemático. É preciso desdobrar a percepção do cliente em indicadores claros de desempenho (como o tempo exato da fila e a taxa de acerto do pedido) e atribuir pesos de importância para cada uma dessas exigências.
+
+Sem essa estruturação, a vantagem competitiva é apenas um palpite ou um golpe de sorte. A ferramenta técnica exata para realizar essa tradução do mundo subjetivo dos negócios para as variáveis matemáticas da engenharia — denominada **Modelagem Analítica de Requisitos (ARM)** — será o objeto central de estudo do **Capítulo 2**.
 :::
 
 ### Relações Econômicas (Preço, Propaganda e Participação) {#sec-relacoes-economicas}
 
-Para compreender o impacto da qualidade na base de negócios, é necessário analisar como ela se relaciona com as principais variáveis econômicas de uma organização:
+Para compreender o impacto da qualidade na base de negócios, é necessário analisar como ela se relaciona com as principais variáveis microeconômicas de uma organização: o Preço ($P$), a Quantidade Vendida ($Q$), o Custo de Produção ($C$) e o Lucro resultante ($L$).
 
-* **Relação Qualidade vs. Preço:**
-  É considerada uma relação fraca e sem direção clara. Existe uma força negativa ditada pela Lei da Demanda (maiores preços tendem a reduzir a quantidade demandada) e uma força positiva, onde o preço mais alto atua como um "símbolo" de qualidade extra percebida pelo consumidor. A dinâmica de Lucro (L), Preço (P), Quantidade (Q) e Custo (C) costuma conflitar em equações do tipo $L\downarrow = P\uparrow \times Q\downarrow - C\leftrightarrow$.
+#### 1. Relação Qualidade vs. Preço
+É considerada uma relação fraca e sem direção clara. Existe uma força negativa ditada pela Lei da Demanda (maiores preços tendem a reduzir a quantidade demandada) e uma força positiva, onde o preço mais alto atua como um "símbolo" de qualidade extra percebida pelo consumidor. A @fig-relacao-qualidade-preco ilustra o perigo de manipular preços sem embasamento de valor:
+
+* **O Cenário de Risco (Gráfico da Esquerda):** A empresa decide aumentar seu preço ($P \uparrow$) de forma artificial, sem melhorar o produto. Como não há percepção de valor, a curva de Demanda (linha azul) permanece inalterada. O mercado reage negativamente, a quantidade vendida despenca ($Q \downarrow$) e, mesmo com o custo constante ($C \leftrightarrow$), a área total de faturamento encolhe, resultando em queda no lucro ($L \downarrow$).
+* **A Estratégia de Valor (Gráfico da Direita):** A empresa investe em atributos que o cliente valoriza. Isso desloca toda a curva de Demanda para a direita/cima (linha verde). Agora, a empresa consegue cobrar um preço superior ($P \uparrow$) e, como o cliente percebe o benefício, o volume de vendas se mantém estável ($Q \leftrightarrow$). O resultado é uma expansão maciça da margem e o aumento real do lucro ($L \uparrow$).
 
 ![Relação Qualidade x Preço](../images/fig-relacao-qualidade-preco.png){#fig-relacao-qualidade-preco fig-align="center"}
 
-* **Relação Qualidade vs. Propaganda:**
-  Também apresenta uma relação fraca e sem direção clara. O investimento em publicidade é útil para sinalizar menor risco e criar contraste frente à concorrência, mas eleva os custos operacionais na tentativa de alavancar o volume de vendas. Para ser vantajoso, a equação se comporta como: $L\uparrow = P\leftrightarrow \times Q\uparrow - C\uparrow$. Veja a @fig-relacao-qualidade-propaganda.
+#### 2. Relação Qualidade vs. Propaganda
+Também apresenta uma relação de alto risco. O investimento em publicidade é útil para sinalizar menor risco e criar contraste frente à concorrência, mas ele introduz uma penalidade imediata na equação: a elevação direta dos custos operacionais ($C \uparrow$). A @fig-relacao-qualidade-propaganda demonstra essa dinâmica:
+
+* **A Ilusão do Volume (Gráfico da Esquerda):** A empresa gasta com propaganda ($C \uparrow$) mantendo o preço estável ($P \leftrightarrow$). A demanda até sofre um leve deslocamento positivo, aumentando timidamente as vendas ($Q \uparrow$). Contudo, o ganho de receita não é suficiente para cobrir o rombo deixado pelo custo da publicidade, fazendo o lucro total cair ($L \downarrow$).
+* **A Propaganda Efetiva (Gráfico da Direita):** A propaganda comunica de forma tão eficaz a qualidade do produto que o mercado aceita pagar mais caro ($P \uparrow$) e comprar em maior volume ($Q \uparrow$). Somente com esse deslocamento agressivo da demanda é que o aumento do faturamento supera o gasto publicitário ($C \uparrow$), gerando um lucro sustentável ($L \uparrow$).
 
 ![Relação Qualidade x Propaganda](../images/fig-relacao-qualidade-propaganda.png){#fig-relacao-qualidade-propaganda fig-align="center"}
 
-* **Relação Qualidade vs. Participação no Mercado:**
-  Apresenta uma relação média e com direção mais clara, dependendo profundamente da dimensão da qualidade explorada. Se a qualidade for baseada exclusivamente em "desempenho superior", o produto fatalmente será mais caro e venderá menos volume. Porém, se a dimensão focada for estética, interface simples ou melhor conformidade, não é obrigatório cobrar preços mais altos para ganhar o mercado, o que impulsiona a rentabilidade de forma direta: $L\uparrow = P\leftrightarrow \times Q\uparrow - C\leftrightarrow$. A @fig-relacao-qualidade-participacao ilustra esse ponto.
+#### 3. Relação Qualidade vs. Participação no Mercado
+Apresenta uma relação com direção mais clara, dependendo da dimensão da qualidade explorada. Se a qualidade for focada estritamente em "desempenho tecnológico superior", o produto fatalmente custará mais e venderá menos volume. Porém, se o foco for melhoria de conformidade (redução de defeitos) e usabilidade, a lógica se inverte, como mostrado na @fig-relacao-qualidade-participacao:
+
+* **O Custo da "Falsa" Qualidade (Gráfico da Esquerda):** A empresa tenta empurrar um produto com características complexas que o cliente não pediu. Isso encarece a produção ($C \uparrow$) e força um aumento de preço ($P \uparrow$), resultando em rejeição do mercado, queda nas vendas ($Q \downarrow$) e prejuízo na margem ($L \downarrow$).
+* **Ganho de Escala pela Conformidade (Gráfico da Direita):** A empresa foca em reduzir a variabilidade de seus processos. O custo de produção se mantém estável ou até cai ($C \leftrightarrow$). Ela não aumenta o preço final ($P \leftrightarrow$), mas a altíssima confiabilidade e reputação do produto atraem os clientes da concorrência, deslocando a demanda. O volume de vendas dispara ($Q \uparrow$), dominando a participação no mercado e alavancando a rentabilidade de forma orgânica ($L \uparrow$).
 
 ![Relação Qualidade x Participação no Mercado](../images/fig-relacao-qualidade-participacao.png){#fig-relacao-qualidade-participacao fig-align="center"}
 
 ### Qualidade vs. Custo e Produtividade {#sec-custo-produtividade}
 
-Esta é a relação forte e de direção inquestionável. A qualidade está diretamente ligada à redução da variabilidade e das falhas operacionais. A confiança no processo produtivo remete ao conceito de que qualidade é inversamente proporcional à variabilidade (seja na manufatura, no ambiente de operação ou na deterioração do produto).
+Esta é a relação forte e de direção inquestionável. Na engenharia de produção, a qualidade está diretamente ligada à redução da variabilidade e das falhas operacionais. A confiança no processo produtivo remete ao conceito de que qualidade é inversamente proporcional à variabilidade (seja na manufatura, no ambiente de operação ou na deterioração do produto).
 
-Os custos envolvidos na gestão (ou na falta dela) dividem-se em:
-* **Custos de Prevenção:** Investimentos para evitar falhas.
-* **Custos de Avaliação:** Gastos com inspeções e testes.
-* **Custos das Falhas Internas:** Erros detectados na produção antes da entrega.
-* **Custos das Falhas Externas:** Custos de pós-venda, garantias e devoluções.
-* **Custos de Oportunidade:** Perda de fatias de mercado pela má fama.
-* **Custos de Exceder Requerimentos:** Entregar mais do que foi solicitado sem que o cliente valorize ou pague por isso.
+A equação fundamental que rege essa relação garante que alta qualidade e baixo custo devem caminhar juntos para gerar produtividade:
 
-A equação fundamental que rege essa relação garante que alta qualidade e baixo custo caminham juntos:
+$$Produtividade = \frac{Valor\,Produzido}{Valor\,Consumido} = \frac{Qualidade}{Custo} = \frac{Faturamento}{Custos}$$ {#eq-produtividade}
 
-$$Produtividade = \frac{Valor Produzido}{Valor Consumido} = \frac{Qualidade}{Custo} = \frac{Faturamento}{Custos}$$
+Para otimizar essa fração, não basta que a empresa corte gastos de forma arbitrária; o engenheiro precisa gerenciar os **Custos da Qualidade**. Em vez de uma simples categorização contábil, esses custos representam a tradução financeira do descompasso entre a capacidade do processo e os requisitos do cliente (que modelaremos matematicamente mais à frente). Eles dividem-se em:
+
+* **Custos de Controle (O Investimento):** Incluem os *Custos de Prevenção* (ex: manutenção preditiva na frota) e os *Custos de Avaliação* (ex: testes contínuos de laboratório e amostragem). É o capital alocado ativamente para blindar o sistema contra a variabilidade.
+* **Custos de Falha (O Prejuízo):** Englobam as *Falhas Internas* (retrabalho e recirculação de carga fora de especificação antes de sair da usina) e as devastadoras *Falhas Externas* (pagamento de multas, devoluções e *demurrage* em portos porque o cliente recebeu o produto contaminado). Incluem também o *Custo de Oportunidade*, que é a perda de fatia de mercado pela má fama.
+* **Custos de Exceder Requerimentos (A Superqualidade):** Este é um erro sutil e perigoso. Ocorre quando a operação entrega mais do que foi solicitado sem que o cliente valorize ou pague por isso. Exemplo: gastar energia extra no moinho para atingir uma granulometria extremamente fina, quando o contrato tolerava uma malha grossa. É o desperdício gerado por não compreender o peso real que o mercado dá àquela característica.
 
 ### O Impacto Sistêmico: Ciclo Negativo vs. Ciclo Positivo {#sec-impacto-sistemico}
 
@@ -336,7 +352,6 @@ Foi justamente para induzir as organizações a abandonarem o ciclo negativo e a
 As auditorias deixaram de ser baseadas em "papel" e passaram a buscar evidências factuais da aplicação dos requisitos, forçando as empresas a, de fato, implementar a gestão da qualidade no dia a dia. Os novos princípios básicos passaram a incluir: comprometimento da liderança, melhoria contínua, capacitação de recursos humanos, gestão por processos e tomadas de decisão baseadas em fatos.
 
 A ISO 9001 precisou mudar para refletir a crescente complexidade dos ambientes de negócios, melhorar a compatibilidade com outras normas e garantir a satisfação de todas as partes interessadas (*stakeholders*). O marco definitivo dessa evolução foi a exigência, a partir de 2015, de ações para tratar riscos e oportunidades, provendo uma base gerencial sólida para que as organizações enfrentem o dinamismo do mercado atual.
-
 ---
 
 ## Da Qualidade ao Sistema de Gestão (ISO 9000) {#sec-iso9000}

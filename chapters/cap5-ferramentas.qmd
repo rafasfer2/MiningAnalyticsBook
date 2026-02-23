@@ -6,20 +6,72 @@ format: html
 
 Este capítulo apresenta o arsenal metodológico essencial para o analista de dados na mineração. A aplicação correta destas ferramentas permite transformar terabytes de dados brutos de telemetria e manutenção em diagnósticos precisos para a tomada de decisão.
 
-## Ferramentas da Qualidade {#sec-ferramentas-qualidade}
+As ferramentas aqui apresentadas não devem ser utilizadas de forma aleatória. Elas seguem o fluxo lógico do MASP (Método de Análise e Solução de Problemas) e do ciclo PDCA, garantindo que a engenharia identifique o problema correto, descubra a causa raiz e estabilize o processo operacional.
 
-### Diagrama de Pareto
+## O Caminho da Solução: PDCA e MASP {#sec-caminho-solucao}
 
-O Diagrama de Pareto é uma das ferramentas mais clássicas e eficazes no controle da qualidade e gestão de ativos. Trata-se de uma representação gráfica que hierarquiza problemas, causas ou perdas de forma decrescente, destacando os fatores vitais que demandam ação imediata.
+O ciclo PDCA é uma ferramenta simples que promove alterações graduais no processo, impulsionando o desenvolvimento contínuo da organização. O ciclo é dividido em etapas de planejamento (PLAN), execução (DO), verificação (CHECK) e ação (ACT).
 
-Conforme Campos (2004), esta ferramenta operacionaliza o **Princípio de Pareto (80/20)**, permitindo que gestores alcancem resultados significativos focando em poucas, mas críticas, alavancas de atuação. O princípio postula que, em geral, 80% dos efeitos (ex: horas paradas) derivam de apenas 20% das causas (ex: falha no sistema de injeção) (Silva, 2009).
+::: {.callout-note title="📌 DEFINIÇÃO NORMATIVA"}
+De acordo com Mendes (2007), o ciclo PDCA é um método estruturado para a melhoria contínua dividido nas seguintes etapas:
 
-No contexto do *Mining Analytics*, um valor elevado nas primeiras barras do gráfico indica onde a ineficácia se concentra (Franco et al., 2006). A @fig-pareto-mining exemplifica esta aplicação, onde o esforço de manutenção é direcionado para os modos de falha predominantes.
+* **PLAN (Planejar):**
+  Definir a situação atual, estabelecer metas mensuráveis e estratégias.
+* **DO (Executar):**
+  Educar os envolvidos e implementar as estratégias.
+* **CHECK (Verificar):**
+  Comparar os resultados obtidos contra as metas.
+* **ACT (Agir/Padronizar):**
+  Tomar ações corretivas ou padronizar a melhoria.
+:::
+
+A fase de planejamento (PLAN) exige o maior rigor e dedicação de tempo do projeto. Para que essas etapas sejam realizadas com eficácia, a engenharia utiliza o **MASP** como ferramenta de controle e auditoria, estruturando a pesquisa das causas de forma científica.
+
+::: {.callout-warning title="⚠️ ARMADILHA DE ENGENHARIA"}
+O erro mais comum em projetos de melhoria é a "Miopia de Ação": a equipe pular a fase de Planejamento (P) e ir direto para a Execução (D). Implementar soluções baseadas em "achismos" e não em dados estratificados consome recursos financeiros e, na maioria das vezes, ataca apenas o sintoma.
+:::
+
+## Mapeamento de Fronteiras: SIPOC e Fluxograma {#sec-mapeamento-fronteiras}
+
+Antes de mergulhar nas causas de um problema usando ferramentas estatísticas, a equipe de engenharia precisa garantir que todos compreendam o fluxo macro do processo e as suas fronteiras. O maior erro de um projeto é tentar "abraçar o mundo".
+
+### A Matriz SIPOC {#sec-matriz-sipoc}
+
+Para delimitar esse escopo, utilizamos a ferramenta SIPOC, que padroniza o mapeamento de qualquer processo na operação mineral:
+
+* **S (*Supplier* / Fornecedor):**
+  Quem fornece os insumos? *(Ex: Topografia).*
+* **I (*Input* / Entrada):**
+  Quais recursos são fornecidos? *(Ex: Malha de perfuração).*
+* **P (*Process* / Processo):**
+  Quais são as macroatividades? *(Ex: Furar $\rightarrow$ Carregar $\rightarrow$ Detonar).*
+* **O (*Output* / Saída):**
+  O que o processo gera? *(Ex: Minério desmontado).*
+* **C (*Customer* / Cliente):**
+  Quem recebe a saída? *(Ex: Operadores de Escavadeira).*
+
+### O Fluxograma {#sec-fluxograma}
+
+Enquanto o SIPOC define as fronteiras, o Fluxograma detalha o caminho. Conforme Castro (2024), é uma representação lógica que utiliza símbolos gráficos padronizados para detalhar a sequência de ações.
+
+O propósito do fluxograma é ampliar o entendimento do processo de produção mineral (como o ciclo de transporte: *Carregar $\rightarrow$ Transportar $\rightarrow$ Bascular $\rightarrow$ Retornar*) e apontar áreas que necessitam de padronização (Peinado e Graeml, 2007). Slack (2009) afirma que essa clareza visual é vital para a criação de Procedimentos Operacionais Padrão (POPs).
+
+## Ferramentas de Priorização e Diagnóstico {#sec-priorizacao-diagnostico}
+
+Com o processo mapeado, o analista de dados precisa descobrir *onde* o problema está concentrado e *por que* ele ocorre.
+
+### Diagrama de Pareto {#sec-diagrama-pareto}
+
+O Diagrama de Pareto é uma das ferramentas mais clássicas e eficazes no controle da qualidade e gestão de ativos. Trata-se de uma representação gráfica que hierarquiza problemas, causas ou perdas de forma decrescente.
+
+Conforme Campos (2004), esta ferramenta operacionaliza o **Princípio de Pareto (80/20)**, permitindo que gestores alcancem resultados significativos focando em poucas, mas críticas, alavancas. O princípio postula que, em geral, 80% dos efeitos derivam de apenas 20% das causas (Silva, 2009).
+
+No contexto do *Mining Analytics*, um valor elevado nas primeiras barras do gráfico indica onde a ineficácia se concentra (Franco et al., 2006). A @fig-pareto-mining exemplifica esta aplicação utilizando o ambiente R, onde o esforço de manutenção é direcionado para os modos de falha predominantes.
 
 ```{r}
 #| label: fig-pareto-mining
 #| fig-cap: "Diagrama de Pareto aplicado aos modos de falha (Paleta Teal/Gold)."
-#| echo: false
+#| echo: true
 #| warning: false
 #| message: false
 
@@ -42,12 +94,9 @@ df_pareto <- data.frame(
 scale_factor <- max(df_pareto$Ocorrencias) / 100
 
 ggplot(df_pareto, aes(x = Causa)) +
-    # Barras (Teal Dark)
     geom_bar(aes(y = Ocorrencias), stat = "identity", fill = "#01665e") +
-    # Linha Acumulada (Gold)
     geom_line(aes(y = Freq_Acumulada * scale_factor, group = 1), color = "#d4af37", size = 1.2) +
     geom_point(aes(y = Freq_Acumulada * scale_factor), color = "#d4af37", size = 3) +
-    # Eixos
     scale_y_continuous(
         name = "Frequência de Falhas",
         sec.axis = sec_axis(~ . / scale_factor, name = "Percentual Acumulado (%)")
@@ -61,63 +110,29 @@ ggplot(df_pareto, aes(x = Causa)) +
     )
 ```
 
-## Fluxograma
+### Ishikawa, 5 Porquês e Matriz GUT {#sec-ishikawa-5porques-gut}
 
-O Fluxograma, conforme Castro (2024), é uma maneira utilizada para representar um processo através de um desenho lógico. É uma ferramenta contendo símbolos gráficos padronizados para detalhar a sequência de ações que compõem um processo, visando facilitar sua compreensão visual.
+Uma vez que o Gráfico de Pareto indicou onde atuar, utiliza-se o Diagrama de Ishikawa (Espinha de Peixe) para realizar o brainstorming das causas raízes, dividindo-as nos 6M: Máquina, Material, Mão de Obra, Método, Medida e Meio Ambiente.
 
-O propósito do fluxograma é ampliar o entendimento do processo de produção mineral, demonstrar a execução de atividades a serem realizadas (como o ciclo de transporte: *Carregar \> Transportar \> Bascular \> Retornar*) e apontar áreas que necessitam de melhoria ou padronização (Peinado e Graeml, 2007). Slack (2009) afirma que o fluxograma de processo esclarece as suas etapas e a interação entre as atividades relacionadas, sendo vital para a definição de Procedimentos Operacionais Padrão (POPs).
+Em seguida, aplica-se a Matriz GUT (Gravidade, Urgência e Tendência) para pontuar e priorizar a causa vencedora. Por fim, utiliza-se a técnica dos 5 Porquês para aprofundar a investigação até a anomalia sistêmica original.
 
-## Diagrama de Build-up (Waterfall)
+## Ferramentas Avançadas de Engenharia e Manutenção {#sec-ferramentas-avancadas}
 
-Perfeito, Rafael. Mantive a integridade total do seu conteúdo técnico, assegurando que nenhuma informação fosse resumida, e apliquei a formatação rigorosa exigida para o seu livro **"Mining Analytics"**.
+Para análises de confiabilidade e gestão de horas na mineração, o analista de dados utiliza gráficos específicos para decomposição de tempo e classificação de ativos.
 
-Abaixo, o texto está preparado para o Quarto (`.qmd`), com as fórmulas em LaTeX e o código R configurado para gerar o diagrama com a identidade visual de cabeçalho em Teal e Ouro que você aprovou.
+### Diagrama de Build-up (Waterfall) {#sec-diagrama-waterfall}
 
-### Diagrama de Jack Knife {#sec-jack-knife}
-
-O método de Jack-Knife foi concebido para ser uma aprimoração do diagrama de Pareto. A premissa básica do desenvolvimento é a adição de uma análise de dois fatores, ou seja, analisa conjuntamente o MTTR e o NIC, enquanto o diagrama de Pareto é capaz de analisar apenas um fator.
-
-Tipicamente, a utilização do diagrama de Pareto consiste em priorizar, dentre diversas causas, àquelas que representam maior impacto no sistema como um todo. Para exemplificar, a análise de Pareto é frequentemente utilizada para priorizar os setores que mais causaram impacto na etapa de lavra de um processo de mineração. Observa-se que o uso do diagrama de Pareto, isoladamente, leva em consideração apenas um indicador, como as horas de manutenção.
-
-O diagrama Jack Knife (\@fig-jackknife-mining) é uma ferramenta de priorização do tratamento das falhas. O método tem como objetivo associar o NIC (número de intervenções corretivas) e MTTR (tempo médio de reparo), classificando os sistemas em leve, agudo, crônico e crítico (agudo e crônico), conforme a localização no quadrante.
-
-#### Definição de Limites e Equações
-
-A separação dos quadrantes é dada pelos limites determinados de acordo com o banco de dados existente dos sistemas, utilizando as seguintes equações:
-
-$$
-\mathrm{Limite}_{\mathrm{MTTR}} = \frac{\sum\limits_{i=1}^{k} \mathrm{HMC}_i}{\sum\limits_{i=1}^{k} \mathrm{NIC}_i}
-$$ {#eq-mttr}
-
-$$
-\mathrm{Limite}_{\mathrm{NIC}} = \frac{\sum\limits_{i=1}^{k} \mathrm{NIC}_i}{k}
-$$ {#eq-nic}
-
-Onde $k$ é o número de sistemas em análise.
-
-Os sistemas localizados acima da linha de $\text{Limite}_{\text{MTTR}}$ são os que afetam a mantenabilidade, pois apresentam os maiores tempos de reparos. Já os sistemas à direita da linha de $\text{Limite}_{\text{NIC}}$ são os que afetam a confiabilidade, pois possuem os maiores números de falhas (NIC).
-
-#### Classificação por Quadrantes
-
-A classificação dos sistemas ocorre conforme a posição em relação aos limites calculados:
-
--   **Quadrante Leve**: Ocorre quando $\text{NIC}_{\text{Sistema}} < \text{Limite}_{\text{NIC}}$ e $\text{MTTR}_{\text{Sistema}} < \text{Limite}_{\text{MTTR}}$. Neste quadrante, os sistemas apresentam boa confiabilidade (poucas falhas) e boa mantenabilidade (baixo tempo médio de reparo).
-
--   **Quadrante Crônico**: Ocorre quando $\text{NIC}_{\text{Sistema}} > \text{Limite}_{\text{NIC}}$ e $\text{MTTR}_{\text{Sistema}} < \text{Limite}_{\text{MTTR}}$. Para estes sistemas, os problemas são repetitivos, incidindo em um alto número de NIC (baixa confiabilidade) mesclada com boa mantenabilidade.
-
--   **Quadrante Agudo**: Ocorre quando $\text{NIC}_{\text{Sistema}} < \text{Limite}_{\text{NIC}}$ e $\text{MTTR}_{\text{Sistema}} > \text{Limite}_{\text{MTTR}}$. Aqui, a mantenabilidade apresenta ineficiência (reparos longos), embora o sistema possua boa confiabilidade.
-
--   **Quadrante Crítico (Agudo e Crônico)**: Ocorre quando $\text{NIC}_{\text{Sistema}} > \text{Limite}_{\text{NIC}}$ e $\text{MTTR}_{\text{Sistema}} > \text{Limite}_{\text{MTTR}}$. Estes são os sistemas pouco confiáveis e que apresentam dificuldades em manutenir, exigindo atenção prioritária.
+O diagrama em cascata (Waterfall ou Build-up) é excelente para demonstrar como o tempo calendário total de um equipamento (ex: 720 horas no mês) é consumido pelas diversas perdas operacionais e de manutenção até chegar nas horas puramente produtivas. A @fig-waterfall demonstra essa decomposição visualmente através do pacote waterfalls no R.
 
 ```{r}
 #| label: fig-waterfall
-#| fig-cap: "Gráfico de Build-up (Cascata) demonstrando a decomposição das horas."
-#| echo: false
+#| fig-cap: "Gráfico de Build-up (Cascata) demonstrando a decomposição das horas de um ativo."
+#| echo: true
 #| warning: false
 #| message: false
 
 library(ggplot2)
-library(waterfalls) # Caso não tenha, instale: install.packages("waterfalls")
+library(waterfalls)
 
 dados_waterfall <- data.frame(
     category = c("Horas Calendário", "Manutenção Programada", "Manutenção Corretiva", "Ociosidade", "Atrasos Operacionais", "Horas Produtivas"),
@@ -125,7 +140,7 @@ dados_waterfall <- data.frame(
 )
 
 waterfall(dados_waterfall,
-    calc_total = FALSE, # Já calculamos o final manualmente para controle
+    calc_total = FALSE,
     rect_width = 0.6,
     fill_by_sign = FALSE,
     fill_colours = c("#003c30", "#EA4335", "#EA4335", "#FBBC05", "#FBBC05", "#35978f")
@@ -135,26 +150,41 @@ waterfall(dados_waterfall,
     theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-## Diagrama de Jack-Knife
+### Diagrama de Jack-Knife {#sec-jack-knife}
 
-O método de Jack-Knife foi desenvolvido como uma melhoria do diagrama de Pareto, acrescentando uma análise bidimensional que leva em consideração o **MTTR** (Tempo Médio de Reparo) e o **NIC** (Número de Intervenções Corretivas) simultaneamente (Knights, 2001).
+O método de Jack-Knife foi concebido para ser uma aprimoração do diagrama de Pareto (Knights, 2001). A premissa básica é a adição de uma análise de dois fatores, avaliando conjuntamente o Tempo Médio de Reparo (MTTR) e o Número de Intervenções Corretivas (NIC).
 
-Diferente do Pareto, que analisa apenas um fator, o Jack-Knife permite classificar os ativos em quadrantes estratégicos para a manutenção:
+O uso do diagrama de Pareto, isoladamente, leva em consideração apenas um indicador (como o volume de horas paradas). O diagrama Jack Knife (@fig-jack-knife) é uma ferramenta de priorização do tratamento das falhas que classifica os sistemas em leve, agudo, crônico e crítico.
 
-1.  **Coleta de dados:** TTR (*Time To Repair*) e NIC.
+#### Definição de Limites e Equações {#sec-limites-equacoes}
 
-2.  **Classificação:** Agrupamento por sistema ou componente.
+A separação dos quadrantes é dada pelos limites determinados de acordo com o banco de dados dos sistemas, utilizando as seguintes equações matemáticas:
 
-3.  **Análise dos dados:** Plotagem no gráfico de dispersão (Scatter Plot).
+$$\mathrm{Limite}_{\mathrm{MTTR}} = \frac{\sum\limits_{i=1}^{k} \mathrm{HMC}_i}{\sum\limits_{i=1}^{k} \mathrm{NIC}_i}$$ {#eq-mttr}
 
-4.  **Decisão:** Identificação de componentes **Agudos** (Alta frequência, baixo reparo) e **Crônicos** (Baixa frequência, alto reparo).
+$$\mathrm{Limite}_{\mathrm{NIC}} = \frac{\sum\limits_{i=1}^{k} \mathrm{NIC}_i}{k}$$ {#eq-nic}
 
-A \@fig-jack-knife exibe essa correlação. Os sistemas posicionados no quadrante superior direito são os mais críticos, pois falham muito e demoram a ser reparados, impactando severamente a disponibilidade física.
+Onde $k$ é o número de sistemas em análise e $\mathrm{HMC}$ representa as Horas de Manutenção Corretiva.
+
+Os sistemas localizados acima da linha de $\mathrm{Limite}_{\mathrm{MTTR}}$ são os que afetam a mantenabilidade. Já os sistemas à direita da linha de $\mathrm{Limite}_{\mathrm{NIC}}$ são os que afetam a confiabilidade.
+
+#### Classificação por Quadrantes {#sec-classificacao-quadrantes}
+
+A classificação dos sistemas ocorre conforme a posição em relação aos limites calculados:
+
+* **Quadrante Leve:**
+  Ocorre quando $\mathrm{NIC} < \mathrm{Limite}_{\mathrm{NIC}}$ e $\mathrm{MTTR} < \mathrm{Limite}_{\mathrm{MTTR}}$. Apresentam boa confiabilidade e boa mantenabilidade.
+* **Quadrante Crônico:**
+  Ocorre quando $\mathrm{NIC} > \mathrm{Limite}_{\mathrm{NIC}}$ e $\mathrm{MTTR} < \mathrm{Limite}_{\mathrm{MTTR}}$. Problemas repetitivos (baixa confiabilidade) com reparos rápidos.
+* **Quadrante Agudo:**
+  Ocorre quando $\mathrm{NIC} < \mathrm{Limite}_{\mathrm{NIC}}$ e $\mathrm{MTTR} > \mathrm{Limite}_{\mathrm{MTTR}}$. Mantenabilidade ineficiente (reparos longos), mas com poucas falhas.
+* **Quadrante Crítico (Agudo e Crônico):**
+  Ocorre quando $\mathrm{NIC} > \mathrm{Limite}_{\mathrm{NIC}}$ e $\mathrm{MTTR} > \mathrm{Limite}_{\mathrm{MTTR}}$. São os sistemas pouco confiáveis e difíceis de reparar, exigindo atenção prioritária da engenharia.
 
 ```{r}
 #| label: fig-jack-knife
 #| fig-cap: "Diagrama Jack-Knife: Correlacionando Confiabilidade (Eixo X) e Mantenabilidade (Eixo Y)."
-#| echo: false
+#| echo: true
 #| warning: false
 #| message: false
 
@@ -173,15 +203,11 @@ limite_falhas <- mean(dados_jk$Num_Falhas)
 limite_mttr <- mean(dados_jk$MTTR)
 
 ggplot(dados_jk, aes(x = Num_Falhas, y = MTTR, label = Sistema)) +
-    # Linhas de Corte (Médias)
     geom_hline(yintercept = limite_mttr, linetype = "dashed", color = "#d4af37") +
     geom_vline(xintercept = limite_falhas, linetype = "dashed", color = "#d4af37") +
-    # Pontos
     geom_point(aes(color = (Num_Falhas > limite_falhas & MTTR > limite_mttr)), size = 4) +
-    scale_color_manual(values = c("#35978f", "#EA4335")) + # Teal (OK), Red (Crítico)
-    # Rótulos
+    scale_color_manual(values = c("#35978f", "#EA4335")) +
     geom_text_repel(fontface = "bold", size = 3.5) +
-    # Anotações dos Quadrantes
     annotate("text",
         x = max(dados_jk$Num_Falhas), y = max(dados_jk$MTTR),
         label = "CRÍTICO\n(Agudo + Crônico)", color = "#EA4335", fontface = "bold", hjust = 1, vjust = 1

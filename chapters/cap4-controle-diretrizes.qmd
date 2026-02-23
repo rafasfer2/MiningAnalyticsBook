@@ -27,32 +27,84 @@ Para ilustrar essa miopia gerencial, considere o seguinte diálogo hipotético e
 Os problemas residem nos **FINS** (nos resultados não alcançados) e nunca nos **MEIOS** (processos, máquinas ou recursos). "Falta de verba", "falha de peça" ou "falta de pessoal" não são problemas, são causas. O problema real é sempre o *gap* entre o desempenho atual e a meta estabelecida.
 :::
 
-## O Desdobramento da Estratégia e Metas {#sec-hoshin-kanri}
+## O Desdobramento da Estratégia e Metas (GPD e Hoshin Kanri) {#sec-hoshin-kanri}
 
-Para garantir que toda a organização esteja focada em resolver os "fins" corretos, o Sistema de Gestão precisa conectar a visão macro da diretoria com a execução microscópica do operador. A @fig-modelo-gestao ilustra a arquitetura dessa integração, dividindo a atuação corporativa em três horizontes:
+Para garantir que toda a organização esteja focada em resolver os "fins" corretos, o Sistema de Gestão precisa conectar a visão macro da diretoria com a execução microscópica do operador. O alinhamento entre o que a diretoria deseja e o que a operação executa é o maior desafio das organizações complexas. Para solucionar esse abismo corporativo, a engenharia de produção utiliza o **Gerenciamento pelas Diretrizes (GPD)**.
 
-![Definição de problemas e o Modelo de Gestão](../images/image_cbde1d.png){#fig-modelo-gestao fig-align="center"}
+Como define Vicente Falconi, um dos maiores especialistas no tema:
+> *"O Gerenciamento pelas Diretrizes é uma metodologia que concentra toda a força intelectual dos colaboradores da empresa para atingir as metas da organização oriundas da Formulação Estratégica."*
 
-1. **Horizonte de 5 anos (Formulação Estratégica):** Nível da alta direção, focado em Políticas, Ações e Objetivos de longo prazo.
-2. **Horizonte de 1 ano (Melhoria da Operação):** Nível gerencial, onde ocorre o "Gerenciamento pelas Diretrizes" através de Metas Anuais de Melhoria (via Six Sigma ou Gerenciamento de Projetos) e Inovação.
+A @fig-alinhamento-gpd ilustra visualmente a principal vantagem do GPD. Sem diretrizes claras, os esforços e talentos da equipe apontam para direções difusas, anulando a força resultante. Com o GPD implantado, todos os vetores de força da empresa alinham-se em uma única direção, impulsionando os resultados de forma avassaladora.
+
+![Alinhamento de esforços com e sem o GPD](../images/image_ba8141.png){#fig-alinhamento-gpd fig-align="center"}
+
+A arquitetura dessa integração divide a atuação corporativa em três horizontes, conforme ilustrado na @fig-horizontes-gestao:
+
+![Horizontes do Modelo de Gestão (3 a 5 anos, 1 ano e 1 dia)](../images/image_badf16.png){#fig-horizontes-gestao fig-align="center"}
+
+1. **Horizonte de 3 a 5 anos (Formulação Estratégica):** Nível da alta direção, focado na identidade da empresa (Visão, Missão e Valores), Políticas e Objetivos de longo prazo.
+2. **Horizonte de 1 ano (Melhoria da Operação):** Nível gerencial, onde ocorre o desdobramento do GPD através de Metas Anuais de Melhoria (via Six Sigma ou Gerenciamento de Projetos) e Inovação.
 3. **Horizonte de 1 dia (Operação):** Nível do chão de fábrica, focado no Gerenciamento da Rotina, Sistema de Padronização e Orçamento para garantir os Resultados diários.
 
+### Hoshin Kanri: O Desdobramento em 13 Passos
+
+Para que a visão de futuro (horizonte de 5 anos) se torne uma ação no chão de fábrica (horizonte de 1 dia), utilizamos a sistemática japonesa do **Hoshin Kanri** (que pode ser traduzida como "Direção e Gerenciamento"). Trata-se de um ciclo rigoroso de 13 passos, detalhado na @fig-hoshin-passos, que garante que nada seja perdido no meio do caminho:
+
+![Os 13 passos do Hoshin Kanri](../images/image_badf39.png){#fig-hoshin-passos fig-align="center"}
+
+1. Determinar a situação atual.
+2. Determinar objetivos de longo prazo.
+3. Priorizar objetivos (Metas Anuais).
+4. Definir as iniciativas estratégicas.
+5. Definir as metas táticas.
+6. Especificar metas (Objetivo + Valor + Prazo).
+7. Elaborar a Matriz X.
+8. Definir responsabilidades.
+9. Estruturar o Plano A3 (documento visual de resolução de problemas).
+10. Implantar o Plano A3.
+11. Revisar o plano de curto prazo.
+12. Revisar o plano anualmente.
+13. Revisar o plano de longo prazo (3 a 5 anos).
+
+#### Especificação de Metas e o Balanced Scorecard (BSC)
+
+Uma meta estratégica bem construída não pode ser subjetiva. Ela deve obrigatoriamente conter: **Objetivo + Valor + Prazo** (Ex: *Aumentar a produção do produto A em 1.500 unidades no ano de 2024*).
+
+Para garantir que as metas não foquem apenas no lucro imediato (destruindo o longo prazo), as organizações utilizam o **Balanced Scorecard (BSC)** na fase de determinação da situação atual e objetivos, como mostra o mapa estratégico da @fig-bsc-mapa.
+
+![Mapa Estratégico do Balanced Scorecard (BSC)](../images/image_badf72.jpg){#fig-bsc-mapa fig-align="center"}
+
+O BSC divide as metas em quatro perspectivas interligadas:
+
+* **Perspectiva Financeira:** Foca nos resultados econômicos esperados pelos acionistas (Ex: Reduzir o custo total em 12% no ano de 2024).
+* **Perspectiva de Clientes e Mercado:** Foca na proposta de valor entregue ao consumidor (Ex: Aumentar o *market share* na América Latina em 25% até 2029).
+* **Perspectiva de Processos Internos:** Foca na excelência da operação para garantir a entrega de valor (Ex: Diminuir o número de peças rejeitadas em 1.000.000 de unidades no ano de 2024).
+* **Perspectiva de Aprendizado e Inovação:** Foca no desenvolvimento do capital humano e organizacional (Ex: Alcançar o 1º lugar no ranking das melhores empresas para se trabalhar até 2027).
+
+A @tbl-bsc-exemplo demonstra a aplicação prática do desdobramento destas quatro perspectivas em um cenário comercial (uma loja de móveis), amarrando a visão estratégica diretamente aos indicadores de controle e às iniciativas táticas.
+
+**Visão:** Ter a maior variedade de móveis e decoração da região X.
+
+| Objetivos | Metas | Indicadores | Iniciativas |
+| :--- | :--- | :--- | :--- |
+| **Perspectiva financeira:** Melhorar o capital de giro da empresa | 30% de aumento no capital de giro | Fluxo de caixa | Diminuir o número de meses para o parcelamento do cliente.<br><br>Pesquisar fornecedores internacionais. |
+| **Perspectiva do cliente:** Conquistar novos perfis de consumidores | 12% de aumento no faturamento | DRE (Demonstrativo de Resultado em Exercício) | Ampliar o portfólio e mix de produtos. |
+| **Perspectiva interna:** Otimizar o espaço e a qualidade da exposição de produtos | 1) Aumento de 25% do ticket médio por metro quadrado<br><br>2) Aumento de 18% do número de vendas por tipo de produto | 1) Ticket médio por metro quadrado<br><br>2) Índices de venda por tipo de produto | 1) Atualizar o visual merchandising da loja.<br><br>2) Instalar telas nos núcleos de exposição para explorar a variedade de modelos e cores de um mesmo tipo de móvel |
+| **Perspectiva de aprendizagem e inovação:** Abordagem e atendimento consultivos | 1) 100% de participation<br><br>2) 30% no aumento do ticket médio por venda | 1) Lista de presença de participação<br><br>2) Aumento de ticket médio por venda de cada consultor | Atualização dos funcionários sobre tendências do setor e treinamento em técnicas de venda com o auxílio de tecnologias |
+
+: Exemplo prático de BSC desdobrado para uma Loja de Móveis {#tbl-bsc-exemplo}
+
+#### A Ferramenta de Amarração: A Matriz X
+
+Quando uma empresa possui dezenas de metas e centenas de ações táticas, o acompanhamento torna-se caótico. Para resolver isso, o *Hoshin Kanri* utiliza a **Matriz X** (@fig-matriz-x).
+
+![Estrutura da Matriz X no Hoshin Kanri](../images/image_baea9d.jpg){#fig-matriz-x fig-align="center"}
+
+Esta matriz visual de correlação cruza, num único diagrama de uma página: as prioridades de nível superior, os objetivos anuais, as metas de longo prazo, as métricas de acompanhamento e os responsáveis diretos pelos recursos. A Matriz X força a diretoria a enxergar se existe alguma "meta órfã" ou um "recurso desperdiçado".
+
 ### Hierarquia e Interligação de Metas
-
+*(...aqui continua exatamente com o seu texto original...)*
 Os objetivos gerenciais devem ser oriundos de um desdobramento direto das diretrizes. Como ilustrado na @fig-desdobramento-metas, as metas de cada nível estão interligadas: se as metas de um nível (ex: Supervisor) são alcançadas, as do nível superior (Gerente e Diretor) também serão.
-
-![Desdobramento e Interligação de Metas](../images/image_cbe59e.png){#fig-desdobramento-metas fig-align="center"}
-
-* **Meta do Diretor:** Ex: Aumentar o OEE em 20% até o fim do ano.
-* **Meta do Gerente:** Desdobra-se em aumentar a disponibilidade física e a utilização.
-* **Meta do Supervisor:** Atua diretamente nos processos, como reduzir em 60% o tempo de manutenção corretiva ou as paradas operacionais.
-
-::: {.callout-note title="📊 Exemplos de Indicadores (KPIs)"}
-* **Reduzir o consumo de diesel:** Indicador medido em l/t movimentada.
-* **Aumentar produtividade de descarga:** Indicador medido em t/h.
-:::
-
-As metas são estabelecidas para aumentar ou reduzir um indicador fixado, focando sempre nos fins, que são os resultados dos processos.
 
 ### A Taxonomia dos Indicadores: Eficácia vs. Eficiência
 
