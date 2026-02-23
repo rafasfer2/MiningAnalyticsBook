@@ -4,21 +4,7 @@ format: html
 
 # Gestão da Qualidade e o Método {#sec-cap3}
 
-A busca pela excelência operacional na mineração exige métodos estruturados que permitam medir a discrepância entre o planejamento (*target*) e o desempenho real. Este capítulo aborda as bases da Gestão da Qualidade, conectando a teoria clássica de Juran e os princípios do Controle da Qualidade Total às ferramentas estatísticas aplicadas ao *Mining Analytics*.
-
-## O Conceito de Controle da Qualidade {#sec-conceito-controle}
-
-A Gestão da Qualidade é o conjunto de atividades coordenadas para dirigir e controlar uma organização com foco na excelência de seus processos. O **Controle da Qualidade (CQ)**, especificamente, é definido como o exercício do domínio sobre as dimensões operacionais.
-
-O conceito de controle não se limita a observar passivamente os resultados; ele envolve a busca implacável pelas causas dos problemas, a análise do processo, a padronização das atividades e o replanejamento quando necessário. O Controle da Qualidade é centrado no processo e fundamenta-se em três ações básicas:
-
-1.  **Estabelecimento da Diretriz:** Planejamento que envolve a definição clara de **Metas** (os fins) e dos **Métodos** (os meios).
-2.  **Manutenção do Nível de Controle:** Atuação contínua para manter o processo estabilizado, atuando tanto no resultado quanto na causa.
-3.  **Alteração da Diretriz (Melhoria):** Replanejamento focado na alteração de metas e métodos para elevar o patamar de desempenho.
-
-::: {.callout-important title="📌 Princípios da Gestão da Qualidade Total"}
-Os princípios da Gestão da Qualidade Total ensinam que as necessidades dos clientes determinam o requisito, mas é o *processo empregado* que determina o resultado real. Logo, a **inspeção (verificar apenas o produto no fim da linha) é considerada um método fraco e reativo de controle**. Para satisfazer a especificação de forma rentável, deve-se focar na redução da variação do resultado real por meio da identificação e eliminação preventiva das fontes de variação.
-:::
+A busca pela excelência operacional na mineração exige métodos estruturados que permitam medir a discrepância entre o planejamento (*target*) e o desempenho real. Este capítulo aborda as bases da Gestão da Qualidade, conectando a teoria clássica de Juran às ferramentas aplicadas ao *Mining Analytics* para a solução de anomalias.
 
 ## O Motor da Gestão: A Trilogia de Juran {#sec-trilogia-juran}
 
@@ -60,69 +46,7 @@ Trata-se do processo contínuo de monitoramento e inspeção durante as operaç�
 O **Planejamento** cria o processo, o **Controle** opera o processo (garantindo que ele se mantenha estável), e a **Melhoria** otimiza o processo (elevando-o a um novo patamar).
 :::
 
-## A Natureza da Melhoria: Controle vs. Qualidade {#sec-natureza-melhoria}
-
-Aprofundando a etapa de "Melhoria", é fundamental para o engenheiro distinguir as duas vertentes que a compõem, conforme detalhado na @tbl-tipos-melhoria:
-
-| Tipo de Melhoria | Foco | Dimensão | Resultados Esperados |
-| :--- | :--- | :--- | :--- |
-| **Melhoria NO Controle** | **Processo (Técnico)** | Objetiva. Uso de ferramentas estatísticas (CEP/DOE) para agir no chão de fábrica. | • Diminuição da variabilidade<br>• Maior produtividade<br>• Efeito preventivo<br>• Menores custos da qualidade |
-| **Melhoria DA Qualidade** | **Produto (Mercado)** | Subjetiva e Mercadológica. Impacta nas características do produto durante o uso. | • Agregação de valor e preço<br>• Maior participação de mercado<br>• Melhor reputação da marca<br>• Maior lucratividade |
-
-: Diferenças entre Melhoria no Controle e Melhoria da Qualidade. {#tbl-tipos-melhoria}
-
-## A Avaliação da Qualidade: Inspeção e Amostragem {#sec-avaliacao-qualidade}
-
-Tão importante quanto produzir qualidade é avaliá-la corretamente. O Controle da Qualidade concentra-se na tecnologia estatística para realizar essa, utilizam-se **Planos de Amostragem**.
-
-#### 1. Planos de Amostragem por Atributos
-Neste método, a avaliação classifica o item qualitativamente como "defeituoso" ou "não defeituoso" (conforme/não conforme).
-
-
-
-* **Entradas do Plano:**
-    * **NQA (Nível de Qualidade Aceitável):** O limite aceitável de defeitos.
-    * **FDT (Fração Defeituosa Tolerável):** A tolerância máxima do processo.
-    * **Risco do Produtor ($\alpha$):** A probabilidade de rejeitar um lote bom.
-    * **Risco do Consumidor ($\beta$):** A probabilidade de aceitar um lote ruim.
-* **Saídas:** Tamanho da amostra ($n$), número de aceitação ($a$) e número de rejeição ($r$).
-* **Critério de Decisão:** Se o número de peças defeituosas ($d$) na amostra for menor ou igual ao número de aceitação ($a$), o lote é aceito ($d \le a$). Caso contrário, o lote é rejeitado, podendo ser devolvido ou submetido a inspeção 100%.
-
-#### 2. Planos de Amostragem por Variáveis
-Neste método, analisa-se uma característica mensurável do produto (ex: teor de ferro, umidade, granulometria).
-
-* **Procedimento:** 1. Coleta-se uma amostra aleatória de $n$ itens.
-    2. Mede-se o valor característico em cada item ($x_1, x_2, \dots, x_n$).
-    3. Calcula-se um parâmetro estatístico (como a média aritmética $\bar{x}$ e o desvio padrão $\sigma$).
-    4. Compara-se esse parâmetro com o padrão estabelecido para decidir a aceitação ou rejeição do lote.
-
-## Ferramentas Estatísticas de Estabilização e Melhoria {#sec-ferramentas-estatisticas}
-
-Enquanto a inspeção avalia o lote *post-mortem* (depois de produzido), a engenharia moderna foca no controle do processo para reduzir a variabilidade na fonte.
-
-### Controle Estatístico de Processo (CEP)
-O PCEP (Planejamento e Controle Estatístico de Processos) envolve atividades para conhecer o processo e detectar variações. Ele utiliza métodos estatísticos (distribuições de probabilidade, inferência) para distinguir dois tipos de causas de variação:
-
-
-
-* **Causas Aleatórias (Comuns):** Variação natural e esperada do processo.
-* **Causas Atribuíveis (Especiais):** Falhas específicas que devem ser identificadas e eliminadas.
-
-O objetivo do CEP é estabilizar o processo, garantindo previsibilidade através de **Gráficos de Controle** e da definição correta de limites.
-
-### Planejamento de Experimentos (DOE)
-O *Design of Experiments* (DOE) é utilizado para melhorar o processo produtivo através da identificação preventiva das causas da variabilidade. O DOE busca responder:
-
-
-
-* Quais variáveis ($x$'s) são mais influentes na resposta final ($y$)?
-* Qual valor deve ser atribuído a cada variável para que $y$ atinja a meta?
-* Como minimizar os efeitos das variáveis não controláveis (ruídos)?
-
-**A Relação CEP vs. DOE:**
-São ferramentas complementares e intimamente correlacionadas. Se um processo está sob controle estatístico (CEP), mas sua capacidade ainda é inferior à exigida (muita variação natural), o DOE oferece uma maneira mais eficaz de reduzir a variabilidade restante do que apenas o monitoramento contínuo.
-
-### Planejamento da Qualidade: A Engenharia de Metas {#sec-planejamento-detalhado}
+## Planejamento da Qualidade: A Engenharia de Metas {#sec-planejamento-detalhado}
 
 Segundo Juran, o Planejamento da Qualidade é a atividade de desenvolvimento dos produtos e processos exigidos para a satisfação das necessidades dos clientes. Na mineração, esta etapa é frequentemente negligenciada ou confundida com o simples agendamento de lavra. No entanto, é aqui que se define a capacidade da organização de entregar valor.
 
