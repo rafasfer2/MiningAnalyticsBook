@@ -37,9 +37,12 @@ A equação base do ARM, em sua forma **unidimensional**, é aplicável quando l
 $$ARM = \sum_{i=1}^{n} (W_i \times S_i)$$ {#eq-arm-uni}
 
 Onde:
+
 * $n$ é o número total de variáveis avaliadas.
-* $W_i$ (*Weight*): é o peso de importância atribuído à variável $i$, tal que a soma de todos os pesos seja igual a $1,0$ (ou $100\%$).
-* $S_i$ (*Score*): é a nota de desempenho (conformidade) alcançada pela variável $i$, medida em uma escala padronizada (ex: 0 a 10).
+* $W_i$ (*Weight*):
+  É o peso de importância atribuído à variável $i$, tal que a soma de todos os pesos seja igual a $1,0$ (ou $100\%$).
+* $S_i$ (*Score*):
+  É a nota de desempenho (conformidade) alcançada pela variável $i$, medida em uma escala padronizada (ex: 0 a 10).
 
 ### O Modelo Bidimensional (Múltiplos Níveis) {#sec-arm-bi}
 
@@ -48,6 +51,7 @@ Na prática industrial, atributos soltos precisam ser agrupados em dimensões ma
 $$ARM = \sum_{j=1}^{m} \left[ W_{D_j} \times \left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right) \right]$$ {#eq-arm-bi}
 
 Onde:
+
 * $m$ é o número de dimensões ($D_j$) que compõem o modelo.
 * $W_{D_j}$ é o peso de importância da dimensão $j$ no contexto global.
 * $n_j$ é o número de variáveis ($V_i$) dentro da respectiva dimensão $j$.
@@ -72,16 +76,25 @@ Para que esse modelo seja robusto, ancoramos cada variável da equação nas def
 
 Para construir o $ARM$, o analista percorre cinco passos fundamentais:
 
-1. **Identificação das Variáveis ($V_i$):** Levantar características observáveis (chuva de ideias).
-2. **Consolidação em Dimensões ($D_j$):** Agrupar as variáveis em blocos hierárquicos.
-3. **Calibragem de Relevância ($W_i$):** Definir matematicamente os pesos.
-4. **Parametrização de Desempenho ($S_i$):** Padronizar grandezas físicas em notas de 0 a 10.
-5. **Consolidação Matemática:** Rodar as equações do $ARM$.
+1. **Identificação das Variáveis ($V_i$):**
+   Levantar características observáveis (chuva de ideias).
+2. **Consolidação em Dimensões ($D_j$):**
+   Agrupar as variáveis em blocos hierárquicos.
+3. **Calibragem de Relevância ($W_i$):**
+   Definir matematicamente os pesos.
+4. **Parametrização de Desempenho ($S_i$):**
+   Padronizar grandezas físicas em notas de 0 a 10.
+5. **Consolidação Matemática:**
+   Rodar as equações do $ARM$.
 
 A ordem em que executamos esses passos define a **Abordagem de Modelagem**:
-* **Bottom-up (De baixo para cima):** Exploratória. Gera-se uma ampla lista de variáveis soltas ($V_i$) para só então agrupá-las em dimensões ($D_j$).
-* **Top-down (De cima para baixo):** Estruturada. A diretoria ou o mercado impõe as grandes Dimensões (ex: "Sustentabilidade"), e a engenharia "desce" para descobrir as Variáveis operacionais que as compõem.
-* **Middle-out (Do meio para as pontas):** Dinâmica. Escolhe-se um nível médio de partida e trabalha-se simultaneamente detalhando variáveis e quantificando dimensões.
+
+* **Bottom-up (De baixo para cima):**
+  Exploratória. Gera-se uma ampla lista de variáveis soltas ($V_i$) para só então agrupá-las em dimensões ($D_j$).
+* **Top-down (De cima para baixo):**
+  Estruturada. A diretoria ou o mercado impõe as grandes Dimensões (ex: "Sustentabilidade"), e a engenharia "desce" para descobrir as Variáveis operacionais que as compõem.
+* **Middle-out (Do meio para as pontas):**
+  Dinâmica. Escolhe-se um nível médio de partida e trabalha-se simultaneamente detalhando variáveis e quantificando dimensões.
 
 ### O Experimento dos Generais: Da Subjetividade à Medição {#sec-experimento-generais}
 
@@ -104,13 +117,18 @@ Para demonstrar a força do método ARM, vamos transformar o texto histórico do
 **Passo 1 e 2: Identificação das Variáveis ($V_i$) e Consolidação em Dimensões**
 A partir da análise estruturada dos relatos históricos (mineração de texto), extraímos as características comuns que definem o sucesso ou a falha de um comandante e as agrupamos em quatro grandes variáveis independentes:
 
-* **$V_1$: Estratégia e Adaptabilidade** (Táticas de guerrilha, leitura de campo, inovações e manobras ousadas).
-* **$V_2$: Logística e Suprimentos** (Velocidade de mobilização, invenções como comida enlatada, capacidade de operar com recursos inadequados).
-* **$V_3$: Liderança Multidisciplinar** (Capacidade de comandar tropas multiculturais e multilíngues, carisma e lealdade).
-* **$V_4$: Visão Sistêmica e Política** (Pressão diplomática, alinhamento institucional, subordinação e impacto cultural de longo prazo).
+* **$V_1$: Estratégia e Adaptabilidade**
+  Táticas de guerrilha, leitura de campo, inovações e manobras ousadas.
+* **$V_2$: Logística e Suprimentos**
+  Velocidade de mobilização, invenções como comida enlatada, capacidade de operar com recursos inadequados.
+* **$V_3$: Liderança Multidisciplinar**
+  Capacidade de comandar tropas multiculturais e multilíngues, carisma e lealdade.
+* **$V_4$: Visão Sistêmica e Política**
+  Pressão diplomática, alinhamento institucional, subordinação e impacto cultural de longo prazo.
 
 **Passo 3: Calibragem de Relevância ($W_i$)**
 Utilizando uma abordagem *Top-down*, o "Estado-Maior" (nossa diretoria fictícia) definiu os pesos de importância de cada variável para o sucesso de uma guerra. A soma deve ser obrigatoriamente 1,0 (100%):
+
 * $W_1$ (Estratégia): **0,40** (40%)
 * $W_2$ (Logística): **0,25** (25%)
 * $W_3$ (Liderança): **0,20** (20%)
@@ -119,12 +137,18 @@ Utilizando uma abordagem *Top-down*, o "Estado-Maior" (nossa diretoria fictícia
 **Passo 4: Parametrização de Desempenho ($S_i$)**
 Avaliamos o desempenho histórico de cada general frente a essas variáveis, atribuindo uma nota técnica de 0 a 10:
 
-* **Napoleão:** Excelência absoluta em Logística ($S_2=10$, sistemas de corpos e enlatados) e Política ($S_4=10$, imperador e diplomata).
-* **Alexandre, o Grande:** Pico máximo em Estratégia ($S_1=10$, adaptação a elefantes e arqueiros mongóis).
-* **Aníbal:** Liderança inquestionável ($S_3=10$, uniu exército multicultural nos Alpes), mas falhou em Política/Apoio no fim da guerra ($S_4=6$).
-* **Subutai:** Logística impecável de hordas ($S_2=9$), mas com menor destaque diplomático individual ($S_4=5$).
-* **MacArthur:** Grande capacidade de fazer muito com poucos recursos ($S_2=9$), mas sofreu penalidade grave em Visão Política por insubordinação presidencial ($S_4=2$).
-* **Vo Nguyen Giap:** Genialidade tática na guerrilha e exploração de fraquezas ($S_1=10$).
+* **Napoleão:**
+  Excelência absoluta em Logística ($S_2=10$, sistemas de corpos e enlatados) e Política ($S_4=10$, imperador e diplomata).
+* **Alexandre, o Grande:**
+  Pico máximo em Estratégia ($S_1=10$, adaptação a elefantes e arqueiros mongóis).
+* **Aníbal:**
+  Liderança inquestionável ($S_3=10$, uniu exército multicultural nos Alpes), mas falhou em Política/Apoio no fim da guerra ($S_4=6$).
+* **Subutai:**
+  Logística impecável de hordas ($S_2=9$), mas com menor destaque diplomático individual ($S_4=5$).
+* **MacArthur:**
+  Grande capacidade de fazer muito com poucos recursos ($S_2=9$), mas sofreu penalidade grave em Visão Política por insubordinação presidencial ($S_4=2$).
+* **Vo Nguyen Giap:**
+  Genialidade tática na guerrilha e exploração de fraquezas ($S_1=10$).
 
 **Passo 5: Consolidação Matemática (O Cálculo do ARM)**
 
