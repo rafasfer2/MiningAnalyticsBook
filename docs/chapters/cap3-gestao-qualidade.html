@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Gestão da Qualidade e o Método – Sistema de Gestão e Excelência Operacional na Mineração</title>
+<title>cap3-gestao-qualidade – Sistema de Gestão e Excelência Operacional na Mineração</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,10 +70,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Procurar"
   }
 }</script>
-<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
-
-<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -117,7 +113,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Parte I: Introdução à Engenharia da Qualidade</a></li><li class="breadcrumb-item"><a href="../chapters/cap3-gestao-qualidade.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gestão da Qualidade e o Método</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Parte I: Introdução à Engenharia da Qualidade</a></li><li class="breadcrumb-item"><a href="../chapters/cap3-gestao-qualidade.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">cap3-gestao-qualidade.html</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
@@ -178,7 +174,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/cap3-gestao-qualidade.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gestão da Qualidade e o Método</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">cap3-gestao-qualidade.html</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -322,443 +318,938 @@ window.Quarto = {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#sec-trilogia-juran" id="toc-sec-trilogia-juran" class="nav-link active" data-scroll-target="#sec-trilogia-juran"><span class="header-section-number">3.1</span> O Motor da Gestão: A Trilogia de Juran</a>
-  <ul class="collapse">
-  <li><a href="#o-paralelo-o-mapa-de-juran-e-a-modelagem-analítica" id="toc-o-paralelo-o-mapa-de-juran-e-a-modelagem-analítica" class="nav-link" data-scroll-target="#o-paralelo-o-mapa-de-juran-e-a-modelagem-analítica"><span class="header-section-number">3.1.1</span> O Paralelo: O Mapa de Juran e a Modelagem Analítica</a></li>
-  </ul></li>
-  <li><a href="#sec-caminho-solucao" id="toc-sec-caminho-solucao" class="nav-link" data-scroll-target="#sec-caminho-solucao"><span class="header-section-number">3.2</span> O Caminho da Solução: PDCA e MASP</a></li>
-  <li><a href="#fases-e-atividades-do-ciclo-pdca-masp" id="toc-fases-e-atividades-do-ciclo-pdca-masp" class="nav-link" data-scroll-target="#fases-e-atividades-do-ciclo-pdca-masp"><span class="header-section-number">3.3</span> Fases e Atividades do Ciclo PDCA (MASP)</a>
-  <ul class="collapse">
-  <li><a href="#análise-do-fluxo-metodológico" id="toc-análise-do-fluxo-metodológico" class="nav-link" data-scroll-target="#análise-do-fluxo-metodológico"><span class="header-section-number">3.3.1</span> Análise do Fluxo Metodológico</a></li>
-  <li><a href="#sec-sipoc" id="toc-sec-sipoc" class="nav-link" data-scroll-target="#sec-sipoc"><span class="header-section-number">3.3.2</span> O Mapeamento de Fronteiras: O Sistema de Produção e a Matriz SIPOC</a></li>
-  <li><a href="#análise-do-processo-ishikawa-5-porquês-e-matriz-gut" id="toc-análise-do-processo-ishikawa-5-porquês-e-matriz-gut" class="nav-link" data-scroll-target="#análise-do-processo-ishikawa-5-porquês-e-matriz-gut"><span class="header-section-number">3.3.3</span> Análise do Processo: Ishikawa, 5 Porquês e Matriz GUT</a></li>
-  </ul></li>
-  <li><a href="#sec-chao-de-fabrica" id="toc-sec-chao-de-fabrica" class="nav-link" data-scroll-target="#sec-chao-de-fabrica"><span class="header-section-number">3.4</span> O Chão de Fábrica e Ativos</a>
-  <ul class="collapse">
-  <li><a href="#o-engajamento-humano-círculos-de-controle-da-qualidade-ccq" id="toc-o-engajamento-humano-círculos-de-controle-da-qualidade-ccq" class="nav-link" data-scroll-target="#o-engajamento-humano-círculos-de-controle-da-qualidade-ccq"><span class="header-section-number">3.4.1</span> O Engajamento Humano: Círculos de Controle da Qualidade (CCQ)</a></li>
-  <li><a href="#a-confiabilidade-física-gestão-e-manutenção-de-ativos" id="toc-a-confiabilidade-física-gestão-e-manutenção-de-ativos" class="nav-link" data-scroll-target="#a-confiabilidade-física-gestão-e-manutenção-de-ativos"><span class="header-section-number">3.4.2</span> A Confiabilidade Física: Gestão e Manutenção de Ativos</a></li>
-  </ul></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"><span class="header-section-number">1</span> </a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"><span class="header-section-number">2</span> </a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"><span class="header-section-number">3</span> </a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"><span class="header-section-number">4</span> </a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"><span class="header-section-number">5</span> </a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5"><span class="header-section-number">6</span> </a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6"><span class="header-section-number">7</span> </a></li>
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7"><span class="header-section-number">8</span> </a></li>
+  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8"><span class="header-section-number">9</span> </a></li>
+  <li><a href="#section-9" id="toc-section-9" class="nav-link" data-scroll-target="#section-9"><span class="header-section-number">10</span> </a></li>
+  <li><a href="#section-10" id="toc-section-10" class="nav-link" data-scroll-target="#section-10"><span class="header-section-number">11</span> </a></li>
+  <li><a href="#section-11" id="toc-section-11" class="nav-link" data-scroll-target="#section-11"><span class="header-section-number">12</span> </a></li>
+  <li><a href="#section-12" id="toc-section-12" class="nav-link" data-scroll-target="#section-12"><span class="header-section-number">13</span> </a></li>
+  <li><a href="#section-13" id="toc-section-13" class="nav-link" data-scroll-target="#section-13"><span class="header-section-number">14</span> </a></li>
+  <li><a href="#section-14" id="toc-section-14" class="nav-link" data-scroll-target="#section-14"><span class="header-section-number">15</span> </a></li>
+  <li><a href="#section-15" id="toc-section-15" class="nav-link" data-scroll-target="#section-15"><span class="header-section-number">16</span> </a></li>
+  <li><a href="#section-16" id="toc-section-16" class="nav-link" data-scroll-target="#section-16"><span class="header-section-number">17</span> </a></li>
+  <li><a href="#section-17" id="toc-section-17" class="nav-link" data-scroll-target="#section-17"><span class="header-section-number">18</span> </a></li>
+  <li><a href="#section-18" id="toc-section-18" class="nav-link" data-scroll-target="#section-18"><span class="header-section-number">19</span> </a></li>
+  <li><a href="#section-19" id="toc-section-19" class="nav-link" data-scroll-target="#section-19"><span class="header-section-number">20</span> </a></li>
+  <li><a href="#section-20" id="toc-section-20" class="nav-link" data-scroll-target="#section-20"><span class="header-section-number">21</span> </a></li>
+  <li><a href="#section-21" id="toc-section-21" class="nav-link" data-scroll-target="#section-21"><span class="header-section-number">22</span> </a></li>
+  <li><a href="#section-22" id="toc-section-22" class="nav-link" data-scroll-target="#section-22"><span class="header-section-number">23</span> </a></li>
+  <li><a href="#section-23" id="toc-section-23" class="nav-link" data-scroll-target="#section-23"><span class="header-section-number">24</span> </a></li>
+  <li><a href="#section-24" id="toc-section-24" class="nav-link" data-scroll-target="#section-24"><span class="header-section-number">25</span> </a></li>
+  <li><a href="#section-25" id="toc-section-25" class="nav-link" data-scroll-target="#section-25"><span class="header-section-number">26</span> </a></li>
+  <li><a href="#section-26" id="toc-section-26" class="nav-link" data-scroll-target="#section-26"><span class="header-section-number">27</span> </a></li>
+  <li><a href="#section-27" id="toc-section-27" class="nav-link" data-scroll-target="#section-27"><span class="header-section-number">28</span> </a></li>
+  <li><a href="#section-28" id="toc-section-28" class="nav-link" data-scroll-target="#section-28"><span class="header-section-number">29</span> </a></li>
+  <li><a href="#section-29" id="toc-section-29" class="nav-link" data-scroll-target="#section-29"><span class="header-section-number">30</span> </a></li>
+  <li><a href="#section-30" id="toc-section-30" class="nav-link" data-scroll-target="#section-30"><span class="header-section-number">31</span> </a></li>
+  <li><a href="#section-31" id="toc-section-31" class="nav-link" data-scroll-target="#section-31"><span class="header-section-number">32</span> </a></li>
+  <li><a href="#section-32" id="toc-section-32" class="nav-link" data-scroll-target="#section-32"><span class="header-section-number">33</span> </a></li>
+  <li><a href="#section-33" id="toc-section-33" class="nav-link" data-scroll-target="#section-33"><span class="header-section-number">34</span> </a></li>
+  <li><a href="#section-34" id="toc-section-34" class="nav-link" data-scroll-target="#section-34"><span class="header-section-number">35</span> </a></li>
+  <li><a href="#section-35" id="toc-section-35" class="nav-link" data-scroll-target="#section-35"><span class="header-section-number">36</span> </a></li>
+  <li><a href="#section-36" id="toc-section-36" class="nav-link" data-scroll-target="#section-36"><span class="header-section-number">37</span> </a></li>
+  <li><a href="#section-37" id="toc-section-37" class="nav-link" data-scroll-target="#section-37"><span class="header-section-number">38</span> </a></li>
+  <li><a href="#section-38" id="toc-section-38" class="nav-link" data-scroll-target="#section-38"><span class="header-section-number">39</span> </a></li>
+  <li><a href="#section-39" id="toc-section-39" class="nav-link" data-scroll-target="#section-39"><span class="header-section-number">40</span> </a></li>
+  <li><a href="#section-40" id="toc-section-40" class="nav-link" data-scroll-target="#section-40"><span class="header-section-number">41</span> </a></li>
+  <li><a href="#section-41" id="toc-section-41" class="nav-link" data-scroll-target="#section-41"><span class="header-section-number">42</span> </a></li>
+  <li><a href="#section-42" id="toc-section-42" class="nav-link" data-scroll-target="#section-42"><span class="header-section-number">43</span> </a></li>
+  <li><a href="#section-43" id="toc-section-43" class="nav-link" data-scroll-target="#section-43"><span class="header-section-number">44</span> </a></li>
+  <li><a href="#section-44" id="toc-section-44" class="nav-link" data-scroll-target="#section-44"><span class="header-section-number">45</span> </a></li>
+  <li><a href="#section-45" id="toc-section-45" class="nav-link" data-scroll-target="#section-45"><span class="header-section-number">46</span> </a></li>
+  <li><a href="#section-46" id="toc-section-46" class="nav-link" data-scroll-target="#section-46"><span class="header-section-number">47</span> </a></li>
+  <li><a href="#section-47" id="toc-section-47" class="nav-link" data-scroll-target="#section-47"><span class="header-section-number">48</span> </a></li>
+  <li><a href="#section-48" id="toc-section-48" class="nav-link" data-scroll-target="#section-48"><span class="header-section-number">49</span> </a></li>
+  <li><a href="#section-49" id="toc-section-49" class="nav-link" data-scroll-target="#section-49"><span class="header-section-number">50</span> </a></li>
+  <li><a href="#section-50" id="toc-section-50" class="nav-link" data-scroll-target="#section-50"><span class="header-section-number">51</span> </a></li>
+  <li><a href="#section-51" id="toc-section-51" class="nav-link" data-scroll-target="#section-51"><span class="header-section-number">52</span> </a></li>
+  <li><a href="#section-52" id="toc-section-52" class="nav-link" data-scroll-target="#section-52"><span class="header-section-number">53</span> </a></li>
+  <li><a href="#section-53" id="toc-section-53" class="nav-link" data-scroll-target="#section-53"><span class="header-section-number">54</span> </a></li>
+  <li><a href="#section-54" id="toc-section-54" class="nav-link" data-scroll-target="#section-54"><span class="header-section-number">55</span> </a></li>
+  <li><a href="#section-55" id="toc-section-55" class="nav-link" data-scroll-target="#section-55"><span class="header-section-number">56</span> </a></li>
+  <li><a href="#section-56" id="toc-section-56" class="nav-link" data-scroll-target="#section-56"><span class="header-section-number">57</span> </a></li>
+  <li><a href="#section-57" id="toc-section-57" class="nav-link" data-scroll-target="#section-57"><span class="header-section-number">58</span> </a></li>
+  <li><a href="#section-58" id="toc-section-58" class="nav-link" data-scroll-target="#section-58"><span class="header-section-number">59</span> </a></li>
+  <li><a href="#section-59" id="toc-section-59" class="nav-link" data-scroll-target="#section-59"><span class="header-section-number">60</span> </a></li>
+  <li><a href="#section-60" id="toc-section-60" class="nav-link" data-scroll-target="#section-60"><span class="header-section-number">61</span> </a></li>
+  <li><a href="#section-61" id="toc-section-61" class="nav-link" data-scroll-target="#section-61"><span class="header-section-number">62</span> </a></li>
+  <li><a href="#section-62" id="toc-section-62" class="nav-link" data-scroll-target="#section-62"><span class="header-section-number">63</span> </a></li>
+  <li><a href="#section-63" id="toc-section-63" class="nav-link" data-scroll-target="#section-63"><span class="header-section-number">64</span> </a></li>
+  <li><a href="#section-64" id="toc-section-64" class="nav-link" data-scroll-target="#section-64"><span class="header-section-number">65</span> </a></li>
+  <li><a href="#section-65" id="toc-section-65" class="nav-link" data-scroll-target="#section-65"><span class="header-section-number">66</span> </a></li>
+  <li><a href="#section-66" id="toc-section-66" class="nav-link" data-scroll-target="#section-66"><span class="header-section-number">67</span> </a></li>
+  <li><a href="#section-67" id="toc-section-67" class="nav-link" data-scroll-target="#section-67"><span class="header-section-number">68</span> </a></li>
+  <li><a href="#section-68" id="toc-section-68" class="nav-link" data-scroll-target="#section-68"><span class="header-section-number">69</span> </a></li>
+  <li><a href="#section-69" id="toc-section-69" class="nav-link" data-scroll-target="#section-69"><span class="header-section-number">70</span> </a></li>
+  <li><a href="#section-70" id="toc-section-70" class="nav-link" data-scroll-target="#section-70"><span class="header-section-number">71</span> </a></li>
+  <li><a href="#section-71" id="toc-section-71" class="nav-link" data-scroll-target="#section-71"><span class="header-section-number">72</span> </a></li>
+  <li><a href="#section-72" id="toc-section-72" class="nav-link" data-scroll-target="#section-72"><span class="header-section-number">73</span> </a></li>
+  <li><a href="#section-73" id="toc-section-73" class="nav-link" data-scroll-target="#section-73"><span class="header-section-number">74</span> </a></li>
+  <li><a href="#section-74" id="toc-section-74" class="nav-link" data-scroll-target="#section-74"><span class="header-section-number">75</span> </a></li>
+  <li><a href="#section-75" id="toc-section-75" class="nav-link" data-scroll-target="#section-75"><span class="header-section-number">76</span> </a></li>
+  <li><a href="#section-76" id="toc-section-76" class="nav-link" data-scroll-target="#section-76"><span class="header-section-number">77</span> </a></li>
+  <li><a href="#section-77" id="toc-section-77" class="nav-link" data-scroll-target="#section-77"><span class="header-section-number">78</span> </a></li>
+  <li><a href="#section-78" id="toc-section-78" class="nav-link" data-scroll-target="#section-78"><span class="header-section-number">79</span> </a></li>
+  <li><a href="#section-79" id="toc-section-79" class="nav-link" data-scroll-target="#section-79"><span class="header-section-number">80</span> </a></li>
+  <li><a href="#section-80" id="toc-section-80" class="nav-link" data-scroll-target="#section-80"><span class="header-section-number">81</span> </a></li>
+  <li><a href="#section-81" id="toc-section-81" class="nav-link" data-scroll-target="#section-81"><span class="header-section-number">82</span> </a></li>
+  <li><a href="#section-82" id="toc-section-82" class="nav-link" data-scroll-target="#section-82"><span class="header-section-number">83</span> </a></li>
+  <li><a href="#section-83" id="toc-section-83" class="nav-link" data-scroll-target="#section-83"><span class="header-section-number">84</span> </a></li>
+  <li><a href="#section-84" id="toc-section-84" class="nav-link" data-scroll-target="#section-84"><span class="header-section-number">85</span> </a></li>
+  <li><a href="#section-85" id="toc-section-85" class="nav-link" data-scroll-target="#section-85"><span class="header-section-number">86</span> </a></li>
+  <li><a href="#section-86" id="toc-section-86" class="nav-link" data-scroll-target="#section-86"><span class="header-section-number">87</span> </a></li>
+  <li><a href="#section-87" id="toc-section-87" class="nav-link" data-scroll-target="#section-87"><span class="header-section-number">88</span> </a></li>
+  <li><a href="#section-88" id="toc-section-88" class="nav-link" data-scroll-target="#section-88"><span class="header-section-number">89</span> </a></li>
+  <li><a href="#section-89" id="toc-section-89" class="nav-link" data-scroll-target="#section-89"><span class="header-section-number">90</span> </a></li>
+  <li><a href="#section-90" id="toc-section-90" class="nav-link" data-scroll-target="#section-90"><span class="header-section-number">91</span> </a></li>
+  <li><a href="#section-91" id="toc-section-91" class="nav-link" data-scroll-target="#section-91"><span class="header-section-number">92</span> </a></li>
+  <li><a href="#section-92" id="toc-section-92" class="nav-link" data-scroll-target="#section-92"><span class="header-section-number">93</span> </a></li>
+  <li><a href="#section-93" id="toc-section-93" class="nav-link" data-scroll-target="#section-93"><span class="header-section-number">94</span> </a></li>
+  <li><a href="#section-94" id="toc-section-94" class="nav-link" data-scroll-target="#section-94"><span class="header-section-number">95</span> </a></li>
+  <li><a href="#section-95" id="toc-section-95" class="nav-link" data-scroll-target="#section-95"><span class="header-section-number">96</span> </a></li>
+  <li><a href="#section-96" id="toc-section-96" class="nav-link" data-scroll-target="#section-96"><span class="header-section-number">97</span> </a></li>
+  <li><a href="#section-97" id="toc-section-97" class="nav-link" data-scroll-target="#section-97"><span class="header-section-number">98</span> </a></li>
+  <li><a href="#section-98" id="toc-section-98" class="nav-link" data-scroll-target="#section-98"><span class="header-section-number">99</span> </a></li>
+  <li><a href="#section-99" id="toc-section-99" class="nav-link" data-scroll-target="#section-99"><span class="header-section-number">100</span> </a></li>
+  <li><a href="#section-100" id="toc-section-100" class="nav-link" data-scroll-target="#section-100"><span class="header-section-number">101</span> </a></li>
+  <li><a href="#section-101" id="toc-section-101" class="nav-link" data-scroll-target="#section-101"><span class="header-section-number">102</span> </a></li>
+  <li><a href="#section-102" id="toc-section-102" class="nav-link" data-scroll-target="#section-102"><span class="header-section-number">103</span> </a></li>
+  <li><a href="#section-103" id="toc-section-103" class="nav-link" data-scroll-target="#section-103"><span class="header-section-number">104</span> </a></li>
+  <li><a href="#section-104" id="toc-section-104" class="nav-link" data-scroll-target="#section-104"><span class="header-section-number">105</span> </a></li>
+  <li><a href="#section-105" id="toc-section-105" class="nav-link" data-scroll-target="#section-105"><span class="header-section-number">106</span> </a></li>
+  <li><a href="#section-106" id="toc-section-106" class="nav-link" data-scroll-target="#section-106"><span class="header-section-number">107</span> </a></li>
+  <li><a href="#section-107" id="toc-section-107" class="nav-link" data-scroll-target="#section-107"><span class="header-section-number">108</span> </a></li>
+  <li><a href="#section-108" id="toc-section-108" class="nav-link" data-scroll-target="#section-108"><span class="header-section-number">109</span> </a></li>
+  <li><a href="#section-109" id="toc-section-109" class="nav-link" data-scroll-target="#section-109"><span class="header-section-number">110</span> </a></li>
+  <li><a href="#section-110" id="toc-section-110" class="nav-link" data-scroll-target="#section-110"><span class="header-section-number">111</span> </a></li>
+  <li><a href="#section-111" id="toc-section-111" class="nav-link" data-scroll-target="#section-111"><span class="header-section-number">112</span> </a></li>
+  <li><a href="#section-112" id="toc-section-112" class="nav-link" data-scroll-target="#section-112"><span class="header-section-number">113</span> </a></li>
+  <li><a href="#section-113" id="toc-section-113" class="nav-link" data-scroll-target="#section-113"><span class="header-section-number">114</span> </a></li>
+  <li><a href="#section-114" id="toc-section-114" class="nav-link" data-scroll-target="#section-114"><span class="header-section-number">115</span> </a></li>
+  <li><a href="#section-115" id="toc-section-115" class="nav-link" data-scroll-target="#section-115"><span class="header-section-number">116</span> </a></li>
+  <li><a href="#section-116" id="toc-section-116" class="nav-link" data-scroll-target="#section-116"><span class="header-section-number">117</span> </a></li>
+  <li><a href="#section-117" id="toc-section-117" class="nav-link" data-scroll-target="#section-117"><span class="header-section-number">118</span> </a></li>
+  <li><a href="#section-118" id="toc-section-118" class="nav-link" data-scroll-target="#section-118"><span class="header-section-number">119</span> </a></li>
+  <li><a href="#section-119" id="toc-section-119" class="nav-link" data-scroll-target="#section-119"><span class="header-section-number">120</span> </a></li>
+  <li><a href="#section-120" id="toc-section-120" class="nav-link" data-scroll-target="#section-120"><span class="header-section-number">121</span> </a></li>
+  <li><a href="#section-121" id="toc-section-121" class="nav-link" data-scroll-target="#section-121"><span class="header-section-number">122</span> </a></li>
+  <li><a href="#section-122" id="toc-section-122" class="nav-link" data-scroll-target="#section-122"><span class="header-section-number">123</span> </a></li>
+  <li><a href="#section-123" id="toc-section-123" class="nav-link" data-scroll-target="#section-123"><span class="header-section-number">124</span> </a></li>
+  <li><a href="#section-124" id="toc-section-124" class="nav-link" data-scroll-target="#section-124"><span class="header-section-number">125</span> </a></li>
+  <li><a href="#section-125" id="toc-section-125" class="nav-link" data-scroll-target="#section-125"><span class="header-section-number">126</span> </a></li>
+  <li><a href="#section-126" id="toc-section-126" class="nav-link" data-scroll-target="#section-126"><span class="header-section-number">127</span> </a></li>
+  <li><a href="#section-127" id="toc-section-127" class="nav-link" data-scroll-target="#section-127"><span class="header-section-number">128</span> </a></li>
+  <li><a href="#section-128" id="toc-section-128" class="nav-link" data-scroll-target="#section-128"><span class="header-section-number">129</span> </a></li>
+  <li><a href="#section-129" id="toc-section-129" class="nav-link" data-scroll-target="#section-129"><span class="header-section-number">130</span> </a></li>
+  <li><a href="#section-130" id="toc-section-130" class="nav-link" data-scroll-target="#section-130"><span class="header-section-number">131</span> </a></li>
+  <li><a href="#section-131" id="toc-section-131" class="nav-link" data-scroll-target="#section-131"><span class="header-section-number">132</span> </a></li>
+  <li><a href="#section-132" id="toc-section-132" class="nav-link" data-scroll-target="#section-132"><span class="header-section-number">133</span> </a></li>
+  <li><a href="#section-133" id="toc-section-133" class="nav-link" data-scroll-target="#section-133"><span class="header-section-number">134</span> </a></li>
+  <li><a href="#section-134" id="toc-section-134" class="nav-link" data-scroll-target="#section-134"><span class="header-section-number">135</span> </a></li>
+  <li><a href="#section-135" id="toc-section-135" class="nav-link" data-scroll-target="#section-135"><span class="header-section-number">136</span> </a></li>
+  <li><a href="#section-136" id="toc-section-136" class="nav-link" data-scroll-target="#section-136"><span class="header-section-number">137</span> </a></li>
+  <li><a href="#section-137" id="toc-section-137" class="nav-link" data-scroll-target="#section-137"><span class="header-section-number">138</span> </a></li>
+  <li><a href="#section-138" id="toc-section-138" class="nav-link" data-scroll-target="#section-138"><span class="header-section-number">139</span> </a></li>
+  <li><a href="#section-139" id="toc-section-139" class="nav-link" data-scroll-target="#section-139"><span class="header-section-number">140</span> </a></li>
+  <li><a href="#section-140" id="toc-section-140" class="nav-link" data-scroll-target="#section-140"><span class="header-section-number">141</span> </a></li>
+  <li><a href="#section-141" id="toc-section-141" class="nav-link" data-scroll-target="#section-141"><span class="header-section-number">142</span> </a></li>
+  <li><a href="#section-142" id="toc-section-142" class="nav-link" data-scroll-target="#section-142"><span class="header-section-number">143</span> </a></li>
+  <li><a href="#section-143" id="toc-section-143" class="nav-link" data-scroll-target="#section-143"><span class="header-section-number">144</span> </a></li>
+  <li><a href="#section-144" id="toc-section-144" class="nav-link" data-scroll-target="#section-144"><span class="header-section-number">145</span> </a></li>
+  <li><a href="#section-145" id="toc-section-145" class="nav-link" data-scroll-target="#section-145"><span class="header-section-number">146</span> </a></li>
+  <li><a href="#section-146" id="toc-section-146" class="nav-link" data-scroll-target="#section-146"><span class="header-section-number">147</span> </a></li>
+  <li><a href="#section-147" id="toc-section-147" class="nav-link" data-scroll-target="#section-147"><span class="header-section-number">148</span> </a></li>
+  <li><a href="#section-148" id="toc-section-148" class="nav-link" data-scroll-target="#section-148"><span class="header-section-number">149</span> </a></li>
+  <li><a href="#section-149" id="toc-section-149" class="nav-link" data-scroll-target="#section-149"><span class="header-section-number">150</span> </a></li>
+  <li><a href="#section-150" id="toc-section-150" class="nav-link" data-scroll-target="#section-150"><span class="header-section-number">151</span> </a></li>
+  <li><a href="#section-151" id="toc-section-151" class="nav-link" data-scroll-target="#section-151"><span class="header-section-number">152</span> </a></li>
+  <li><a href="#section-152" id="toc-section-152" class="nav-link" data-scroll-target="#section-152"><span class="header-section-number">153</span> </a></li>
+  <li><a href="#section-153" id="toc-section-153" class="nav-link" data-scroll-target="#section-153"><span class="header-section-number">154</span> </a></li>
+  <li><a href="#section-154" id="toc-section-154" class="nav-link" data-scroll-target="#section-154"><span class="header-section-number">155</span> </a></li>
+  <li><a href="#section-155" id="toc-section-155" class="nav-link" data-scroll-target="#section-155"><span class="header-section-number">156</span> </a></li>
+  <li><a href="#section-156" id="toc-section-156" class="nav-link" data-scroll-target="#section-156"><span class="header-section-number">157</span> </a></li>
+  <li><a href="#section-157" id="toc-section-157" class="nav-link" data-scroll-target="#section-157"><span class="header-section-number">158</span> </a></li>
+  <li><a href="#section-158" id="toc-section-158" class="nav-link" data-scroll-target="#section-158"><span class="header-section-number">159</span> </a></li>
+  <li><a href="#section-159" id="toc-section-159" class="nav-link" data-scroll-target="#section-159"><span class="header-section-number">160</span> </a></li>
+  <li><a href="#section-160" id="toc-section-160" class="nav-link" data-scroll-target="#section-160"><span class="header-section-number">161</span> </a></li>
+  <li><a href="#section-161" id="toc-section-161" class="nav-link" data-scroll-target="#section-161"><span class="header-section-number">162</span> </a></li>
+  <li><a href="#section-162" id="toc-section-162" class="nav-link" data-scroll-target="#section-162"><span class="header-section-number">163</span> </a></li>
+  <li><a href="#section-163" id="toc-section-163" class="nav-link" data-scroll-target="#section-163"><span class="header-section-number">164</span> </a></li>
+  <li><a href="#section-164" id="toc-section-164" class="nav-link" data-scroll-target="#section-164"><span class="header-section-number">165</span> </a></li>
+  <li><a href="#section-165" id="toc-section-165" class="nav-link" data-scroll-target="#section-165"><span class="header-section-number">166</span> </a></li>
+  <li><a href="#section-166" id="toc-section-166" class="nav-link" data-scroll-target="#section-166"><span class="header-section-number">167</span> </a></li>
+  <li><a href="#section-167" id="toc-section-167" class="nav-link" data-scroll-target="#section-167"><span class="header-section-number">168</span> </a></li>
+  <li><a href="#section-168" id="toc-section-168" class="nav-link" data-scroll-target="#section-168"><span class="header-section-number">169</span> </a></li>
+  <li><a href="#section-169" id="toc-section-169" class="nav-link" data-scroll-target="#section-169"><span class="header-section-number">170</span> </a></li>
+  <li><a href="#section-170" id="toc-section-170" class="nav-link" data-scroll-target="#section-170"><span class="header-section-number">171</span> </a></li>
+  <li><a href="#section-171" id="toc-section-171" class="nav-link" data-scroll-target="#section-171"><span class="header-section-number">172</span> </a></li>
+  <li><a href="#section-172" id="toc-section-172" class="nav-link" data-scroll-target="#section-172"><span class="header-section-number">173</span> </a></li>
+  <li><a href="#section-173" id="toc-section-173" class="nav-link" data-scroll-target="#section-173"><span class="header-section-number">174</span> </a></li>
+  <li><a href="#section-174" id="toc-section-174" class="nav-link" data-scroll-target="#section-174"><span class="header-section-number">175</span> </a></li>
+  <li><a href="#section-175" id="toc-section-175" class="nav-link" data-scroll-target="#section-175"><span class="header-section-number">176</span> </a></li>
+  <li><a href="#section-176" id="toc-section-176" class="nav-link" data-scroll-target="#section-176"><span class="header-section-number">177</span> </a></li>
+  <li><a href="#section-177" id="toc-section-177" class="nav-link" data-scroll-target="#section-177"><span class="header-section-number">178</span> </a></li>
+  <li><a href="#section-178" id="toc-section-178" class="nav-link" data-scroll-target="#section-178"><span class="header-section-number">179</span> </a></li>
+  <li><a href="#section-179" id="toc-section-179" class="nav-link" data-scroll-target="#section-179"><span class="header-section-number">180</span> </a></li>
+  <li><a href="#section-180" id="toc-section-180" class="nav-link" data-scroll-target="#section-180"><span class="header-section-number">181</span> </a></li>
+  <li><a href="#section-181" id="toc-section-181" class="nav-link" data-scroll-target="#section-181"><span class="header-section-number">182</span> </a></li>
+  <li><a href="#section-182" id="toc-section-182" class="nav-link" data-scroll-target="#section-182"><span class="header-section-number">183</span> </a></li>
+  <li><a href="#section-183" id="toc-section-183" class="nav-link" data-scroll-target="#section-183"><span class="header-section-number">184</span> </a></li>
+  <li><a href="#section-184" id="toc-section-184" class="nav-link" data-scroll-target="#section-184"><span class="header-section-number">185</span> </a></li>
+  <li><a href="#section-185" id="toc-section-185" class="nav-link" data-scroll-target="#section-185"><span class="header-section-number">186</span> </a></li>
+  <li><a href="#section-186" id="toc-section-186" class="nav-link" data-scroll-target="#section-186"><span class="header-section-number">187</span> </a></li>
+  <li><a href="#section-187" id="toc-section-187" class="nav-link" data-scroll-target="#section-187"><span class="header-section-number">188</span> </a></li>
+  <li><a href="#section-188" id="toc-section-188" class="nav-link" data-scroll-target="#section-188"><span class="header-section-number">189</span> </a></li>
+  <li><a href="#section-189" id="toc-section-189" class="nav-link" data-scroll-target="#section-189"><span class="header-section-number">190</span> </a></li>
+  <li><a href="#section-190" id="toc-section-190" class="nav-link" data-scroll-target="#section-190"><span class="header-section-number">191</span> </a></li>
+  <li><a href="#section-191" id="toc-section-191" class="nav-link" data-scroll-target="#section-191"><span class="header-section-number">192</span> </a></li>
+  <li><a href="#section-192" id="toc-section-192" class="nav-link" data-scroll-target="#section-192"><span class="header-section-number">193</span> </a></li>
+  <li><a href="#section-193" id="toc-section-193" class="nav-link" data-scroll-target="#section-193"><span class="header-section-number">194</span> </a></li>
+  <li><a href="#section-194" id="toc-section-194" class="nav-link" data-scroll-target="#section-194"><span class="header-section-number">195</span> </a></li>
+  <li><a href="#section-195" id="toc-section-195" class="nav-link" data-scroll-target="#section-195"><span class="header-section-number">196</span> </a></li>
+  <li><a href="#section-196" id="toc-section-196" class="nav-link" data-scroll-target="#section-196"><span class="header-section-number">197</span> </a></li>
+  <li><a href="#section-197" id="toc-section-197" class="nav-link" data-scroll-target="#section-197"><span class="header-section-number">198</span> </a></li>
+  <li><a href="#section-198" id="toc-section-198" class="nav-link" data-scroll-target="#section-198"><span class="header-section-number">199</span> </a></li>
+  <li><a href="#section-199" id="toc-section-199" class="nav-link" data-scroll-target="#section-199"><span class="header-section-number">200</span> </a></li>
+  <li><a href="#section-200" id="toc-section-200" class="nav-link" data-scroll-target="#section-200"><span class="header-section-number">201</span> </a></li>
+  <li><a href="#section-201" id="toc-section-201" class="nav-link" data-scroll-target="#section-201"><span class="header-section-number">202</span> </a></li>
+  <li><a href="#section-202" id="toc-section-202" class="nav-link" data-scroll-target="#section-202"><span class="header-section-number">203</span> </a></li>
+  <li><a href="#section-203" id="toc-section-203" class="nav-link" data-scroll-target="#section-203"><span class="header-section-number">204</span> </a></li>
+  <li><a href="#section-204" id="toc-section-204" class="nav-link" data-scroll-target="#section-204"><span class="header-section-number">205</span> </a></li>
+  <li><a href="#section-205" id="toc-section-205" class="nav-link" data-scroll-target="#section-205"><span class="header-section-number">206</span> </a></li>
+  <li><a href="#section-206" id="toc-section-206" class="nav-link" data-scroll-target="#section-206"><span class="header-section-number">207</span> </a></li>
+  <li><a href="#section-207" id="toc-section-207" class="nav-link" data-scroll-target="#section-207"><span class="header-section-number">208</span> </a></li>
+  <li><a href="#section-208" id="toc-section-208" class="nav-link" data-scroll-target="#section-208"><span class="header-section-number">209</span> </a></li>
+  <li><a href="#section-209" id="toc-section-209" class="nav-link" data-scroll-target="#section-209"><span class="header-section-number">210</span> </a></li>
+  <li><a href="#section-210" id="toc-section-210" class="nav-link" data-scroll-target="#section-210"><span class="header-section-number">211</span> </a></li>
+  <li><a href="#section-211" id="toc-section-211" class="nav-link" data-scroll-target="#section-211"><span class="header-section-number">212</span> </a></li>
+  <li><a href="#section-212" id="toc-section-212" class="nav-link" data-scroll-target="#section-212"><span class="header-section-number">213</span> </a></li>
+  <li><a href="#section-213" id="toc-section-213" class="nav-link" data-scroll-target="#section-213"><span class="header-section-number">214</span> </a></li>
+  <li><a href="#section-214" id="toc-section-214" class="nav-link" data-scroll-target="#section-214"><span class="header-section-number">215</span> </a></li>
+  <li><a href="#section-215" id="toc-section-215" class="nav-link" data-scroll-target="#section-215"><span class="header-section-number">216</span> </a></li>
+  <li><a href="#section-216" id="toc-section-216" class="nav-link" data-scroll-target="#section-216"><span class="header-section-number">217</span> </a></li>
+  <li><a href="#section-217" id="toc-section-217" class="nav-link" data-scroll-target="#section-217"><span class="header-section-number">218</span> </a></li>
+  <li><a href="#section-218" id="toc-section-218" class="nav-link" data-scroll-target="#section-218"><span class="header-section-number">219</span> </a></li>
+  <li><a href="#section-219" id="toc-section-219" class="nav-link" data-scroll-target="#section-219"><span class="header-section-number">220</span> </a></li>
+  <li><a href="#section-220" id="toc-section-220" class="nav-link" data-scroll-target="#section-220"><span class="header-section-number">221</span> </a></li>
+  <li><a href="#section-221" id="toc-section-221" class="nav-link" data-scroll-target="#section-221"><span class="header-section-number">222</span> </a></li>
+  <li><a href="#section-222" id="toc-section-222" class="nav-link" data-scroll-target="#section-222"><span class="header-section-number">223</span> </a></li>
+  <li><a href="#section-223" id="toc-section-223" class="nav-link" data-scroll-target="#section-223"><span class="header-section-number">224</span> </a></li>
+  <li><a href="#section-224" id="toc-section-224" class="nav-link" data-scroll-target="#section-224"><span class="header-section-number">225</span> </a></li>
+  <li><a href="#section-225" id="toc-section-225" class="nav-link" data-scroll-target="#section-225"><span class="header-section-number">226</span> </a></li>
+  <li><a href="#section-226" id="toc-section-226" class="nav-link" data-scroll-target="#section-226"><span class="header-section-number">227</span> </a></li>
+  <li><a href="#section-227" id="toc-section-227" class="nav-link" data-scroll-target="#section-227"><span class="header-section-number">228</span> </a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Parte I: Introdução à Engenharia da Qualidade</a></li><li class="breadcrumb-item"><a href="../chapters/cap3-gestao-qualidade.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gestão da Qualidade e o Método</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span id="sec-cap3" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gestão da Qualidade e o Método</span></span></h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Parte I: Introdução à Engenharia da Qualidade</a></li><li class="breadcrumb-item"><a href="../chapters/cap3-gestao-qualidade.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">cap3-gestao-qualidade.html</span></a></li></ol></nav></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>A busca pela excelência operacional na mineração exige métodos estruturados que permitam medir a discrepância entre o planejamento (<em>target</em>) e o desempenho real. Este capítulo aborda as bases da Gestão da Qualidade, conectando a teoria clássica de Juran às ferramentas de melhoria contínua aplicadas ao <em>Mining Analytics</em>.</p>
-<section id="sec-trilogia-juran" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="sec-trilogia-juran"><span class="header-section-number">3.1</span> O Motor da Gestão: A Trilogia de Juran</h2>
-<p>A gestão focada na qualidade dos processos é sustentada por três pilares fundamentais conhecidos como a <strong>Trilogia de Juran</strong>. Esta metodologia fornece o mapa para a transição entre a estabilidade operacional e o salto de performance.</p>
-<p>A <a href="#fig-juran-trilogy" class="quarto-xref">Figura&nbsp;<span>3.1</span></a> ilustra a dinâmica entre os três processos:</p>
-<ul>
-<li><strong>Planejamento da Qualidade:</strong> Fase associada à definição do custo da baixa qualidade e ao estabelecimento de limites alvo e especificações técnicas.</li>
-<li><strong>Controle da Qualidade:</strong> Durante a operação, a “Zona Original de Controle” monitora desvios e picos esporádicos. No <em>Mining Analytics</em>, esta fase é onde a telemetria e os pacotes de R atuam para identificar variações fora do padrão.</li>
-<li><strong>Melhoria da Qualidade:</strong> Acionada pelo diagnóstico de problemas via ferramentas baseadas no ciclo <strong>PDCA</strong>. Quando as ações resultam em melhorias eficazes — como a redução da variabilidade ou o aprimoramento de indicadores — ocorre a padronização e a definição de um novo patamar de controle (<em>New Target</em>).</li>
-</ul>
-<div id="fig-juran-trilogy" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-juran-trilogy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/fig-juran-trilogy.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-juran-trilogy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;3.1: Diagrama da Trilogia Juran
-</figcaption>
-</figure>
-</div>
-<p>A avaliação final da qualidade visa medir o alinhamento desses indicadores com os objetivos estratégicos da organização mineira.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="💡 INSIGHT OPERACIONAL">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Dica</span>💡 INSIGHT OPERACIONAL
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Na prática da mineração, o “Pico Esporádico” de Juran pode ser a quebra inesperada da frota de caminhões fora de estrada em um dia de chuva, reduzindo a massa transportada. O Controle detecta a falha, mas é a fase de Melhoria (via PDCA) que vai investigar se o problema foi drenagem da pista, falha mecânica ou erro de operação.</p>
-</div>
-</div>
-<section id="o-paralelo-o-mapa-de-juran-e-a-modelagem-analítica" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="o-paralelo-o-mapa-de-juran-e-a-modelagem-analítica"><span class="header-section-number">3.1.1</span> O Paralelo: O Mapa de Juran e a Modelagem Analítica</h3>
-<p>Embora a Trilogia de Juran tenha sido formulada no século XX, seu roteiro original de “Planejamento da Qualidade” (composto por 9 passos) continua sendo o alicerce da engenharia de processos. A grande diferença contemporânea é a capacidade de quantificar matematicamente etapas que antes eram apenas conceituais.</p>
-<p>No Capítulo 2 desta obra, detalhamos a <strong>Modelagem Analítica de Requisitos (ARM)</strong>. Aquela estrutura matemática é, na prática, a execução rigorosa e moderna dos passos clássicos de Juran.</p>
-<p>A <a href="#tbl-paralelo-juran" class="quarto-xref">Tabela&nbsp;<span>3.1</span></a> demonstra como a teoria de Juran se conecta com as ferramentas de modelagem que construímos anteriormente:</p>
-<div class="cell">
-<div id="tbl-paralelo-juran" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-paralelo-juran-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;3.1: Paralelo entre o Mapa de Planejamento de Juran e a Modelagem Analítica de Requisitos (ARM).
-</figcaption>
-<div aria-describedby="tbl-paralelo-juran-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<table class="table table-striped table-hover do-not-create-environment cell caption-top table-sm small">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(44, 62, 80, 255) !important;">Passos</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(44, 62, 80, 255) !important;">O Mapa de Juran (Teoria Clássica)</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(44, 62, 80, 255) !important;">A Modelagem Analítica (ARM - Cap 2)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center; width: 1.5cm; font-weight: bold;">1 e 2</td>
-<td style="text-align: left; width: 6.5cm; background-color: rgba(249, 249, 249, 255) !important;">Identificar os clientes (internos/externos) e determinar suas necessidades reais.</td>
-<td style="text-align: left; width: 8.5cm; border-left: 1px solid;">Levantamento exploratório das variáveis (Abordagem Bottom-up ou Top-down).</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; width: 1.5cm; font-weight: bold;">3</td>
-<td style="text-align: left; width: 6.5cm; background-color: rgba(249, 249, 249, 255) !important;">Traduzir as necessidades para a linguagem técnica da empresa.</td>
-<td style="text-align: left; width: 8.5cm; border-left: 1px solid;">Consolidação das variáveis soltas ($V_i$) em grandes Dimensões de Gestão ($D_j$).</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; width: 1.5cm; font-weight: bold;">4 e 5</td>
-<td style="text-align: left; width: 6.5cm; background-color: rgba(249, 249, 249, 255) !important;">Desenvolver o produto e otimizar suas características.</td>
-<td style="text-align: left; width: 8.5cm; border-left: 1px solid;">Cálculo do ARM, utilizando matrizes (ex: Mudge) para calibrar os pesos ($W_i$).</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; width: 1.5cm; font-weight: bold;">6 e 7</td>
-<td style="text-align: left; width: 6.5cm; background-color: rgba(249, 249, 249, 255) !important;">Desenvolver o processo capaz de produzir as características e otimizá-lo.</td>
-<td style="text-align: left; width: 8.5cm; border-left: 1px solid;">Parametrização do Desempenho ($S_i$) através de Funções de Valor e Metas SMART.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; width: 1.5cm; font-weight: bold;">8 e 9</td>
-<td style="text-align: left; width: 6.5cm; background-color: rgba(249, 249, 249, 255) !important;">Provar a capacidade do processo e transferi-lo para a Operação (Controle).</td>
-<td style="text-align: left; width: 8.5cm; border-left: 1px solid;">Produção (Conformação) e início da Zona de Controle da Qualidade operacional.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</figure>
-</div>
-</div>
-<p>Essa correlação evidencia que o “Planejamento” termina quando o Passo 9 é atingido e a equipe de engenharia entrega a equação do ARM parametrizada para o chão de fábrica executar. Neste momento, o processo entra na Zona de Controle.</p>
-<p>É apenas quando a Qualidade de Conformação falha e o controle detecta um “Pico Esporádico” que a organização é forçada a acionar a terceira perna da trilogia: a Melhoria da Qualidade, operada por meio do ciclo PDCA.</p>
+<section id="section" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> </h1>
 </section>
+<section id="section-1" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> </h1>
 </section>
-<section id="sec-caminho-solucao" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="sec-caminho-solucao"><span class="header-section-number">3.2</span> O Caminho da Solução: PDCA e MASP</h2>
-<p>O ciclo PDCA, como uma metodologia para melhoria, é uma ferramenta simples que promove alterações graduais no processo, impulsionando assim o desenvolvimento da empresa. O ciclo, conforme apresentado na <a href="#fig-ciclo-pdca" class="quarto-xref">Figura&nbsp;<span>3.2</span></a>, é dividido em etapas de planejamento (PLAN), execução (DO), verificação (CHECK) e ação (ACT).</p>
-<div id="fig-ciclo-pdca" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-ciclo-pdca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/fig-ciclo-pdca.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ciclo-pdca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;3.2: Detalhamento do Ciclo PDCA
-</figcaption>
-</figure>
-</div>
-<div class="callout callout-style-default callout-note callout-titled" title="📌 DEFINIÇÃO NORMATIVA">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>📌 DEFINIÇÃO NORMATIVA
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>De acordo com Mendes (2007), o ciclo PDCA é um método estruturado para a melhoria contínua dos processos nas organizações, dividido nas seguintes etapas:</p>
-<ul>
-<li><strong>PLAN (Planejar):</strong> Definir a situação atual, estabelecer metas mensuráveis e estratégias para alcançá-las.</li>
-<li><strong>DO (Executar):</strong> Iniciar o processo, educar/treinar os envolvidos e implementar as estratégias definidas.</li>
-<li><strong>CHECK (Verificar):</strong> Analisar e comparar os resultados obtidos contra os padrões esperados (metas).</li>
-<li><strong>ACT (Agir/Padronizar):</strong> Tomar ações corretivas ou padronizar a melhoria com base na verificação dos resultados.</li>
-</ul>
-</div>
-</div>
-<p>Para que essas etapas sejam realizadas com eficácia, é essencial que as subetapas sejam definidas com precisão. É importante destacar que a etapa de planejamento (PLAN) exige o maior rigor e dedicação de tempo do projeto. A identificação e priorização das métricas proporcionarão uma investigação aprofundada das causas dos problemas, embasando as propostas de mudança em métodos estruturados.</p>
-<div class="callout callout-style-default callout-warning callout-titled" title="⚠️ ARMADILHA DE ENGENHARIA">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Aviso</span>⚠️ ARMADILHA DE ENGENHARIA
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>O erro mais comum em projetos de melhoria é a “Miopia de Ação”: a equipe pular a fase de Planejamento (P) e ir direto para a Execução (D). Implementar soluções baseadas em “achismos” e não em dados estratificados consome recursos financeiros da empresa e, na esmagadora maioria das vezes, ataca apenas o sintoma, permitindo que a falha real retorne no mês seguinte.</p>
-</div>
-</div>
+<section id="section-2" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> </h1>
 </section>
-<section id="fases-e-atividades-do-ciclo-pdca-masp" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="fases-e-atividades-do-ciclo-pdca-masp"><span class="header-section-number">3.3</span> Fases e Atividades do Ciclo PDCA (MASP)</h2>
-<p>A tabela a seguir consolida a estrutura metodológica e o cronograma do projeto, servindo como a principal ferramenta de controle e auditoria das etapas — o Método de Análise e Solução de Problemas (MASP). A coluna <em>Status</em> é destinada ao acompanhamento qualitativo da evolução das tarefas.</p>
-<div class="cell">
-<div id="tbl-atividades-pdca-detalhada" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-atividades-pdca-detalhada-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;3.2: Detalhamento das fases, etapas e atividades do MASP/PDCA aplicadas à gestão na mineração.
-</figcaption>
-<div aria-describedby="tbl-atividades-pdca-detalhada-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed do-not-create-environment cell caption-top table-sm small">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(53, 151, 143, 255) !important;">Fases</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(53, 151, 143, 255) !important;">Etapas</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(53, 151, 143, 255) !important;">Atividades</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td rowspan="13" style="text-align: center; width: 0.7cm; font-weight: bold; color: white !important; background-color: rgba(23, 78, 166, 255) !important; vertical-align: middle !important;">P</td>
-<td rowspan="3" style="text-align: left; width: 6.5cm; font-weight: bold; color: white !important; background-color: rgba(23, 78, 166, 255) !important; vertical-align: middle !important;">Identificação do problema</td>
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Identificação das prioridades</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Estabelecimento da meta do projeto</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Quantificação dos ganhos do projeto</td>
-</tr>
-<tr class="even">
-<td rowspan="3" style="text-align: left; width: 6.5cm; font-weight: bold; color: white !important; background-color: rgba(66, 133, 244, 255) !important; vertical-align: middle !important;">Análise do Fenômeno</td>
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Estratificação do problema</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Estudo das variações</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Definição das metas específicas</td>
-</tr>
-<tr class="odd">
-<td rowspan="3" style="text-align: left; width: 6.5cm; font-weight: bold; color: white !important; background-color: rgba(26, 115, 232, 255) !important; vertical-align: middle !important;">Análise do Processo</td>
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Levantamento das causas potenciais</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Priorização das causas potenciais</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Quantificação das causas priorizadas</td>
-</tr>
-<tr class="even">
-<td rowspan="4" style="text-align: left; width: 6.5cm; font-weight: bold; color: black !important; background-color: rgba(138, 180, 248, 255) !important; vertical-align: middle !important;">Estabelecimento do Plano de Ação</td>
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Levantamento das possíveis soluções</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Priorização das possíveis soluções</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Realização de teste piloto (se necessário)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Estabelecimento do plano de ação</td>
-</tr>
-<tr class="even">
-<td rowspan="3" style="text-align: center; width: 0.7cm; font-weight: bold; color: black !important; background-color: rgba(251, 188, 5, 255) !important; vertical-align: middle !important;">D</td>
-<td rowspan="3" style="text-align: left; width: 6.5cm; font-weight: bold; color: black !important; background-color: rgba(251, 188, 5, 255) !important; vertical-align: middle !important;">Execução do Plano de Ação</td>
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Comunicação do plano de ação</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Realização de treinamentos dos envolvidos</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Implantação e acompanhamento do plano de ação</td>
-</tr>
-<tr class="odd">
-<td rowspan="2" style="text-align: center; width: 0.7cm; font-weight: bold; color: white !important; background-color: rgba(234, 67, 53, 255) !important; vertical-align: middle !important;">C</td>
-<td rowspan="2" style="text-align: left; width: 6.5cm; font-weight: bold; color: white !important; background-color: rgba(234, 67, 53, 255) !important; vertical-align: middle !important;">Verificação dos Resultados</td>
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Verificação do alcance da meta geral e das metas específicas</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Quantificação dos ganhos do projeto</td>
-</tr>
-<tr class="odd">
-<td rowspan="3" style="text-align: center; width: 0.7cm; font-weight: bold; color: white !important; background-color: rgba(52, 168, 83, 255) !important; vertical-align: middle !important;">A</td>
-<td rowspan="3" style="text-align: left; width: 6.5cm; font-weight: bold; color: white !important; background-color: rgba(52, 168, 83, 255) !important; vertical-align: middle !important;">Padronização</td>
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Padronização das novas atividades</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Implantação de plano para monitoramento do processo</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; width: 12cm; color: black !important; background-color: white !important;">Implantação de plano de ações corretivas</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</figure>
-</div>
-</div>
-<section id="análise-do-fluxo-metodológico" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="análise-do-fluxo-metodológico"><span class="header-section-number">3.3.1</span> Análise do Fluxo Metodológico</h3>
-<p>Conforme observado na tabela executiva, o ciclo inicia-se na <strong>Identificação do Problema</strong>, onde a definição das prioridades e a meta global servem de base para as atividades seguintes. Na <strong>Análise do Fenômeno</strong>, ocorre a estratificação dos dados e o estudo das variações, permitindo que a pesquisa tome forma sobre os principais KPIs a serem utilizados.</p>
-<div class="callout callout-style-default callout-important callout-titled" title="🛠️ LABORATÓRIO DE ENGENHARIA: Fase 1 (Identificação do Problema)">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>🛠️ LABORATÓRIO DE ENGENHARIA: Fase 1 (Identificação do Problema)
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Mão na massa:</strong> Chegou a hora de iniciar o seu projeto aplicado. Para esta etapa, crie um documento contendo:</p>
-<ol type="1">
-<li><strong>Termo de Abertura (TAP):</strong> Nome do projeto, justificativa (por que este problema afeta a operação?), objetivos SMART e restrições.</li>
-<li><strong>Matriz de Responsabilidades (RACI):</strong> Quem executa, aprova, é consultado e informado.</li>
-<li><strong>Definição do <em>Gap</em>:</strong> Construa um comparativo gráfico entre o Indicador Real x Planejado. O “problema” do seu projeto será a diferença métrica entre esses dois valores.</li>
-</ol>
-</div>
-</div>
+<section id="section-3" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> </h1>
 </section>
-<section id="sec-sipoc" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="sec-sipoc"><span class="header-section-number">3.3.2</span> O Mapeamento de Fronteiras: O Sistema de Produção e a Matriz SIPOC</h3>
-<p>Antes de mergulhar nas causas de um problema usando o Pareto ou o Ishikawa, a equipe de engenharia precisa garantir que todos compreendam o fluxo macro do processo e as suas fronteiras. O maior erro de um projeto de melhoria é a equipe não saber onde o processo começa e onde ele termina, correndo o risco de tentar “abraçar o mundo”.</p>
-<p>Para delimitar esse escopo, utilizamos a visão clássica do <strong>Sistema de Produção</strong>. Conforme ilustrado na <a href="#fig-sistema-producao" class="quarto-xref">Figura&nbsp;<span>3.3</span></a>, todo processo é um conjunto de atividades estruturadas que recebem entradas, aplicam uma metodologia de transformação utilizando recursos (pessoas, instalações, tecnologia) e geram saídas (produtos ou serviços), interagindo o tempo todo com variáveis ambientais e de segurança.</p>
-<div id="fig-sistema-producao" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-sistema-producao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/image_88aa45.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sistema-producao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;3.3: Visão Estrutural do Sistema de Produção
-</figcaption>
-</figure>
-</div>
-<p>No método MASP, essa visão estrutural é operacionalizada pela ferramenta <strong>SIPOC</strong>, um acrônimo que padroniza o mapeamento de qualquer processo na operação mineral:</p>
-<ul>
-<li><strong>S (<em>Supplier</em> / Fornecedor):</strong> Quem fornece os insumos ou informações para o processo iniciar? <em>(Ex: Equipe de Topografia e Planejamento de Mina).</em></li>
-<li><strong>I (<em>Input</em> / Entrada):</strong> Quais são os “Recursos a serem transformados” fornecidos? <em>(Ex: Malha de perfuração e plano de fogo).</em></li>
-<li><strong>P (<em>Process</em> / Processo):</strong> Quais são as macroatividades da “Metodologia de Processamento” (limitado a 5 ou 6 passos)? <em>(Ex: Posicionar perfuratriz <span class="math inline">\(\rightarrow\)</span> Furar <span class="math inline">\(\rightarrow\)</span> Carregar explosivo <span class="math inline">\(\rightarrow\)</span> Detonar).</em></li>
-<li><strong>O (<em>Output</em> / Saída):</strong> O que o processo efetivamente gera na “Saída”? <em>(Ex: Minério desmontado com granulometria específica).</em></li>
-<li><strong>C (<em>Customer</em> / Cliente):</strong> Quem recebe essa saída? <em>(Ex: Equipe de Carregamento / Operadores de Escavadeira).</em></li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled" title="💡 INSIGHT OPERACIONAL">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>💡 INSIGHT OPERACIONAL
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Na mineração, construir o SIPOC resolve 50% dos conflitos entre departamentos durante a fase de planejamento de um projeto. Ele deixa claro visualmente que se a Topografia (<em>Supplier</em>) entregar uma malha inadequada (<em>Input</em>), a detonação (<em>Process</em>) vai gerar matacões (<em>Output</em>), prejudicando a produtividade da escavadeira (<em>Customer</em>). O SIPOC define a responsabilidade de ponta a ponta e blinda as fronteiras do seu Termo de Abertura (TAP).</p>
-</div>
-</div>
+<section id="section-4" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> </h1>
 </section>
-<section id="análise-do-processo-ishikawa-5-porquês-e-matriz-gut" class="level3" data-number="3.3.3">
-<h3 data-number="3.3.3" class="anchored" data-anchor-id="análise-do-processo-ishikawa-5-porquês-e-matriz-gut"><span class="header-section-number">3.3.3</span> Análise do Processo: Ishikawa, 5 Porquês e Matriz GUT</h3>
-<p>Uma vez que o Gráfico de Pareto indicou <em>onde</em> o problema está concentrado, a fase passa para a <strong>Análise do Processo</strong>, que visa responder <em>por que</em> o problema ocorre.</p>
-<p>A ferramenta primária é o <strong>Diagrama de Ishikawa</strong> (também conhecido como Diagrama de Espinha de Peixe ou Causa e Efeito). Ele organiza o <em>Brainstorming</em> da equipe classificando as possíveis origens do problema em seis categorias clássicas (os 6M):</p>
-<ol type="1">
-<li><strong>Máquina:</strong> Falhas no equipamento ou manutenção inadequada.</li>
-<li><strong>Material:</strong> Insumos fora de especificação ou peças de má qualidade.</li>
-<li><strong>Mão de Obra:</strong> Falta de treinamento, desatenção ou fadiga do operador.</li>
-<li><strong>Método:</strong> Procedimentos operacionais (POPs) falhos ou inexistentes.</li>
-<li><strong>Medida:</strong> Erros de calibração em sensores ou indicadores mal calculados.</li>
-<li><strong>Meio Ambiente:</strong> Condições externas (chuva na mina, poeira, temperatura).</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled" title="💡 INSIGHT OPERACIONAL">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Dica</span>💡 INSIGHT OPERACIONAL
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Um erro comum é preencher o Ishikawa com “Falta de…” (ex: falta de treinamento, falta de peça). A falta de algo é uma solução ausente, não uma causa. A equipe deve descrever a anomalia real (ex: “Treinamento desatualizado para o modelo 793D” ou “Peça sofreu desgaste abrasivo prematuro”).</p>
-</div>
-</div>
-<p>Com o diagrama preenchido, a equipe utiliza a <strong>Matriz GUT</strong> (Gravidade, Urgência e Tendência) para pontuar as causas e priorizar qual braço do diagrama será atacado primeiro.</p>
-<p>Finalmente, para a causa vencedora da matriz GUT, aplica-se a técnica dos <strong>5 Porquês</strong>. A equipe deve perguntar o motivo do problema sucessivas vezes até ultrapassar os sintomas superficiais e atingir a verdadeira causa raiz (a anomalia sistêmica que, se removida, impede que o problema volte a acontecer).</p>
-<div class="callout callout-style-default callout-important callout-titled" title="🛠️ LABORATÓRIO DE ENGENHARIA: Fase 3 (Análise do Processo)">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>🛠️ LABORATÓRIO DE ENGENHARIA: Fase 3 (Análise do Processo)
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Mão na massa: (Tarefa 06)</strong> 1. <strong>Ishikawa (6M):</strong> Reúna sua equipe e faça um <em>Brainstorming</em> para mapear as possíveis causas do problema que venceu no seu Gráfico de Pareto. 2. <strong>Priorização (GUT):</strong> Utilize a Matriz GUT para decidir, de forma técnica e fria, quais causas mapeadas no Ishikawa serão efetivamente atacadas. 3. <strong>Os 5 Porquês:</strong> Aplique a técnica para a causa prioritária. Garanta que o plano de ação não foque em sintomas, mas sim na origem do problema.</p>
-</div>
-</div>
+<section id="section-5" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> </h1>
 </section>
+<section id="section-6" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> </h1>
 </section>
-<section id="sec-chao-de-fabrica" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="sec-chao-de-fabrica"><span class="header-section-number">3.4</span> O Chão de Fábrica e Ativos</h2>
-<p>Nenhuma equação de qualidade ou modelagem estatística se sustenta na prática sem os dois pilares físicos e fundamentais da operação industrial: <strong>as pessoas e as máquinas</strong>. O Passo 10 da nossa trilha de excelência garante que, uma vez que o método de solução de problemas (MASP) tenha sido desenhado na engenharia, ele seja executado com precisão e sustentado pelas engrenagens de campo.</p>
-<section id="o-engajamento-humano-círculos-de-controle-da-qualidade-ccq" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="o-engajamento-humano-círculos-de-controle-da-qualidade-ccq"><span class="header-section-number">3.4.1</span> O Engajamento Humano: Círculos de Controle da Qualidade (CCQ)</h3>
-<p>Historicamente, a mineração possuía uma gestão rigidamente vertical (comando e controle), onde a engenharia pensava e a operação apenas executava. O moderno <em>Mining Analytics</em> prova que essa barreira é disfuncional. Quem conhece a verdadeira “dor” do processo e os pequenos desvios não reportados não é o analista sentado no escritório, mas o operador dentro da cabine da escavadeira.</p>
-<p>Para transformar essa experiência empírica em dados técnicos, a Gestão da Qualidade utiliza os <strong>Círculos de Controle da Qualidade (CCQ)</strong>.</p>
-<p>O CCQ é um grupo voluntário de trabalhadores da mesma área que se reúne regularmente para identificar, analisar e solucionar problemas que afetam seus processos ou a qualidade do produto. A grande força dessa ferramenta é a inversão da abordagem hierárquica: a melhoria nasce de baixo para cima (<em>Bottom-up</em>).</p>
-<section id="benefícios-diretos-do-ccq-na-mineração" class="level4" data-number="3.4.1.1">
-<h4 data-number="3.4.1.1" class="anchored" data-anchor-id="benefícios-diretos-do-ccq-na-mineração"><span class="header-section-number">3.4.1.1</span> Benefícios Diretos do CCQ na Mineração:</h4>
-<ul>
-<li><strong>Detecção Precoce:</strong> Os operadores costumam perceber mudanças sutis de som, vibração ou temperatura nos equipamentos semanas antes de um sensor emitir um alarme catastrófico.</li>
-<li><strong>Soluções de Baixo Custo:</strong> Por estarem na linha de frente, as soluções propostas pelos círculos tendem a ser adaptações mecânicas criativas e baratas, em oposição às reestruturações milionárias propostas pelas diretorias.</li>
-<li><strong>Mudança de Cultura:</strong> O colaborador deixa de ser um “apertador de botão” e passa a ser o dono do seu processo (sentimento de pertencimento e valorização).</li>
-</ul>
-<div class="callout callout-style-default callout-important callout-titled" title="🛠️ LABORATÓRIO DE ENGENHARIA: Dinâmica do CCQ">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>🛠️ LABORATÓRIO DE ENGENHARIA: Dinâmica do CCQ
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Como estruturar um Círculo:</strong> 1. <strong>Treinamento Básico:</strong> Capacite os operadores da linha de frente nas 7 Ferramentas Básicas (Pareto, Ishikawa, 5 Porquês). Eles precisam falar a mesma linguagem da engenharia. 2. <strong>Tempo Dedicado:</strong> O grupo deve ter de 1 a 2 horas semanais, durante o expediente, liberadas e pagas pela empresa para debater problemas. Reuniões de CCQ fora do horário não engajam. 3. <strong>Reconhecimento:</strong> Quando uma ideia do grupo gera redução de custo ou aumento de produção, o reconhecimento deve ser público e, de preferência, acompanhado de incentivos financeiros atrelados ao ganho.</p>
-</div>
-</div>
+<section id="section-7" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> </h1>
 </section>
+<section id="section-8" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> </h1>
 </section>
-<section id="a-confiabilidade-física-gestão-e-manutenção-de-ativos" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="a-confiabilidade-física-gestão-e-manutenção-de-ativos"><span class="header-section-number">3.4.2</span> A Confiabilidade Física: Gestão e Manutenção de Ativos</h3>
-<p>Se o ser humano engajado é a inteligência do chão de fábrica, o equipamento é a força bruta que garante o resultado quantitativo do MASP. A mineração é a indústria do maquinário pesado. Caminhões fora de estrada, perfuratrizes gigantescas e moinhos industriais operam em regimes de trabalho extenuantes (24 horas por dia, sujeitos a poeira, umidade e altíssimo torque).</p>
-<p>A melhoria da qualidade na mineração é indissociável da <strong>Gestão de Manutenção</strong>. Um indicador de qualidade cai imediatamente quando a máquina entra em falha. A evolução da confiabilidade na gestão divide a manutenção em quatro grandes estratégias:</p>
-<ol type="1">
-<li><strong>Manutenção Corretiva (Reativa):</strong> É o modelo mais caro e perigoso. Ocorre apenas quando o equipamento quebra. Gera lucro zero, para a produção de forma não programada e oferece grandes riscos à segurança dos operadores.</li>
-<li><strong>Manutenção Preventiva (Baseada no Tempo):</strong> É a manutenção estipulada pelo manual do fabricante (ex: trocar o óleo a cada 500 horas de motor). Melhora a segurança, mas muitas vezes troca-se uma peça que ainda possuía vida útil, encarecendo a operação.</li>
-<li><strong>Manutenção Preditiva (Baseada na Condição):</strong> Aqui a ciência de dados e a engenharia da qualidade começam a brilhar. Ao invés de trocar a peça por tempo, a engenharia monitora os sinais vitais do equipamento (ex: termografia de painéis elétricos, análise química do óleo, sensores de vibração de rolamentos). A peça só é trocada quando o sensor prevê a falha iminente.</li>
-<li><strong>Manutenção Prescritiva (Analytics/Machine Learning):</strong> O estado da arte. Utiliza Inteligência Artificial e modelos matemáticos para cruzar dados históricos de operação e desgaste. O algoritmo prescreve não apenas <em>quando</em> a máquina vai falhar, mas ajusta os parâmetros de operação autonomamente para esticar a vida útil (Ex: “Abaixe o limite de RPM na subida de rampa para o caminhão não fundir o motor até a próxima parada de oficina programada”).</li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled" title="💡 INSIGHT OPERACIONAL: A Guerra entre Produção e Manutenção">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>💡 INSIGHT OPERACIONAL: A Guerra entre Produção e Manutenção
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Um dos maiores gargalos organizacionais da mineração é o conflito de interesses entre a área de <strong>Operação</strong> (que é cobrada para bater a meta de volume de toneladas) e a área de <strong>Manutenção</strong> (que é cobrada para parar a máquina e realizar preventivas). Sem a aplicação da Metodologia ARM para equilibrar os pesos (<span class="math inline">\(W_i\)</span>) dessas áreas, a Operação “passa por cima” do plano de manutenção, gerando faturamento de curto prazo e destruição do equipamento a longo prazo.</p>
-</div>
-</div>
+<section id="section-9" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> </h1>
+</section>
+<section id="section-10" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> </h1>
+</section>
+<section id="section-11" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> </h1>
+</section>
+<section id="section-12" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> </h1>
+</section>
+<section id="section-13" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> </h1>
+</section>
+<section id="section-14" class="level1" data-number="15">
+<h1 data-number="15"><span class="header-section-number">15</span> </h1>
+</section>
+<section id="section-15" class="level1" data-number="16">
+<h1 data-number="16"><span class="header-section-number">16</span> </h1>
+</section>
+<section id="section-16" class="level1" data-number="17">
+<h1 data-number="17"><span class="header-section-number">17</span> </h1>
+</section>
+<section id="section-17" class="level1" data-number="18">
+<h1 data-number="18"><span class="header-section-number">18</span> </h1>
+</section>
+<section id="section-18" class="level1" data-number="19">
+<h1 data-number="19"><span class="header-section-number">19</span> </h1>
+</section>
+<section id="section-19" class="level1" data-number="20">
+<h1 data-number="20"><span class="header-section-number">20</span> </h1>
+</section>
+<section id="section-20" class="level1" data-number="21">
+<h1 data-number="21"><span class="header-section-number">21</span> </h1>
+</section>
+<section id="section-21" class="level1" data-number="22">
+<h1 data-number="22"><span class="header-section-number">22</span> </h1>
+</section>
+<section id="section-22" class="level1" data-number="23">
+<h1 data-number="23"><span class="header-section-number">23</span> </h1>
+</section>
+<section id="section-23" class="level1" data-number="24">
+<h1 data-number="24"><span class="header-section-number">24</span> </h1>
+</section>
+<section id="section-24" class="level1" data-number="25">
+<h1 data-number="25"><span class="header-section-number">25</span> </h1>
+</section>
+<section id="section-25" class="level1" data-number="26">
+<h1 data-number="26"><span class="header-section-number">26</span> </h1>
+</section>
+<section id="section-26" class="level1" data-number="27">
+<h1 data-number="27"><span class="header-section-number">27</span> </h1>
+</section>
+<section id="section-27" class="level1" data-number="28">
+<h1 data-number="28"><span class="header-section-number">28</span> </h1>
+</section>
+<section id="section-28" class="level1" data-number="29">
+<h1 data-number="29"><span class="header-section-number">29</span> </h1>
+</section>
+<section id="section-29" class="level1" data-number="30">
+<h1 data-number="30"><span class="header-section-number">30</span> </h1>
+</section>
+<section id="section-30" class="level1" data-number="31">
+<h1 data-number="31"><span class="header-section-number">31</span> </h1>
+</section>
+<section id="section-31" class="level1" data-number="32">
+<h1 data-number="32"><span class="header-section-number">32</span> </h1>
+</section>
+<section id="section-32" class="level1" data-number="33">
+<h1 data-number="33"><span class="header-section-number">33</span> </h1>
+</section>
+<section id="section-33" class="level1" data-number="34">
+<h1 data-number="34"><span class="header-section-number">34</span> </h1>
+</section>
+<section id="section-34" class="level1" data-number="35">
+<h1 data-number="35"><span class="header-section-number">35</span> </h1>
+</section>
+<section id="section-35" class="level1" data-number="36">
+<h1 data-number="36"><span class="header-section-number">36</span> </h1>
+</section>
+<section id="section-36" class="level1" data-number="37">
+<h1 data-number="37"><span class="header-section-number">37</span> </h1>
+</section>
+<section id="section-37" class="level1" data-number="38">
+<h1 data-number="38"><span class="header-section-number">38</span> </h1>
+</section>
+<section id="section-38" class="level1" data-number="39">
+<h1 data-number="39"><span class="header-section-number">39</span> </h1>
+</section>
+<section id="section-39" class="level1" data-number="40">
+<h1 data-number="40"><span class="header-section-number">40</span> </h1>
+</section>
+<section id="section-40" class="level1" data-number="41">
+<h1 data-number="41"><span class="header-section-number">41</span> </h1>
+</section>
+<section id="section-41" class="level1" data-number="42">
+<h1 data-number="42"><span class="header-section-number">42</span> </h1>
+</section>
+<section id="section-42" class="level1" data-number="43">
+<h1 data-number="43"><span class="header-section-number">43</span> </h1>
+</section>
+<section id="section-43" class="level1" data-number="44">
+<h1 data-number="44"><span class="header-section-number">44</span> </h1>
+</section>
+<section id="section-44" class="level1" data-number="45">
+<h1 data-number="45"><span class="header-section-number">45</span> </h1>
+</section>
+<section id="section-45" class="level1" data-number="46">
+<h1 data-number="46"><span class="header-section-number">46</span> </h1>
+</section>
+<section id="section-46" class="level1" data-number="47">
+<h1 data-number="47"><span class="header-section-number">47</span> </h1>
+</section>
+<section id="section-47" class="level1" data-number="48">
+<h1 data-number="48"><span class="header-section-number">48</span> </h1>
+</section>
+<section id="section-48" class="level1" data-number="49">
+<h1 data-number="49"><span class="header-section-number">49</span> </h1>
+</section>
+<section id="section-49" class="level1" data-number="50">
+<h1 data-number="50"><span class="header-section-number">50</span> </h1>
+</section>
+<section id="section-50" class="level1" data-number="51">
+<h1 data-number="51"><span class="header-section-number">51</span> </h1>
+</section>
+<section id="section-51" class="level1" data-number="52">
+<h1 data-number="52"><span class="header-section-number">52</span> </h1>
+</section>
+<section id="section-52" class="level1" data-number="53">
+<h1 data-number="53"><span class="header-section-number">53</span> </h1>
+</section>
+<section id="section-53" class="level1" data-number="54">
+<h1 data-number="54"><span class="header-section-number">54</span> </h1>
+</section>
+<section id="section-54" class="level1" data-number="55">
+<h1 data-number="55"><span class="header-section-number">55</span> </h1>
+</section>
+<section id="section-55" class="level1" data-number="56">
+<h1 data-number="56"><span class="header-section-number">56</span> </h1>
+</section>
+<section id="section-56" class="level1" data-number="57">
+<h1 data-number="57"><span class="header-section-number">57</span> </h1>
+</section>
+<section id="section-57" class="level1" data-number="58">
+<h1 data-number="58"><span class="header-section-number">58</span> </h1>
+</section>
+<section id="section-58" class="level1" data-number="59">
+<h1 data-number="59"><span class="header-section-number">59</span> </h1>
+</section>
+<section id="section-59" class="level1" data-number="60">
+<h1 data-number="60"><span class="header-section-number">60</span> </h1>
+</section>
+<section id="section-60" class="level1" data-number="61">
+<h1 data-number="61"><span class="header-section-number">61</span> </h1>
+</section>
+<section id="section-61" class="level1" data-number="62">
+<h1 data-number="62"><span class="header-section-number">62</span> </h1>
+</section>
+<section id="section-62" class="level1" data-number="63">
+<h1 data-number="63"><span class="header-section-number">63</span> </h1>
+</section>
+<section id="section-63" class="level1" data-number="64">
+<h1 data-number="64"><span class="header-section-number">64</span> </h1>
+</section>
+<section id="section-64" class="level1" data-number="65">
+<h1 data-number="65"><span class="header-section-number">65</span> </h1>
+</section>
+<section id="section-65" class="level1" data-number="66">
+<h1 data-number="66"><span class="header-section-number">66</span> </h1>
+</section>
+<section id="section-66" class="level1" data-number="67">
+<h1 data-number="67"><span class="header-section-number">67</span> </h1>
+</section>
+<section id="section-67" class="level1" data-number="68">
+<h1 data-number="68"><span class="header-section-number">68</span> </h1>
+</section>
+<section id="section-68" class="level1" data-number="69">
+<h1 data-number="69"><span class="header-section-number">69</span> </h1>
+</section>
+<section id="section-69" class="level1" data-number="70">
+<h1 data-number="70"><span class="header-section-number">70</span> </h1>
+</section>
+<section id="section-70" class="level1" data-number="71">
+<h1 data-number="71"><span class="header-section-number">71</span> </h1>
+</section>
+<section id="section-71" class="level1" data-number="72">
+<h1 data-number="72"><span class="header-section-number">72</span> </h1>
+</section>
+<section id="section-72" class="level1" data-number="73">
+<h1 data-number="73"><span class="header-section-number">73</span> </h1>
+</section>
+<section id="section-73" class="level1" data-number="74">
+<h1 data-number="74"><span class="header-section-number">74</span> </h1>
+</section>
+<section id="section-74" class="level1" data-number="75">
+<h1 data-number="75"><span class="header-section-number">75</span> </h1>
+</section>
+<section id="section-75" class="level1" data-number="76">
+<h1 data-number="76"><span class="header-section-number">76</span> </h1>
+</section>
+<section id="section-76" class="level1" data-number="77">
+<h1 data-number="77"><span class="header-section-number">77</span> </h1>
+</section>
+<section id="section-77" class="level1" data-number="78">
+<h1 data-number="78"><span class="header-section-number">78</span> </h1>
+</section>
+<section id="section-78" class="level1" data-number="79">
+<h1 data-number="79"><span class="header-section-number">79</span> </h1>
+</section>
+<section id="section-79" class="level1" data-number="80">
+<h1 data-number="80"><span class="header-section-number">80</span> </h1>
+</section>
+<section id="section-80" class="level1" data-number="81">
+<h1 data-number="81"><span class="header-section-number">81</span> </h1>
+</section>
+<section id="section-81" class="level1" data-number="82">
+<h1 data-number="82"><span class="header-section-number">82</span> </h1>
+</section>
+<section id="section-82" class="level1" data-number="83">
+<h1 data-number="83"><span class="header-section-number">83</span> </h1>
+</section>
+<section id="section-83" class="level1" data-number="84">
+<h1 data-number="84"><span class="header-section-number">84</span> </h1>
+</section>
+<section id="section-84" class="level1" data-number="85">
+<h1 data-number="85"><span class="header-section-number">85</span> </h1>
+</section>
+<section id="section-85" class="level1" data-number="86">
+<h1 data-number="86"><span class="header-section-number">86</span> </h1>
+</section>
+<section id="section-86" class="level1" data-number="87">
+<h1 data-number="87"><span class="header-section-number">87</span> </h1>
+</section>
+<section id="section-87" class="level1" data-number="88">
+<h1 data-number="88"><span class="header-section-number">88</span> </h1>
+</section>
+<section id="section-88" class="level1" data-number="89">
+<h1 data-number="89"><span class="header-section-number">89</span> </h1>
+</section>
+<section id="section-89" class="level1" data-number="90">
+<h1 data-number="90"><span class="header-section-number">90</span> </h1>
+</section>
+<section id="section-90" class="level1" data-number="91">
+<h1 data-number="91"><span class="header-section-number">91</span> </h1>
+</section>
+<section id="section-91" class="level1" data-number="92">
+<h1 data-number="92"><span class="header-section-number">92</span> </h1>
+</section>
+<section id="section-92" class="level1" data-number="93">
+<h1 data-number="93"><span class="header-section-number">93</span> </h1>
+</section>
+<section id="section-93" class="level1" data-number="94">
+<h1 data-number="94"><span class="header-section-number">94</span> </h1>
+</section>
+<section id="section-94" class="level1" data-number="95">
+<h1 data-number="95"><span class="header-section-number">95</span> </h1>
+</section>
+<section id="section-95" class="level1" data-number="96">
+<h1 data-number="96"><span class="header-section-number">96</span> </h1>
+</section>
+<section id="section-96" class="level1" data-number="97">
+<h1 data-number="97"><span class="header-section-number">97</span> </h1>
+</section>
+<section id="section-97" class="level1" data-number="98">
+<h1 data-number="98"><span class="header-section-number">98</span> </h1>
+</section>
+<section id="section-98" class="level1" data-number="99">
+<h1 data-number="99"><span class="header-section-number">99</span> </h1>
+</section>
+<section id="section-99" class="level1" data-number="100">
+<h1 data-number="100"><span class="header-section-number">100</span> </h1>
+</section>
+<section id="section-100" class="level1" data-number="101">
+<h1 data-number="101"><span class="header-section-number">101</span> </h1>
+</section>
+<section id="section-101" class="level1" data-number="102">
+<h1 data-number="102"><span class="header-section-number">102</span> </h1>
+</section>
+<section id="section-102" class="level1" data-number="103">
+<h1 data-number="103"><span class="header-section-number">103</span> </h1>
+</section>
+<section id="section-103" class="level1" data-number="104">
+<h1 data-number="104"><span class="header-section-number">104</span> </h1>
+</section>
+<section id="section-104" class="level1" data-number="105">
+<h1 data-number="105"><span class="header-section-number">105</span> </h1>
+</section>
+<section id="section-105" class="level1" data-number="106">
+<h1 data-number="106"><span class="header-section-number">106</span> </h1>
+</section>
+<section id="section-106" class="level1" data-number="107">
+<h1 data-number="107"><span class="header-section-number">107</span> </h1>
+</section>
+<section id="section-107" class="level1" data-number="108">
+<h1 data-number="108"><span class="header-section-number">108</span> </h1>
+</section>
+<section id="section-108" class="level1" data-number="109">
+<h1 data-number="109"><span class="header-section-number">109</span> </h1>
+</section>
+<section id="section-109" class="level1" data-number="110">
+<h1 data-number="110"><span class="header-section-number">110</span> </h1>
+</section>
+<section id="section-110" class="level1" data-number="111">
+<h1 data-number="111"><span class="header-section-number">111</span> </h1>
+</section>
+<section id="section-111" class="level1" data-number="112">
+<h1 data-number="112"><span class="header-section-number">112</span> </h1>
+</section>
+<section id="section-112" class="level1" data-number="113">
+<h1 data-number="113"><span class="header-section-number">113</span> </h1>
+</section>
+<section id="section-113" class="level1" data-number="114">
+<h1 data-number="114"><span class="header-section-number">114</span> </h1>
+</section>
+<section id="section-114" class="level1" data-number="115">
+<h1 data-number="115"><span class="header-section-number">115</span> </h1>
+</section>
+<section id="section-115" class="level1" data-number="116">
+<h1 data-number="116"><span class="header-section-number">116</span> </h1>
+</section>
+<section id="section-116" class="level1" data-number="117">
+<h1 data-number="117"><span class="header-section-number">117</span> </h1>
+</section>
+<section id="section-117" class="level1" data-number="118">
+<h1 data-number="118"><span class="header-section-number">118</span> </h1>
+</section>
+<section id="section-118" class="level1" data-number="119">
+<h1 data-number="119"><span class="header-section-number">119</span> </h1>
+</section>
+<section id="section-119" class="level1" data-number="120">
+<h1 data-number="120"><span class="header-section-number">120</span> </h1>
+</section>
+<section id="section-120" class="level1" data-number="121">
+<h1 data-number="121"><span class="header-section-number">121</span> </h1>
+</section>
+<section id="section-121" class="level1" data-number="122">
+<h1 data-number="122"><span class="header-section-number">122</span> </h1>
+</section>
+<section id="section-122" class="level1" data-number="123">
+<h1 data-number="123"><span class="header-section-number">123</span> </h1>
+</section>
+<section id="section-123" class="level1" data-number="124">
+<h1 data-number="124"><span class="header-section-number">124</span> </h1>
+</section>
+<section id="section-124" class="level1" data-number="125">
+<h1 data-number="125"><span class="header-section-number">125</span> </h1>
+</section>
+<section id="section-125" class="level1" data-number="126">
+<h1 data-number="126"><span class="header-section-number">126</span> </h1>
+</section>
+<section id="section-126" class="level1" data-number="127">
+<h1 data-number="127"><span class="header-section-number">127</span> </h1>
+</section>
+<section id="section-127" class="level1" data-number="128">
+<h1 data-number="128"><span class="header-section-number">128</span> </h1>
+</section>
+<section id="section-128" class="level1" data-number="129">
+<h1 data-number="129"><span class="header-section-number">129</span> </h1>
+</section>
+<section id="section-129" class="level1" data-number="130">
+<h1 data-number="130"><span class="header-section-number">130</span> </h1>
+</section>
+<section id="section-130" class="level1" data-number="131">
+<h1 data-number="131"><span class="header-section-number">131</span> </h1>
+</section>
+<section id="section-131" class="level1" data-number="132">
+<h1 data-number="132"><span class="header-section-number">132</span> </h1>
+</section>
+<section id="section-132" class="level1" data-number="133">
+<h1 data-number="133"><span class="header-section-number">133</span> </h1>
+</section>
+<section id="section-133" class="level1" data-number="134">
+<h1 data-number="134"><span class="header-section-number">134</span> </h1>
+</section>
+<section id="section-134" class="level1" data-number="135">
+<h1 data-number="135"><span class="header-section-number">135</span> </h1>
+</section>
+<section id="section-135" class="level1" data-number="136">
+<h1 data-number="136"><span class="header-section-number">136</span> </h1>
+</section>
+<section id="section-136" class="level1" data-number="137">
+<h1 data-number="137"><span class="header-section-number">137</span> </h1>
+</section>
+<section id="section-137" class="level1" data-number="138">
+<h1 data-number="138"><span class="header-section-number">138</span> </h1>
+</section>
+<section id="section-138" class="level1" data-number="139">
+<h1 data-number="139"><span class="header-section-number">139</span> </h1>
+</section>
+<section id="section-139" class="level1" data-number="140">
+<h1 data-number="140"><span class="header-section-number">140</span> </h1>
+</section>
+<section id="section-140" class="level1" data-number="141">
+<h1 data-number="141"><span class="header-section-number">141</span> </h1>
+</section>
+<section id="section-141" class="level1" data-number="142">
+<h1 data-number="142"><span class="header-section-number">142</span> </h1>
+</section>
+<section id="section-142" class="level1" data-number="143">
+<h1 data-number="143"><span class="header-section-number">143</span> </h1>
+</section>
+<section id="section-143" class="level1" data-number="144">
+<h1 data-number="144"><span class="header-section-number">144</span> </h1>
+</section>
+<section id="section-144" class="level1" data-number="145">
+<h1 data-number="145"><span class="header-section-number">145</span> </h1>
+</section>
+<section id="section-145" class="level1" data-number="146">
+<h1 data-number="146"><span class="header-section-number">146</span> </h1>
+</section>
+<section id="section-146" class="level1" data-number="147">
+<h1 data-number="147"><span class="header-section-number">147</span> </h1>
+</section>
+<section id="section-147" class="level1" data-number="148">
+<h1 data-number="148"><span class="header-section-number">148</span> </h1>
+</section>
+<section id="section-148" class="level1" data-number="149">
+<h1 data-number="149"><span class="header-section-number">149</span> </h1>
+</section>
+<section id="section-149" class="level1" data-number="150">
+<h1 data-number="150"><span class="header-section-number">150</span> </h1>
+</section>
+<section id="section-150" class="level1" data-number="151">
+<h1 data-number="151"><span class="header-section-number">151</span> </h1>
+</section>
+<section id="section-151" class="level1" data-number="152">
+<h1 data-number="152"><span class="header-section-number">152</span> </h1>
+</section>
+<section id="section-152" class="level1" data-number="153">
+<h1 data-number="153"><span class="header-section-number">153</span> </h1>
+</section>
+<section id="section-153" class="level1" data-number="154">
+<h1 data-number="154"><span class="header-section-number">154</span> </h1>
+</section>
+<section id="section-154" class="level1" data-number="155">
+<h1 data-number="155"><span class="header-section-number">155</span> </h1>
+</section>
+<section id="section-155" class="level1" data-number="156">
+<h1 data-number="156"><span class="header-section-number">156</span> </h1>
+</section>
+<section id="section-156" class="level1" data-number="157">
+<h1 data-number="157"><span class="header-section-number">157</span> </h1>
+</section>
+<section id="section-157" class="level1" data-number="158">
+<h1 data-number="158"><span class="header-section-number">158</span> </h1>
+</section>
+<section id="section-158" class="level1" data-number="159">
+<h1 data-number="159"><span class="header-section-number">159</span> </h1>
+</section>
+<section id="section-159" class="level1" data-number="160">
+<h1 data-number="160"><span class="header-section-number">160</span> </h1>
+</section>
+<section id="section-160" class="level1" data-number="161">
+<h1 data-number="161"><span class="header-section-number">161</span> </h1>
+</section>
+<section id="section-161" class="level1" data-number="162">
+<h1 data-number="162"><span class="header-section-number">162</span> </h1>
+</section>
+<section id="section-162" class="level1" data-number="163">
+<h1 data-number="163"><span class="header-section-number">163</span> </h1>
+</section>
+<section id="section-163" class="level1" data-number="164">
+<h1 data-number="164"><span class="header-section-number">164</span> </h1>
+</section>
+<section id="section-164" class="level1" data-number="165">
+<h1 data-number="165"><span class="header-section-number">165</span> </h1>
+</section>
+<section id="section-165" class="level1" data-number="166">
+<h1 data-number="166"><span class="header-section-number">166</span> </h1>
+</section>
+<section id="section-166" class="level1" data-number="167">
+<h1 data-number="167"><span class="header-section-number">167</span> </h1>
+</section>
+<section id="section-167" class="level1" data-number="168">
+<h1 data-number="168"><span class="header-section-number">168</span> </h1>
+</section>
+<section id="section-168" class="level1" data-number="169">
+<h1 data-number="169"><span class="header-section-number">169</span> </h1>
+</section>
+<section id="section-169" class="level1" data-number="170">
+<h1 data-number="170"><span class="header-section-number">170</span> </h1>
+</section>
+<section id="section-170" class="level1" data-number="171">
+<h1 data-number="171"><span class="header-section-number">171</span> </h1>
+</section>
+<section id="section-171" class="level1" data-number="172">
+<h1 data-number="172"><span class="header-section-number">172</span> </h1>
+</section>
+<section id="section-172" class="level1" data-number="173">
+<h1 data-number="173"><span class="header-section-number">173</span> </h1>
+</section>
+<section id="section-173" class="level1" data-number="174">
+<h1 data-number="174"><span class="header-section-number">174</span> </h1>
+</section>
+<section id="section-174" class="level1" data-number="175">
+<h1 data-number="175"><span class="header-section-number">175</span> </h1>
+</section>
+<section id="section-175" class="level1" data-number="176">
+<h1 data-number="176"><span class="header-section-number">176</span> </h1>
+</section>
+<section id="section-176" class="level1" data-number="177">
+<h1 data-number="177"><span class="header-section-number">177</span> </h1>
+</section>
+<section id="section-177" class="level1" data-number="178">
+<h1 data-number="178"><span class="header-section-number">178</span> </h1>
+</section>
+<section id="section-178" class="level1" data-number="179">
+<h1 data-number="179"><span class="header-section-number">179</span> </h1>
+</section>
+<section id="section-179" class="level1" data-number="180">
+<h1 data-number="180"><span class="header-section-number">180</span> </h1>
+</section>
+<section id="section-180" class="level1" data-number="181">
+<h1 data-number="181"><span class="header-section-number">181</span> </h1>
+</section>
+<section id="section-181" class="level1" data-number="182">
+<h1 data-number="182"><span class="header-section-number">182</span> </h1>
+</section>
+<section id="section-182" class="level1" data-number="183">
+<h1 data-number="183"><span class="header-section-number">183</span> </h1>
+</section>
+<section id="section-183" class="level1" data-number="184">
+<h1 data-number="184"><span class="header-section-number">184</span> </h1>
+</section>
+<section id="section-184" class="level1" data-number="185">
+<h1 data-number="185"><span class="header-section-number">185</span> </h1>
+</section>
+<section id="section-185" class="level1" data-number="186">
+<h1 data-number="186"><span class="header-section-number">186</span> </h1>
+</section>
+<section id="section-186" class="level1" data-number="187">
+<h1 data-number="187"><span class="header-section-number">187</span> </h1>
+</section>
+<section id="section-187" class="level1" data-number="188">
+<h1 data-number="188"><span class="header-section-number">188</span> </h1>
+</section>
+<section id="section-188" class="level1" data-number="189">
+<h1 data-number="189"><span class="header-section-number">189</span> </h1>
+</section>
+<section id="section-189" class="level1" data-number="190">
+<h1 data-number="190"><span class="header-section-number">190</span> </h1>
+</section>
+<section id="section-190" class="level1" data-number="191">
+<h1 data-number="191"><span class="header-section-number">191</span> </h1>
+</section>
+<section id="section-191" class="level1" data-number="192">
+<h1 data-number="192"><span class="header-section-number">192</span> </h1>
+</section>
+<section id="section-192" class="level1" data-number="193">
+<h1 data-number="193"><span class="header-section-number">193</span> </h1>
+</section>
+<section id="section-193" class="level1" data-number="194">
+<h1 data-number="194"><span class="header-section-number">194</span> </h1>
+</section>
+<section id="section-194" class="level1" data-number="195">
+<h1 data-number="195"><span class="header-section-number">195</span> </h1>
+</section>
+<section id="section-195" class="level1" data-number="196">
+<h1 data-number="196"><span class="header-section-number">196</span> </h1>
+</section>
+<section id="section-196" class="level1" data-number="197">
+<h1 data-number="197"><span class="header-section-number">197</span> </h1>
+</section>
+<section id="section-197" class="level1" data-number="198">
+<h1 data-number="198"><span class="header-section-number">198</span> </h1>
+</section>
+<section id="section-198" class="level1" data-number="199">
+<h1 data-number="199"><span class="header-section-number">199</span> </h1>
+</section>
+<section id="section-199" class="level1" data-number="200">
+<h1 data-number="200"><span class="header-section-number">200</span> </h1>
+</section>
+<section id="section-200" class="level1" data-number="201">
+<h1 data-number="201"><span class="header-section-number">201</span> </h1>
+</section>
+<section id="section-201" class="level1" data-number="202">
+<h1 data-number="202"><span class="header-section-number">202</span> </h1>
+</section>
+<section id="section-202" class="level1" data-number="203">
+<h1 data-number="203"><span class="header-section-number">203</span> </h1>
+</section>
+<section id="section-203" class="level1" data-number="204">
+<h1 data-number="204"><span class="header-section-number">204</span> </h1>
+</section>
+<section id="section-204" class="level1" data-number="205">
+<h1 data-number="205"><span class="header-section-number">205</span> </h1>
+</section>
+<section id="section-205" class="level1" data-number="206">
+<h1 data-number="206"><span class="header-section-number">206</span> </h1>
+</section>
+<section id="section-206" class="level1" data-number="207">
+<h1 data-number="207"><span class="header-section-number">207</span> </h1>
+</section>
+<section id="section-207" class="level1" data-number="208">
+<h1 data-number="208"><span class="header-section-number">208</span> </h1>
+</section>
+<section id="section-208" class="level1" data-number="209">
+<h1 data-number="209"><span class="header-section-number">209</span> </h1>
+</section>
+<section id="section-209" class="level1" data-number="210">
+<h1 data-number="210"><span class="header-section-number">210</span> </h1>
+</section>
+<section id="section-210" class="level1" data-number="211">
+<h1 data-number="211"><span class="header-section-number">211</span> </h1>
+</section>
+<section id="section-211" class="level1" data-number="212">
+<h1 data-number="212"><span class="header-section-number">212</span> </h1>
+</section>
+<section id="section-212" class="level1" data-number="213">
+<h1 data-number="213"><span class="header-section-number">213</span> </h1>
+</section>
+<section id="section-213" class="level1" data-number="214">
+<h1 data-number="214"><span class="header-section-number">214</span> </h1>
+</section>
+<section id="section-214" class="level1" data-number="215">
+<h1 data-number="215"><span class="header-section-number">215</span> </h1>
+</section>
+<section id="section-215" class="level1" data-number="216">
+<h1 data-number="216"><span class="header-section-number">216</span> </h1>
+</section>
+<section id="section-216" class="level1" data-number="217">
+<h1 data-number="217"><span class="header-section-number">217</span> </h1>
+</section>
+<section id="section-217" class="level1" data-number="218">
+<h1 data-number="218"><span class="header-section-number">218</span> </h1>
+</section>
+<section id="section-218" class="level1" data-number="219">
+<h1 data-number="219"><span class="header-section-number">219</span> </h1>
+</section>
+<section id="section-219" class="level1" data-number="220">
+<h1 data-number="220"><span class="header-section-number">220</span> </h1>
+</section>
+<section id="section-220" class="level1" data-number="221">
+<h1 data-number="221"><span class="header-section-number">221</span> </h1>
+</section>
+<section id="section-221" class="level1" data-number="222">
+<h1 data-number="222"><span class="header-section-number">222</span> </h1>
+</section>
+<section id="section-222" class="level1" data-number="223">
+<h1 data-number="223"><span class="header-section-number">223</span> </h1>
+</section>
+<section id="section-223" class="level1" data-number="224">
+<h1 data-number="224"><span class="header-section-number">224</span> </h1>
+</section>
+<section id="section-224" class="level1" data-number="225">
+<h1 data-number="225"><span class="header-section-number">225</span> </h1>
+</section>
+<section id="section-225" class="level1" data-number="226">
+<h1 data-number="226"><span class="header-section-number">226</span> </h1>
+</section>
+<section id="section-226" class="level1" data-number="227">
+<h1 data-number="227"><span class="header-section-number">227</span> </h1>
+</section>
+<section id="section-227" class="level1" data-number="228">
+<h1 data-number="228"><span class="header-section-number">228</span> </h1>
+<p>#| label: tbl-paralelo-juran #| tbl-cap: “Paralelo entre o Mapa de Planejamento de Juran e a Modelagem Analítica de Requisitos (ARM).” #| echo: false #| message: false #| warning: false</p>
+<p>library(knitr) library(kableExtra)</p>
+<p>df_juran &lt;- data.frame( Passo = c(“1 e 2”, “3”, “4 e 5”, “6 e 7”, “8 e 9”), Juran = c( “Identificar os clientes (internos/externos) e determinar suas necessidades reais.”, “Traduzir as necessidades para a linguagem técnica da empresa.”, “Desenvolver o produto e otimizar suas características.”, “Desenvolver o processo capaz de produzir as características e otimizá-lo.”, “Provar a capacidade do processo e transferi-lo para a Operação (Controle).” ), Aplicacao = c( “Levantamento exploratório das variáveis (Abordagem Bottom-up ou Top-down).”, “Consolidação das variáveis soltas (V_{i}) em grandes Dimensões de Gestão (D_{j}).”, “Cálculo do ARM, utilizando matrizes (ex: Mudge) para calibrar os pesos (W_{i}).”, “Parametrização do Desempenho (S_{i}) através de Funções de Valor e Metas SMART.”, “Produção (Conformação) e início da Zona de Controle da Qualidade operacional.” ) )</p>
+<p>df_juran %&gt;% kable( col.names = c(“Passos”, “O Mapa de Juran (Teoria Clássica)”, “A Modelagem Analítica (ARM - Cap 2)”), align = “cll”, booktabs = TRUE ) %&gt;% kable_styling(bootstrap_options = c(“striped”, “hover”), full_width = FALSE, font_size = 14) %&gt;% column_spec(1, bold = TRUE, width = “1.5cm”) %&gt;% column_spec(2, width = “6.5cm”, background = “#f9f9f9”) %&gt;% column_spec(3, width = “8.5cm”, border_left = TRUE) %&gt;% row_spec(0, background = “#2c3e50”, color = “white”, bold = TRUE) # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #| label: tbl-atividades-pdca-detalhada #| tbl-cap: “Detalhamento das fases, etapas e atividades do MASP/PDCA aplicadas à gestão na mineração.” #| echo: false #| message: false #| warning: false</p>
+<p>library(knitr) library(kableExtra) library(dplyr)</p>
+<p>df_pdca &lt;- data.frame( Fases = c(rep(“P”, 13), rep(“D”, 3), rep(“C”, 2), rep(“A”, 3)), Etapas = c( rep(“Identificação do problema”, 3), rep(“Análise do Fenômeno”, 3), rep(“Análise do Processo”, 3), rep(“Estabelecimento do Plano de Ação”, 4), rep(“Execução do Plano de Ação”, 3), rep(“Verificação dos Resultados”, 2), rep(“Padronização”, 3) ), Atividades = c( “Identificação das prioridades”, “Estabelecimento da meta do projeto”, “Quantificação dos ganhos do projeto”, “Estratificação do problema”, “Estudo das variações”, “Definição das metas específicas”, “Levantamento das causas potenciais”, “Priorização das causas potenciais”, “Quantificação das causas priorizadas”, “Levantamento das possíveis soluções”, “Priorização das possíveis soluções”, “Realização de teste piloto (se necessário)”, “Estabelecimento do plano de ação”, “Comunicação do plano de ação”, “Realização de treinamentos dos envolvidos”, “Implantação e acompanhamento do plano de ação”, “Verificação do alcance da meta geral e das metas específicas”, “Quantificação dos ganhos do projeto”, “Padronização das novas atividades”, “Implantação de plano para monitoramento do processo”, “Implantação de plano de ações corretivas” ) )</p>
+<p>cores_id &lt;- case_when( df_pdca<span class="math inline">\(Fases == "P" &amp; df_pdca\)</span>Etapas == “Identificação do problema” ~ “#174EA6”, df_pdca<span class="math inline">\(Fases == "P" &amp; df_pdca\)</span>Etapas == “Análise do Fenômeno” ~ “#4285F4”, df_pdca<span class="math inline">\(Fases == "P" &amp; df_pdca\)</span>Etapas == “Análise do Processo” ~ “#1A73E8”, df_pdca<span class="math inline">\(Fases == "P" &amp; df_pdca\)</span>Etapas == “Estabelecimento do Plano de Ação” ~ “#8AB4F8”, df_pdca<span class="math inline">\(Fases == "D" ~ "#FBBC05",
+    df_pdca\)</span>Fases == “C” ~ “#EA4335”, df_pdca$Fases == “A” ~ “#34A853”, TRUE ~ “white” )</p>
+<p>texto_cor &lt;- ifelse(cores_id %in% c(“#FBBC05”, “#8AB4F8”), “black”, “white”)</p>
+<p>df_pdca %&gt;% kable( col.names = c(“Fases”, “Etapas”, “Atividades”), align = “cll”, booktabs = TRUE ) %&gt;% kable_styling(bootstrap_options = c(“striped”, “hover”, “condensed”), full_width = FALSE, font_size = 13) %&gt;% column_spec(1, bold = TRUE, color = texto_cor, background = cores_id, width = “0.7cm”) %&gt;% column_spec(2, bold = TRUE, color = texto_cor, background = cores_id, width = “6.5cm”) %&gt;% column_spec(3, width = “12cm”, background = “white”, color = “black”) %&gt;% row_spec(0, background = “#35978f”, color = “white”, bold = TRUE) %&gt;% collapse_rows(columns = 1:2, valign = “middle”) # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

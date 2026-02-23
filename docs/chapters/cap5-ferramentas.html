@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -174,7 +209,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/cap3-gestao-qualidade.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gestão da Qualidade e o Método</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">cap3-gestao-qualidade.html</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -318,16 +353,22 @@ window.Quarto = {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#sec-ferramentas-qualidade" id="toc-sec-ferramentas-qualidade" class="nav-link active" data-scroll-target="#sec-ferramentas-qualidade"><span class="header-section-number">5.1</span> Ferramentas da Qualidade</a>
+  <li><a href="#sec-caminho-solucao" id="toc-sec-caminho-solucao" class="nav-link active" data-scroll-target="#sec-caminho-solucao"><span class="header-section-number">5.1</span> O Caminho da Solução: PDCA e MASP</a></li>
+  <li><a href="#sec-mapeamento-fronteiras" id="toc-sec-mapeamento-fronteiras" class="nav-link" data-scroll-target="#sec-mapeamento-fronteiras"><span class="header-section-number">5.2</span> Mapeamento de Fronteiras: SIPOC e Fluxograma</a>
   <ul class="collapse">
-  <li><a href="#diagrama-de-pareto" id="toc-diagrama-de-pareto" class="nav-link" data-scroll-target="#diagrama-de-pareto"><span class="header-section-number">5.1.1</span> Diagrama de Pareto</a></li>
+  <li><a href="#sec-matriz-sipoc" id="toc-sec-matriz-sipoc" class="nav-link" data-scroll-target="#sec-matriz-sipoc"><span class="header-section-number">5.2.1</span> A Matriz SIPOC</a></li>
+  <li><a href="#sec-fluxograma" id="toc-sec-fluxograma" class="nav-link" data-scroll-target="#sec-fluxograma"><span class="header-section-number">5.2.2</span> O Fluxograma</a></li>
   </ul></li>
-  <li><a href="#fluxograma" id="toc-fluxograma" class="nav-link" data-scroll-target="#fluxograma"><span class="header-section-number">5.2</span> Fluxograma</a></li>
-  <li><a href="#diagrama-de-build-up-waterfall" id="toc-diagrama-de-build-up-waterfall" class="nav-link" data-scroll-target="#diagrama-de-build-up-waterfall"><span class="header-section-number">5.3</span> Diagrama de Build-up (Waterfall)</a>
+  <li><a href="#sec-priorizacao-diagnostico" id="toc-sec-priorizacao-diagnostico" class="nav-link" data-scroll-target="#sec-priorizacao-diagnostico"><span class="header-section-number">5.3</span> Ferramentas de Priorização e Diagnóstico</a>
   <ul class="collapse">
-  <li><a href="#sec-jack-knife" id="toc-sec-jack-knife" class="nav-link" data-scroll-target="#sec-jack-knife"><span class="header-section-number">5.3.1</span> Diagrama de Jack Knife</a></li>
+  <li><a href="#sec-diagrama-pareto" id="toc-sec-diagrama-pareto" class="nav-link" data-scroll-target="#sec-diagrama-pareto"><span class="header-section-number">5.3.1</span> Diagrama de Pareto</a></li>
+  <li><a href="#sec-ishikawa-5porques-gut" id="toc-sec-ishikawa-5porques-gut" class="nav-link" data-scroll-target="#sec-ishikawa-5porques-gut"><span class="header-section-number">5.3.2</span> Ishikawa, 5 Porquês e Matriz GUT</a></li>
   </ul></li>
-  <li><a href="#diagrama-de-jack-knife" id="toc-diagrama-de-jack-knife" class="nav-link" data-scroll-target="#diagrama-de-jack-knife"><span class="header-section-number">5.4</span> Diagrama de Jack-Knife</a></li>
+  <li><a href="#sec-ferramentas-avancadas" id="toc-sec-ferramentas-avancadas" class="nav-link" data-scroll-target="#sec-ferramentas-avancadas"><span class="header-section-number">5.4</span> Ferramentas Avançadas de Engenharia e Manutenção</a>
+  <ul class="collapse">
+  <li><a href="#sec-diagrama-waterfall" id="toc-sec-diagrama-waterfall" class="nav-link" data-scroll-target="#sec-diagrama-waterfall"><span class="header-section-number">5.4.1</span> Diagrama de Build-up (Waterfall)</a></li>
+  <li><a href="#sec-jack-knife" id="toc-sec-jack-knife" class="nav-link" data-scroll-target="#sec-jack-knife"><span class="header-section-number">5.4.2</span> Diagrama de Jack-Knife</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -354,14 +395,109 @@ window.Quarto = {
 
 
 <p>Este capítulo apresenta o arsenal metodológico essencial para o analista de dados na mineração. A aplicação correta destas ferramentas permite transformar terabytes de dados brutos de telemetria e manutenção em diagnósticos precisos para a tomada de decisão.</p>
-<section id="sec-ferramentas-qualidade" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="sec-ferramentas-qualidade"><span class="header-section-number">5.1</span> Ferramentas da Qualidade</h2>
-<section id="diagrama-de-pareto" class="level3" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="diagrama-de-pareto"><span class="header-section-number">5.1.1</span> Diagrama de Pareto</h3>
-<p>O Diagrama de Pareto é uma das ferramentas mais clássicas e eficazes no controle da qualidade e gestão de ativos. Trata-se de uma representação gráfica que hierarquiza problemas, causas ou perdas de forma decrescente, destacando os fatores vitais que demandam ação imediata.</p>
-<p>Conforme Campos (2004), esta ferramenta operacionaliza o <strong>Princípio de Pareto (80/20)</strong>, permitindo que gestores alcancem resultados significativos focando em poucas, mas críticas, alavancas de atuação. O princípio postula que, em geral, 80% dos efeitos (ex: horas paradas) derivam de apenas 20% das causas (ex: falha no sistema de injeção) (Silva, 2009).</p>
-<p>No contexto do <em>Mining Analytics</em>, um valor elevado nas primeiras barras do gráfico indica onde a ineficácia se concentra (Franco et al., 2006). A <a href="#fig-pareto-mining" class="quarto-xref">Figura&nbsp;<span>5.1</span></a> exemplifica esta aplicação, onde o esforço de manutenção é direcionado para os modos de falha predominantes.</p>
+<p>As ferramentas aqui apresentadas não devem ser utilizadas de forma aleatória. Elas seguem o fluxo lógico do MASP (Método de Análise e Solução de Problemas) e do ciclo PDCA, garantindo que a engenharia identifique o problema correto, descubra a causa raiz e estabilize o processo operacional.</p>
+<section id="sec-caminho-solucao" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="sec-caminho-solucao"><span class="header-section-number">5.1</span> O Caminho da Solução: PDCA e MASP</h2>
+<p>O ciclo PDCA é uma ferramenta simples que promove alterações graduais no processo, impulsionando o desenvolvimento contínuo da organização. O ciclo é dividido em etapas de planejamento (PLAN), execução (DO), verificação (CHECK) e ação (ACT).</p>
+<div class="callout callout-style-default callout-note callout-titled" title="📌 DEFINIÇÃO NORMATIVA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>📌 DEFINIÇÃO NORMATIVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>De acordo com Mendes (2007), o ciclo PDCA é um método estruturado para a melhoria contínua dividido nas seguintes etapas:</p>
+<ul>
+<li><strong>PLAN (Planejar):</strong> Definir a situação atual, estabelecer metas mensuráveis e estratégias.</li>
+<li><strong>DO (Executar):</strong> Educar os envolvidos e implementar as estratégias.</li>
+<li><strong>CHECK (Verificar):</strong> Comparar os resultados obtidos contra as metas.</li>
+<li><strong>ACT (Agir/Padronizar):</strong> Tomar ações corretivas ou padronizar a melhoria.</li>
+</ul>
+</div>
+</div>
+<p>A fase de planejamento (PLAN) exige o maior rigor e dedicação de tempo do projeto. Para que essas etapas sejam realizadas com eficácia, a engenharia utiliza o <strong>MASP</strong> como ferramenta de controle e auditoria, estruturando a pesquisa das causas de forma científica.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="⚠️ ARMADILHA DE ENGENHARIA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Aviso</span>⚠️ ARMADILHA DE ENGENHARIA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O erro mais comum em projetos de melhoria é a “Miopia de Ação”: a equipe pular a fase de Planejamento (P) e ir direto para a Execução (D). Implementar soluções baseadas em “achismos” e não em dados estratificados consome recursos financeiros e, na maioria das vezes, ataca apenas o sintoma.</p>
+</div>
+</div>
+</section>
+<section id="sec-mapeamento-fronteiras" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="sec-mapeamento-fronteiras"><span class="header-section-number">5.2</span> Mapeamento de Fronteiras: SIPOC e Fluxograma</h2>
+<p>Antes de mergulhar nas causas de um problema usando ferramentas estatísticas, a equipe de engenharia precisa garantir que todos compreendam o fluxo macro do processo e as suas fronteiras. O maior erro de um projeto é tentar “abraçar o mundo”.</p>
+<section id="sec-matriz-sipoc" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="sec-matriz-sipoc"><span class="header-section-number">5.2.1</span> A Matriz SIPOC</h3>
+<p>Para delimitar esse escopo, utilizamos a ferramenta SIPOC, que padroniza o mapeamento de qualquer processo na operação mineral:</p>
+<ul>
+<li><strong>S (<em>Supplier</em> / Fornecedor):</strong> Quem fornece os insumos? <em>(Ex: Topografia).</em></li>
+<li><strong>I (<em>Input</em> / Entrada):</strong> Quais recursos são fornecidos? <em>(Ex: Malha de perfuração).</em></li>
+<li><strong>P (<em>Process</em> / Processo):</strong> Quais são as macroatividades? <em>(Ex: Furar <span class="math inline">\(\rightarrow\)</span> Carregar <span class="math inline">\(\rightarrow\)</span> Detonar).</em></li>
+<li><strong>O (<em>Output</em> / Saída):</strong> O que o processo gera? <em>(Ex: Minério desmontado).</em></li>
+<li><strong>C (<em>Customer</em> / Cliente):</strong> Quem recebe a saída? <em>(Ex: Operadores de Escavadeira).</em></li>
+</ul>
+</section>
+<section id="sec-fluxograma" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="sec-fluxograma"><span class="header-section-number">5.2.2</span> O Fluxograma</h3>
+<p>Enquanto o SIPOC define as fronteiras, o Fluxograma detalha o caminho. Conforme Castro (2024), é uma representação lógica que utiliza símbolos gráficos padronizados para detalhar a sequência de ações.</p>
+<p>O propósito do fluxograma é ampliar o entendimento do processo de produção mineral (como o ciclo de transporte: <em>Carregar <span class="math inline">\(\rightarrow\)</span> Transportar <span class="math inline">\(\rightarrow\)</span> Bascular <span class="math inline">\(\rightarrow\)</span> Retornar</em>) e apontar áreas que necessitam de padronização (Peinado e Graeml, 2007). Slack (2009) afirma que essa clareza visual é vital para a criação de Procedimentos Operacionais Padrão (POPs).</p>
+</section>
+</section>
+<section id="sec-priorizacao-diagnostico" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="sec-priorizacao-diagnostico"><span class="header-section-number">5.3</span> Ferramentas de Priorização e Diagnóstico</h2>
+<p>Com o processo mapeado, o analista de dados precisa descobrir <em>onde</em> o problema está concentrado e <em>por que</em> ele ocorre.</p>
+<section id="sec-diagrama-pareto" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="sec-diagrama-pareto"><span class="header-section-number">5.3.1</span> Diagrama de Pareto</h3>
+<p>O Diagrama de Pareto é uma das ferramentas mais clássicas e eficazes no controle da qualidade e gestão de ativos. Trata-se de uma representação gráfica que hierarquiza problemas, causas ou perdas de forma decrescente.</p>
+<p>Conforme Campos (2004), esta ferramenta operacionaliza o <strong>Princípio de Pareto (80/20)</strong>, permitindo que gestores alcancem resultados significativos focando em poucas, mas críticas, alavancas. O princípio postula que, em geral, 80% dos efeitos derivam de apenas 20% das causas (Silva, 2009).</p>
+<p>No contexto do <em>Mining Analytics</em>, um valor elevado nas primeiras barras do gráfico indica onde a ineficácia se concentra (Franco et al., 2006). A <a href="#fig-pareto-mining" class="quarto-xref">Figura&nbsp;<span>5.1</span></a> exemplifica esta aplicação utilizando o ambiente R, onde o esforço de manutenção é direcionado para os modos de falha predominantes.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Dados simulados</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df_pareto <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Causa =</span> <span class="fu">c</span>(<span class="st">"Sistema Hidráulico"</span>, <span class="st">"Motor Diesel"</span>, <span class="st">"Pneus"</span>, <span class="st">"Elétrica"</span>, <span class="st">"Material Rodante"</span>, <span class="st">"Cabine"</span>, <span class="st">"Outros"</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Ocorrencias =</span> <span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">85</span>, <span class="dv">40</span>, <span class="dv">25</span>, <span class="dv">15</span>, <span class="dv">10</span>, <span class="dv">5</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(Ocorrencias)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">Acumulado =</span> <span class="fu">cumsum</span>(Ocorrencias),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">Freq_Acumulada =</span> Acumulado <span class="sc">/</span> <span class="fu">sum</span>(Ocorrencias) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">Causa =</span> <span class="fu">factor</span>(Causa, <span class="at">levels =</span> Causa)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Fator de escala para o eixo secundário</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>scale_factor <span class="ot">&lt;-</span> <span class="fu">max</span>(df_pareto<span class="sc">$</span>Ocorrencias) <span class="sc">/</span> <span class="dv">100</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_pareto, <span class="fu">aes</span>(<span class="at">x =</span> Causa)) <span class="sc">+</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">y =</span> Ocorrencias), <span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"#01665e"</span>) <span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Freq_Acumulada <span class="sc">*</span> scale_factor, <span class="at">group =</span> <span class="dv">1</span>), <span class="at">color =</span> <span class="st">"#d4af37"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> Freq_Acumulada <span class="sc">*</span> scale_factor), <span class="at">color =</span> <span class="st">"#d4af37"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">name =</span> <span class="st">"Frequência de Falhas"</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span> . <span class="sc">/</span> scale_factor, <span class="at">name =</span> <span class="st">"Percentual Acumulado (%)"</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y.right =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#d4af37"</span>),</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y.right =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#d4af37"</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output-display">
 <div id="fig-pareto-mining" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -376,43 +512,39 @@ Figura&nbsp;5.1: Diagrama de Pareto aplicado aos modos de falha (Paleta Teal/Gol
 </div>
 </div>
 </section>
+<section id="sec-ishikawa-5porques-gut" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="sec-ishikawa-5porques-gut"><span class="header-section-number">5.3.2</span> Ishikawa, 5 Porquês e Matriz GUT</h3>
+<p>Uma vez que o Gráfico de Pareto indicou onde atuar, utiliza-se o Diagrama de Ishikawa (Espinha de Peixe) para realizar o brainstorming das causas raízes, dividindo-as nos 6M: Máquina, Material, Mão de Obra, Método, Medida e Meio Ambiente.</p>
+<p>Em seguida, aplica-se a Matriz GUT (Gravidade, Urgência e Tendência) para pontuar e priorizar a causa vencedora. Por fim, utiliza-se a técnica dos 5 Porquês para aprofundar a investigação até a anomalia sistêmica original.</p>
 </section>
-<section id="fluxograma" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="fluxograma"><span class="header-section-number">5.2</span> Fluxograma</h2>
-<p>O Fluxograma, conforme Castro (2024), é uma maneira utilizada para representar um processo através de um desenho lógico. É uma ferramenta contendo símbolos gráficos padronizados para detalhar a sequência de ações que compõem um processo, visando facilitar sua compreensão visual.</p>
-<p>O propósito do fluxograma é ampliar o entendimento do processo de produção mineral, demonstrar a execução de atividades a serem realizadas (como o ciclo de transporte: <em>Carregar &gt; Transportar &gt; Bascular &gt; Retornar</em>) e apontar áreas que necessitam de melhoria ou padronização (Peinado e Graeml, 2007). Slack (2009) afirma que o fluxograma de processo esclarece as suas etapas e a interação entre as atividades relacionadas, sendo vital para a definição de Procedimentos Operacionais Padrão (POPs).</p>
 </section>
-<section id="diagrama-de-build-up-waterfall" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="diagrama-de-build-up-waterfall"><span class="header-section-number">5.3</span> Diagrama de Build-up (Waterfall)</h2>
-<p>Perfeito, Rafael. Mantive a integridade total do seu conteúdo técnico, assegurando que nenhuma informação fosse resumida, e apliquei a formatação rigorosa exigida para o seu livro <strong>“Mining Analytics”</strong>.</p>
-<p>Abaixo, o texto está preparado para o Quarto (<code>.qmd</code>), com as fórmulas em LaTeX e o código R configurado para gerar o diagrama com a identidade visual de cabeçalho em Teal e Ouro que você aprovou.</p>
-<section id="sec-jack-knife" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="sec-jack-knife"><span class="header-section-number">5.3.1</span> Diagrama de Jack Knife</h3>
-<p>O método de Jack-Knife foi concebido para ser uma aprimoração do diagrama de Pareto. A premissa básica do desenvolvimento é a adição de uma análise de dois fatores, ou seja, analisa conjuntamente o MTTR e o NIC, enquanto o diagrama de Pareto é capaz de analisar apenas um fator.</p>
-<p>Tipicamente, a utilização do diagrama de Pareto consiste em priorizar, dentre diversas causas, àquelas que representam maior impacto no sistema como um todo. Para exemplificar, a análise de Pareto é frequentemente utilizada para priorizar os setores que mais causaram impacto na etapa de lavra de um processo de mineração. Observa-se que o uso do diagrama de Pareto, isoladamente, leva em consideração apenas um indicador, como as horas de manutenção.</p>
-<p>O diagrama Jack Knife (@fig-jackknife-mining) é uma ferramenta de priorização do tratamento das falhas. O método tem como objetivo associar o NIC (número de intervenções corretivas) e MTTR (tempo médio de reparo), classificando os sistemas em leve, agudo, crônico e crítico (agudo e crônico), conforme a localização no quadrante.</p>
-<section id="definição-de-limites-e-equações" class="level4" data-number="5.3.1.1">
-<h4 data-number="5.3.1.1" class="anchored" data-anchor-id="definição-de-limites-e-equações"><span class="header-section-number">5.3.1.1</span> Definição de Limites e Equações</h4>
-<p>A separação dos quadrantes é dada pelos limites determinados de acordo com o banco de dados existente dos sistemas, utilizando as seguintes equações:</p>
-<p><span id="eq-mttr"><span class="math display">\[
-\mathrm{Limite}_{\mathrm{MTTR}} = \frac{\sum\limits_{i=1}^{k} \mathrm{HMC}_i}{\sum\limits_{i=1}^{k} \mathrm{NIC}_i}
-\tag{5.1}\]</span></span></p>
-<p><span id="eq-nic"><span class="math display">\[
-\mathrm{Limite}_{\mathrm{NIC}} = \frac{\sum\limits_{i=1}^{k} \mathrm{NIC}_i}{k}
-\tag{5.2}\]</span></span></p>
-<p>Onde <span class="math inline">\(k\)</span> é o número de sistemas em análise.</p>
-<p>Os sistemas localizados acima da linha de <span class="math inline">\(\text{Limite}_{\text{MTTR}}\)</span> são os que afetam a mantenabilidade, pois apresentam os maiores tempos de reparos. Já os sistemas à direita da linha de <span class="math inline">\(\text{Limite}_{\text{NIC}}\)</span> são os que afetam a confiabilidade, pois possuem os maiores números de falhas (NIC).</p>
-</section>
-<section id="classificação-por-quadrantes" class="level4" data-number="5.3.1.2">
-<h4 data-number="5.3.1.2" class="anchored" data-anchor-id="classificação-por-quadrantes"><span class="header-section-number">5.3.1.2</span> Classificação por Quadrantes</h4>
-<p>A classificação dos sistemas ocorre conforme a posição em relação aos limites calculados:</p>
-<ul>
-<li><p><strong>Quadrante Leve</strong>: Ocorre quando <span class="math inline">\(\text{NIC}_{\text{Sistema}} &lt; \text{Limite}_{\text{NIC}}\)</span> e <span class="math inline">\(\text{MTTR}_{\text{Sistema}} &lt; \text{Limite}_{\text{MTTR}}\)</span>. Neste quadrante, os sistemas apresentam boa confiabilidade (poucas falhas) e boa mantenabilidade (baixo tempo médio de reparo).</p></li>
-<li><p><strong>Quadrante Crônico</strong>: Ocorre quando <span class="math inline">\(\text{NIC}_{\text{Sistema}} &gt; \text{Limite}_{\text{NIC}}\)</span> e <span class="math inline">\(\text{MTTR}_{\text{Sistema}} &lt; \text{Limite}_{\text{MTTR}}\)</span>. Para estes sistemas, os problemas são repetitivos, incidindo em um alto número de NIC (baixa confiabilidade) mesclada com boa mantenabilidade.</p></li>
-<li><p><strong>Quadrante Agudo</strong>: Ocorre quando <span class="math inline">\(\text{NIC}_{\text{Sistema}} &lt; \text{Limite}_{\text{NIC}}\)</span> e <span class="math inline">\(\text{MTTR}_{\text{Sistema}} &gt; \text{Limite}_{\text{MTTR}}\)</span>. Aqui, a mantenabilidade apresenta ineficiência (reparos longos), embora o sistema possua boa confiabilidade.</p></li>
-<li><p><strong>Quadrante Crítico (Agudo e Crônico)</strong>: Ocorre quando <span class="math inline">\(\text{NIC}_{\text{Sistema}} &gt; \text{Limite}_{\text{NIC}}\)</span> e <span class="math inline">\(\text{MTTR}_{\text{Sistema}} &gt; \text{Limite}_{\text{MTTR}}\)</span>. Estes são os sistemas pouco confiáveis e que apresentam dificuldades em manutenir, exigindo atenção prioritária.</p></li>
-</ul>
+<section id="sec-ferramentas-avancadas" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="sec-ferramentas-avancadas"><span class="header-section-number">5.4</span> Ferramentas Avançadas de Engenharia e Manutenção</h2>
+<p>Para análises de confiabilidade e gestão de horas na mineração, o analista de dados utiliza gráficos específicos para decomposição de tempo e classificação de ativos.</p>
+<section id="sec-diagrama-waterfall" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="sec-diagrama-waterfall"><span class="header-section-number">5.4.1</span> Diagrama de Build-up (Waterfall)</h3>
+<p>O diagrama em cascata (Waterfall ou Build-up) é excelente para demonstrar como o tempo calendário total de um equipamento (ex: 720 horas no mês) é consumido pelas diversas perdas operacionais e de manutenção até chegar nas horas puramente produtivas. A <a href="#fig-waterfall" class="quarto-xref">Figura&nbsp;<span>5.2</span></a> demonstra essa decomposição visualmente através do pacote waterfalls no R.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(waterfalls)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>dados_waterfall <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">category =</span> <span class="fu">c</span>(<span class="st">"Horas Calendário"</span>, <span class="st">"Manutenção Programada"</span>, <span class="st">"Manutenção Corretiva"</span>, <span class="st">"Ociosidade"</span>, <span class="st">"Atrasos Operacionais"</span>, <span class="st">"Horas Produtivas"</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">720</span>, <span class="sc">-</span><span class="dv">80</span>, <span class="sc">-</span><span class="dv">40</span>, <span class="sc">-</span><span class="dv">50</span>, <span class="sc">-</span><span class="dv">30</span>, <span class="dv">520</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">waterfall</span>(dados_waterfall,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">calc_total =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">rect_width =</span> <span class="fl">0.6</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill_by_sign =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill_colours =</span> <span class="fu">c</span>(<span class="st">"#003c30"</span>, <span class="st">"#EA4335"</span>, <span class="st">"#EA4335"</span>, <span class="st">"#FBBC05"</span>, <span class="st">"#FBBC05"</span>, <span class="st">"#35978f"</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Horas"</span>) <span class="sc">+</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output-display">
 <div id="fig-waterfall" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -420,27 +552,68 @@ Figura&nbsp;5.1: Diagrama de Pareto aplicado aos modos de falha (Paleta Teal/Gol
 <img src="cap5-ferramentas_files/figure-html/fig-waterfall-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-waterfall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;5.2: Gráfico de Build-up (Cascata) demonstrando a decomposição das horas.
+Figura&nbsp;5.2: Gráfico de Build-up (Cascata) demonstrando a decomposição das horas de um ativo.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
+<section id="sec-jack-knife" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="sec-jack-knife"><span class="header-section-number">5.4.2</span> Diagrama de Jack-Knife</h3>
+<p>O método de Jack-Knife foi concebido para ser uma aprimoração do diagrama de Pareto (Knights, 2001). A premissa básica é a adição de uma análise de dois fatores, avaliando conjuntamente o Tempo Médio de Reparo (MTTR) e o Número de Intervenções Corretivas (NIC).</p>
+<p>O uso do diagrama de Pareto, isoladamente, leva em consideração apenas um indicador (como o volume de horas paradas). O diagrama Jack Knife (<a href="#fig-jack-knife" class="quarto-xref">Figura&nbsp;<span>5.3</span></a>) é uma ferramenta de priorização do tratamento das falhas que classifica os sistemas em leve, agudo, crônico e crítico.</p>
+<section id="sec-limites-equacoes" class="level4" data-number="5.4.2.1">
+<h4 data-number="5.4.2.1" class="anchored" data-anchor-id="sec-limites-equacoes"><span class="header-section-number">5.4.2.1</span> Definição de Limites e Equações</h4>
+<p>A separação dos quadrantes é dada pelos limites determinados de acordo com o banco de dados dos sistemas, utilizando as seguintes equações matemáticas:</p>
+<p><span id="eq-mttr"><span class="math display">\[\mathrm{Limite}_{\mathrm{MTTR}} = \frac{\sum\limits_{i=1}^{k} \mathrm{HMC}_i}{\sum\limits_{i=1}^{k} \mathrm{NIC}_i} \tag{5.1}\]</span></span></p>
+<p><span id="eq-nic"><span class="math display">\[\mathrm{Limite}_{\mathrm{NIC}} = \frac{\sum\limits_{i=1}^{k} \mathrm{NIC}_i}{k} \tag{5.2}\]</span></span></p>
+<p>Onde <span class="math inline">\(k\)</span> é o número de sistemas em análise e <span class="math inline">\(\mathrm{HMC}\)</span> representa as Horas de Manutenção Corretiva.</p>
+<p>Os sistemas localizados acima da linha de <span class="math inline">\(\mathrm{Limite}_{\mathrm{MTTR}}\)</span> são os que afetam a mantenabilidade. Já os sistemas à direita da linha de <span class="math inline">\(\mathrm{Limite}_{\mathrm{NIC}}\)</span> são os que afetam a confiabilidade.</p>
 </section>
-</section>
-<section id="diagrama-de-jack-knife" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="diagrama-de-jack-knife"><span class="header-section-number">5.4</span> Diagrama de Jack-Knife</h2>
-<p>O método de Jack-Knife foi desenvolvido como uma melhoria do diagrama de Pareto, acrescentando uma análise bidimensional que leva em consideração o <strong>MTTR</strong> (Tempo Médio de Reparo) e o <strong>NIC</strong> (Número de Intervenções Corretivas) simultaneamente (Knights, 2001).</p>
-<p>Diferente do Pareto, que analisa apenas um fator, o Jack-Knife permite classificar os ativos em quadrantes estratégicos para a manutenção:</p>
-<ol type="1">
-<li><p><strong>Coleta de dados:</strong> TTR (<em>Time To Repair</em>) e NIC.</p></li>
-<li><p><strong>Classificação:</strong> Agrupamento por sistema ou componente.</p></li>
-<li><p><strong>Análise dos dados:</strong> Plotagem no gráfico de dispersão (Scatter Plot).</p></li>
-<li><p><strong>Decisão:</strong> Identificação de componentes <strong>Agudos</strong> (Alta frequência, baixo reparo) e <strong>Crônicos</strong> (Baixa frequência, alto reparo).</p></li>
-</ol>
-<p>A @fig-jack-knife exibe essa correlação. Os sistemas posicionados no quadrante superior direito são os mais críticos, pois falham muito e demoram a ser reparados, impactando severamente a disponibilidade física.</p>
+<section id="sec-classificacao-quadrantes" class="level4" data-number="5.4.2.2">
+<h4 data-number="5.4.2.2" class="anchored" data-anchor-id="sec-classificacao-quadrantes"><span class="header-section-number">5.4.2.2</span> Classificação por Quadrantes</h4>
+<p>A classificação dos sistemas ocorre conforme a posição em relação aos limites calculados:</p>
+<ul>
+<li><strong>Quadrante Leve:</strong> Ocorre quando <span class="math inline">\(\mathrm{NIC} &lt; \mathrm{Limite}_{\mathrm{NIC}}\)</span> e <span class="math inline">\(\mathrm{MTTR} &lt; \mathrm{Limite}_{\mathrm{MTTR}}\)</span>. Apresentam boa confiabilidade e boa mantenabilidade.</li>
+<li><strong>Quadrante Crônico:</strong> Ocorre quando <span class="math inline">\(\mathrm{NIC} &gt; \mathrm{Limite}_{\mathrm{NIC}}\)</span> e <span class="math inline">\(\mathrm{MTTR} &lt; \mathrm{Limite}_{\mathrm{MTTR}}\)</span>. Problemas repetitivos (baixa confiabilidade) com reparos rápidos.</li>
+<li><strong>Quadrante Agudo:</strong> Ocorre quando <span class="math inline">\(\mathrm{NIC} &lt; \mathrm{Limite}_{\mathrm{NIC}}\)</span> e <span class="math inline">\(\mathrm{MTTR} &gt; \mathrm{Limite}_{\mathrm{MTTR}}\)</span>. Mantenabilidade ineficiente (reparos longos), mas com poucas falhas.</li>
+<li><strong>Quadrante Crítico (Agudo e Crônico):</strong> Ocorre quando <span class="math inline">\(\mathrm{NIC} &gt; \mathrm{Limite}_{\mathrm{NIC}}\)</span> e <span class="math inline">\(\mathrm{MTTR} &gt; \mathrm{Limite}_{\mathrm{MTTR}}\)</span>. São os sistemas pouco confiáveis e difíceis de reparar, exigindo atenção prioritária da engenharia.</li>
+</ul>
 <div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Dados simulados</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>dados_jk <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Sistema =</span> <span class="fu">c</span>(<span class="st">"Motor"</span>, <span class="st">"Transmissão"</span>, <span class="st">"Pneus"</span>, <span class="st">"Freios"</span>, <span class="st">"Suspensão"</span>, <span class="st">"Elétrica"</span>, <span class="st">"Arrefecimento"</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Num_Falhas =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">10</span>, <span class="dv">80</span>, <span class="dv">25</span>, <span class="dv">15</span>, <span class="dv">60</span>, <span class="dv">35</span>), <span class="co"># NIC (Confiabilidade Inversa)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">MTTR =</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">48</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">24</span>, <span class="dv">4</span>, <span class="dv">15</span>) <span class="co"># Mantenabilidade</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Limites (Médias)</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>limite_falhas <span class="ot">&lt;-</span> <span class="fu">mean</span>(dados_jk<span class="sc">$</span>Num_Falhas)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>limite_mttr <span class="ot">&lt;-</span> <span class="fu">mean</span>(dados_jk<span class="sc">$</span>MTTR)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dados_jk, <span class="fu">aes</span>(<span class="at">x =</span> Num_Falhas, <span class="at">y =</span> MTTR, <span class="at">label =</span> Sistema)) <span class="sc">+</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> limite_mttr, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"#d4af37"</span>) <span class="sc">+</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> limite_falhas, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"#d4af37"</span>) <span class="sc">+</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> (Num_Falhas <span class="sc">&gt;</span> limite_falhas <span class="sc">&amp;</span> MTTR <span class="sc">&gt;</span> limite_mttr)), <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#35978f"</span>, <span class="st">"#EA4335"</span>)) <span class="sc">+</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text_repel</span>(<span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="fl">3.5</span>) <span class="sc">+</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fu">max</span>(dados_jk<span class="sc">$</span>Num_Falhas), <span class="at">y =</span> <span class="fu">max</span>(dados_jk<span class="sc">$</span>MTTR),</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">label =</span> <span class="st">"CRÍTICO</span><span class="sc">\n</span><span class="st">(Agudo + Crônico)"</span>, <span class="at">color =</span> <span class="st">"#EA4335"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">vjust =</span> <span class="dv">1</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"Número de Intervenções (NIC)"</span>,</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"Tempo Médio de Reparo (MTTR em horas)"</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output-display">
 <div id="fig-jack-knife" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -456,6 +629,8 @@ Figura&nbsp;5.3: Diagrama Jack-Knife: Correlacionando Confiabilidade (Eixo X) e 
 </div>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

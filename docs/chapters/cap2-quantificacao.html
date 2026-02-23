@@ -174,7 +174,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/cap3-gestao-qualidade.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gestão da Qualidade e o Método</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">cap3-gestao-qualidade.html</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -390,13 +390,24 @@ window.Quarto = {
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="sec-arm-uni"><span class="header-section-number">2.2.1</span> O Modelo Unidimensional (Nível Único)</h3>
 <p>A equação base do ARM, em sua forma <strong>unidimensional</strong>, é aplicável quando lidamos com uma lista direta de variáveis, sem agrupamentos hierárquicos. É expressa pela soma ponderada do desempenho de cada característica:</p>
 <p><span id="eq-arm-uni"><span class="math display">\[ARM = \sum_{i=1}^{n} (W_i \times S_i) \tag{2.1}\]</span></span></p>
-<p>Onde: * <span class="math inline">\(n\)</span> é o número total de variáveis avaliadas. * <span class="math inline">\(W_i\)</span> (<em>Weight</em>): é o peso de importância atribuído à variável <span class="math inline">\(i\)</span>, tal que a soma de todos os pesos seja igual a <span class="math inline">\(1,0\)</span> (ou <span class="math inline">\(100\%\)</span>). * <span class="math inline">\(S_i\)</span> (<em>Score</em>): é a nota de desempenho (conformidade) alcançada pela variável <span class="math inline">\(i\)</span>, medida em uma escala padronizada (ex: 0 a 10).</p>
+<p>Onde:</p>
+<ul>
+<li><span class="math inline">\(n\)</span> é o número total de variáveis avaliadas.</li>
+<li><span class="math inline">\(W_i\)</span> (<em>Weight</em>): É o peso de importância atribuído à variável <span class="math inline">\(i\)</span>, tal que a soma de todos os pesos seja igual a <span class="math inline">\(1,0\)</span> (ou <span class="math inline">\(100\%\)</span>).</li>
+<li><span class="math inline">\(S_i\)</span> (<em>Score</em>): É a nota de desempenho (conformidade) alcançada pela variável <span class="math inline">\(i\)</span>, medida em uma escala padronizada (ex: 0 a 10).</li>
+</ul>
 </section>
 <section id="sec-arm-bi" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="sec-arm-bi"><span class="header-section-number">2.2.2</span> O Modelo Bidimensional (Múltiplos Níveis)</h3>
 <p>Na prática industrial, atributos soltos precisam ser agrupados em dimensões maiores (ex: Qualidade Física, Eficiência Logística). A função expande-se para uma forma <strong>bidimensional</strong>, considerando dois níveis hierárquicos (a Dimensão e as Variáveis contidas nela):</p>
 <p><span id="eq-arm-bi"><span class="math display">\[ARM = \sum_{j=1}^{m} \left[ W_{D_j} \times \left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right) \right] \tag{2.2}\]</span></span></p>
-<p>Onde: * <span class="math inline">\(m\)</span> é o número de dimensões (<span class="math inline">\(D_j\)</span>) que compõem o modelo. * <span class="math inline">\(W_{D_j}\)</span> é o peso de importância da dimensão <span class="math inline">\(j\)</span> no contexto global. * <span class="math inline">\(n_j\)</span> é o número de variáveis (<span class="math inline">\(V_i\)</span>) dentro da respectiva dimensão <span class="math inline">\(j\)</span>. * <span class="math inline">\(W_{V_i}\)</span> e <span class="math inline">\(S_{V_i}\)</span> representam o peso e o <em>score</em> da variável <span class="math inline">\(i\)</span> dentro de sua dimensão.</p>
+<p>Onde:</p>
+<ul>
+<li><span class="math inline">\(m\)</span> é o número de dimensões (<span class="math inline">\(D_j\)</span>) que compõem o modelo.</li>
+<li><span class="math inline">\(W_{D_j}\)</span> é o peso de importância da dimensão <span class="math inline">\(j\)</span> no contexto global.</li>
+<li><span class="math inline">\(n_j\)</span> é o número de variáveis (<span class="math inline">\(V_i\)</span>) dentro da respectiva dimensão <span class="math inline">\(j\)</span>.</li>
+<li><span class="math inline">\(W_{V_i}\)</span> e <span class="math inline">\(S_{V_i}\)</span> representam o peso e o <em>score</em> da variável <span class="math inline">\(i\)</span> dentro de sua dimensão.</li>
+</ul>
 </section>
 <section id="sec-ponte-normativa" class="level3" data-number="2.2.3">
 <h3 data-number="2.2.3" class="anchored" data-anchor-id="sec-ponte-normativa"><span class="header-section-number">2.2.3</span> A Ponte Normativa: Associando o ARM à ISO 9000</h3>
@@ -459,7 +470,12 @@ Tabela&nbsp;2.1: Evolução do Conceito de Qualidade: Da Filosofia à Matemátic
 <li><strong>Parametrização de Desempenho (<span class="math inline">\(S_i\)</span>):</strong> Padronizar grandezas físicas em notas de 0 a 10.</li>
 <li><strong>Consolidação Matemática:</strong> Rodar as equações do <span class="math inline">\(ARM\)</span>.</li>
 </ol>
-<p>A ordem em que executamos esses passos define a <strong>Abordagem de Modelagem</strong>: * <strong>Bottom-up (De baixo para cima):</strong> Exploratória. Gera-se uma ampla lista de variáveis soltas (<span class="math inline">\(V_i\)</span>) para só então agrupá-las em dimensões (<span class="math inline">\(D_j\)</span>). * <strong>Top-down (De cima para baixo):</strong> Estruturada. A diretoria ou o mercado impõe as grandes Dimensões (ex: “Sustentabilidade”), e a engenharia “desce” para descobrir as Variáveis operacionais que as compõem. * <strong>Middle-out (Do meio para as pontas):</strong> Dinâmica. Escolhe-se um nível médio de partida e trabalha-se simultaneamente detalhando variáveis e quantificando dimensões.</p>
+<p>A ordem em que executamos esses passos define a <strong>Abordagem de Modelagem</strong>:</p>
+<ul>
+<li><strong>Bottom-up (De baixo para cima):</strong> Exploratória. Gera-se uma ampla lista de variáveis soltas (<span class="math inline">\(V_i\)</span>) para só então agrupá-las em dimensões (<span class="math inline">\(D_j\)</span>).</li>
+<li><strong>Top-down (De cima para baixo):</strong> Estruturada. A diretoria ou o mercado impõe as grandes Dimensões (ex: “Sustentabilidade”), e a engenharia “desce” para descobrir as Variáveis operacionais que as compõem.</li>
+<li><strong>Middle-out (Do meio para as pontas):</strong> Dinâmica. Escolhe-se um nível médio de partida e trabalha-se simultaneamente detalhando variáveis e quantificando dimensões.</li>
+</ul>
 <section id="sec-experimento-generais" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="sec-experimento-generais"><span class="header-section-number">2.3.1</span> O Experimento dos Generais: Da Subjetividade à Medição</h3>
 <p>Retomemos a afirmação: <em>“Napoleão Bonaparte tinha todas as qualidades de um grande general”</em>.</p>
@@ -472,12 +488,18 @@ Tabela&nbsp;2.1: Evolução do Conceito de Qualidade: Da Filosofia à Matemátic
 <p>Para demonstrar a força do método ARM, vamos transformar o texto histórico dos 6 maiores generais em uma matriz quantitativa rigorosa. Aplicaremos os cinco passos da modelagem para descobrir, matematicamente, quem obteve o maior índice global de excelência.</p>
 <p><strong>Passo 1 e 2: Identificação das Variáveis (<span class="math inline">\(V_i\)</span>) e Consolidação em Dimensões</strong> A partir da análise estruturada dos relatos históricos (mineração de texto), extraímos as características comuns que definem o sucesso ou a falha de um comandante e as agrupamos em quatro grandes variáveis independentes:</p>
 <ul>
-<li><strong><span class="math inline">\(V_1\)</span>: Estratégia e Adaptabilidade</strong> (Táticas de guerrilha, leitura de campo, inovações e manobras ousadas).</li>
-<li><strong><span class="math inline">\(V_2\)</span>: Logística e Suprimentos</strong> (Velocidade de mobilização, invenções como comida enlatada, capacidade de operar com recursos inadequados).</li>
-<li><strong><span class="math inline">\(V_3\)</span>: Liderança Multidisciplinar</strong> (Capacidade de comandar tropas multiculturais e multilíngues, carisma e lealdade).</li>
-<li><strong><span class="math inline">\(V_4\)</span>: Visão Sistêmica e Política</strong> (Pressão diplomática, alinhamento institucional, subordinação e impacto cultural de longo prazo).</li>
+<li><strong><span class="math inline">\(V_1\)</span>: Estratégia e Adaptabilidade</strong> Táticas de guerrilha, leitura de campo, inovações e manobras ousadas.</li>
+<li><strong><span class="math inline">\(V_2\)</span>: Logística e Suprimentos</strong> Velocidade de mobilização, invenções como comida enlatada, capacidade de operar com recursos inadequados.</li>
+<li><strong><span class="math inline">\(V_3\)</span>: Liderança Multidisciplinar</strong> Capacidade de comandar tropas multiculturais e multilíngues, carisma e lealdade.</li>
+<li><strong><span class="math inline">\(V_4\)</span>: Visão Sistêmica e Política</strong> Pressão diplomática, alinhamento institucional, subordinação e impacto cultural de longo prazo.</li>
 </ul>
-<p><strong>Passo 3: Calibragem de Relevância (<span class="math inline">\(W_i\)</span>)</strong> Utilizando uma abordagem <em>Top-down</em>, o “Estado-Maior” (nossa diretoria fictícia) definiu os pesos de importância de cada variável para o sucesso de uma guerra. A soma deve ser obrigatoriamente 1,0 (100%): * <span class="math inline">\(W_1\)</span> (Estratégia): <strong>0,40</strong> (40%) * <span class="math inline">\(W_2\)</span> (Logística): <strong>0,25</strong> (25%) * <span class="math inline">\(W_3\)</span> (Liderança): <strong>0,20</strong> (20%) * <span class="math inline">\(W_4\)</span> (Política): <strong>0,15</strong> (15%)</p>
+<p><strong>Passo 3: Calibragem de Relevância (<span class="math inline">\(W_i\)</span>)</strong> Utilizando uma abordagem <em>Top-down</em>, o “Estado-Maior” (nossa diretoria fictícia) definiu os pesos de importância de cada variável para o sucesso de uma guerra. A soma deve ser obrigatoriamente 1,0 (100%):</p>
+<ul>
+<li><span class="math inline">\(W_1\)</span> (Estratégia): <strong>0,40</strong> (40%)</li>
+<li><span class="math inline">\(W_2\)</span> (Logística): <strong>0,25</strong> (25%)</li>
+<li><span class="math inline">\(W_3\)</span> (Liderança): <strong>0,20</strong> (20%)</li>
+<li><span class="math inline">\(W_4\)</span> (Política): <strong>0,15</strong> (15%)</li>
+</ul>
 <p><strong>Passo 4: Parametrização de Desempenho (<span class="math inline">\(S_i\)</span>)</strong> Avaliamos o desempenho histórico de cada general frente a essas variáveis, atribuindo uma nota técnica de 0 a 10:</p>
 <ul>
 <li><strong>Napoleão:</strong> Excelência absoluta em Logística (<span class="math inline">\(S_2=10\)</span>, sistemas de corpos e enlatados) e Política (<span class="math inline">\(S_4=10\)</span>, imperador e diplomata).</li>
@@ -1115,8 +1137,8 @@ Tabela&nbsp;2.3: Avaliação ARM – Caso PPCJ
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/cap3-gestao-qualidade.html" class="pagination-link" aria-label="Gestão da Qualidade e o Método">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gestão da Qualidade e o Método</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/cap3-gestao-qualidade.html" class="pagination-link" aria-label="cap3-gestao-qualidade.html">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">cap3-gestao-qualidade.html</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
