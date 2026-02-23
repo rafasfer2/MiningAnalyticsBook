@@ -1,5 +1,261 @@
 ---
-title: "Controle por Diretrizes e Gestão Estratégica"
+title: "Gestão da Qualidade e o Método"
 format: html
 ---
 
+# Gestão da Qualidade e o Método {#sec-cap3}
+
+A busca pela excelência operacional na mineração exige métodos estruturados que permitam medir a discrepância entre o planejamento (*target*) e o desempenho real. Este capítulo aborda as bases da Gestão da Qualidade, conectando a teoria clássica de Juran às ferramentas de melhoria contínua aplicadas ao *Mining Analytics*.
+
+## O Motor da Gestão: A Trilogia de Juran (Passo 8) {#sec-trilogia-juran}
+
+A gestão focada na qualidade dos processos é sustentada por três pilares fundamentais conhecidos como a **Trilogia de Juran**. Esta metodologia fornece o mapa para a transição entre a estabilidade operacional e o salto de performance.
+
+A @fig-juran-trilogy ilustra a dinâmica entre os três processos:
+
+* **Planejamento da Qualidade:** Fase associada à definição do custo da baixa qualidade e ao estabelecimento de limites alvo e especificações técnicas.
+* **Controle da Qualidade:** Durante a operação, a "Zona Original de Controle" monitora desvios e picos esporádicos. No *Mining Analytics*, esta fase é onde a telemetria e os pacotes de R atuam para identificar variações fora do padrão.
+* **Melhoria da Qualidade:** Acionada pelo diagnóstico de problemas via ferramentas baseadas no ciclo **PDCA**. Quando as ações resultam em melhorias eficazes — como a redução da variabilidade ou o aprimoramento de indicadores — ocorre a padronização e a definição de um novo patamar de controle (*New Target*).
+
+![Diagrama da Trilogia Juran](../images/fig-juran-trilogy.png){#fig-juran-trilogy fig-align="center"}
+
+A avaliação final da qualidade visa medir o alinhamento desses indicadores com os objetivos estratégicos da organização mineira.
+
+::: {.callout-tip title="💡 INSIGHT OPERACIONAL"}
+Na prática da mineração, o "Pico Esporádico" de Juran pode ser a quebra inesperada da frota de caminhões fora de estrada em um dia de chuva, reduzindo a massa transportada. O Controle detecta a falha, mas é a fase de Melhoria (via PDCA) que vai investigar se o problema foi drenagem da pista, falha mecânica ou erro de operação.
+:::
+
+### O Paralelo: O Mapa de Juran e a Modelagem Analítica
+
+Embora a Trilogia de Juran tenha sido formulada no século XX, seu roteiro original de "Planejamento da Qualidade" (composto por 9 passos) continua sendo o alicerce da engenharia de processos. A grande diferença contemporânea é a capacidade de quantificar matematicamente etapas que antes eram apenas conceituais.
+
+No Capítulo 2 desta obra, detalhamos a **Modelagem Analítica de Requisitos (ARM)**. Aquela estrutura matemática é, na prática, a execução rigorosa e moderna dos passos clássicos de Juran.
+
+A @tbl-paralelo-juran demonstra como a teoria de Juran se conecta com as ferramentas de modelagem que construímos anteriormente:
+
+```{r}
+#| label: tbl-paralelo-juran
+#| tbl-cap: "Paralelo entre o Mapa de Planejamento de Juran e a Modelagem Analítica de Requisitos (ARM)."
+#| echo: false
+#| message: false
+#| warning: false
+
+library(knitr)
+library(kableExtra)
+
+df_juran <- data.frame(
+    Passo = c("1 e 2", "3", "4 e 5", "6 e 7", "8 e 9"),
+    Juran = c(
+        "Identificar os clientes (internos/externos) e determinar suas necessidades reais.",
+        "Traduzir as necessidades para a linguagem técnica da empresa.",
+        "Desenvolver o produto e otimizar suas características.",
+        "Desenvolver o processo capaz de produzir as características e otimizá-lo.",
+        "Provar a capacidade do processo e transferi-lo para a Operação (Controle)."
+    ),
+    Aplicacao = c(
+        "Levantamento exploratório das variáveis (Abordagem Bottom-up ou Top-down).",
+        "Consolidação das variáveis soltas ($V_i$) em grandes Dimensões de Gestão ($D_j$).",
+        "Cálculo do ARM, utilizando matrizes (ex: Mudge) para calibrar os pesos ($W_i$).",
+        "Parametrização do Desempenho ($S_i$) através de Funções de Valor e Metas SMART.",
+        "Produção (Conformação) e início da Zona de Controle da Qualidade operacional."
+    )
+)
+
+df_juran %>%
+    kable(
+        col.names = c("Passos", "O Mapa de Juran (Teoria Clássica)", "A Modelagem Analítica (ARM - Cap 2)"),
+        align = "cll",
+        booktabs = TRUE
+    ) %>%
+    kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE, font_size = 14) %>%
+    column_spec(1, bold = TRUE, width = "1.5cm") %>%
+    column_spec(2, width = "6.5cm", background = "#f9f9f9") %>%
+    column_spec(3, width = "8.5cm", border_left = TRUE) %>%
+    row_spec(0, background = "#2c3e50", color = "white", bold = TRUE)
+```
+
+Essa correlação evidencia que o "Planejamento" termina quando o Passo 9 é atingido e a equipe de engenharia entrega a equação do ARM parametrizada para o chão de fábrica executar. Neste momento, o processo entra na Zona de Controle.
+
+É apenas quando a Qualidade de Conformação falha e o controle detecta um "Pico Esporádico" que a organização é forçada a acionar a terceira perna da trilogia: a Melhoria da Qualidade, operada por meio do ciclo PDCA.
+
+## O Caminho da Solução: PDCA e MASP (Passo 9) {#sec-caminho-solucao}
+
+O ciclo PDCA, como uma metodologia para melhoria, é uma ferramenta simples que promove alterações graduais no processo, impulsionando assim o desenvolvimento da empresa. O ciclo, conforme apresentado na @fig-ciclo-pdca, é dividido em etapas de planejamento (PLAN), execução (DO), verificação (CHECK) e ação (ACT).
+
+![Detalhamento do Ciclo PDCA](../images/fig-ciclo-pdca.png){#fig-ciclo-pdca fig-align="center"}
+
+::: {.callout-note title="📌 DEFINIÇÃO NORMATIVA"}
+De acordo com Mendes (2007), o ciclo PDCA é um método estruturado para a melhoria contínua dos processos nas organizações, dividido nas seguintes etapas:
+
+* **PLAN (Planejar):** Definir a situação atual, estabelecer metas mensuráveis e estratégias para alcançá-las.
+* **DO (Executar):** Iniciar o processo, educar/treinar os envolvidos e implementar as estratégias definidas.
+* **CHECK (Verificar):** Analisar e comparar os resultados obtidos contra os padrões esperados (metas).
+* **ACT (Agir/Padronizar):** Tomar ações corretivas ou padronizar a melhoria com base na verificação dos resultados.
+:::
+
+Para que essas etapas sejam realizadas com eficácia, é essencial que as subetapas sejam definidas com precisão. É importante destacar que a etapa de planejamento (PLAN) exige o maior rigor e dedicação de tempo do projeto. A identificação e priorização das métricas proporcionarão uma investigação aprofundada das causas dos problemas, embasando as propostas de mudança em métodos estruturados.
+
+::: {.callout-warning title="⚠️ ARMADILHA DE ENGENHARIA"}
+O erro mais comum em projetos de melhoria é a "Miopia de Ação": a equipe pular a fase de Planejamento (P) e ir direto para a Execução (D). Implementar soluções baseadas em "achismos" e não em dados estratificados consome recursos financeiros da empresa e, na esmagadora maioria das vezes, ataca apenas o sintoma, permitindo que a falha real retorne no mês seguinte.
+:::
+
+## Fases e Atividades do Ciclo PDCA (MASP)
+
+A tabela a seguir consolida a estrutura metodológica e o cronograma do projeto, servindo como a principal ferramenta de controle e auditoria das etapas — o Método de Análise e Solução de Problemas (MASP). A coluna *Status* é destinada ao acompanhamento qualitativo da evolução das tarefas.
+
+```{r}
+#| label: tbl-atividades-pdca-detalhada
+#| tbl-cap: "Detalhamento das fases, etapas e atividades do MASP/PDCA aplicadas à gestão na mineração."
+#| echo: false
+#| message: false
+#| warning: false
+
+library(knitr)
+library(kableExtra)
+library(dplyr)
+
+df_pdca <- data.frame(
+    Fases = c(rep("P", 13), rep("D", 3), rep("C", 2), rep("A", 3)),
+    Etapas = c(
+        rep("Identificação do problema", 3), rep("Análise do Fenômeno", 3),
+        rep("Análise do Processo", 3), rep("Estabelecimento do Plano de Ação", 4),
+        rep("Execução do Plano de Ação", 3), rep("Verificação dos Resultados", 2),
+        rep("Padronização", 3)
+    ),
+    Atividades = c(
+        "Identificação das prioridades", "Estabelecimento da meta do projeto", "Quantificação dos ganhos do projeto",
+        "Estratificação do problema", "Estudo das variações", "Definição das metas específicas",
+        "Levantamento das causas potenciais", "Priorização das causas potenciais", "Quantificação das causas priorizadas",
+        "Levantamento das possíveis soluções", "Priorização das possíveis soluções", "Realização de teste piloto (se necessário)", "Estabelecimento do plano de ação",
+        "Comunicação do plano de ação", "Realização de treinamentos dos envolvidos", "Implantação e acompanhamento do plano de ação",
+        "Verificação do alcance da meta geral e das metas específicas", "Quantificação dos ganhos do projeto",
+        "Padronização das novas atividades", "Implantação de plano para monitoramento do processo", "Implantação de plano de ações corretivas"
+    )
+)
+
+cores_id <- case_when(
+    df_pdca$Fases == "P" & df_pdca$Etapas == "Identificação do problema" ~ "#174EA6",
+    df_pdca$Fases == "P" & df_pdca$Etapas == "Análise do Fenômeno" ~ "#4285F4",
+    df_pdca$Fases == "P" & df_pdca$Etapas == "Análise do Processo" ~ "#1A73E8",
+    df_pdca$Fases == "P" & df_pdca$Etapas == "Estabelecimento do Plano de Ação" ~ "#8AB4F8",
+    df_pdca$Fases == "D" ~ "#FBBC05",
+    df_pdca$Fases == "C" ~ "#EA4335",
+    df_pdca$Fases == "A" ~ "#34A853",
+    TRUE ~ "white"
+)
+
+texto_cor <- ifelse(cores_id %in% c("#FBBC05", "#8AB4F8"), "black", "white")
+
+df_pdca %>%
+    kable(
+        col.names = c("Fases", "Etapas", "Atividades"),
+        align = "cll",
+        booktabs = TRUE
+    ) %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, font_size = 13) %>%
+    column_spec(1, bold = TRUE, color = texto_cor, background = cores_id, width = "0.7cm") %>%
+    column_spec(2, bold = TRUE, color = texto_cor, background = cores_id, width = "6.5cm") %>%
+    column_spec(3, width = "12cm", background = "white", color = "black") %>%
+    row_spec(0, background = "#35978f", color = "white", bold = TRUE) %>%
+    collapse_rows(columns = 1:2, valign = "middle")
+```
+
+### Análise do Fluxo Metodológico
+
+Conforme observado na tabela executiva, o ciclo inicia-se na **Identificação do Problema**, onde a definição das prioridades e a meta global servem de base para as atividades seguintes. Na **Análise do Fenômeno**, ocorre a estratificação dos dados e o estudo das variações, permitindo que a pesquisa tome forma sobre os principais KPIs a serem utilizados.
+
+::: {.callout-important title="🛠️ LABORATÓRIO DE ENGENHARIA: Fase 1 (Identificação do Problema)"}
+**Mão na massa:** Chegou a hora de iniciar o seu projeto aplicado.
+Para esta etapa, crie um documento contendo:
+
+1. **Termo de Abertura (TAP):** Nome do projeto, justificativa (por que este problema afeta a operação?), objetivos SMART e restrições.
+2. **Matriz de Responsabilidades (RACI):** Quem executa, aprova, é consultado e informado.
+3. **Definição do *Gap*:** Construa um comparativo gráfico entre o Indicador Real x Planejado. O "problema" do seu projeto será a diferença métrica entre esses dois valores.
+:::
+
+### O Mapeamento de Fronteiras: O Sistema de Produção e a Matriz SIPOC {#sec-sipoc}
+
+Antes de mergulhar nas causas de um problema usando o Pareto ou o Ishikawa, a equipe de engenharia precisa garantir que todos compreendam o fluxo macro do processo e as suas fronteiras. O maior erro de um projeto de melhoria é a equipe não saber onde o processo começa e onde ele termina, correndo o risco de tentar "abraçar o mundo".
+
+Para delimitar esse escopo, utilizamos a visão clássica do **Sistema de Produção**. Conforme ilustrado na @fig-sistema-producao, todo processo é um conjunto de atividades estruturadas que recebem entradas, aplicam uma metodologia de transformação utilizando recursos (pessoas, instalações, tecnologia) e geram saídas (produtos ou serviços), interagindo o tempo todo com variáveis ambientais e de segurança.
+
+![Visão Estrutural do Sistema de Produção](../images/image_88aa45.png){#fig-sistema-producao fig-align="center"}
+
+No método MASP, essa visão estrutural é operacionalizada pela ferramenta **SIPOC**, um acrônimo que padroniza o mapeamento de qualquer processo na operação mineral:
+
+* **S (*Supplier* / Fornecedor):** Quem fornece os insumos ou informações para o processo iniciar? *(Ex: Equipe de Topografia e Planejamento de Mina).*
+* **I (*Input* / Entrada):** Quais são os "Recursos a serem transformados" fornecidos? *(Ex: Malha de perfuração e plano de fogo).*
+* **P (*Process* / Processo):** Quais são as macroatividades da "Metodologia de Processamento" (limitado a 5 ou 6 passos)? *(Ex: Posicionar perfuratriz $\rightarrow$ Furar $\rightarrow$ Carregar explosivo $\rightarrow$ Detonar).*
+* **O (*Output* / Saída):** O que o processo efetivamente gera na "Saída"? *(Ex: Minério desmontado com granulometria específica).*
+* **C (*Customer* / Cliente):** Quem recebe essa saída? *(Ex: Equipe de Carregamento / Operadores de Escavadeira).*
+
+::: {.callout-note title="💡 INSIGHT OPERACIONAL"}
+Na mineração, construir o SIPOC resolve 50% dos conflitos entre departamentos durante a fase de planejamento de um projeto. Ele deixa claro visualmente que se a Topografia (*Supplier*) entregar uma malha inadequada (*Input*), a detonação (*Process*) vai gerar matacões (*Output*), prejudicando a produtividade da escavadeira (*Customer*). O SIPOC define a responsabilidade de ponta a ponta e blinda as fronteiras do seu Termo de Abertura (TAP).
+:::
+
+### Análise do Processo: Ishikawa, 5 Porquês e Matriz GUT
+
+Uma vez que o Gráfico de Pareto indicou *onde* o problema está concentrado, a fase passa para a **Análise do Processo**, que visa responder *por que* o problema ocorre.
+
+A ferramenta primária é o **Diagrama de Ishikawa** (também conhecido como Diagrama de Espinha de Peixe ou Causa e Efeito). Ele organiza o *Brainstorming* da equipe classificando as possíveis origens do problema em seis categorias clássicas (os 6M):
+
+1. **Máquina:** Falhas no equipamento ou manutenção inadequada.
+2. **Material:** Insumos fora de especificação ou peças de má qualidade.
+3. **Mão de Obra:** Falta de treinamento, desatenção ou fadiga do operador.
+4. **Método:** Procedimentos operacionais (POPs) falhos ou inexistentes.
+5. **Medida:** Erros de calibração em sensores ou indicadores mal calculados.
+6. **Meio Ambiente:** Condições externas (chuva na mina, poeira, temperatura).
+
+::: {.callout-tip title="💡 INSIGHT OPERACIONAL"}
+Um erro comum é preencher o Ishikawa com "Falta de..." (ex: falta de treinamento, falta de peça). A falta de algo é uma solução ausente, não uma causa. A equipe deve descrever a anomalia real (ex: "Treinamento desatualizado para o modelo 793D" ou "Peça sofreu desgaste abrasivo prematuro").
+:::
+
+Com o diagrama preenchido, a equipe utiliza a **Matriz GUT** (Gravidade, Urgência e Tendência) para pontuar as causas e priorizar qual braço do diagrama será atacado primeiro.
+
+Finalmente, para a causa vencedora da matriz GUT, aplica-se a técnica dos **5 Porquês**. A equipe deve perguntar o motivo do problema sucessivas vezes até ultrapassar os sintomas superficiais e atingir a verdadeira causa raiz (a anomalia sistêmica que, se removida, impede que o problema volte a acontecer).
+
+::: {.callout-important title="🛠️ LABORATÓRIO DE ENGENHARIA: Fase 3 (Análise do Processo)"}
+**Mão na massa: (Tarefa 06)**
+1. **Ishikawa (6M):** Reúna sua equipe e faça um *Brainstorming* para mapear as possíveis causas do problema que venceu no seu Gráfico de Pareto.
+2. **Priorização (GUT):** Utilize a Matriz GUT para decidir, de forma técnica e fria, quais causas mapeadas no Ishikawa serão efetivamente atacadas.
+3. **Os 5 Porquês:** Aplique a técnica para a causa prioritária. Garanta que o plano de ação não foque em sintomas, mas sim na origem do problema.
+:::
+
+## O Chão de Fábrica e Ativos (Passo 10) {#sec-chao-de-fabrica}
+
+Nenhuma equação de qualidade ou modelagem estatística se sustenta na prática sem os dois pilares físicos e fundamentais da operação industrial: **as pessoas e as máquinas**. O Passo 10 da nossa trilha de excelência garante que, uma vez que o método de solução de problemas (MASP) tenha sido desenhado na engenharia, ele seja executado com precisão e sustentado pelas engrenagens de campo.
+
+### O Engajamento Humano: Círculos de Controle da Qualidade (CCQ)
+
+Historicamente, a mineração possuía uma gestão rigidamente vertical (comando e controle), onde a engenharia pensava e a operação apenas executava. O moderno *Mining Analytics* prova que essa barreira é disfuncional. Quem conhece a verdadeira "dor" do processo e os pequenos desvios não reportados não é o analista sentado no escritório, mas o operador dentro da cabine da escavadeira.
+
+Para transformar essa experiência empírica em dados técnicos, a Gestão da Qualidade utiliza os **Círculos de Controle da Qualidade (CCQ)**.
+
+O CCQ é um grupo voluntário de trabalhadores da mesma área que se reúne regularmente para identificar, analisar e solucionar problemas que afetam seus processos ou a qualidade do produto. A grande força dessa ferramenta é a inversão da abordagem hierárquica: a melhoria nasce de baixo para cima (*Bottom-up*).
+
+#### Benefícios Diretos do CCQ na Mineração:
+* **Detecção Precoce:** Os operadores costumam perceber mudanças sutis de som, vibração ou temperatura nos equipamentos semanas antes de um sensor emitir um alarme catastrófico.
+* **Soluções de Baixo Custo:** Por estarem na linha de frente, as soluções propostas pelos círculos tendem a ser adaptações mecânicas criativas e baratas, em oposição às reestruturações milionárias propostas pelas diretorias.
+* **Mudança de Cultura:** O colaborador deixa de ser um "apertador de botão" e passa a ser o dono do seu processo (sentimento de pertencimento e valorização).
+
+::: {.callout-important title="🛠️ LABORATÓRIO DE ENGENHARIA: Dinâmica do CCQ"}
+**Como estruturar um Círculo:**
+1. **Treinamento Básico:** Capacite os operadores da linha de frente nas 7 Ferramentas Básicas (Pareto, Ishikawa, 5 Porquês). Eles precisam falar a mesma linguagem da engenharia.
+2. **Tempo Dedicado:** O grupo deve ter de 1 a 2 horas semanais, durante o expediente, liberadas e pagas pela empresa para debater problemas. Reuniões de CCQ fora do horário não engajam.
+3. **Reconhecimento:** Quando uma ideia do grupo gera redução de custo ou aumento de produção, o reconhecimento deve ser público e, de preferência, acompanhado de incentivos financeiros atrelados ao ganho.
+:::
+
+### A Confiabilidade Física: Gestão e Manutenção de Ativos
+
+Se o ser humano engajado é a inteligência do chão de fábrica, o equipamento é a força bruta que garante o resultado quantitativo do MASP. A mineração é a indústria do maquinário pesado. Caminhões fora de estrada, perfuratrizes gigantescas e moinhos industriais operam em regimes de trabalho extenuantes (24 horas por dia, sujeitos a poeira, umidade e altíssimo torque).
+
+A melhoria da qualidade na mineração é indissociável da **Gestão de Manutenção**. Um indicador de qualidade cai imediatamente quando a máquina entra em falha. A evolução da confiabilidade na gestão divide a manutenção em quatro grandes estratégias:
+
+1. **Manutenção Corretiva (Reativa):** É o modelo mais caro e perigoso. Ocorre apenas quando o equipamento quebra. Gera lucro zero, para a produção de forma não programada e oferece grandes riscos à segurança dos operadores.
+2. **Manutenção Preventiva (Baseada no Tempo):** É a manutenção estipulada pelo manual do fabricante (ex: trocar o óleo a cada 500 horas de motor). Melhora a segurança, mas muitas vezes troca-se uma peça que ainda possuía vida útil, encarecendo a operação.
+3. **Manutenção Preditiva (Baseada na Condição):** Aqui a ciência de dados e a engenharia da qualidade começam a brilhar. Ao invés de trocar a peça por tempo, a engenharia monitora os sinais vitais do equipamento (ex: termografia de painéis elétricos, análise química do óleo, sensores de vibração de rolamentos). A peça só é trocada quando o sensor prevê a falha iminente.
+4. **Manutenção Prescritiva (Analytics/Machine Learning):** O estado da arte. Utiliza Inteligência Artificial e modelos matemáticos para cruzar dados históricos de operação e desgaste. O algoritmo prescreve não apenas *quando* a máquina vai falhar, mas ajusta os parâmetros de operação autonomamente para esticar a vida útil (Ex: "Abaixe o limite de RPM na subida de rampa para o caminhão não fundir o motor até a próxima parada de oficina programada").
+
+::: {.callout-note title="💡 INSIGHT OPERACIONAL: A Guerra entre Produção e Manutenção"}
+Um dos maiores gargalos organizacionais da mineração é o conflito de interesses entre a área de **Operação** (que é cobrada para bater a meta de volume de toneladas) e a área de **Manutenção** (que é cobrada para parar a máquina e realizar preventivas). Sem a aplicação da Metodologia ARM para equilibrar os pesos ($W_i$) dessas áreas, a Operação "passa por cima" do plano de manutenção, gerando faturamento de curto prazo e destruição do equipamento a longo prazo.
+:::

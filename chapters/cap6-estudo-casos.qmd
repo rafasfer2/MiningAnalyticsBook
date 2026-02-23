@@ -1,0 +1,107 @@
+---
+title: "Estudos de Caso Avançados: Aplicação Multidimensional do ARM"
+format: html
+---
+
+# Estudo de Casos {#sec-cap6}
+
+Este capítulo consolida o poder analítico do método apresentado ao longo do livro. Até o momento, aplicamos a Modelagem Analítica de Requisitos (ARM) em avaliações de qualidade de produtos físicos e rotinas logísticas. Agora, elevaremos o nível de complexidade para demonstrar a escalabilidade do modelo em três frentes avançadas: a avaliação de perfis humanos (competências do engenheiro), a auditoria de sistemas técnicos (planos de manutenção) e a mensuração do relacionamento interno em sistemas de gestão.
+
+## 6.1 Avaliando Competências e Habilidades do Engenheiro de Produção {#sec-caso-competencias}
+
+O primeiro estudo de caso avança sobre a intangibilidade do capital humano. O objetivo é utilizar o modelo ARM para quantificar o perfil profissional do Engenheiro de Produção frente às exigências do mercado e à sua própria percepção de desenvolvimento.
+
+Diferente de medir a % de sílica em um minério, medir "iniciativa" ou "ética" exige o cruzamento de múltiplas perspectivas. Para isso, o modelo avalia cada variável sob quatro eixos de análise (Pesos e Notas):
+1. **Importância ($W_i$):** Qual o nível de importância atribuído a esta habilidade/competência?
+2. **Desempenho ($S_i$):** Como o indivíduo avalia o seu próprio desempenho atual nesta área?
+3. **Atribuição (Visão de Pares):** Como o indivíduo avalia, em média, o desempenho dos seus colegas de turma/equipe nesta área?
+4. **Exigência (Visão de Mercado):** Qual o nível de cobrança e exigência que o mercado de trabalho imporá sobre esta habilidade?
+
+### Matriz de Variáveis: Habilidades, Competências e Conhecimentos
+
+Para estruturar o cálculo, o perfil do engenheiro foi desdobrado em três grandes dimensões analíticas ($D_j$). Abaixo, apresentamos as variáveis operacionais ($V_i$) que compõem cada bloco:
+
+**Dimensão 1: Habilidades Pessoais e Técnicas ($D_1$)**
+* Compromisso com a ética profissional
+* Iniciativa empreendedora
+* Disposição para autoaprendizado e educação continuada
+* Comunicação oral e escrita
+* Leitura, interpretação e expressão por meios gráficos
+* Visão crítica de ordens de grandeza
+* Domínio de técnicas computacionais
+* Domínio de língua estrangeira
+* Conhecimento da legislação pertinente
+* Capacidade de trabalhar em equipes multidisciplinares
+* Capacidade de identificar, modelar e resolver problemas
+* Compreensão dos problemas administrativos, socioeconômicos e do meio ambiente
+* Responsabilidade social e ambiental
+* "Pensar globalmente, agir localmente"
+
+**Dimensão 2: Competências Profissionais ($D_2$)**
+* Projetar, implementar e otimizar processos, produtos e sistemas
+* Gerir sistemas produtivos complexos com visão sistêmica
+* Utilizar matemática e estatística para aprimorar operações
+* Prever a evolução de sistemas produtivos, inovar e empreender
+* Integrar novos conceitos, métodos e tecnologias
+* Ofertar valor integrando produtos e serviços
+* Atuar com responsabilidade social e ambiental
+* Atuar com orientação econômica, financeira e de mercado
+* Atuar eticamente, respeitando todos os envolvidos
+* Liderar, trabalhar em equipe e gerir conflitos
+* Comunicar-se de forma oral, escrita e gráfica
+* Aprender continuamente e resolver problemas da sociedade
+
+**Dimensão 3: Subáreas de Conhecimento ($D_3$)**
+* Gestão da Produção, Qualidade e Econômica
+* Ergonomia, Segurança do Trabalho e Gestão Ambiental
+* Gestão do Produto e Pesquisa Operacional
+* Gestão Estratégica, Organizacional e do Conhecimento
+* Educação em Engenharia de Produção
+
+::: {.callout-note title="💡 Insight Analítico"}
+Ao rodar a equação bidimensional do ARM para este conjunto de dados, obtém-se um diagnóstico preciso apontando os *Gaps* de Formação: habilidades em que o mercado exige nota máxima (Exigência), mas o profissional se autoavalia com nota baixa (Desempenho), permitindo ações corretivas focadas.
+:::
+
+---
+
+## 6.2 O Índice de Qualidade de Plano de Manutenção (IQPL) {#sec-caso-iqpl}
+
+No segundo estudo de caso, a modelagem ARM é aplicada diretamente à gestão de ativos físicos. Um plano de manutenção mal estruturado gera paradas não programadas e destrói o fluxo de caixa. Para auditar a robustez desses planos, cria-se o **Índice de Qualidade de Plano de Manutenção (IQPL)**.
+
+O IQPL é a consolidação da nossa equação de qualidade em uma nota cuja pontuação máxima atinge 100 pontos. Para garantir o rigor técnico, o modelo foi desdobrado em um total de **35 variáveis ($V_i$)**, metodicamente agrupadas em **5 áreas de interesse ($D_j$)**:
+
+$$IQPL = \sum_{j=1}^{5} \left[ W_{D_j} \times \left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right) \right] \leq 100$$ {#eq-iqpl}
+
+Com o intuito de impulsionar a melhoria contínua, as variáveis do IQPL foram divididas entre *Parâmetros Existentes* (a base histórica) e *Parâmetros Novos* (agregados para elevar o nível de gestão):
+
+**1. Programáveis ($D_1$ - 7 variáveis):**
+* *Existentes:* Tolerância Positiva (+), Tolerância Negativa (-), Horizonte de abertura, Intervalo de solicitação, Local de instalação, Plano automático, Plano não iniciado.
+
+**2. Processuais ($D_2$ - 6 variáveis):**
+* *Novos:* Materiais, HH - Qualidade, ACF (Apontamento de Classe Falha).
+* *Existentes:* Reinício dos planos, Ciclos vencidos, RT e Validação de Planos.
+
+**3. Ativos ($D_3$ - 6 variáveis):**
+* *Novos:* Taxonomia - Padronização, Taxonomia – 6º Nível, Perfil de catálogo, Tipo de Ativo, Fabricante, Data de Aquisição e Operação.
+
+**4. Lista de Tarefas ($D_4$ - 15 variáveis):**
+* *Novo:* PTS.
+* *Existentes:* Chave de cálculo, Campo de Duração, Campo percentual, Responsável técnico LT, Última modificação LT, Duração irrisória, Duração Máxima, Unidade CT (H), Segurança, Validade da LT, 5S, Título da Lista, Tempo Máx. operação, Chave de controle.
+
+**5. Desempenho ($D_5$ - 1 variável):**
+* *Novo:* RMC.
+
+---
+
+## 6.3 Avaliação de Sistemas de Gestão Integrados e o Ambiente de Relacionamento Interno (ARI) {#sec-caso-ari-irt}
+
+O terceiro estudo de caso explora a dinâmica comportamental e os gargalos de comunicação dentro de um **Ambiente de Relacionamento Interno (ARI)**. Em grandes operações minerais, a qualidade não depende apenas da máquina, mas do fluxo de informações entre a equipe que planeja (Apoio) e a equipe que executa (Operação).
+
+O objetivo deste caso é instrumentalizar a Modelagem Analítica de Requisitos (ARM) para medir o efeito das **diferenças de percepção** de qualidade entre os clientes internos. Historicamente, a literatura foca muito na formulação de sistemas de gestão ou em fatores de mercado externo, havendo uma lacuna em quantificar como a percepção distorcida entre departamentos impacta o desempenho organizacional.
+
+Para transpor essa barreira, o desenvolvimento do instrumento de medição seguirá um rigoroso fluxo metodológico:
+1. **Modelagem Conceitual:** Mapeamento do ARI, caracterização das partes envolvidas (Apoio vs. Operação) e definição dos fatores críticos que impactam esse ecossistema.
+2. **Coleta e Refinamento:** Utilização de dados informacionais da empresa, *focus groups* exploratórios e confirmatórios, aliados à análise temática de conteúdo.
+3. **Instrumentalização Matemática:** Para modelar e codificar essas percepções, a modelagem se apoiará na **Teoria da Resposta ao Item (TRI)** *(Item Response Theory - IRT)*, técnica estatística avançada que permitirá validar as variáveis qualitativas do sistema de gestão.
+
+*(Nota: O desenvolvimento do código, das equações da Teoria da Resposta ao Item e das funções matemáticas em R para este estudo de caso serão detalhados nas seções seguintes).*

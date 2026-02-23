@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Apêndice F — Lista de Tabelas – Sistema de Gestão e Excelência Operacional na Mineração</title>
+<title>6&nbsp; Estudos de Caso Avançados: Aplicação Multidimensional do ARM – Sistema de Gestão e Excelência Operacional na Mineração</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +23,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../chapters/appendix/e-lista-figuras.html" rel="prev">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-eb767fe655e6f8c8224c258eed8bcfd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/part2-intro.html" rel="next">
+<link href="../chapters/cap5-ferramentas.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-eb767fe655e6f8c8224c258eed8bcfd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -70,8 +71,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../../styles/styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles/styles.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -83,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/appendix/a-dicionario-dados.html">Apêndices</a></li><li class="breadcrumb-item"><a href="../../chapters/appendix/f-lista-tabelas.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Lista de Tabelas</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Parte I: Introdução à Engenharia da Qualidade</a></li><li class="breadcrumb-item"><a href="../chapters/cap6-estudo-casos.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estudos de Caso Avançados: Aplicação Multidimensional do ARM</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
@@ -98,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Sistema de Gestão e Excelência Operacional na Mineração</a> 
+      <a href="../">Sistema de Gestão e Excelência Operacional na Mineração</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -110,19 +140,19 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prefácio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introdução</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../chapters/part1-intro.html" class="sidebar-item-text sidebar-link">
+            <a href="../chapters/part1-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Parte I: Introdução à Engenharia da Qualidade</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -131,37 +161,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/cap1-fundamentos.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/cap1-fundamentos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos e Conceitos da Qualidade</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/cap2-quantificacao.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/cap2-quantificacao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quantificação e Modelagem da Qualidade</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/cap3-gestao-qualidade.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/cap3-gestao-qualidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gestão da Qualidade e o Método</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/cap4-controle-diretrizes.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/cap4-controle-diretrizes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sustentação e Controle</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/cap5-ferramentas.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/cap5-ferramentas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Caixa de Ferramentas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/cap6-estudo-casos.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/cap6-estudo-casos.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estudos de Caso Avançados: Aplicação Multidimensional do ARM</span></span></a>
   </div>
 </li>
@@ -169,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../chapters/part2-intro.html" class="sidebar-item-text sidebar-link">
+            <a href="../chapters/part2-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Parte II: Análise e Processos de Mina</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -178,19 +208,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/ciclo1-perfuracao.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ciclo1-perfuracao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/ciclo2-carregamento.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ciclo2-carregamento.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">A Identidade Fundamental do Carregamento</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/ciclo3-transporte.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/ciclo3-transporte.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A Jornada de 7 Eventos e o Ciclo de Transporte</span></span></a>
   </div>
 </li>
@@ -198,7 +228,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../chapters/part3-intro.html" class="sidebar-item-text sidebar-link">
+            <a href="../chapters/part3-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gestão de Ativos, Manutenção e Confiabilidade</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -207,25 +237,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/plan-crtl-opera.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/plan-crtl-opera.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Planejamento e Controle Operacional (PCO)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/plan-crtl-manut.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/plan-crtl-manut.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Planejamento e Controle de Manutenção</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/modelagem_manut.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/modelagem_manut.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Indicadores Chave de Desempenho (KPI)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/confiabilidade.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/confiabilidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Análise de Confiabilidade de Ativos</span></span></a>
   </div>
 </li>
@@ -242,37 +272,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/appendix/a-dicionario-dados.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/appendix/a-dicionario-dados.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Dados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/appendix/b-dicionario-indicadores.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/appendix/b-dicionario-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Dicionário de Indicadores (KPIs)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/appendix/c-notacoes-abreviacoes.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/appendix/c-notacoes-abreviacoes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Notações, Símbolos e Abreviações</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/appendix/d-lista-exemplos.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/appendix/d-lista-exemplos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Lista de Exemplos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/appendix/e-lista-figuras.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/appendix/e-lista-figuras.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Lista de Figuras</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/appendix/f-lista-tabelas.html" class="sidebar-item-text sidebar-link active">
+  <a href="../chapters/appendix/f-lista-tabelas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Lista de Tabelas</span></span></a>
   </div>
 </li>
@@ -288,17 +318,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#capítulo-7-ciclo-de-carregamento" id="toc-capítulo-7-ciclo-de-carregamento" class="nav-link active" data-scroll-target="#capítulo-7-ciclo-de-carregamento"><span class="header-section-number">F.1</span> Capítulo 7: Ciclo de Carregamento</a></li>
-  <li><a href="#capítulo-8-ciclo-de-transporte" id="toc-capítulo-8-ciclo-de-transporte" class="nav-link" data-scroll-target="#capítulo-8-ciclo-de-transporte"><span class="header-section-number">F.2</span> Capítulo 8: Ciclo de Transporte</a></li>
+  <li><a href="#sec-cap6" id="toc-sec-cap6" class="nav-link active" data-scroll-target="#sec-cap6"><span class="header-section-number">7</span> Estudo de Casos</a>
+  <ul class="collapse">
+  <li><a href="#sec-caso-competencias" id="toc-sec-caso-competencias" class="nav-link" data-scroll-target="#sec-caso-competencias"><span class="header-section-number">7.1</span> 6.1 Avaliando Competências e Habilidades do Engenheiro de Produção</a>
+  <ul class="collapse">
+  <li><a href="#matriz-de-variáveis-habilidades-competências-e-conhecimentos" id="toc-matriz-de-variáveis-habilidades-competências-e-conhecimentos" class="nav-link" data-scroll-target="#matriz-de-variáveis-habilidades-competências-e-conhecimentos"><span class="header-section-number">7.1.1</span> Matriz de Variáveis: Habilidades, Competências e Conhecimentos</a></li>
+  </ul></li>
+  <li><a href="#sec-caso-iqpl" id="toc-sec-caso-iqpl" class="nav-link" data-scroll-target="#sec-caso-iqpl"><span class="header-section-number">7.2</span> 6.2 O Índice de Qualidade de Plano de Manutenção (IQPL)</a></li>
+  <li><a href="#sec-caso-ari-irt" id="toc-sec-caso-ari-irt" class="nav-link" data-scroll-target="#sec-caso-ari-irt"><span class="header-section-number">7.3</span> 6.3 Avaliação de Sistemas de Gestão Integrados e o Ambiente de Relacionamento Interno (ARI)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/appendix/a-dicionario-dados.html">Apêndices</a></li><li class="breadcrumb-item"><a href="../../chapters/appendix/f-lista-tabelas.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Lista de Tabelas</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Parte I: Introdução à Engenharia da Qualidade</a></li><li class="breadcrumb-item"><a href="../chapters/cap6-estudo-casos.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estudos de Caso Avançados: Aplicação Multidimensional do ARM</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Apêndice F — Lista de Tabelas</h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estudos de Caso Avançados: Aplicação Multidimensional do ARM</span></h1>
 </div>
 
 
@@ -315,20 +352,57 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Este apêndice apresenta todas as tabelas utilizadas ao longo do livro, organizadas por capítulo.</p>
-<section id="capítulo-7-ciclo-de-carregamento" class="level2" data-number="F.1">
-<h2 data-number="F.1" class="anchored" data-anchor-id="capítulo-7-ciclo-de-carregamento"><span class="header-section-number">F.1</span> Capítulo 7: Ciclo de Carregamento</h2>
-<ul>
-<li><a href="../ciclo2-carregamento.html#tbl-notacao-carga" class="quarto-xref">Tabela&nbsp;<span>8.1</span></a> — Relação entre fases operacionais, registros de dados e notações matemáticas</li>
-</ul>
+<section id="sec-cap6" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Estudo de Casos</h1>
+<p>Este capítulo consolida o poder analítico do método apresentado ao longo do livro. Até o momento, aplicamos a Modelagem Analítica de Requisitos (ARM) em avaliações de qualidade de produtos físicos e rotinas logísticas. Agora, elevaremos o nível de complexidade para demonstrar a escalabilidade do modelo em três frentes avançadas: a avaliação de perfis humanos (competências do engenheiro), a auditoria de sistemas técnicos (planos de manutenção) e a mensuração do relacionamento interno em sistemas de gestão.</p>
+<section id="sec-caso-competencias" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="sec-caso-competencias"><span class="header-section-number">7.1</span> 6.1 Avaliando Competências e Habilidades do Engenheiro de Produção</h2>
+<p>O primeiro estudo de caso avança sobre a intangibilidade do capital humano. O objetivo é utilizar o modelo ARM para quantificar o perfil profissional do Engenheiro de Produção frente às exigências do mercado e à sua própria percepção de desenvolvimento.</p>
+<p>Diferente de medir a % de sílica em um minério, medir “iniciativa” ou “ética” exige o cruzamento de múltiplas perspectivas. Para isso, o modelo avalia cada variável sob quatro eixos de análise (Pesos e Notas): 1. <strong>Importância (<span class="math inline">\(W_i\)</span>):</strong> Qual o nível de importância atribuído a esta habilidade/competência? 2. <strong>Desempenho (<span class="math inline">\(S_i\)</span>):</strong> Como o indivíduo avalia o seu próprio desempenho atual nesta área? 3. <strong>Atribuição (Visão de Pares):</strong> Como o indivíduo avalia, em média, o desempenho dos seus colegas de turma/equipe nesta área? 4. <strong>Exigência (Visão de Mercado):</strong> Qual o nível de cobrança e exigência que o mercado de trabalho imporá sobre esta habilidade?</p>
+<section id="matriz-de-variáveis-habilidades-competências-e-conhecimentos" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="matriz-de-variáveis-habilidades-competências-e-conhecimentos"><span class="header-section-number">7.1.1</span> Matriz de Variáveis: Habilidades, Competências e Conhecimentos</h3>
+<p>Para estruturar o cálculo, o perfil do engenheiro foi desdobrado em três grandes dimensões analíticas (<span class="math inline">\(D_j\)</span>). Abaixo, apresentamos as variáveis operacionais (<span class="math inline">\(V_i\)</span>) que compõem cada bloco:</p>
+<p><strong>Dimensão 1: Habilidades Pessoais e Técnicas (<span class="math inline">\(D_1\)</span>)</strong> * Compromisso com a ética profissional * Iniciativa empreendedora * Disposição para autoaprendizado e educação continuada * Comunicação oral e escrita * Leitura, interpretação e expressão por meios gráficos * Visão crítica de ordens de grandeza * Domínio de técnicas computacionais * Domínio de língua estrangeira * Conhecimento da legislação pertinente * Capacidade de trabalhar em equipes multidisciplinares * Capacidade de identificar, modelar e resolver problemas * Compreensão dos problemas administrativos, socioeconômicos e do meio ambiente * Responsabilidade social e ambiental * “Pensar globalmente, agir localmente”</p>
+<p><strong>Dimensão 2: Competências Profissionais (<span class="math inline">\(D_2\)</span>)</strong> * Projetar, implementar e otimizar processos, produtos e sistemas * Gerir sistemas produtivos complexos com visão sistêmica * Utilizar matemática e estatística para aprimorar operações * Prever a evolução de sistemas produtivos, inovar e empreender * Integrar novos conceitos, métodos e tecnologias * Ofertar valor integrando produtos e serviços * Atuar com responsabilidade social e ambiental * Atuar com orientação econômica, financeira e de mercado * Atuar eticamente, respeitando todos os envolvidos * Liderar, trabalhar em equipe e gerir conflitos * Comunicar-se de forma oral, escrita e gráfica * Aprender continuamente e resolver problemas da sociedade</p>
+<p><strong>Dimensão 3: Subáreas de Conhecimento (<span class="math inline">\(D_3\)</span>)</strong> * Gestão da Produção, Qualidade e Econômica * Ergonomia, Segurança do Trabalho e Gestão Ambiental * Gestão do Produto e Pesquisa Operacional * Gestão Estratégica, Organizacional e do Conhecimento * Educação em Engenharia de Produção</p>
+<div class="callout callout-style-default callout-note callout-titled" title="💡 Insight Analítico">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>💡 Insight Analítico
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ao rodar a equação bidimensional do ARM para este conjunto de dados, obtém-se um diagnóstico preciso apontando os <em>Gaps</em> de Formação: habilidades em que o mercado exige nota máxima (Exigência), mas o profissional se autoavalia com nota baixa (Desempenho), permitindo ações corretivas focadas.</p>
+</div>
+</div>
+<hr>
 </section>
-<section id="capítulo-8-ciclo-de-transporte" class="level2" data-number="F.2">
-<h2 data-number="F.2" class="anchored" data-anchor-id="capítulo-8-ciclo-de-transporte"><span class="header-section-number">F.2</span> Capítulo 8: Ciclo de Transporte</h2>
-<ul>
-<li><a href="../ciclo3-transporte.html#tbl-notacao-transporte" class="quarto-xref">Tabela&nbsp;<span>9.1</span></a> — Relação entre fases operacionais e notações matemáticas no transporte</li>
-</ul>
+</section>
+<section id="sec-caso-iqpl" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="sec-caso-iqpl"><span class="header-section-number">7.2</span> 6.2 O Índice de Qualidade de Plano de Manutenção (IQPL)</h2>
+<p>No segundo estudo de caso, a modelagem ARM é aplicada diretamente à gestão de ativos físicos. Um plano de manutenção mal estruturado gera paradas não programadas e destrói o fluxo de caixa. Para auditar a robustez desses planos, cria-se o <strong>Índice de Qualidade de Plano de Manutenção (IQPL)</strong>.</p>
+<p>O IQPL é a consolidação da nossa equação de qualidade em uma nota cuja pontuação máxima atinge 100 pontos. Para garantir o rigor técnico, o modelo foi desdobrado em um total de <strong>35 variáveis (<span class="math inline">\(V_i\)</span>)</strong>, metodicamente agrupadas em <strong>5 áreas de interesse (<span class="math inline">\(D_j\)</span>)</strong>:</p>
+<p><span id="eq-iqpl"><span class="math display">\[IQPL = \sum_{j=1}^{5} \left[ W_{D_j} \times \left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right) \right] \leq 100 \tag{7.1}\]</span></span></p>
+<p>Com o intuito de impulsionar a melhoria contínua, as variáveis do IQPL foram divididas entre <em>Parâmetros Existentes</em> (a base histórica) e <em>Parâmetros Novos</em> (agregados para elevar o nível de gestão):</p>
+<p><strong>1. Programáveis (<span class="math inline">\(D_1\)</span> - 7 variáveis):</strong> * <em>Existentes:</em> Tolerância Positiva (+), Tolerância Negativa (-), Horizonte de abertura, Intervalo de solicitação, Local de instalação, Plano automático, Plano não iniciado.</p>
+<p><strong>2. Processuais (<span class="math inline">\(D_2\)</span> - 6 variáveis):</strong> * <em>Novos:</em> Materiais, HH - Qualidade, ACF (Apontamento de Classe Falha). * <em>Existentes:</em> Reinício dos planos, Ciclos vencidos, RT e Validação de Planos.</p>
+<p><strong>3. Ativos (<span class="math inline">\(D_3\)</span> - 6 variáveis):</strong> * <em>Novos:</em> Taxonomia - Padronização, Taxonomia – 6º Nível, Perfil de catálogo, Tipo de Ativo, Fabricante, Data de Aquisição e Operação.</p>
+<p><strong>4. Lista de Tarefas (<span class="math inline">\(D_4\)</span> - 15 variáveis):</strong> * <em>Novo:</em> PTS. * <em>Existentes:</em> Chave de cálculo, Campo de Duração, Campo percentual, Responsável técnico LT, Última modificação LT, Duração irrisória, Duração Máxima, Unidade CT (H), Segurança, Validade da LT, 5S, Título da Lista, Tempo Máx. operação, Chave de controle.</p>
+<p><strong>5. Desempenho (<span class="math inline">\(D_5\)</span> - 1 variável):</strong> * <em>Novo:</em> RMC.</p>
+<hr>
+</section>
+<section id="sec-caso-ari-irt" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="sec-caso-ari-irt"><span class="header-section-number">7.3</span> 6.3 Avaliação de Sistemas de Gestão Integrados e o Ambiente de Relacionamento Interno (ARI)</h2>
+<p>O terceiro estudo de caso explora a dinâmica comportamental e os gargalos de comunicação dentro de um <strong>Ambiente de Relacionamento Interno (ARI)</strong>. Em grandes operações minerais, a qualidade não depende apenas da máquina, mas do fluxo de informações entre a equipe que planeja (Apoio) e a equipe que executa (Operação).</p>
+<p>O objetivo deste caso é instrumentalizar a Modelagem Analítica de Requisitos (ARM) para medir o efeito das <strong>diferenças de percepção</strong> de qualidade entre os clientes internos. Historicamente, a literatura foca muito na formulação de sistemas de gestão ou em fatores de mercado externo, havendo uma lacuna em quantificar como a percepção distorcida entre departamentos impacta o desempenho organizacional.</p>
+<p>Para transpor essa barreira, o desenvolvimento do instrumento de medição seguirá um rigoroso fluxo metodológico: 1. <strong>Modelagem Conceitual:</strong> Mapeamento do ARI, caracterização das partes envolvidas (Apoio vs.&nbsp;Operação) e definição dos fatores críticos que impactam esse ecossistema. 2. <strong>Coleta e Refinamento:</strong> Utilização de dados informacionais da empresa, <em>focus groups</em> exploratórios e confirmatórios, aliados à análise temática de conteúdo. 3. <strong>Instrumentalização Matemática:</strong> Para modelar e codificar essas percepções, a modelagem se apoiará na <strong>Teoria da Resposta ao Item (TRI)</strong> <em>(Item Response Theory - IRT)</em>, técnica estatística avançada que permitirá validar as variáveis qualitativas do sistema de gestão.</p>
+<p><em>(Nota: O desenvolvimento do código, das equações da Teoria da Resposta ao Item e das funções matemáticas em R para este estudo de caso serão detalhados nas seções seguintes).</em></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -746,11 +820,14 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../chapters/appendix/e-lista-figuras.html" class="pagination-link" aria-label="Lista de Figuras">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Lista de Figuras</span></span>
+      <a href="../chapters/cap5-ferramentas.html" class="pagination-link" aria-label="Caixa de Ferramentas">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Caixa de Ferramentas</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../chapters/part2-intro.html" class="pagination-link" aria-label="Parte II: Análise e Processos de Mina">
+        <span class="nav-page-text">Parte II: Análise e Processos de Mina</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
