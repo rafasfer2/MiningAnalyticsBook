@@ -1,0 +1,185 @@
+---
+format: html
+---
+
+# Desdobramento Estratégico e Controle Operacional {#sec-cap4}
+
+No capítulo anterior, aprofundamo-nos no motor da melhoria contínua. Aprendemos a identificar anomalias, investigar causas raízes através do MASP e implementar soluções práticas no chão de fábrica e na manutenção de ativos. No entanto, resolver um problema é apenas metade da batalha na engenharia de produção; a outra metade, frequentemente mais desafiadora, é **manter o ganho** ao longo do tempo.
+
+A excelência operacional não sobrevive de esforços heroicos isolados. Sem um sistema robusto de sustentação, os processos tendem à entropia, as falhas retornam e o indicador de qualidade regride ao seu estado anterior. Este capítulo aborda a arquitetura gerencial necessária para travar a roda do PDCA, garantindo que a estratégia definida pela alta gestão seja perfeitamente compreendida e controlada pela linha de frente.
+
+## O Modelo de Gestão e a Definição de Problemas {#sec-modelo-gestao}
+
+Antes de desdobrarmos metas e criarmos indicadores, precisamos garantir que a engenharia saiba o que é, de fato, um problema corporativo. É extremamente comum que gestores e analistas confundam a falta de um recurso (o meio) com a verdadeira falha operacional (o fim).
+
+Para ilustrar essa miopia gerencial, considere o seguinte diálogo hipotético entre um engenheiro de processo e o gerente geral de uma usina:
+
+> **Engenheiro:** "Nosso maior problema hoje é a quebra frequente das correias transportadoras."
+> **Gerente Geral:** "A sua missão é ter muitos caminhões?"
+> **Engenheiro:** "Não, meu objetivo é alimentar a planta de beneficiamento com minério britado."
+> **Gerente Geral:** "E qual é a taxa de alimentação exigida pela planta?"
+> **Engenheiro:** "Precisamos entregar 4.500 toneladas por hora."
+> **Gerente Geral:** "E qual é o nosso volume atual?"
+> **Engenheiro:** "Estamos conseguindo manter apenas 3.800 toneladas por hora."
+> **Gerente Geral:** "Entende a diferença? O seu problema não é a correia. O seu problema é um *déficit* de 700 toneladas por hora na alimentação da usina. A correia rasgada é apenas uma das possíveis causas. Foque no resultado, descubra o que gera esse déficit e resolva."
+
+::: {.callout-important title="🎯 A REGRA DE OURO DA GESTÃO"}
+Os problemas residem nos **FINS** (nos resultados não alcançados) e nunca nos **MEIOS** (processos, máquinas ou recursos). "Falta de verba", "falha de peça" ou "falta de pessoal" não são problemas, são causas. O problema real é sempre o *gap* entre o desempenho atual e a meta estabelecida.
+:::
+
+## O Desdobramento da Estratégia e Metas (GPD e Hoshin Kanri) {#sec-hoshin-kanri}
+
+Para garantir que toda a organização esteja focada em resolver os "fins" corretos, o Sistema de Gestão precisa conectar a visão macro da diretoria com a execução microscópica do operador. O alinhamento entre o que a diretoria deseja e o que a operação executa é o maior desafio das organizações complexas. Para solucionar esse abismo corporativo, a engenharia de produção utiliza o **Gerenciamento pelas Diretrizes (GPD)**.
+
+Como define Vicente Falconi, um dos maiores especialistas no tema:
+> *"O Gerenciamento pelas Diretrizes é uma metodologia que concentra toda a força intelectual dos colaboradores da empresa para atingir as metas da organização oriundas da Formulação Estratégica."*
+
+A @fig-alinhamento-gpd ilustra visualmente a principal vantagem do GPD. Sem diretrizes claras, os esforços e talentos da equipe apontam para direções difusas, anulando a força resultante. Com o GPD implantado, todos os vetores de força da empresa alinham-se em uma única direção, impulsionando os resultados de forma avassaladora.
+
+![Alinhamento de esforços com e sem o GPD](../images/image_ba8141.png){#fig-alinhamento-gpd fig-align="center"}
+
+A arquitetura dessa integração divide a atuação corporativa em três horizontes, conforme ilustrado na @fig-horizontes-gestao:
+
+![Horizontes do Modelo de Gestão (3 a 5 anos, 1 ano e 1 dia)](../images/image_badf16.png){#fig-horizontes-gestao fig-align="center"}
+
+1. **Horizonte de 3 a 5 anos (Formulação Estratégica):** Nível da alta direção, focado na identidade da empresa (Visão, Missão e Valores), Políticas e Objetivos de longo prazo.
+2. **Horizonte de 1 ano (Melhoria da Operação):** Nível gerencial, onde ocorre o desdobramento do GPD através de Metas Anuais de Melhoria (via Six Sigma ou Gerenciamento de Projetos) e Inovação.
+3. **Horizonte de 1 dia (Operação):** Nível do chão de fábrica, focado no Gerenciamento da Rotina, Sistema de Padronização e Orçamento para garantir os Resultados diários.
+
+### Hoshin Kanri: O Desdobramento em 13 Passos
+
+Para que a visão de futuro (horizonte de 5 anos) se torne uma ação no chão de fábrica (horizonte de 1 dia), utilizamos a sistemática japonesa do **Hoshin Kanri** (que pode ser traduzida como "Direção e Gerenciamento"). Trata-se de um ciclo rigoroso de 13 passos, detalhado na @fig-hoshin-passos, que garante que nada seja perdido no meio do caminho:
+
+![Os 13 passos do Hoshin Kanri](../images/image_badf39.png){#fig-hoshin-passos fig-align="center"}
+
+1. Determinar a situação atual.
+2. Determinar objetivos de longo prazo.
+3. Priorizar objetivos (Metas Anuais).
+4. Definir as iniciativas estratégicas.
+5. Definir as metas táticas.
+6. Especificar metas (Objetivo + Valor + Prazo).
+7. Elaborar a Matriz X.
+8. Definir responsabilidades.
+9. Estruturar o Plano A3 (documento visual de resolução de problemas).
+10. Implantar o Plano A3.
+11. Revisar o plano de curto prazo.
+12. Revisar o plano anualmente.
+13. Revisar o plano de longo prazo (3 a 5 anos).
+
+### Especificação de Metas e o Balanced Scorecard (BSC)
+
+Uma meta estratégica bem construída não pode ser subjetiva. Ela deve obrigatoriamente conter: **Objetivo + Valor + Prazo** (Ex: *Aumentar a produção do produto A em 1.500 unidades no ano de 2024*).
+
+Para garantir que as metas não foquem apenas no lucro imediato (destruindo o longo prazo), as organizações utilizam o **Balanced Scorecard (BSC)** na fase de determinação da situação atual e objetivos, como mostra o mapa estratégico da @fig-bsc-mapa.
+
+![Mapa Estratégico do Balanced Scorecard (BSC)](../images/image_badf72.jpg){#fig-bsc-mapa fig-align="center"}
+
+O BSC divide as metas em quatro perspectivas interligadas:
+
+* **Perspectiva Financeira:** Foca nos resultados econômicos esperados pelos acionistas (Ex: Reduzir o custo total em 12% no ano de 2024).
+* **Perspectiva de Clientes e Mercado:** Foca na proposta de valor entregue ao consumidor (Ex: Aumentar o *market share* na América Latina em 25% até 2029).
+* **Perspectiva de Processos Internos:** Foca na excelência da operação para garantir a entrega de valor (Ex: Diminuir o número de peças rejeitadas em 1.000.000 de unidades no ano de 2024).
+* **Perspectiva de Aprendizado e Inovação:** Foca no desenvolvimento do capital humano e organizacional (Ex: Alcançar o 1º lugar no ranking das melhores empresas para se trabalhar até 2027).
+
+A @tbl-bsc-exemplo demonstra a aplicação prática do desdobramento destas quatro perspectivas em um cenário comercial (uma loja de móveis), amarrando a visão estratégica diretamente aos indicadores de controle e às iniciativas táticas.
+
+**Visão:** Ter a maior variedade de móveis e decoração da região X.
+
+| Objetivos | Metas | Indicadores | Iniciativas |
+| :--- | :--- | :--- | :--- |
+| **Perspectiva financeira:** Melhorar o capital de giro da empresa | 30% de aumento no capital de giro | Fluxo de caixa | Diminuir o número de meses para o parcelamento do cliente.<br><br>Pesquisar fornecedores internacionais. |
+| **Perspectiva do cliente:** Conquistar novos perfis de consumidores | 12% de aumento no faturamento | DRE (Demonstrativo de Resultado em Exercício) | Ampliar o portfólio e mix de produtos. |
+| **Perspectiva interna:** Otimizar o espaço e a qualidade da exposição de produtos | 1) Aumento de 25% do ticket médio por metro quadrado<br><br>2) Aumento de 18% do número de vendas por tipo de produto | 1) Ticket médio por metro quadrado<br><br>2) Índices de venda por tipo de produto | 1) Atualizar o visual merchandising da loja.<br><br>2) Instalar telas nos núcleos de exposição para explorar a variedade de modelos e cores de um mesmo tipo de móvel |
+| **Perspectiva de aprendizagem e inovação:** Abordagem e atendimento consultivos | 1) 100% de participação<br><br>2) 30% no aumento do ticket médio por venda | 1) Lista de presença de participação<br><br>2) Aumento de ticket médio por venda de cada consultor | Atualização dos funcionários sobre tendências do setor e treinamento em técnicas de venda com o auxílio de tecnologias |
+
+: Exemplo prático de BSC desdobrado para uma Loja de Móveis {#tbl-bsc-exemplo}
+
+### A Ferramenta de Amarração: A Matriz X
+
+Quando uma empresa possui dezenas de metas e centenas de ações táticas, o acompanhamento torna-se caótico. Para resolver isso, o *Hoshin Kanri* utiliza a **Matriz X** (@fig-matriz-x).
+
+![Estrutura da Matriz X no Hoshin Kanri](../images/image_baea9d.jpg){#fig-matriz-x fig-align="center"}
+
+Esta matriz visual de correlação cruza, num único diagrama de uma página: as prioridades de nível superior, os objetivos anuais, as metas de longo prazo, as métricas de acompanhamento e os responsáveis diretos pelos recursos. A Matriz X força a diretoria a enxergar se existe alguma "meta órfã" ou um "recurso desperdiçado".
+
+### Hierarquia e Interligação de Metas
+
+Os objetivos gerenciais devem ser oriundos de um desdobramento direto das diretrizes. Como ilustrado na @fig-desdobramento-metas, as metas de cada nível estão interligadas: se as metas de um nível (ex: Supervisor) são alcançadas, as do nível superior (Gerente e Diretor) também serão.
+
+![Desdobramento e Interligação de Metas](../images/image_cbe59e.png){#fig-desdobramento-metas fig-align="center"}
+
+* **Meta do Diretor:** Ex: Aumentar o OEE em 20% até o fim do ano.
+* **Meta do Gerente:** Desdobra-se em aumentar a disponibilidade física e a utilização.
+* **Meta do Supervisor:** Atua diretamente nos processos, como reduzir em 60% o tempo de manutenção corretiva ou as paradas operacionais.
+
+::: {.callout-note title="📊 Exemplos de Indicadores (KPIs)"}
+* **Reduzir o consumo de diesel:** Indicador medido em l/t movimentada.
+* **Aumentar produtividade de descarga:** Indicador medido em t/h.
+:::
+
+As metas são estabelecidas para aumentar ou reduzir um indicador fixado, focando sempre nos fins, que são os resultados dos processos.
+
+### A Taxonomia dos Indicadores: Eficácia vs. Eficiência
+
+Para avaliar o verdadeiro desempenho de uma operação mineral, o gestor precisa cruzar duas dimensões:
+
+* **Eficácia (Fins):** Mede o atingimento do objetivo (Ex: entregar 1 milhão de toneladas).
+* **Eficiência (Meios):** Mede a otimização dos recursos (Ex: consumo de diesel e horas extras para atingir a entrega).
+
+::: {.callout-warning title="⚠️ ARMADILHA DE GESTÃO"}
+Uma operação baseada apenas na eficácia, sem controle de eficiência, destrói o orçamento. A aplicação técnica do ARM discutida anteriormente é a ferramenta matemática para equilibrar esses pesos ($W_i$).
+:::
+
+### Painéis de Bordo (Dashboards) e Gestão à Vista
+
+A tomada de decisão na mineração precisa ser imediata e visual para garantir o controle da *Operação de 1 dia*. Para isso, emprega-se a **Gestão à Vista** por meio de *Dashboards*. O objetivo é permitir que qualquer operador saiba, em menos de 5 segundos, se o turno está ganhando ou perdendo a meta.
+
+::: {.callout-note title="💻 TECH NOTE: R & DATA SCIENCE"}
+Utilizando bancos de dados padronizados (como `ipcc_event_mine_e`), o analista programa interfaces interativas diretamente no R (via `Shiny`). O código roda algoritmos em segundo plano e gera alertas visuais imediatos se o processo violar os limites estatísticos.
+:::
+
+### A Trava do PDCA: Padronização e Auditorias
+
+Se um indicador sai da meta, roda-se o ciclo PDCA. Se a solução for eficaz, entra-se na fase **"A" (Padronizar)**. O conhecimento deve ser convertido em um **Procedimento Operacional Padrão (POP)**.
+
+O POP é a "trava" do ciclo PDCA, impedindo que o processo sofra entropia. Para garantir que o padrão seja seguido, as empresas instituem **Auditorias Escalonadas**, onde líderes vão ao campo para diagnosticar falhas no sistema e garantir que os resultados (Fins) sejam alcançados.
+
+---
+
+## O Controle da Qualidade: Conceitos e Fundamentos (A Teoria Técnica) {#sec-conceitos-controle}
+
+A padronização via POP e o uso de KPIs são a face gerencial da sustentação. Contudo, para o engenheiro, o Controle da Qualidade exige também um rigor técnico e estatístico. Controlar não é apenas observar; é o exercício ativo de domínio sobre as dimensões da qualidade.
+
+O Controle da Qualidade é centrado no processo e fundamenta-se em três ações:
+1.  **Estabelecimento da Diretriz de Controle:** Planejamento da Meta (o fim) e do Método (o meio).
+2.  **Manutenção do Nível de Controle:** Atuação contínua no resultado e na causa para manter o padrão.
+3.  **Alteração da Diretriz:** Melhoria (quando se decide elevar a meta e mudar o método).
+
+::: {.callout-important title="📌 A Falácia da Inspeção Final"}
+A Gestão da Qualidade Total ensina que o processo empregado determina o resultado real. Logo, a **inspeção (verificar apenas o produto no fim da linha) é um método fraco e elementar de controle**. Para satisfazer a especificação, deve-se focar na descoberta e eliminação preventiva das fontes de variação.
+:::
+
+### Estabilização e Variabilidade ao Longo do Tempo
+
+O objetivo central da Engenharia da Qualidade é a redução sistemática da variabilidade. Durante a operação, o Controle da Qualidade acompanha indicadores ao longo do tempo através da seguinte dinâmica:
+
+
+
+1.  **Zona Original de Controle:** O processo flutua dentro de uma variabilidade histórica esperada.
+2.  **Pico Esporádico:** Ocorre uma falha ou um desvio agudo (uma causa especial).
+3.  **Ação de Melhoria:** A equipe atua para corrigir a anomalia (PDCA).
+4.  **Nova Zona de Controle:** O processo atinge um novo patamar, operando com menor variabilidade e maior eficiência.
+
+### Ferramentas Técnicas do Controle
+
+Para sair do campo das ideias e medir estatisticamente o controle, a engenharia utiliza as seguintes abordagens principais:
+
+* **Inspeção e Planos de Amostragem:** Ferramenta clássica de avaliação. Pode ser feita por **Atributos** (passa/não passa, baseado no Nível de Qualidade Aceitável) ou por **Variáveis** (medição de características contínuas, comparando a média com o padrão).
+* **Controle Estatístico de Processo (CEP):** Métodos que estabilizam o processo detectando desvios em tempo real. Utiliza limites matemáticos para separar variações comuns de variações especiais.
+* **Planejamento de Experimentos (DOE):** Enquanto o CEP estabiliza, o DOE melhora. É utilizado para identificar preventivamente quais variáveis são mais influentes e ajustar parâmetros, reduzindo a variabilidade inerente da operação.
+
+### O Ciclo SDCA: A Rotina de Manutenção
+
+Se o PDCA é a ferramenta para resolver os "picos esporádicos" e inovar, o **SDCA (*Standardize, Do, Check, Act*)** é o método gerencial da rotina diária.
+
+Enquanto o planejamento da melhoria busca mudar o patamar (PDCA), o SDCA garante que os Procedimentos Operacionais Padrões (POPs) estipulados nas metas operacionais (de 1 dia) sejam rigorosamente cumpridos, estabilizando a variabilidade do processo e fechando, de forma definitiva, a malha de sustentação e controle do Sistema de Gestão.
