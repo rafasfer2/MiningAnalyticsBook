@@ -321,14 +321,13 @@ window.Quarto = {
   <li><a href="#sec-proposito-arm" id="toc-sec-proposito-arm" class="nav-link active" data-scroll-target="#sec-proposito-arm"><span class="header-section-number">2.1</span> O Propósito: De onde saímos e para onde vamos?</a></li>
   <li><a href="#sec-arm" id="toc-sec-arm" class="nav-link" data-scroll-target="#sec-arm"><span class="header-section-number">2.2</span> Modelagem Analítica de Requisitos (ARM)</a>
   <ul class="collapse">
-  <li><a href="#sec-arm-uni" id="toc-sec-arm-uni" class="nav-link" data-scroll-target="#sec-arm-uni"><span class="header-section-number">2.2.1</span> O Modelo Unidimensional (Nível Único)</a></li>
-  <li><a href="#sec-arm-bi" id="toc-sec-arm-bi" class="nav-link" data-scroll-target="#sec-arm-bi"><span class="header-section-number">2.2.2</span> O Modelo Bidimensional (Múltiplos Níveis)</a></li>
+  <li><a href="#sec-arm-uni" id="toc-sec-arm-uni" class="nav-link" data-scroll-target="#sec-arm-uni"><span class="header-section-number">2.2.1</span> O Modelo Unidimensional (Flat Model)</a></li>
+  <li><a href="#sec-arm-multi" id="toc-sec-arm-multi" class="nav-link" data-scroll-target="#sec-arm-multi"><span class="header-section-number">2.2.2</span> O Modelo Multidimensional (Hierarchical Model)</a></li>
   <li><a href="#sec-ponte-normativa" id="toc-sec-ponte-normativa" class="nav-link" data-scroll-target="#sec-ponte-normativa"><span class="header-section-number">2.2.3</span> A Ponte Normativa: Associando o ARM à ISO 9000</a></li>
   </ul></li>
   <li><a href="#sec-passos-abordagens" id="toc-sec-passos-abordagens" class="nav-link" data-scroll-target="#sec-passos-abordagens"><span class="header-section-number">2.3</span> Passos de Execução e Abordagens</a>
   <ul class="collapse">
-  <li><a href="#sec-experimento-generais" id="toc-sec-experimento-generais" class="nav-link" data-scroll-target="#sec-experimento-generais"><span class="header-section-number">2.3.1</span> O Experimento dos Generais: Da Subjetividade à Medição</a></li>
-  <li><a href="#o-experimento-resolvido-quantificando-a-genialidade-militar" id="toc-o-experimento-resolvido-quantificando-a-genialidade-militar" class="nav-link" data-scroll-target="#o-experimento-resolvido-quantificando-a-genialidade-militar"><span class="header-section-number">2.3.2</span> O Experimento Resolvido: Quantificando a Genialidade Militar</a></li>
+  <li><a href="#sec-experimento-generais" id="toc-sec-experimento-generais" class="nav-link" data-scroll-target="#sec-experimento-generais"><span class="header-section-number">2.3.1</span> O Experimento Resolvido: Quantificando a Genialidade Militar</a></li>
   </ul></li>
   <li><a href="#sec-modelagem-mineral" id="toc-sec-modelagem-mineral" class="nav-link" data-scroll-target="#sec-modelagem-mineral"><span class="header-section-number">2.4</span> Aplicações Práticas no Setor Mineral</a>
   <ul class="collapse">
@@ -366,8 +365,18 @@ window.Quarto = {
 <section id="sec-proposito-arm" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="sec-proposito-arm"><span class="header-section-number">2.1</span> O Propósito: De onde saímos e para onde vamos?</h2>
 <p>Antes de avançarmos para as fórmulas e para os algoritmos de cálculo, é fundamental alinhar o propósito desta modelagem. A resposta reside na necessidade de traduzir a linguagem humana para a linguagem de máquina e de negócios.</p>
-<p><strong>De onde estamos saindo (O Ponto de Partida):</strong> * <strong>Da Subjetividade:</strong> Saímos de um cenário onde a qualidade é um adjetivo vago. Afirmações como “este minério é excelente” ou “este equipamento é confiável” não são auditáveis e geram conflitos de interpretação. * <strong>Do Caos dos Dados Isolados:</strong> Um lote de produto pode ter dezenas de laudos (teor de ferro, sílica, umidade). Avaliar essas variáveis de forma solta impede uma decisão sistêmica (ex: o laboratório aprova o teor, mas a logística reprova a umidade). * <strong>Dos Conflitos de Interesse:</strong> Saímos da tradicional “guerra” entre departamentos, onde a Produção foca em volume, a Qualidade em especificações e o Comercial em custos.</p>
-<p><strong>Para onde queremos chegar (O Destino Final):</strong> * <strong>A um Indicador Gerenciável:</strong> Queremos um único número (o <em>score</em>) que consolide todo o desempenho do produto ou processo, indicando imediatamente se geramos ou destruímos valor. * <strong>À Capacidade de Trade-off (Equilíbrio):</strong> Queremos uma ferramenta que calcule perdas e ganhos de forma integrada. * <strong>À Preparação para a Ciência de Dados:</strong> Este é o foco do livro. Algoritmos preditivos e modelos de <em>Machine Learning</em> no software R não entendem a “voz do cliente”. Eles precisam de <em>Features</em> quantificadas, Pesos matemáticos e Notas padronizadas.</p>
+<p><strong>De onde estamos saindo (O Ponto de Partida):</strong></p>
+<ul>
+<li><strong>Da Subjetividade:</strong> Saímos de um cenário onde a qualidade é um adjetivo vago. Afirmações como “este minério é excelente” ou “este equipamento é confiável” não são auditáveis e geram conflitos de interpretação.</li>
+<li><strong>Do Caos dos Dados Isolados:</strong> Um lote de produto pode ter dezenas de laudos (teor de ferro, sílica, umidade). Avaliar essas variáveis de forma solta impede uma decisão sistêmica (ex: o laboratório aprova o teor, mas a logística reprova a umidade).</li>
+<li><strong>Dos Conflitos de Interesse:</strong> Saímos da tradicional “guerra” entre departamentos, onde a Produção foca em volume, a Qualidade em especificações e o Comercial em custos.</li>
+</ul>
+<p><strong>Para onde queremos chegar (O Destino Final):</strong></p>
+<ul>
+<li><strong>A um Indicador Gerenciável:</strong> Queremos um único número (o <em>score</em>) que consolide todo o desempenho do produto ou processo, indicando imediatamente se geramos ou destruímos valor.</li>
+<li><strong>À Capacidade de Trade-off (Equilíbrio):</strong> Queremos uma ferramenta que calcule perdas e ganhos de forma integrada.</li>
+<li><strong>À Preparação para a Ciência de Dados:</strong> Este é o foco do livro. Algoritmos preditivos e modelos de <em>Machine Learning</em> no software R não entendem a “voz do cliente”. Eles precisam de <em>Features</em> quantificadas, Pesos matemáticos e Notas padronizadas.</li>
+</ul>
 <hr>
 </section>
 <section id="sec-arm" class="level2" data-number="2.2">
@@ -386,28 +395,20 @@ window.Quarto = {
 <p>Em literaturas clássicas de gestão, formulações semelhantes costumam ser referenciadas como Função Qualidade Total do Produto (QTP) ou Índice de Atendimento dos Requisitos (IAR). Adotaremos a estrutura e a sigla <strong>ARM</strong> por seu alinhamento direto com as metodologias internacionais de <em>Data Science</em> e Engenharia de Atributos (<em>Feature Engineering</em>).</p>
 </div>
 </div>
+<p>A complexidade do modelo depende da arquitetura de dados escolhida. A diferença fundamental reside nos <strong>níveis hierárquicos</strong> de agregação (colapso) dos dados.</p>
 <section id="sec-arm-uni" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="sec-arm-uni"><span class="header-section-number">2.2.1</span> O Modelo Unidimensional (Nível Único)</h3>
-<p>A equação base do ARM, em sua forma <strong>unidimensional</strong>, é aplicável quando lidamos com uma lista direta de variáveis, sem agrupamentos hierárquicos. É expressa pela soma ponderada do desempenho de cada característica:</p>
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="sec-arm-uni"><span class="header-section-number">2.2.1</span> O Modelo Unidimensional (Flat Model)</h3>
+<p>No modelo unidimensional, não há agrupamento intermediário. Todas as variáveis (<span class="math inline">\(V_i\)</span>) são tratadas no mesmo nível hierárquico e são <strong>colapsadas diretamente</strong> em um único valor global. É ideal para análises rápidas ou quando as variáveis são independentes e possuem a mesma natureza.</p>
+<p>A equação é expressa pela soma ponderada direta:</p>
 <p><span id="eq-arm-uni"><span class="math display">\[ARM = \sum_{i=1}^{n} (W_i \times S_i) \tag{2.1}\]</span></span></p>
-<p>Onde:</p>
-<ul>
-<li><span class="math inline">\(n\)</span> é o número total de variáveis avaliadas.</li>
-<li><span class="math inline">\(W_i\)</span> (<em>Weight</em>): É o peso de importância atribuído à variável <span class="math inline">\(i\)</span>, tal que a soma de todos os pesos seja igual a <span class="math inline">\(1,0\)</span> (ou <span class="math inline">\(100\%\)</span>).</li>
-<li><span class="math inline">\(S_i\)</span> (<em>Score</em>): É a nota de desempenho (conformidade) alcançada pela variável <span class="math inline">\(i\)</span>, medida em uma escala padronizada (ex: 0 a 10).</li>
-</ul>
+<p>Onde: * <span class="math inline">\(n\)</span> é o número total de variáveis avaliadas. * <span class="math inline">\(W_i\)</span> (<em>Weight</em>): Peso de importância da variável <span class="math inline">\(i\)</span> (<span class="math inline">\(\sum W_i = 1,0\)</span>). * <span class="math inline">\(S_i\)</span> (<em>Score</em>): Nota de desempenho da variável <span class="math inline">\(i\)</span>.</p>
 </section>
-<section id="sec-arm-bi" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="sec-arm-bi"><span class="header-section-number">2.2.2</span> O Modelo Bidimensional (Múltiplos Níveis)</h3>
-<p>Na prática industrial, atributos soltos precisam ser agrupados em dimensões maiores (ex: Qualidade Física, Eficiência Logística). A função expande-se para uma forma <strong>bidimensional</strong>, considerando dois níveis hierárquicos (a Dimensão e as Variáveis contidas nela):</p>
-<p><span id="eq-arm-bi"><span class="math display">\[ARM = \sum_{j=1}^{m} \left[ W_{D_j} \times \left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right) \right] \tag{2.2}\]</span></span></p>
-<p>Onde:</p>
-<ul>
-<li><span class="math inline">\(m\)</span> é o número de dimensões (<span class="math inline">\(D_j\)</span>) que compõem o modelo.</li>
-<li><span class="math inline">\(W_{D_j}\)</span> é o peso de importância da dimensão <span class="math inline">\(j\)</span> no contexto global.</li>
-<li><span class="math inline">\(n_j\)</span> é o número de variáveis (<span class="math inline">\(V_i\)</span>) dentro da respectiva dimensão <span class="math inline">\(j\)</span>.</li>
-<li><span class="math inline">\(W_{V_i}\)</span> e <span class="math inline">\(S_{V_i}\)</span> representam o peso e o <em>score</em> da variável <span class="math inline">\(i\)</span> dentro de sua dimensão.</li>
-</ul>
+<section id="sec-arm-multi" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="sec-arm-multi"><span class="header-section-number">2.2.2</span> O Modelo Multidimensional (Hierarchical Model)</h3>
+<p>Na prática industrial complexa, tratar dezenas de variáveis soltas pode gerar ruído. O modelo multidimensional introduz uma camada hierárquica. 1. Primeiro, <strong>colapsam-se as variáveis (<span class="math inline">\(V_i\)</span>)</strong> dentro de suas respectivas Dimensões (<span class="math inline">\(D_j\)</span>). 2. Em seguida, <strong>colapsam-se as Dimensões (<span class="math inline">\(D_j\)</span>)</strong> para formar o índice global.</p>
+<p>Isso permite diagnósticos mais precisos (ex: saber que o produto falhou especificamente na dimensão “Logística”, mesmo que a dimensão “Química” esteja perfeita).</p>
+<p><span id="eq-arm-multi"><span class="math display">\[ARM = \sum_{j=1}^{m} \left[ W_{D_j} \times \underbrace{\left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right)}_{\text{Score da Dimensão } D_j} \right] \tag{2.2}\]</span></span></p>
+<p>Onde: * <span class="math inline">\(m\)</span> é o número de dimensões (<span class="math inline">\(D_j\)</span>). * <span class="math inline">\(W_{D_j}\)</span> é o peso da dimensão no contexto global. * O termo entre parênteses internos calcula o desempenho consolidado daquela dimensão específica.</p>
 </section>
 <section id="sec-ponte-normativa" class="level3" data-number="2.2.3">
 <h3 data-number="2.2.3" class="anchored" data-anchor-id="sec-ponte-normativa"><span class="header-section-number">2.2.3</span> A Ponte Normativa: Associando o ARM à ISO 9000</h3>
@@ -465,7 +466,7 @@ Tabela&nbsp;2.1: Evolução do Conceito de Qualidade: Da Filosofia à Matemátic
 <p>Para construir o <span class="math inline">\(ARM\)</span>, o analista percorre cinco passos fundamentais:</p>
 <ol type="1">
 <li><strong>Identificação das Variáveis (<span class="math inline">\(V_i\)</span>):</strong> Levantar características observáveis (chuva de ideias).</li>
-<li><strong>Consolidação em Dimensões (<span class="math inline">\(D_j\)</span>):</strong> Agrupar as variáveis em blocos hierárquicos.</li>
+<li><strong>Consolidação em Dimensões (<span class="math inline">\(D_j\)</span>):</strong> Agrupar as variáveis em blocos hierárquicos (passo exclusivo do modelo Multidimensional).</li>
 <li><strong>Calibragem de Relevância (<span class="math inline">\(W_i\)</span>):</strong> Definir matematicamente os pesos.</li>
 <li><strong>Parametrização de Desempenho (<span class="math inline">\(S_i\)</span>):</strong> Padronizar grandezas físicas em notas de 0 a 10.</li>
 <li><strong>Consolidação Matemática:</strong> Rodar as equações do <span class="math inline">\(ARM\)</span>.</li>
@@ -476,31 +477,26 @@ Tabela&nbsp;2.1: Evolução do Conceito de Qualidade: Da Filosofia à Matemátic
 <li><strong>Top-down (De cima para baixo):</strong> Estruturada. A diretoria ou o mercado impõe as grandes Dimensões (ex: “Sustentabilidade”), e a engenharia “desce” para descobrir as Variáveis operacionais que as compõem.</li>
 <li><strong>Middle-out (Do meio para as pontas):</strong> Dinâmica. Escolhe-se um nível médio de partida e trabalha-se simultaneamente detalhando variáveis e quantificando dimensões.</li>
 </ul>
+<hr>
 <section id="sec-experimento-generais" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="sec-experimento-generais"><span class="header-section-number">2.3.1</span> O Experimento dos Generais: Da Subjetividade à Medição</h3>
-<p>Retomemos a afirmação: <em>“Napoleão Bonaparte tinha todas as qualidades de um grande general”</em>.</p>
-<p>Sob a ótica do nosso modelo, <strong>Napoleão é o Objeto (<span class="math inline">\(ARM\)</span>)</strong>, coragem e estratégia são <strong>Variáveis (<span class="math inline">\(V_i\)</span>)</strong>, a necessidade de vencer é o <strong>Requisito (<span class="math inline">\(W_i\)</span>)</strong> e seu sucesso histórico é o <strong>Grau (<span class="math inline">\(S_i\)</span>)</strong>.</p>
-<p>Para mensurar isso, aplicaremos uma abordagem <strong>Bottom-up</strong>: 1. Reunimos historiadores para um <em>brainstorming</em> das variáveis (<span class="math inline">\(V_i\)</span>). 2. Para evitar uma lista caótica, agrupamos essas variáveis em Dimensões (Tática, Logística). 3. Utilizamos ferramentas para forçar o consenso matemático sobre qual dimensão é mais importante (<span class="math inline">\(W_i\)</span>). 4. Parametrizamos métricas abstratas em notas exatas (<span class="math inline">\(S_i\)</span>).</p>
-<p>Ao calcularmos o <span class="math inline">\(ARM\)</span> de diferentes generais históricos, demonstraremos que a qualidade é a ferramenta técnica capaz de <strong>diferenciar</strong> rigorosamente uma entidade da outra.</p>
-</section>
-<section id="o-experimento-resolvido-quantificando-a-genialidade-militar" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="o-experimento-resolvido-quantificando-a-genialidade-militar"><span class="header-section-number">2.3.2</span> O Experimento Resolvido: Quantificando a Genialidade Militar</h3>
-<p>Para demonstrar a força do método ARM, vamos transformar o texto histórico dos 6 maiores generais em uma matriz quantitativa rigorosa. Aplicaremos os cinco passos da modelagem para descobrir, matematicamente, quem obteve o maior índice global de excelência.</p>
-<p><strong>Passo 1 e 2: Identificação das Variáveis (<span class="math inline">\(V_i\)</span>) e Consolidação em Dimensões</strong> A partir da análise estruturada dos relatos históricos (mineração de texto), extraímos as características comuns que definem o sucesso ou a falha de um comandante e as agrupamos em quatro grandes variáveis independentes:</p>
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="sec-experimento-generais"><span class="header-section-number">2.3.1</span> O Experimento Resolvido: Quantificando a Genialidade Militar</h3>
+<p>Para demonstrar a força do método ARM, vamos transformar o texto histórico dos 6 maiores generais em uma matriz quantitativa rigorosa. Aplicaremos a modelagem para descobrir, matematicamente, quem obteve o maior índice global de excelência.</p>
+<p>Como estamos tratando de uma análise inicial, utilizaremos a <strong>Abordagem Unidimensional</strong>, onde as variáveis impactam diretamente o resultado final, sem a necessidade de agrupamento hierárquico complexo.</p>
+<p><strong>Passo 1: Identificação das Variáveis (<span class="math inline">\(V_i\)</span>)</strong> A partir da análise estruturada dos relatos históricos (mineração de texto), extraímos as características comuns que definem o sucesso ou a falha de um comandante. Definimos quatro variáveis independentes para o modelo:</p>
 <ul>
 <li><strong><span class="math inline">\(V_1\)</span>: Estratégia e Adaptabilidade</strong> Táticas de guerrilha, leitura de campo, inovações e manobras ousadas.</li>
 <li><strong><span class="math inline">\(V_2\)</span>: Logística e Suprimentos</strong> Velocidade de mobilização, invenções como comida enlatada, capacidade de operar com recursos inadequados.</li>
 <li><strong><span class="math inline">\(V_3\)</span>: Liderança Multidisciplinar</strong> Capacidade de comandar tropas multiculturais e multilíngues, carisma e lealdade.</li>
 <li><strong><span class="math inline">\(V_4\)</span>: Visão Sistêmica e Política</strong> Pressão diplomática, alinhamento institucional, subordinação e impacto cultural de longo prazo.</li>
 </ul>
-<p><strong>Passo 3: Calibragem de Relevância (<span class="math inline">\(W_i\)</span>)</strong> Utilizando uma abordagem <em>Top-down</em>, o “Estado-Maior” (nossa diretoria fictícia) definiu os pesos de importância de cada variável para o sucesso de uma guerra. A soma deve ser obrigatoriamente 1,0 (100%):</p>
+<p><strong>Passo 2: Calibragem de Relevância (<span class="math inline">\(W_i\)</span>)</strong> Utilizando uma abordagem <em>Top-down</em>, o “Estado-Maior” (nossa diretoria fictícia) definiu os pesos de importância de cada variável para o sucesso de uma guerra. A soma deve ser obrigatoriamente 1,0 (100%):</p>
 <ul>
 <li><span class="math inline">\(W_1\)</span> (Estratégia): <strong>0,40</strong> (40%)</li>
 <li><span class="math inline">\(W_2\)</span> (Logística): <strong>0,25</strong> (25%)</li>
 <li><span class="math inline">\(W_3\)</span> (Liderança): <strong>0,20</strong> (20%)</li>
 <li><span class="math inline">\(W_4\)</span> (Política): <strong>0,15</strong> (15%)</li>
 </ul>
-<p><strong>Passo 4: Parametrização de Desempenho (<span class="math inline">\(S_i\)</span>)</strong> Avaliamos o desempenho histórico de cada general frente a essas variáveis, atribuindo uma nota técnica de 0 a 10:</p>
+<p><strong>Passo 3: Parametrização de Desempenho (<span class="math inline">\(S_i\)</span>)</strong> Avaliamos o desempenho histórico de cada general frente a essas variáveis, atribuindo uma nota técnica de 0 a 10:</p>
 <ul>
 <li><strong>Napoleão:</strong> Excelência absoluta em Logística (<span class="math inline">\(S_2=10\)</span>, sistemas de corpos e enlatados) e Política (<span class="math inline">\(S_4=10\)</span>, imperador e diplomata).</li>
 <li><strong>Alexandre, o Grande:</strong> Pico máximo em Estratégia (<span class="math inline">\(S_1=10\)</span>, adaptação a elefantes e arqueiros mongóis).</li>
@@ -509,8 +505,8 @@ Tabela&nbsp;2.1: Evolução do Conceito de Qualidade: Da Filosofia à Matemátic
 <li><strong>MacArthur:</strong> Grande capacidade de fazer muito com poucos recursos (<span class="math inline">\(S_2=9\)</span>), mas sofreu penalidade grave em Visão Política por insubordinação presidencial (<span class="math inline">\(S_4=2\)</span>).</li>
 <li><strong>Vo Nguyen Giap:</strong> Genialidade tática na guerrilha e exploração de fraquezas (<span class="math inline">\(S_1=10\)</span>).</li>
 </ul>
-<p><strong>Passo 5: Consolidação Matemática (O Cálculo do ARM)</strong></p>
-<p>Aplicamos a equação unidimensional <span class="math display">\[ARM = \sum_{i=1}^{n} (W_i \times S_i)\]</span> para consolidar o índice final de cada líder. A <a href="#tbl-calculo-generais" class="quarto-xref">Tabela&nbsp;<span>2.2</span></a> apresenta a matriz de dados processada:</p>
+<p><strong>Passo 4: Consolidação Matemática (O Cálculo do ARM)</strong></p>
+<p>Aplicamos a equação linear unidimensional <span class="math display">\[ARM = \sum_{i=1}^{n} (W_i \times S_i)\]</span> para consolidar o índice final de cada líder. A <a href="#tbl-calculo-generais" class="quarto-xref">Tabela&nbsp;<span>2.2</span></a> apresenta a matriz de dados processada:</p>
 <div id="tbl-calculo-generais" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-calculo-generais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -611,8 +607,7 @@ Tabela&nbsp;2.2: Matriz Analítica de Requisitos (ARM) aplicada à genialidade m
 <p>A matemática comprova que a qualidade exige equilíbrio. <strong>MacArthur</strong> possuía notas excelentes no campo de batalha, mas sua “não-conformidade” no requisito político (insubordinação) puxou seu indicador global para a última posição (7,35). <strong>Napoleão</strong>, por sua vez, garantiu o topo (9,40) não apenas por vencer batalhas, mas por maximizar as variáveis de Logística (<span class="math inline">\(25\%\)</span>) e Política (<span class="math inline">\(15\%\)</span>), provando que a excelência total é sistêmica.</p>
 </div>
 </div>
-<p>Exatamente esta mesma lógica de extração de variáveis, ponderação de pesos e cálculo de desempenho será utilizada no <em>Mining Analytics</em> para avaliar desde o teor de ferro de um produto até o desempenho de uma frota de caminhões.</p>
-<hr>
+<p>Exatamente esta mesma lógica de extração de variáveis (<span class="math inline">\(V_i\)</span>), ponderação de pesos (<span class="math inline">\(W_i\)</span>) e cálculo de desempenho (<span class="math inline">\(S_i\)</span>) será utilizada no <em>Mining Analytics</em> para avaliar desde o teor de ferro de um produto até o desempenho de uma frota de caminhões.</p>
 </section>
 </section>
 <section id="sec-modelagem-mineral" class="level2" data-number="2.4">
