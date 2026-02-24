@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; O Desdobramento Estratégico e a Gestão da Qualidade – Sistema de Gestão e Excelência Operacional na Mineração</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/cap4-rotina-metodo.html" rel="next">
+<link href="../chapters/cap2-quantificacao.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-eb767fe655e6f8c8224c258eed8bcfd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Parte I: Introdução à Engenharia da Qualidade</a></li><li class="breadcrumb-item"><a href="../chapters/cap3-estrategia-metas.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">O Desdobramento Estratégico e a Gestão da Qualidade</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Sistema de Gestão e Excelência Operacional na Mineração</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introdução</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../chapters/part1-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parte I: Introdução à Engenharia da Qualidade</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap1-fundamentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos e Conceitos da Qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap2-quantificacao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quantificação e Modelagem da Qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap3-estrategia-metas.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">O Desdobramento Estratégico e a Gestão da Qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap4-rotina-metodo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Desdobramento Estratégico e Controle Operacional</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap5-ferramentas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Caixa de Ferramentas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap6-estudo-casos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estudo de Casos</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../chapters/part2-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parte II: Análise e Processos de Mina</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ciclo1-perfuracao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ciclo2-carregamento.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">A Identidade Fundamental do Carregamento</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ciclo3-transporte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A Jornada de 7 Eventos e o Ciclo de Transporte</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../chapters/part3-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parte III: Gestão de Ativos, Manutenção e Confiabilidade</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/plan-crtl-opera.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Planejamento e Controle Operacional (PCO)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/plan-crtl-manut.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Planejamento e Controle de Manutenção (PCM)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/modelagem_manut.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Indicadores Chave de Desempenho (KPI)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/confiabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Análise de Confiabilidade de Ativos</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apêndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/a-dicionario-dados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Dados</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/b-dicionario-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Dicionário de Indicadores (KPIs)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/c-notacoes-abreviacoes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Notações, Símbolos e Abreviações</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/d-lista-exemplos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Lista de Exemplos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/e-lista-figuras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Lista de Figuras</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/f-lista-tabelas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Lista de Tabelas</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#sec-estrutura-diretiva" id="toc-sec-estrutura-diretiva" class="nav-link active" data-scroll-target="#sec-estrutura-diretiva"><span class="header-section-number">3.1</span> A Estrutura Diretiva: Políticas, Visão e Missão</a></li>
+  <li><a href="#sec-fronteira-processos" id="toc-sec-fronteira-processos" class="nav-link" data-scroll-target="#sec-fronteira-processos"><span class="header-section-number">3.2</span> A Fronteira da Execução: Processos</a></li>
+  <li><a href="#sec-consolidacao-sgq" id="toc-sec-consolidacao-sgq" class="nav-link" data-scroll-target="#sec-consolidacao-sgq"><span class="header-section-number">3.3</span> A Consolidação: O Sistema de Gestão da Qualidade (SGQ)</a>
+  <ul class="collapse">
+  <li><a href="#a-evolução-da-maturidade-sgi-tqm-e-meg" id="toc-a-evolução-da-maturidade-sgi-tqm-e-meg" class="nav-link" data-scroll-target="#a-evolução-da-maturidade-sgi-tqm-e-meg"><span class="header-section-number">3.3.1</span> A Evolução da Maturidade: SGI, TQM e MEG</a></li>
+  </ul></li>
+  <li><a href="#sec-desdobramento-objetivos" id="toc-sec-desdobramento-objetivos" class="nav-link" data-scroll-target="#sec-desdobramento-objetivos"><span class="header-section-number">3.4</span> O Desdobramento Estratégico: Objetivos da Qualidade</a>
+  <ul class="collapse">
+  <li><a href="#indicadores-e-a-qualidade-de-conformação" id="toc-indicadores-e-a-qualidade-de-conformação" class="nav-link" data-scroll-target="#indicadores-e-a-qualidade-de-conformação"><span class="header-section-number">3.4.1</span> Indicadores e a Qualidade de Conformação</a></li>
+  <li><a href="#o-ponto-crítico-da-conformação-a-gestão-de-ativos" id="toc-o-ponto-crítico-da-conformação-a-gestão-de-ativos" class="nav-link" data-scroll-target="#o-ponto-crítico-da-conformação-a-gestão-de-ativos"><span class="header-section-number">3.4.2</span> O Ponto Crítico da Conformação: A Gestão de Ativos</a></li>
+  <li><a href="#o-desdobramento-da-medição-princípios-requisitos-e-critérios" id="toc-o-desdobramento-da-medição-princípios-requisitos-e-critérios" class="nav-link" data-scroll-target="#o-desdobramento-da-medição-princípios-requisitos-e-critérios"><span class="header-section-number">3.4.3</span> O Desdobramento da Medição: Princípios, Requisitos e Critérios</a></li>
+  <li><a href="#a-triangulação-da-medição-do-desempenho-organizacional" id="toc-a-triangulação-da-medição-do-desempenho-organizacional" class="nav-link" data-scroll-target="#a-triangulação-da-medição-do-desempenho-organizacional"><span class="header-section-number">3.4.4</span> A Triangulação da Medição do Desempenho Organizacional</a></li>
+  <li><a href="#o-caminho-do-alcance-rumo-à-trilogia-de-juran" id="toc-o-caminho-do-alcance-rumo-à-trilogia-de-juran" class="nav-link" data-scroll-target="#o-caminho-do-alcance-rumo-à-trilogia-de-juran"><span class="header-section-number">3.4.5</span> O Caminho do Alcance: Rumo à Trilogia de Juran</a></li>
+  </ul></li>
+  <li><a href="#sec-trilogia-juran" id="toc-sec-trilogia-juran" class="nav-link" data-scroll-target="#sec-trilogia-juran"><span class="header-section-number">3.5</span> O Motor Executivo: A Trilogia de Juran</a>
+  <ul class="collapse">
+  <li><a href="#planejamento-da-qualidade-quality-planning" id="toc-planejamento-da-qualidade-quality-planning" class="nav-link" data-scroll-target="#planejamento-da-qualidade-quality-planning"><span class="header-section-number">3.5.1</span> Planejamento da Qualidade (Quality Planning)</a></li>
+  <li><a href="#controle-da-qualidade-quality-control" id="toc-controle-da-qualidade-quality-control" class="nav-link" data-scroll-target="#controle-da-qualidade-quality-control"><span class="header-section-number">3.5.2</span> Controle da Qualidade (Quality Control)</a></li>
+  <li><a href="#melhoria-da-qualidade-quality-improvement" id="toc-melhoria-da-qualidade-quality-improvement" class="nav-link" data-scroll-target="#melhoria-da-qualidade-quality-improvement"><span class="header-section-number">3.5.3</span> Melhoria da Qualidade (Quality Improvement)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Parte I: Introdução à Engenharia da Qualidade</a></li><li class="breadcrumb-item"><a href="../chapters/cap3-estrategia-metas.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">O Desdobramento Estratégico e a Gestão da Qualidade</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-cap3" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">O Desdobramento Estratégico e a Gestão da Qualidade</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>No <a href="cap1-fundamentos.html" class="quarto-xref"><span>Capítulo 1</span></a>, estabelecemos a pedra angular da nossa modelagem:</p>
+<div class="callout callout-style-default callout-note callout-titled" title="📌 DEFINIÇÃO NORMATIVA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>📌 DEFINIÇÃO NORMATIVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Qualidade (3.6.2):</strong> Grau em que o conjunto de características (3.10.1) inerentes de um objeto (3.6.1) satisfaz requisitos (3.6.4).</p>
+</div>
+</div>
+<p>No entanto, a qualidade por si só é um estado passivo. Para que ela seja alcançada de forma repetível em uma operação industrial, ela precisa ser ativamente direcionada. É neste ponto que introduzimos os conceitos de controle corporativo:</p>
+<div class="callout callout-style-default callout-note callout-titled" title="📌 DEFINIÇÃO NORMATIVA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>📌 DEFINIÇÃO NORMATIVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Gestão (3.3.3):</strong> Atividades controladas para dirigir e controlar uma organização (3.2.1).</li>
+<li><strong>Organização (3.2.1):</strong> Pessoa ou grupo de pessoas com suas próprias funções com responsabilidades, autoridades e relações para alcançar seus objetivos (3.7.1).</li>
+</ul>
+</div>
+</div>
+<p>Quando fundimos esses elementos — o estado desejado (Qualidade) com a ação de direcionamento (Gestão) sobre uma empresa (Organização) —, nasce a premissa central do nosso sistema:</p>
+<div class="callout callout-style-default callout-note callout-titled" title="📌 DEFINIÇÃO NORMATIVA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>📌 DEFINIÇÃO NORMATIVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Gestão da Qualidade (3.3.4):</strong> Gestão (3.3.3) que diz respeito à qualidade (3.6.2). * <strong>NOTA 1:</strong> A Gestão da qualidade pode incluir o estabelecimento de políticas da qualidade (3.5.9), objetivos da qualidade (3.7.2) e processos (3.4.1). Os objetivos da qualidade podem ser alcançados por meio do planejamento da qualidade (3.3.5), da garantia da qualidade (3.3.6), do controle da qualidade (3.3.7) e da melhoria da qualidade (3.3.8).</p>
+</div>
+</div>
+<p>A <strong>NOTA 1</strong> da Gestão da Qualidade é o verdadeiro “mapa tático” da engenharia de produção. Para transformar essa teoria em prática, desmembraremos esta nota passo a passo, mostrando como ela puxa toda a estrutura do nosso livro.</p>
+<section id="sec-estrutura-diretiva" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-estrutura-diretiva"><span class="header-section-number">3.1</span> A Estrutura Diretiva: Políticas, Visão e Missão</h2>
+<p>A Nota 1 indica que a Gestão da Qualidade puxa, em primeiro lugar, o estabelecimento de Políticas. A política não nasce do vazio; ela é orientada pelas aspirações máximas da Alta Direção:</p>
+<div class="callout callout-style-default callout-note callout-titled" title="📌 DEFINIÇÃO NORMATIVA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>📌 DEFINIÇÃO NORMATIVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Visão (3.5.10):</strong> Aspiração do que uma organização (3.2.1) gostaria de se tornar, como expresso pela Alta Direção (3.1.1).</li>
+<li><strong>Missão (3.5.11):</strong> Propósito da existência da organização (3.2.1), como expresso pela Alta Direção (3.1.1).</li>
+<li><strong>Política da Qualidade (3.5.9):</strong> Política (3.5.8) com relação à qualidade (3.6.2).
+<ul>
+<li><em>NOTA 1:</em> A política da qualidade geralmente é consistente com a política geral da organização (3.2.1), pode ser alinhada com a visão (3.5.10) e a missão (3.5.11) da organização e provê uma estrutura para se estabelecerem os objetivos da qualidade (3.7.2).</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<p>A política é, portanto, a regra de ouro. Ela garante que a operação produza respeitando a identidade da empresa e fornece a estrutura para a próxima etapa normativa.</p>
+</section>
+<section id="sec-fronteira-processos" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-fronteira-processos"><span class="header-section-number">3.2</span> A Fronteira da Execução: Processos</h2>
+<p>Voltando à Nota 1 da Gestão da Qualidade, o segundo elemento estrutural puxado pela norma é o <strong>Processo</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="📌 DEFINIÇÃO NORMATIVA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>📌 DEFINIÇÃO NORMATIVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Processo (3.4.1):</strong> Conjunto de atividades inter-relacionadas ou interativas que utilizam entradas para entregar um resultado pretendido. * <em>NOTA 1:</em> O “resultado pretendido” do processo é chamado de saída (3.7.5), produto (3.7.6) ou serviço (3.7.7), dependendo do contexto da referência. * <em>NOTA 2:</em> As entradas para um processo são geralmente saídas de outros processos e as saídas de um processo são geralmente as entradas para outros processos. * <em>NOTA 3:</em> Dois ou mais processos inter-relacionados ou que interagem em série também podem ser referidos como processos. * <em>NOTA 4:</em> Processos em uma organização (3.2.1) são geralmente planejados e realizados sob condições controladas para agregar valor. * <em>NOTA 5:</em> Um processo para o qual não for possível validar prontamente ou economicamente a conformidade (3.6.11) da saída é frequentemente chamado de “processo especial”.</p>
+</div>
+</div>
+<p>Na engenharia aplicada à mineração, é fundamental fazermos uma distinção prática baseada na Nota 1 deste item:</p>
+<ul>
+<li><strong>Qualidade do Produto (A Saída):</strong> Focada na adequação ao uso e no atendimento das especificações do cliente externo. Na exploração mineral (como a de minério de ferro a céu aberto), o produto precisa passar pelo beneficiamento — etapas de cominuição, classificação, concentração e separação sólido/líquido — até atingir a constituição física exigida. Foi para quantificar esta qualidade de saída que utilizamos a Modelagem Analítica (ARM) no <a href="cap2-quantificacao.html" class="quarto-xref"><span>Capítulo 2</span></a>.</li>
+<li><strong>Qualidade do Processo (A Execução):</strong> Focada na eficiência interna. A mineração é caracterizada pelo efeito de alto volume com baixa variedade de produtos, configurando uma produção contínua de arranjo físico por produto. Para este cenário, o principal fator “ganhador de pedido” é o aspecto econômico (o menor custo unitário e o <em>lead-time</em>).</li>
+</ul>
+<p>Para garantir essa dupla qualidade (do produto e do processo), a execução exige uma forte integração horizontal. Na indústria mineral, a Produção não é um departamento isolado, mas a soma sinérgica e inseparável de três forças:</p>
+<p><strong>Produção = Operação + Manutenção + Engenharia</strong></p>
+<p>Traduzindo essa equação para a arquitetura de gestão, o Planejamento e Controle da Produção (PCP) atua como o grande guarda-chuva integrador que consolida: 1. O <strong>Planejamento e Controle da Operação (PCO):</strong> Focado no cumprimento das metas de volume, taxa de alimentação e qualidade do produto final. 2. A <strong>Programação e Controle da Manutenção (PCM):</strong> Focada em garantir a confiabilidade operacional e a disponibilidade física imediata dos equipamentos. 3. A <strong>Engenharia / Gestão de Ativos:</strong> Focada na maximização do ciclo de vida das máquinas, análise de falhas crônicas e melhoria contínua do projeto.</p>
+<p>Quando essa integração de processos (PCO + PCM + Engenharia) falha, surgem anomalias corporativas que destroem o valor agregado (Nota 4). Exemplos clássicos incluem a <strong>falta de acurácia de estoques</strong> (divergência entre o saldo físico nas pilhas e o contábil) e falhas de <em>compliance</em> na expedição e logística (divergências de peso nas balanças de transporte multimodal).</p>
+<p>Para blindar a operação contra essas perdas, os processos de negócio precisam compor um <strong>Sistema de Gestão Integrado (SGI)</strong>. Este sistema deve disseminar a estratégia em todos os níveis, incorporando não apenas metas financeiras, mas também os Indicadores de Sustentabilidade (<em>Triple Bottom Line</em> - TBL), garantindo que a eficiência do processo não resulte em degradação ambiental ou riscos sociais.</p>
+</section>
+<section id="sec-consolidacao-sgq" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-consolidacao-sgq"><span class="header-section-number">3.3</span> A Consolidação: O Sistema de Gestão da Qualidade (SGQ)</h2>
+<p>Para que as Políticas e os Processos funcionem de forma coordenada, eles não podem operar soltos na fábrica. Eles precisam ser encapsulados e controlados.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="📌 DEFINIÇÃO NORMATIVA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>📌 DEFINIÇÃO NORMATIVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Sistema (3.5.1):</strong> Conjunto de elementos inter-relacionados ou interativos.</li>
+<li><strong>Sistema de Gestão (3.5.3):</strong> Atividades controladas para dirigir e controlar uma organização para estabelecer políticas, objetivos e processos para alcançar esses objetivos.</li>
+<li><strong>Sistema de Gestão da Qualidade - SGQ (3.5.4):</strong> Parte de um sistema de gestão com relação à qualidade.</li>
+<li><strong>Implementação de SGQ (3.4.3):</strong> Processo de estabelecimento, documentação, implementação, manutenção e melhoria contínua do sistema de gestão da qualidade.</li>
+</ul>
+</div>
+</div>
+<p>A função primária do SGQ é garantir a conformidade dos produtos e processos por meio de um conjunto de regras, recursos e procedimentos documentados (como a ISO 9001). Ele estabiliza o que já existe, garantindo que o cliente não receba minério fora de especificação.</p>
+<section id="a-evolução-da-maturidade-sgi-tqm-e-meg" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="a-evolução-da-maturidade-sgi-tqm-e-meg"><span class="header-section-number">3.3.1</span> A Evolução da Maturidade: SGI, TQM e MEG</h3>
+<p>No entanto, a Gestão da Qualidade não é um fim em si mesma, mas uma jornada de maturidade que extrapola os limites do SGQ. O desempenho organizacional contemporâneo é multidimensional. Uma mineradora precisa entregar a meta de produção (Qualidade), mas não pode fazer isso causando acidentes (Segurança) ou poluindo rios (Meio Ambiente).</p>
+<p>Para compreender essa evolução, alinhamos os diferentes “guarda-chuvas” gerenciais que a empresa adota na sua busca pela excelência:</p>
+<ul>
+<li><strong>Sistema de Gestão Integrado (SGI):</strong> Incorpora outras dimensões normativas e de sustentabilidade ao SGQ. Ele transforma políticas de múltiplas disciplinas (<em>Triple Bottom Line</em> - econômico, social e ambiental) em requisitos e indicadores operacionais unificados para o chão de fábrica.</li>
+<li><strong>Gestão da Qualidade Total (TQM):</strong> Enquanto o SGI fornece “regras”, o TQM exige uma mudança de cultura. Iniciado no Japão (como CWQC) e adaptado no Ocidente, estabelece que a qualidade não é papel exclusivo da engenharia, mas um compromisso de todos os funcionários. Enfatiza a melhoria contínua, o redesenho de processos e a medição constante de resultados.</li>
+<li><strong>Modelo de Excelência da Gestão (MEG):</strong> É o estado da arte. Gerido no Brasil pela Fundação Nacional da Qualidade (FNQ), não é uma norma prescritiva, mas um referencial de classe mundial. Inspirado no ciclo PDCL (<em>Plan, Do, Check, Learn</em>), estimula o alinhamento de toda a organização (Fundamentos <span class="math inline">\(\rightarrow\)</span> Temas <span class="math inline">\(\rightarrow\)</span> Processos <span class="math inline">\(\rightarrow\)</span> Ferramentas) para gerar resultados harmônicos na cadeia de valor para todas as partes interessadas.</li>
+</ul>
+</section>
+</section>
+<section id="sec-desdobramento-objetivos" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sec-desdobramento-objetivos"><span class="header-section-number">3.4</span> O Desdobramento Estratégico: Objetivos da Qualidade</h2>
+<p>Com a Política definida, os Processos mapeados e o modelo de maturidade (SGQ/SGI/MEG) estabelecido pela Alta Direção, chegamos ao terceiro elemento puxado pela definição normativa de Gestão da Qualidade: os <strong>Objetivos</strong>. Para que a excelência não seja apenas um quadro na parede, a estratégia precisa virar um alvo inquestionável.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="📌 DEFINIÇÃO NORMATIVA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>📌 DEFINIÇÃO NORMATIVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Objetivos da Qualidade (3.7.2):</strong> Objetivos (3.7.1) com relação à qualidade (3.6.2). * <em>NOTA 1:</em> Um objetivo pode ser estratégico, tático ou operacional. * <em>NOTA 2:</em> Objetivos podem se relacionar a diferentes disciplinas (como finanças, saúde e segurança e metas ambientais) e podem se referir a diferentes níveis (como estratégico, da organização, projeto, produto e processos). * <em>NOTA 3:</em> Um objetivo pode ser expresso de outras formas, como resultado pretendido, propósito, critério operacional, finalidade, meta ou alvo. * <em>NOTA 4:</em> No contexto da Gestão da Qualidade, objetivos da qualidade são estabelecidos pela organização, coerentemente com a política da qualidade, para alcançar resultados específicos.</p>
+</div>
+</div>
+<p>Como a Nota 1 deste item deixa claro, um objetivo precisa ser desdobrado do nível <strong>estratégico</strong> para o nível <strong>operacional</strong>. É aqui que a teoria normativa se funde com o <strong>Gerenciamento pelas Diretrizes (GPD)</strong>.</p>
+<p>O Diretor foca no lucro anual (Estratégico), o Gerente foca na disponibilidade física da frota (Tático), e o Supervisor atua na redução do tempo de fila de caminhões (Operacional). O GPD garante que, de cima para baixo, todos estejam trabalhando para o mesmo resultado pretendido.</p>
+<p>Para ilustrar a importância de compreender corretamente esse desdobramento de objetivos e evitar a miopia gerencial, considere o seguinte diálogo hipotético entre um engenheiro de processo e o gerente geral de uma usina:</p>
+<blockquote class="blockquote">
+<p><strong>Engenheiro:</strong> “Nosso maior problema hoje é a quebra frequente das correias transportadoras.” <strong>Gerente Geral:</strong> “A sua missão é ter muitas correias rodando?” <strong>Engenheiro:</strong> “Não, meu objetivo é alimentar a planta de beneficiamento com minério britado.” <strong>Gerente Geral:</strong> “E qual é a taxa de alimentação exigida pela planta?” <strong>Engenheiro:</strong> “Precisamos entregar 4.500 toneladas por hora.” <strong>Gerente Geral:</strong> “E qual é o nosso volume atual?” <strong>Engenheiro:</strong> “Estamos conseguindo manter apenas 3.800 toneladas por hora.” <strong>Gerente Geral:</strong> “Entende a diferença? O seu problema não é a correia. O seu problema é um <em>déficit</em> de 700 toneladas por hora na alimentação da usina. A correia rasgada é apenas uma das possíveis causas. Foque no resultado, descubra o que gera esse déficit e resolva.”</p>
+</blockquote>
+<div class="callout callout-style-default callout-important callout-titled" title="🎯 A REGRA DE OURO DA GESTÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>🎯 A REGRA DE OURO DA GESTÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Os problemas (desvios nos Objetivos da Qualidade) residem sempre nos <strong>FINS</strong> (nos resultados não alcançados) e nunca nos <strong>MEIOS</strong> (processos, máquinas ou recursos). A falha da máquina é a causa; o problema corporativo é o <em>gap</em> entre o desempenho atual e a meta estabelecida.</p>
+</div>
+</div>
+<section id="indicadores-e-a-qualidade-de-conformação" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="indicadores-e-a-qualidade-de-conformação"><span class="header-section-number">3.4.1</span> Indicadores e a Qualidade de Conformação</h3>
+<p>Numa visão da qualidade como componente estratégico, esses Objetivos da Qualidade são convertidos no chão de fábrica em <strong>Indicadores Chave de Desempenho (ICDs ou KPIs)</strong>. São estes indicadores que medem, na prática, se a operação está cumprindo o plano anual de produção e atingindo as premissas de custo e rentabilidade.</p>
+<p>Para que a empresa cumpra a produção programada com a menor variabilidade possível, a engenharia desdobra a Qualidade do Processo em duas frentes:</p>
+<ol type="1">
+<li><strong>Qualidade do Projeto do Processo:</strong> Consiste no desenvolvimento prévio e na definição da capacidade produtiva (ex: fluxograma, <em>layout</em> da usina e dimensionamento de equipamentos).</li>
+<li><strong>Qualidade de Conformação (Ajustamento):</strong> Estipula a relação executiva entre o projeto e a fabricação diária. São as ações necessárias para garantir que o minério seja processado rigorosamente de acordo com o planejado.</li>
+</ol>
+</section>
+<section id="o-ponto-crítico-da-conformação-a-gestão-de-ativos" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="o-ponto-crítico-da-conformação-a-gestão-de-ativos"><span class="header-section-number">3.4.2</span> O Ponto Crítico da Conformação: A Gestão de Ativos</h3>
+<p>Na mineração, o principal determinante da Qualidade de Conformação é a capacidade de utilização contínua dos recursos de produção. Isso está diretamente amarrado à <strong>Gestão de Ativos</strong>. Empresas de alto desempenho dependem da disponibilidade física de seus equipamentos, controlando o ativo durante sete etapas do seu ciclo de vida:</p>
+<ol type="1">
+<li>Decisão sobre a necessidade do ativo.</li>
+<li>Determinação de suas especificações técnicas.</li>
+<li>Aquisição com base no custo, desempenho e risco.</li>
+<li>Instalação e operação.</li>
+<li>Manutenção (restaurar ou manter a função).</li>
+<li>Expansão, reforma ou substituição.</li>
+<li>Descarte ao final da vida útil.</li>
+</ol>
+<p>Para que os objetivos estratégicos sejam alcançados sem interrupções operacionais, as propostas de manutenção e renovação desses ativos devem obrigatoramente fazer parte do planejamento de longo prazo.</p>
+</section>
+<section id="o-desdobramento-da-medição-princípios-requisitos-e-critérios" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="o-desdobramento-da-medição-princípios-requisitos-e-critérios"><span class="header-section-number">3.4.3</span> O Desdobramento da Medição: Princípios, Requisitos e Critérios</h3>
+<p>Para que a Gestão de Ativos e os Indicadores (KPIs) funcionem em sintonia com a estratégia da diretoria, o Sistema de Gestão Integrado (SGI) precisa traduzir as intenções macro em elementos matemáticos e auditáveis. Esse processo ocorre através de um “funil” de desdobramento lógico.</p>
+<p>A <a href="#fig-desdobramento-sgi" class="quarto-xref">Figura&nbsp;<span>3.1</span></a> ilustra exatamente essa cascata de desdobramento estrutural do SGI, demonstrando como uma diretriz ampla e abstrata se afunila até se transformar na expressão matemática do desempenho da operação.</p>
+<div id="fig-desdobramento-sgi" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-desdobramento-sgi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/fig-desdobramento-sgi.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-desdobramento-sgi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.1: Desdobramento lógico das estratégias no SGI: dos Princípios ao Desempenho Operacional
+</figcaption>
+</figure>
+</div>
+<p>A lógica de conversão desse fluxo gerencial é dividida em três camadas sequenciais:</p>
+<ul>
+<li><strong>Princípios (A Diretriz Estratégica):</strong> Representam os próprios objetivos de qualidade da organização estabelecidos pela Alta Direção. Quando alcançados, atestam o compromisso da empresa com a excelência. Na perspectiva organizacional, a adoção de um princípio atua como a diretriz primária focada na melhoria contínua do desempenho corporativo.</li>
+<li><strong>Requisitos (O Indicador do SGI):</strong> Respondem à pergunta prática: <em>“Como medir o desempenho de cada princípio?”</em>. O SGI desdobra o princípio estratégico em requisitos, que assumem a forma de indicadores mensuráveis aplicáveis aos diversos setores da empresa (operação, manutenção, engenharia).</li>
+<li><strong>Critérios (A Avaliação Prática):</strong> Um único requisito pode demandar várias avaliações no dia a dia. Para suprir as necessidades das partes interessadas (ex: clientes e acionistas), o SGI define as características, atributos e limites de tolerância específicos — os critérios — que a rotina deve respeitar.</li>
+</ul>
+<p>Como o fluxograma conclui, o <strong>Desempenho Operacional</strong> não é medido por acaso. Ele é a expressão final e matemática desses critérios. É o cumprimento rigoroso dos critérios no chão de fábrica que descreve o estado real e a dinâmica de um setor da mineração, provando se a meta estipulada no topo da pirâmide foi ou não atingida.</p>
+</section>
+<section id="a-triangulação-da-medição-do-desempenho-organizacional" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="a-triangulação-da-medição-do-desempenho-organizacional"><span class="header-section-number">3.4.4</span> A Triangulação da Medição do Desempenho Organizacional</h3>
+<p>Ao incorporar objetivos estratégicos e desdobrá-los via GPD, uma quantidade substancial de dados operacionais passa a estar disponível. Para garantir que o Sistema de Gestão Integrado (SGI) funcione da maneira mais eficiente possível, a organização precisa de um sistema de medição rigoroso.</p>
+<p>Um sistema de medição eficaz no SGI é impulsionado por três direcionamentos: a melhoria da capacidade organizacional (medida por indicadores), o suporte consistente de alto nível (medido pela maturidade) e a consciência dos problemas (medida pela percepção das pessoas).</p>
+<p>Para traduzir esses três direcionadores na prática, a avaliação da qualidade e do desempenho em operações complexas de mineração deve ser triangulada em três processos de avaliação distintos (AQ1, AQ2 e AQ3):</p>
+<p><strong>1. Avaliação por KPIs (A Eficácia Operacional - AQ1)</strong> Trata-se de uma medida direta e quantitativa que reflete a <em>Eficácia</em> da operação no alcance dos objetivos institucionais. O desempenho é avaliado comparando o resultado prático (real) com a meta programada. Na mineração, os KPIs são classificados em diferentes dimensões (técnica, temporal, manutenção, segurança) e distribuídos de forma hierárquica (do superintendente ao operador). O não atendimento da meta por um KPI é o gatilho exato que aponta a necessidade de melhoria contínua.</p>
+<p><strong>2. Avaliação de Maturidade (A Eficiência do Processo - AQ2)</strong> Trata-se de uma medida indireta que reflete a <em>Eficiência</em> e a evolução do processo de implantação do próprio SGI. Como a mineração envolve múltiplos processos inter-relacionados, a excelência não é medida apenas pelo atingimento do volume, mas por “como” esse volume foi atingido. Inspirada em modelos como a Curva de Bradley, a avaliação categoriza o nível de maturidade da gestão em cinco estágios: * Estágio 0: Prática inexistente. * Estágio 1: Fraco ou em início de implantação. * Estágio 2: Em implantação, mas não abrangente. * Estágio 3: Implantado e atingindo os resultados esperados. * Estágio 4: Excelência (internalizado e melhorado continuamente).</p>
+<p><strong>3. Avaliação da Qualidade Percebida (O Fator Humano - AQ3)</strong> Trata-se de uma medida indireta e qualitativa. A maior parte da literatura foca apenas na anatomia do sistema, esquecendo que o desempenho da organização depende de como as pessoas se comportam dentro desse sistema. O reconhecimento e a consciência dos problemas pelas equipes de operação são o maior motor de impulsão de resultados. Se há diferenças de qualidade percebida (ex: insatisfação com a burocracia do sistema, falhas de comunicação de metas ou atrito entre as áreas de operação e manutenção), isso influenciará diretamente o cumprimento das metas anuais. A intangibilidade do fator humano exige que a gestão meça o nível de engajamento e a compreensão comum da política da qualidade no chão de fábrica.</p>
+</section>
+<section id="o-caminho-do-alcance-rumo-à-trilogia-de-juran" class="level3" data-number="3.4.5">
+<h3 data-number="3.4.5" class="anchored" data-anchor-id="o-caminho-do-alcance-rumo-à-trilogia-de-juran"><span class="header-section-number">3.4.5</span> O Caminho do Alcance: Rumo à Trilogia de Juran</h3>
+<p>Finalmente, com os objetivos desdobrados em KPIs, o processo em conformação e os ativos gerenciados, a norma determina que a qualidade só pode ser plenamente alcançada por meio de quatro frentes executivas (conforme o fechamento da Nota 1 da Gestão da Qualidade):</p>
+<div class="callout callout-style-default callout-note callout-titled" title="📌 DEFINIÇÃO NORMATIVA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>📌 DEFINIÇÃO NORMATIVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Planejamento da Qualidade (3.3.5):</strong> Estabelece os objetivos e especifica os recursos necessários.</li>
+<li><strong>Garantia da Qualidade (3.3.6):</strong> Provê confiança de que os requisitos serão atendidos.</li>
+<li><strong>Controle da Qualidade (3.3.7):</strong> Foca no atendimento prático dos requisitos (reduzir a variação).</li>
+<li><strong>Melhoria da Qualidade (3.3.8):</strong> Aumenta a capacidade de atender aos requisitos.</li>
+</ul>
+</div>
+</div>
+<p>Enquanto a <em>Garantia da Qualidade</em> atua como a blindagem de confiança corporativa, as outras três ações (Planejamento, Controle e Melhoria) formam uma engrenagem estritamente operacional, cíclica e sequencial.</p>
+<p>Essa divisão normativa é a consagração legal da mais robusta estrutura de gestão da história da engenharia de produção: a <strong>Trilogia de Juran</strong>. Nas próximas seções, mergulharemos no chão de fábrica para entender como operar essas três etapas na rotina mineral.</p>
+</section>
+</section>
+<section id="sec-trilogia-juran" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="sec-trilogia-juran"><span class="header-section-number">3.5</span> O Motor Executivo: A Trilogia de Juran</h2>
+<p>Como vimos na conclusão da arquitetura normativa da ISO 9000, o Sistema de Gestão e os Objetivos do BSC não se realizam sozinhos. Enquanto a <em>Garantia da Qualidade</em> atua como a blindagem de confiança de todo o sistema corporativo, as outras três frentes normativas — Planejamento, Controle e Melhoria — formam a engrenagem que faz a fábrica rodar.</p>
+<p>Essa divisão não é uma coincidência. Ela é a consagração internacional da mais famosa estrutura de gestão da história da engenharia de produção, desenvolvida por Joseph Juran. Conhecida como a <strong>Trilogia de Juran</strong>, essa metodologia trata a gestão como um fluxo contínuo de três processos vitais e sequenciais.</p>
+<p>A utilização do diagrama da Trilogia de Juran auxilia na percepção da relação entre as anomalias dos processos e a necessidade de intervir nos indicadores de qualidade.</p>
+<section id="planejamento-da-qualidade-quality-planning" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="planejamento-da-qualidade-quality-planning"><span class="header-section-number">3.5.1</span> Planejamento da Qualidade (Quality Planning)</h3>
+<p>É o ponto de partida. O Planejamento da Qualidade é a atividade de desenvolver os produtos e processos necessários para atender às necessidades dos clientes e às metas do SGI.</p>
+<p>Na mineração, esta fase está intimamente ligada à <strong>Qualidade do Projeto do Processo</strong>. Envolve dimensionar a usina, definir o <em>layout</em>, escolher a tecnologia de beneficiamento e estabelecer os limites de controle estatístico. O objetivo do planejamento é entregar à equipe de operação um processo que seja intrinsecamente capaz de bater a meta (ex: processar 4.500 t/h) sob as condições reais de operação.</p>
+<section id="o-roteiro-de-juran" class="level4" data-number="3.5.1.1">
+<h4 data-number="3.5.1.1" class="anchored" data-anchor-id="o-roteiro-de-juran"><span class="header-section-number">3.5.1.1</span> O Roteiro de Juran</h4>
+<p>Para que não seja um exercício de “adivinhação”, o planejamento segue um fluxo lógico de 6 passos definidos por Juran para converter necessidades abstratas em operação física:</p>
+<ol type="1">
+<li>&nbsp;<strong>Estabelecer metas de qualidade:</strong> Definir o alvo estratégico.</li>
+<li>&nbsp;<strong>Identificar os clientes:</strong> Quem são as partes interessadas? (Siderúrgicas, Pelotização, Acionistas).</li>
+<li>&nbsp;<strong>Determinar as necessidades dos clientes:</strong> Traduzir expectativas em requisitos técnicos (Teor, Granulometria, Contaminantes).</li>
+<li>&nbsp;<strong>Desenvolver características do produto:</strong> Especificação técnica do minério (ex: <em>Sinter Feed</em>, <em>Pellet Feed Especial</em>).</li>
+<li>&nbsp;<strong>Desenvolver características do processo:</strong> O desenho da lavra, o plano de fogo e a rota de beneficiamento capazes de atingir o produto.</li>
+<li>&nbsp;<strong>Estabelecer controles e transferir para operações:</strong> Garantir que a operação (chão de fábrica) saiba executar o plano sob condições controladas.</li>
+</ol>
+</section>
+<section id="definição-de-metas-guidance-previsão-e-alvo" class="level4" data-number="3.5.1.2">
+<h4 data-number="3.5.1.2" class="anchored" data-anchor-id="definição-de-metas-guidance-previsão-e-alvo"><span class="header-section-number">3.5.1.2</span> Definição de Metas: Guidance, Previsão e Alvo</h4>
+<p>O primeiro passo do roteiro de Juran é o pilar de todo o planejamento: a definição correta do que é uma <strong>Meta</strong>. Na engenharia de minas, é crucial distinguir três conceitos que frequentemente se sobrepõem e causam confusão gerencial:</p>
+<ol type="1">
+<li>&nbsp;<strong>Guidance (Orientação):</strong> É a informação que a empresa (especialmente as de capital aberto) fornece ao mercado projetando seu desempenho futuro. É uma promessa estratégica que ancora as expectativas dos investidores e acionistas.</li>
+<li>&nbsp;<strong>Previsão (Forecast):</strong> É a tentativa técnica de prever o futuro com a maior precisão possível, utilizando dados históricos e considerando eventos futuros previstos. É o cenário provável (o que vai acontecer se a operação continuar rodando como está).</li>
+<li>&nbsp;<strong>Meta (Target):</strong> É o que a diretoria <strong>gostaria</strong> que acontecesse.</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled" title="🎯 O Conceito de Gap e Planejamento">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>🎯 O Conceito de Gap e Planejamento
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A Meta deve ser definida com base na identificação de uma <strong>Lacuna (Gap)</strong>. O Planejamento da Qualidade é, em essência, a resposta às previsões e metas; é o processo de definição das ações de engenharia necessárias para alinhar a previsão (o histórico provável) com o objetivo (o desejado).</p>
+</div>
+</div>
+<p>Para que essa meta seja válida e não apenas um “desejo inatingível”, ela deve seguir o critério <strong>SMART</strong>: * <strong>S (Specific):</strong> Específica (Qual objeto? Produção? Teor de Ferro? Confiabilidade da frota?). * <strong>M (Measurable):</strong> Mensurável (Como será medido e em qual unidade?). * <strong>A (Achievable):</strong> Atingível (Está no poder da engenharia e da operação realizá-la?). * <strong>R (Realistic):</strong> Realista (Baseada em capacidade técnica instalada e dados). * <strong>T (Timely):</strong> Temporal (Quando exatamente deve ser entregue?).</p>
+</section>
+<section id="metodologia-de-definição-baseline-e-benchmarking" class="level4" data-number="3.5.1.3">
+<h4 data-number="3.5.1.3" class="anchored" data-anchor-id="metodologia-de-definição-baseline-e-benchmarking"><span class="header-section-number">3.5.1.3</span> Metodologia de Definição: Baseline e Benchmarking</h4>
+<p>Para transformar o desejo gerencial em um número realista (SMART), utilizamos a engenharia de confiabilidade e a análise de dados. O processo de definição matemática da lacuna (<em>gap</em>) segue a estrutura:</p>
+<ol type="1">
+<li>&nbsp;<strong>Baseline (Linha de Base):</strong> Análise estatística do histórico (ex: últimos 3 ou 4 anos de produção). Recomenda-se o uso da <strong>Média Aparada</strong> para remover <em>outliers</em> (eventos extremos que “sujam” a análise, como quebras atípicas ou greves) e garantir robustez estatística na previsão.</li>
+<li>&nbsp;<strong>Benchmarking:</strong> Técnica de análise comparativa para definir a referência da meta. &nbsp; &nbsp; * <em>Referência Interna:</em> O melhor desempenho histórico já alcançado pela própria unidade. &nbsp; &nbsp; * <em>Referência Técnica:</em> O limite de placa do equipamento ou sua vida útil teórica projetada pelo fabricante. &nbsp; &nbsp; * <em>Referência Externa/Setor:</em> O desempenho dos concorrentes de mercado ou operações <em>Best in Class</em>.</li>
+<li>&nbsp;<strong>Cenários:</strong> A definição final da meta deve considerar cenários de estresse (Conservador, Moderado e Agressivo), baseados no nível de risco financeiro e operacional que a organização está disposta a assumir.</li>
+</ol>
+</section>
+<section id="a-engenharia-dos-passos-2-a-5-a-conexão-com-a-modelagem-analítica" class="level4" data-number="3.5.1.4">
+<h4 data-number="3.5.1.4" class="anchored" data-anchor-id="a-engenharia-dos-passos-2-a-5-a-conexão-com-a-modelagem-analítica"><span class="header-section-number">3.5.1.4</span> A Engenharia dos Passos 2 a 5: A Conexão com a Modelagem Analítica</h4>
+<p>Enquanto o Passo 1 do roteiro de Juran define o “número” que a diretoria deseja alcançar (a Meta SMART), os Passos 2 ao 5 representam o trabalho tático da engenharia para converter esse desejo em um produto físico e em um processo rodando na fábrica.</p>
+<p>Essa conversão não é feita por intuição. Ela utiliza exatamente a base matemática e analítica que estabelecemos no <a href="cap2-quantificacao.html" class="quarto-xref"><span>Capítulo 2</span></a>, operando da seguinte forma:</p>
+<ul>
+<li><strong>Passos 2 e 3 (Identificar Clientes e Necessidades):</strong> A engenharia mapeia as partes interessadas (ex: Clientes Internos da fábrica vs.&nbsp;Clientes Externos) e utiliza ferramentas qualitativas, como o <em>Focus Group</em>, para extrair as necessidades subjetivas (ex: “o produto precisa ser confortável” ou “de baixo custo”).</li>
+<li><strong>Passo 4 (Desenvolver Características do Produto):</strong> As necessidades subjetivas são desdobradas em variáveis técnicas (<span class="math inline">\(V_i\)</span>) através de Mapas Mentais e Árvores de Valor (ex: traduzir “conforto” para a variável de engenharia “inclinação do pedestal”).</li>
+<li><strong>Passo 5 (Desenvolver Características do Processo):</strong> Para que o processo consiga fabricar o produto especificado sem estourar o orçamento, a engenharia utiliza o Diagrama de Mudge para definir o peso (<span class="math inline">\(W_i\)</span>) de cada requisito e cria Funções de Valor (<span class="math inline">\(FV\)</span>) para parametrizar o desempenho (<span class="math inline">\(S_i\)</span>). Isso permite simular cenários de <em>trade-off</em> matemático antes de rodar a fábrica.</li>
+</ul>
+</section>
+<section id="passo-6-transferência-para-as-operações" class="level4" data-number="3.5.1.5">
+<h4 data-number="3.5.1.5" class="anchored" data-anchor-id="passo-6-transferência-para-as-operações"><span class="header-section-number">3.5.1.5</span> Passo 6: Transferência para as Operações</h4>
+<p>O último passo do Planejamento da Qualidade de Juran é “Estabelecer controles e transferir para as operações”. É o momento exato em que o projeto sai das mãos da engenharia de desenvolvimento e é entregue aos supervisores e operadores do chão de fábrica.</p>
+<p>Para que essa transferência não resulte em caos, o planejamento é “congelado” e a rotina assume o comando. É neste ponto de transição que a Trilogia de Juran avança para a sua segunda fase vital.</p>
+</section>
+</section>
+<section id="controle-da-qualidade-quality-control" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="controle-da-qualidade-quality-control"><span class="header-section-number">3.5.2</span> Controle da Qualidade (Quality Control)</h3>
+<p>Uma vez que o processo foi planejado (com sua <em>Baseline</em> e metas SMART definidas), ele entra na fase de operação diária, que chamamos de “Horizonte de 1 Dia”. O objetivo do Controle da Qualidade é atuar na <strong>Qualidade de Conformação</strong>.</p>
+<p>Contudo, controlar não é apenas observar; é o exercício ativo de domínio sobre o processo. O controle fundamenta-se em três ações básicas: 1. <strong>Estabelecimento da Diretriz:</strong> Planejamento da Meta (o fim) e do Método (o meio/POP). 2. <strong>Manutenção do Nível de Controle:</strong> Atuação contínua no resultado e na causa para manter o padrão. 3. <strong>Alteração da Diretriz:</strong> Melhoria (quando se decide elevar a meta e mudar o método).</p>
+<div class="callout callout-style-default callout-important callout-titled" title="📌 A Falácia da Inspeção Final">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>📌 A Falácia da Inspeção Final
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A Gestão da Qualidade Total ensina que o processo empregado determina o resultado real. Logo, a <strong>inspeção</strong> (verificar apenas o produto no fim da linha) é um método fraco e elementar de controle. Para satisfazer a especificação, deve-se focar na descoberta e eliminação preventiva das fontes de variação dentro do processo.</p>
+</div>
+</div>
+<section id="o-ciclo-sdca-a-rotina-de-manutenção" class="level4" data-number="3.5.2.1">
+<h4 data-number="3.5.2.1" class="anchored" data-anchor-id="o-ciclo-sdca-a-rotina-de-manutenção"><span class="header-section-number">3.5.2.1</span> O Ciclo SDCA: A Rotina de Manutenção</h4>
+<p>Para garantir essa estabilidade, a engenharia utiliza o <strong>Ciclo SDCA</strong> (<em>Standardize, Do, Check, Act</em>).</p>
+<p>Se o PDCA é a ferramenta para resolver os “picos esporádicos” e inovar, o SDCA é o método gerencial da rotina diária. Ele garante que os Procedimentos Operacionais Padrões (POPs) estipulados nas metas operacionais sejam rigorosamente cumpridos, estabilizando a variabilidade do processo e fechando a malha de sustentação.</p>
+</section>
+<section id="a-hierarquia-e-interligação-das-metas" class="level4" data-number="3.5.2.2">
+<h4 data-number="3.5.2.2" class="anchored" data-anchor-id="a-hierarquia-e-interligação-das-metas"><span class="header-section-number">3.5.2.2</span> A Hierarquia e Interligação das Metas</h4>
+<p>Para que o SDCA seja efetivo, os objetivos de controle não podem ficar restritos à sala da diretoria. As metas de cada nível hierárquico estão matematicamente interligadas:</p>
+<ul>
+<li><strong>Meta do Diretor (Estratégico):</strong> Aumentar o OEE (Eficiência Global do Equipamento) da frota de transporte em 20%.</li>
+<li><strong>Meta do Gerente (Tático):</strong> Desdobra-se em aumentar a disponibilidade física (PCM) e a utilização na lavra (PCO).</li>
+<li><strong>Meta do Supervisor (Operacional):</strong> Atua diretamente nas restrições físicas (ex: reduzir em 60% o tempo de manutenção corretiva nas oficinas ou mitigar as paradas operacionais de troca de turno).</li>
+</ul>
+</section>
+<section id="a-taxonomia-dos-indicadores-eficácia-vs.-eficiência" class="level4" data-number="3.5.2.3">
+<h4 data-number="3.5.2.3" class="anchored" data-anchor-id="a-taxonomia-dos-indicadores-eficácia-vs.-eficiência"><span class="header-section-number">3.5.2.3</span> A Taxonomia dos Indicadores: Eficácia vs.&nbsp;Eficiência</h4>
+<p>Ao controlar esses indicadores no dia a dia, o engenheiro precisa monitorar constantemente o cruzamento de duas dimensões:</p>
+<ul>
+<li><strong>Eficácia (Fins):</strong> Mede o atingimento do objetivo bruto (Ex: a usina entregou 1 milhão de toneladas?).</li>
+<li><strong>Eficiência (Meios):</strong> Mede a otimização dos recursos utilizados (Ex: qual foi o consumo de diesel e energia para atingir essa entrega?).</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled" title="⚠️ ARMADILHA DE GESTÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Aviso</span>⚠️ ARMADILHA DE GESTÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Uma operação baseada apenas na eficácia, sem o controle da eficiência, cumpre a meta, mas destrói o orçamento da companhia. A aplicação técnica da Modelagem ARM discutida no <a href="cap2-quantificacao.html" class="quarto-xref"><span>Capítulo 2</span></a> é justamente a ferramenta matemática estruturada para equilibrar esses pesos.</p>
+</div>
+</div>
+</section>
+<section id="estabilização-e-variabilidade-ao-longo-do-tempo" class="level4" data-number="3.5.2.4">
+<h4 data-number="3.5.2.4" class="anchored" data-anchor-id="estabilização-e-variabilidade-ao-longo-do-tempo"><span class="header-section-number">3.5.2.4</span> Estabilização e Variabilidade ao Longo do Tempo</h4>
+<p>O objetivo central da Engenharia é a redução sistemática da variabilidade. O controle acompanha os indicadores através da seguinte dinâmica temporal:</p>
+<ol type="1">
+<li><strong>Zona Original de Controle:</strong> O processo flutua dentro de uma variabilidade histórica esperada (Gerenciada pelo SDCA).</li>
+<li><strong>Pico Esporádico:</strong> Ocorre uma falha ou desvio agudo (Causa Especial).</li>
+<li><strong>Ação de Melhoria:</strong> A equipe atua para corrigir a anomalia (PDCA Corretivo).</li>
+<li><strong>Nova Zona de Controle:</strong> O processo atinge um novo patamar, operando com menor variabilidade e maior eficiência.</li>
+</ol>
+</section>
+<section id="ferramentas-técnicas-e-tecnológicas-do-controle" class="level4" data-number="3.5.2.5">
+<h4 data-number="3.5.2.5" class="anchored" data-anchor-id="ferramentas-técnicas-e-tecnológicas-do-controle"><span class="header-section-number">3.5.2.5</span> Ferramentas Técnicas e Tecnológicas do Controle</h4>
+<p>Para sair do campo das ideias e medir estatisticamente o controle, a engenharia utiliza as seguintes abordagens principais:</p>
+<ul>
+<li><strong>Inspeção e Planos de Amostragem:</strong> Avaliação clássica por <strong>Atributos</strong> (passa/não passa) ou por <strong>Variáveis</strong> (medição contínua).</li>
+<li><strong>Controle Estatístico de Processo (CEP):</strong> Métodos que estabilizam o processo detectando desvios em tempo real. Utiliza limites matemáticos para separar variações comuns de variações especiais.</li>
+<li><strong>Planejamento de Experimentos (DOE):</strong> Enquanto o CEP estabiliza, o DOE melhora. É utilizado para identificar preventivamente quais variáveis são mais influentes e ajustar parâmetros.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="💻 TECH NOTE: R &amp; DATA SCIENCE NA QUALIDADE 4.0">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>💻 TECH NOTE: R &amp; DATA SCIENCE NA QUALIDADE 4.0
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Com o avanço da Indústria 4.0, a “Gestão à Vista” evoluiu. Utilizando bancos de dados padronizados (como <code>ipcc_event_mine_e</code>), o analista programa interfaces interativas em R (<code>Shiny</code>). O código roda algoritmos estatísticos em segundo plano e gera alertas visuais imediatos nas telas da sala de controle se o processo violar os limites do CEP, permitindo uma intervenção em tempo real.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="melhoria-da-qualidade-quality-improvement" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="melhoria-da-qualidade-quality-improvement"><span class="header-section-number">3.5.3</span> Melhoria da Qualidade (Quality Improvement)</h3>
+<p>O planejamento inicial tem limitações tecnológicas e restrições de capital, o que gera um nível inerente de perdas crônicas e desperdícios que o <em>Controle da Qualidade</em>, atuando sozinho, não consegue eliminar.</p>
+<p>Quando a organização decide que a Zona Original de Controle não é mais suficiente e competitiva (por exemplo, quando a diretoria exige que a taxa de alimentação da usina passe de 4.500 t/h para 5.500 t/h para atender a um novo contrato), entra em ação a terceira e última engrenagem da trilogia: a <strong>Melhoria da Qualidade</strong>.</p>
+<p>A melhoria é a quebra deliberada do <em>status quo</em>. Ela exige a alteração radical das diretrizes de controle (mudança na meta e no método) para elevar o processo a níveis inéditos de desempenho, criando uma “Nova Zona de Controle”.</p>
+<p>Para alcançar essa quebra de paradigma de forma segura, sem desestabilizar a fábrica, a engenharia não atua por intuição. Se um processo estiver fora de controle crônico ou precisar atingir um novo patamar, é imperativo o uso de metodologias estruturadas — como o <strong>MASP</strong>, o <strong>PDCA</strong> e o <strong>DMAIC</strong> (Seis Sigma) — para descobrir novas formas de operar e eliminar desperdícios sistêmicos. As ações que geram resultados positivos são validadas estatisticamente e, em seguida, padronizadas, reiniciando o ciclo de Controle em um nível superior de excelência.</p>
+<p>É a busca constante para elevar o desempenho da qualidade a níveis superiores, reduzindo ineficiências e otimizando processos. Diferente do controle (que mantém), a melhoria transforma. Suas etapas principais são:</p>
+<ol type="1">
+<li><strong>Estabelecer a infraestrutura:</strong> Criar uma estrutura para a melhoria contínua (ex: formação de comitês, alocação de recursos).</li>
+<li><strong>Identificar projetos:</strong> Selecionar processos prioritários que precisam de intervenção (projetos Kaizen, Six Sigma ou CCQ).</li>
+<li><strong>Analisar a causa raiz:</strong> Identificar por que os problemas ocorrem, indo além dos sintomas.</li>
+<li><strong>Implementar soluções:</strong> Aplicar ações para melhorar o desempenho e evitar recorrências, padronizando o novo nível alcançado.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="💡 Resumo da Trilogia">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>💡 Resumo da Trilogia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O <strong>Planejamento</strong> cria o processo, o <strong>Controle</strong> opera o processo (garantindo que ele se mantenha estável), e a <strong>Melhoria</strong> otimiza o processo (elevando-o a um novo patamar).</p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script src="scripts/set-toc-expanded.js"></script>
+
+<script src="scripts/caption-format.js"></script>
+
+<script src="scripts/toc-expand-on-click.js"></script>
+
+<script src="scripts/set-toc-expanded.js"></script>
+
+<script src="scripts/caption-format.js"></script>
+
+<script src="scripts/toc-expand-on-click.js"></script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/cap2-quantificacao.html" class="pagination-link" aria-label="Quantificação e Modelagem da Qualidade">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quantificação e Modelagem da Qualidade</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/cap4-rotina-metodo.html" class="pagination-link" aria-label="Desdobramento Estratégico e Controle Operacional">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Desdobramento Estratégico e Controle Operacional</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
