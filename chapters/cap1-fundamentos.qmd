@@ -58,11 +58,11 @@ Esta subjetividade divide a compreensão da Qualidade em duas dimensões:
 
 Para compreender a complexidade de medir e atestar a qualidade de um produto, precisamos separar a característica real do objeto da forma como o observador o interpreta. Essa dicotomia entre a dimensão objetiva e a subjetiva é ilustrada na **Figura 2.2** através de dois cenários distintos:
 
-::: {.example #exm-percepcao-sensorial name="A Percepção Sensorial (A Bola de Neve)"}
+::: {.example #exm-percepcao-sensorial name="A Percepção Sensorial - A Bola de Neve"}
 No primeiro cenário, temos o exemplo clássico da bola de neve. Fisicamente, ela possui propriedades materiais exatas. No entanto, o "poder" desse objeto na nossa percepção é a capacidade de gerar em nossa mente ideias qualitativas e sensoriais, como "esférica", "gelada" e "branca". O desafio gerencial surge exatamente dessa distinção: é extremamente difícil padronizar ou verificar um atributo de qualidade se ele depender puramente da capacidade de "produzir uma sensação" no cliente, pois essa percepção varia de pessoa para pessoa.
 :::
 
-::: {.example #exm-causalidade-oculta name="A Causalidade Oculta (O Sol e o Termômetro)"}
+::: {.example #exm-causalidade-oculta name="A Causalidade Oculta - O Sol e o Termômetro"}
 A dificuldade de verificação se torna ainda mais evidente quando o observador capta o efeito, mas ignora a causa, como demonstrado na segunda parte da figura. Sabemos, de forma objetiva, que o Sol emite energia térmica com a propriedade física de dilatar o mercúrio dentro de um termômetro. Contudo, se entregarmos esse instrumento a um "homem das cavernas", ele perceberá visualmente a coluna de líquido subindo (experimentando a dimensão subjetiva do fenômeno), mas não fará a menor ideia da relação físico-química que a radiação solar exerce sobre o equipamento (a dimensão objetiva real).
 :::
 
@@ -253,6 +253,7 @@ Mas, na prática, a mente do consumidor não funciona assim. O cérebro faz uma 
 **O Dilema da Padaria vs. Supermercado**
 
 Para consolidar a complexidade do Valor Agregado, suponha que no meio da tarde surja a vontade de comer um bolo. Você se depara com duas opções clássicas:
+
 1. **A Padaria:** Comprar um bolo pronto, pagando um preço financeiro maior, mas resolvendo a vontade de forma imediata.
 2. **O Supermercado:** Comprar os ingredientes e assar o bolo em casa, com um custo financeiro menor, porém investindo tempo e esforço.
 
@@ -290,7 +291,7 @@ Aqui reside o grande desafio da engenharia de produção. O sucesso comercial na
 
 Como gerenciar e replicar algo que é, na sua essência, subjetivo? A resposta está na quantificação. O papel da engenharia é entrar nessa operação e transformar o "sucesso aparentemente subjetivo" em um modelo matemático. É preciso desdobrar a percepção do cliente em indicadores claros de desempenho (como o tempo exato da fila e a taxa de acerto do pedido) e atribuir pesos de importância para cada uma dessas exigências.
 
-Sem essa estruturação, a vantagem competitiva é apenas um palpite ou um golpe de sorte. A ferramenta técnica exata para realizar essa tradução do mundo subjetivo dos negócios para as variáveis matemáticas da engenharia — denominada **Modelagem Analítica de Requisitos (ARM)** — será o objeto central de estudo do **Capítulo 2**.
+Sem essa estruturação, a vantagem competitiva é apenas um palpite ou um golpe de sorte. A ferramenta técnica exata para realizar essa tradução do mundo subjetivo dos negócios para as variáveis matemáticas da engenharia — denominada **Modelagem Analítica de Requisitos (ARM)** — será o objeto central de estudo do @sec-cap2.
 :::
 
 ### Relações Econômicas (Preço, Propaganda e Participação) {#sec-relacoes-economicas}
@@ -354,6 +355,7 @@ Foi justamente para induzir as organizações a abandonarem o ciclo negativo e a
 As auditorias deixaram de ser baseadas em "papel" e passaram a buscar evidências factuais da aplicação dos requisitos, forçando as empresas a, de fato, implementar a gestão da qualidade no dia a dia. Os novos princípios básicos passaram a incluir: comprometimento da liderança, melhoria contínua, capacitação de recursos humanos, gestão por processos e tomadas de decisão baseadas em fatos.
 
 A ISO 9001 precisou mudar para refletir a crescente complexidade dos ambientes de negócios, melhorar a compatibilidade com outras normas e garantir a satisfação de todas as partes interessadas (*stakeholders*). O marco definitivo dessa evolução foi a exigência, a partir de 2015, de ações para tratar riscos e oportunidades, provendo uma base gerencial sólida para que as organizações enfrentem o dinamismo do mercado atual.
+
 ---
 
 ## Da Qualidade ao Sistema de Gestão (ISO 9000) {#sec-iso9000}
@@ -438,11 +440,15 @@ Para facilitar o controle, as características **inerentes** são as nossas vari
 
 ### As Múltiplas Dimensões da Qualidade em Modelos de Gestão {#sec-multiplas-dimensoes}
 
-Embora as dimensões inerentes listadas anteriormente permitam uma análise técnica detalhada do objeto físico, a avaliação total da qualidade em sistemas complexos exige uma visão sistêmica das interações operacionais. Quando o alvo da análise deixa de ser apenas o minério e passa a ser o próprio **Modelo de Gestão** da organização, a literatura demonstra que a qualidade percebida deve ser subdividida em várias dimensões para refletir os diferentes contextos, aplicações e sujeitos envolvidos no processo (Cronin & Taylor, 1994; Petrick, 2002).
+Embora as dimensões inerentes listadas anteriormente permitam uma análise técnica detalhada do objeto físico, a avaliação total da qualidade em sistemas complexos exige uma visão sistêmica das interações operacionais. Quando o alvo da análise deixa de ser apenas o minério e passa a ser o próprio **Modelo de Gestão** da organização, a literatura demonstra que a qualidade percebida deve ser subdividida em várias dimensões para refletir os diferentes contextos, aplicações e sujeitos envolvidos (Cronin & Taylor, 1994; Petrick, 2002).
 
 A principal motivação para estruturar essa avaliação gerencial decorre dos desafios práticos relatados nas indústrias: a dificuldade de alinhar a equipe de apoio (engenharia, planejamento, RH) com a equipe de operação (mina, usina, ferrovia) durante a implementação de diretrizes e metas.
 
-Diante desse cenário, a avaliação total da qualidade de um modelo de gestão pode ser dividida em quatro dimensões estruturais (sinalizadas na @fig-dimensoes-modelo):
+Para materializar essa visão sistêmica, é fundamental definir a unidade básica da gestão. Conforme ilustrado na estrutura da @fig-dimensoes-modelo, **Processo** é um conjunto de atividades ou funções estruturadas em uma sequência lógica-temporal, com objetivo definido, realizadas por pessoas e/ou máquinas, que visam transformar recursos (entradas), agregando valores, através de recursos transformadores e de uma lógica preestabelecida (metodologia de processamento), resultando em bens e serviços (produtos) para a sociedade e/ou clientes.
+
+![Dimensões da Qualidade no Modelo de Gestão](../images/fig-dimensoes-modelo.png){#fig-dimensoes-modelo fig-align="center"}
+
+Com base nessa representação visual do processo, a avaliação total da qualidade do modelo de gestão divide-se em quatro dimensões estruturais:
 
 1. **Qualidade dos Transformadores:** Representa os recursos, ferramentas e métodos necessários para *transformar* os indicadores específicos (advindos do desdobramento da estratégia) em produtos, serviços, treinamentos e informações prontas para uso. É a base para que a equipe de apoio compreenda seu papel e cumpra as metas estabelecidas.
 2. **Qualidade Percebida dos Serviços:** Remete à satisfação do *cliente interno*. Compõe o conjunto de produtos, serviços, treinamentos e informações gerados pelas áreas de suporte para sustentar a operação diária.
@@ -454,8 +460,6 @@ Conjuntamente, essas quatro dimensões guiam a geração de resultados operacion
 :::
 
 Embora essas dimensões sejam uma proposição adaptada à realidade da gestão de processos dinâmicos, elas são amplamente fundamentadas pelos conceitos de satisfação do cliente e valor percebido. Essa flexibilidade estrutural evidencia que a qualidade nunca deve ser interpretada de forma estática; sua aplicação exige um desdobramento alinhado ao contexto específico no qual o processo está inserido.
-
-![Dimensões da Qualidade no Modelo de Gestão](../images/fig-dimensoes-modelo.png){#fig-dimensoes-modelo fig-align="center"}
 
 ### A Abordagem de Processos e o Ambiente de Relacionamento Interno (ARI) {#sec-ari-processos}
 
@@ -489,6 +493,7 @@ Para garantir a aderência de todo esse fluxo, as entregas entre essas três par
 
 **Grau (3.6.3)**
 É a categoria ou classificação dada a diferentes requisitos para um objeto tendo o mesmo uso funcional.
+
 * **Exemplos práticos:** A classe do tíquete de uma companhia aérea (Econômica vs. Primeira Classe) ou a categoria de um hotel em um folheto (3 estrelas vs. 5 estrelas). Ao estabelecer o requisito da qualidade, o grau é geralmente especificado.
 
 ::: {.callout-warning title="⚠️ ARMADILHA DE ENGENHARIA: Grau vs. Qualidade"}
@@ -497,15 +502,14 @@ Para garantir a aderência de todo esse fluxo, as entregas entre essas três par
 Um produto de **baixo grau** (o caminhão menor, com menos tecnologia embarcada) pode ter uma **Qualidade altíssima** se não apresentar defeitos e cumprir perfeitamente o que promete. Em contrapartida, um produto de **alto grau** (o caminhão de 400 toneladas, super complexo) terá uma **péssima Qualidade** se falhar constantemente e não atender aos seus requisitos operacionais. A qualidade mede a excelência dentro da categoria escolhida, enquanto o grau dita o nível de exigência ou "luxo" do projeto original.
 :::
 
-### A Estratégia de Nomenclatura para a Quantificação (A Ponte) {#sec-estrategia-nomenclatura}
+### A Estratégia de Nomenclatura: Da Norma à Equação {#sec-estrategia-nomenclatura}
 
-Ao compreendermos todas essas variáveis normativas (Objeto, Característica, Requisito e Grau), o segredo para a engenharia não é tratá-las apenas como jargão técnico, mas sim como os elementos básicos de uma equação.
+Ao compreendermos todas essas variáveis normativas (Objeto, Característica, Requisito e Grau), o segredo para a engenharia não é tratá-las apenas como jargão técnico de auditoria, mas sim como os elementos básicos de uma lógica matemática.
 
-Para quantificar a excelência de um produto ou de um processo no dia a dia da indústria, nós pegamos a terminologia exata da ISO e a traduzimos para variáveis matemáticas, criando uma ponte conceitual estruturada:
+Para quantificar a excelência de um processo no dia a dia da mineração, precisamos realizar uma "tradução": pegar a terminologia qualitativa da ISO 9000 e convertê-la em vetores numéricos.
 
-* **O Objeto (ISO) $\rightarrow$ O Produto Final ($ARM$):** É o resultado final da equação, o índice global de excelência do modelo analítico.
-* **As Características da Qualidade (ISO) $\rightarrow$ As Variáveis Avaliadas ($V_i$ e $D_j$):** São os atributos de desempenho, estética e durabilidade que a engenharia vai efetivamente medir (*Features*).
-* **O Requisito e o Grau (ISO) $\rightarrow$ O Peso de Importância ($W_i$):** É a exigência do cliente (ou da norma) que dita qual característica pesa mais (*Weight*) na composição da nota final.
-* **A Conformidade / Desempenho (ISO) $\rightarrow$ A Nota de Qualidade ($S_i$):** É o valor numérico extraído da inspeção na fábrica (*Score*). Se o atendimento ao requisito for alto, a nota será alta.
+* O que a norma chama de **Característica**, a estatística chamará de **Variável**.
+* O que a norma chama de **Requisito**, a engenharia chamará de **Peso**.
+* O que a norma chama de **Grau**, o algoritmo chamará de **Nota**.
 
-Com essa ponte estabelecida, o próximo passo da engenharia é executar a matemática por trás da norma. No próximo capítulo, aprofundaremos esse cálculo e a modelagem estrutural por meio da **Modelagem Analítica de Requisitos (ARM)**.
+Com essa ponte conceitual estabelecida, encerramos a fundamentação teórica. O próximo passo é executar a matemática por trás da norma. No @sec-cap2, aprofundaremos essa estrutura por meio da **Modelagem Analítica de Requisitos (ARM)**, onde cada um desses termos ganhará um símbolo matemático para o cálculo do índice de qualidade.

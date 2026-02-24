@@ -11,11 +11,13 @@ Neste capítulo, operamos a transição definitiva da filosofia normativa para a
 Antes de avançarmos para as fórmulas e para os algoritmos de cálculo, é fundamental alinhar o propósito desta modelagem. A resposta reside na necessidade de traduzir a linguagem humana para a linguagem de máquina e de negócios.
 
 **De onde estamos saindo (O Ponto de Partida):**
+
 * **Da Subjetividade:** Saímos de um cenário onde a qualidade é um adjetivo vago. Afirmações como "este minério é excelente" ou "este equipamento é confiável" não são auditáveis e geram conflitos de interpretação.
 * **Do Caos dos Dados Isolados:** Um lote de produto pode ter dezenas de laudos (teor de ferro, sílica, umidade). Avaliar essas variáveis de forma solta impede uma decisão sistêmica (ex: o laboratório aprova o teor, mas a logística reprova a umidade).
 * **Dos Conflitos de Interesse:** Saímos da tradicional "guerra" entre departamentos, onde a Produção foca em volume, a Qualidade em especificações e o Comercial em custos.
 
 **Para onde queremos chegar (O Destino Final):**
+
 * **A um Indicador Gerenciável:** Queremos um único número (o *score*) que consolide todo o desempenho do produto ou processo, indicando imediatamente se geramos ou destruímos valor.
 * **À Capacidade de Trade-off (Equilíbrio):** Queremos uma ferramenta que calcule perdas e ganhos de forma integrada.
 * **À Preparação para a Ciência de Dados:** Este é o foco do livro. Algoritmos preditivos e modelos de *Machine Learning* no software R não entendem a "voz do cliente". Eles precisam de *Features* quantificadas, Pesos matemáticos e Notas padronizadas.
@@ -30,32 +32,35 @@ A Modelagem Analítica de Requisitos — do inglês *Analytical Requirements Mod
 Em literaturas clássicas de gestão, formulações semelhantes costumam ser referenciadas como Função Qualidade Total do Produto (QTP) ou Índice de Atendimento dos Requisitos (IAR). Adotaremos a estrutura e a sigla **ARM** por seu alinhamento direto com as metodologias internacionais de *Data Science* e Engenharia de Atributos (*Feature Engineering*).
 :::
 
-### O Modelo Unidimensional (Nível Único) {#sec-arm-uni}
+A complexidade do modelo depende da arquitetura de dados escolhida. A diferença fundamental reside nos **níveis hierárquicos** de agregação (colapso) dos dados.
 
-A equação base do ARM, em sua forma **unidimensional**, é aplicável quando lidamos com uma lista direta de variáveis, sem agrupamentos hierárquicos. É expressa pela soma ponderada do desempenho de cada característica:
+### O Modelo Unidimensional (Flat Model) {#sec-arm-uni}
+
+No modelo unidimensional, não há agrupamento intermediário. Todas as variáveis ($V_i$) são tratadas no mesmo nível hierárquico e são **colapsadas diretamente** em um único valor global. É ideal para análises rápidas ou quando as variáveis são independentes e possuem a mesma natureza.
+
+A equação é expressa pela soma ponderada direta:
 
 $$ARM = \sum_{i=1}^{n} (W_i \times S_i)$$ {#eq-arm-uni}
 
 Onde:
-
 * $n$ é o número total de variáveis avaliadas.
-* $W_i$ (*Weight*):
-  É o peso de importância atribuído à variável $i$, tal que a soma de todos os pesos seja igual a $1,0$ (ou $100\%$).
-* $S_i$ (*Score*):
-  É a nota de desempenho (conformidade) alcançada pela variável $i$, medida em uma escala padronizada (ex: 0 a 10).
+* $W_i$ (*Weight*): Peso de importância da variável $i$ ($\sum W_i = 1,0$).
+* $S_i$ (*Score*): Nota de desempenho da variável $i$.
 
-### O Modelo Bidimensional (Múltiplos Níveis) {#sec-arm-bi}
+### O Modelo Multidimensional (Hierarchical Model) {#sec-arm-multi}
 
-Na prática industrial, atributos soltos precisam ser agrupados em dimensões maiores (ex: Qualidade Física, Eficiência Logística). A função expande-se para uma forma **bidimensional**, considerando dois níveis hierárquicos (a Dimensão e as Variáveis contidas nela):
+Na prática industrial complexa, tratar dezenas de variáveis soltas pode gerar ruído. O modelo multidimensional introduz uma camada hierárquica.
+1. Primeiro, **colapsam-se as variáveis ($V_i$)** dentro de suas respectivas Dimensões ($D_j$).
+2. Em seguida, **colapsam-se as Dimensões ($D_j$)** para formar o índice global.
 
-$$ARM = \sum_{j=1}^{m} \left[ W_{D_j} \times \left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right) \right]$$ {#eq-arm-bi}
+Isso permite diagnósticos mais precisos (ex: saber que o produto falhou especificamente na dimensão "Logística", mesmo que a dimensão "Química" esteja perfeita).
+
+$$ARM = \sum_{j=1}^{m} \left[ W_{D_j} \times \underbrace{\left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right)}_{\text{Score da Dimensão } D_j} \right]$$ {#eq-arm-multi}
 
 Onde:
-
-* $m$ é o número de dimensões ($D_j$) que compõem o modelo.
-* $W_{D_j}$ é o peso de importância da dimensão $j$ no contexto global.
-* $n_j$ é o número de variáveis ($V_i$) dentro da respectiva dimensão $j$.
-* $W_{V_i}$ e $S_{V_i}$ representam o peso e o *score* da variável $i$ dentro de sua dimensão.
+* $m$ é o número de dimensões ($D_j$).
+* $W_{D_j}$ é o peso da dimensão no contexto global.
+* O termo entre parênteses internos calcula o desempenho consolidado daquela dimensão específica.
 
 ### A Ponte Normativa: Associando o ARM à ISO 9000 {#sec-ponte-normativa}
 
@@ -79,7 +84,7 @@ Para construir o $ARM$, o analista percorre cinco passos fundamentais:
 1. **Identificação das Variáveis ($V_i$):**
    Levantar características observáveis (chuva de ideias).
 2. **Consolidação em Dimensões ($D_j$):**
-   Agrupar as variáveis em blocos hierárquicos.
+   Agrupar as variáveis em blocos hierárquicos (passo exclusivo do modelo Multidimensional).
 3. **Calibragem de Relevância ($W_i$):**
    Definir matematicamente os pesos.
 4. **Parametrização de Desempenho ($S_i$):**
@@ -89,33 +94,20 @@ Para construir o $ARM$, o analista percorre cinco passos fundamentais:
 
 A ordem em que executamos esses passos define a **Abordagem de Modelagem**:
 
-* **Bottom-up (De baixo para cima):**
-  Exploratória. Gera-se uma ampla lista de variáveis soltas ($V_i$) para só então agrupá-las em dimensões ($D_j$).
-* **Top-down (De cima para baixo):**
-  Estruturada. A diretoria ou o mercado impõe as grandes Dimensões (ex: "Sustentabilidade"), e a engenharia "desce" para descobrir as Variáveis operacionais que as compõem.
-* **Middle-out (Do meio para as pontas):**
-  Dinâmica. Escolhe-se um nível médio de partida e trabalha-se simultaneamente detalhando variáveis e quantificando dimensões.
+* **Bottom-up (De baixo para cima):** Exploratória. Gera-se uma ampla lista de variáveis soltas ($V_i$) para só então agrupá-las em dimensões ($D_j$).
+* **Top-down (De cima para baixo):** Estruturada. A diretoria ou o mercado impõe as grandes Dimensões (ex: "Sustentabilidade"), e a engenharia "desce" para descobrir as Variáveis operacionais que as compõem.
+* **Middle-out (Do meio para as pontas):** Dinâmica. Escolhe-se um nível médio de partida e trabalha-se simultaneamente detalhando variáveis e quantificando dimensões.
 
-### O Experimento dos Generais: Da Subjetividade à Medição {#sec-experimento-generais}
+---
 
-Retomemos a afirmação: *"Napoleão Bonaparte tinha todas as qualidades de um grande general"*.
+### O Experimento Resolvido: Quantificando a Genialidade Militar {#sec-experimento-generais}
 
-Sob a ótica do nosso modelo, **Napoleão é o Objeto ($ARM$)**, coragem e estratégia são **Variáveis ($V_i$)**, a necessidade de vencer é o **Requisito ($W_i$)** e seu sucesso histórico é o **Grau ($S_i$)**.
+Para demonstrar a força do método ARM, vamos transformar o texto histórico dos 6 maiores generais em uma matriz quantitativa rigorosa. Aplicaremos a modelagem para descobrir, matematicamente, quem obteve o maior índice global de excelência.
 
-Para mensurar isso, aplicaremos uma abordagem **Bottom-up**:
-1. Reunimos historiadores para um *brainstorming* das variáveis ($V_i$).
-2. Para evitar uma lista caótica, agrupamos essas variáveis em Dimensões (Tática, Logística).
-3. Utilizamos ferramentas para forçar o consenso matemático sobre qual dimensão é mais importante ($W_i$).
-4. Parametrizamos métricas abstratas em notas exatas ($S_i$).
+Como estamos tratando de uma análise inicial, utilizaremos a **Abordagem Unidimensional**, onde as variáveis impactam diretamente o resultado final, sem a necessidade de agrupamento hierárquico complexo.
 
-Ao calcularmos o $ARM$ de diferentes generais históricos, demonstraremos que a qualidade é a ferramenta técnica capaz de **diferenciar** rigorosamente uma entidade da outra.
-
-### O Experimento Resolvido: Quantificando a Genialidade Militar
-
-Para demonstrar a força do método ARM, vamos transformar o texto histórico dos 6 maiores generais em uma matriz quantitativa rigorosa. Aplicaremos os cinco passos da modelagem para descobrir, matematicamente, quem obteve o maior índice global de excelência.
-
-**Passo 1 e 2: Identificação das Variáveis ($V_i$) e Consolidação em Dimensões**
-A partir da análise estruturada dos relatos históricos (mineração de texto), extraímos as características comuns que definem o sucesso ou a falha de um comandante e as agrupamos em quatro grandes variáveis independentes:
+**Passo 1: Identificação das Variáveis ($V_i$)**
+A partir da análise estruturada dos relatos históricos (mineração de texto), extraímos as características comuns que definem o sucesso ou a falha de um comandante. Definimos quatro variáveis independentes para o modelo:
 
 * **$V_1$: Estratégia e Adaptabilidade**
   Táticas de guerrilha, leitura de campo, inovações e manobras ousadas.
@@ -126,7 +118,7 @@ A partir da análise estruturada dos relatos históricos (mineração de texto),
 * **$V_4$: Visão Sistêmica e Política**
   Pressão diplomática, alinhamento institucional, subordinação e impacto cultural de longo prazo.
 
-**Passo 3: Calibragem de Relevância ($W_i$)**
+**Passo 2: Calibragem de Relevância ($W_i$)**
 Utilizando uma abordagem *Top-down*, o "Estado-Maior" (nossa diretoria fictícia) definiu os pesos de importância de cada variável para o sucesso de uma guerra. A soma deve ser obrigatoriamente 1,0 (100%):
 
 * $W_1$ (Estratégia): **0,40** (40%)
@@ -134,7 +126,7 @@ Utilizando uma abordagem *Top-down*, o "Estado-Maior" (nossa diretoria fictícia
 * $W_3$ (Liderança): **0,20** (20%)
 * $W_4$ (Política): **0,15** (15%)
 
-**Passo 4: Parametrização de Desempenho ($S_i$)**
+**Passo 3: Parametrização de Desempenho ($S_i$)**
 Avaliamos o desempenho histórico de cada general frente a essas variáveis, atribuindo uma nota técnica de 0 a 10:
 
 * **Napoleão:**
@@ -150,9 +142,9 @@ Avaliamos o desempenho histórico de cada general frente a essas variáveis, atr
 * **Vo Nguyen Giap:**
   Genialidade tática na guerrilha e exploração de fraquezas ($S_1=10$).
 
-**Passo 5: Consolidação Matemática (O Cálculo do ARM)**
+**Passo 4: Consolidação Matemática (O Cálculo do ARM)**
 
-Aplicamos a equação unidimensional $$ARM = \sum_{i=1}^{n} (W_i \times S_i)$$ para consolidar o índice final de cada líder. A @tbl-calculo-generais apresenta a matriz de dados processada:
+Aplicamos a equação linear unidimensional $$ARM = \sum_{i=1}^{n} (W_i \times S_i)$$ para consolidar o índice final de cada líder. A @tbl-calculo-generais apresenta a matriz de dados processada:
 
 | General | $S_1$ (Estratégia) | $S_2$ (Logística) | $S_3$ (Liderança) | $S_4$ (Política) | Score Final ($ARM$) |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -170,9 +162,7 @@ Aplicamos a equação unidimensional $$ARM = \sum_{i=1}^{n} (W_i \times S_i)$$ p
 A matemática comprova que a qualidade exige equilíbrio. **MacArthur** possuía notas excelentes no campo de batalha, mas sua "não-conformidade" no requisito político (insubordinação) puxou seu indicador global para a última posição (7,35). **Napoleão**, por sua vez, garantiu o topo (9,40) não apenas por vencer batalhas, mas por maximizar as variáveis de Logística ($25\%$) e Política ($15\%$), provando que a excelência total é sistêmica.
 :::
 
-Exatamente esta mesma lógica de extração de variáveis, ponderação de pesos e cálculo de desempenho será utilizada no *Mining Analytics* para avaliar desde o teor de ferro de um produto até o desempenho de uma frota de caminhões.
-
----
+Exatamente esta mesma lógica de extração de variáveis ($V_i$), ponderação de pesos ($W_i$) e cálculo de desempenho ($S_i$) será utilizada no *Mining Analytics* para avaliar desde o teor de ferro de um produto até o desempenho de uma frota de caminhões.
 
 ## Aplicações Práticas no Setor Mineral {#sec-modelagem-mineral}
 
