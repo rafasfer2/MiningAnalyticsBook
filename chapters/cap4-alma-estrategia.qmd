@@ -298,6 +298,179 @@ Na mineração, o principal determinante da Qualidade de Conformação é a capa
 
 Para que os objetivos estratégicos sejam alcançados sem interrupções operacionais, as propostas de manutenção e renovação desses ativos devem obrigatoramente fazer parte do planejamento de longo prazo.
 
+## Planejamento da Qualidade: Projeção, Meta e Baseline {#sec-planejamento-qualidade}
+
+Entre estabelecer um Objetivo da Qualidade (a intenção estratégica) e efetivamente alcançá-lo (o resultado operacional) existe um passo fundamental que diferencia empresas amadoras de organizações de classe mundial: o **Planejamento da Qualidade**.
+
+No ambiente corporativo da grande mineração (como na produção global de minério de ferro, pelotas e metais básicos), o planejamento lida com três conceitos que frequentemente são confundidos: **Projeção** (Guidance), **Meta** e **Plano**.
+
+### Projeção (Guidance): O Compromisso com o Mercado {#sec-projecao}
+
+Constitui-se de informações que uma empresa de capital aberto oferece ao mercado como uma indicação oficial do seu desempenho futuro. Trata-se de prever o futuro com a maior precisão possível, levando em conta os dados históricos e o conhecimento de eventos futuros que possam impactar as operações.
+
+A projeção não é apenas um exercício interno de planejamento — ela é uma **promessa pública** que impacta diretamente o valor das ações da empresa. Formulários de referência corporativos (como os exigidos pela CVM no Brasil ou SEC nos EUA) demonstram que antes de se cobrar um resultado, é necessário realizar e divulgar a projeção dos volumes de produção estimados.
+
+::: {.example #exm-projecao-vale name="Projeção de Produção - Vale"}
+Uma mineradora globalde grande porte pode publicar em seu formulário de referência anual:
+
+**"Guidance de Produção 2024:**
+* Minério de Ferro: 310-320 Mtpa
+* Níquel: 170-180 kt
+* Cobre: 320-355 kt"
+
+Essa é a projeção oficial. O mercado ajusta suas expectativas com base nessa informação. Se a empresa entregar 307,8 Mt de minério (como no exemplo real), ela ficou abaixo da faixa inferior, gerando impacto no valor de mercado e gatilhos de análise crítica.
+:::
+
+### Meta: O Que Você Gostaria Que Acontecesse {#sec-meta}
+
+Se a projeção é o que **provavelmente vai acontecer**, a meta é o que você **gostaria que acontecesse**. Para que uma meta seja gerencialmente válida, ela precisa seguir o critério SMART, já discutido anteriormente:
+
+* **Specific (Específica):** "Aumentar a produção" é vago. "Aumentar a taxa de britagem de 350 t/h para 380 t/h" é específico.
+* **Measurable (Mensurável):** Deve ser quantificável com KPIs claros.
+* **Achievable (Alcançável):** A meta deve ser tecnicamente viável com os recursos disponíveis.
+* **Realistic (Realista):** Considerar restrições orçamentárias, técnicas e humanas.
+* **Timely (Com Prazo):** Deve ter data de início e fim claramente estabelecidos.
+
+::: {.callout-warning title="⚠️ ARMADILHA GERENCIAL"}
+Muitas vezes, as metas são definidas sem qualquer plano de como alcançá-las. Isso gera frustração na equipe e descrédito no sistema de gestão. **A meta sem plano é apenas um desejo.**
+:::
+
+### O Plano: A Resposta Operacional {#sec-plano}
+
+O planejamento é justamente a resposta (o conjunto de ações operacionais e de engenharia) para garantir que as previsões correspondam aos objetivos estipulados. Ele responde às perguntas críticas:
+
+* **O QUE** precisa ser feito? (Ações específicas)
+* **QUEM** é responsável por cada ação? (Ownership)
+* **QUANDO** cada etapa deve estar concluída? (Cronograma)
+* **ONDE** a ação será implementada? (Localização/Área)
+* **POR QUE** essa ação é necessária? (Justificativa técnica)
+* **COMO** a ação será executada? (Método/Procedimento)
+* **QUANTO** custará? (Orçamento)
+
+Quando a operação começa, ocorre o acompanhamento. **Acompanhar a variação entre o programado e o realizado é a essência do controle de qualidade.**
+
+::: {.example #exm-planejamento-frota name="O Programado na Prática Operacional"}
+Para tangibilizar o "Programado" na rotina de mina, observe o exemplo de planejamento de frota:
+
+| **Período** | **Programado** | **Disponível (Real)** | **Gap** |
+|-------------|----------------|-----------------------|---------|
+| 2020-01     | 45             | 43                    | -2      |
+| 2020-02     | 45             | 44                    | -1      |
+| 2020-03     | 45             | 45                    | 0       |
+| ...         | ...            | ...                   | ...     |
+| 2023-05     | 50             | 48                    | -2      |
+
+: Planejamento Programado vs. Disponível de Frota (2020-2023) {#tbl-planejamento-frota-exemplo}
+
+A linha "Programado" representa o alvo gerencial planejado (os degraus do que deveria ocorrer). A coluna "Disponível" mostra o desempenho real. **A função do planejamento é criar a linha programada; a função do controle é forçar o real a ficar o mais próximo possível dela.**
+:::
+
+### Baseline: Conhecendo o Ponto de Partida {#sec-baseline}
+
+Definir um indicador de qualidade exige primeiramente conhecer a **Lacuna** (o tamanho do problema ou oportunidade) para então definir a meta. A lacuna é a diferença entre a **referência de excelência desejada** (Benchmark) e a **base de desempenho atual do processo** (Baseline).
+
+#### Técnicas Estatísticas para o Baseline
+
+Para calcular o Baseline de um equipamento ou planta sem ser traído por anomalias estatísticas, a engenharia utiliza a técnica da **Média Aparada**:
+
+1. Colete os dados históricos do KPI (mínimo 30 observações, idealmente 12 meses).
+2. Ordene os valores do menor para o maior.
+3. **Apare os dados extremos** (outliers) utilizando a Amplitude Interquartílica ou Interpercentílica:
+   * Corte P20-P80 (remove 20% inferior e 20% superior)
+   * Ou corte P05-P95 (remove 5% inferior e 5% superior)
+4. Calcule a média dos valores remanescentes.
+
+**Critério de Decisão:** A praxe é aparar entre **5% e 25%** da informação. O que determina o percentual exato é o equilíbrio entre o tamanho do banco de dados e a perda aceitável de informação representativa.
+
+::: {.callout-tip title="💡 POR QUE APARAR?"}
+Imagine que um britador opera normalmente a 280 t/h. Um dia, por uma falha rara, ele processa apenas 80 t/h. Se você calcular a média simples, esse outlier "puxa" o baseline para baixo artificialmente, distorcendo a realidade operacional. A média aparada elimina esses extremos, gerando um baseline mais representativo da capacidade real do processo.
+:::
+
+### Benchmarking: Definindo a Referência {#sec-benchmarking}
+
+O benchmarking é um processo sistemático de avaliação comparativa (estudo de referências) para definir **onde o indicador deveria estar**. As referências usuais na mineração incluem:
+
+#### Tipos de Referências
+
+**1. Referência do Setor (Interna)**
+
+A melhor média móvel de três meses na série histórica do KPI dos últimos 12 meses.
+
+* *Exemplo:* Se a disponibilidade física da frota variou entre 82% e 91% no último ano, a referência do setor é a média dos 3 melhores meses consecutivos (ex: 89,2%).
+
+**2. Referência da Empresa (Inter-unidades)**
+
+O melhor resultado para esse KPI comparado entre todas as minas do mesmo grupo.
+
+* *Exemplo:* A Mina A tem disponibilidade de 85%, enquanto a Mina B (mesmo tipo de equipamento) tem 92%. O benchmark interno é 92%.
+
+**3. Referência Técnica (Padrão Ouro)**
+
+Baseada em documentos de engenharia (manuais de fabricante, EPS), considerando a capacidade nominal e vida útil do ativo.
+
+* *Exemplo:* O fabricante do caminhão especifica disponibilidade mecânica de 95% se a manutenção preventiva for rigorosamente seguida.
+
+**4. Referência Externa (Classe Mundial)**
+
+Consultorias e dados abertos de concorrentes de classe mundial.
+
+* *Exemplo:* Relatórios técnicos mostram que mineradoras líderes na Austrália operam com disponibilidade de frota acima de 93%.
+
+#### Definindo a Agressividade da Meta
+
+A partir destas referências, o gestor escolhe a **agressividade da sua meta** projetando três cenários:
+
+* **Cenário Conservador:** Média aritmética dos 5 melhores meses do último ano.
+* **Cenário Moderado:** Média aritmética dos 3 melhores meses do último ano.
+* **Cenário Agressivo:** Espelhar o valor do melhor mês absoluto do ano passado.
+
+### Matriz de Captura da Lacuna {#sec-matriz-captura}
+
+Identificada a lacuna entre o Baseline e o Benchmark, o gestor precisa responder: **Quanto desta lacuna nós vamos buscar no próximo ciclo?**
+
+A resposta dependerá do **nível de maturidade e capacidade da equipe**. A decisão baseia-se em cinco pilares:
+
+1. **Conhecimento histórico do processo**
+2. **Dados confiáveis e granulares**
+3. **Disponibilidade financeira/orçamento**
+4. **Conhecimento técnico do time**
+5. **Maturidade em gestão**
+
+#### Critérios de Captura
+
+* **Se a equipe possui TODAS as condições operacionais e analíticas:**
+  Assumir uma captura **≥50%** da lacuna como meta anual.
+
+* **Se a equipe possui PARTE das condições, mas suporta desafios de melhoria:**
+  Captura da lacuna gira em torno de **20% a 50%**.
+
+* **Se a equipe está em estágio reativo, limitando-se a gestão da rotina:**
+  Captura da lacuna deve ser conservadora, girando em torno de **10% a 20%** do gap disponível.
+
+::: {.example #exm-matriz-captura name="Aplicação da Matriz de Captura"}
+**Situação:**
+* Baseline atual: 82% de disponibilidade física
+* Benchmark (Referência Técnica): 95% de disponibilidade
+* Lacuna: 13 pontos percentuais
+
+**Análise da Capacidade:**
+* Conhecimento do processo: ✅ Temos 5 anos de dados históricos
+* Dados confiáveis: ✅ Sistema de telemetria instalado
+* Orçamento: ⚠️ Limitado (50% do ideal)
+* Conhecimento técnico: ✅ Equipe treinada
+* Maturidade: ⚠️ Estágio 2 (Estruturado, mas não proativo)
+
+**Decisão:** Equipe possui 60% das condições → Capturar 35% da lacuna
+
+**Meta 2024:** 82% + (13% × 0,35) = **86,5% de disponibilidade física**
+:::
+
+### O Objetivo Final: Definir Indicadores Programados
+
+O objetivo desta primeira etapa do planejamento da qualidade é definir os **alvos de produção, de qualidade e de manutenção da planta**. Esses alvos são materializados por meio de **indicadores específicos, denominados "indicadores programados"**. Eles são estabelecidos pela alta gestão no começo do período de análise e servem como as metas primárias a serem atingidas pela operação.
+
+Uma vez estabelecidos, esses indicadores programados serão o norte para o Controle da Qualidade e para os esforços de Melhoria da Qualidade, conforme veremos no @sec-cap5.
+
 ### O Desdobramento da Medição: Princípios, Requisitos e Critérios
 
 Para que a Gestão de Ativos e os Indicadores (KPIs) funcionem em sintonia com a estratégia da diretoria, o Sistema de Gestão Integrado (SGI) precisa traduzir as intenções macro em elementos matemáticos e auditáveis. Esse processo ocorre através de um "funil" de desdobramento lógico.
