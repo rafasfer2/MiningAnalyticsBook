@@ -153,18 +153,18 @@ A engenharia utiliza **Mapas Mentais (Cadeia de Meios e Fins)** para desdobrar e
 #### Passo 2: Consolidação em Dimensões ($D_j$)
 Para o modelo não se tornar caótico, as dezenas de demandas do totem são agrupadas em categorias maiores (Dimensões) como: Ergonomia, Normas e Desempenho. O resultado visual deste agrupamento é a **Árvore de Valor**.
 
-**Passo 3: Calibragem de Relevância / Pesos ($W_i$)**
+#### Passo 3: Calibragem de Relevância / Pesos ($W_i$)
 Qual dimensão é mais importante? Para evitar o "chute", a engenharia calcula os pesos ($W_i$) utilizando o **Diagrama de Mudge**. Nesta matriz, os objetivos são comparados aos pares respondendo a duas perguntas: *Qual requisito é mais importante?* e *O quão mais importante ele é?*.
 
 Ao comparar "Resistência" com "Estética", a matriz gera uma pontuação técnica, convertendo-a em taxas percentuais (ex: Ergonomia = 31%; Desempenho = 25%). Estes percentuais são rigorosamente os nossos **Pesos ($W_i$)** na equação.
 
-**Passo 4: Parametrização de Desempenho ($S_i$)**
+#### Passo 4: Parametrização de Desempenho ($S_i$)
 O quarto passo é definir como extrair a nota. O engenheiro cria uma **Função de Valor ($FV$)**, que converte as preferências técnicas em uma escala numérica. Tomemos a variável $V_3$ ("Material da Carcaça"). A engenharia cria a regra:
 * Se usar **Chapa de aço e Polipropileno** $\rightarrow$ $S_3 = 100$ (Nota máxima).
 * Se usar **Perfis de aço e Poliestireno** $\rightarrow$ $S_3 = 33$ (Nota baixa, aceitável, mas frágil).
 * Se usar **Perfis de aço e fibra** $\rightarrow$ $S_3 = 0$ (Inaceitável para este projeto).
 
-**Passo 5: Consolidação Matemática do ARM**
+#### Passo 5: Consolidação Matemática do ARM
 Com os Pesos ($W_i$) extraídos do Diagrama de Mudge e as notas de desempenho ($S_i$) extraídas das Funções de Valor, a equipe simula diferentes combinações de materiais e visualiza imediatamente o impacto no Índice final, permitindo análises precisas de *trade-off* (Ex: "Vale a pena reduzir o custo se isso derrubar a Qualidade em 15%?").
 
 ---

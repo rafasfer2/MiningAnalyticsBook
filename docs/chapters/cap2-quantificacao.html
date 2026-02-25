@@ -332,6 +332,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#sec-modelagem-processos" id="toc-sec-modelagem-processos" class="nav-link" data-scroll-target="#sec-modelagem-processos"><span class="header-section-number">2.3.1</span> A Expansão do Modelo: Quantificando a Qualidade de Processos</a></li>
   </ul></li>
+  <li><a href="#resumo-do-capítulo" id="toc-resumo-do-capítulo" class="nav-link" data-scroll-target="#resumo-do-capítulo"><span class="header-section-number">2.4</span> 📝 Resumo do Capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -358,6 +359,25 @@ window.Quarto = {
 
 
 <p>Neste capítulo, operamos a transição definitiva da filosofia normativa para a exatidão da engenharia. Transformamos conceitos abstratos e subjetivos em modelos matemáticos capazes de nortear decisões operacionais e financeiras no setor mineral.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="🎯 Objetivos deste Capítulo">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>🎯 Objetivos deste Capítulo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Neste capítulo, faremos a transição definitiva da qualidade filosófica para a engenharia quantitativa. Ao final da leitura, você será capaz de:</p>
+<ul>
+<li><strong>Transpor</strong> a barreira da subjetividade, transformando opiniões sobre qualidade em indicadores matemáticos auditáveis e gerenciáveis.</li>
+<li><strong>Compreender e Estruturar</strong> a Modelagem Analítica de Requisitos (ARM), aplicando as equações dos modelos Unidimensional (Flat) e Multidimensional (Hierarchical).</li>
+<li><strong>Executar</strong> os cinco passos práticos de modelagem: identificação de variáveis (<span class="math inline">\(V_i\)</span>), agrupamento em dimensões (<span class="math inline">\(D_j\)</span>), calibragem de pesos (<span class="math inline">\(W_i\)</span>), parametrização de desempenho (<span class="math inline">\(S_i\)</span>) e consolidação matemática.</li>
+<li><strong>Aplicar</strong> o algoritmo ARM em cenários reais da mineração, avaliando quantitativamente tanto a conformidade de <strong>Produtos</strong> (ex: minério de ferro) quanto a eficiência de <strong>Processos</strong> (ex: britagem e logística).</li>
+</ul>
+</div>
+</div>
 <section id="sec-proposito-arm" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="sec-proposito-arm"><span class="header-section-number">2.1</span> O Propósito: De onde saímos e para onde vamos?</h2>
 <p>Antes de avançarmos para as fórmulas e para os algoritmos de cálculo, é fundamental alinhar o propósito desta modelagem. A resposta reside na necessidade de traduzir a linguagem humana para a linguagem de máquina e de negócios.</p>
@@ -500,10 +520,19 @@ Tabela&nbsp;2.1: Evolução do Conceito de Qualidade: Da Filosofia à Matemátic
 <section id="passo-2-consolidação-em-dimensões-d_j" class="level4" data-number="2.2.5.3">
 <h4 data-number="2.2.5.3" class="anchored" data-anchor-id="passo-2-consolidação-em-dimensões-d_j"><span class="header-section-number">2.2.5.3</span> Passo 2: Consolidação em Dimensões (<span class="math inline">\(D_j\)</span>)</h4>
 <p>Para o modelo não se tornar caótico, as dezenas de demandas do totem são agrupadas em categorias maiores (Dimensões) como: Ergonomia, Normas e Desempenho. O resultado visual deste agrupamento é a <strong>Árvore de Valor</strong>.</p>
-<p><strong>Passo 3: Calibragem de Relevância / Pesos (<span class="math inline">\(W_i\)</span>)</strong> Qual dimensão é mais importante? Para evitar o “chute”, a engenharia calcula os pesos (<span class="math inline">\(W_i\)</span>) utilizando o <strong>Diagrama de Mudge</strong>. Nesta matriz, os objetivos são comparados aos pares respondendo a duas perguntas: <em>Qual requisito é mais importante?</em> e <em>O quão mais importante ele é?</em>.</p>
+</section>
+<section id="passo-3-calibragem-de-relevância-pesos-w_i" class="level4" data-number="2.2.5.4">
+<h4 data-number="2.2.5.4" class="anchored" data-anchor-id="passo-3-calibragem-de-relevância-pesos-w_i"><span class="header-section-number">2.2.5.4</span> Passo 3: Calibragem de Relevância / Pesos (<span class="math inline">\(W_i\)</span>)</h4>
+<p>Qual dimensão é mais importante? Para evitar o “chute”, a engenharia calcula os pesos (<span class="math inline">\(W_i\)</span>) utilizando o <strong>Diagrama de Mudge</strong>. Nesta matriz, os objetivos são comparados aos pares respondendo a duas perguntas: <em>Qual requisito é mais importante?</em> e <em>O quão mais importante ele é?</em>.</p>
 <p>Ao comparar “Resistência” com “Estética”, a matriz gera uma pontuação técnica, convertendo-a em taxas percentuais (ex: Ergonomia = 31%; Desempenho = 25%). Estes percentuais são rigorosamente os nossos <strong>Pesos (<span class="math inline">\(W_i\)</span>)</strong> na equação.</p>
-<p><strong>Passo 4: Parametrização de Desempenho (<span class="math inline">\(S_i\)</span>)</strong> O quarto passo é definir como extrair a nota. O engenheiro cria uma <strong>Função de Valor (<span class="math inline">\(FV\)</span>)</strong>, que converte as preferências técnicas em uma escala numérica. Tomemos a variável <span class="math inline">\(V_3\)</span> (“Material da Carcaça”). A engenharia cria a regra: * Se usar <strong>Chapa de aço e Polipropileno</strong> <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(S_3 = 100\)</span> (Nota máxima). * Se usar <strong>Perfis de aço e Poliestireno</strong> <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(S_3 = 33\)</span> (Nota baixa, aceitável, mas frágil). * Se usar <strong>Perfis de aço e fibra</strong> <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(S_3 = 0\)</span> (Inaceitável para este projeto).</p>
-<p><strong>Passo 5: Consolidação Matemática do ARM</strong> Com os Pesos (<span class="math inline">\(W_i\)</span>) extraídos do Diagrama de Mudge e as notas de desempenho (<span class="math inline">\(S_i\)</span>) extraídas das Funções de Valor, a equipe simula diferentes combinações de materiais e visualiza imediatamente o impacto no Índice final, permitindo análises precisas de <em>trade-off</em> (Ex: “Vale a pena reduzir o custo se isso derrubar a Qualidade em 15%?”).</p>
+</section>
+<section id="passo-4-parametrização-de-desempenho-s_i" class="level4" data-number="2.2.5.5">
+<h4 data-number="2.2.5.5" class="anchored" data-anchor-id="passo-4-parametrização-de-desempenho-s_i"><span class="header-section-number">2.2.5.5</span> Passo 4: Parametrização de Desempenho (<span class="math inline">\(S_i\)</span>)</h4>
+<p>O quarto passo é definir como extrair a nota. O engenheiro cria uma <strong>Função de Valor (<span class="math inline">\(FV\)</span>)</strong>, que converte as preferências técnicas em uma escala numérica. Tomemos a variável <span class="math inline">\(V_3\)</span> (“Material da Carcaça”). A engenharia cria a regra: * Se usar <strong>Chapa de aço e Polipropileno</strong> <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(S_3 = 100\)</span> (Nota máxima). * Se usar <strong>Perfis de aço e Poliestireno</strong> <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(S_3 = 33\)</span> (Nota baixa, aceitável, mas frágil). * Se usar <strong>Perfis de aço e fibra</strong> <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(S_3 = 0\)</span> (Inaceitável para este projeto).</p>
+</section>
+<section id="passo-5-consolidação-matemática-do-arm" class="level4" data-number="2.2.5.6">
+<h4 data-number="2.2.5.6" class="anchored" data-anchor-id="passo-5-consolidação-matemática-do-arm"><span class="header-section-number">2.2.5.6</span> Passo 5: Consolidação Matemática do ARM</h4>
+<p>Com os Pesos (<span class="math inline">\(W_i\)</span>) extraídos do Diagrama de Mudge e as notas de desempenho (<span class="math inline">\(S_i\)</span>) extraídas das Funções de Valor, a equipe simula diferentes combinações de materiais e visualiza imediatamente o impacto no Índice final, permitindo análises precisas de <em>trade-off</em> (Ex: “Vale a pena reduzir o custo se isso derrubar a Qualidade em 15%?”).</p>
 <hr>
 </section>
 </section>
@@ -693,9 +722,20 @@ Tabela&nbsp;2.2: Matriz Analítica de Requisitos (ARM) aplicada à genialidade m
 <p>É exatamente neste ponto que a quantificação termina e a engenharia de ação começa. Quando a nota (<span class="math inline">\(S_i\)</span>) de um <strong>processo</strong> cai de forma anormal, a organização não deve tentar adivinhar o motivo ou trocar peças cegamente. Ela deve isolar a anomalia e iniciar uma investigação científica.</p>
 <p>Como estruturar essa investigação para descobrir a causa raiz de um problema de processo e evitar o desperdício de recursos? Esse é o domínio absoluto do <strong>Método de Análise e Solução de Problemas (MASP)</strong> e do <strong>Ciclo PDCA</strong>, que formam o núcleo do nosso próximo capítulo.</p>
 </div>
-
-
 </section>
+</section>
+<section id="resumo-do-capítulo" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="resumo-do-capítulo"><span class="header-section-number">2.4</span> 📝 Resumo do Capítulo</h2>
+<ul>
+<li><strong>Da Filosofia à Matemática:</strong> A qualidade industrial não pode ser um adjetivo vago. Ela precisa ser traduzida em um único indicador numérico (o <em>score</em> global) que permita análises de <em>trade-off</em> e sirva de base para futuros algoritmos de <em>Machine Learning</em>.</li>
+<li><strong>A Equação ARM (Modelagem Analítica de Requisitos):</strong> É o coração da quantificação. Ela consolida o desempenho de um produto ou processo multiplicando a nota de Desempenho (<span class="math inline">\(S_i\)</span>) pelo Peso estratégico (<span class="math inline">\(W_i\)</span>) de cada Variável (<span class="math inline">\(V_i\)</span>).</li>
+<li><strong>Níveis de Hierarquia:</strong> O modelo pode ser <strong>Unidimensional</strong> (soma ponderada direta de variáveis isoladas) ou <strong>Multidimensional</strong> (variáveis agrupadas em Dimensões maiores para evitar ruído na tomada de decisão).</li>
+<li><strong>Os 5 Passos da Engenharia:</strong> A extração dos números do mundo real exige rigor. Utiliza-se a <em>Árvore de Valor</em> para definir variáveis e o <em>Diagrama de Mudge</em> para calibrar matematicamente os pesos de relevância sem “chutes”.</li>
+<li><strong>Produto vs.&nbsp;Processo:</strong> O modelo ARM é universal. Ele quantifica desde a excelência de um General histórico ou do teor de ferro de um minério (Produto), até a disponibilidade física e o consumo de energia de um britador primário (Processo).</li>
+<li><strong>O Gatilho para a Ação:</strong> Quando a nota global de um processo cai de forma anormal, a quantificação cumpriu seu papel de alerta. A partir desse ponto, cessa a medição e inicia-se a investigação de causa raiz através do <strong>MASP</strong> e do ciclo <strong>PDCA</strong>.</li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->
