@@ -160,6 +160,7 @@ Ao comparar "Resistência" com "Estética", a matriz gera uma pontuação técni
 
 #### Passo 4: Parametrização de Desempenho ($S_i$)
 O quarto passo é definir como extrair a nota. O engenheiro cria uma **Função de Valor ($FV$)**, que converte as preferências técnicas em uma escala numérica. Tomemos a variável $V_3$ ("Material da Carcaça"). A engenharia cria a regra:
+
 * Se usar **Chapa de aço e Polipropileno** $\rightarrow$ $S_3 = 100$ (Nota máxima).
 * Se usar **Perfis de aço e Poliestireno** $\rightarrow$ $S_3 = 33$ (Nota baixa, aceitável, mas frágil).
 * Se usar **Perfis de aço e fibra** $\rightarrow$ $S_3 = 0$ (Inaceitável para este projeto).
@@ -218,6 +219,7 @@ Neste cenário, a siderúrgica (usuário) avalia a qualidade do minério baseada
 
 **1. Atribuição de Pesos ($W_i$)**
 O cliente define o que é mais importante para o processo dele. A soma da importância deve totalizar 100% (ou 1,0).
+
 * **$W_1=0,6$ (60%):**
   O teor de ferro é o mais importante para a produtividade do alto-forno.
 * **$W_2=0,3$ (30%):**
@@ -226,8 +228,7 @@ O cliente define o que é mais importante para o processo dele. A soma da import
   A granulometria afeta a permeabilidade, mas é o item de menor peso neste contrato.
 
 **2. Avaliação da Qualidade ($S_i$)**
-Durante a entrega, o laboratório mede o desempenho de cada característica em uma escala de 0 a 10 (onde 10 é a perfeição em relação ao requisito):
-* **$S_1=9,0$:**
+Durante a entrega, o laboratório mede o desempenho de cada característica em uma escala de 0 a 10 (onde 10 é a perfeição em relação ao requisito):* **$S_1=9,0$:**
   O teor de ferro veio excelente (ex: 65% de Fe).
 * **$S_2=5,0$:**
   A sílica veio acima do esperado, prejudicando este parâmetro.
@@ -253,6 +254,7 @@ Neste cenário, o usuário (o terminal portuário) avalia a qualidade do serviç
 
 **1. Atribuição de Pesos ($W_i$)**
 O porto define os pesos com base no impacto no custo de operação (*demurrage* de navios):
+
 * **$W_1=0,5$ (50%):**
   A pontualidade é crítica para não perder a janela de atracação.
 * **$W_2=0,3$ (30%):**
@@ -262,6 +264,7 @@ O porto define os pesos com base no impacto no custo de operação (*demurrage* 
 
 **2. Avaliação da Qualidade ($S_i$)**
 Avaliação do desempenho do serviço no último mês (escala de 0 a 10):
+
 * **$S_1=6,0$:**
   Ocorreram atrasos frequentes nas descargas (nota baixa).
 * **$S_2=10,0$:**
@@ -285,8 +288,7 @@ Embora a ferrovia tenha sido perfeita na integridade ($S_2=10$) e muito boa na o
 Para finalizar a aplicação conceitual, utilizaremos como objeto a própria Organização e sua eficácia no cumprimento do plano estratégico.
 
 **1. Atribuição de Pesos ($W_i$)**
-A Alta Direção define o que é prioritário para o sucesso do negócio no trimestre:
-* **$W_1=0,4$ (40%):**
+A Alta Direção define o que é prioritário para o sucesso do negócio no trimestre:* **$W_1=0,4$ (40%):**
   Aderência ao Plano de Produção (Volume).
 * **$W_2=0,4$ (40%):**
   Custo Operacional Unitário (Eficiência financeira).
@@ -295,6 +297,7 @@ A Alta Direção define o que é prioritário para o sucesso do negócio no trim
 
 **2. Avaliação da Qualidade ($S_i$)**
 Desempenho apurado no fechamento do período:
+
 * **$S_1=10,0$:**
   O volume produzido superou a meta estabelecida.
 * **$S_2=4,0$:**
@@ -319,6 +322,7 @@ Neste estudo, o objeto é o "Produto B", um minério de ferro com alta sílica p
 
 **Passo 1: Definição dos Parâmetros ($V_i$)**
 Com base no problema de pesquisa e nos ofensores identificados, selecionamos cinco parâmetros fundamentais:
+
 * **$V_1$ (Teor de Ferro - Fe):**
   Indicador de qualidade química e valor de mercado.
 * **$V_2$ (Teor de Sílica - SiO2):**
@@ -332,6 +336,7 @@ Com base no problema de pesquisa e nos ofensores identificados, selecionamos cin
 
 **Passo 2: Ponderação Estratégica ($W_i$)**
 A organização atribui pesos conforme a prioridade do teste ($\sum W_i = 1,0$):
+
 * **$W_1=0,30$ (30%):**
   O ferro é a missão básica do produto.
 * **$W_2=0,25$ (25%):**
@@ -345,6 +350,7 @@ A organização atribui pesos conforme a prioridade do teste ($\sum W_i = 1,0$):
 
 **Passo 3: Atribuição de Notas de Desempenho ($S_i$)**
 Notas comparando o realizado com o requisito estabelecido:
+
 * **$S_1=9,0$:**
   Desempenho excelente; a média de 49,42% superou as expectativas.
 * **$S_2=7,0$:**
@@ -373,6 +379,7 @@ Neste cenário, o objeto é o processo de produção e estocagem do produto PPCJ
 
 **Passo 1: Definição dos Parâmetros ($V_i$)**
 Selecionamos cinco parâmetros fundamentais para a confiabilidade:
+
 * **$V_1$ (Teor de Ferro):**
   Requisito básico do produto.
 * **$V_2$ (Conformidade de Estoque):**
@@ -385,6 +392,7 @@ Selecionamos cinco parâmetros fundamentais para a confiabilidade:
   Essencial para densidade e pesagem correta.
 
 **Passo 2: Ponderação Estratégica ($W_i$)**
+
 * **$W_1=0,20$ (20%):**
   Importância padrão para o teor metálico.
 * **$W_2=0,35$ (35%):**
@@ -397,6 +405,7 @@ Selecionamos cinco parâmetros fundamentais para a confiabilidade:
   Parâmetro técnico de suporte.
 
 **Passo 3: Atribuição de Notas ($S_i$)**
+
 * **$S_1=9,5$:**
   Excelente desempenho químico (49,17% Fe).
 * **$S_2=3,0$:**
@@ -445,6 +454,7 @@ A gerência precisa avaliar a "saúde" e a eficiência operacional da planta de 
 
 **1. Definição dos Parâmetros do Processo ($V_i$) e Pesos ($W_i$)**
 A engenharia selecionou quatro variáveis operacionais de impacto direto no custo e na produtividade:
+
 * **$V_1$ (Disponibilidade Física - DF):**
   O equipamento está pronto e liberado para operar? (Peso $W_1 = 0,30$).
 * **$V_2$ (Taxa de Alimentação - t/h):**
@@ -456,6 +466,7 @@ A engenharia selecionou quatro variáveis operacionais de impacto direto no cust
 
 **2. Atribuição de Notas de Desempenho ($S_i$)**
 Comparamos o resultado realizado pelo processo na semana contra a meta (budget) estabelecida (escala de 0 a 10):
+
 * **$S_1 = 9,0$:**
   DF excelente (atingiu 92% da disponibilidade programada).
 * **$S_2 = 8,0$:**
