@@ -41,6 +41,8 @@ Na mineração, o TQM se manifesta através da integração entre Operação, Ma
 
 #### Os 9 Fatores Críticos de Sucesso do TQM {#sec-tqm-9pilares}
 
+![Os 9 Fatores Críticos de Sucesso do TQM](../images/fig-9pilares-tqm.png){#fig-9pilares-tqm fig-align="center"}
+
 Para que o TQM seja efetivamente implantado e mensurado, a literatura consolida **9 Fatores Críticos de Sucesso (FCS)**. Estes pilares permitem auditar o grau de maturidade organizacional e identificar as práticas gerenciais que precisam ser fortalecidas:
 
 **1. Comprometimento da Alta Administração**
@@ -146,6 +148,8 @@ Originada no Sistema Toyota de Produção (TPS), a filosofia Lean foca na **elim
 
 #### Os 8 Desperdícios (Mudas) no Contexto Mineral
 
+![Os 8 Desperdícios (Mudas) do Lean](../images/fig-8mudas-lean.png){#fig-8mudas-lean fig-align="center"}
+
 1. **Superprodução:** Extrair mais minério do que a capacidade de beneficiamento pode processar.
 2. **Espera:** Caminhões parados aguardando liberação de ponto de carga.
 3. **Transporte:** Movimentação excessiva de material estéril sem valor agregado.
@@ -168,6 +172,8 @@ Um erro comum é tentar aplicar Lean "de manual" sem adaptar ao contexto mineral
 :::
 
 #### Os 14 Princípios do Sistema Toyota de Produção {#sec-lean-14principios}
+
+![A Casa da Toyota - 14 Princípios e Blocos](../images/fig-casa-toyota.png){#fig-casa-toyota fig-align="center"}
 
 O Modelo Toyota estrutura a filosofia Lean em 14 princípios organizados em 4 blocos conceituais:
 
@@ -219,6 +225,8 @@ A seleção de um projeto Seis Sigma exige responder a perguntas vitais:
 
 #### A Estrutura Organizacional (Belt System)
 
+![Pirâmide de Belts - Hierarquia do Seis Sigma](../images/fig-piramide-belts.png){#fig-piramide-belts fig-align="center"}
+
 Para conduzir esses projetos sem perder o foco corporativo, o Seis Sigma cria uma estrutura hierárquica paralela baseada em capacitação técnica:
 
 * **Executivo Líder:** Conduz, incentiva e supervisiona as iniciativas, selecionando os "Campeões".
@@ -231,11 +239,13 @@ Para conduzir esses projetos sem perder o foco corporativo, o Seis Sigma cria um
 
 #### DMAIC: O Roteiro Estruturado
 
+![O Fluxo DMAIC do Seis Sigma](../images/fig-dmaic-fluxo.png){#fig-dmaic-fluxo-seis-sigma fig-align="center"}
+
 O método Seis Sigma segue um roteiro rigoroso de 5 fases:
 
 1. **Define (Definir):** Identificar as prioridades, os requisitos do cliente (CTQs) e mapear os processos críticos que os impactam. Identificar o problema e o impacto financeiro (ex: perda de recuperação mássica na flotação).
 
-2. **Measure (Medir):** Desenhar as entradas e saídas (onde Q=f(x)), estabelecendo o sistema de medição adequado e coletando dados por meio de amostragem representativa. Calcular a capacidade atual do processo (Cp, Cpk).
+2. **Measure (Medir):** Desenhar as entradas e saídas (onde $Q=f(x)$), estabelecendo o sistema de medição adequado e coletando dados por meio de amostragem representativa. Calcular a capacidade atual do processo ($C_p, C_{pk}$).
 
 3. **Analyze (Analisar):** Utilizar ferramentas estatísticas (regressão, DOE, testes de hipótese) para analisar os dados coletados, identificando as causas vitais (raízes) que geram defeitos e variações.
 
@@ -347,6 +357,8 @@ Para que filosofias como TQM, Seis Sigma e Lean não atuem de forma isolada, as 
 
 ### O Balanced Scorecard (BSC) {#sec-bsc}
 
+![As 4 Perspectivas do Balanced Scorecard](../images/fig-perspectivas-bsc.png){#fig-perspectivas-bsc fig-align="center"}
+
 O BSC atua como o grande tradutor da estratégia corporativa. Ele desdobra a visão da empresa em indicadores, metas e iniciativas através de quatro perspectivas interdependentes:
 
 #### As 4 Perspectivas do BSC
@@ -357,7 +369,7 @@ O BSC atua como o grande tradutor da estratégia corporativa. Ele desdobra a vis
 2. **Perspectiva dos Clientes:** Satisfação, retenção, participação de mercado e reputação da marca.
    * *Exemplo mineral:* Aumentar o Net Promoter Score (NPS) garantindo entrega pontual de minério com especificação contratual.
 
-3. **Perspectiva dos Processos Internos:** Eficiên cia operacional, qualidade dos processos e inovação.
+3. **Perspectiva dos Processos Internos:** Eficiência operacional, qualidade dos processos e inovação.
    * *Exemplo mineral:* Reduzir tempo de ciclo de transporte (do pit até a usina) eliminando filas e otimizando rotas.
 
 4. **Perspectiva de Aprendizado e Crescimento:** Capacitação de pessoas, sistemas de informação e cultura organizacional.
@@ -374,6 +386,8 @@ O poder do BSC está no **Mapa Estratégico**, que visualiza as relações de ca
 * Se investimos em **Treinamento** (Aprendizado) → Os operadores cometem menos erros → **Qualidade do processo** melhora (Processos) → Menos retrabalho e reclamações → **Satisfação do cliente** aumenta (Clientes) → Contratos renovados e prêmio de qualidade → **Receita** aumenta (Financeira).
 
 ### A Metodologia de Análise e Solução de Problemas (MASP) {#sec-masp}
+
+![A Estrutura do MASP alinhada ao PDCA](../images/fig-estrutura-masp.png){#fig-estrutura-masp fig-align="center"}
 
 Criada pela União dos Cientistas e Engenheiros Japoneses (JUSE), a MASP tem o objetivo de prevenir e corrigir falhas de processos de forma altamente estruturada. A metodologia auxilia na identificação da causa raiz, propõe ações corretivas e sugere o uso de ferramentas específicas (como Brainstorming, 5W2H e 5S) para convergir ideias.
 
@@ -457,6 +471,8 @@ As metodologias consagradas de qualidade encontram na manutenção um terreno f�
 * **O Lean na Manutenção:** Concentra-se na eliminação de desperdícios (ferramentas distantes, excesso de peças no almoxarifado, tempo de espera por liberação de área), otimizando o fluxo de trabalho dos mecânicos e eletricistas.
 
 #### A Gestão de Ativos e o Ciclo de Vida
+
+![Ciclo de Vida do Ativo - 7 Etapas](../images/fig-ciclo-vida-ativo.png){#fig-ciclo-vida-ativo fig-align="center"}
 
 A integração entre qualidade e manutenção atinge seu ápice na **Gestão de Ativos**. Essa abordagem estabelece que o valor da organização é gerado pelo desempenho de seus equipamentos. O período compreendido entre a decisão de compra de um ativo (como um caminhão fora de estrada ou um britador) e o seu descarte é conhecido como **vida útil do ativo**.
 
