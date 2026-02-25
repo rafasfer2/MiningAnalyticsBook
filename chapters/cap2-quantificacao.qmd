@@ -6,6 +6,15 @@ format: html
 
 Neste capítulo, operamos a transição definitiva da filosofia normativa para a exatidão da engenharia. Transformamos conceitos abstratos e subjetivos em modelos matemáticos capazes de nortear decisões operacionais e financeiras no setor mineral.
 
+::: {.callout-tip title="🎯 Objetivos deste Capítulo"}
+Neste capítulo, faremos a transição definitiva da qualidade filosófica para a engenharia quantitativa. Ao final da leitura, você será capaz de:
+
+* **Transpor** a barreira da subjetividade, transformando opiniões sobre qualidade em indicadores matemáticos auditáveis e gerenciáveis.
+* **Compreender e Estruturar** a Modelagem Analítica de Requisitos (ARM), aplicando as equações dos modelos Unidimensional (Flat) e Multidimensional (Hierarchical).
+* **Executar** os cinco passos práticos de modelagem: identificação de variáveis ($V_i$), agrupamento em dimensões ($D_j$), calibragem de pesos ($W_i$), parametrização de desempenho ($S_i$) e consolidação matemática.
+* **Aplicar** o algoritmo ARM em cenários reais da mineração, avaliando quantitativamente tanto a conformidade de **Produtos** (ex: minério de ferro) quanto a eficiência de **Processos** (ex: britagem e logística).
+:::
+
 ## O Propósito: De onde saímos e para onde vamos? {#sec-proposito-arm}
 
 Antes de avançarmos para as fórmulas e para os algoritmos de cálculo, é fundamental alinhar o propósito desta modelagem. A resposta reside na necessidade de traduzir a linguagem humana para a linguagem de máquina e de negócios.
@@ -470,3 +479,12 @@ O desgaste prematuro de peças ou o entupimento severo da câmara de britagem s�
 
 Como estruturar essa investigação para descobrir a causa raiz de um problema de processo e evitar o desperdício de recursos? Esse é o domínio absoluto do **Método de Análise e Solução de Problemas (MASP)** e do **Ciclo PDCA**, que formam o núcleo do nosso próximo capítulo.
 :::
+
+## 📝 Resumo do Capítulo
+
+* **Da Filosofia à Matemática:** A qualidade industrial não pode ser um adjetivo vago. Ela precisa ser traduzida em um único indicador numérico (o *score* global) que permita análises de *trade-off* e sirva de base para futuros algoritmos de *Machine Learning*.
+* **A Equação ARM (Modelagem Analítica de Requisitos):** É o coração da quantificação. Ela consolida o desempenho de um produto ou processo multiplicando a nota de Desempenho ($S_i$) pelo Peso estratégico ($W_i$) de cada Variável ($V_i$).
+* **Níveis de Hierarquia:** O modelo pode ser **Unidimensional** (soma ponderada direta de variáveis isoladas) ou **Multidimensional** (variáveis agrupadas em Dimensões maiores para evitar ruído na tomada de decisão).
+* **Os 5 Passos da Engenharia:** A extração dos números do mundo real exige rigor. Utiliza-se a *Árvore de Valor* para definir variáveis e o *Diagrama de Mudge* para calibrar matematicamente os pesos de relevância sem "chutes".
+* **Produto vs. Processo:** O modelo ARM é universal. Ele quantifica desde a excelência de um General histórico ou do teor de ferro de um minério (Produto), até a disponibilidade física e o consumo de energia de um britador primário (Processo).
+* **O Gatilho para a Ação:** Quando a nota global de um processo cai de forma anormal, a quantificação cumpriu seu papel de alerta. A partir desse ponto, cessa a medição e inicia-se a investigação de causa raiz através do **MASP** e do ciclo **PDCA**.
