@@ -1,0 +1,236 @@
+---
+format: html
+---
+
+# Modelos de Gestão e Excelência Operacional {#sec-cap2}
+
+::: {.callout-tip title="🎯 Objetivos deste Capítulo"}
+* Compreender as três principais abordagens de excelência operacional: TQM, Lean e Seis Sigma.
+* Diferenciar os objetivos, ferramentas e métricas de cada filosofia de gestão.
+* Entender a aplicação dos modelos de excelência corporativa (MEG e VPS) no contexto mineral.
+* Reconhecer como essas filosofias se integram ao Sistema de Gestão da Qualidade (SGQ).
+:::
+
+No @sec-cap1, estabelecemos os fundamentos conceituais e normativos da qualidade. Definimos o que é qualidade segundo a ISO 9000, compreendemos suas vertentes filosóficas e justificamos sua importância estratégica. Agora, daremos o próximo passo: conhecer os **modelos operacionais** que transformam essa teoria em sistemas de gestão práticos e escaláveis.
+
+Este capítulo apresenta as três grandes filosofias de excelência que dominam o mercado global — **TQM (Gestão da Qualidade Total)**, **Lean Manufacturing (Manufatura Enxuta)** e **Seis Sigma** — e demonstra como elas foram adaptadas e integradas por grandes corporações minerais através de sistemas proprietários como o **VPS (Sistema de Produção Vale)**.
+
+## As Abordagens de Excelência Operacional {#sec-abordagens-excelencia}
+
+### TQM (Total Quality Management) - Gestão da Qualidade Total {#sec-tqm}
+
+A Gestão da Qualidade Total é uma filosofia de gestão que coloca a qualidade como responsabilidade de todos os membros da organização, não apenas do departamento de qualidade. Desenvolvida no Japão pós-guerra e consolidada por Deming, Juran e Ishikawa, o TQM é a base conceitual de todos os sistemas modernos de gestão.
+
+#### Princípios Fundamentais do TQM
+
+1. **Foco no Cliente:** A qualidade é definida pelas necessidades e expectativas do cliente.
+2. **Melhoria Contínua (Kaizen):** A busca permanente por pequenas melhorias incrementais.
+3. **Envolvimento de Todos:** Do CEO ao operador, todos são responsáveis pela qualidade.
+4. **Decisão Baseada em Fatos:** Uso intensivo de dados e estatísticas.
+5. **Gestão de Processos:** Foco na prevenção de defeitos, não apenas na inspeção.
+
+#### Ferramentas Características do TQM
+
+* **Círculos de Controle da Qualidade (CCQ):** Grupos de trabalho autônomos focados em resolver problemas locais.
+* **As 7 Ferramentas da Qualidade:** Diagrama de Pareto, Ishikawa, Histograma, Cartas de Controle, Diagrama de Dispersão, Fluxograma e Estratificação.
+* **Ciclo PDCA:** Plan-Do-Check-Act como motor da melhoria contínua.
+
+::: {.callout-note title="💡 APLICAÇÃO NA MINERAÇÃO"}
+Na mineração, o TQM se manifesta através da integração entre Operação, Manutenção e Engenharia. A qualidade do minério não é responsabilidade apenas do laboratório, mas de toda a cadeia: desde o plano de lavra (que define a frente de extração) até o controle de blendagem na usina.
+:::
+
+### Lean Manufacturing - Manufatura Enxuta {#sec-lean}
+
+Originada no Sistema Toyota de Produção (TPS), a filosofia Lean foca na **eliminação de desperdícios** (mudas) e na maximização do fluxo de valor. Enquanto o TQM foca na qualidade do produto, o Lean foca na eficiência do processo.
+
+#### Os 8 Desperdícios (Mudas) no Contexto Mineral
+
+1. **Superprodução:** Extrair mais minério do que a capacidade de beneficiamento pode processar.
+2. **Espera:** Caminhões parados aguardando liberação de ponto de carga.
+3. **Transporte:** Movimentação excessiva de material estéril sem valor agregado.
+4. **Superprocessamento:** Realizar britagens desnecessárias quando a granulometria já está adequada.
+5. **Estoque:** Pilhas de minério ROM acumuladas sem destino definido.
+6. **Movimentação:** Deslocamento ineficiente de operadores entre equipamentos.
+7. **Defeitos:** Minério fora de especificação que precisa ser reprocessado.
+8. **Talento:** Subutilização do conhecimento e experiência dos operadores.
+
+#### Ferramentas Lean Aplicadas à Mineração
+
+* **5S (Seiri, Seiton, Seiso, Seiketsu, Shitsuke):** Organização e limpeza de áreas operacionais e oficinas.
+* **Mapeamento do Fluxo de Valor (VSM):** Identificação de gargalos no ciclo de lavra-britagem-beneficiamento.
+* **Kanban:** Sistema visual de controle de inventário de peças de reposição.
+* **Poka-Yoke:** Dispositivos à prova de erro (ex: sensores que impedem alimentação excessiva de britadores).
+* **TPM (Total Productive Maintenance):** Manutenção produtiva total integrada à operação.
+
+::: {.callout-warning title="⚠️ ARMADILHA: Lean sem Contexto"}
+Um erro comum é tentar aplicar Lean "de manual" sem adaptar ao contexto mineral. Reduzir estoque de peças críticas pode gerar economia de inventário, mas paralisa a mina se faltar um componente de reposição para uma correia transportadora estratégica.
+:::
+
+### Seis Sigma - Excelência Estatística {#sec-seis-sigma}
+
+Desenvolvido pela Motorola e popularizado pela GE, o Seis Sigma é uma metodologia rigorosa de melhoria de processos focada na **redução da variabilidade** e na busca por processos com no máximo 3,4 defeitos por milhão de oportunidades (DPMO).
+
+#### A Hierarquia dos Belts
+
+O Seis Sigma estrutura a especialização técnica em níveis hierárquicos inspirados em artes marciais:
+
+* **White Belt:** Conhecimento básico, executores de melhorias.
+* **Yellow Belt:** Participantes ativos de projetos de melhoria.
+* **Green Belt:** Líderes de projetos de impacto médio (dedicação parcial).
+* **Black Belt:** Especialistas dedicados full-time a projetos complexos.
+* **Master Black Belt:** Mentores técnicos e estrategistas da metodologia.
+
+#### DMAIC: O Roteiro Estruturado
+
+O método Seis Sigma segue um roteiro rigoroso de 5 fases:
+
+1. **Define (Definir):** Identificar o problema e o impacto financeiro (ex: perda de recuperação mássica na flotação).
+2. **Measure (Medir):** Coletar dados históricos e calcular a capacidade atual do processo (Cp, Cpk).
+3. **Analyze (Analisar):** Utilizar ferramentas estatísticas (regressão, DOE) para encontrar as causas raiz.
+4. **Improve (Melhorar):** Testar e implementar soluções (ex: ajuste de dosagem de reagentes).
+5. **Control (Controlar):** Estabelecer cartas de controle e POPs para sustentar o ganho.
+
+::: {.callout-important title="🔬 EXEMPLO MINERAL: Projeto Seis Sigma"}
+**Problema:** Taxa de disponibilidade física da frota de caminhões fora de estrada abaixo de 85%, impactando a meta de produção.
+
+**Meta Seis Sigma:** Reduzir o tempo médio entre falhas (MTBF) em 30% e o tempo médio de reparo (MTTR) em 20%, elevando a disponibilidade para 90%.
+
+**Ferramentas Aplicadas:** Análise de Weibull para identificar componentes críticos, FMEA para priorizar modos de falha, DOE para otimizar intervalos de manutenção preventiva.
+:::
+
+### Comparativo: TQM vs. Lean vs. Seis Sigma
+
+| Aspecto | TQM | Lean | Seis Sigma |
+|:--------|:----|:-----|:-----------|
+| **Foco Principal** | Satisfação do cliente e cultura | Eliminação de desperdícios | Redução de variabilidade |
+| **Métrica Chave** | Conformidade com requisitos | Lead Time / Throughput | Defeitos por milhão (DPMO) |
+| **Estrutura** | Filosófica e cultural | Sistema de fluxo | Metodologia estatística (DMAIC) |
+| **Origem** | Japão (Deming, Juran) | Toyota (TPS) | Motorola / GE |
+| **Complexidade** | Média | Média | Alta (intensiva em estatística) |
+
+: Comparação entre as principais filosofias de excelência operacional {#tbl-comparacao-filosofias}
+
+## Modelos de Excelência e Sistemas Corporativos {#sec-modelos-corporativos}
+
+Enquanto TQM, Lean e Seis Sigma são filosofias universais, grandes corporações desenvolvem **sistemas proprietários** que integram essas metodologias à sua cultura e operação específica. No Brasil, dois modelos se destacam: o **MEG (Modelo de Excelência da Gestão)** da FNQ e o **VPS (Sistema de Produção Vale)**.
+
+### O Modelo de Excelência da Gestão (MEG) {#sec-meg}
+
+Desenvolvido pela Fundação Nacional da Qualidade (FNQ), o MEG é o referencial brasileiro de gestão de classe mundial. Diferentemente da ISO 9001 (que é uma norma prescritiva), o MEG é um modelo descritivo que orienta a organização na jornada rumo à excelência.
+
+#### Os 8 Fundamentos do MEG
+
+1. **Pensamento Sistêmico:** Visão integrada da organização.
+2. **Aprendizado Organizacional:** Cultura de melhoria contínua.
+3. **Cultura de Inovação:** Estímulo à criatividade e renovação.
+4. **Liderança Transformadora:** Líderes como agentes de mudança.
+5. **Orientação por Processos:** Gestão baseada em fluxos de valor.
+6. **Geração de Valor:** Foco em resultados para stakeholders.
+7. **Valorização das Pessoas:** Capital humano como diferencial.
+8. **Conhecimento sobre Clientes e Mercados:** Decisões baseadas em inteligência de mercado.
+
+#### Ciclo PDCL (Plan-Do-Check-Learn)
+
+O MEG adapta o PDCA clássico para o **PDCL**, enfatizando o aprendizado organizacional como pilar estratégico.
+
+### O Sistema de Produção Vale (VPS) {#sec-vps}
+
+A Vale, como uma das maiores produtoras globais de minério de ferro, desenvolveu o **VPS** como sua metodologia proprietária de excelência operacional. O VPS integra elementos do TQM, Lean e Seis Sigma em um framework único adaptado ao contexto de mineração de capital intensivo.
+
+#### Pilares do VPS
+
+1. **Segurança:** Prioridade absoluta (Zero Harm).
+2. **Disponibilidade de Ativos:** Maximização do uptime de equipamentos críticos.
+3. **Estabilidade dos Processos:** Redução da variabilidade operacional.
+4. **Utilização e Produtividade:** Otimização do uso de recursos.
+5. **Custos:** Eficiência financeira sustentável.
+6. **Qualidade:** Atendimento às especificações de produto.
+7. **Sustentabilidade:** Gestão ambiental e social.
+
+#### Ferramentas do VPS
+
+O VPS utiliza um portfólio integrado de ferramentas:
+
+* **Rotina de Gestão:** SDCA para manutenção de padrões.
+* **Solução de Problemas:** PDCA/MASP estruturado.
+* **Gestão de Projetos:** PMBOK adaptado para o contexto mineral.
+* **TPM (Total Productive Maintenance):** Foco em confiabilidade de ativos.
+* **Quick Kaizen:** Eventos rápidos de melhoria (1-3 dias).
+* **5S:** Organização de áreas operacionais e administrativas.
+
+::: {.callout-tip title="💡 INSIGHT: Integração Sistêmica"}
+O grande diferencial do VPS não está nas ferramentas individuais (que são públicas), mas na forma como elas são **integradas sistemicamente**. O 5S não é um programa isolado; ele suporta o TPM, que por sua vez aumenta a Disponibilidade de Ativos, que é um dos pilares estratégicos da Vale.
+:::
+
+### A Jornada de Maturidade
+
+Tanto o MEG quanto o VPS operam sob a lógica de **maturidade evolutiva**, similar à Curva de Bradley aplicada à segurança. As organizações são classificadas em níveis:
+
+```{mermaid}
+%%| label: fig-maturidade-excelencia
+%%| fig-cap: "Curva de Maturidade em Gestão da Excelência"
+graph LR
+    A[Estágio 0<br>Inexistente] --> B[Estágio 1<br>Reativo]
+    B --> C[Estágio 2<br>Estruturado]
+    C --> D[Estágio 3<br>Proativo]
+    D --> E[Estágio 4<br>Classe Mundial]
+
+    style A fill:#e74c3c,stroke:#333,color:#fff
+    style B fill:#e67e22,stroke:#333,color:#fff
+    style C fill:#f1c40f,stroke:#333
+    style D fill:#2ecc71,stroke:#333,color:#fff
+    style E fill:#27ae60,stroke:#333,color:#fff
+```
+
+* **Estágio 0 (Inexistente):** Não há gestão estruturada; operação por intuição.
+* **Estágio 1 (Reativo):** Ações apenas quando problemas graves acontecem.
+* **Estágio 2 (Estruturado):** POPs existem, mas não são rigorosamente seguidos.
+* **Estágio 3 (Proativo):** Melhoria contínua acontece de forma sistemática.
+* **Estágio 4 (Classe Mundial):** Excelência internalizada; benchmarking global.
+
+## Integração com o SGQ (Sistema de Gestão da Qualidade) {#sec-integracao-sgq}
+
+É fundamental compreender que essas filosofias (TQM, Lean, Seis Sigma) e modelos corporativos (MEG, VPS) **não substituem** o Sistema de Gestão da Qualidade baseado na ISO 9001. Eles o **complementam e potencializam**.
+
+### A Hierarquia de Integração
+
+```{mermaid}
+%%| label: fig-integracao-sgq
+%%| fig-cap: "Integração entre SGQ, Filosofias de Excelência e Sistemas Corporativos"
+graph TD
+    A[ISO 9001<br>SGQ - Base Normativa] --> B[TQM + Lean + Seis Sigma<br>Filosofias de Excelência]
+    B --> C[VPS / MEG<br>Sistema Corporativo Integrado]
+    C --> D[Resultados Operacionais<br>Segurança, Produção, Qualidade, Custos]
+
+    style A fill:#3498db,stroke:#333,color:#fff
+    style B fill:#9b59b6,stroke:#333,color:#fff
+    style C fill:#e67e22,stroke:#333,color:#fff
+    style D fill:#2ecc71,stroke:#333,color:#fff
+```
+
+* **Camada 1 (ISO 9001 / SGQ):** Garante a conformidade legal, a padronização de processos e a rastreabilidade.
+* **Camada 2 (TQM, Lean, Seis Sigma):** Fornece as ferramentas e métodos para melhoria contínua e eficiência.
+* **Camada 3 (VPS, MEG):** Integra tudo em um sistema coeso alinhado à estratégia corporativa.
+* **Camada 4 (Resultados):** Entrega os KPIs de desempenho esperados pela operação.
+
+## Escolhendo a Abordagem Certa {#sec-escolha-abordagem}
+
+Não existe uma "melhor" filosofia. A escolha depende do contexto operacional, maturidade da organização e natureza do problema:
+
+::: {.callout-tip title="🎯 GUIA DE DECISÃO"}
+* **Use TQM quando:** O problema é cultural; falta engajamento e responsabilização pela qualidade.
+* **Use Lean quando:** O problema é desperdício; há muito tempo de espera, movimentação excessiva ou estoque.
+* **Use Seis Sigma quando:** O problema é variabilidade; o processo oscila e não atinge o alvo consistentemente.
+* **Use VPS/MEG quando:** A organização já possui maturidade e precisa integrar todas as frentes estrategicamente.
+:::
+
+No próximo capítulo (@sec-cap3), daremos o salto definitivo da filosofia para a matemática. Apresentaremos a **Modelagem Analítica de Requisitos (ARM)**, que transformará todas essas abordagens qualitativas em equações quantitativas capazes de orientar decisões operacionais e financeiras com precisão cirúrgica.
+
+## 📝 Resumo do Capítulo
+
+* **TQM (Gestão da Qualidade Total):** Filosofia cultural de engajamento de todos os colaboradores na busca pela qualidade. Ferramentas: PDCA, CCQ, 7 Ferramentas da Qualidade.
+* **Lean Manufacturing:** Foco na eliminação dos 8 desperdícios (mudas) e otimização do fluxo de valor. Ferramentas: 5S, VSM, Kanban, TPM.
+* **Seis Sigma:** Metodologia estatística rigorosa para redução de variabilidade, estruturada em belts (White, Yellow, Green, Black, Master Black) e seguindo o roteiro DMAIC.
+* **MEG (Modelo de Excelência da Gestão):** Referencial brasileiro da FNQ baseado em 8 fundamentos e no ciclo PDCL (Plan-Do-Check-Learn).
+* **VPS (Sistema de Produção Vale):** Sistema proprietário que integra TQM, Lean e Seis Sigma em 7 pilares estratégicos (Segurança, Disponibilidade, Estabilidade, Utilização, Custos, Qualidade, Sustentabilidade).
+* **Integração Sistêmica:** As filosofias de excelência não substituem o SGQ (ISO 9001), mas o potencializam, criando uma arquitetura de gestão robusta e orientada a resultados.

@@ -19,15 +19,16 @@ book:
     - index.qmd
     - intro.qmd
 
-    # PARTE 1: Fundamentos, Gestão e Modelagem da Qualidade
+    # PARTE 1: Introdução à Engenharia da Qualidade
     - part: chapters/part1-intro.qmd
       chapters:
-        - chapters/cap1-fundamentos.qmd          # Filosofia, Evolução, Vertentes e ISO (Objeto/Requisito)
-        - chapters/cap2-quantificacao.qmd        # Matemática ARM, Projeto Informacional e Modelagem de Processos
-        - chapters/cap3-estrategia-metas.qmd     # (NOVO) GPD, Hoshin Kanri, BSC e Engenharia de Metas (Gap)
-        - chapters/cap4-rotina-metodo.qmd        # (NOVO) Trilogia de Juran, PDCA, MASP e Gestão da Rotina
-        - chapters/cap5-ferramentas.qmd          # Caixa de Ferramentas (Pareto, Ishikawa, 5S, etc.)
-        - chapters/cap6-estudo-casos.qmd         # Estudos de Caso Avançados (Competências, IQPL, ARI)
+        - chapters/cap1-fundamentos.qmd          # Cap 1: Filosofia, Evolução e ISO 9000
+        - chapters/cap2-modelos-gestao.qmd       # Cap 2: TQM, Lean, Seis Sigma e VPS
+        - chapters/cap3-motor-matematico.qmd     # Cap 3: Quantificação, ARM e Modelagem
+        - chapters/cap4-alma-estrategia.qmd      # Cap 4: GPD, Hoshin Kanri e Engenharia de Metas
+        - chapters/cap5-cerebro-operacao.qmd     # Cap 5: Trilogia de Juran, PDCA e MASP
+        - chapters/cap6-caixa-ferramentas.qmd    # Cap 6: Ferramentas da Qualidade
+        - chapters/cap7-estudos-casos.qmd        # Cap 7: Aplicações Multidimensionais e Prática Mineral
 
     # PARTE 2: Aplicação Operacional na Mineração (Ciclo de Mina)
     - part: chapters/part2-intro.qmd
