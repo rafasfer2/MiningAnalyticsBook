@@ -45,7 +45,7 @@ Na mineração, o TQM se manifesta através da integração entre Operação, Ma
 %%| label: fig-9pilares-tqm
 %%| fig-cap: "Os 9 Fatores Críticos de Sucesso do TQM"
 graph TD
-   TQM{Gestao da<br>Qualidade Total}
+   TQM{Gestao da<br/>Qualidade Total}
 
    TQM --> L[Lideranca e Estrategia]
    TQM --> P[Pessoas e Cultura]
@@ -179,7 +179,7 @@ Originada no Sistema Toyota de Produção (TPS), a filosofia Lean foca na **elim
 %%| label: fig-8mudas-lean
 %%| fig-cap: "Os 8 Desperdícios (Mudas) do Lean"
 graph LR
-   M((8 Desperdícios<br>Mudas)) --> 1(1. Superprodução)
+   M((8 Desperdícios<br/>Mudas)) --> 1(1. Superprodução)
    M --> 2(2. Espera)
    M --> 3(3. Transporte)
    M --> 4(4. Superprocessamento)
@@ -219,8 +219,8 @@ Um erro comum é tentar aplicar Lean "de manual" sem adaptar ao contexto mineral
 %%| fig-cap: "A Casa da Toyota - 14 Princípios e Blocos"
 graph TD
    T[Teto: Qualidade Máxima, Menor Custo e Menor Lead Time]
-   P1[Pilar 1: Just-in-Time<br>Fluxo Contínuo, Puxado, Heijunka]
-   P2[Pilar 2: Jidoka<br>Parar e Resolver, Poka-Yoke]
+   P1[Pilar 1: Just-in-Time<br/>Fluxo Contínuo, Puxado, Heijunka]
+   P2[Pilar 2: Jidoka<br/>Parar e Resolver, Poka-Yoke]
    C[Centro: Pessoas, Parceiros e Melhoria Contínua Kaizen]
    B[Base: Filosofia de Longo Prazo e Processos Padronizados]
 
@@ -291,11 +291,11 @@ A seleção de um projeto Seis Sigma exige responder a perguntas vitais:
 %%| label: fig-piramide-belts
 %%| fig-cap: "Pirâmide de Belts - Hierarquia do Seis Sigma"
 graph BT
-   W[White Belt<br>Executores] --> Y[Yellow Belt<br>Participantes Ativos]
-   Y --> G[Green Belt<br>Líderes Parciais]
-   G --> B[Black Belt<br>Especialistas Full-time]
-   B --> M[Master Black Belt<br>Mentores]
-   M --> C[Champion / Executivos<br>Direcionamento Estratégico]
+   W[White Belt<br/>Executores] --> Y[Yellow Belt<br/>Participantes Ativos]
+   Y --> G[Green Belt<br/>Líderes Parciais]
+   G --> B[Black Belt<br/>Especialistas Full-time]
+   B --> M[Master Black Belt<br/>Mentores]
+   M --> C[Champion / Executivos<br/>Direcionamento Estratégico]
 
    style C fill:#2c3e50,stroke:#333,color:#fff
    style M fill:#8e44ad,stroke:#333,color:#fff
@@ -321,10 +321,10 @@ Para conduzir esses projetos sem perder o foco corporativo, o Seis Sigma cria um
 %%| label: fig-dmaic-fluxo-seis-sigma
 %%| fig-cap: "O Fluxo DMAIC do Seis Sigma"
 graph LR
-   D(Define<br>Definir) --> M(Measure<br>Medir)
-   M --> A(Analyze<br>Analisar)
-   A --> I(Improve<br>Melhorar)
-   I --> C(Control<br>Controlar)
+   D(Define<br/>Definir) --> M(Measure<br/>Medir)
+   M --> A(Analyze<br/>Analisar)
+   A --> I(Improve<br/>Melhorar)
+   I --> C(Control<br/>Controlar)
 
    style D fill:#e74c3c,stroke:#333,color:#fff
    style M fill:#e67e22,stroke:#333,color:#fff
@@ -490,10 +490,10 @@ Tanto o MEG quanto o VPS operam sob a lógica de **maturidade evolutiva**, simil
 %%| label: fig-maturidade-excelencia
 %%| fig-cap: "Curva de Maturidade em Gestão da Excelência"
 graph LR
-    A[Estágio 0<br>Inexistente] --> B[Estágio 1<br>Reativo]
-    B --> C[Estágio 2<br>Estruturado]
-    C --> D[Estágio 3<br>Proativo]
-    D --> E[Estágio 4<br>Classe Mundial]
+    A[Estágio 0<br/>Inexistente] --> B[Estágio 1<br/>Reativo]
+    B --> C[Estágio 2<br/>Estruturado]
+    C --> D[Estágio 3<br/>Proativo]
+    D --> E[Estágio 4<br/>Classe Mundial]
 
     style A fill:#e74c3c,stroke:#333,color:#fff
     style B fill:#e67e22,stroke:#333,color:#fff
@@ -518,9 +518,9 @@ Para que filosofias como TQM, Seis Sigma e Lean não atuem de forma isolada, as 
 %%| label: fig-perspectivas-bsc
 %%| fig-cap: "Mapa Estratégico de Causa e Efeito: As 4 Perspectivas do BSC"
 graph TD
-   A[Aprendizado e Crescimento<br>Treinamento e Cultura] -->|Capacita| P[Processos Internos<br>Eficiência e Qualidade]
-   P -->|Otimiza| C[Clientes<br>Satisfação e Retenção]
-   C -->|Gera Resultado| F[Financeira<br>Redução de Custos e ROI]
+   A[Aprendizado e Crescimento<br/>Treinamento e Cultura] -->|Capacita| P[Processos Internos<br/>Eficiência e Qualidade]
+   P -->|Otimiza| C[Clientes<br/>Satisfação e Retenção]
+   C -->|Gera Resultado| F[Financeira<br/>Redução de Custos e ROI]
 
    style F fill:#27ae60,stroke:#333,color:#fff
    style C fill:#2980b9,stroke:#333,color:#fff
@@ -711,9 +711,9 @@ Na prática organizacional, a implantação de um Modelo de Excelência (MEG) ou
 %%| label: fig-integracao-sgq
 %%| fig-cap: "Integração entre SGQ, Filosofias de Excelência e Sistemas Corporativos"
 graph TD
-    A[ISO 9001<br>SGQ - Base Normativa] --> B[TQM + Lean + Seis Sigma<br>Filosofias de Excelência]
-    B --> C[VPS / MEG<br>Sistema Corporativo Integrado]
-    C --> D[Resultados Operacionais<br>Segurança, Produção, Qualidade, Custos]
+    A[ISO 9001<br/>SGQ - Base Normativa] --> B[TQM + Lean + Seis Sigma<br/>Filosofias de Excelência]
+    B --> C[VPS / MEG<br/>Sistema Corporativo Integrado]
+    C --> D[Resultados Operacionais<br/>Segurança, Produção, Qualidade, Custos]
 
     style A fill:#3498db,stroke:#333,color:#fff
     style B fill:#9b59b6,stroke:#333,color:#fff
