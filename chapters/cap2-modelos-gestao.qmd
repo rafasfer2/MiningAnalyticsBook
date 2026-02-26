@@ -41,7 +41,33 @@ Na mineração, o TQM se manifesta através da integração entre Operação, Ma
 
 #### Os 9 Fatores Críticos de Sucesso do TQM {#sec-tqm-9pilares}
 
-![Os 9 Fatores Críticos de Sucesso do TQM](../images/fig-9pilares-tqm.png){#fig-9pilares-tqm fig-align="center"}
+```{mermaid}
+%%| label: fig-9pilares-tqm
+%%| fig-cap: "Os 9 Fatores Críticos de Sucesso do TQM"
+graph TD
+   TQM{Gestao da<br>Qualidade Total}
+
+   TQM --> L[Lideranca e Estrategia]
+   TQM --> P[Pessoas e Cultura]
+   TQM --> O[Processos e Operacao]
+
+   L --> 1[1. Comprometimento da Alta Administracao]
+   L --> 2[2. Foco no Consumidor]
+   L --> 8[8. Benchmarking]
+
+   P --> 4[4. Envolvimento dos Funcionarios]
+   P --> 5[5. Treinamento]
+   P --> 9[9. Empowerment]
+
+   O --> 3[3. Parceria com o Fornecedor]
+   O --> 6[6. Mensuracao da Qualidade]
+   O --> 7[7. Melhoria Continua]
+
+   style TQM fill:#2c3e50,stroke:#333,color:#fff,stroke-width:2px
+   style L fill:#ecf0f1,stroke:#333
+   style P fill:#ecf0f1,stroke:#333
+   style O fill:#ecf0f1,stroke:#333
+```
 
 Para que o TQM seja efetivamente implantado e mensurado, a literatura consolida **9 Fatores Críticos de Sucesso (FCS)**. Estes pilares permitem auditar o grau de maturidade organizacional e identificar as práticas gerenciais que precisam ser fortalecidas:
 
@@ -134,12 +160,13 @@ Dar autonomia à operação para agir rapidamente sobre os desvios.
 * Divulgação e celebração interna das experiências de sucesso na solução de problemas.
 
 ::: {.tech-note}
-**A Evolução: TQC vs. CWQC**
+**A Evolução Histórica: TQC, CWQC e TQM**
 
-A origem da Qualidade Total remonta a 1950 e desdobrou-se em duas correntes:
+A origem da Qualidade Total remonta à década de 1950 e desdobrou-se na seguinte evolução:
 
-* **Visão Norte-Americana (TQC - Total Quality Control)**: Proposta por Feigenbaum, com controle conduzido por especialistas do departamento de qualidade.
-* **Visão Japonesa (CWQC - Company-wide Quality Control)**: Exige engajamento de todos os departamentos, utilizando o ciclo PDCA para atingir metas estratégicas e promovendo autonomia aos funcionários.
+* **TQC (Total Quality Control) Norte-Americano:** Proposto por Feigenbaum, focava no controle conduzido por especialistas do departamento de qualidade.
+* **CWQC (Company-wide Quality Control) Japonês:** Introduzido nos anos 1960, exige o engajamento de *todos* os departamentos. No Japão, a palavra "controle" é entendida como "gerenciamento" (manutenção da rotina e inovações). O estilo japonês consolidou-se em seis frentes: 1) Participação total; 2) Entusiasmo por educação/treinamento; 3) Atividades de CCQ; 4) Auditorias da presidência e Prêmio Deming; 5) Uso intensivo de métodos estatísticos; 6) Campanhas nacionais de promoção da qualidade.
+* **TQM (Total Quality Management) Ocidental:** Nas décadas de 1980 e 1990, o modelo japonês foi customizado. Como a palavra "controle" na cultura ocidental carregava uma conotação negativa de "policiamento", ela foi substituída por "Management" (Gestão). O TQM ocidental enfatizou o planejamento de longo prazo, o redesenho de processos, o benchmarking competitivo e o trabalho em equipe.
 :::
 
 ### Lean Manufacturing - Manufatura Enxuta {#sec-lean}
@@ -148,7 +175,21 @@ Originada no Sistema Toyota de Produção (TPS), a filosofia Lean foca na **elim
 
 #### Os 8 Desperdícios (Mudas) no Contexto Mineral
 
-![Os 8 Desperdícios (Mudas) do Lean](../images/fig-8mudas-lean.png){#fig-8mudas-lean fig-align="center"}
+```{mermaid}
+%%| label: fig-8mudas-lean
+%%| fig-cap: "Os 8 Desperdícios (Mudas) do Lean"
+graph LR
+   M((8 Desperdícios<br>Mudas)) --> 1(1. Superprodução)
+   M --> 2(2. Espera)
+   M --> 3(3. Transporte)
+   M --> 4(4. Superprocessamento)
+   M --> 5(5. Estoque)
+   M --> 6(6. Movimentação)
+   M --> 7(7. Defeitos)
+   M --> 8(8. Talento Subutilizado)
+
+   style M fill:#e74c3c,stroke:#333,color:#fff,stroke-width:2px
+```
 
 1. **Superprodução:** Extrair mais minério do que a capacidade de beneficiamento pode processar.
 2. **Espera:** Caminhões parados aguardando liberação de ponto de carga.
@@ -173,7 +214,28 @@ Um erro comum é tentar aplicar Lean "de manual" sem adaptar ao contexto mineral
 
 #### Os 14 Princípios do Sistema Toyota de Produção {#sec-lean-14principios}
 
-![A Casa da Toyota - 14 Princípios e Blocos](../images/fig-casa-toyota.png){#fig-casa-toyota fig-align="center"}
+```{mermaid}
+%%| label: fig-casa-toyota
+%%| fig-cap: "A Casa da Toyota - 14 Princípios e Blocos"
+graph TD
+   T[Teto: Qualidade Máxima, Menor Custo e Menor Lead Time]
+   P1[Pilar 1: Just-in-Time<br>Fluxo Contínuo, Puxado, Heijunka]
+   P2[Pilar 2: Jidoka<br>Parar e Resolver, Poka-Yoke]
+   C[Centro: Pessoas, Parceiros e Melhoria Contínua Kaizen]
+   B[Base: Filosofia de Longo Prazo e Processos Padronizados]
+
+   T --- P1
+   T --- P2
+   P1 --- C
+   P2 --- C
+   C --- B
+
+   style T fill:#2ecc71,stroke:#333,color:#fff
+   style P1 fill:#3498db,stroke:#333,color:#fff
+   style P2 fill:#3498db,stroke:#333,color:#fff
+   style C fill:#f1c40f,stroke:#333
+   style B fill:#95a5a6,stroke:#333,color:#fff
+```
 
 O Modelo Toyota estrutura a filosofia Lean em 14 princípios organizados em 4 blocos conceituais:
 
@@ -225,7 +287,23 @@ A seleção de um projeto Seis Sigma exige responder a perguntas vitais:
 
 #### A Estrutura Organizacional (Belt System)
 
-![Pirâmide de Belts - Hierarquia do Seis Sigma](../images/fig-piramide-belts.png){#fig-piramide-belts fig-align="center"}
+```{mermaid}
+%%| label: fig-piramide-belts
+%%| fig-cap: "Pirâmide de Belts - Hierarquia do Seis Sigma"
+graph BT
+   W[White Belt<br>Executores] --> Y[Yellow Belt<br>Participantes Ativos]
+   Y --> G[Green Belt<br>Líderes Parciais]
+   G --> B[Black Belt<br>Especialistas Full-time]
+   B --> M[Master Black Belt<br>Mentores]
+   M --> C[Champion / Executivos<br>Direcionamento Estratégico]
+
+   style C fill:#2c3e50,stroke:#333,color:#fff
+   style M fill:#8e44ad,stroke:#333,color:#fff
+   style B fill:#000000,stroke:#333,color:#fff
+   style G fill:#27ae60,stroke:#333,color:#fff
+   style Y fill:#f1c40f,stroke:#333
+   style W fill:#ffffff,stroke:#333
+```
 
 Para conduzir esses projetos sem perder o foco corporativo, o Seis Sigma cria uma estrutura hierárquica paralela baseada em capacitação técnica:
 
@@ -239,7 +317,21 @@ Para conduzir esses projetos sem perder o foco corporativo, o Seis Sigma cria um
 
 #### DMAIC: O Roteiro Estruturado
 
-![O Fluxo DMAIC do Seis Sigma](../images/fig-dmaic-fluxo.png){#fig-dmaic-fluxo-seis-sigma fig-align="center"}
+```{mermaid}
+%%| label: fig-dmaic-fluxo-seis-sigma
+%%| fig-cap: "O Fluxo DMAIC do Seis Sigma"
+graph LR
+   D(Define<br>Definir) --> M(Measure<br>Medir)
+   M --> A(Analyze<br>Analisar)
+   A --> I(Improve<br>Melhorar)
+   I --> C(Control<br>Controlar)
+
+   style D fill:#e74c3c,stroke:#333,color:#fff
+   style M fill:#e67e22,stroke:#333,color:#fff
+   style A fill:#f1c40f,stroke:#333
+   style I fill:#2ecc71,stroke:#333,color:#fff
+   style C fill:#3498db,stroke:#333,color:#fff
+```
 
 O método Seis Sigma segue um roteiro rigoroso de 5 fases:
 
@@ -276,6 +368,15 @@ O método Seis Sigma segue um roteiro rigoroso de 5 fases:
 ## Modelos de Excelência e Sistemas Corporativos {#sec-modelos-corporativos}
 
 Enquanto TQM, Lean e Seis Sigma são filosofias universais, grandes corporações desenvolvem **sistemas proprietários** que integram essas metodologias à sua cultura e operação específica. No Brasil, dois modelos se destacam: o **MEG (Modelo de Excelência da Gestão)** da FNQ e o **VPS (Sistema de Produção Vale)**.
+
+### Modelos de Excelência em Gestão de Negócios e Prêmios Globais
+
+Para estimular a adoção prática da Qualidade Total, diversos países criaram **Modelos de Excelência** atrelados a prêmios nacionais. Esses frameworks servem como guias rigorosos de avaliação de maturidade:
+
+* **Prêmio Deming:** Criado no Japão (1951), é historicamente focado na aplicação rigorosa do CWQC e no controle estatístico de processos.
+* **Prêmio Malcolm Baldrige (MBNQA):** Criado nos EUA (1987) pelo governo americano para resgatar a competitividade frente ao avanço japonês.
+* **EFQM (European Foundation for Quality Management):** O principal modelo europeu de excelência, lançado em 1992.
+* **Prêmio Nacional da Qualidade (PNQ):** A versão brasileira, baseada nos fundamentos do MEG.
 
 ### O Modelo de Excelência da Gestão (MEG) {#sec-meg}
 
@@ -387,7 +488,31 @@ O poder do BSC está no **Mapa Estratégico**, que visualiza as relações de ca
 
 ### A Metodologia de Análise e Solução de Problemas (MASP) {#sec-masp}
 
-![A Estrutura do MASP alinhada ao PDCA](../images/fig-estrutura-masp.png){#fig-estrutura-masp fig-align="center"}
+```{mermaid}
+%%| label: fig-estrutura-masp
+%%| fig-cap: "A Estrutura do MASP alinhada ao PDCA"
+graph LR
+   subgraph P[PLAN - Planejar]
+      1[1. Problema] --> 2[2. Observação]
+      2 --> 3[3. Análise]
+      3 --> 4[4. Plano de Ação]
+   end
+   subgraph D[DO - Executar]
+      4 --> 5[5. Execução]
+   end
+   subgraph C[CHECK - Verificar]
+      5 --> 6[6. Verificação]
+   end
+   subgraph A[ACT - Agir/Padronizar]
+      6 --> 7[7. Padronização]
+      7 --> 8[8. Conclusão]
+   end
+
+   style P fill:#ebf5fb,stroke:#2980b9
+   style D fill:#fef9e7,stroke:#f39c12
+   style C fill:#fdedec,stroke:#e74c3c
+   style A fill:#e9f7ef,stroke:#27ae60
+```
 
 Criada pela União dos Cientistas e Engenheiros Japoneses (JUSE), a MASP tem o objetivo de prevenir e corrigir falhas de processos de forma altamente estruturada. A metodologia auxilia na identificação da causa raiz, propõe ações corretivas e sugere o uso de ferramentas específicas (como Brainstorming, 5W2H e 5S) para convergir ideias.
 
@@ -472,7 +597,21 @@ As metodologias consagradas de qualidade encontram na manutenção um terreno f�
 
 #### A Gestão de Ativos e o Ciclo de Vida
 
-![Ciclo de Vida do Ativo - 7 Etapas](../images/fig-ciclo-vida-ativo.png){#fig-ciclo-vida-ativo fig-align="center"}
+```{mermaid}
+%%| label: fig-ciclo-vida-ativo
+%%| fig-cap: "Ciclo de Vida do Ativo - 7 Etapas"
+graph LR
+   1(1. Decisão) --> 2(2. Especificação)
+   2 --> 3(3. Aquisição)
+   3 --> 4(4. Instalação)
+   4 --> 5(5. Manutenção)
+   5 --> 6(6. Reforma)
+   6 --> 7(7. Descarte)
+
+   style 5 fill:#f39c12,stroke:#333,color:#fff,stroke-width:2px
+   style 1 fill:#bdc3c7,stroke:#333
+   style 7 fill:#bdc3c7,stroke:#333
+```
 
 A integração entre qualidade e manutenção atinge seu ápice na **Gestão de Ativos**. Essa abordagem estabelece que o valor da organização é gerado pelo desempenho de seus equipamentos. O período compreendido entre a decisão de compra de um ativo (como um caminhão fora de estrada ou um britador) e o seu descarte é conhecido como **vida útil do ativo**.
 
@@ -494,7 +633,9 @@ Para que os objetivos estratégicos da qualidade sejam alcançados sem sobressal
 
 ## Integração com o SGQ (Sistema de Gestão da Qualidade) {#sec-integracao-sgq}
 
-É fundamental compreender que essas filosofias (TQM, Lean, Seis Sigma) e modelos corporativos (MEG, VPS) **não substituem** o Sistema de Gestão da Qualidade baseado na ISO 9001. Eles o **complementam e potencializam**.
+É fundamental compreender que os sistemas normalizados (como a ISO 9001 ou a TS/IATF 16949 para o setor automotivo) **não são concorrentes** das filosofias de excelência (TQM, Lean, Seis Sigma) ou dos modelos corporativos (MEG, VPS). Pelo contrário, eles são **complementares** e estão intimamente associados à evolução da maturidade da gestão na empresa.
+
+Na prática organizacional, a implantação de um Modelo de Excelência (MEG) ou da Gestão da Qualidade Total (TQM) deve, idealmente, ser precedida por uma sólida consolidação de um modelo SGQ (ISO). A definição de qual arquitetura é a mais adequada dependerá do contexto de mercado, da tecnologia e da estratégia competitiva da mineradora naquele momento.
 
 ### A Hierarquia de Integração
 

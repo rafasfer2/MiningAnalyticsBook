@@ -336,9 +336,10 @@ window.Quarto = {
   </ul></li>
   <li><a href="#sec-modelos-corporativos" id="toc-sec-modelos-corporativos" class="nav-link" data-scroll-target="#sec-modelos-corporativos"><span class="header-section-number">2.2</span> Modelos de Excelência e Sistemas Corporativos</a>
   <ul class="collapse">
-  <li><a href="#sec-meg" id="toc-sec-meg" class="nav-link" data-scroll-target="#sec-meg"><span class="header-section-number">2.2.1</span> O Modelo de Excelência da Gestão (MEG)</a></li>
-  <li><a href="#sec-vps" id="toc-sec-vps" class="nav-link" data-scroll-target="#sec-vps"><span class="header-section-number">2.2.2</span> O Sistema de Produção Vale (VPS)</a></li>
-  <li><a href="#a-jornada-de-maturidade" id="toc-a-jornada-de-maturidade" class="nav-link" data-scroll-target="#a-jornada-de-maturidade"><span class="header-section-number">2.2.3</span> A Jornada de Maturidade</a></li>
+  <li><a href="#modelos-de-excelência-em-gestão-de-negócios-e-prêmios-globais" id="toc-modelos-de-excelência-em-gestão-de-negócios-e-prêmios-globais" class="nav-link" data-scroll-target="#modelos-de-excelência-em-gestão-de-negócios-e-prêmios-globais"><span class="header-section-number">2.2.1</span> Modelos de Excelência em Gestão de Negócios e Prêmios Globais</a></li>
+  <li><a href="#sec-meg" id="toc-sec-meg" class="nav-link" data-scroll-target="#sec-meg"><span class="header-section-number">2.2.2</span> O Modelo de Excelência da Gestão (MEG)</a></li>
+  <li><a href="#sec-vps" id="toc-sec-vps" class="nav-link" data-scroll-target="#sec-vps"><span class="header-section-number">2.2.3</span> O Sistema de Produção Vale (VPS)</a></li>
+  <li><a href="#a-jornada-de-maturidade" id="toc-a-jornada-de-maturidade" class="nav-link" data-scroll-target="#a-jornada-de-maturidade"><span class="header-section-number">2.2.4</span> A Jornada de Maturidade</a></li>
   </ul></li>
   <li><a href="#sec-metodologias-suporte" id="toc-sec-metodologias-suporte" class="nav-link" data-scroll-target="#sec-metodologias-suporte"><span class="header-section-number">2.3</span> Metodologias de Suporte Estratégico e Analítico</a>
   <ul class="collapse">
@@ -436,15 +437,44 @@ window.Quarto = {
 </section>
 <section id="sec-tqm-9pilares" class="level4" data-number="2.1.1.3">
 <h4 data-number="2.1.1.3" class="anchored" data-anchor-id="sec-tqm-9pilares"><span class="header-section-number">2.1.1.3</span> Os 9 Fatores Críticos de Sucesso do TQM</h4>
-<div id="fig-9pilares-tqm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-9pilares-tqm" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-9pilares-tqm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/fig-9pilares-tqm.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-9pilares-tqm">graph TD
+   TQM{Gestao da&lt;br&gt;Qualidade Total}
+
+   TQM --&gt; L[Lideranca e Estrategia]
+   TQM --&gt; P[Pessoas e Cultura]
+   TQM --&gt; O[Processos e Operacao]
+
+   L --&gt; 1[1. Comprometimento da Alta Administracao]
+   L --&gt; 2[2. Foco no Consumidor]
+   L --&gt; 8[8. Benchmarking]
+
+   P --&gt; 4[4. Envolvimento dos Funcionarios]
+   P --&gt; 5[5. Treinamento]
+   P --&gt; 9[9. Empowerment]
+
+   O --&gt; 3[3. Parceria com o Fornecedor]
+   O --&gt; 6[6. Mensuracao da Qualidade]
+   O --&gt; 7[7. Melhoria Continua]
+
+   style TQM fill:#2c3e50,stroke:#333,color:#fff,stroke-width:2px
+   style L fill:#ecf0f1,stroke:#333
+   style P fill:#ecf0f1,stroke:#333
+   style O fill:#ecf0f1,stroke:#333
+</pre>
+</div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-9pilares-tqm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;2.1: Os 9 Fatores Críticos de Sucesso do TQM
 </figcaption>
 </figure>
+</div>
+</div>
 </div>
 <p>Para que o TQM seja efetivamente implantado e mensurado, a literatura consolida <strong>9 Fatores Críticos de Sucesso (FCS)</strong>. Estes pilares permitem auditar o grau de maturidade organizacional e identificar as práticas gerenciais que precisam ser fortalecidas:</p>
 <p><strong>1. Comprometimento da Alta Administração</strong></p>
@@ -527,11 +557,12 @@ Figura&nbsp;2.1: Os 9 Fatores Críticos de Sucesso do TQM
 <li>Divulgação e celebração interna das experiências de sucesso na solução de problemas.</li>
 </ul>
 <div class="tech-note">
-<p><strong>A Evolução: TQC vs.&nbsp;CWQC</strong></p>
-<p>A origem da Qualidade Total remonta a 1950 e desdobrou-se em duas correntes:</p>
+<p><strong>A Evolução Histórica: TQC, CWQC e TQM</strong></p>
+<p>A origem da Qualidade Total remonta à década de 1950 e desdobrou-se na seguinte evolução:</p>
 <ul>
-<li><strong>Visão Norte-Americana (TQC - Total Quality Control)</strong>: Proposta por Feigenbaum, com controle conduzido por especialistas do departamento de qualidade.</li>
-<li><strong>Visão Japonesa (CWQC - Company-wide Quality Control)</strong>: Exige engajamento de todos os departamentos, utilizando o ciclo PDCA para atingir metas estratégicas e promovendo autonomia aos funcionários.</li>
+<li><strong>TQC (Total Quality Control) Norte-Americano:</strong> Proposto por Feigenbaum, focava no controle conduzido por especialistas do departamento de qualidade.</li>
+<li><strong>CWQC (Company-wide Quality Control) Japonês:</strong> Introduzido nos anos 1960, exige o engajamento de <em>todos</em> os departamentos. No Japão, a palavra “controle” é entendida como “gerenciamento” (manutenção da rotina e inovações). O estilo japonês consolidou-se em seis frentes: 1) Participação total; 2) Entusiasmo por educação/treinamento; 3) Atividades de CCQ; 4) Auditorias da presidência e Prêmio Deming; 5) Uso intensivo de métodos estatísticos; 6) Campanhas nacionais de promoção da qualidade.</li>
+<li><strong>TQM (Total Quality Management) Ocidental:</strong> Nas décadas de 1980 e 1990, o modelo japonês foi customizado. Como a palavra “controle” na cultura ocidental carregava uma conotação negativa de “policiamento”, ela foi substituída por “Management” (Gestão). O TQM ocidental enfatizou o planejamento de longo prazo, o redesenho de processos, o benchmarking competitivo e o trabalho em equipe.</li>
 </ul>
 </div>
 </section>
@@ -541,15 +572,32 @@ Figura&nbsp;2.1: Os 9 Fatores Críticos de Sucesso do TQM
 <p>Originada no Sistema Toyota de Produção (TPS), a filosofia Lean foca na <strong>eliminação de desperdícios</strong> (mudas) e na maximização do fluxo de valor. Enquanto o TQM foca na qualidade do produto, o Lean foca na eficiência do processo.</p>
 <section id="os-8-desperdícios-mudas-no-contexto-mineral" class="level4" data-number="2.1.2.1">
 <h4 data-number="2.1.2.1" class="anchored" data-anchor-id="os-8-desperdícios-mudas-no-contexto-mineral"><span class="header-section-number">2.1.2.1</span> Os 8 Desperdícios (Mudas) no Contexto Mineral</h4>
-<div id="fig-8mudas-lean" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-8mudas-lean" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-8mudas-lean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/fig-8mudas-lean.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-8mudas-lean">graph LR
+   M((8 Desperdícios&lt;br&gt;Mudas)) --&gt; 1(1. Superprodução)
+   M --&gt; 2(2. Espera)
+   M --&gt; 3(3. Transporte)
+   M --&gt; 4(4. Superprocessamento)
+   M --&gt; 5(5. Estoque)
+   M --&gt; 6(6. Movimentação)
+   M --&gt; 7(7. Defeitos)
+   M --&gt; 8(8. Talento Subutilizado)
+
+   style M fill:#e74c3c,stroke:#333,color:#fff,stroke-width:2px
+</pre>
+</div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-8mudas-lean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;2.2: Os 8 Desperdícios (Mudas) do Lean
 </figcaption>
 </figure>
+</div>
+</div>
 </div>
 <ol type="1">
 <li><strong>Superprodução:</strong> Extrair mais minério do que a capacidade de beneficiamento pode processar.</li>
@@ -587,15 +635,39 @@ Figura&nbsp;2.2: Os 8 Desperdícios (Mudas) do Lean
 </section>
 <section id="sec-lean-14principios" class="level4" data-number="2.1.2.3">
 <h4 data-number="2.1.2.3" class="anchored" data-anchor-id="sec-lean-14principios"><span class="header-section-number">2.1.2.3</span> Os 14 Princípios do Sistema Toyota de Produção</h4>
-<div id="fig-casa-toyota" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-casa-toyota" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-casa-toyota-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/fig-casa-toyota.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-casa-toyota">graph TD
+   T[Teto: Qualidade Máxima, Menor Custo e Menor Lead Time]
+   P1[Pilar 1: Just-in-Time&lt;br&gt;Fluxo Contínuo, Puxado, Heijunka]
+   P2[Pilar 2: Jidoka&lt;br&gt;Parar e Resolver, Poka-Yoke]
+   C[Centro: Pessoas, Parceiros e Melhoria Contínua Kaizen]
+   B[Base: Filosofia de Longo Prazo e Processos Padronizados]
+
+   T --- P1
+   T --- P2
+   P1 --- C
+   P2 --- C
+   C --- B
+
+   style T fill:#2ecc71,stroke:#333,color:#fff
+   style P1 fill:#3498db,stroke:#333,color:#fff
+   style P2 fill:#3498db,stroke:#333,color:#fff
+   style C fill:#f1c40f,stroke:#333
+   style B fill:#95a5a6,stroke:#333,color:#fff
+</pre>
+</div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-casa-toyota-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;2.3: A Casa da Toyota - 14 Princípios e Blocos
 </figcaption>
 </figure>
+</div>
+</div>
 </div>
 <p>O Modelo Toyota estrutura a filosofia Lean em 14 princípios organizados em 4 blocos conceituais:</p>
 <p><strong>Bloco 1: Filosofia de Longo Prazo</strong></p>
@@ -645,15 +717,34 @@ Figura&nbsp;2.3: A Casa da Toyota - 14 Princípios e Blocos
 </section>
 <section id="a-estrutura-organizacional-belt-system" class="level4" data-number="2.1.3.2">
 <h4 data-number="2.1.3.2" class="anchored" data-anchor-id="a-estrutura-organizacional-belt-system"><span class="header-section-number">2.1.3.2</span> A Estrutura Organizacional (Belt System)</h4>
-<div id="fig-piramide-belts" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-piramide-belts" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-piramide-belts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/fig-piramide-belts.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-piramide-belts">graph BT
+   W[White Belt&lt;br&gt;Executores] --&gt; Y[Yellow Belt&lt;br&gt;Participantes Ativos]
+   Y --&gt; G[Green Belt&lt;br&gt;Líderes Parciais]
+   G --&gt; B[Black Belt&lt;br&gt;Especialistas Full-time]
+   B --&gt; M[Master Black Belt&lt;br&gt;Mentores]
+   M --&gt; C[Champion / Executivos&lt;br&gt;Direcionamento Estratégico]
+
+   style C fill:#2c3e50,stroke:#333,color:#fff
+   style M fill:#8e44ad,stroke:#333,color:#fff
+   style B fill:#000000,stroke:#333,color:#fff
+   style G fill:#27ae60,stroke:#333,color:#fff
+   style Y fill:#f1c40f,stroke:#333
+   style W fill:#ffffff,stroke:#333
+</pre>
+</div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-piramide-belts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;2.4: Pirâmide de Belts - Hierarquia do Seis Sigma
 </figcaption>
 </figure>
+</div>
+</div>
 </div>
 <p>Para conduzir esses projetos sem perder o foco corporativo, o Seis Sigma cria uma estrutura hierárquica paralela baseada em capacitação técnica:</p>
 <ul>
@@ -668,15 +759,32 @@ Figura&nbsp;2.4: Pirâmide de Belts - Hierarquia do Seis Sigma
 </section>
 <section id="dmaic-o-roteiro-estruturado" class="level4" data-number="2.1.3.3">
 <h4 data-number="2.1.3.3" class="anchored" data-anchor-id="dmaic-o-roteiro-estruturado"><span class="header-section-number">2.1.3.3</span> DMAIC: O Roteiro Estruturado</h4>
-<div id="fig-dmaic-fluxo-seis-sigma" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-dmaic-fluxo-seis-sigma" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dmaic-fluxo-seis-sigma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/fig-dmaic-fluxo.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-dmaic-fluxo-seis-sigma">graph LR
+   D(Define&lt;br&gt;Definir) --&gt; M(Measure&lt;br&gt;Medir)
+   M --&gt; A(Analyze&lt;br&gt;Analisar)
+   A --&gt; I(Improve&lt;br&gt;Melhorar)
+   I --&gt; C(Control&lt;br&gt;Controlar)
+
+   style D fill:#e74c3c,stroke:#333,color:#fff
+   style M fill:#e67e22,stroke:#333,color:#fff
+   style A fill:#f1c40f,stroke:#333
+   style I fill:#2ecc71,stroke:#333,color:#fff
+   style C fill:#3498db,stroke:#333,color:#fff
+</pre>
+</div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dmaic-fluxo-seis-sigma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;2.5: O Fluxo DMAIC do Seis Sigma
 </figcaption>
 </figure>
+</div>
+</div>
 </div>
 <p>O método Seis Sigma segue um roteiro rigoroso de 5 fases:</p>
 <ol type="1">
@@ -767,11 +875,21 @@ Tabela&nbsp;2.1: Comparação entre as principais filosofias de excelência oper
 <section id="sec-modelos-corporativos" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="sec-modelos-corporativos"><span class="header-section-number">2.2</span> Modelos de Excelência e Sistemas Corporativos</h2>
 <p>Enquanto TQM, Lean e Seis Sigma são filosofias universais, grandes corporações desenvolvem <strong>sistemas proprietários</strong> que integram essas metodologias à sua cultura e operação específica. No Brasil, dois modelos se destacam: o <strong>MEG (Modelo de Excelência da Gestão)</strong> da FNQ e o <strong>VPS (Sistema de Produção Vale)</strong>.</p>
-<section id="sec-meg" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="sec-meg"><span class="header-section-number">2.2.1</span> O Modelo de Excelência da Gestão (MEG)</h3>
+<section id="modelos-de-excelência-em-gestão-de-negócios-e-prêmios-globais" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="modelos-de-excelência-em-gestão-de-negócios-e-prêmios-globais"><span class="header-section-number">2.2.1</span> Modelos de Excelência em Gestão de Negócios e Prêmios Globais</h3>
+<p>Para estimular a adoção prática da Qualidade Total, diversos países criaram <strong>Modelos de Excelência</strong> atrelados a prêmios nacionais. Esses frameworks servem como guias rigorosos de avaliação de maturidade:</p>
+<ul>
+<li><strong>Prêmio Deming:</strong> Criado no Japão (1951), é historicamente focado na aplicação rigorosa do CWQC e no controle estatístico de processos.</li>
+<li><strong>Prêmio Malcolm Baldrige (MBNQA):</strong> Criado nos EUA (1987) pelo governo americano para resgatar a competitividade frente ao avanço japonês.</li>
+<li><strong>EFQM (European Foundation for Quality Management):</strong> O principal modelo europeu de excelência, lançado em 1992.</li>
+<li><strong>Prêmio Nacional da Qualidade (PNQ):</strong> A versão brasileira, baseada nos fundamentos do MEG.</li>
+</ul>
+</section>
+<section id="sec-meg" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="sec-meg"><span class="header-section-number">2.2.2</span> O Modelo de Excelência da Gestão (MEG)</h3>
 <p>Desenvolvido pela Fundação Nacional da Qualidade (FNQ), o MEG é o referencial brasileiro de gestão de classe mundial. Diferentemente da ISO 9001 (que é uma norma prescritiva), o MEG é um modelo descritivo que orienta a organização na jornada rumo à excelência.</p>
-<section id="os-8-fundamentos-do-meg" class="level4" data-number="2.2.1.1">
-<h4 data-number="2.2.1.1" class="anchored" data-anchor-id="os-8-fundamentos-do-meg"><span class="header-section-number">2.2.1.1</span> Os 8 Fundamentos do MEG</h4>
+<section id="os-8-fundamentos-do-meg" class="level4" data-number="2.2.2.1">
+<h4 data-number="2.2.2.1" class="anchored" data-anchor-id="os-8-fundamentos-do-meg"><span class="header-section-number">2.2.2.1</span> Os 8 Fundamentos do MEG</h4>
 <ol type="1">
 <li><strong>Pensamento Sistêmico:</strong> Visão integrada da organização.</li>
 <li><strong>Aprendizado Organizacional:</strong> Cultura de melhoria contínua.</li>
@@ -783,16 +901,16 @@ Tabela&nbsp;2.1: Comparação entre as principais filosofias de excelência oper
 <li><strong>Conhecimento sobre Clientes e Mercados:</strong> Decisões baseadas em inteligência de mercado.</li>
 </ol>
 </section>
-<section id="ciclo-pdcl-plan-do-check-learn" class="level4" data-number="2.2.1.2">
-<h4 data-number="2.2.1.2" class="anchored" data-anchor-id="ciclo-pdcl-plan-do-check-learn"><span class="header-section-number">2.2.1.2</span> Ciclo PDCL (Plan-Do-Check-Learn)</h4>
+<section id="ciclo-pdcl-plan-do-check-learn" class="level4" data-number="2.2.2.2">
+<h4 data-number="2.2.2.2" class="anchored" data-anchor-id="ciclo-pdcl-plan-do-check-learn"><span class="header-section-number">2.2.2.2</span> Ciclo PDCL (Plan-Do-Check-Learn)</h4>
 <p>O MEG adapta o PDCA clássico para o <strong>PDCL</strong>, enfatizando o aprendizado organizacional como pilar estratégico.</p>
 </section>
 </section>
-<section id="sec-vps" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="sec-vps"><span class="header-section-number">2.2.2</span> O Sistema de Produção Vale (VPS)</h3>
+<section id="sec-vps" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="sec-vps"><span class="header-section-number">2.2.3</span> O Sistema de Produção Vale (VPS)</h3>
 <p>A Vale, como uma das maiores produtoras globais de minério de ferro, desenvolveu o <strong>VPS</strong> como sua metodologia proprietária de excelência operacional. O VPS integra elementos do TQM, Lean e Seis Sigma em um framework único adaptado ao contexto de mineração de capital intensivo.</p>
-<section id="pilares-do-vps" class="level4" data-number="2.2.2.1">
-<h4 data-number="2.2.2.1" class="anchored" data-anchor-id="pilares-do-vps"><span class="header-section-number">2.2.2.1</span> Pilares do VPS</h4>
+<section id="pilares-do-vps" class="level4" data-number="2.2.3.1">
+<h4 data-number="2.2.3.1" class="anchored" data-anchor-id="pilares-do-vps"><span class="header-section-number">2.2.3.1</span> Pilares do VPS</h4>
 <ol type="1">
 <li><strong>Segurança:</strong> Prioridade absoluta (Zero Harm).</li>
 <li><strong>Disponibilidade de Ativos:</strong> Maximização do uptime de equipamentos críticos.</li>
@@ -803,8 +921,8 @@ Tabela&nbsp;2.1: Comparação entre as principais filosofias de excelência oper
 <li><strong>Sustentabilidade:</strong> Gestão ambiental e social.</li>
 </ol>
 </section>
-<section id="ferramentas-do-vps" class="level4" data-number="2.2.2.2">
-<h4 data-number="2.2.2.2" class="anchored" data-anchor-id="ferramentas-do-vps"><span class="header-section-number">2.2.2.2</span> Ferramentas do VPS</h4>
+<section id="ferramentas-do-vps" class="level4" data-number="2.2.3.2">
+<h4 data-number="2.2.3.2" class="anchored" data-anchor-id="ferramentas-do-vps"><span class="header-section-number">2.2.3.2</span> Ferramentas do VPS</h4>
 <p>O VPS utiliza um portfólio integrado de ferramentas:</p>
 <ul>
 <li><strong>Rotina de Gestão:</strong> SDCA para manutenção de padrões.</li>
@@ -829,8 +947,8 @@ Tabela&nbsp;2.1: Comparação entre as principais filosofias de excelência oper
 </div>
 </section>
 </section>
-<section id="a-jornada-de-maturidade" class="level3" data-number="2.2.3">
-<h3 data-number="2.2.3" class="anchored" data-anchor-id="a-jornada-de-maturidade"><span class="header-section-number">2.2.3</span> A Jornada de Maturidade</h3>
+<section id="a-jornada-de-maturidade" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="a-jornada-de-maturidade"><span class="header-section-number">2.2.4</span> A Jornada de Maturidade</h3>
 <p>Tanto o MEG quanto o VPS operam sob a lógica de <strong>maturidade evolutiva</strong>, similar à Curva de Bradley aplicada à segurança. As organizações são classificadas em níveis:</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -928,15 +1046,42 @@ Figura&nbsp;2.7: As 4 Perspectivas do Balanced Scorecard
 </section>
 <section id="sec-masp" class="level3" data-number="2.3.2">
 <h3 data-number="2.3.2" class="anchored" data-anchor-id="sec-masp"><span class="header-section-number">2.3.2</span> A Metodologia de Análise e Solução de Problemas (MASP)</h3>
-<div id="fig-estrutura-masp" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-estrutura-masp" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-estrutura-masp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/fig-estrutura-masp.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-estrutura-masp">graph LR
+   subgraph P[PLAN - Planejar]
+      1[1. Problema] --&gt; 2[2. Observação]
+      2 --&gt; 3[3. Análise]
+      3 --&gt; 4[4. Plano de Ação]
+   end
+   subgraph D[DO - Executar]
+      4 --&gt; 5[5. Execução]
+   end
+   subgraph C[CHECK - Verificar]
+      5 --&gt; 6[6. Verificação]
+   end
+   subgraph A[ACT - Agir/Padronizar]
+      6 --&gt; 7[7. Padronização]
+      7 --&gt; 8[8. Conclusão]
+   end
+
+   style P fill:#ebf5fb,stroke:#2980b9
+   style D fill:#fef9e7,stroke:#f39c12
+   style C fill:#fdedec,stroke:#e74c3c
+   style A fill:#e9f7ef,stroke:#27ae60
+</pre>
+</div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-estrutura-masp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;2.8: A Estrutura do MASP alinhada ao PDCA
 </figcaption>
 </figure>
+</div>
+</div>
 </div>
 <p>Criada pela União dos Cientistas e Engenheiros Japoneses (JUSE), a MASP tem o objetivo de prevenir e corrigir falhas de processos de forma altamente estruturada. A metodologia auxilia na identificação da causa raiz, propõe ações corretivas e sugere o uso de ferramentas específicas (como Brainstorming, 5W2H e 5S) para convergir ideias.</p>
 <section id="a-masp-como-personificação-do-pdca" class="level4" data-number="2.3.2.1">
@@ -1030,15 +1175,32 @@ Figura&nbsp;2.8: A Estrutura do MASP alinhada ao PDCA
 </section>
 <section id="a-gestão-de-ativos-e-o-ciclo-de-vida" class="level4" data-number="2.3.4.2">
 <h4 data-number="2.3.4.2" class="anchored" data-anchor-id="a-gestão-de-ativos-e-o-ciclo-de-vida"><span class="header-section-number">2.3.4.2</span> A Gestão de Ativos e o Ciclo de Vida</h4>
-<div id="fig-ciclo-vida-ativo" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-ciclo-vida-ativo" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ciclo-vida-ativo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/fig-ciclo-vida-ativo.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-ciclo-vida-ativo">graph LR
+   1(1. Decisão) --&gt; 2(2. Especificação)
+   2 --&gt; 3(3. Aquisição)
+   3 --&gt; 4(4. Instalação)
+   4 --&gt; 5(5. Manutenção)
+   5 --&gt; 6(6. Reforma)
+   6 --&gt; 7(7. Descarte)
+
+   style 5 fill:#f39c12,stroke:#333,color:#fff,stroke-width:2px
+   style 1 fill:#bdc3c7,stroke:#333
+   style 7 fill:#bdc3c7,stroke:#333
+</pre>
+</div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ciclo-vida-ativo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;2.9: Ciclo de Vida do Ativo - 7 Etapas
 </figcaption>
 </figure>
+</div>
+</div>
 </div>
 <p>A integração entre qualidade e manutenção atinge seu ápice na <strong>Gestão de Ativos</strong>. Essa abordagem estabelece que o valor da organização é gerado pelo desempenho de seus equipamentos. O período compreendido entre a decisão de compra de um ativo (como um caminhão fora de estrada ou um britador) e o seu descarte é conhecido como <strong>vida útil do ativo</strong>.</p>
 <p>Para que a qualidade do processo produtivo não sofra variações ao longo dos anos, o ciclo de vida do ativo deve ser rigorosamente gerenciado em sete etapas:</p>
@@ -1060,7 +1222,8 @@ Figura&nbsp;2.9: Ciclo de Vida do Ativo - 7 Etapas
 </section>
 <section id="sec-integracao-sgq" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="sec-integracao-sgq"><span class="header-section-number">2.4</span> Integração com o SGQ (Sistema de Gestão da Qualidade)</h2>
-<p>É fundamental compreender que essas filosofias (TQM, Lean, Seis Sigma) e modelos corporativos (MEG, VPS) <strong>não substituem</strong> o Sistema de Gestão da Qualidade baseado na ISO 9001. Eles o <strong>complementam e potencializam</strong>.</p>
+<p>É fundamental compreender que os sistemas normalizados (como a ISO 9001 ou a TS/IATF 16949 para o setor automotivo) <strong>não são concorrentes</strong> das filosofias de excelência (TQM, Lean, Seis Sigma) ou dos modelos corporativos (MEG, VPS). Pelo contrário, eles são <strong>complementares</strong> e estão intimamente associados à evolução da maturidade da gestão na empresa.</p>
+<p>Na prática organizacional, a implantação de um Modelo de Excelência (MEG) ou da Gestão da Qualidade Total (TQM) deve, idealmente, ser precedida por uma sólida consolidação de um modelo SGQ (ISO). A definição de qual arquitetura é a mais adequada dependerá do contexto de mercado, da tecnologia e da estratégia competitiva da mineradora naquele momento.</p>
 <section id="a-hierarquia-de-integração" class="level3" data-number="2.4.1">
 <h3 data-number="2.4.1" class="anchored" data-anchor-id="a-hierarquia-de-integração"><span class="header-section-number">2.4.1</span> A Hierarquia de Integração</h3>
 <div class="cell" data-layout-align="default">
