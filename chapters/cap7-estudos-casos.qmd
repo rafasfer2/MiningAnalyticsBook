@@ -8,21 +8,25 @@ Este capítulo consolida o poder analítico do método apresentado ao longo do l
 
 ## Aplicação Multidimensional do ARM {#sec-arm-multidimensional}
 
-### 6.1 Avaliando Competências e Habilidades do Engenheiro de Produção {#sec-caso-competencias}
+### Avaliando Competências e Habilidades do Engenheiro de Produção {#sec-caso-competencias}
 
 O primeiro estudo de caso avança sobre a intangibilidade do capital humano. O objetivo é utilizar o modelo ARM para quantificar o perfil profissional do Engenheiro de Produção frente às exigências do mercado e à sua própria percepção de desenvolvimento.
 
-Diferente de medir a % de sílica em um minério, medir "iniciativa" ou "ética" exige o cruzamento de múltiplas perspectivas. Para isso, o modelo avalia cada variável sob quatro eixos de análise (Pesos e Notas):
+Diferente de medir a porcentagem de sílica em um minério, medir "iniciativa" ou "ética" exige o cruzamento de múltiplas perspectivas. Para isso, o modelo avalia cada variável sob quatro eixos de análise (Pesos e Notas):
+
 1. **Importância ($W_i$):** Qual o nível de importância atribuído a esta habilidade/competência?
 2. **Desempenho ($S_i$):** Como o indivíduo avalia o seu próprio desempenho atual nesta área?
 3. **Atribuição (Visão de Pares):** Como o indivíduo avalia, em média, o desempenho dos seus colegas de turma/equipe nesta área?
 4. **Exigência (Visão de Mercado):** Qual o nível de cobrança e exigência que o mercado de trabalho imporá sobre esta habilidade?
 
-### Matriz de Variáveis: Habilidades, Competências e Conhecimentos
+
+
+#### Matriz de Variáveis: Habilidades, Competências e Conhecimentos
 
 Para estruturar o cálculo, o perfil do engenheiro foi desdobrado em três grandes dimensões analíticas ($D_j$). Abaixo, apresentamos as variáveis operacionais ($V_i$) que compõem cada bloco:
 
 **Dimensão 1: Habilidades Pessoais e Técnicas ($D_1$)**
+
 * Compromisso com a ética profissional
 * Iniciativa empreendedora
 * Disposição para autoaprendizado e educação continuada
@@ -39,6 +43,7 @@ Para estruturar o cálculo, o perfil do engenheiro foi desdobrado em três grand
 * "Pensar globalmente, agir localmente"
 
 **Dimensão 2: Competências Profissionais ($D_2$)**
+
 * Projetar, implementar e otimizar processos, produtos e sistemas
 * Gerir sistemas produtivos complexos com visão sistêmica
 * Utilizar matemática e estatística para aprimorar operações
@@ -53,6 +58,7 @@ Para estruturar o cálculo, o perfil do engenheiro foi desdobrado em três grand
 * Aprender continuamente e resolver problemas da sociedade
 
 **Dimensão 3: Subáreas de Conhecimento ($D_3$)**
+
 * Gestão da Produção, Qualidade e Econômica
 * Ergonomia, Segurança do Trabalho e Gestão Ambiental
 * Gestão do Produto e Pesquisa Operacional
@@ -60,12 +66,12 @@ Para estruturar o cálculo, o perfil do engenheiro foi desdobrado em três grand
 * Educação em Engenharia de Produção
 
 ::: {.callout-note title="💡 Insight Analítico"}
-Ao rodar a equação bidimensional do ARM para este conjunto de dados, obtém-se um diagnóstico preciso apontando os *Gaps* de Formação: habilidades em que o mercado exige nota máxima (Exigência), mas o profissional se autoavalia com nota baixa (Desempenho), permitindo ações corretivas focadas.
+Ao rodar a equação bidimensional do ARM para este conjunto de dados, obtém-se um diagnóstico preciso apontando os *Gaps de Formação*: habilidades em que o mercado exige nota máxima (Exigência), mas o profissional se autoavalia com nota baixa (Desempenho), permitindo ações corretivas focadas e estruturação de Planos de Desenvolvimento Individual (PDI).
 :::
 
 ---
 
-## 6.2 O Índice de Qualidade de Plano de Manutenção (IQPL) {#sec-caso-iqpl}
+### O Índice de Qualidade de Plano de Manutenção (IQPL) {#sec-caso-iqpl}
 
 No segundo estudo de caso, a modelagem ARM é aplicada diretamente à gestão de ativos físicos. Um plano de manutenção mal estruturado gera paradas não programadas e destrói o fluxo de caixa. Para auditar a robustez desses planos, cria-se o **Índice de Qualidade de Plano de Manutenção (IQPL)**.
 
@@ -94,15 +100,18 @@ Com o intuito de impulsionar a melhoria contínua, as variáveis do IQPL foram d
 
 ---
 
-## 6.3 Avaliação de Sistemas de Gestão Integrados e o Ambiente de Relacionamento Interno (ARI) {#sec-caso-ari-irt}
+### Avaliação de Sistemas de Gestão Integrados e o Ambiente de Relacionamento Interno (ARI) {#sec-caso-ari-irt}
 
 O terceiro estudo de caso explora a dinâmica comportamental e os gargalos de comunicação dentro de um **Ambiente de Relacionamento Interno (ARI)**. Em grandes operações minerais, a qualidade não depende apenas da máquina, mas do fluxo de informações entre a equipe que planeja (Apoio) e a equipe que executa (Operação).
 
 O objetivo deste caso é instrumentalizar a Modelagem Analítica de Requisitos (ARM) para medir o efeito das **diferenças de percepção** de qualidade entre os clientes internos. Historicamente, a literatura foca muito na formulação de sistemas de gestão ou em fatores de mercado externo, havendo uma lacuna em quantificar como a percepção distorcida entre departamentos impacta o desempenho organizacional.
 
 Para transpor essa barreira, o desenvolvimento do instrumento de medição seguirá um rigoroso fluxo metodológico:
+
 1. **Modelagem Conceitual:** Mapeamento do ARI, caracterização das partes envolvidas (Apoio vs. Operação) e definição dos fatores críticos que impactam esse ecossistema.
 2. **Coleta e Refinamento:** Utilização de dados informacionais da empresa, *focus groups* exploratórios e confirmatórios, aliados à análise temática de conteúdo.
 3. **Instrumentalização Matemática:** Para modelar e codificar essas percepções, a modelagem se apoiará na **Teoria da Resposta ao Item (TRI)** *(Item Response Theory - IRT)*, técnica estatística avançada que permitirá validar as variáveis qualitativas do sistema de gestão.
+
+
 
 *(Nota: O desenvolvimento do código, das equações da Teoria da Resposta ao Item e das funções matemáticas em R para este estudo de caso serão detalhados nas seções seguintes).*
