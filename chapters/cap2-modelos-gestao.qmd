@@ -380,22 +380,60 @@ Para estimular a adoção prática da Qualidade Total, diversos países criaram 
 
 ### O Modelo de Excelência da Gestão (MEG) {#sec-meg}
 
-Desenvolvido pela Fundação Nacional da Qualidade (FNQ), o MEG é o referencial brasileiro de gestão de classe mundial. Diferentemente da ISO 9001 (que é uma norma prescritiva), o MEG é um modelo descritivo que orienta a organização na jornada rumo à excelência.
+A **Fundação Nacional da Qualidade (FNQ)**, criada em 1991 para administrar o Prêmio Nacional da Qualidade (PNQ), atua na educação, diagnóstico e disseminação da excelência em gestão no Brasil. Ao longo de sua evolução - com grandes reestruturações de governança em 2005 e um reposicionamento estratégico em 2018 -, a FNQ consolidou o **Modelo de Excelência da Gestão (MEG)** como um referencial de aprendizado para organizações de todos os portes e segmentos enfrentarem as transformações do cenário econômico.
 
-#### Os 8 Fundamentos do MEG
+Diferentemente da ISO 9001, que é uma norma prescritiva, o MEG possui três características centrais:
 
-1. **Pensamento Sistêmico:** Visão integrada da organização.
-2. **Aprendizado Organizacional:** Cultura de melhoria contínua.
-3. **Cultura de Inovação:** Estímulo à criatividade e renovação.
-4. **Liderança Transformadora:** Líderes como agentes de mudança.
-5. **Orientação por Processos:** Gestão baseada em fluxos de valor.
-6. **Geração de Valor:** Foco em resultados para stakeholders.
-7. **Valorização das Pessoas:** Capital humano como diferencial.
-8. **Conhecimento sobre Clientes e Mercados:** Decisões baseadas em inteligência de mercado.
+1. **Modelo Sistêmico:** Inspirado na lógica do ciclo PDCL (*Plan, Do, Check, Learn*).
+2. **Não Prescritivo:** Não impõe ferramentas práticas definitivas; o modelo provoca a reflexão sobre a gestão, deixando o "como fazer" a critério da empresa.
+3. **Adaptável:** Respeita a cultura organizacional e foca estritamente na geração de resultados competitivos para as partes interessadas.
 
-#### Ciclo PDCL (Plan-Do-Check-Learn)
+#### A Estrutura Conceitual de Desdobramento
 
-O MEG adapta o PDCA clássico para o **PDCL**, enfatizando o aprendizado organizacional como pilar estratégico.
+A aplicação prática do MEG orienta a empresa a sair da teoria e chegar na operação através de uma lógica sequencial de desdobramento:
+
+```{mermaid}
+%%| label: fig-estrutura-meg
+%%| fig-cap: "Estrutura Conceitual de Desdobramento do MEG"
+graph LR
+   F[Fundamentos] --> T[Temas]
+   T --> P[Processos]
+   P --> D[Detalhamentos]
+   D --> M[Ferramentas e<br>Metodologias]
+
+   style F fill:#2c3e50,stroke:#333,color:#fff
+   style T fill:#34495e,stroke:#333,color:#fff
+   style P fill:#7f8c8d,stroke:#333,color:#fff
+   style D fill:#bdc3c7,stroke:#333
+   style M fill:#ecf0f1,stroke:#333
+```
+
+#### Os 8 Fundamentos da Excelencia
+
+A versao moderna do modelo baseia-se em 8 fundamentos interdependentes que sustentam o pensamento organizacional:
+
+* **Pensamento Sistemico:** O entendimento do negocio como um sistema integrado. As atividades nao podem ser tratadas de forma isolada, exigindo uma visao macro das interdependencias internas e externas.
+* **Aprendizado Organizacional e Inovacao:** A busca permanente por novos patamares de competencia, ciclos continuos de melhoria e inovacao.
+* **Lideranca Transformadora:** Lideranca etica e inspiradora, atenta a cenarios e tendencias, capaz de mobilizar as pessoas em torno de valores.
+* **Compromisso com as Partes Interessadas:** Entendimento das necessidades e pactuacao de interesses com foco em clientes, unindo a visao de curto e longo prazo a estrategia.
+* **Adaptabilidade:** A busca pelo sucesso atraves da flexibilidade, agilidade, rapidez nos ciclos de aprendizagem e uso de metodos ageis.
+* **Desenvolvimento Sustentavel:** O compromisso etico e transparente com os impactos sociais e ambientais gerados pela operacao.
+* **Orientacao por Processos:** Foco em processos bem gerenciados, embasados em dados e informacoes, visando eficiencia e eficacia.
+* **Geracao de Valor:** Todos os esforcos devem culminar em valor tangivel (economico, social e ambiental) para todas as partes interessadas.
+
+::: {.callout-note title="🔍 ZOOM: Dissecando o Pensamento Sistemico"}
+Para entender como a Estrutura Conceitual funciona na pratica, vejamos o desdobramento do Fundamento 1 (Pensamento Sistemico). Ele se divide em dois grandes Temas: Alinhamento e Tomada de Decisao.
+
+Focando no tema Alinhamento (que garante a disseminacao das informacoes e a medicao de resultados), o modelo exige a estruturacao de tres Processos principais:
+
+* Estruturacao do modelo de gestao: Definir as correlacoes entre partes interessadas, estrategias e processos.
+* Estruturacao do sistema de medicao: Criar indicadores baseados em fortes relacoes de causa e efeito (como estudamos no BSC).
+* Atuacao em rede: Identificar e cooperar em redes de trabalho internas e externas.
+:::
+
+#### O Ciclo PDCL (Plan, Do, Check, Learn)
+
+Enquanto a gestao basica da rotina utiliza o tradicional PDCA, o MEG tem como pilar o ciclo PDCL. A substituicao da etapa Act (Agir/Padronizar) pela etapa Learn (Aprender) traz uma mudanca profunda de paradigma. O objetivo da excelencia nao e apenas estabilizar um indicador, mas garantir a aprendizagem organizacional. Ao final de cada ciclo, a empresa deve transformar o resultado obtido em conhecimento corporativo, retroalimentando o sistema e fortalecendo sua cultura de excelencia.
 
 ### O Sistema de Produção Vale (VPS) {#sec-vps}
 
