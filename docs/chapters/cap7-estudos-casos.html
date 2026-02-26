@@ -433,11 +433,41 @@ window.Quarto = {
 <p>O IQPL é a consolidação da nossa equação de qualidade em uma nota cuja pontuação máxima atinge 100 pontos. Para garantir o rigor técnico, o modelo foi desdobrado em um total de <strong>35 variáveis (<span class="math inline">\(V_i\)</span>)</strong>, metodicamente agrupadas em <strong>5 áreas de interesse (<span class="math inline">\(D_j\)</span>)</strong>:</p>
 <p><span id="eq-iqpl"><span class="math display">\[IQPL = \sum_{j=1}^{5} \left[ W_{D_j} \times \left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right) \right] \leq 100 \tag{7.1}\]</span></span></p>
 <p>Com o intuito de impulsionar a melhoria contínua, as variáveis do IQPL foram divididas entre <em>Parâmetros Existentes</em> (a base histórica) e <em>Parâmetros Novos</em> (agregados para elevar o nível de gestão):</p>
-<p><strong>1. Programáveis (<span class="math inline">\(D_1\)</span> - 7 variáveis):</strong> * <em>Existentes:</em> Tolerância Positiva (+), Tolerância Negativa (-), Horizonte de abertura, Intervalo de solicitação, Local de instalação, Plano automático, Plano não iniciado.</p>
-<p><strong>2. Processuais (<span class="math inline">\(D_2\)</span> - 6 variáveis):</strong> * <em>Novos:</em> Materiais, HH - Qualidade, ACF (Apontamento de Classe Falha). * <em>Existentes:</em> Reinício dos planos, Ciclos vencidos, RT e Validação de Planos.</p>
-<p><strong>3. Ativos (<span class="math inline">\(D_3\)</span> - 6 variáveis):</strong> * <em>Novos:</em> Taxonomia - Padronização, Taxonomia – 6º Nível, Perfil de catálogo, Tipo de Ativo, Fabricante, Data de Aquisição e Operação.</p>
-<p><strong>4. Lista de Tarefas (<span class="math inline">\(D_4\)</span> - 15 variáveis):</strong> * <em>Novo:</em> PTS. * <em>Existentes:</em> Chave de cálculo, Campo de Duração, Campo percentual, Responsável técnico LT, Última modificação LT, Duração irrisória, Duração Máxima, Unidade CT (H), Segurança, Validade da LT, 5S, Título da Lista, Tempo Máx. operação, Chave de controle.</p>
-<p><strong>5. Desempenho (<span class="math inline">\(D_5\)</span> - 1 variável):</strong> * <em>Novo:</em> RMC.</p>
+<p><strong>1. Programáveis (<span class="math inline">\(D_1\)</span> - 7 variáveis):</strong></p>
+<ul>
+<li><em>Existentes:</em> Tolerância Positiva (+), Tolerância Negativa (-), Horizonte de abertura, Intervalo de solicitação, Local de instalação, Plano automático, Plano não iniciado.</li>
+</ul>
+<p><strong>2. Processuais (<span class="math inline">\(D_2\)</span> - 6 variáveis):</strong></p>
+<ul>
+<li><em>Novos:</em> Materiais, HH - Qualidade, ACF (Apontamento de Classe Falha).</li>
+<li><em>Existentes:</em> Reinício dos planos, Ciclos vencidos, RT e Validação de Planos.</li>
+</ul>
+<p><strong>3. Ativos (<span class="math inline">\(D_3\)</span> - 6 variáveis):</strong></p>
+<ul>
+<li><em>Novos:</em> Taxonomia - Padronização, Taxonomia - 6o Nível, Perfil de catálogo, Tipo de Ativo, Fabricante, Data de Aquisição e Operação.</li>
+</ul>
+<p><strong>4. Lista de Tarefas (<span class="math inline">\(D_4\)</span> - 15 variáveis):</strong></p>
+<ul>
+<li><em>Novo:</em> PTS.</li>
+<li><em>Existentes:</em> Chave de cálculo, Campo de Duração, Campo percentual, Responsável técnico LT, Última modificação LT, Duração irrisória, Duração Máxima, Unidade CT (H), Segurança, Validade da LT, 5S, Título da Lista, Tempo Máx. operação, Chave de controle.</li>
+</ul>
+<p><strong>5. Desempenho (<span class="math inline">\(D_5\)</span> - 1 variável):</strong></p>
+<ul>
+<li><em>Novo:</em> RMC.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="🔗 Conexão Analítica: O IQPL como Instância do Modelo ARM">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>🔗 Conexão Analítica: O IQPL como Instância do Modelo ARM
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ao analisarmos a Equação do IQPL, fica evidente que ela é a aplicação exata do Modelo Multidimensional (Hierarchical Model) do ARM apresentado no Capítulo 3.O IQPL comprova a escalabilidade do método: saímos da avaliação de características físicas de um minério para a auditoria de processos intangíveis de manutenção, utilizando rigorosamente o mesmo motor matemático e a mesma ponte normativa da ISO 9000.Veja o paralelo exato entre as duas modelagens:O Objeto (<span class="math inline">\(ARM\)</span>): É o próprio Índice de Qualidade do Plano de Manutenção (IQPL), que consolida o valor global do ativo analisado.As Dimensões (<span class="math inline">\(D_j\)</span>): Representam o primeiro nível hierárquico (os <span class="math inline">\(m = 5\)</span> pilares: Programáveis, Processuais, Ativos, Lista de Tarefas e Desempenho). Cada dimensão possui seu próprio peso estratégico (<span class="math inline">\(W_{D_j}\)</span>).As Características/Variáveis (<span class="math inline">\(V_i\)</span>): São os 35 parâmetros operacionais auditados no chão de fábrica (Tolerâncias, Taxonomia, 5S, etc.).O Requisito de Importância (<span class="math inline">\(W_i\)</span>): É o peso que a engenharia de confiabilidade atribui a cada um dos 35 parâmetros, definindo o que é crítico para o negócio.O Grau de Desempenho (<span class="math inline">\(S_i\)</span>): É a nota (Score) que o plano de manutenção específico recebe ao ser auditado em cada variável.Além disso, a inclusão de Parâmetros Novos (como PTS e RMC) junto aos Parâmetros Existentes demonstra o modelo operando sob uma Abordagem Middle-out, onde a engenharia adapta a equação simultaneamente às novas diretrizes estratégicas da diretoria e à realidade operacional da oficina.</p>
+</div>
+</div>
 <hr>
 </section>
 <section id="sec-caso-ari-irt" class="level3" data-number="7.1.3">

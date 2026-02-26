@@ -19,8 +19,6 @@ Diferente de medir a porcentagem de sílica em um minério, medir "iniciativa" o
 3. **Atribuição (Visão de Pares):** Como o indivíduo avalia, em média, o desempenho dos seus colegas de turma/equipe nesta área?
 4. **Exigência (Visão de Mercado):** Qual o nível de cobrança e exigência que o mercado de trabalho imporá sobre esta habilidade?
 
-
-
 #### Matriz de Variáveis: Habilidades, Competências e Conhecimentos
 
 Para estruturar o cálculo, o perfil do engenheiro foi desdobrado em três grandes dimensões analíticas ($D_j$). Abaixo, apresentamos as variáveis operacionais ($V_i$) que compõem cada bloco:
@@ -82,22 +80,30 @@ $$IQPL = \sum_{j=1}^{5} \left[ W_{D_j} \times \left( \sum_{i=1}^{n_j} W_{V_i} \t
 Com o intuito de impulsionar a melhoria contínua, as variáveis do IQPL foram divididas entre *Parâmetros Existentes* (a base histórica) e *Parâmetros Novos* (agregados para elevar o nível de gestão):
 
 **1. Programáveis ($D_1$ - 7 variáveis):**
+
 * *Existentes:* Tolerância Positiva (+), Tolerância Negativa (-), Horizonte de abertura, Intervalo de solicitação, Local de instalação, Plano automático, Plano não iniciado.
 
 **2. Processuais ($D_2$ - 6 variáveis):**
+
 * *Novos:* Materiais, HH - Qualidade, ACF (Apontamento de Classe Falha).
 * *Existentes:* Reinício dos planos, Ciclos vencidos, RT e Validação de Planos.
 
 **3. Ativos ($D_3$ - 6 variáveis):**
-* *Novos:* Taxonomia - Padronização, Taxonomia – 6º Nível, Perfil de catálogo, Tipo de Ativo, Fabricante, Data de Aquisição e Operação.
+
+* *Novos:* Taxonomia - Padronização, Taxonomia - 6o Nível, Perfil de catálogo, Tipo de Ativo, Fabricante, Data de Aquisição e Operação.
 
 **4. Lista de Tarefas ($D_4$ - 15 variáveis):**
+
 * *Novo:* PTS.
 * *Existentes:* Chave de cálculo, Campo de Duração, Campo percentual, Responsável técnico LT, Última modificação LT, Duração irrisória, Duração Máxima, Unidade CT (H), Segurança, Validade da LT, 5S, Título da Lista, Tempo Máx. operação, Chave de controle.
 
 **5. Desempenho ($D_5$ - 1 variável):**
+
 * *Novo:* RMC.
 
+::: {.callout-tip title="🔗 Conexão Analítica: O IQPL como Instância do Modelo ARM"}
+Ao analisarmos a Equação do IQPL, fica evidente que ela é a aplicação exata do Modelo Multidimensional (Hierarchical Model) do ARM apresentado no Capítulo 3.O IQPL comprova a escalabilidade do método: saímos da avaliação de características físicas de um minério para a auditoria de processos intangíveis de manutenção, utilizando rigorosamente o mesmo motor matemático e a mesma ponte normativa da ISO 9000.Veja o paralelo exato entre as duas modelagens:O Objeto ($ARM$): É o próprio Índice de Qualidade do Plano de Manutenção (IQPL), que consolida o valor global do ativo analisado.As Dimensões ($D_j$): Representam o primeiro nível hierárquico (os $m = 5$ pilares: Programáveis, Processuais, Ativos, Lista de Tarefas e Desempenho). Cada dimensão possui seu próprio peso estratégico ($W_{D_j}$).As Características/Variáveis ($V_i$): São os 35 parâmetros operacionais auditados no chão de fábrica (Tolerâncias, Taxonomia, 5S, etc.).O Requisito de Importância ($W_i$): É o peso que a engenharia de confiabilidade atribui a cada um dos 35 parâmetros, definindo o que é crítico para o negócio.O Grau de Desempenho ($S_i$): É a nota (Score) que o plano de manutenção específico recebe ao ser auditado em cada variável.Além disso, a inclusão de Parâmetros Novos (como PTS e RMC) junto aos Parâmetros Existentes demonstra o modelo operando sob uma Abordagem Middle-out, onde a engenharia adapta a equação simultaneamente às novas diretrizes estratégicas da diretoria e à realidade operacional da oficina.
+:::
 ---
 
 ### Avaliação de Sistemas de Gestão Integrados e o Ambiente de Relacionamento Interno (ARI) {#sec-caso-ari-irt}
