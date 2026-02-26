@@ -388,6 +388,15 @@ Diferentemente da ISO 9001, que é uma norma prescritiva, o MEG possui três car
 2. **Não Prescritivo:** Não impõe ferramentas práticas definitivas; o modelo provoca a reflexão sobre a gestão, deixando o "como fazer" a critério da empresa.
 3. **Adaptável:** Respeita a cultura organizacional e foca estritamente na geração de resultados competitivos para as partes interessadas.
 
+#### Os Quatro Conceitos Centrais do MEG
+
+Antes de detalharmos a estrutura do modelo, é vital compreender as quatro dimensões conceituais que sintetizam a filosofia do MEG:
+
+1. **O Sistema:** A organização é vista como um organismo vivo onde estratégia, processos, pessoas e resultados estão intimamente conectados. Alterações em um ponto impactam todo o conjunto.
+2. **A Excelência:** Não é tratada como um estado final a ser atingido, mas como um processo contínuo sustentado por disciplina gerencial, coerência entre discurso e prática, e foco no aprendizado organizacional.
+3. **Os Resultados e o Valor:** A boa gestão tem como consequência a geração de valor sustentável e equilibrado nas dimensões econômica, social e ambiental, atendendo a todas as partes interessadas e não se limitando ao curto prazo.
+4. **O Modelo de Referência:** O MEG atua como uma bússola, um guia orientativo. Ele fomenta a reflexão diagnóstica, permitindo que cada empresa o adapte ao seu contexto, sem a imposição de ferramentas engessadas.
+
 #### A Estrutura Conceitual de Desdobramento
 
 A aplicação prática do MEG orienta a empresa a sair da teoria e chegar na operação através de uma lógica sequencial de desdobramento:
@@ -395,11 +404,11 @@ A aplicação prática do MEG orienta a empresa a sair da teoria e chegar na ope
 ```{mermaid}
 %%| label: fig-estrutura-meg
 %%| fig-cap: "Estrutura Conceitual de Desdobramento do MEG"
-graph LR
-   F[Fundamentos] --> T[Temas]
-   T --> P[Processos]
-   P --> D[Detalhamentos]
-   D --> M[Ferramentas e<br>Metodologias]
+graph TD
+   F[FUNDAMENTO] -->|desdobrado em| T[TEMAS]
+   T -->|concretizados por meio de| P[PROCESSOS]
+   P -->|explicados por| D[DETALHAMENTO]
+   D -->|com sugestão de| M[FERRAMENTAS / METODOLOGIAS]
 
    style F fill:#2c3e50,stroke:#333,color:#fff
    style T fill:#34495e,stroke:#333,color:#fff
@@ -408,32 +417,41 @@ graph LR
    style M fill:#ecf0f1,stroke:#333
 ```
 
-#### Os 8 Fundamentos da Excelencia
+#### Os 8 Fundamentos da Excelência
 
-A versao moderna do modelo baseia-se em 8 fundamentos interdependentes que sustentam o pensamento organizacional:
+A versão moderna do modelo baseia-se em 8 fundamentos interdependentes que sustentam o pensamento organizacional:
 
-* **Pensamento Sistemico:** O entendimento do negocio como um sistema integrado. As atividades nao podem ser tratadas de forma isolada, exigindo uma visao macro das interdependencias internas e externas.
-* **Aprendizado Organizacional e Inovacao:** A busca permanente por novos patamares de competencia, ciclos continuos de melhoria e inovacao.
-* **Lideranca Transformadora:** Lideranca etica e inspiradora, atenta a cenarios e tendencias, capaz de mobilizar as pessoas em torno de valores.
-* **Compromisso com as Partes Interessadas:** Entendimento das necessidades e pactuacao de interesses com foco em clientes, unindo a visao de curto e longo prazo a estrategia.
-* **Adaptabilidade:** A busca pelo sucesso atraves da flexibilidade, agilidade, rapidez nos ciclos de aprendizagem e uso de metodos ageis.
-* **Desenvolvimento Sustentavel:** O compromisso etico e transparente com os impactos sociais e ambientais gerados pela operacao.
-* **Orientacao por Processos:** Foco em processos bem gerenciados, embasados em dados e informacoes, visando eficiencia e eficacia.
-* **Geracao de Valor:** Todos os esforcos devem culminar em valor tangivel (economico, social e ambiental) para todas as partes interessadas.
+* **Pensamento Sistêmico:** O entendimento do negócio como um sistema integrado. As atividades não podem ser tratadas de forma isolada, exigindo uma visão macro das interdependências internas e externas.
+* **Aprendizado Organizacional e Inovação:** A busca permanente por novos patamares de competência, ciclos contínuos de melhoria e inovação.
+* **Liderança Transformadora:** Liderança ética e inspiradora, atenta a cenários e tendências, capaz de mobilizar as pessoas em torno de valores.
+* **Compromisso com as Partes Interessadas:** Entendimento das necessidades e pactuação de interesses com foco em clientes, unindo a visão de curto e longo prazo à estratégia.
+* **Adaptabilidade:** A busca pelo sucesso através da flexibilidade, agilidade, rapidez nos ciclos de aprendizagem e uso de métodos ágeis.
+* **Desenvolvimento Sustentável:** O compromisso ético e transparente com os impactos sociais e ambientais gerados pela operação.
+* **Orientação por Processos:** Foco em processos bem gerenciados, embasados em dados e informações, visando eficiência e eficácia.
+* **Geração de Valor:** Todos os esforços devem culminar em valor tangível (econômico, social e ambiental) para todas as partes interessadas.
 
-::: {.callout-note title="🔍 ZOOM: Dissecando o Pensamento Sistemico"}
-Para entender como a Estrutura Conceitual funciona na pratica, vejamos o desdobramento do Fundamento 1 (Pensamento Sistemico). Ele se divide em dois grandes Temas: Alinhamento e Tomada de Decisao.
+::: {.callout-note title="🔍 ZOOM: Dissecando o Pensamento Sistêmico na Prática"}
+Para entender como a Estrutura Conceitual de desdobramento funciona na vida real, tomemos como exemplo o Fundamento 1 (**Pensamento Sistêmico**). Ele se divide em dois grandes *Temas* interdependentes: **Tomada de Decisão** e **Alinhamento**.
 
-Focando no tema Alinhamento (que garante a disseminacao das informacoes e a medicao de resultados), o modelo exige a estruturacao de tres Processos principais:
+O MEG orienta a estruturação de *Processos* principais dentro desses temas, que por sua vez possuem *Detalhamentos* específicos de execução:
 
-* Estruturacao do modelo de gestao: Definir as correlacoes entre partes interessadas, estrategias e processos.
-* Estruturacao do sistema de medicao: Criar indicadores baseados em fortes relacoes de causa e efeito (como estudamos no BSC).
-* Atuacao em rede: Identificar e cooperar em redes de trabalho internas e externas.
+**TEMA A: Tomada de Decisão** (Foco em entender o negócio e situar-se no mercado)
+
+* **Processo 1: Identificação das Informações:** a) Definição das informações estratégicas; b) Seleção das mais críticas; c) Inteligência competitiva; d) Benchmarking.
+* **Processo 2: Utilização das Informações:** a) Integração dos dados; b) Reuniões de análise crítica; c) Definição de decisões; d) Envolvimento de pessoas; e) Acompanhamento das ações; f) Comunicação às partes.
+
+**TEMA B: Alinhamento** (Foco em disseminar as informações para que todos entendam o que, como e para que fazem)
+
+* **Processo 1: Estruturação do Modelo de Gestão:** a) Correlação entre requisitos e cadeia de valor; b) Inter-relacionamento de processos; c) Definição de elementos de suporte; d) Representação diagramática; e) Comunicação do modelo.
+* **Processo 2: Estruturação do Sistema de Medição:** a) Definição de atributos; b) Desdobramento de indicadores estratégicos em processos; c) Definição de relações de causa e efeito; d) Equilíbrio no atendimento de necessidades.
+* **Processo 3: Atuação em Rede:** a) Mapeamento de redes de cooperação internas e externas; b) Cooperação visando influenciar o êxito das estratégias.
+
+É através desta "escada de desdobramento" que um conceito puramente filosófico se transforma em um sistema integrado com indicadores de causa e efeito na rotina da operação mineral.
 :::
 
 #### O Ciclo PDCL (Plan, Do, Check, Learn)
 
-Enquanto a gestao basica da rotina utiliza o tradicional PDCA, o MEG tem como pilar o ciclo PDCL. A substituicao da etapa Act (Agir/Padronizar) pela etapa Learn (Aprender) traz uma mudanca profunda de paradigma. O objetivo da excelencia nao e apenas estabilizar um indicador, mas garantir a aprendizagem organizacional. Ao final de cada ciclo, a empresa deve transformar o resultado obtido em conhecimento corporativo, retroalimentando o sistema e fortalecendo sua cultura de excelencia.
+Enquanto a gestão básica da rotina utiliza o tradicional PDCA, o MEG tem como pilar o ciclo PDCL. A substituição da etapa Act (Agir/Padronizar) pela etapa Learn (Aprender) traz uma mudança profunda de paradigma. O objetivo da excelência não é apenas estabilizar um indicador, mas garantir a aprendizagem organizacional. Ao final de cada ciclo, a empresa deve transformar o resultado obtido em conhecimento corporativo, retroalimentando o sistema e fortalecendo sua cultura de excelência.
 
 ### O Sistema de Produção Vale (VPS) {#sec-vps}
 
@@ -496,7 +514,19 @@ Para que filosofias como TQM, Seis Sigma e Lean não atuem de forma isolada, as 
 
 ### O Balanced Scorecard (BSC) {#sec-bsc}
 
-![As 4 Perspectivas do Balanced Scorecard](../images/fig-perspectivas-bsc.png){#fig-perspectivas-bsc fig-align="center"}
+```{mermaid}
+%%| label: fig-perspectivas-bsc
+%%| fig-cap: "Mapa Estratégico de Causa e Efeito: As 4 Perspectivas do BSC"
+graph TD
+   A[Aprendizado e Crescimento<br>Treinamento e Cultura] -->|Capacita| P[Processos Internos<br>Eficiência e Qualidade]
+   P -->|Otimiza| C[Clientes<br>Satisfação e Retenção]
+   C -->|Gera Resultado| F[Financeira<br>Redução de Custos e ROI]
+
+   style F fill:#27ae60,stroke:#333,color:#fff
+   style C fill:#2980b9,stroke:#333,color:#fff
+   style P fill:#f39c12,stroke:#333,color:#fff
+   style A fill:#8e44ad,stroke:#333,color:#fff
+```
 
 O BSC atua como o grande tradutor da estratégia corporativa. Ele desdobra a visão da empresa em indicadores, metas e iniciativas através de quatro perspectivas interdependentes:
 
