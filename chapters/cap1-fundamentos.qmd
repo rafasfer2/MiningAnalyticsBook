@@ -22,7 +22,7 @@ A popularização do termo "Qualidade" é fruto de um esforço histórico para d
 
 Em seu sentido genérico, a Qualidade é definida como:
 
-> *"Propriedade, atributo, característica ou condição das coisas ou das pessoas capaz de distingui-las das outras e de lhes determinar a essência ou a natureza".*
+> *"Propriedade, atributo, característica ou condition das coisas ou das pessoas capaz de distingui-las das outras e de lhes determinar a essência ou a natureza".*
 
 Dessa definição, extraímos três pilares fundamentais:
 
@@ -35,8 +35,6 @@ A dificuldade de observar a Qualidade de forma isolada ocorre porque ela só se 
 ::: {.callout-note title="💡 Reflexão sobre o uso do termo"}
 A ambiguidade que cerca a palavra "Qualidade" decorre, em grande parte, da omissão do contexto por parte de quem a utiliza. Tecnicamente, a Qualidade não deveria ser tratada como um adjetivo isolado, mas sim como um termo composto. É indispensável atrelá-la sempre a um substantivo específico, pois as competências que definem a excelência de um estrategista militar não guardam relação direta com as características exigidas de um líder político. Sem essa delimitação contextual, o atributo perde seu sentido prático na gestão.
 :::
-
-A Qualidade não é algo identificável e observável diretamente de forma isolada; ela é definida por meio de seus atributos. O que significa na prática a frase *"Napoleão tinha todas as qualidades de um grande general"*? Significa que as palavras "qualidades", "propriedades", "atributos" ou "características" são intercambiáveis. Ele possuía os atributos de um grande general (como rigor, sabedoria, coragem, sinceridade e benevolência).
 
 Essas qualidades podem se manifestar de diferentes formas:
 
@@ -67,7 +65,9 @@ Esta subjetividade divide a compreensão da Qualidade em duas dimensões:
 * **Dimensão Objetiva (ou primária):** Refere-se à qualidade intrínseca das coisas. É aquilo que faz parte da essência e é inerente ao objeto, independente do ponto de vista do ser humano.
 * **Dimensão Subjetiva (ou secundária):** Refere-se à percepção que as pessoas têm das características. Está associada à capacidade humana de pensar, sentir e diferenciar.
 
-Para compreender a complexidade de medir e atestar a qualidade de um produto, precisamos separar a característica real do objeto da forma como o observador o interpreta. Essa dicotomia entre a dimensão objetiva e a subjetiva é ilustrada na **Figura 2.2** através de dois cenários distintos:
+Para compreender a complexidade de medir e atestar a qualidade de um produto, precisamos separar a característica real do objeto da forma como o observador o interpreta. Essa dicotomia entre a dimensão objetiva e a subjetiva é ilustrada na @fig-boladeneve-termometro através de dois cenários distintos:
+
+![Ilustração da Bola de Neve e do Termômetro](../images/fig-boladeneve-termometro.png){#fig-boladeneve-termometro fig-align="center"}
 
 ::: {.example #exm-percepcao-sensorial name="A Percepção Sensorial - A Bola de Neve"}
 No primeiro cenário, temos o exemplo clássico da bola de neve. Fisicamente, ela possui propriedades materiais exatas. No entanto, o "poder" desse objeto na nossa percepção é a capacidade de gerar em nossa mente ideias qualitativas e sensoriais, como "esférica", "gelada" e "branca". O desafio gerencial surge exatamente dessa distinção: é extremamente difícil padronizar ou verificar um atributo de qualidade se ele depender puramente da capacidade de "produzir uma sensação" no cliente, pois essa percepção varia de pessoa para pessoa.
@@ -77,11 +77,7 @@ No primeiro cenário, temos o exemplo clássico da bola de neve. Fisicamente, el
 A dificuldade de verificação se torna ainda mais evidente quando o observador capta o efeito, mas ignora a causa, como demonstrado na segunda parte da figura. Sabemos, de forma objetiva, que o Sol emite energia térmica com a propriedade física de dilatar o mercúrio dentro de um termômetro. Contudo, se entregarmos esse instrumento a um "homem das cavernas", ele perceberá visualmente a coluna de líquido subindo (experimentando a dimensão subjetiva do fenômeno), mas não fará a menor ideia da relação físico-química que a radiação solar exerce sobre o equipamento (a dimensão objetiva real).
 :::
 
-Na engenharia de produção, esse segundo exemplo é um alerta crítico: não podemos atestar a qualidade de um processo baseando-nos apenas naquilo que conseguimos enxergar superficialmente, sem compreender a variável raiz que governa o sistema.
-
-![Ilustração da Bola de Neve e do Termômetro](../images/fig-boladeneve-termometro.png){#fig-boladeneve-termometro fig-align="center"}
-
-O fato de o termo Qualidade ser de uso comum não é, implicitamente, algo ruim. Pode decorrer de um esforço feito em passado recente para popularizar o termo. O problema é que os conceitos usados para definir Qualidade nem sempre são corretos. E não se pode “redefinir” ou restringir o uso de um termo que já é de domínio público.
+Na engenharia de produção, o @exm-causalidade-oculta atua como um alerta crítico: não podemos atestar a qualidade de um processo baseando-nos apenas naquilo que conseguimos enxergar superficialmente, sem compreender a variável raiz que governa o sistema.
 
 ### A Evolução do Conceito (Níveis de Adequação) {#sec-evolucao-conceito}
 
@@ -314,8 +310,6 @@ A partir dessa percepção de valor pelo cliente, definimos a escala evolutiva d
 * **Vantagem Competitiva Sustentável:**
   É gerar mais valor que seus concorrentes por um longo período de tempo. Exige possuir aspectos, características ou atributos de qualidade difíceis de serem copiados, como, por exemplo, a excelência no atendimento e nos serviços associados.
 
-<!-- TODO: Inserir diagrama do Modelo Kano ilustrando a evolução de Requisitos Qualificadores para Ganhadores de Pedido -->
-
 ::: {.example #exm-praca-alimentacao name="A Batalha da Praça de Alimentação e o ARM"}
 Para visualizar a evolução dessa competitividade, imagine uma praça de alimentação em um grande shopping center. Todos os estabelecimentos ali presentes (hamburgueria, pizzaria, comida a quilo, culinária oriental) agregam valor à sua maneira. Partindo da premissa básica de que a necessidade fisiológica do consumidor é "matar a fome", qualquer uma dessas opções é tecnicamente válida.
 
@@ -371,7 +365,7 @@ Para otimizar essa fração, não basta que a empresa corte gastos de forma arbi
 
 * **Custos de Controle (O Investimento):** Incluem os *Custos de Prevenção* (ex: manutenção preditiva na frota) e os *Custos de Avaliação* (ex: testes contínuos de laboratório e amostragem). É o capital alocado ativamente para blindar o sistema contra a variabilidade.
 * **Custos de Falha (O Prejuízo):** Englobam as *Falhas Internas* (retrabalho e recirculação de carga fora de especificação antes de sair da usina) e as devastadoras *Falhas Externas* (pagamento de multas, devoluções e *demurrage* em portos porque o cliente recebeu o produto contaminado). Incluem também o *Custo de Oportunidade*, que é a perda de fatia de mercado pela má fama.
-* **Custos de Exceder Requerimentos (A Superqualidade):** Este é um erro sutil e perigoso. Ocorre quando a operação entrega mais do que foi solicitado sem que o cliente valorize ou pague por isso. Exemplo: gastar energia extra no moinho para atingir uma granulometria extremamente fina, quando o contrato tolerava uma malha grossa. É o desperdício gerado por não compreender o peso real que o mercado dá àquela característica.
+* **Custos de Exceder Requerimentos (A Superqualidade):** Este é um erro sutil e perigoso. Ocorre quando a operação entrega mais do que foi solicitado sem que o cliente valorize ou pague por isso. Exemplo: gastar energia extra no moinho para atingir uma granulometria extremamente fina, quando o contrato tolerava uma malha grossa. É o desperício gerado por não compreender o peso real que o mercado dá àquela característica.
 
 ### O Impacto Sistêmico: Ciclo Negativo vs. Ciclo Positivo {#sec-impacto-sistemico}
 
@@ -419,8 +413,6 @@ Normativamente, um objeto (3.6.1) é qualquer entidade perceptível ou concebív
 ### Expansão Estratégica: Produto Tangível, Genérico e Ampliado {#sec-expansao-estrategica}
 
 Embora a ISO 9000 seja rigorosa na distinção física e interativa, a gestão estratégica exige uma visão mais holística. Para o mercado, as características do que é vendido desdobram-se em três camadas de valor:
-
-<!-- TODO: Inserir diagrama de círculos concêntricos de Kotler ilustrando as três camadas do produto -->
 
 1. **Produto Tangível:** É a saída física propriamente dita oferecida ao comprador. É aquilo que imediatamente se reconhece como a "coisa vendida" (ex: o equipamento ou o lote de minério).
 2. **Produto Genérico (Essencial):** É o benefício essencial que o comprador espera obter do produto. Diferentes consumidores podem procurar diferentes benefícios em um mesmo item. Essa dimensão é dinâmica, evoluindo constantemente com as necessidades e expectativas do consumidor.
@@ -503,13 +495,11 @@ Embora essas dimensões sejam uma proposição adaptada à realidade da gestão 
 
 Para que as múltiplas dimensões da qualidade funcionem de forma harmônica, a organização não pode ser vista como um aglomerado de departamentos isolados, mas sim como um grande ecossistema de transformação. A ISO 9001 (2015) fundamenta essa visão através da **Abordagem de Processos**, onde a qualidade é garantida pela compreensão de que a saída de uma área é, inevitavelmente, a entrada da outra.
 
-<!-- TODO: Inserir diagrama clássico do Sistema de Produção (Entradas → Processo → Saídas com feedback) -->
-
 A figura clássica do Sistema de Produção ilustra que todo processo é um conjunto de atividades estruturadas em uma sequência lógico-temporal. Ele utiliza **recursos a serem transformados** (materiais, informações) e **recursos transformadores** (instalações, tecnologia, funcionários) sob uma metodologia preestabelecida, gerando produtos e serviços para um cliente, ao mesmo tempo em que precisa gerenciar externalidades (impactos ambientais, sociais e de segurança).
 
 No entanto, quando aplicamos essa mesma lógica de engenharia de produção para a **dinâmica da gestão da informação**, o chão de fábrica dá lugar ao **Ambiente de Relacionamento Interno (ARI)**.
 
-No ARI, a informação que percorre o fluxo vertical — da alta gestão até o cliente final — é desdobrada em indicadores mensuráveis. Para que esse fluxo tenha qualidade e gere valor, torna-se estritamente necessário mapear o processo de geração de demandas e definir as responsabilidades das partes envolvidas:
+No ARI, a information que percorre o fluxo vertical — da alta gestão até o cliente final — é desdobrada em indicadores mensuráveis. Para que esse fluxo tenha qualidade e gere valor, torna-se estritamente necessário mapear o processo de geração de demandas e definir as responsabilidades das partes envolvidas:
 
 **1. A Alta Gestão (Os Fornecedores de Entrada)**
 É responsável por fornecer o conjunto de elementos, diretrizes e indicadores desdobrados dos objetivos estratégicos da empresa. No fluxo de processos do ARI, os "produtos" gerados pela alta gestão formam as informações de entrada (*recursos a serem transformados*) que alimentarão o sistema.
