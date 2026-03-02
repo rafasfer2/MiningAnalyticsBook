@@ -45,32 +45,40 @@ Essas qualidades podem se manifestar de diferentes formas:
 * **Percebidas:** As pessoas notam essas características.
   *(Ex: As pessoas percebem essas características em Napoleão. As histórias transmitidas produziram ideias sobre a figura do general).*
 
-O emprego genérico da palavra Qualidade para representar coisas distintas deve-se ao fato de que o usuário da expressão não explica a que aspecto se refere o atributo. A palavra Qualidade deveria ser sempre empregada de forma composta, explicitando qual o substantivo a que se refere.
+O emprego genérico da palavra Qualidade para representar coisas distintas deve-se ao fato de que o usuário da expressão não explica a que aspecto se refere o atributo. Para evitar essa ambiguidade, a palavra Qualidade deveria ser sempre empregada de forma composta, explicitando qual o substantivo a que se refere.
 
-A @fig-caracteristicas-general exemplifica as características de um grande general. Observa-se que uma pessoa pode definir características e associá-las com intensidades ou pesos diferentes do que fariam outras pessoas. Isso representa a propriedade (i) da definição de qualidade. Além disso, estas mesmas pessoas podem atribuir características e pesos diferentes para outro personagem (como Dom Pedro I), a partir da sua percepção, o que representa a propriedade (ii) da definição. Por fim, a propriedade (iii) diz respeito à palavra "general" — que indica o mais alto posto das Forças Armadas e deriva da palavra latina *generalis*, que significa "geral", "universal", "comum a todos".
+A @fig-caracteristicas-general ilustra visualmente essa dinâmica ao analisar as qualidades de um "Grande General". O diagrama apresenta um conjunto de características inerentes potenciais (como rigor, sabedoria e coragem) e demonstra como diferentes avaliadores (representados à direita) criam associações completamente distintas. Enquanto um avaliador (linhas azuis) associa fortemente "rigor" e "coragem" a Napoleão, outro avaliador (linhas laranjas) foca na "sabedoria" e atribui a característica de "benevolência" tanto a Napoleão quanto a Dom Pedro I.
 
 ![Características de um grande general](../images/fig-características-general.png){#fig-caracteristicas-general fig-align="center"}
 
-A qualidade possui, portanto, níveis de subjetividade:
+A partir da interpretação desta figura, conseguimos materializar a aplicação prática dos três pilares da definição genérica de qualidade:
+
+* **A propriedade (i) – O Atributo:** O quadro "Quais Características?" materializa os atributos. O diagrama prova que a percepção é individual: pessoas diferentes podem simplesmente eleger e focar em conjuntos de características completamente diferentes para avaliar o mesmo objeto.
+* **A propriedade (ii) – A Distinção:** Refere-se à qualificação comparativa. As setas apontando para personagens distintos mostram que, utilizando esse conjunto de características, o avaliador consegue distinguir indivíduos, percebendo que Napoleão possui um perfil de atributos diferente de Dom Pedro I.
+* **A propriedade (iii) – A Essência:** É o conjunto mínimo e inegociável de características que descreve a natureza do que se avalia. Para ilustrar, se descrevermos um animal "grande, pesado, que vive na selva, possui tromba e orelhas enormes", você identifica intuitivamente a essência de um elefante. Se adicionarmos a característica "tem um par de asas" ou "tem duas patas", ele é imediatamente descaracterizado. De forma análoga, uma bola de neve pode ter várias características adicionais, mas a sua característica *essencial* é ser esférica; sem isso, deixa de ser uma bola. No contexto da @fig-caracteristicas-general, a essência está atrelada à natureza inconfundível do que significa ser um "general" — que indica o mais alto posto militar e deriva da palavra latina *generalis* (comum a todos).
+
+A qualidade possui, portanto, níveis intrínsecos de subjetividade:
 
 * A definição de quais características importam pode ser subjetiva.
-* A intensidade da associação das características pode ser subjetiva.
-* A forma de mensuração e interpretação das características pode ser subjetiva.
+* A intensidade da associação dessas características pode ser subjetiva.
+* A forma de mensuração e interpretação pode ser subjetiva.
 * A própria característica pode ser subjetiva.
 
 ### Dimensões da Qualidade: Objetiva vs. Subjetiva {#sec-dimensoes-qualidade}
 
-Esta subjetividade divide a compreensão da Qualidade em duas dimensões:
+É exatamente para lidar com essa forte carga de interpretação individual que a engenharia e a gestão precisaram categorizar o conceito. Toda essa subjetividade intrínseca listada acima divide a nossa compreensão da Qualidade em duas grandes dimensões:
 
-* **Dimensão Objetiva (ou primária):** Refere-se à qualidade intrínseca das coisas. É aquilo que faz parte da essência e é inerente ao objeto, independente do ponto de vista do ser humano.
-* **Dimensão Subjetiva (ou secundária):** Refere-se à percepção que as pessoas têm das características. Está associada à capacidade humana de pensar, sentir e diferenciar.
+* **Dimensão Objetiva (ou primária):** Refere-se à qualidade intrínseca das coisas. É aquilo que faz parte da essência e é inerente ao objeto, independente do ponto de vista do ser humano (como o peso, as dimensões físicas ou a composição química).
+* **Dimensão Subjetiva (ou secundária):** Refere-se à percepção que as pessoas têm dessas características. Está associada à capacidade humana de pensar, sentir e diferenciar (como o conforto, o sabor ou o status).
 
-Para compreender a complexidade de medir e atestar a qualidade de um produto, precisamos separar a característica real do objeto da forma como o observador o interpreta. Essa dicotomia entre a dimensão objetiva e a subjetiva é ilustrada na @fig-boladeneve-termometro através de dois cenários distintos:
+Para compreender a complexidade de medir e atestar a qualidade de um produto, precisamos separar com clareza a característica real do objeto da forma como o observador o interpreta.
+
+Retomando a nossa analogia da bola de neve e expandindo-a para uma nova perspectiva térmica, essa dicotomia exata entre o objetivo e o subjetivo é ilustrada na @fig-boladeneve-termometro através de dois cenários distintos:
 
 ![Ilustração da Bola de Neve e do Termômetro](../images/fig-boladeneve-termometro.png){#fig-boladeneve-termometro fig-align="center"}
 
 ::: {.example #exm-percepcao-sensorial name="A Percepção Sensorial - A Bola de Neve"}
-No primeiro cenário, temos o exemplo clássico da bola de neve. Fisicamente, ela possui propriedades materiais exatas. No entanto, o "poder" desse objeto na nossa percepção é a capacidade de gerar em nossa mente ideias qualitativas e sensoriais, como "esférica", "gelada" e "branca". O desafio gerencial surge exatamente dessa distinção: é extremamente difícil padronizar ou verificar um atributo de qualidade se ele depender puramente da capacidade de "produzir uma sensação" no cliente, pois essa percepção varia de pessoa para pessoa.
+No primeiro cenário, o objeto (bola de neve) possui propriedades materiais exatas. No entanto, o "poder" desse objeto na nossa percepção é a capacidade de gerar em nossa mente ideias qualitativas e sensoriais, como "esférica", "gelada" e "branca". O desafio gerencial surge exatamente dessa distinção: é extremamente difícil padronizar ou verificar um atributo de qualidade se ele depender puramente da capacidade de "produzir uma sensação" no cliente, pois essa percepção varia de pessoa para pessoa.
 :::
 
 ::: {.example #exm-causalidade-oculta name="A Causalidade Oculta - O Sol e o Termômetro"}

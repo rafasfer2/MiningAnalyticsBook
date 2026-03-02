@@ -4,15 +4,15 @@ format: html
 
 # O Motor Matemático: Quantificação e Modelagem (ARM) {#sec-cap3}
 
-Neste capítulo, operamos a transição definitiva da filosofia normativa para a exatidão da engenharia. Transformamos conceitos abstratos e subjetivos em modelos matemáticos capazes de nortear decisões operacionais e financeiras no setor mineral.
+Neste capítulo, operamos a transição definitiva da filosofia normativa para a exatidão da engenharia. Transformamos conceitos abstratos e subjetivos em modelos matemáticos capazes de nortear decisões operacionais e financeiras no setor mineral e na gestão de competências.
 
 ::: {.callout-tip title="🎯 Objetivos deste Capítulo"}
 Neste capítulo, faremos a transição definitiva da qualidade filosófica para a engenharia quantitativa. Ao final da leitura, você será capaz de:
 
 * **Transpor** a barreira da subjetividade, transformando opiniões sobre qualidade em indicadores matemáticos auditáveis e gerenciáveis.
-* **Compreender e Estruturar** a Modelagem Analítica de Requisitos (ARM), aplicando as equações dos modelos Unidimensional (Flat) e Multidimensional (Hierarchical).
+* **Compreender e Estruturar** a Modelagem Analítica de Requisitos (ARM) em suas três evoluções: Univariável (Flat), Multidimensional (Hierarchical) e Multivariável (Simultaneous Scores).
 * **Executar** os cinco passos práticos de modelagem: identificação de variáveis ($V_i$), agrupamento em dimensões ($D_j$), calibragem de pesos ($W_i$), parametrização de desempenho ($S_i$) e consolidação matemática.
-* **Aplicar** o algoritmo ARM em cenários reais da mineração, avaliando quantitativamente tanto a conformidade de **Produtos** (ex: minério de ferro) quanto a eficiência de **Processos** (ex: britagem e logística).
+* **Aplicar** o algoritmo ARM em cenários reais, avaliando quantitativamente tanto a conformidade de **Produtos** (ex: minério de ferro) quanto a eficiência de **Processos** e o perfil de **Pessoas** (capital humano).
 :::
 
 ## O Propósito: De onde saímos e para onde vamos? {#sec-proposito-arm}
@@ -21,77 +21,79 @@ Antes de avançarmos para as fórmulas e para os algoritmos de cálculo, é fund
 
 **De onde estamos saindo (O Ponto de Partida):**
 
-* **Da Subjetividade:**
-  Saímos de um cenário onde a qualidade é um adjetivo vago. Afirmações como "este minério é excelente" ou "este equipamento é confiável" não são auditáveis e geram conflitos de interpretação.
-* **Do Caos dos Dados Isolados:**
-  Um lote de produto pode ter dezenas de laudos (teor de ferro, sílica, umidade). Avaliar essas variáveis de forma solta impede uma decisão sistêmica (ex: o laboratório aprova o teor, mas a logística reprova a umidade).
-* **Dos Conflitos de Interesse:**
-  Saímos da tradicional "guerra" entre departamentos, onde a Produção foca em volume, a Qualidade em especificações e o Comercial em custos.
+* **Da Subjetividade:** Saímos de um cenário onde a qualidade é um adjetivo vago. Afirmações como "este minério é excelente" ou "este aluno é bom" não são auditáveis e geram conflitos de interpretação.
+* **Do Caos dos Dados Isolados:** Um lote de produto pode ter dezenas de laudos. Avaliar essas variáveis de forma solta impede uma decisão sistêmica.
+* **Dos Conflitos de Interesse:** Saímos da tradicional "guerra" entre departamentos, onde a Produção foca em volume, a Qualidade em especificações e o Comercial em custos.
 
 **Para onde queremos chegar (O Destino Final):**
 
-* **A um Indicador Gerenciável:**
-  Queremos um único número (o *score*) que consolide todo o desempenho do produto ou processo, indicando imediatamente se geramos ou destruímos valor.
-* **À Capacidade de Trade-off (Equilíbrio):**
-  Queremos uma ferramenta que calcule perdas e ganhos de forma integrada.
-* **À Preparação para a Ciência de Dados:**
-  Este é o foco do livro. Algoritmos preditivos e modelos de *Machine Learning* no software R não entendem a "voz do cliente". Eles precisam de *Features* quantificadas, Pesos matemáticos e Notas padronizadas.
+* **A um Indicador Gerenciável:** Queremos um número (o *Score*) que consolide todo o desempenho do objeto, indicando se geramos ou destruímos valor.
+* **À Capacidade de Trade-off (Equilíbrio):** Queremos uma ferramenta que calcule perdas e ganhos de forma integrada.
+* **À Preparação para a Ciência de Dados:** Algoritmos preditivos no software R não entendem a "voz do cliente" em texto livre. Eles precisam de *Features* quantificadas, Pesos matemáticos e Notas padronizadas.
 
 ---
 
 ## Modelagem Analítica de Requisitos (ARM) {#sec-arm}
 
-A Modelagem Analítica de Requisitos — do inglês *Analytical Requirements Modeling (ARM)* — representa a qualidade experimentada e avaliada em todas as dimensões de um produto ou serviço. Para a engenharia, ela deixa de ser apenas um conceito filosófico e torna-se a função matemática central da nossa gestão.
+A Modelagem Analítica de Requisitos — do inglês *Analytical Requirements Modeling (ARM)* — representa a qualidade experimentada e avaliada em todas as dimensões de um produto, serviço ou processo. Para a engenharia, ela deixa de ser apenas um conceito filosófico e torna-se a função matemática central da gestão.
 
 ::: {.callout-note title="💻 Tech Note: Evolução da Nomenclatura"}
 Em literaturas clássicas de gestão, formulações semelhantes costumam ser referenciadas como Função Qualidade Total do Produto (QTP) ou Índice de Atendimento dos Requisitos (IAR). Adotaremos a estrutura e a sigla **ARM** por seu alinhamento direto com as metodologias internacionais de *Data Science* e Engenharia de Atributos (*Feature Engineering*).
 :::
 
-A complexidade do modelo depende da arquitetura de dados escolhida. A diferença fundamental reside nos **níveis hierárquicos** de agregação (colapso) dos dados.
+A complexidade do modelo depende da arquitetura de dados escolhida e do objetivo da análise. A modelagem evolui em três níveis de sofisticação:
 
-### O Modelo Unidimensional (Flat Model) {#sec-arm-uni}
+### O Modelo Univariável (Flat Model) {#sec-arm-uni}
 
-No modelo unidimensional, não há agrupamento intermediário. Todas as variáveis ($V_i$) são tratadas no mesmo nível hierárquico e são **colapsadas diretamente** em um único valor global. É ideal para análises rápidas ou quando as variáveis são independentes e possuem a mesma natureza.
+No modelo univariável (ou unidimensional), não há agrupamento intermediário. Todas as variáveis operacionais ($V_i$) são tratadas no mesmo nível hierárquico e são **colapsadas diretamente** em um único valor global. É ideal para análises rápidas ou quando as variáveis são independentes, diretas e geram apenas uma saída (*output*).
 
 A equação é expressa pela soma ponderada direta:
 
 $$ARM = \sum_{i=1}^{n} (W_i \times S_i)$$ {#eq-arm-uni}
 
 Onde:
-* **$n$:**
-  Número total de variáveis avaliadas.
-* **$W_i$ (*Weight*):**
-  Peso de importância da variável $i$ ($\sum W_i = 1,0$).
-* **$S_i$ (*Score*):**
-  Nota de desempenho da variável $i$.
+* **$n$:** Número total de variáveis avaliadas.
+* **$W_i$ (*Weight*):** Peso de importância da variável $i$ ($\sum W_i = 1,0$).
+* **$S_i$ (*Score*):** Nota de desempenho da variável $i$.
 
 ### O Modelo Multidimensional (Hierarchical Model) {#sec-arm-multi}
 
-Na prática industrial complexa, tratar dezenas de variáveis soltas pode gerar ruído. O modelo multidimensional introduz uma camada hierárquica.
+Na prática industrial complexa, tratar dezenas de variáveis soltas pode gerar ruído analítico. O modelo multidimensional introduz uma camada hierárquica. O objetivo continua sendo gerar uma única nota final, mas de forma estruturada:
 1. Primeiro, **colapsam-se as variáveis ($V_i$)** dentro de suas respectivas Dimensões ($D_j$).
 2. Em seguida, **colapsam-se as Dimensões ($D_j$)** para formar o índice global.
 
-Isso permite diagnósticos mais precisos (ex: saber que o produto falhou especificamente na dimensão "Logística", mesmo que a dimensão "Química" esteja perfeita).
+Isso permite diagnósticos de causa-raiz mais precisos (ex: saber que o produto falhou especificamente na dimensão "Logística", mesmo que o índice global esteja aceitável).
 
 $$ARM = \sum_{j=1}^{m} \left[ W_{D_j} \times \underbrace{\left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right)}_{\text{Score da Dimensão } D_j} \right]$$ {#eq-arm-multi}
 
 Onde:
-* **$m$:**
-  Número de dimensões ($D_j$).
-* **$W_{D_j}$:**
-  Peso da dimensão no contexto global.
-* **Termo entre parênteses internos:**
-  Calcula o desempenho consolidado daquela dimensão específica.
+* **$m$:** Número de macrodimensões ($D_j$).
+* **$W_{D_j}$:** Peso da dimensão no contexto global.
+* **Termo entre parênteses internos:** Calcula o desempenho consolidado daquela dimensão específica.
+
+### O Modelo Multivariável (Simultaneous Scores) {#sec-arm-multivariavel}
+
+A evolução máxima do ARM ocorre quando um mesmo conjunto de dados precisa gerar múltiplas saídas interpretativas simultâneas. Em vez de calcular uma única nota final de "Qualidade", o modelo multivariável avalia como as mesmas notas de desempenho ($S_i$) reagem sob diferentes perspectivas ou exigências do mercado.
+
+O exemplo clássico é o mapeamento de perfis humanos (como visto no Capítulo anterior). A mesma habilidade ($V_i$) possui um peso distinto dependendo do perfil ($p$) que está sendo calculado. A equação gera um vetor de resultados:
+
+$$ARM_p = \sum_{i=1}^{n} (W_{i,p} \times S_i)$$ {#eq-arm-multivariavel}
+
+Onde:
+* **$p$:** O índice do perfil ou saída multivariada (ex: Perfil Analítico, Perfil Comunicador).
+* **$W_{i,p}$:** O peso específico que a variável $i$ exerce para a formação do perfil $p$.
+
+---
 
 ### A Ponte Normativa: Associando o ARM à ISO 9000 {#sec-ponte-normativa}
 
-Para que esse modelo seja robusto, ancoramos cada variável da equação nas definições da ISO 9000:
+Para que esse modelo seja metodologicamente robusto e aceito em auditorias, ancoramos cada elemento da equação nas definições oficiais do vocabulário da Qualidade (ISO 9000):
 
 | Definição Inicial (Senso Comum) | Sistema de Gestão (ISO 9000) | Modelagem Analítica (ARM) |
 | :--- | :--- | :--- |
-| "Das coisas ou das pessoas" | **Objeto** (3.6.1) | **$ARM$** (Produto final / Modelo) |
+| "Das coisas ou das pessoas" | **Objeto** (3.6.1) | **$ARM$** (Score Global / Perfil) |
 | "Atributos ou propriedades" | **Características** (3.10.1) | **$V_i$** (*Variables* / *Features*) |
-| "Essência ou natureza exigida" | **Requisito** (3.6.4) | **$W_i$** (*Weight* / Importância) |
+| "Essência ou natureza exigida" | **Requisito** (3.6.4) | **$W_i$** (*Weight* / Relevância) |
 | "Capacidade de distinção" | **Grau** (3.6.3) | **$S_i$** (*Score* / Desempenho) |
 
 : Evolução do Conceito de Qualidade: Da Filosofia à Matemática {#tbl-evolucao-arm}
@@ -100,27 +102,19 @@ Para que esse modelo seja robusto, ancoramos cada variável da equação nas def
 
 ### Passos de Execução e Abordagens {#sec-passos-abordagens}
 
-Para construir o $ARM$, o analista percorre cinco passos fundamentais:
+Para construir a arquitetura do $ARM$ (seja ela univariável, multidimensional ou multivariável), o analista percorre cinco passos fundamentais:
 
-1. **Identificação das Variáveis ($V_i$):**
-   Levantar características observáveis (chuva de ideias).
-2. **Consolidação em Dimensões ($D_j$):**
-   Agrupar as variáveis em blocos hierárquicos (passo exclusivo do modelo Multidimensional).
-3. **Calibragem de Relevância ($W_i$):**
-   Definir matematicamente os pesos.
-4. **Parametrização de Desempenho ($S_i$):**
-   Padronizar grandezas físicas em notas de 0 a 10 ou 0 a 100.
-5. **Consolidação Matemática:**
-   Rodar as equações do $ARM$.
+1. **Identificação das Variáveis ($V_i$):** Levantar características observáveis e mensuráveis do objeto.
+2. **Consolidação em Dimensões ($D_j$) ou Perfis ($p$):** Agrupar as variáveis em blocos lógicos ou definir as saídas multivariadas desejadas.
+3. **Calibragem de Relevância ($W_i$ ou $W_{i,p}$):** Definir matematicamente os pesos de cada variável para o sistema.
+4. **Parametrização de Desempenho ($S_i$):** Padronizar as grandezas físicas ou escalas *Likert* (ex: de 1 a 5, ou 0 a 100).
+5. **Consolidação Matemática:** Rodar as equações do algoritmo no sistema (ex: via linguagem R).
 
-A ordem em que executamos esses passos define a **Abordagem de Modelagem**:
+A ordem em que executamos a descoberta dessas variáveis define a **Abordagem de Modelagem**:
 
-* **Bottom-up (De baixo para cima):**
-  Exploratória. Gera-se uma ampla lista de variáveis soltas ($V_i$) para só então agrupá-las em dimensões ($D_j$).
-* **Top-down (De cima para baixo):**
-  Estruturada. A diretoria ou o mercado impõe as grandes Dimensões (ex: "Sustentabilidade"), e a engenharia "desce" para descobrir as Variáveis operacionais que as compõem.
-* **Middle-out (Do meio para as pontas):**
-  Dinâmica. Escolhe-se um nível médio de partida e trabalha-se simultaneamente detalhando variáveis e quantificando dimensões.
+* **Bottom-up (De baixo para cima):** Exploratória. Gera-se uma ampla lista de variáveis operacionais soltas ($V_i$) no chão de fábrica para só então agrupá-las em dimensões estratégicas ($D_j$).
+* **Top-down (De cima para baixo):** Estruturada. A diretoria ou o mercado impõe as grandes Dimensões (ex: "Sustentabilidade"), e a engenharia "desce" para descobrir as Variáveis operacionais que a compõem.
+* **Middle-out (Do meio para as pontas):** Dinâmica. Escolhe-se um nível intermediário de partida e trabalha-se simultaneamente detalhando o nível operacional e quantificando o estratégico.
 
 ---
 
@@ -449,7 +443,7 @@ Como podemos aplicar a equação $ARM$ para medir a "qualidade" de uma operaçã
 
 A resposta é deslocar o objeto de estudo. Em vez de avaliar a rocha, avaliamos o maquinário e o fluxo de trabalho. As variáveis ($V_i$) deixam de ser propriedades químicas e passam a ser **Métricas de Desempenho Operacional (KPIs)**.
 
-::: {.example #exm-britagem name="Estudo de Caso V: Qualidade do Processo de Britagem Primária"}
+::: {.example #exm-britagem name="Estudo de Caso III: Qualidade do Processo de Britagem Primária"}
 A gerência precisa avaliar a "saúde" e a eficiência operacional da planta de britagem primária em uma determinada semana, não pelo tamanho da pedra que sai, mas por *como* a máquina está sendo operada.
 
 **1. Definição dos Parâmetros do Processo ($V_i$) e Pesos ($W_i$)**
