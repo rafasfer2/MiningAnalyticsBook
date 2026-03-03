@@ -23,7 +23,7 @@ O IQPL é a consolidação da avaliação da qualidade do planejamento em uma no
 
 $$IQPL = \sum_{j=1}^{5} \left[ W_{D_j} \times \left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right) \right] \leq 100$$ {#eq-iqpl}
 
-Onde $W$ representa o peso (*Weight*) e $S$ o escore (*Score*) atribuído à variável ou dimensão durante a auditoria.
+Onde $W$ representa o peso (*Weight*) e $S$ o escore (*Score*) atribuído à variável ou dimensão durante a auditoria. **Nota:** A representação matemática acima constitui uma abstração didática para fins de compreensão conceitual. A operacionalização do cálculo em ambiente corporativo segue a metodologia e as ponderações específicas definidas no manual de auditoria do IQPL.
 
 ### Dicotomia Paramétrica: Parâmetros Existentes vs. Novos
 
@@ -48,8 +48,8 @@ A primeira dimensão foca na **estrutura de planejamento** dos planos de manuten
    - *Relevância:* Fornece margem operacional quando há gargalos no cronograma de produção da planta.
 3. **Horizonte de Abertura:** Dias de antecedência com os quais o plano "abre" para que a equipe de PCM execute a reserva de materiais (*Kitting*) e alocação de HH.
    - *Relevância:* Define a capacidade técnica de reação da organização.
-4. **Intervalo de Solicitação:** Frequência com a qual o plano solicita a execução (horas, dias, meses, ciclos).
-   - *Relevância:* Deve estar estritamente alinhado com dados técnicos do fabricante ou histórico de confiabilidade.
+4. **Intervalo de Solicitação:** Período sistêmico para o qual o sistema gera solicitações futuras de manutenção durante a programação do plano. Este parâmetro não define a frequência técnica da manutenção, mas sim o horizonte de geração antecipada de ordens para garantir previsibilidade ao planejamento.
+   - *Relevância:* Deve estar alinhado com o ciclo de replanejamento e garantir que novas solicitações sejam geradas com antecedência suficiente para otimização de recursos.
 5. **Local de Instalação:** Campo sistêmico que identifica onde o ativo reside.
    - *Relevância:* Crítico para segregar responsabilidades operacionais e mapear riscos de área.
 6. **Plano Automático:** Identificador que indica se o plano gera automaticamente solicitações ou se requer acionamento manual do planejador.
@@ -69,7 +69,7 @@ A segunda dimensão aborda como a organização **executa e documenta** as ativi
 
 **Parâmetros Existentes ($D_2$ Históricos)**
 
-4. **Reinício dos Planos:** Mecanismo de *reset* automático após cada conclusão. Evita que históricos vencidos congestionem o *backlog*. Um plano que não reinicia corretamente torna-se um peso morto sistêmico.
+4. **Reinício dos Planos:** Evento excepcional de ressincronização dos parâmetros de programação de um plano de manutenção. O reinício não é automático nem rotineiro, e quando ocorre, implica perda temporária de pontuação do parâmetro durante o período de avaliação subsequente, conforme regra corporativa. Serve para corrigir desalinhamentos críticos entre o planejado e a realidade operacional.
 5. **Ciclos Vencidos:** Quantificação do número de solicitações de manutenção que ultrapassaram o prazo de tolerância de execução e permanecem abertas em atraso.
 6. **RT (Requisição Técnica) e Validação de Planos:** Documentação e aprovação formal dos critérios de um plano antes de sua ativação definitiva no sistema, impedindo que o "achismo" contamine a base de dados.
 
@@ -108,7 +108,7 @@ A quarta dimensão aborda a **descrição detalhada das atividades** de manuten�
 11. **Validade da LT:** Período estabelecido em que a Lista de Tarefas deverá sofrer revisão compulsória pela Engenharia.
 12. **5S:** Aplicação metodológica para organização de ferramentas, descarte de resíduos e limpeza da área após a intervenção.
 13. **Título da Lista:** Nomenclatura clara e única. Evita homônimos sistêmicos e confusão nas ordens de campo.
-14. **Tempo Máx. de Operação:** Intervalo máximo permissível entre execuções sem que o ativo entre em severa zona de falha potencial.
+14. **Tempo Máx. de Operação:** Limite máximo permitido para a duração de uma operação individual da lista de tarefas, medido por executante. Este parâmetro visa prevenir exposição excessiva à fadiga operacional e garantir aderência aos limites de jornada e segurança.
 15. **Chave de Controle:** Identificador único (ID) que amarra indissoluvelmente a lista de tarefas ao plano, ao ativo e ao seu histórico no CMMS.
 
 ## Dimensão 5: Desempenho ($D_5$)
@@ -117,8 +117,8 @@ A quinta dimensão foca estritamente no **resultado final sintético** da execu�
 
 **Parâmetro Novo ($D_5$ Sintético)**
 
-1. **RMC (Relação Manutenção / Confiabilidade):** Índice estratégico que correlaciona o custo investido na manutenção preventiva do ativo com a confiabilidade operacional que ele entrega em campo.
-   - *Fórmula Base:* O RMC relaciona o MTBF (Tempo Médio Entre Falhas) pelo Custo da Manutenção Preventiva. A premissa é simples: se gasta-se muito em preventiva, mas o ativo continua falhando com alta frequência operacional, aquele plano de manutenção é ineficaz ou o ativo esgotou sua vida útil econômica.
+1. **RMC — Relação de Manutenção Corretiva:** Métrica que expressa a proporção de horas aplicadas em manutenção corretiva (emergencial e não emergencial) em relação ao total de horas de manutenção investidas no ativo.
+   - *Definição Formal:* $RMC = \frac{\text{Horas de Manutenção Corretiva}}{\text{Total de Horas de Manutenção}}$ . Embora o RMC permita leituras gerenciais associadas à confiabilidade operacional, sua definição permanece como a relação entre horas aplicadas em corretivas (emergenciais e não emergenciais) e o total de horas de manutenção, conforme metodologia corporativa.
 
 ## Relação entre o Macrofluxo do PCM e o IQPL
 
