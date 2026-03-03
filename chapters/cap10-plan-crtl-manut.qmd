@@ -849,6 +849,58 @@ Lembra do nosso exemplo da correia transportadora de minério? Uma queda brusca 
 A leitura transversal rompe com a visão departamentalizada ("a culpa é da execução"). Ela trata os desvios não como falhas locais, mas como efeitos sistêmicos do macrofluxo, orientando a engenharia a agir nos pontos corretos de alavancagem.
 :::
 
+## Maturidade do Planejamento e Controle da Manutenção (PCM)
+
+Ao longo da análise do macrofluxo e de seus desdobramentos, observa-se que o modelo de governança da manutenção não se limita a prescrever tarefas, mas estabelece uma jornada evolutiva. A maturidade do PCM pode ser compreendida como o grau de controle, previsibilidade e aprendizado organizacional alcançado pelo processo, à medida que ele evolui de um modelo predominantemente reativo ("quebra-conserta") para um modelo planejado, programado e orientado por indicadores.
+
+### O Macrofluxo como Salto de Maturidade
+
+O próprio desenho do macrofluxo já representa um salto de maturidade estrutural. Processos imaturos tendem a misturar planejamento com execução, reagir a falhas sem análise estruturada e executar intervenções sem registro consistente. Em contrapartida, o macrofluxo aqui estabelecido pressupõe uma doutrina operacional clara:
+
+1.  **Planejar** antes de executar.
+2.  **Programar** antes de intervir.
+3.  **Registrar** antes de encerrar.
+4.  **Analisar** antes de melhorar.
+
+Essa separação rigorosa entre identificação, planejamento, programação, execução e controle é o alicerce para que os KPIs deixem de ser apenas números em um relatório e passem a refletir a verdadeira disciplina do processo.
+
+### KPIs como Marcadores de Maturidade
+
+Os KPIs transversais funcionam como marcadores objetivos do nível evolutivo da planta. Em um **PCM de baixa maturidade**, os sintomas sistêmicos são evidentes: alto percentual de OMs reprogramadas, baixa aderência à programação, crescimento contínuo do *backlog* e baixa confiabilidade nos apontamentos (IAMO inconsistente). Esses sinais indicam um planejamento frágil e uma execução reativa.
+
+À medida que o processo entra em **maturação**, indicadores de meio de fluxo ganham relevância: aderência ao planejamento (Hh), tempo médio planejado e aderência ao custo. Neste estágio, a organização já planeja com mais rigor e começa a comparar o "planejado vs. realizado".
+
+Por fim, em **níveis elevados de maturidade**, destacam-se a Aderência à Manutenção Sistemática (AMS), a Aderência à Programação estrita e um IAMO confiável. Esses indicadores refletem uma execução disciplinada, uma forte integração com o aprovisionamento e o uso sistemático de dados para retroalimentar a engenharia.
+
+::: {.callout-tip title="💡 Síntese Conceitual"}
+A maturidade do Planejamento e Controle da Manutenção manifesta-se na capacidade do processo de transformar dados operacionais em aprendizado organizacional. No modelo analisado, essa maturidade é evidenciada pela separação clara das etapas do macrofluxo e pelo uso de KPIs que avaliam não apenas resultados, mas a disciplina do planejamento, da programação, da execução e do registro. Indicadores como aderência ao planejamento, aderência à programação, AMS, IAMO e backlog funcionam como marcadores objetivos do nível de maturidade do PCM, permitindo identificar fragilidades, orientar melhorias e sustentar a evolução contínua do processo de manutenção.
+:::
+
+### Guia de Evolução: Ações Práticas por Nível de Maturidade
+
+A análise da maturidade do PCM só se torna efetiva quando associada a ações práticas de evolução do processo. Identificar o nível atual é importante, mas insuficiente se não houver direcionamento claro sobre o que deve ser feito para avançar ao próximo estágio.
+
+Nesse sentido, a @tbl-matriz-maturidade cruza os níveis de maturidade do PCM com ações recomendadas, alinhadas ao macrofluxo e aos KPIs, servindo como um guia lógico de evolução.
+
+| Nível de Maturidade | Foco Principal de Gestão | Ações Recomendadas no PCM | Etapas mais Impactadas | KPIs mais Sensíveis |
+| :--- | :--- | :--- | :--- | :--- |
+| **Nível 1 - Reativo / Inicial** | Controle mínimo e resposta a falhas. | Formalizar registro de todas as demandas; Eliminar execuções sem OM; Padronizar abertura/encerramento; Garantir apontamento básico de HH. | Identificação, Registro, Execução. | *Backlog*, IAMO (baixo), Reprogramações elevadas. |
+| **Nível 2 - Estruturado** | Organização do fluxo e disciplina básica. | Separar claramente planejamento, programação e execução; Estruturar planejamento técnico; Introduzir programação formal de rotina. | Planejamento, Programação, Registro. | Aderência ao planejamento (Hh), Tempo médio planejado. |
+| **Nível 3 - Planejado** | Qualidade do planejamento e previsibilidade. | Melhorar estimativas de HH e materiais; Integrar aprovisionamento; Reduzir reprogramações por falta de peças; Tratar *backlog* de forma estruturada. | Planejamento, Aprovisionamento, Programação. | Aderência ao planejamento, Custo planejado, *Backlog*. |
+| **Nível 4 - Controlado** | Estabilidade e controle por indicadores. | Analisar KPIs sistematicamente; Tratar causas raiz de reprogramação; Melhorar aderência à programação; Reforçar disciplina de registro em campo. | Programação, Execução, Registro/Encerramento. | Aderência à programação, IAMO, AMS. |
+| **Nível 5 - Maduro / Otimizado** | Melhoria contínua e decisão baseada em dados. | Utilizar histórico para ajuste de planos; Balancear preventiva vs corretiva; Atuar em tendências preditivas; Integrar PCM à estratégia de produção. | Controle/Melhoria, Planejamento, Inspeção. | AMS estável, *Backlog* sustentável, KPIs previsíveis. |
+
+: Quadro Guia – Nível de Maturidade × Ações Recomendadas para o PCM {#tbl-matriz-maturidade}
+
+### O Caráter Cumulativo da Evolução
+
+O cruzamento entre níveis de maturidade e ações recomendadas evidencia que a evolução do PCM ocorre de forma progressiva e cumulativa, não sendo possível avançar diretamente para estágios mais elevados sem consolidar os fundamentos do processo.
+
+Ações avançadas, como o uso de algoritmos preditivos ou a estabilização da programação, só produzem resultados consistentes quando as etapas básicas — como o registro disciplinado (Nível 1) e o planejamento estruturado (Nível 2) — já estão maduras. Saltos diretos de maturidade não são sustentáveis.
+
+Assim, a maturidade do PCM não está associada a iniciativas isoladas ou à simples compra de um *software* caro, mas à execução consistente do macrofluxo metodológico e ao uso dos indicadores (*KPIs*) como instrumento real de aprendizado e tomada de decisão, orientando a engenharia rumo à excelência operacional.
+
+
 ## 📝 Resumo do Capítulo
 
 * **O Macrofluxo Sistêmico:** O PCM não é um conjunto de tarefas isoladas, mas um ciclo interdependente. A demanda nasce na identificação e registro, ganha forma no planejamento, viabilidade no aprovisionamento, data na programação, materialidade na execução e gera conhecimento estratégico no encerramento e controle.

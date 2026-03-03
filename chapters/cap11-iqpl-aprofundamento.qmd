@@ -2,7 +2,17 @@
 format: html
 ---
 
-# Estratégias de Manutenção Preventiva Imperfeita e Ciclos de Renovação {#sec-manutencao-imperfeita}
+# Estratégias de Manutenção Imperfeita e o Índice de Qualidade (IQPL) {#sec-iqpl-manutencao}
+
+::: {.callout-tip title="🎯 Objetivos deste Capítulo"}
+Neste capítulo, faremos a transição da gestão de processos para a engenharia analítica de confiabilidade. O engenheiro ou gestor deve se importar com este conteúdo porque planos mal dimensionados geram paradas não programadas e destroem o fluxo de caixa. Ao final da leitura, você será capaz de:
+
+* **Compreender** o conceito de manutenção imperfeita e a evolução da modelagem de eficiência estocástica (rompendo com a ilusão dos estados *ABAO* e *AGAN*).
+* **Estruturar** matematicamente ciclos de renovação e quantificar a redução da intensidade de falhas ao longo do tempo.
+* **Dominar** a arquitetura do Índice de Qualidade de Plano de Manutenção (IQPL) e suas 5 dimensões de auditoria.
+* **Aplicar** o cálculo multicritério do IQPL para auditar, diagnosticar e otimizar planos de manutenção, separando requisitos históricos de gatilhos de inovação.
+* **Implementar** um motor matemático em linguagem R para automatizar o processamento e a auditoria de planos de manutenção em larga escala.
+:::
 
 A manutenção exerce um impacto profundo na capacidade produtiva e na qualidade final dos produtos, exigindo um rigoroso processo de melhoria contínua. Na indústria moderna, estima-se que entre 15% e 40% do custo total de produção seja absorvido pelas atividades de manutenção.
 
@@ -509,22 +519,10 @@ Este motor pode ser facilmente expandido para:
 
 ---
 
-## Espaço para Expansão e Aprofundamento
+## 📝 Resumo do Capítulo
 
-*(Este arquivo serve como rascunho para aprofundamento. Abaixo estão sugestões de seções a serem desenvolvidas)*
-
-### 📌 Próximas Seções a Desenvolver:
-
-- [ ] **Integração com Preditiva:** Como dados de sensores IoT enriquecem o cálculo do RMC?
-- [ ] **Macro-Planejamento:** Algoritmo para otimizar a janela de manutenção (quando fazer?) vs. Micro-Planejamento (como fazer?).
-- [ ] **Custo vs. Confiabilidade:** Curva de trade-off entre investimento em manutenção e período de vida útil dos ativos.
-- [x] **Código em R:** Implementação computacional do IQPL; funções para agregação, ponderação e visualização via Shiny app. *(Versão 1.0 Completa)*
-- [ ] **Estudos Comparativos:** IQPL de diferentes plantas mineradoras; benchmarking setorial.
-- [ ] **Casos de Falha:** Exemplos de britadores com IQPL baixo que resultaram em paradas catastróficas; lições aprendidas.
-
----
-
-**Status do Rascunho:** Versão Refinada - Pronto para Integração
-**Data de Criação:** 3 de março de 2026
-**Última Atualização:** Versão 2.0 (Correções Matemáticas + Código R)
-**Author:** Engenharia de Manutenção / Modelagem ARM
+* **A Ilusão da Manutenção Perfeita:** Na prática, intervenções técnicas raramente retornam o ativo ao estado de "novo" (AGAN) nem o deixam no exato estado anterior à falha (ABAO). Modelar a manutenção imperfeita, assumindo a redução da intensidade de falhas, reflete com muito mais precisão a realidade operacional de sistemas complexos.
+* **Ciclos de Renovação e Modelagem Matemática:** A eficiência da manutenção (representada pelo fator $\alpha_n$) varia conforme a complexidade do pacote de revisão (PR). A modelagem estocástica baseada em Weibull e Processos de Poisson permite calcular a degradação residual e planejar a Renovação Completa (CR) no momento ótimo, integrando viabilidade financeira e confiabilidade.
+* **A Arquitetura Analítica do IQPL:** Desenhar um plano não é suficiente; auditar a sua qualidade estrutural é vital. O IQPL consolida 35 variáveis críticas em 5 dimensões (Programáveis, Processuais, Ativos, Lista de Tarefas e Desempenho), separando com clareza os parâmetros de controle histórico dos novos gatilhos de inovação.
+* **Do Diagnóstico à Ação Estratégica:** O cálculo do IQPL transforma auditorias qualitativas (subjetivas) em um *score* exato e acionável (escala de 0 a 100). Ele revela não apenas a nota global do plano, mas mapeia exatamente em qual dimensão (ex: ausência de materiais no aprovisionamento ou taxonomia fraga) o gestor deve concentrar seu *roadmap* de 30/90/180 dias.
+* **Automação via Motor Matemático (R):** A governança moderna de ativos exige escala. A transição de cálculos em planilhas manuais para algoritmos estruturados em R permite que o PCM monitore centenas de planos em frotas inteiras quase em tempo real, sustentando a verdadeira melhoria contínua (*Data-driven*).
