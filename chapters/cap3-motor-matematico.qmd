@@ -52,14 +52,19 @@ A equação é expressa pela soma ponderada direta:
 $$ARM = \sum_{i=1}^{n} (W_i \times S_i)$$ {#eq-arm-uni}
 
 Onde:
+
 * **$n$:** Número total de variáveis avaliadas.
+
 * **$W_i$ (*Weight*):** Peso de importância da variável $i$ ($\sum W_i = 1,0$).
+
 * **$S_i$ (*Score*):** Nota de desempenho da variável $i$.
 
 ### O Modelo Multidimensional (Hierarchical Model) {#sec-arm-multi}
 
 Na prática industrial complexa, tratar dezenas de variáveis soltas pode gerar ruído analítico. O modelo multidimensional introduz uma camada hierárquica. O objetivo continua sendo gerar uma única nota final, mas de forma estruturada:
+
 1. Primeiro, **colapsam-se as variáveis ($V_i$)** dentro de suas respectivas Dimensões ($D_j$).
+
 2. Em seguida, **colapsam-se as Dimensões ($D_j$)** para formar o índice global.
 
 Isso permite diagnósticos de causa-raiz mais precisos (ex: saber que o produto falhou especificamente na dimensão "Logística", mesmo que o índice global esteja aceitável).
@@ -67,8 +72,11 @@ Isso permite diagnósticos de causa-raiz mais precisos (ex: saber que o produto 
 $$ARM = \sum_{j=1}^{m} \left[ W_{D_j} \times \underbrace{\left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right)}_{\text{Score da Dimensão } D_j} \right]$$ {#eq-arm-multi}
 
 Onde:
+
 * **$m$:** Número de macrodimensões ($D_j$).
+
 * **$W_{D_j}$:** Peso da dimensão no contexto global.
+
 * **Termo entre parênteses internos:** Calcula o desempenho consolidado daquela dimensão específica.
 
 ### O Modelo Multivariável (Simultaneous Scores) {#sec-arm-multivariavel}
@@ -80,7 +88,9 @@ O exemplo clássico é o mapeamento de perfis humanos (como visto no Capítulo a
 $$ARM_p = \sum_{i=1}^{n} (W_{i,p} \times S_i)$$ {#eq-arm-multivariavel}
 
 Onde:
+
 * **$p$:** O índice do perfil ou saída multivariada (ex: Perfil Analítico, Perfil Comunicador).
+
 * **$W_{i,p}$:** O peso específico que a variável $i$ exerce para a formação do perfil $p$.
 
 ---

@@ -327,12 +327,13 @@ window.Quarto = {
   <li><a href="#sec-proposito-arm" id="toc-sec-proposito-arm" class="nav-link active" data-scroll-target="#sec-proposito-arm"><span class="header-section-number">3.1</span> O Propósito: De onde saímos e para onde vamos?</a></li>
   <li><a href="#sec-arm" id="toc-sec-arm" class="nav-link" data-scroll-target="#sec-arm"><span class="header-section-number">3.2</span> Modelagem Analítica de Requisitos (ARM)</a>
   <ul class="collapse">
-  <li><a href="#sec-arm-uni" id="toc-sec-arm-uni" class="nav-link" data-scroll-target="#sec-arm-uni"><span class="header-section-number">3.2.1</span> O Modelo Unidimensional (Flat Model)</a></li>
+  <li><a href="#sec-arm-uni" id="toc-sec-arm-uni" class="nav-link" data-scroll-target="#sec-arm-uni"><span class="header-section-number">3.2.1</span> O Modelo Univariável (Flat Model)</a></li>
   <li><a href="#sec-arm-multi" id="toc-sec-arm-multi" class="nav-link" data-scroll-target="#sec-arm-multi"><span class="header-section-number">3.2.2</span> O Modelo Multidimensional (Hierarchical Model)</a></li>
-  <li><a href="#sec-ponte-normativa" id="toc-sec-ponte-normativa" class="nav-link" data-scroll-target="#sec-ponte-normativa"><span class="header-section-number">3.2.3</span> A Ponte Normativa: Associando o ARM à ISO 9000</a></li>
-  <li><a href="#sec-passos-abordagens" id="toc-sec-passos-abordagens" class="nav-link" data-scroll-target="#sec-passos-abordagens"><span class="header-section-number">3.2.4</span> Passos de Execução e Abordagens</a></li>
-  <li><a href="#sec-desdobramento-pratico" id="toc-sec-desdobramento-pratico" class="nav-link" data-scroll-target="#sec-desdobramento-pratico"><span class="header-section-number">3.2.5</span> O Desdobramento Prático do ARM: Do Cliente à Equação</a></li>
-  <li><a href="#sec-experimento-generais" id="toc-sec-experimento-generais" class="nav-link" data-scroll-target="#sec-experimento-generais"><span class="header-section-number">3.2.6</span> O Experimento Resolvido: Quantificando a Genialidade Militar</a></li>
+  <li><a href="#sec-arm-multivariavel" id="toc-sec-arm-multivariavel" class="nav-link" data-scroll-target="#sec-arm-multivariavel"><span class="header-section-number">3.2.3</span> O Modelo Multivariável (Simultaneous Scores)</a></li>
+  <li><a href="#sec-ponte-normativa" id="toc-sec-ponte-normativa" class="nav-link" data-scroll-target="#sec-ponte-normativa"><span class="header-section-number">3.2.4</span> A Ponte Normativa: Associando o ARM à ISO 9000</a></li>
+  <li><a href="#sec-passos-abordagens" id="toc-sec-passos-abordagens" class="nav-link" data-scroll-target="#sec-passos-abordagens"><span class="header-section-number">3.2.5</span> Passos de Execução e Abordagens</a></li>
+  <li><a href="#sec-desdobramento-pratico" id="toc-sec-desdobramento-pratico" class="nav-link" data-scroll-target="#sec-desdobramento-pratico"><span class="header-section-number">3.2.6</span> O Desdobramento Prático do ARM: Do Cliente à Equação</a></li>
+  <li><a href="#sec-experimento-generais" id="toc-sec-experimento-generais" class="nav-link" data-scroll-target="#sec-experimento-generais"><span class="header-section-number">3.2.7</span> O Experimento Resolvido: Quantificando a Genialidade Militar</a></li>
   </ul></li>
   <li><a href="#sec-modelagem-mineral" id="toc-sec-modelagem-mineral" class="nav-link" data-scroll-target="#sec-modelagem-mineral"><span class="header-section-number">3.3</span> Aplicações Práticas no Setor Mineral</a>
   <ul class="collapse">
@@ -364,7 +365,7 @@ window.Quarto = {
 </header>
 
 
-<p>Neste capítulo, operamos a transição definitiva da filosofia normativa para a exatidão da engenharia. Transformamos conceitos abstratos e subjetivos em modelos matemáticos capazes de nortear decisões operacionais e financeiras no setor mineral.</p>
+<p>Neste capítulo, operamos a transição definitiva da filosofia normativa para a exatidão da engenharia. Transformamos conceitos abstratos e subjetivos em modelos matemáticos capazes de nortear decisões operacionais e financeiras no setor mineral e na gestão de competências.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="🎯 Objetivos deste Capítulo">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -378,9 +379,9 @@ window.Quarto = {
 <p>Neste capítulo, faremos a transição definitiva da qualidade filosófica para a engenharia quantitativa. Ao final da leitura, você será capaz de:</p>
 <ul>
 <li><strong>Transpor</strong> a barreira da subjetividade, transformando opiniões sobre qualidade em indicadores matemáticos auditáveis e gerenciáveis.</li>
-<li><strong>Compreender e Estruturar</strong> a Modelagem Analítica de Requisitos (ARM), aplicando as equações dos modelos Unidimensional (Flat) e Multidimensional (Hierarchical).</li>
+<li><strong>Compreender e Estruturar</strong> a Modelagem Analítica de Requisitos (ARM) em suas três evoluções: Univariável (Flat), Multidimensional (Hierarchical) e Multivariável (Simultaneous Scores).</li>
 <li><strong>Executar</strong> os cinco passos práticos de modelagem: identificação de variáveis (<span class="math inline">\(V_i\)</span>), agrupamento em dimensões (<span class="math inline">\(D_j\)</span>), calibragem de pesos (<span class="math inline">\(W_i\)</span>), parametrização de desempenho (<span class="math inline">\(S_i\)</span>) e consolidação matemática.</li>
-<li><strong>Aplicar</strong> o algoritmo ARM em cenários reais da mineração, avaliando quantitativamente tanto a conformidade de <strong>Produtos</strong> (ex: minério de ferro) quanto a eficiência de <strong>Processos</strong> (ex: britagem e logística).</li>
+<li><strong>Aplicar</strong> o algoritmo ARM em cenários reais, avaliando quantitativamente tanto a conformidade de <strong>Produtos</strong> (ex: minério de ferro) quanto a eficiência de <strong>Processos</strong> e o perfil de <strong>Pessoas</strong> (capital humano).</li>
 </ul>
 </div>
 </div>
@@ -389,21 +390,21 @@ window.Quarto = {
 <p>Antes de avançarmos para as fórmulas e para os algoritmos de cálculo, é fundamental alinhar o propósito desta modelagem. A resposta reside na necessidade de traduzir a linguagem humana para a linguagem de máquina e de negócios.</p>
 <p><strong>De onde estamos saindo (O Ponto de Partida):</strong></p>
 <ul>
-<li><strong>Da Subjetividade:</strong> Saímos de um cenário onde a qualidade é um adjetivo vago. Afirmações como “este minério é excelente” ou “este equipamento é confiável” não são auditáveis e geram conflitos de interpretação.</li>
-<li><strong>Do Caos dos Dados Isolados:</strong> Um lote de produto pode ter dezenas de laudos (teor de ferro, sílica, umidade). Avaliar essas variáveis de forma solta impede uma decisão sistêmica (ex: o laboratório aprova o teor, mas a logística reprova a umidade).</li>
+<li><strong>Da Subjetividade:</strong> Saímos de um cenário onde a qualidade é um adjetivo vago. Afirmações como “este minério é excelente” ou “este aluno é bom” não são auditáveis e geram conflitos de interpretação.</li>
+<li><strong>Do Caos dos Dados Isolados:</strong> Um lote de produto pode ter dezenas de laudos. Avaliar essas variáveis de forma solta impede uma decisão sistêmica.</li>
 <li><strong>Dos Conflitos de Interesse:</strong> Saímos da tradicional “guerra” entre departamentos, onde a Produção foca em volume, a Qualidade em especificações e o Comercial em custos.</li>
 </ul>
 <p><strong>Para onde queremos chegar (O Destino Final):</strong></p>
 <ul>
-<li><strong>A um Indicador Gerenciável:</strong> Queremos um único número (o <em>score</em>) que consolide todo o desempenho do produto ou processo, indicando imediatamente se geramos ou destruímos valor.</li>
+<li><strong>A um Indicador Gerenciável:</strong> Queremos um número (o <em>Score</em>) que consolide todo o desempenho do objeto, indicando se geramos ou destruímos valor.</li>
 <li><strong>À Capacidade de Trade-off (Equilíbrio):</strong> Queremos uma ferramenta que calcule perdas e ganhos de forma integrada.</li>
-<li><strong>À Preparação para a Ciência de Dados:</strong> Este é o foco do livro. Algoritmos preditivos e modelos de <em>Machine Learning</em> no software R não entendem a “voz do cliente”. Eles precisam de <em>Features</em> quantificadas, Pesos matemáticos e Notas padronizadas.</li>
+<li><strong>À Preparação para a Ciência de Dados:</strong> Algoritmos preditivos no software R não entendem a “voz do cliente” em texto livre. Eles precisam de <em>Features</em> quantificadas, Pesos matemáticos e Notas padronizadas.</li>
 </ul>
 <hr>
 </section>
 <section id="sec-arm" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="sec-arm"><span class="header-section-number">3.2</span> Modelagem Analítica de Requisitos (ARM)</h2>
-<p>A Modelagem Analítica de Requisitos — do inglês <em>Analytical Requirements Modeling (ARM)</em> — representa a qualidade experimentada e avaliada em todas as dimensões de um produto ou serviço. Para a engenharia, ela deixa de ser apenas um conceito filosófico e torna-se a função matemática central da nossa gestão.</p>
+<p>A Modelagem Analítica de Requisitos — do inglês <em>Analytical Requirements Modeling (ARM)</em> — representa a qualidade experimentada e avaliada em todas as dimensões de um produto, serviço ou processo. Para a engenharia, ela deixa de ser apenas um conceito filosófico e torna-se a função matemática central da gestão.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="💻 Tech Note: Evolução da Nomenclatura">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -417,24 +418,50 @@ window.Quarto = {
 <p>Em literaturas clássicas de gestão, formulações semelhantes costumam ser referenciadas como Função Qualidade Total do Produto (QTP) ou Índice de Atendimento dos Requisitos (IAR). Adotaremos a estrutura e a sigla <strong>ARM</strong> por seu alinhamento direto com as metodologias internacionais de <em>Data Science</em> e Engenharia de Atributos (<em>Feature Engineering</em>).</p>
 </div>
 </div>
-<p>A complexidade do modelo depende da arquitetura de dados escolhida. A diferença fundamental reside nos <strong>níveis hierárquicos</strong> de agregação (colapso) dos dados.</p>
+<p>A complexidade do modelo depende da arquitetura de dados escolhida e do objetivo da análise. A modelagem evolui em três níveis de sofisticação:</p>
 <section id="sec-arm-uni" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="sec-arm-uni"><span class="header-section-number">3.2.1</span> O Modelo Unidimensional (Flat Model)</h3>
-<p>No modelo unidimensional, não há agrupamento intermediário. Todas as variáveis (<span class="math inline">\(V_i\)</span>) são tratadas no mesmo nível hierárquico e são <strong>colapsadas diretamente</strong> em um único valor global. É ideal para análises rápidas ou quando as variáveis são independentes e possuem a mesma natureza.</p>
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="sec-arm-uni"><span class="header-section-number">3.2.1</span> O Modelo Univariável (Flat Model)</h3>
+<p>No modelo univariável (ou unidimensional), não há agrupamento intermediário. Todas as variáveis operacionais (<span class="math inline">\(V_i\)</span>) são tratadas no mesmo nível hierárquico e são <strong>colapsadas diretamente</strong> em um único valor global. É ideal para análises rápidas ou quando as variáveis são independentes, diretas e geram apenas uma saída (<em>output</em>).</p>
 <p>A equação é expressa pela soma ponderada direta:</p>
 <p><span id="eq-arm-uni"><span class="math display">\[ARM = \sum_{i=1}^{n} (W_i \times S_i) \tag{3.1}\]</span></span></p>
-<p>Onde: * <strong><span class="math inline">\(n\)</span>:</strong> Número total de variáveis avaliadas. * <strong><span class="math inline">\(W_i\)</span> (<em>Weight</em>):</strong> Peso de importância da variável <span class="math inline">\(i\)</span> (<span class="math inline">\(\sum W_i = 1,0\)</span>). * <strong><span class="math inline">\(S_i\)</span> (<em>Score</em>):</strong> Nota de desempenho da variável <span class="math inline">\(i\)</span>.</p>
+<p>Onde:</p>
+<ul>
+<li><p><strong><span class="math inline">\(n\)</span>:</strong> Número total de variáveis avaliadas.</p></li>
+<li><p><strong><span class="math inline">\(W_i\)</span> (<em>Weight</em>):</strong> Peso de importância da variável <span class="math inline">\(i\)</span> (<span class="math inline">\(\sum W_i = 1,0\)</span>).</p></li>
+<li><p><strong><span class="math inline">\(S_i\)</span> (<em>Score</em>):</strong> Nota de desempenho da variável <span class="math inline">\(i\)</span>.</p></li>
+</ul>
 </section>
 <section id="sec-arm-multi" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="sec-arm-multi"><span class="header-section-number">3.2.2</span> O Modelo Multidimensional (Hierarchical Model)</h3>
-<p>Na prática industrial complexa, tratar dezenas de variáveis soltas pode gerar ruído. O modelo multidimensional introduz uma camada hierárquica. 1. Primeiro, <strong>colapsam-se as variáveis (<span class="math inline">\(V_i\)</span>)</strong> dentro de suas respectivas Dimensões (<span class="math inline">\(D_j\)</span>). 2. Em seguida, <strong>colapsam-se as Dimensões (<span class="math inline">\(D_j\)</span>)</strong> para formar o índice global.</p>
-<p>Isso permite diagnósticos mais precisos (ex: saber que o produto falhou especificamente na dimensão “Logística”, mesmo que a dimensão “Química” esteja perfeita).</p>
+<p>Na prática industrial complexa, tratar dezenas de variáveis soltas pode gerar ruído analítico. O modelo multidimensional introduz uma camada hierárquica. O objetivo continua sendo gerar uma única nota final, mas de forma estruturada:</p>
+<ol type="1">
+<li><p>Primeiro, <strong>colapsam-se as variáveis (<span class="math inline">\(V_i\)</span>)</strong> dentro de suas respectivas Dimensões (<span class="math inline">\(D_j\)</span>).</p></li>
+<li><p>Em seguida, <strong>colapsam-se as Dimensões (<span class="math inline">\(D_j\)</span>)</strong> para formar o índice global.</p></li>
+</ol>
+<p>Isso permite diagnósticos de causa-raiz mais precisos (ex: saber que o produto falhou especificamente na dimensão “Logística”, mesmo que o índice global esteja aceitável).</p>
 <p><span id="eq-arm-multi"><span class="math display">\[ARM = \sum_{j=1}^{m} \left[ W_{D_j} \times \underbrace{\left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right)}_{\text{Score da Dimensão } D_j} \right] \tag{3.2}\]</span></span></p>
-<p>Onde: * <strong><span class="math inline">\(m\)</span>:</strong> Número de dimensões (<span class="math inline">\(D_j\)</span>). * <strong><span class="math inline">\(W_{D_j}\)</span>:</strong> Peso da dimensão no contexto global. * <strong>Termo entre parênteses internos:</strong> Calcula o desempenho consolidado daquela dimensão específica.</p>
+<p>Onde:</p>
+<ul>
+<li><p><strong><span class="math inline">\(m\)</span>:</strong> Número de macrodimensões (<span class="math inline">\(D_j\)</span>).</p></li>
+<li><p><strong><span class="math inline">\(W_{D_j}\)</span>:</strong> Peso da dimensão no contexto global.</p></li>
+<li><p><strong>Termo entre parênteses internos:</strong> Calcula o desempenho consolidado daquela dimensão específica.</p></li>
+</ul>
 </section>
-<section id="sec-ponte-normativa" class="level3" data-number="3.2.3">
-<h3 data-number="3.2.3" class="anchored" data-anchor-id="sec-ponte-normativa"><span class="header-section-number">3.2.3</span> A Ponte Normativa: Associando o ARM à ISO 9000</h3>
-<p>Para que esse modelo seja robusto, ancoramos cada variável da equação nas definições da ISO 9000:</p>
+<section id="sec-arm-multivariavel" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="sec-arm-multivariavel"><span class="header-section-number">3.2.3</span> O Modelo Multivariável (Simultaneous Scores)</h3>
+<p>A evolução máxima do ARM ocorre quando um mesmo conjunto de dados precisa gerar múltiplas saídas interpretativas simultâneas. Em vez de calcular uma única nota final de “Qualidade”, o modelo multivariável avalia como as mesmas notas de desempenho (<span class="math inline">\(S_i\)</span>) reagem sob diferentes perspectivas ou exigências do mercado.</p>
+<p>O exemplo clássico é o mapeamento de perfis humanos (como visto no Capítulo anterior). A mesma habilidade (<span class="math inline">\(V_i\)</span>) possui um peso distinto dependendo do perfil (<span class="math inline">\(p\)</span>) que está sendo calculado. A equação gera um vetor de resultados:</p>
+<p><span id="eq-arm-multivariavel"><span class="math display">\[ARM_p = \sum_{i=1}^{n} (W_{i,p} \times S_i) \tag{3.3}\]</span></span></p>
+<p>Onde:</p>
+<ul>
+<li><p><strong><span class="math inline">\(p\)</span>:</strong> O índice do perfil ou saída multivariada (ex: Perfil Analítico, Perfil Comunicador).</p></li>
+<li><p><strong><span class="math inline">\(W_{i,p}\)</span>:</strong> O peso específico que a variável <span class="math inline">\(i\)</span> exerce para a formação do perfil <span class="math inline">\(p\)</span>.</p></li>
+</ul>
+<hr>
+</section>
+<section id="sec-ponte-normativa" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="sec-ponte-normativa"><span class="header-section-number">3.2.4</span> A Ponte Normativa: Associando o ARM à ISO 9000</h3>
+<p>Para que esse modelo seja metodologicamente robusto e aceito em auditorias, ancoramos cada elemento da equação nas definições oficiais do vocabulário da Qualidade (ISO 9000):</p>
 <div id="tbl-evolucao-arm" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-evolucao-arm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -458,7 +485,7 @@ Tabela&nbsp;3.1: Evolução do Conceito de Qualidade: Da Filosofia à Matemátic
 <tr class="odd">
 <td style="text-align: left;">“Das coisas ou das pessoas”</td>
 <td style="text-align: left;"><strong>Objeto</strong> (3.6.1)</td>
-<td style="text-align: left;"><strong><span class="math inline">\(ARM\)</span></strong> (Produto final / Modelo)</td>
+<td style="text-align: left;"><strong><span class="math inline">\(ARM\)</span></strong> (Score Global / Perfil)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">“Atributos ou propriedades”</td>
@@ -468,7 +495,7 @@ Tabela&nbsp;3.1: Evolução do Conceito de Qualidade: Da Filosofia à Matemátic
 <tr class="odd">
 <td style="text-align: left;">“Essência ou natureza exigida”</td>
 <td style="text-align: left;"><strong>Requisito</strong> (3.6.4)</td>
-<td style="text-align: left;"><strong><span class="math inline">\(W_i\)</span></strong> (<em>Weight</em> / Importância)</td>
+<td style="text-align: left;"><strong><span class="math inline">\(W_i\)</span></strong> (<em>Weight</em> / Relevância)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">“Capacidade de distinção”</td>
@@ -482,29 +509,29 @@ Tabela&nbsp;3.1: Evolução do Conceito de Qualidade: Da Filosofia à Matemátic
 </div>
 <hr>
 </section>
-<section id="sec-passos-abordagens" class="level3" data-number="3.2.4">
-<h3 data-number="3.2.4" class="anchored" data-anchor-id="sec-passos-abordagens"><span class="header-section-number">3.2.4</span> Passos de Execução e Abordagens</h3>
-<p>Para construir o <span class="math inline">\(ARM\)</span>, o analista percorre cinco passos fundamentais:</p>
+<section id="sec-passos-abordagens" class="level3" data-number="3.2.5">
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="sec-passos-abordagens"><span class="header-section-number">3.2.5</span> Passos de Execução e Abordagens</h3>
+<p>Para construir a arquitetura do <span class="math inline">\(ARM\)</span> (seja ela univariável, multidimensional ou multivariável), o analista percorre cinco passos fundamentais:</p>
 <ol type="1">
-<li><strong>Identificação das Variáveis (<span class="math inline">\(V_i\)</span>):</strong> Levantar características observáveis (chuva de ideias).</li>
-<li><strong>Consolidação em Dimensões (<span class="math inline">\(D_j\)</span>):</strong> Agrupar as variáveis em blocos hierárquicos (passo exclusivo do modelo Multidimensional).</li>
-<li><strong>Calibragem de Relevância (<span class="math inline">\(W_i\)</span>):</strong> Definir matematicamente os pesos.</li>
-<li><strong>Parametrização de Desempenho (<span class="math inline">\(S_i\)</span>):</strong> Padronizar grandezas físicas em notas de 0 a 10 ou 0 a 100.</li>
-<li><strong>Consolidação Matemática:</strong> Rodar as equações do <span class="math inline">\(ARM\)</span>.</li>
+<li><strong>Identificação das Variáveis (<span class="math inline">\(V_i\)</span>):</strong> Levantar características observáveis e mensuráveis do objeto.</li>
+<li><strong>Consolidação em Dimensões (<span class="math inline">\(D_j\)</span>) ou Perfis (<span class="math inline">\(p\)</span>):</strong> Agrupar as variáveis em blocos lógicos ou definir as saídas multivariadas desejadas.</li>
+<li><strong>Calibragem de Relevância (<span class="math inline">\(W_i\)</span> ou <span class="math inline">\(W_{i,p}\)</span>):</strong> Definir matematicamente os pesos de cada variável para o sistema.</li>
+<li><strong>Parametrização de Desempenho (<span class="math inline">\(S_i\)</span>):</strong> Padronizar as grandezas físicas ou escalas <em>Likert</em> (ex: de 1 a 5, ou 0 a 100).</li>
+<li><strong>Consolidação Matemática:</strong> Rodar as equações do algoritmo no sistema (ex: via linguagem R).</li>
 </ol>
-<p>A ordem em que executamos esses passos define a <strong>Abordagem de Modelagem</strong>:</p>
+<p>A ordem em que executamos a descoberta dessas variáveis define a <strong>Abordagem de Modelagem</strong>:</p>
 <ul>
-<li><strong>Bottom-up (De baixo para cima):</strong> Exploratória. Gera-se uma ampla lista de variáveis soltas (<span class="math inline">\(V_i\)</span>) para só então agrupá-las em dimensões (<span class="math inline">\(D_j\)</span>).</li>
-<li><strong>Top-down (De cima para baixo):</strong> Estruturada. A diretoria ou o mercado impõe as grandes Dimensões (ex: “Sustentabilidade”), e a engenharia “desce” para descobrir as Variáveis operacionais que as compõem.</li>
-<li><strong>Middle-out (Do meio para as pontas):</strong> Dinâmica. Escolhe-se um nível médio de partida e trabalha-se simultaneamente detalhando variáveis e quantificando dimensões.</li>
+<li><strong>Bottom-up (De baixo para cima):</strong> Exploratória. Gera-se uma ampla lista de variáveis operacionais soltas (<span class="math inline">\(V_i\)</span>) no chão de fábrica para só então agrupá-las em dimensões estratégicas (<span class="math inline">\(D_j\)</span>).</li>
+<li><strong>Top-down (De cima para baixo):</strong> Estruturada. A diretoria ou o mercado impõe as grandes Dimensões (ex: “Sustentabilidade”), e a engenharia “desce” para descobrir as Variáveis operacionais que a compõem.</li>
+<li><strong>Middle-out (Do meio para as pontas):</strong> Dinâmica. Escolhe-se um nível intermediário de partida e trabalha-se simultaneamente detalhando o nível operacional e quantificando o estratégico.</li>
 </ul>
 <hr>
 </section>
-<section id="sec-desdobramento-pratico" class="level3" data-number="3.2.5">
-<h3 data-number="3.2.5" class="anchored" data-anchor-id="sec-desdobramento-pratico"><span class="header-section-number">3.2.5</span> O Desdobramento Prático do ARM: Do Cliente à Equação</h3>
+<section id="sec-desdobramento-pratico" class="level3" data-number="3.2.6">
+<h3 data-number="3.2.6" class="anchored" data-anchor-id="sec-desdobramento-pratico"><span class="header-section-number">3.2.6</span> O Desdobramento Prático do ARM: Do Cliente à Equação</h3>
 <p>Antes de aplicar a matemática, precisamos entender como a engenharia extrai os números do mundo real. Para ilustrar como os cinco passos convertem a subjetividade em parâmetros do <span class="math inline">\(ARM\)</span>, tomemos como exemplo o projeto de um <strong>Dispositivo Automático de Senhas (Totem)</strong>.</p>
-<section id="contextualização-e-escopo-do-projeto" class="level4" data-number="3.2.5.1">
-<h4 data-number="3.2.5.1" class="anchored" data-anchor-id="contextualização-e-escopo-do-projeto"><span class="header-section-number">3.2.5.1</span> Contextualização e Escopo do Projeto</h4>
+<section id="contextualização-e-escopo-do-projeto" class="level4" data-number="3.2.6.1">
+<h4 data-number="3.2.6.1" class="anchored" data-anchor-id="contextualização-e-escopo-do-projeto"><span class="header-section-number">3.2.6.1</span> Contextualização e Escopo do Projeto</h4>
 <p>Uma empresa de tecnologia já comercializa um totem padrão e possui sua carteira consolidada de consumidores. No entanto, ela precisa adaptar seu equipamento para um novo grande cliente corporativo. A <strong>Declaração do Escopo do Produto</strong> estabelece as seguintes premissas para o projeto:</p>
 <ul>
 <li><strong>Novos Aspectos:</strong> O novo cliente exige que aspectos <em>funcionais, estéticos e simbólicos</em> sejam profundamente repensados.</li>
@@ -518,22 +545,22 @@ Tabela&nbsp;3.1: Evolução do Conceito de Qualidade: Da Filosofia à Matemátic
 </ol>
 <p>Com este escopo claro e os atores definidos, o trabalho da engenharia para construir o algoritmo do <span class="math inline">\(ARM\)</span> inicia-se através da execução rigorosa dos nossos cinco passos metodológicos:</p>
 </section>
-<section id="passo-1-identificação-das-variáveis-v_i" class="level4" data-number="3.2.5.2">
-<h4 data-number="3.2.5.2" class="anchored" data-anchor-id="passo-1-identificação-das-variáveis-v_i"><span class="header-section-number">3.2.5.2</span> Passo 1: Identificação das Variáveis (<span class="math inline">\(V_i\)</span>)</h4>
+<section id="passo-1-identificação-das-variáveis-v_i" class="level4" data-number="3.2.6.2">
+<h4 data-number="3.2.6.2" class="anchored" data-anchor-id="passo-1-identificação-das-variáveis-v_i"><span class="header-section-number">3.2.6.2</span> Passo 1: Identificação das Variáveis (<span class="math inline">\(V_i\)</span>)</h4>
 <p>A primeira ação é obter os “valores” desejados. Uma ferramenta qualitativa fundamental para isso é o Grupo Focal (<em>Focus Group</em>). O cliente externo diz que o totem “tem que ser confortável e bonito”, enquanto a fábrica (cliente interno) diz que ele deve ter “montagem fácil e estrutura simples”.</p>
 <p>A engenharia utiliza <strong>Mapas Mentais (Cadeia de Meios e Fins)</strong> para desdobrar essa subjetividade. A necessidade de “ser confortável” é desdobrada na variável <span class="math inline">\(V_1\)</span>: “Especificar a altura do painel”, e <span class="math inline">\(V_2\)</span>: “Especificar a inclinação do pedestal”.</p>
 </section>
-<section id="passo-2-consolidação-em-dimensões-d_j" class="level4" data-number="3.2.5.3">
-<h4 data-number="3.2.5.3" class="anchored" data-anchor-id="passo-2-consolidação-em-dimensões-d_j"><span class="header-section-number">3.2.5.3</span> Passo 2: Consolidação em Dimensões (<span class="math inline">\(D_j\)</span>)</h4>
+<section id="passo-2-consolidação-em-dimensões-d_j" class="level4" data-number="3.2.6.3">
+<h4 data-number="3.2.6.3" class="anchored" data-anchor-id="passo-2-consolidação-em-dimensões-d_j"><span class="header-section-number">3.2.6.3</span> Passo 2: Consolidação em Dimensões (<span class="math inline">\(D_j\)</span>)</h4>
 <p>Para o modelo não se tornar caótico, as dezenas de demandas do totem são agrupadas em categorias maiores (Dimensões) como: Ergonomia, Normas e Desempenho. O resultado visual deste agrupamento é a <strong>Árvore de Valor</strong>.</p>
 </section>
-<section id="passo-3-calibragem-de-relevância-pesos-w_i" class="level4" data-number="3.2.5.4">
-<h4 data-number="3.2.5.4" class="anchored" data-anchor-id="passo-3-calibragem-de-relevância-pesos-w_i"><span class="header-section-number">3.2.5.4</span> Passo 3: Calibragem de Relevância / Pesos (<span class="math inline">\(W_i\)</span>)</h4>
+<section id="passo-3-calibragem-de-relevância-pesos-w_i" class="level4" data-number="3.2.6.4">
+<h4 data-number="3.2.6.4" class="anchored" data-anchor-id="passo-3-calibragem-de-relevância-pesos-w_i"><span class="header-section-number">3.2.6.4</span> Passo 3: Calibragem de Relevância / Pesos (<span class="math inline">\(W_i\)</span>)</h4>
 <p>Qual dimensão é mais importante? Para evitar o “chute”, a engenharia calcula os pesos (<span class="math inline">\(W_i\)</span>) utilizando o <strong>Diagrama de Mudge</strong>. Nesta matriz, os objetivos são comparados aos pares respondendo a duas perguntas: <em>Qual requisito é mais importante?</em> e <em>O quão mais importante ele é?</em>.</p>
 <p>Ao comparar “Resistência” com “Estética”, a matriz gera uma pontuação técnica, convertendo-a em taxas percentuais (ex: Ergonomia = 31%; Desempenho = 25%). Estes percentuais são rigorosamente os nossos <strong>Pesos (<span class="math inline">\(W_i\)</span>)</strong> na equação.</p>
 </section>
-<section id="passo-4-parametrização-de-desempenho-s_i" class="level4" data-number="3.2.5.5">
-<h4 data-number="3.2.5.5" class="anchored" data-anchor-id="passo-4-parametrização-de-desempenho-s_i"><span class="header-section-number">3.2.5.5</span> Passo 4: Parametrização de Desempenho (<span class="math inline">\(S_i\)</span>)</h4>
+<section id="passo-4-parametrização-de-desempenho-s_i" class="level4" data-number="3.2.6.5">
+<h4 data-number="3.2.6.5" class="anchored" data-anchor-id="passo-4-parametrização-de-desempenho-s_i"><span class="header-section-number">3.2.6.5</span> Passo 4: Parametrização de Desempenho (<span class="math inline">\(S_i\)</span>)</h4>
 <p>O quarto passo é definir como extrair a nota. O engenheiro cria uma <strong>Função de Valor (<span class="math inline">\(FV\)</span>)</strong>, que converte as preferências técnicas em uma escala numérica. Tomemos a variável <span class="math inline">\(V_3\)</span> (“Material da Carcaça”). A engenharia cria a regra:</p>
 <ul>
 <li>Se usar <strong>Chapa de aço e Polipropileno</strong> <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(S_3 = 100\)</span> (Nota máxima).</li>
@@ -541,14 +568,14 @@ Tabela&nbsp;3.1: Evolução do Conceito de Qualidade: Da Filosofia à Matemátic
 <li>Se usar <strong>Perfis de aço e fibra</strong> <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(S_3 = 0\)</span> (Inaceitável para este projeto).</li>
 </ul>
 </section>
-<section id="passo-5-consolidação-matemática-do-arm" class="level4" data-number="3.2.5.6">
-<h4 data-number="3.2.5.6" class="anchored" data-anchor-id="passo-5-consolidação-matemática-do-arm"><span class="header-section-number">3.2.5.6</span> Passo 5: Consolidação Matemática do ARM</h4>
+<section id="passo-5-consolidação-matemática-do-arm" class="level4" data-number="3.2.6.6">
+<h4 data-number="3.2.6.6" class="anchored" data-anchor-id="passo-5-consolidação-matemática-do-arm"><span class="header-section-number">3.2.6.6</span> Passo 5: Consolidação Matemática do ARM</h4>
 <p>Com os Pesos (<span class="math inline">\(W_i\)</span>) extraídos do Diagrama de Mudge e as notas de desempenho (<span class="math inline">\(S_i\)</span>) extraídas das Funções de Valor, a equipe simula diferentes combinações de materiais e visualiza imediatamente o impacto no Índice final, permitindo análises precisas de <em>trade-off</em> (Ex: “Vale a pena reduzir o custo se isso derrubar a Qualidade em 15%?”).</p>
 <hr>
 </section>
 </section>
-<section id="sec-experimento-generais" class="level3" data-number="3.2.6">
-<h3 data-number="3.2.6" class="anchored" data-anchor-id="sec-experimento-generais"><span class="header-section-number">3.2.6</span> O Experimento Resolvido: Quantificando a Genialidade Militar</h3>
+<section id="sec-experimento-generais" class="level3" data-number="3.2.7">
+<h3 data-number="3.2.7" class="anchored" data-anchor-id="sec-experimento-generais"><span class="header-section-number">3.2.7</span> O Experimento Resolvido: Quantificando a Genialidade Militar</h3>
 <p>Agora que compreendemos como as variáveis, pesos e notas são extraídos do mundo real (como visto no projeto do Totem), vamos demonstrar a aplicação matemática da fórmula.</p>
 <p>Para demonstrar a força da equação, vamos transformar o texto histórico dos 6 maiores generais em uma matriz quantitativa rigorosa (Abordagem Unidimensional).</p>
 <p><strong>1. Definição das Variáveis (<span class="math inline">\(V_i\)</span>) e Pesos (<span class="math inline">\(W_i\)</span>)</strong> A partir da análise histórica, nossa diretoria definiu quatro variáveis independentes e seus respectivos pesos (gerados por um Diagrama de Mudge):</p>
@@ -786,7 +813,7 @@ Tabela&nbsp;3.2: Matriz Analítica de Requisitos (ARM) aplicada à genialidade m
 <p>Como podemos aplicar a equação <span class="math inline">\(ARM\)</span> para medir a “qualidade” de uma operação industrial antes mesmo de o produto ficar pronto?</p>
 <p>A resposta é deslocar o objeto de estudo. Em vez de avaliar a rocha, avaliamos o maquinário e o fluxo de trabalho. As variáveis (<span class="math inline">\(V_i\)</span>) deixam de ser propriedades químicas e passam a ser <strong>Métricas de Desempenho Operacional (KPIs)</strong>.</p>
 <div id="exm-britagem" class="example theorem">
-<p><span class="theorem-title"><strong>Exemplo 3.6 (Estudo de Caso V: Qualidade do Processo de Britagem Primária)</strong></span> A gerência precisa avaliar a “saúde” e a eficiência operacional da planta de britagem primária em uma determinada semana, não pelo tamanho da pedra que sai, mas por <em>como</em> a máquina está sendo operada.</p>
+<p><span class="theorem-title"><strong>Exemplo 3.6 (Estudo de Caso III: Qualidade do Processo de Britagem Primária)</strong></span> A gerência precisa avaliar a “saúde” e a eficiência operacional da planta de britagem primária em uma determinada semana, não pelo tamanho da pedra que sai, mas por <em>como</em> a máquina está sendo operada.</p>
 <p><strong>1. Definição dos Parâmetros do Processo (<span class="math inline">\(V_i\)</span>) e Pesos (<span class="math inline">\(W_i\)</span>)</strong> A engenharia selecionou quatro variáveis operacionais de impacto direto no custo e na produtividade:</p>
 <ul>
 <li><strong><span class="math inline">\(V_1\)</span> (Disponibilidade Física - DF):</strong> O equipamento está pronto e liberado para operar? (Peso <span class="math inline">\(W_1 = 0,30\)</span>).</li>
