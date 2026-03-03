@@ -13,6 +13,7 @@ Neste cap
 * **Correlacionar** as variáveis de avaliação do IQPL com as etapas do macrofluxo do PCM (estudadas no capítulo anterior), entendendo onde a qualidade nasce e onde ela é controlada.
 * **Aplicar** o cálculo multicritério do IQPL para auditar, diagnosticar e otimizar planos de manutenção, separando requisitos históricos de controle de novos gatilhos de inovação.
 * **Mapear** *gaps* de maturidade da gestão de ativos utilizando o diagnóstico gerado pelo índice, criando *roadmaps* de melhoria acionáveis.
+* **Correlacionar** as variáveis do IQPL com os requisitos normativos de maturidade (8.1 a 8.12), estabelecendo uma régua de conformidade entre o processo e a governança corporativa.
 :::
 
 ## Contexto Operacional e Motivação
@@ -163,6 +164,43 @@ A relação entre o IQPL e o PCM permite compreender que a qualidade dos planos 
 
 Em processos de Nível 1 (Reativo), a organização tende a preencher os requisitos do IQPL apenas superficialmente, visando "cumprir tabela" para auditorias. É no Nível 4 e 5 que a avaliação da qualidade dos planos e a maturidade do PCM se fundem: a auditoria deixa de ser um "ato punitivo" para se tornar o farol que aponta onde a Engenharia de Confiabilidade deve investir seus esforços e recursos.
 
+## Maturidade do PCM sob a Ótica Normativa (Requisitos 8.1 a 8.12)
+
+A maturidade do PCM pode ser avaliada de forma objetiva a partir da análise de requisitos normativos que tratam da gestão de ativos, confiabilidade e governança. Os requisitos apresentados nos itens 8.1 a 8.12 configuram uma régua estruturada de maturidade, organizada em níveis progressivos (0 a 4), que permite verificar não apenas a existência de processos, mas o grau de consolidação e otimização do sistema.
+
+Ao relacionar esses requisitos com o macrofluxo de manutenção e o IQPL, observa-se uma elevada correspondência conceitual, indicando que a maturidade não é fruto de atividades isoladas, mas da execução integrada de todo o ciclo.
+
+### Correspondência entre Requisitos e Etapas do PCM
+
+Os requisitos normativos mapeiam a saúde da gestão em blocos de maturidade:
+
+* **Gestão de Ativos e Planos (8.1 a 8.2):** Avaliam a qualidade da base de ativos, criticidade e o Gerenciamento de Mudanças (*MoC*). Estão diretamente ligados ao IQPL e ao Planejamento de Médio Prazo.
+* **Planejamento e Orçamento (8.3 e 8.5):** Focam no horizonte plurianual, orçamento técnico e Grandes Paradas. Conectam o PCM à estratégia financeira e ao COI.
+* **Estrutura e Funções (8.4):** Avalia a separação clara entre Inspeção, Planejamento, Programação, Execução e Confiabilidade — o princípio fundamental do macrofluxo.
+* **Disciplina e Registro (8.6):** É o núcleo do PCM. Avalia a aderência ao planejado, a qualidade do registro e indicadores como AMS, IAMO e Backlog.
+* **Otimização e Confiabilidade (8.7 a 8.12):** Representam os níveis mais altos de maturidade (3 e 4), onde o PCM influencia o custo do ciclo de vida (*LCC*) e a governança de dados (*DBM*).
+
+A @tbl-correspondencia-normativa sintetiza essa relação, permitindo uma leitura rápida da maturidade típica exigida por requisito.
+
+| Requisito | Foco Normativo | Etapa do PCM Relacionada | Maturidade Típica |
+| :--- | :--- | :--- | :---: |
+| **8.1** | Ativos, Criticidade e Planos | Inspeção, Planejamento e IQPL | 2 – 4 |
+| **8.2** | Gerenciamento de Mudanças (MoC) | Planejamento Plurianual e Médio Prazo | 2 – 4 |
+| **8.3** | Planejamento e Orçamento | Planejamento de Médio e Curto Prazo | 3 – 4 |
+| **8.4** | Separação de Funções e Processos | Inspeção, Planejamento e Execução | $\ge$ 3 |
+| **8.5** | Grandes Paradas | Planejamento Médio Prazo e Programação | 2 – 4 |
+| **8.6** | Disciplina de Execução e Registro | Planejamento, Programação e Registro | 3 – 4 |
+| **8.7** | Indicadores de Processo e Resultado | Controle e KPIs | 3 – 4 |
+| **8.8** | Governança de Dados (DBM) | Registro e Controle | 2 – 4 |
+| **8.9** | Materiais e Sobressalentes | Aprovisionamento | 3 – 4 |
+| **8.10 - 8.12** | Confiabilidade e Ciclo de Vida (LCC) | Engenharia de Confiabilidade | 3 – 4 |
+
+: Correspondência entre Requisitos Normativos e Etapas do PCM {#tbl-correspondencia-normativa}
+
+::: {.callout-tip title="💡 Síntese Analítica"}
+Os requisitos normativos não introduzem conceitos alheios ao PCM, mas qualificam as práticas já implícitas em um processo maduro. A maturidade da manutenção, portanto, não reside na existência isolada de indicadores, mas na capacidade do PCM de integrar planejamento, execução, controle e melhoria contínua de forma sistêmica e disciplinada.
+:::
+
 ## Cálculo Prático: Exemplo de Aplicação IQPL
 
 Para consolidar a teoria, a @tbl-pesos-iqpl demonstra a estrutura de pesos que ampara o algoritmo de cálculo do índice global.
@@ -281,3 +319,4 @@ cat("\n=========================================\n")
 * **A Conexão Sistêmica (PCM × IQPL):** O IQPL não existe num vácuo. Suas variáveis refletem diretamente as falhas e os acertos do Macrofluxo do PCM. Um escore baixo em "Ciclos Vencidos" indica, impreterivelmente, falência na etapa de Planejamento de Curto Prazo e Programação.
 * **Maturidade Documentada:** Processos reativos tendem a focar apenas em realizar a manutenção a qualquer custo. Organizações que aplicam o IQPL de maneira metodológica escalam níveis de maturidade e utilizam os *gaps* do índice para direcionar o treinamento de pessoas e o controle financeiro de aprovisionamento e estoque.
 * **Do Diagnóstico à Ação Estratégica:** O cálculo numérico do IQPL transforma auditorias textuais e subjetivas em um índice acionável (escala de 0 a 100). Ele revela não apenas a aderência do plano à norma, mas projeta exatamente onde o corpo de engenheiros deve concentrar a governança nos próximos 90 dias para reduzir o *downtime* não programado.
+* **Conformidade Normativa (8.1 a 8.12):** A maturidade do PCM é validada por uma régua normativa que escala do nível 0 ao 4. Requisitos como separação de funções, disciplina de registro e gestão de grandes paradas confirmam que o macrofluxo estruturado é o único caminho para atingir os níveis de classe mundial na gestão de ativos.
