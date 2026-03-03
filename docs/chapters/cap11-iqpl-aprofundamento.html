@@ -383,46 +383,29 @@ window.Quarto = {
   <li><a href="#premissas-gerais-do-modelo" id="toc-premissas-gerais-do-modelo" class="nav-link" data-scroll-target="#premissas-gerais-do-modelo"><span class="header-section-number">11.2.1</span> Premissas Gerais do Modelo</a></li>
   </ul></li>
   <li><a href="#formulação-matemática-do-ciclo-de-renovação" id="toc-formulação-matemática-do-ciclo-de-renovação" class="nav-link" data-scroll-target="#formulação-matemática-do-ciclo-de-renovação"><span class="header-section-number">11.3</span> Formulação Matemática do Ciclo de Renovação</a></li>
-  <li><a href="#sec-caso-iqpl-rascunho" id="toc-sec-caso-iqpl-rascunho" class="nav-link" data-scroll-target="#sec-caso-iqpl-rascunho"><span class="header-section-number">12</span> RASCUNHO: O Índice de Qualidade de Plano de Manutenção (IQPL)</a>
+  <li><a href="#sec-caso-iqpl" id="toc-sec-caso-iqpl" class="nav-link" data-scroll-target="#sec-caso-iqpl"><span class="header-section-number">11.4</span> O Índice de Qualidade de Plano de Manutenção (IQPL)</a>
   <ul class="collapse">
-  <li><a href="#contexto-operacional-e-motivação" id="toc-contexto-operacional-e-motivação" class="nav-link" data-scroll-target="#contexto-operacional-e-motivação"><span class="header-section-number">12.1</span> Contexto Operacional e Motivação</a>
+  <li><a href="#contexto-operacional-e-motivação" id="toc-contexto-operacional-e-motivação" class="nav-link" data-scroll-target="#contexto-operacional-e-motivação"><span class="header-section-number">11.4.1</span> Contexto Operacional e Motivação</a></li>
+  <li><a href="#dicotomia-paramétrica-parâmetros-existentes-vs.-novos" id="toc-dicotomia-paramétrica-parâmetros-existentes-vs.-novos" class="nav-link" data-scroll-target="#dicotomia-paramétrica-parâmetros-existentes-vs.-novos"><span class="header-section-number">11.4.2</span> Dicotomia Paramétrica: Parâmetros Existentes vs.&nbsp;Novos</a></li>
+  <li><a href="#dimensão-1-programáveis-d_1" id="toc-dimensão-1-programáveis-d_1" class="nav-link" data-scroll-target="#dimensão-1-programáveis-d_1"><span class="header-section-number">11.4.3</span> Dimensão 1: Programáveis (<span class="math inline">\(D_1\)</span>)</a></li>
+  <li><a href="#dimensão-2-processuais-d_2" id="toc-dimensão-2-processuais-d_2" class="nav-link" data-scroll-target="#dimensão-2-processuais-d_2"><span class="header-section-number">11.4.4</span> Dimensão 2: Processuais (<span class="math inline">\(D_2\)</span>)</a></li>
+  <li><a href="#dimensão-3-ativos-d_3" id="toc-dimensão-3-ativos-d_3" class="nav-link" data-scroll-target="#dimensão-3-ativos-d_3"><span class="header-section-number">11.4.5</span> Dimensão 3: Ativos (<span class="math inline">\(D_3\)</span>)</a></li>
+  <li><a href="#dimensão-4-lista-de-tarefas-d_4" id="toc-dimensão-4-lista-de-tarefas-d_4" class="nav-link" data-scroll-target="#dimensão-4-lista-de-tarefas-d_4"><span class="header-section-number">11.4.6</span> Dimensão 4: Lista de Tarefas (<span class="math inline">\(D_4\)</span>)</a></li>
+  <li><a href="#dimensão-5-desempenho-d_5" id="toc-dimensão-5-desempenho-d_5" class="nav-link" data-scroll-target="#dimensão-5-desempenho-d_5"><span class="header-section-number">11.4.7</span> Dimensão 5: Desempenho (<span class="math inline">\(D_5\)</span>)</a></li>
+  </ul></li>
+  <li><a href="#síntese-da-arquitetura-iqpl-e-matriz-de-pesos" id="toc-síntese-da-arquitetura-iqpl-e-matriz-de-pesos" class="nav-link" data-scroll-target="#síntese-da-arquitetura-iqpl-e-matriz-de-pesos"><span class="header-section-number">11.5</span> Síntese da Arquitetura IQPL e Matriz de Pesos</a></li>
+  <li><a href="#relação-entre-o-macrofluxo-do-pcm-e-o-índice-de-qualidade-do-planejamento-iqpl" id="toc-relação-entre-o-macrofluxo-do-pcm-e-o-índice-de-qualidade-do-planejamento-iqpl" class="nav-link" data-scroll-target="#relação-entre-o-macrofluxo-do-pcm-e-o-índice-de-qualidade-do-planejamento-iqpl"><span class="header-section-number">11.6</span> Relação entre o Macrofluxo do PCM e o Índice de Qualidade do Planejamento (IQPL)</a></li>
+  <li><a href="#iqpl-e-a-evolução-da-maturidade-do-pcm" id="toc-iqpl-e-a-evolução-da-maturidade-do-pcm" class="nav-link" data-scroll-target="#iqpl-e-a-evolução-da-maturidade-do-pcm"><span class="header-section-number">11.7</span> IQPL e a Evolução da Maturidade do PCM</a></li>
+  <li><a href="#cálculo-prático-exemplo-de-aplicação-iqpl" id="toc-cálculo-prático-exemplo-de-aplicação-iqpl" class="nav-link" data-scroll-target="#cálculo-prático-exemplo-de-aplicação-iqpl"><span class="header-section-number">11.8</span> Cálculo Prático: Exemplo de Aplicação IQPL</a>
   <ul class="collapse">
-  <li><a href="#dicotomia-paramétrica-parâmetros-existentes-vs.-novos" id="toc-dicotomia-paramétrica-parâmetros-existentes-vs.-novos" class="nav-link" data-scroll-target="#dicotomia-paramétrica-parâmetros-existentes-vs.-novos"><span class="header-section-number">12.1.1</span> Dicotomia Paramétrica: Parâmetros Existentes vs.&nbsp;Novos</a></li>
+  <li><a href="#cenário-auditoria-de-plano-de-manutenção-em-frota-de-britadores" id="toc-cenário-auditoria-de-plano-de-manutenção-em-frota-de-britadores" class="nav-link" data-scroll-target="#cenário-auditoria-de-plano-de-manutenção-em-frota-de-britadores"><span class="header-section-number">11.8.1</span> Cenário: Auditoria de Plano de Manutenção em Frota de Britadores</a></li>
+  <li><a href="#passo-2-cálculo-de-scores-dimensionais-média-ponderada" id="toc-passo-2-cálculo-de-scores-dimensionais-média-ponderada" class="nav-link" data-scroll-target="#passo-2-cálculo-de-scores-dimensionais-média-ponderada"><span class="header-section-number">11.8.2</span> Passo 2: Cálculo de Scores Dimensionais (Média Ponderada)</a></li>
+  <li><a href="#passo-3-atribuição-de-pesos-dimensionais-e-cálculo-final" id="toc-passo-3-atribuição-de-pesos-dimensionais-e-cálculo-final" class="nav-link" data-scroll-target="#passo-3-atribuição-de-pesos-dimensionais-e-cálculo-final"><span class="header-section-number">11.8.3</span> Passo 3: Atribuição de Pesos Dimensionais e Cálculo Final</a></li>
+  <li><a href="#passo-4-normalização-para-escala-0-100" id="toc-passo-4-normalização-para-escala-0-100" class="nav-link" data-scroll-target="#passo-4-normalização-para-escala-0-100"><span class="header-section-number">11.8.4</span> Passo 4: Normalização para Escala 0-100</a></li>
   </ul></li>
-  <li><a href="#dimensão-1-programáveis-d_1" id="toc-dimensão-1-programáveis-d_1" class="nav-link" data-scroll-target="#dimensão-1-programáveis-d_1"><span class="header-section-number">12.2</span> Dimensão 1: Programáveis (<span class="math inline">\(D_1\)</span>)</a>
-  <ul class="collapse">
-  <li><a href="#parâmetros-existentes-d_1-históricos" id="toc-parâmetros-existentes-d_1-históricos" class="nav-link" data-scroll-target="#parâmetros-existentes-d_1-históricos"><span class="header-section-number">12.2.1</span> Parâmetros Existentes (<span class="math inline">\(D_1\)</span> Históricos)</a></li>
-  </ul></li>
-  <li><a href="#dimensão-2-processuais-d_2" id="toc-dimensão-2-processuais-d_2" class="nav-link" data-scroll-target="#dimensão-2-processuais-d_2"><span class="header-section-number">12.3</span> Dimensão 2: Processuais (<span class="math inline">\(D_2\)</span>)</a>
-  <ul class="collapse">
-  <li><a href="#parâmetros-novos-d_2-elevação-de-padrão" id="toc-parâmetros-novos-d_2-elevação-de-padrão" class="nav-link" data-scroll-target="#parâmetros-novos-d_2-elevação-de-padrão"><span class="header-section-number">12.3.1</span> Parâmetros Novos (<span class="math inline">\(D_2\)</span> Elevação de Padrão)</a></li>
-  <li><a href="#parâmetros-existentes-d_2-históricos" id="toc-parâmetros-existentes-d_2-históricos" class="nav-link" data-scroll-target="#parâmetros-existentes-d_2-históricos"><span class="header-section-number">12.3.2</span> Parâmetros Existentes (<span class="math inline">\(D_2\)</span> Históricos)</a></li>
-  </ul></li>
-  <li><a href="#dimensão-3-ativos-d_3" id="toc-dimensão-3-ativos-d_3" class="nav-link" data-scroll-target="#dimensão-3-ativos-d_3"><span class="header-section-number">12.4</span> Dimensão 3: Ativos (<span class="math inline">\(D_3\)</span>)</a>
-  <ul class="collapse">
-  <li><a href="#parâmetros-novos-d_3-estrutural" id="toc-parâmetros-novos-d_3-estrutural" class="nav-link" data-scroll-target="#parâmetros-novos-d_3-estrutural"><span class="header-section-number">12.4.1</span> Parâmetros Novos (<span class="math inline">\(D_3\)</span> Estrutural)</a></li>
-  </ul></li>
-  <li><a href="#dimensão-4-lista-de-tarefas-d_4" id="toc-dimensão-4-lista-de-tarefas-d_4" class="nav-link" data-scroll-target="#dimensão-4-lista-de-tarefas-d_4"><span class="header-section-number">12.5</span> Dimensão 4: Lista de Tarefas (<span class="math inline">\(D_4\)</span>)</a>
-  <ul class="collapse">
-  <li><a href="#parâmetro-novo-d_4-inovação" id="toc-parâmetro-novo-d_4-inovação" class="nav-link" data-scroll-target="#parâmetro-novo-d_4-inovação"><span class="header-section-number">12.5.1</span> Parâmetro Novo (<span class="math inline">\(D_4\)</span> Inovação)</a></li>
-  <li><a href="#parâmetros-existentes-d_4-core" id="toc-parâmetros-existentes-d_4-core" class="nav-link" data-scroll-target="#parâmetros-existentes-d_4-core"><span class="header-section-number">12.5.2</span> Parâmetros Existentes (<span class="math inline">\(D_4\)</span> Core)</a></li>
-  </ul></li>
-  <li><a href="#dimensão-5-desempenho-d_5" id="toc-dimensão-5-desempenho-d_5" class="nav-link" data-scroll-target="#dimensão-5-desempenho-d_5"><span class="header-section-number">12.6</span> Dimensão 5: Desempenho (<span class="math inline">\(D_5\)</span>)</a>
-  <ul class="collapse">
-  <li><a href="#parâmetro-novo-d_5-sintético" id="toc-parâmetro-novo-d_5-sintético" class="nav-link" data-scroll-target="#parâmetro-novo-d_5-sintético"><span class="header-section-number">12.6.1</span> Parâmetro Novo (<span class="math inline">\(D_5\)</span> Sintético)</a></li>
-  </ul></li>
-  <li><a href="#síntese-da-arquitetura-iqpl-e-matriz-de-pesos" id="toc-síntese-da-arquitetura-iqpl-e-matriz-de-pesos" class="nav-link" data-scroll-target="#síntese-da-arquitetura-iqpl-e-matriz-de-pesos"><span class="header-section-number">12.7</span> Síntese da Arquitetura IQPL e Matriz de Pesos</a></li>
-  <li><a href="#cálculo-prático-exemplo-de-aplicação-iqpl" id="toc-cálculo-prático-exemplo-de-aplicação-iqpl" class="nav-link" data-scroll-target="#cálculo-prático-exemplo-de-aplicação-iqpl"><span class="header-section-number">12.8</span> Cálculo Prático: Exemplo de Aplicação IQPL</a>
-  <ul class="collapse">
-  <li><a href="#cenário-auditoria-de-plano-de-manutenção-em-frota-de-britadores" id="toc-cenário-auditoria-de-plano-de-manutenção-em-frota-de-britadores" class="nav-link" data-scroll-target="#cenário-auditoria-de-plano-de-manutenção-em-frota-de-britadores"><span class="header-section-number">12.8.1</span> Cenário: Auditoria de Plano de Manutenção em Frota de Britadores</a></li>
-  <li><a href="#passo-2-cálculo-de-scores-dimensionais-média-ponderada" id="toc-passo-2-cálculo-de-scores-dimensionais-média-ponderada" class="nav-link" data-scroll-target="#passo-2-cálculo-de-scores-dimensionais-média-ponderada"><span class="header-section-number">12.8.2</span> Passo 2: Cálculo de Scores Dimensionais (Média Ponderada)</a></li>
-  <li><a href="#passo-3-atribuição-de-pesos-dimensionais-e-cálculo-final" id="toc-passo-3-atribuição-de-pesos-dimensionais-e-cálculo-final" class="nav-link" data-scroll-target="#passo-3-atribuição-de-pesos-dimensionais-e-cálculo-final"><span class="header-section-number">12.8.3</span> Passo 3: Atribuição de Pesos Dimensionais e Cálculo Final</a></li>
-  <li><a href="#passo-4-normalização-para-escala-0-100" id="toc-passo-4-normalização-para-escala-0-100" class="nav-link" data-scroll-target="#passo-4-normalização-para-escala-0-100"><span class="header-section-number">12.8.4</span> Passo 4: Normalização para Escala 0-100</a></li>
-  </ul></li>
-  <li><a href="#interpretação-e-roadmap-de-melhoria" id="toc-interpretação-e-roadmap-de-melhoria" class="nav-link" data-scroll-target="#interpretação-e-roadmap-de-melhoria"><span class="header-section-number">12.9</span> Interpretação e Roadmap de Melhoria</a></li>
-  <li><a href="#implementação-computacional-motor-matemático-em-r" id="toc-implementação-computacional-motor-matemático-em-r" class="nav-link" data-scroll-target="#implementação-computacional-motor-matemático-em-r"><span class="header-section-number">12.10</span> Implementação Computacional: Motor Matemático em R</a></li>
-  <li><a href="#resumo-do-capítulo" id="toc-resumo-do-capítulo" class="nav-link" data-scroll-target="#resumo-do-capítulo"><span class="header-section-number">12.11</span> 📝 Resumo do Capítulo</a></li>
-  </ul></li>
+  <li><a href="#interpretação-e-roadmap-de-melhoria" id="toc-interpretação-e-roadmap-de-melhoria" class="nav-link" data-scroll-target="#interpretação-e-roadmap-de-melhoria"><span class="header-section-number">11.9</span> Interpretação e Roadmap de Melhoria</a></li>
+  <li><a href="#implementação-computacional-motor-matemático-em-r" id="toc-implementação-computacional-motor-matemático-em-r" class="nav-link" data-scroll-target="#implementação-computacional-motor-matemático-em-r"><span class="header-section-number">11.10</span> Implementação Computacional: Motor Matemático em R</a></li>
+  <li><a href="#resumo-do-capítulo" id="toc-resumo-do-capítulo" class="nav-link" data-scroll-target="#resumo-do-capítulo"><span class="header-section-number">11.11</span> 📝 Resumo do Capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -483,7 +466,6 @@ window.Quarto = {
 <p>Modelos baseados na redução de idade virtual calculam a eficiência com base no impacto da ação e na probabilidade de sua execução, sendo o fator de redução frequentemente dependente do tempo decorrido entre as intervenções. Neste capítulo, o foco analítico recairá sobre os <strong>modelos de redução da intensidade de falha</strong>.</p>
 <p>Para sistemas complexos, as interdependências entre componentes impossibilitam que as ações sejam tratadas de forma homogênea. Para solucionar essa lacuna, introduzimos uma política original de manutenção que avalia a eficiência de múltiplos tipos de MP, utilizando a metodologia de Redes Bayesianas (BN - <em>Bayesian Networks</em>). As Redes Bayesianas permitem quantificar interações complexas a partir de dados históricos.</p>
 <p>Em suma, os pilares desta modelagem quantitativa são: * A adoção de múltiplos tipos de MP, cada qual com sua própria eficiência teórica e prática. * A avaliação estocástica desses fatores de eficiência via Redes Bayesianas. * A escalabilidade do algoritmo para sistemas de qualquer nível de complexidade.</p>
-<hr>
 </section>
 <section id="política-de-manutenção-implementada" class="level2" data-number="11.2">
 <h2 data-number="11.2" class="anchored" data-anchor-id="política-de-manutenção-implementada"><span class="header-section-number">11.2</span> Política de Manutenção Implementada</h2>
@@ -501,7 +483,6 @@ window.Quarto = {
 <li>O comportamento de falha do ativo segue uma distribuição de Weibull, assumindo uma taxa de degradação crescente ao longo do tempo (condição obrigatória para modelagem de MP imperfeita).</li>
 <li>Ao término do ciclo de manutenção completo, o ativo sofre uma Renovação Completa (CR - <em>Complete Renewal</em>), retornando ao estado perfeito (AGAN).</li>
 </ul>
-<hr>
 </section>
 </section>
 <section id="formulação-matemática-do-ciclo-de-renovação" class="level2" data-number="11.3">
@@ -522,30 +503,28 @@ window.Quarto = {
 </ul>
 <p>Para que o algoritmo suporte decisões financeiras, integramos as variáveis de custo operacionais: * <span class="math inline">\(c_{p^{(n)}}\)</span>: Custo do <span class="math inline">\(n\)</span>-ésimo tipo de PR. * <span class="math inline">\(w_c\)</span> e <span class="math inline">\(c_c\)</span>: Duração média e custo de um Reparo Mínimo (MC). * <span class="math inline">\(w_p\)</span> e <span class="math inline">\(c_p\)</span>: Duração média e custo associado a um PR. * <span class="math inline">\(w_R\)</span> e <span class="math inline">\(c_R\)</span>: Duração média e custo de uma Renovação Completa (CR).</p>
 </section>
-<section id="sec-caso-iqpl-rascunho" class="level1" data-number="12">
-<h1 data-number="12"><span class="header-section-number">12</span> RASCUNHO: O Índice de Qualidade de Plano de Manutenção (IQPL)</h1>
-<section id="contexto-operacional-e-motivação" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="contexto-operacional-e-motivação"><span class="header-section-number">12.1</span> Contexto Operacional e Motivação</h2>
+<section id="sec-caso-iqpl" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="sec-caso-iqpl"><span class="header-section-number">11.4</span> O Índice de Qualidade de Plano de Manutenção (IQPL)</h2>
+<section id="contexto-operacional-e-motivação" class="level3" data-number="11.4.1">
+<h3 data-number="11.4.1" class="anchored" data-anchor-id="contexto-operacional-e-motivação"><span class="header-section-number">11.4.1</span> Contexto Operacional e Motivação</h3>
 <p>No segundo estudo de caso, a modelagem ARM é aplicada diretamente à gestão de ativos físicos. Um plano de manutenção mal estruturado gera paradas não programadas e destrói o fluxo de caixa. Para auditar a robustez desses planos, cria-se o <strong>Índice de Qualidade de Plano de Manutenção (IQPL)</strong>.</p>
 <p>O IQPL é a consolidação da nossa equação de qualidade em uma nota cuja pontuação máxima atinge 100 pontos. Para garantir o rigor técnico, o modelo foi desdobrado em um total de <strong>35 variáveis (<span class="math inline">\(V_i\)</span>)</strong>, metodicamente agrupadas em <strong>5 áreas de interesse (<span class="math inline">\(D_j\)</span>)</strong>:</p>
-<p><span id="eq-iqpl"><span class="math display">\[IQPL = \sum_{j=1}^{5} \left[ W_{D_j} \times \left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right) \right] \leq 100 \tag{12.1}\]</span></span></p>
-<section id="dicotomia-paramétrica-parâmetros-existentes-vs.-novos" class="level3" data-number="12.1.1">
-<h3 data-number="12.1.1" class="anchored" data-anchor-id="dicotomia-paramétrica-parâmetros-existentes-vs.-novos"><span class="header-section-number">12.1.1</span> Dicotomia Paramétrica: Parâmetros Existentes vs.&nbsp;Novos</h3>
+<p><span id="eq-iqpl"><span class="math display">\[IQPL = \sum_{j=1}^{5} \left[ W_{D_j} \times \left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right) \right] \leq 100 \tag{11.1}\]</span></span></p>
+</section>
+<section id="dicotomia-paramétrica-parâmetros-existentes-vs.-novos" class="level3" data-number="11.4.2">
+<h3 data-number="11.4.2" class="anchored" data-anchor-id="dicotomia-paramétrica-parâmetros-existentes-vs.-novos"><span class="header-section-number">11.4.2</span> Dicotomia Paramétrica: Parâmetros Existentes vs.&nbsp;Novos</h3>
 <p>Com o intuito de impulsionar a melhoria contínua e rastrear a evolução da gestão, as variáveis do IQPL foram divididas entre dois tipos:</p>
 <ul>
-<li><strong>Parâmetros Existentes:</strong> Representam a base histórica de controle (o que já era medido tradicionamente). Servem como piso técnico mínimo.</li>
+<li><strong>Parâmetros Existentes:</strong> Representam a base histórica de controle (o que já era medido tradicionalmente). Servem como piso técnico mínimo.</li>
 <li><strong>Parâmetros Novos:</strong> Representam uma elevação de padrão (o que a organização deve desenvolver para ser competitiva). Servem como gatilhos de inovação.</li>
 </ul>
-<p>Esta dicotomia permite que o gestor visualize não apenas o escore agregado, mas também a maturidade incremental: “Onde estou?” (existentes) e “Para onde preciso ir?” (novos).</p>
-<hr>
+<p>Esta dicotomia permite que o gestor visualize não apenas o escore agregado, mas também a maturidade incremental: “Onde estou?” (existentes) e “Para onde preciso ir?” (novos</p>
+<p>).</p>
 </section>
-</section>
-<section id="dimensão-1-programáveis-d_1" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="dimensão-1-programáveis-d_1"><span class="header-section-number">12.2</span> Dimensão 1: Programáveis (<span class="math inline">\(D_1\)</span>)</h2>
-<p><strong>Total: 7 variáveis</strong></p>
+<section id="dimensão-1-programáveis-d_1" class="level3" data-number="11.4.3">
+<h3 data-number="11.4.3" class="anchored" data-anchor-id="dimensão-1-programáveis-d_1"><span class="header-section-number">11.4.3</span> Dimensão 1: Programáveis (<span class="math inline">\(D_1\)</span>)</h3>
 <p>A primeira dimensão foca na <strong>estrutura de planejamento</strong> dos planos de manutenção. Um plano bem programado é aquele que antecipa a necessidade, respeita restrições operacionais e se adapta ao contexto do ativo.</p>
-<section id="parâmetros-existentes-d_1-históricos" class="level3" data-number="12.2.1">
-<h3 data-number="12.2.1" class="anchored" data-anchor-id="parâmetros-existentes-d_1-históricos"><span class="header-section-number">12.2.1</span> Parâmetros Existentes (<span class="math inline">\(D_1\)</span> Históricos)</h3>
+<p><strong>Parâmetros Existentes (<span class="math inline">\(D_1\)</span> Históricos)</strong></p>
 <ol type="1">
 <li><strong>Tolerância Positiva (+):</strong> Número de dias permitidos para antecipar o disparo da atividade antes da data ideal. Ex: Se o plano diz “a cada 90 dias” e tem +10 dias de tolerância, o sistema aceita disparo a partir do dia 80.
 <ul>
@@ -583,35 +562,21 @@ window.Quarto = {
 <li><em>Score:</em> Ausência de planos não iniciados (5), Até 5% do portfolio (4), 5-15% (3), 15-30% (2), &gt;30% (1).</li>
 </ul></li>
 </ol>
-<hr>
 </section>
-</section>
-<section id="dimensão-2-processuais-d_2" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="dimensão-2-processuais-d_2"><span class="header-section-number">12.3</span> Dimensão 2: Processuais (<span class="math inline">\(D_2\)</span>)</h2>
-<p><strong>Total: 6 variáveis (3 Novas + 3 Existentes)</strong></p>
+<section id="dimensão-2-processuais-d_2" class="level3" data-number="11.4.4">
+<h3 data-number="11.4.4" class="anchored" data-anchor-id="dimensão-2-processuais-d_2"><span class="header-section-number">11.4.4</span> Dimensão 2: Processuais (<span class="math inline">\(D_2\)</span>)</h3>
 <p>A segunda dimensão aborda como a organização <strong>executa e documenta</strong> as atividades de manutenção. Um processo robusto não apenas realiza a tarefa, mas captura lições aprendidas e retroalimenta o sistema.</p>
-<section id="parâmetros-novos-d_2-elevação-de-padrão" class="level3" data-number="12.3.1">
-<h3 data-number="12.3.1" class="anchored" data-anchor-id="parâmetros-novos-d_2-elevação-de-padrão"><span class="header-section-number">12.3.1</span> Parâmetros Novos (<span class="math inline">\(D_2\)</span> Elevação de Padrão)</h3>
+<p><strong>Parâmetros Novos (<span class="math inline">\(D_2\)</span> Elevação de Padrão)</strong></p>
 <ol type="1">
 <li><strong>Materiais:</strong> Controle de disponibilidade de peças e insumos antes da execução. Indicador: Percentual de atividades que iniciaram com 100% dos materiais em mãos.
 <ul>
 <li><em>Fórmula:</em> <span class="math inline">\(M_{disp} = \frac{\text{Atividades iniciadas com materiais completos}}{\text{Total de atividades executadas}} \times 100\)</span></li>
 <li><em>Escala:</em> &lt;50% (1), 50-70% (2), 70-85% (3), 85-95% (4), &gt;95% (5).</li>
 </ul></li>
-<li><strong>HH - Qualidade:</strong> Horas-Homem destinadas a qualidade e inspeção pós-manutenção. Reflete o comprometimento em validar se a atividade atingiu seu objetivo.
-<ul>
-<li><em>Medição:</em> Percentual de HH de inspeção / Total de HH de execução.</li>
-<li><em>Escala:</em> Nenhuma (0%), &lt;5% (1), 5-10% (2), 10-15% (3), &gt;15% (5).</li>
-</ul></li>
-<li><strong>ACF (Apontamento de Classe Falha):</strong> Sistema estruturado para classificar e rastrear retornos (atividades que não resolveram o problema na primeira vez). Indicador de taxa de retorno.
-<ul>
-<li><em>Fórmula:</em> <span class="math inline">\(R_{index} = \frac{\text{Atividades que retornaram}}{\text{Total de atividades}} \times 100\)</span></li>
-<li><em>Escala:</em> &gt;20% retorno (1), 15-20% (2), 10-15% (3), 5-10% (4), &lt;5% (5).</li>
-</ul></li>
+<li><strong>HH - Qualidade:</strong> Horas-Homem destinadas a qualidade e inspeção pós-manutenção. Reflete o compromet</li>
 </ol>
-</section>
-<section id="parâmetros-existentes-d_2-históricos" class="level3" data-number="12.3.2">
-<h3 data-number="12.3.2" class="anchored" data-anchor-id="parâmetros-existentes-d_2-históricos"><span class="header-section-number">12.3.2</span> Parâmetros Existentes (<span class="math inline">\(D_2\)</span> Históricos)</h3>
+<p>imento em validar se a atividade atingiu seu objetivo. - <em>Medição:</em> Percentual de HH de inspeção / Total de HH de execução. - <em>Escala:</em> Nenhuma (0%), &lt;5% (1), 5-10% (2), 10-15% (3), &gt;15% (5). 3. <strong>ACF (Apontamento de Classe Falha):</strong> Sistema estruturado para classificar e rastrear retornos (atividades que não resolveram o problema na primeira vez). Indicador de taxa de retorno. - <em>Fórmula:</em> <span class="math inline">\(R_{index} = \frac{\text{Atividades que retornaram}}{\text{Total de atividades}} \times 100\)</span> - <em>Escala:</em> &gt;20% retorno (1), 15-20% (2), 10-15% (3), 5-10% (4), &lt;5% (5).</p>
+<p><strong>Parâmetros Existentes (<span class="math inline">\(D_2\)</span> Históricos)</strong></p>
 <ol start="4" type="1">
 <li><strong>Reinício dos planos:</strong> Mecanismo de reset automático ou manual após cada conclusão. Evita que históricos vencidos congestionem o backlog.
 <ul>
@@ -629,15 +594,11 @@ window.Quarto = {
 <li><em>Escala:</em> Sem documentação (1), Documentado, sem validação (3), Documentado e validado por especialista (5).</li>
 </ul></li>
 </ol>
-<hr>
 </section>
-</section>
-<section id="dimensão-3-ativos-d_3" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="dimensão-3-ativos-d_3"><span class="header-section-number">12.4</span> Dimensão 3: Ativos (<span class="math inline">\(D_3\)</span>)</h2>
-<p><strong>Total: 6 variáveis (todas Novas)</strong></p>
+<section id="dimensão-3-ativos-d_3" class="level3" data-number="11.4.5">
+<h3 data-number="11.4.5" class="anchored" data-anchor-id="dimensão-3-ativos-d_3"><span class="header-section-number">11.4.5</span> Dimensão 3: Ativos (<span class="math inline">\(D_3\)</span>)</h3>
 <p>A terceira dimensão foca na <strong>qualidade da identificação e catalogação dos ativos físicos</strong>. Um ativo bem catalogado é rastreável, comparável e facilitará troubleshooting futuro.</p>
-<section id="parâmetros-novos-d_3-estrutural" class="level3" data-number="12.4.1">
-<h3 data-number="12.4.1" class="anchored" data-anchor-id="parâmetros-novos-d_3-estrutural"><span class="header-section-number">12.4.1</span> Parâmetros Novos (<span class="math inline">\(D_3\)</span> Estrutural)</h3>
+<p><strong>Parâmetros Novos (<span class="math inline">\(D_3\)</span> Estrutural)</strong></p>
 <ol type="1">
 <li><strong>Taxonomia - Padronização:</strong> Existência de uma hierarquia padrão para nomear ativos (ex: “Site / Local / Equipamento / Subsistema / Componente”).
 <ul>
@@ -667,15 +628,11 @@ window.Quarto = {
 <li><em>Escala:</em> Desconhecido (1), Conhecida apenas aquisição (3), Aquisição + data de operação (5).</li>
 </ul></li>
 </ol>
-<hr>
 </section>
-</section>
-<section id="dimensão-4-lista-de-tarefas-d_4" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="dimensão-4-lista-de-tarefas-d_4"><span class="header-section-number">12.5</span> Dimensão 4: Lista de Tarefas (<span class="math inline">\(D_4\)</span>)</h2>
-<p><strong>Total: 15 variáveis (1 Nova + 14 Existentes)</strong></p>
+<section id="dimensão-4-lista-de-tarefas-d_4" class="level3" data-number="11.4.6">
+<h3 data-number="11.4.6" class="anchored" data-anchor-id="dimensão-4-lista-de-tarefas-d_4"><span class="header-section-number">11.4.6</span> Dimensão 4: Lista de Tarefas (<span class="math inline">\(D_4\)</span>)</h3>
 <p>A quarta dimensão aborda a <strong>descrição detalhada das atividades</strong> de manutenção que serão executadas quando o plano dispara. Uma lista de tarefas robusta reduz improviso e melhora padronização.</p>
-<section id="parâmetro-novo-d_4-inovação" class="level3" data-number="12.5.1">
-<h3 data-number="12.5.1" class="anchored" data-anchor-id="parâmetro-novo-d_4-inovação"><span class="header-section-number">12.5.1</span> Parâmetro Novo (<span class="math inline">\(D_4\)</span> Inovação)</h3>
+<p><strong>Parâmetro Novo (<span class="math inline">\(D_4\)</span> Inovação)</strong></p>
 <ol type="1">
 <li><strong>PTS (Plano Técnico de Segurança):</strong> Documento que detalha os riscos específicos da tarefa e as medidas de controle. Exemplo: “Trabalho em altura &gt; 1,5m requer cinto + guarda-corpo”.
 <ul>
@@ -683,9 +640,7 @@ window.Quarto = {
 <li><em>Escala:</em> Sem PTS (1), PTS genérico (3), PTS específico e revisado periodicamente (5).</li>
 </ul></li>
 </ol>
-</section>
-<section id="parâmetros-existentes-d_4-core" class="level3" data-number="12.5.2">
-<h3 data-number="12.5.2" class="anchored" data-anchor-id="parâmetros-existentes-d_4-core"><span class="header-section-number">12.5.2</span> Parâmetros Existentes (<span class="math inline">\(D_4\)</span> Core)</h3>
+<p><strong>Parâmetros Existentes (<span class="math inline">\(D_4\)</span> Core)</strong></p>
 <ol start="2" type="1">
 <li><strong>Chave de cálculo:</strong> Campo computacional que define como o sistema recalcula o próximo disparo (ex: “90 dias após conclusão” ou “500 horas operacionais após conclusão”).
 <ul>
@@ -745,15 +700,12 @@ window.Quarto = {
 <li><em>Escala:</em> Não existe (1), Existe, mas manual (3), Automático e auditado (5).</li>
 </ul></li>
 </ol>
-<hr>
 </section>
-</section>
-<section id="dimensão-5-desempenho-d_5" class="level2" data-number="12.6">
-<h2 data-number="12.6" class="anchored" data-anchor-id="dimensão-5-desempenho-d_5"><span class="header-section-number">12.6</span> Dimensão 5: Desempenho (<span class="math inline">\(D_5\)</span>)</h2>
-<p><strong>Total: 1 variável (Nova)</strong></p>
+<section id="dimensão-5-desempenho-d_5" class="level3" data-number="11.4.7">
+<h3 data-number="11.4.7" class="anchored" data-anchor-id="dimensão-5-desempenho-d_5"><span class="header-section-number">11.4.7</span> Dimensão 5: Desempenho (<span class="math inline">\(D_5\)</span>)</h3>
 <p>A quinta dimensão foca no <strong>resultado final</strong> da execução de manutenção: o ativo continua funcionando conforme esperado?</p>
-<section id="parâmetro-novo-d_5-sintético" class="level3" data-number="12.6.1">
-<h3 data-number="12.6.1" class="anchored" data-anchor-id="parâmetro-novo-d_5-sintético"><span class="header-section-number">12.6.1</span> Parâmetro Novo (<span class="math inline">\(D_5\)</span> Sintético)</h3>
+<p>**Parâmetro Novo (<span class="math inline">\(D_5\)</span> Sint</p>
+<p>ético)**</p>
 <ol type="1">
 <li><strong>RMC (Relação Manutenção / Confiabilidade):</strong> Índice que correlaciona o investimento em manutenção com a confiabilidade operacional observada.
 <ul>
@@ -803,20 +755,12 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<hr>
 </section>
 </section>
-<section id="síntese-da-arquitetura-iqpl-e-matriz-de-pesos" class="level2" data-number="12.7">
-<h2 data-number="12.7" class="anchored" data-anchor-id="síntese-da-arquitetura-iqpl-e-matriz-de-pesos"><span class="header-section-number">12.7</span> Síntese da Arquitetura IQPL e Matriz de Pesos</h2>
-<p>A tabela a seguir consolida todas as 35 variáveis, suas dimensões, tipos paramétricos e o peso estimado dentro de cada dimensão:</p>
+<section id="síntese-da-arquitetura-iqpl-e-matriz-de-pesos" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="síntese-da-arquitetura-iqpl-e-matriz-de-pesos"><span class="header-section-number">11.5</span> Síntese da Arquitetura IQPL e Matriz de Pesos</h2>
+<p>A tabela a seguir consolida todas as 35 variáveis, suas dimensões, tipos paramétricos e peso estimado dentro de cada dimensão:</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 23%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Dimensão</th>
@@ -828,258 +772,187 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong><span class="math inline">\(D_1\)</span> - Programáveis (7)</strong></td>
-<td style="text-align: left;">V1</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Tolerância Positiva</td>
-<td style="text-align: center;">0.15</td>
-</tr>
-<tr class="even">
+<td style="text-align: left;">**<span class="math inline">\(D_1\)</span> - Programá</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">V2</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Tolerância Negativa</td>
-<td style="text-align: center;">0.15</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;"></td>
-<td style="text-align: left;">V3</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Horizonte de Abertura</td>
-<td style="text-align: center;">0.20</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: left;">V4</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Intervalo de Solicitação</td>
-<td style="text-align: center;">0.15</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V5</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Local de Instalação</td>
-<td style="text-align: center;">0.12</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V6</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Plano Automático</td>
-<td style="text-align: center;">0.14</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V7</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Planos Não Iniciados</td>
-<td style="text-align: center;">0.09</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong><span class="math inline">\(D_2\)</span> - Processuais (6)</strong></td>
-<td style="text-align: left;">V8</td>
-<td style="text-align: left;">Novo</td>
-<td style="text-align: left;">Materiais</td>
-<td style="text-align: center;">0.18</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V9</td>
-<td style="text-align: left;">Novo</td>
-<td style="text-align: left;">HH - Qualidade</td>
-<td style="text-align: center;">0.16</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V10</td>
-<td style="text-align: left;">Novo</td>
-<td style="text-align: left;">ACF (Taxa Retorno)</td>
-<td style="text-align: center;">0.20</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V11</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Reinício dos Planos</td>
-<td style="text-align: center;">0.15</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V12</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Ciclos Vencidos</td>
-<td style="text-align: center;">0.18</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V13</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">RT e Validação</td>
-<td style="text-align: center;">0.13</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong><span class="math inline">\(D_3\)</span> - Ativos (6)</strong></td>
-<td style="text-align: left;">V14</td>
-<td style="text-align: left;">Novo</td>
-<td style="text-align: left;">Taxonomia - Padronização</td>
-<td style="text-align: center;">0.18</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V15</td>
-<td style="text-align: left;">Novo</td>
-<td style="text-align: left;">Taxonomia - 6º Nível</td>
-<td style="text-align: center;">0.16</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V16</td>
-<td style="text-align: left;">Novo</td>
-<td style="text-align: left;">Perfil de Catálogo</td>
-<td style="text-align: center;">0.20</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V17</td>
-<td style="text-align: left;">Novo</td>
-<td style="text-align: left;">Tipo de Ativo</td>
-<td style="text-align: center;">0.15</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V18</td>
-<td style="text-align: left;">Novo</td>
-<td style="text-align: left;">Fabricante</td>
-<td style="text-align: center;">0.17</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V19</td>
-<td style="text-align: left;">Novo</td>
-<td style="text-align: left;">Data Aquisição/Operação</td>
-<td style="text-align: center;">0.14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong><span class="math inline">\(D_4\)</span> - Lista de Tarefas (15)</strong></td>
-<td style="text-align: left;">V20</td>
-<td style="text-align: left;">Novo</td>
-<td style="text-align: left;">PTS (Plano Tec. Segurança)</td>
-<td style="text-align: center;">0.12</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V21</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Chave de Cálculo</td>
-<td style="text-align: center;">0.08</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V22</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Campo de Duração</td>
-<td style="text-align: center;">0.10</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V23</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Campo Percentual</td>
-<td style="text-align: center;">0.09</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V24</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Responsável Técnico LT</td>
-<td style="text-align: center;">0.10</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V25</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Última Modificação LT</td>
-<td style="text-align: center;">0.08</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V26</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Duração Irrisória</td>
-<td style="text-align: center;">0.07</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V27</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Duração Máxima</td>
-<td style="text-align: center;">0.09</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V28</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Unidade CT (Horas)</td>
-<td style="text-align: center;">0.08</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V29</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Segurança</td>
-<td style="text-align: center;">0.12</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V30</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Validade da LT</td>
-<td style="text-align: center;">0.08</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V31</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">5S</td>
-<td style="text-align: center;">0.10</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V32</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Título da Lista</td>
-<td style="text-align: center;">0.09</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V33</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Tempo Máx. Operação</td>
-<td style="text-align: center;">0.10</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">V34</td>
-<td style="text-align: left;">Existente</td>
-<td style="text-align: left;">Chave de Controle</td>
-<td style="text-align: center;">0.11</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong><span class="math inline">\(D_5\)</span> - Desempenho (1)</strong></td>
-<td style="text-align: left;">V35</td>
-<td style="text-align: left;">Novo</td>
-<td style="text-align: left;">RMC (Manutenção/Confiabilidade)</td>
-<td style="text-align: center;">1.00</td>
+<td style="text-align: center;"></td>
 </tr>
 </tbody>
 </table>
-<hr>
+<p>veis (7)** | V1 | Existente | Tolerância Positiva | 0.15 | | | V2 | Existente | Tolerância Negativa | 0.15 | | | V3 | Existente | Horizonte de Abertura | 0.20 | | | V4 | Existente | Intervalo de Solicitação | 0.15 | | | V5 | Existente | Local de Instalação | 0.12 | | | V6 | Existente | Plano Automático | 0.14 | | | V7 | Existente | Planos Não Iniciados | 0.09 | | <strong><span class="math inline">\(D_2\)</span> - Processuais (6)</strong> | V8 | Novo | Materiais | 0.18 | | | V9 | Novo | HH - Qualidade | 0.16 | | | V10 | Novo | ACF (Taxa Retorno) | 0.20 | | | V11 | Existente | Reinício dos Planos | 0.15 | | | V12 | Existente | Ciclos Vencidos | 0.18 | | | V13 | Existente | RT e Validação | 0.13 | | <strong><span class="math inline">\(D_3\)</span> - Ativos (6)</strong> | V14 | Novo | Taxonomia - Padronização | 0.18 | | | V15 | Novo | Taxonomia - 6º Nível | 0.16 | | | V16 | Novo | Perfil de Catálogo | 0.20 | | | V17 | Novo | Tipo de Ativo | 0.15 | | | V18 | Novo | Fabricante | 0.17 | | | V19 | Novo | Data Aquisição/Operação | 0.14 | | <strong><span class="math inline">\(D_4\)</span> - Lista de Tarefas (15)</strong> | V20 | Novo | PTS (Plano Tec. Segurança) | 0.12 | | | V21 | Existente | Chave de Cálculo | 0.08 | | | V22 | Existente | Campo de Duração | 0.10 | | | V23 | Existente | Campo Percentual | 0.09 | | | V24 | Existente | Responsável Técnico LT | 0.10 | | | V25 | Existente | Última Modificação LT | 0.08 | | | V26 | Existente | Duração Irrisória | 0.07 | | | V27 | Existente | Duração Máxima | 0.09 | | | V28 | Existente | Unidade CT (Horas) | 0.08 | | | V29 | Existente | Segurança | 0.12 | | | V30 | Existente | Validade da LT | 0.08 | | | V31 | Existente | 5S | 0.10 | | | V32 | Existente | Título da Lista | 0.09 | | | V33 | Existente | Tempo Máx. Operação | 0.10 | | | V34 | Existente | Chave de Controle | 0.11 | | <strong><span class="math inline">\(D_5\)</span> - Desempenho (1)</strong> | V35 | Novo | RMC (Manutenção/Confiabilidade) | 1.00 |</p>
 </section>
-<section id="cálculo-prático-exemplo-de-aplicação-iqpl" class="level2" data-number="12.8">
-<h2 data-number="12.8" class="anchored" data-anchor-id="cálculo-prático-exemplo-de-aplicação-iqpl"><span class="header-section-number">12.8</span> Cálculo Prático: Exemplo de Aplicação IQPL</h2>
-<section id="cenário-auditoria-de-plano-de-manutenção-em-frota-de-britadores" class="level3" data-number="12.8.1">
-<h3 data-number="12.8.1" class="anchored" data-anchor-id="cenário-auditoria-de-plano-de-manutenção-em-frota-de-britadores"><span class="header-section-number">12.8.1</span> Cenário: Auditoria de Plano de Manutenção em Frota de Britadores</h3>
+<section id="relação-entre-o-macrofluxo-do-pcm-e-o-índice-de-qualidade-do-planejamento-iqpl" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="relação-entre-o-macrofluxo-do-pcm-e-o-índice-de-qualidade-do-planejamento-iqpl"><span class="header-section-number">11.6</span> Relação entre o Macrofluxo do PCM e o Índice de Qualidade do Planejamento (IQPL)</h2>
+<p>A avaliação do desempenho e da maturidade da manutenção exige instrumentos que mensurem não apenas a execução física em campo, mas a robustez das engrenagens de preparação. Nesse contexto, os Parâmetros de Avaliação IQPL (Índice de Qualidade do Planejamento - Evolutivas 2025) atuam como um instrumento de verificação técnica da qualidade e maturidade dos planos de manutenção.</p>
+<p>Enquanto o IQPL avalia “<em>a qualidade técnica do que foi planejado</em>” no sistema, o macrofluxo do PCM descreve “<em>como esse planejamento é construído, executado e controlado</em>”. Assim, os parâmetros do IQPL não competem com o PCM; pelo contrário, eles se apoiam diretamente nas práticas descritas nos fluxogramas. A tabela a seguir demonstra a relação direta entre os grupos temáticos do IQPL e as macroetapas do PCM que os sustentam.</p>
+<div id="tbl-relacao-iqpl-pcm" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-relacao-iqpl-pcm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;11.1: Relação entre Parâmetros IQPL e Etapas do PCM
+</figcaption>
+<div aria-describedby="tbl-relacao-iqpl-pcm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Grupo Temático IQPL</th>
+<th style="text-align: left;">Parâmetros de Avaliação</th>
+<th style="text-align: left;">Etapa do PCM onde é suportado/evidenciado</th>
+<th style="text-align: left;">Leitura Transversal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>1. Plano de Manutenção</strong></td>
+<td style="text-align: left;">Campo percentual, Tolerância (+), Horizonte, Intervalo de solicitação, Local de instalação, Plano não iniciado, Plano automático.</td>
+<td style="text-align: left;">Planejamento de OM, Planejamento de Curto Prazo, Programação e Inspeção.</td>
+<td style="text-align: left;">Grupo fortemente sustentado pelo Planejamento de OM. Define a arquitetura do plano no sistema e a frequência das sistemáticas.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>2. Programáveis</strong></td>
+<td style="text-align: left;">Campo de duração, Chave de cálculo.</td>
+<td style="text-align: left;">Planejamento de Curto Prazo, Planejamento de OM e Médio Prazo.</td>
+<td style="text-align: left;">Conecta-se diretamente aos KPIs de Qualidade (HH) e Atendimento (Tempo Médio Planejado).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>3. Lista de Tarefas</strong></td>
+<td style="text-align: left;">Título, PTS, Tempo Máx., Duração irrisória, Segurança, Chave de controle, Unidade CT (H), 5S.</td>
+<td style="text-align: left;">Planejamento de OM, Programação, Execução e Controle.</td>
+<td style="text-align: left;">Ligado à qualidade técnica do Planejamento de OM, segurança da intervenção e à disciplina de Execução.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>4. Processuais</strong></td>
+<td style="text-align: left;">Materiais, HH (Qualidade), ACF (Classe de Falha), RT (Validação), Ciclos vencidos.</td>
+<td style="text-align: left;">Aprovisionamento, Execução, Registro e Controle, Backlog.</td>
+<td style="text-align: left;">Grupo totalmente transversal. Conecta o Planejamento à Execução (consumo) e ao Controle (causa da falha).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>5. Desempenho</strong></td>
+<td style="text-align: left;">RMC (Reliability Centered Maintenance - Confiabilidade).</td>
+<td style="text-align: left;">Controle e Melhoria Contínua.</td>
+<td style="text-align: left;">O RMC é consequência direta da maturidade do PCM e da qualidade do ciclo completo retroalimentado.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>6. Ativos</strong></td>
+<td style="text-align: left;">Taxonomia (Padronização e 6º Nível), Perfil de catálogo, Tipo de ativo, Fabricante, Datas.</td>
+<td style="text-align: left;">Inspeção, Planejamento de OM, Execução e Registro.</td>
+<td style="text-align: left;">Sustenta a qualidade da informação de base (Dados Mestres) do PCM. Sem taxonomia correta, o histórico é inútil.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="💡 Síntese Analítica">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>💡 Síntese Analítica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Os parâmetros de avaliação IQPL (2025: Evolutivas) encontram correspondência direta com as práticas e etapas descritas no macrofluxo do PCM. Enquanto o IQPL atua como instrumento de avaliação da qualidade dos planos de manutenção, o PCM fornece a estrutura processual que viabiliza a criação, execução, controle e melhoria desses planos. A análise evidencia que a efetividade dos parâmetros IQPL depende da maturidade do PCM, especialmente nas etapas de Planejamento de OM, Programação, Execução disciplinada e Controle por indicadores.</p>
+</div>
+</div>
+</section>
+<section id="iqpl-e-a-evolução-da-maturidade-do-pcm" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="iqpl-e-a-evolução-da-maturidade-do-pcm"><span class="header-section-number">11.7</span> IQPL e a Evolução da Maturidade do PCM</h2>
+<p>A relação entre os Parâmetros de Avaliação IQPL e o nível de maturidade do PCM permite compreender que a qualidade dos planos de manutenção não evolui de forma isolada, mas como consequência direta da maturidade do processo que os sustenta.</p>
+<p>À medida que o PCM avança de um modelo reativo para um modelo planejado, controlado e orientado por melhoria contínua, observa-se também a incorporação progressiva dos parâmetros IQPL, desde os mais básicos até os de caráter evolutivo. O quadro a seguir sintetiza essa relação, cruzando os grupos de parâmetros IQPL com os níveis de maturidade do PCM, evidenciando quando e como cada conjunto de parâmetros tende a ser efetivamente atendido.</p>
+<div id="tbl-evolucao-iqpl-maturidade" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-evolucao-iqpl-maturidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;11.2: Matriz de Evolução: Grupos IQPL × Nível de Maturidade do PCM
+</figcaption>
+<div aria-describedby="tbl-evolucao-iqpl-maturidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Grupo IQPL</th>
+<th style="text-align: left;">Nível 1 - Reativo</th>
+<th style="text-align: left;">Nível 2 - Estruturado</th>
+<th style="text-align: left;">Nível 3 - Planejado</th>
+<th style="text-align: left;">Nível 4 - Controlado</th>
+<th style="text-align: left;">Nível 5 - Maduro</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Plano de Manutenção</strong></td>
+<td style="text-align: left;">Existência parcial ou informal de planos.</td>
+<td style="text-align: left;">Planos formalizados, porém inconsistentes.</td>
+<td style="text-align: left;">Planos completos, com horizonte e periodicidade definidos.</td>
+<td style="text-align: left;">Planos estáveis, monitorados e ajustados.</td>
+<td style="text-align: left;">Planos otimizados e alinhados à estratégia.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Programáveis</strong></td>
+<td style="text-align: left;">Durações arbitrárias ou inexistentes.</td>
+<td style="text-align: left;">Durações definidas, porém pouco confiáveis.</td>
+<td style="text-align: left;">Durações e chaves de cálculo padronizadas.</td>
+<td style="text-align: left;">Durações validadas por histórico de execução.</td>
+<td style="text-align: left;">Durações ajustadas continuamente por análise de dados.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Lista de Tarefas</strong></td>
+<td style="text-align: left;">Listas incompletas ou inexistentes.</td>
+<td style="text-align: left;">Listas básicas, com foco puramente operacional.</td>
+<td style="text-align: left;">Listas estruturadas e padronizadas.</td>
+<td style="text-align: left;">Listas validadas quanto à segurança, PTS e qualidade.</td>
+<td style="text-align: left;">Listas otimizadas, integradas à melhoria contínua.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Processuais</strong></td>
+<td style="text-align: left;">Baixo controle de HH, materiais e falhas.</td>
+<td style="text-align: left;">Registro básico de HH e consumo de materiais.</td>
+<td style="text-align: left;">Integração entre planejamento, execução e registro.</td>
+<td style="text-align: left;">Controle sistemático de ACF, ciclos e Validação (RT).</td>
+<td style="text-align: left;">Processos retroalimentados e continuamente melhorados.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Desempenho (RMC)</strong></td>
+<td style="text-align: left;">Não mensurado ou usado de forma reativa.</td>
+<td style="text-align: left;">Mensurado de forma pontual/isolada.</td>
+<td style="text-align: left;">Utilizado para análise básica de desempenho.</td>
+<td style="text-align: left;">Usado sistematicamente para controle de saúde.</td>
+<td style="text-align: left;">Usado como base para decisão estratégica de ativos.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Ativos</strong></td>
+<td style="text-align: left;">Cadastro incompleto e pouco padronizado.</td>
+<td style="text-align: left;">Padronização inicial da base de ativos.</td>
+<td style="text-align: left;">Taxonomia estruturada até níveis relevantes.</td>
+<td style="text-align: left;">Base de ativos confiável para análise de falhas.</td>
+<td style="text-align: left;">Base de ativos integrada à gestão do ciclo de vida.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>O cruzamento entre os parâmetros IQPL e os níveis de maturidade do PCM evidencia que parâmetros mais avançados de qualidade só se sustentam em processos maduros. Em níveis iniciais de maturidade (Reativo), a organização tende a atender apenas aos requisitos básicos do IQPL, muitas vezes de forma incompleta ou para fins de mera auditoria (cumprir tabela).</p>
+<p>À medida que o PCM evolui, com planejamento disciplinado, programação estável, execução controlada e uso sistemático de KPIs transversais, os parâmetros IQPL passam a ser plenamente atendidos e utilizados ativamente como instrumentos de melhoria da confiabilidade. Dessa forma, a avaliação da qualidade dos planos (IQPL) e a maturidade do PCM são dimensões indissociáveis, sendo a evolução de uma diretamente dependente da consolidação estrutural da outra.</p>
+</section>
+<section id="cálculo-prático-exemplo-de-aplicação-iqpl" class="level2" data-number="11.8">
+<h2 data-number="11.8" class="anchored" data-anchor-id="cálculo-prático-exemplo-de-aplicação-iqpl"><span class="header-section-number">11.8</span> Cálculo Prático: Exemplo de Aplicação IQPL</h2>
+<section id="cenário-auditoria-de-plano-de-manutenção-em-frota-de-britadores" class="level3" data-number="11.8.1">
+<h3 data-number="11.8.1" class="anchored" data-anchor-id="cenário-auditoria-de-plano-de-manutenção-em-frota-de-britadores"><span class="header-section-number">11.8.1</span> Cenário: Auditoria de Plano de Manutenção em Frota de Britadores</h3>
 <p>Uma mineradora possui 5 britadores primários críticos. O engenheiro de manutenção auditará o plano de manutenção preventiva de um britador representativo.</p>
 <p><strong>Passo 1: Coleta de Dados por Dimensão</strong></p>
 <p><em>(Valores simulados para ilustração)</em></p>
@@ -1089,8 +962,8 @@ window.Quarto = {
 <p><strong>Dimensão 4 - Lista de Tarefas (<span class="math inline">\(D_4\)</span>):</strong> - V20 (PTS): Específico e revisado semestralmente → Score = 5 - V21-V34: (Simulando valores médios) → Scores entre 3 e 5</p>
 <p><strong>Dimensão 5 - Desempenho (<span class="math inline">\(D_5\)</span>):</strong> - V35 (RMC): MTBF = 1.200 horas; Custo Prev. = US$ 8.000/ano → RMC ≈ 150 → Score = 4</p>
 </section>
-<section id="passo-2-cálculo-de-scores-dimensionais-média-ponderada" class="level3" data-number="12.8.2">
-<h3 data-number="12.8.2" class="anchored" data-anchor-id="passo-2-cálculo-de-scores-dimensionais-média-ponderada"><span class="header-section-number">12.8.2</span> Passo 2: Cálculo de Scores Dimensionais (Média Ponderada)</h3>
+<section id="passo-2-cálculo-de-scores-dimensionais-média-ponderada" class="level3" data-number="11.8.2">
+<h3 data-number="11.8.2" class="anchored" data-anchor-id="passo-2-cálculo-de-scores-dimensionais-média-ponderada"><span class="header-section-number">11.8.2</span> Passo 2: Cálculo de Scores Dimensionais (Média Ponderada)</h3>
 <p>De acordo com a nossa matriz, cada variável possui um peso específico (<span class="math inline">\(W_{V_i}\)</span>) dentro da sua dimensão. O score da dimensão é a soma do produto entre a nota da variável e o seu respectivo peso:</p>
 <p><strong>Dimensão 1 (<span class="math inline">\(D_1\)</span>):</strong> <span class="math display">\[S_{D_1} = (5 \times 0.15) + (5 \times 0.15) + (4 \times 0.20) + (5 \times 0.15) + (4 \times 0.12) + (5 \times 0.14) + (4 \times 0.09) = 4.59\]</span></p>
 <p><strong>Dimensão 2 (<span class="math inline">\(D_2\)</span>):</strong> <span class="math display">\[S_{D_2} = (4 \times 0.18) + (3 \times 0.16) + (4 \times 0.20) + (5 \times 0.15) + (4 \times 0.18) + (5 \times 0.13) = 4.12\]</span></p>
@@ -1098,21 +971,20 @@ window.Quarto = {
 <p><strong>Dimensão 4 (<span class="math inline">\(D_4\)</span>):</strong> <span class="math display">\[S_{D_4} = \text{(Média ponderada das 15 variáveis)} ≈ 4.20\]</span></p>
 <p><strong>Dimensão 5 (<span class="math inline">\(D_5\)</span>):</strong> <span class="math display">\[S_{D_5} = (4 \times 1.00) = 4.00\]</span></p>
 </section>
-<section id="passo-3-atribuição-de-pesos-dimensionais-e-cálculo-final" class="level3" data-number="12.8.3">
-<h3 data-number="12.8.3" class="anchored" data-anchor-id="passo-3-atribuição-de-pesos-dimensionais-e-cálculo-final"><span class="header-section-number">12.8.3</span> Passo 3: Atribuição de Pesos Dimensionais e Cálculo Final</h3>
+<section id="passo-3-atribuição-de-pesos-dimensionais-e-cálculo-final" class="level3" data-number="11.8.3">
+<h3 data-number="11.8.3" class="anchored" data-anchor-id="passo-3-atribuição-de-pesos-dimensionais-e-cálculo-final"><span class="header-section-number">11.8.3</span> Passo 3: Atribuição de Pesos Dimensionais e Cálculo Final</h3>
 <p>Assumindo os pesos corporativos para cada dimensão: <span class="math inline">\(W_{D_1} = 0.20\)</span>, <span class="math inline">\(W_{D_2} = 0.25\)</span>, <span class="math inline">\(W_{D_3} = 0.20\)</span>, <span class="math inline">\(W_{D_4} = 0.25\)</span>, <span class="math inline">\(W_{D_5} = 0.10\)</span></p>
 <p><span class="math display">\[IQPL = (0.20 \times 4.59) + (0.25 \times 4.12) + (0.20 \times 5.00) + (0.25 \times 4.20) + (0.10 \times 4.00)\]</span></p>
 <p><span class="math display">\[IQPL = 0.918 + 1.030 + 1.000 + 1.050 + 0.400 = 4.398\]</span></p>
 </section>
-<section id="passo-4-normalização-para-escala-0-100" class="level3" data-number="12.8.4">
-<h3 data-number="12.8.4" class="anchored" data-anchor-id="passo-4-normalização-para-escala-0-100"><span class="header-section-number">12.8.4</span> Passo 4: Normalização para Escala 0-100</h3>
+<section id="passo-4-normalização-para-escala-0-100" class="level3" data-number="11.8.4">
+<h3 data-number="11.8.4" class="anchored" data-anchor-id="passo-4-normalização-para-escala-0-100"><span class="header-section-number">11.8.4</span> Passo 4: Normalização para Escala 0-100</h3>
 <p>Como os scores originais variam de 1 a 5, multiplicamos o resultado por 20 para normalizar o índice para a base centesimal (0 a 100):</p>
 <p><span class="math display">\[IQPL_{normalizado} = 4.398 \times 20 = 87.96 \text{ pontos}\]</span></p>
-<hr>
 </section>
 </section>
-<section id="interpretação-e-roadmap-de-melhoria" class="level2" data-number="12.9">
-<h2 data-number="12.9" class="anchored" data-anchor-id="interpretação-e-roadmap-de-melhoria"><span class="header-section-number">12.9</span> Interpretação e Roadmap de Melhoria</h2>
+<section id="interpretação-e-roadmap-de-melhoria" class="level2" data-number="11.9">
+<h2 data-number="11.9" class="anchored" data-anchor-id="interpretação-e-roadmap-de-melhoria"><span class="header-section-number">11.9</span> Interpretação e Roadmap de Melhoria</h2>
 <p>Um IQPL de <strong>87,96 pontos</strong>, em uma escala de 0-100, é classificado como <strong>BOM</strong>, mas com margens de melhoria.</p>
 <p><strong>Diagnóstico de Gaps:</strong></p>
 <ul>
@@ -1125,10 +997,9 @@ window.Quarto = {
 <li><strong>Médio Prazo (90 dias):</strong> Otimizar V8 (Materiais) estudando demanda previsível e pré-posicionando itens críticos em armazém local.</li>
 <li><strong>Longo Prazo (6 meses):</strong> Integrar preditiva (análise de vibrações, temperatura) para elevar V35 (RMC) acima de 300.</li>
 </ol>
-<hr>
 </section>
-<section id="implementação-computacional-motor-matemático-em-r" class="level2" data-number="12.10">
-<h2 data-number="12.10" class="anchored" data-anchor-id="implementação-computacional-motor-matemático-em-r"><span class="header-section-number">12.10</span> Implementação Computacional: Motor Matemático em R</h2>
+<section id="implementação-computacional-motor-matemático-em-r" class="level2" data-number="11.10">
+<h2 data-number="11.10" class="anchored" data-anchor-id="implementação-computacional-motor-matemático-em-r"><span class="header-section-number">11.10</span> Implementação Computacional: Motor Matemático em R</h2>
 <p>A execução manual dos cálculos é viável para auditorias pontuais, mas a automatização é essencial quando a auditoria evolui para monitoramento contínuo de múltiplas plantas e equipamentos. O código em R abaixo implementa exatamente o motor matemático descrito, permitindo que novos dados de auditoria sejam processados em segundos e gerando dashboards de diagnóstico automáticos.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Motor Matemático IQPL (Índice de Qualidade de Plano de Manutenção)</span></span>
@@ -1198,21 +1069,25 @@ window.Quarto = {
 <li><strong>Normalização:</strong> Converte o resultado para escala 0-100.</li>
 </ol>
 <p><strong>Extensões Futuras:</strong></p>
-<p>Este motor pode ser facilmente expandido para: - Processar <strong>múltiplos equipamentos</strong> simultaneamente (vectorização). - Gerar <strong>comparações temporais</strong> (tracking de melhoria do mesmo britador ao longo de meses). - <strong>Visualização automática</strong> via <code>ggplot2</code> mostrando o radar de dimensões. - <strong>Alertas automáticos</strong> quando uma variável específica cai abaixo de um limiar crítico.</p>
-<hr>
+<p>Este motor pode ser facilmente expandido para:</p>
+<ul>
+<li>Processar <strong>múltiplos equipamentos</strong> simultaneamente (vectorização).</li>
+<li>Gerar <strong>comparações temporais</strong> (tracking de melhoria do mesmo britador ao longo de meses).</li>
+<li><strong>Visualização automática</strong> via <code>ggplot2</code> mostrando o radar de dimensões.</li>
+<li><strong>Alertas automáticos</strong> quando uma variável específica cai abaixo de um limiar crítico.</li>
+</ul>
 </section>
-<section id="resumo-do-capítulo" class="level2" data-number="12.11">
-<h2 data-number="12.11" class="anchored" data-anchor-id="resumo-do-capítulo"><span class="header-section-number">12.11</span> 📝 Resumo do Capítulo</h2>
+<section id="resumo-do-capítulo" class="level2" data-number="11.11">
+<h2 data-number="11.11" class="anchored" data-anchor-id="resumo-do-capítulo"><span class="header-section-number">11.11</span> 📝 Resumo do Capítulo</h2>
 <ul>
 <li><strong>A Ilusão da Manutenção Perfeita:</strong> Na prática, intervenções técnicas raramente retornam o ativo ao estado de “novo” (AGAN) nem o deixam no exato estado anterior à falha (ABAO). Modelar a manutenção imperfeita, assumindo a redução da intensidade de falhas, reflete com muito mais precisão a realidade operacional de sistemas complexos.</li>
 <li><strong>Ciclos de Renovação e Modelagem Matemática:</strong> A eficiência da manutenção (representada pelo fator <span class="math inline">\(\alpha_n\)</span>) varia conforme a complexidade do pacote de revisão (PR). A modelagem estocástica baseada em Weibull e Processos de Poisson permite calcular a degradação residual e planejar a Renovação Completa (CR) no momento ótimo, integrando viabilidade financeira e confiabilidade.</li>
 <li><strong>A Arquitetura Analítica do IQPL:</strong> Desenhar um plano não é suficiente; auditar a sua qualidade estrutural é vital. O IQPL consolida 35 variáveis críticas em 5 dimensões (Programáveis, Processuais, Ativos, Lista de Tarefas e Desempenho), separando com clareza os parâmetros de controle histórico dos novos gatilhos de inovação.</li>
-<li><strong>Do Diagnóstico à Ação Estratégica:</strong> O cálculo do IQPL transforma auditorias qualitativas (subjetivas) em um <em>score</em> exato e acionável (escala de 0 a 100). Ele revela não apenas a nota global do plano, mas mapeia exatamente em qual dimensão (ex: ausência de materiais no aprovisionamento ou taxonomia fraga) o gestor deve concentrar seu <em>roadmap</em> de 30/90/180 dias.</li>
+<li><strong>Do Diagnóstico à Ação Estratégica:</strong> O cálculo do IQPL transforma auditorias qualitativas (subjetivas) em um <em>score</em> exato e acionável (escala de 0 a 100). Ele revela não apenas a nota global do plano, mas mapeia exatamente em qual dimensão (ex: ausência de materiais no aprovisionamento ou taxonomia fraca) o gestor deve concentrar seu <em>roadmap</em> de 30/90/180 dias.</li>
 <li><strong>Automação via Motor Matemático (R):</strong> A governança moderna de ativos exige escala. A transição de cálculos em planilhas manuais para algoritmos estruturados em R permite que o PCM monitore centenas de planos em frotas inteiras quase em tempo real, sustentando a verdadeira melhoria contínua (<em>Data-driven</em>).</li>
 </ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
