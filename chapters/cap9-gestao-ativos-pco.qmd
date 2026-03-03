@@ -2,7 +2,7 @@
 format: html
 ---
 
-# Planejamento e Controle Operacional (PCO) {#chap-pco}
+# Capítulo 8: Gestão de Ativos e Planejamento e Controle Operacional {#sec-cap8-pco}
 
 ```{r}
 #| message: false
@@ -65,7 +65,7 @@ df_metodos %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = TRUE, font_size = 12) %>%
   column_spec(1, bold = TRUE, background = "#174EA6", color = "white", width = "3.5cm") %>%
   row_spec(0, background = "#35978f", color = "white", bold = TRUE) %>%
-  add_header_above(c("Ferramentas de Controle" = 1, "Características Técnicas" = 3), 
+  add_header_above(c("Ferramentas de Controle" = 1, "Características Técnicas" = 3),
                    background = "#01665e", color = "white", bold = TRUE)
 ```
 

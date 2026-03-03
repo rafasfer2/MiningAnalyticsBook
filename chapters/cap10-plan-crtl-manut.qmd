@@ -1,0 +1,859 @@
+---
+format: html
+---
+
+# Planejamento e Controle da Manutenção (PCM) {#sec-pcm}
+
+::: {.callout-tip title="🎯 Objetivos deste Capítulo"}
+Neste capítulo, estabeleceremos a arquitetura fundamental do Planejamento e Controle da Manutenção (PCM). Para o engenheiro ou gestor de ativos, dominar este macrofluxo é a diferença entre apagar incêndios diariamente e gerir a confiabilidade de forma estratégica e previsível. Ao final da leitura, você será capaz de:
+
+* **Compreender** a visão sistêmica e integrada do PCM, mapeando o ciclo de vida completo de uma demanda de manutenção (da identificação ao controle).
+* **Diferenciar** rigorosamente os horizontes táticos e operacionais, separando as responsabilidades de Planejamento (*o que* e *como*) e Programação (*quando* e *sequência*).
+* **Classificar** e priorizar demandas com base em criticidade e impacto no negócio, distinguindo o papel da execução preventiva e da corretiva.
+* **Estruturar** o registro técnico e o encerramento de ordens para garantir a rastreabilidade e a formação de um histórico de falhas confiável.
+* **Analisar** os KPIs de forma transversal, utilizando a matriz de indicadores para identificar gargalos sistêmicos e promover a melhoria contínua da governança de ativos.
+:::
+
+O Planejamento e Controle da Manutenção (PCM) é a disciplina responsável por estruturar, organizar e controlar todas as atividades de manutenção, garantindo que as intervenções ocorram de forma segura, eficiente, previsível e alinhada às necessidades operacionais e estratégicas da organização.
+
+O processo de PCM é sistêmico, cíclico e interdependente, composto por etapas que se retroalimentam continuamente, assegurando governança, rastreabilidade e tomada de decisão baseada em dados (*data-driven*).
+
+## Macrofluxo dos Processos de Planejamento e Controle da Manutenção (PCM / *Maintenance Planning and Control*) {#sec-pcm-macrofluxo}
+
+O macrofluxo atua como o modelo de governança e a base conceitual que orienta os fluxos detalhados de todas as outras etapas do Planejamento e Controle da Manutenção (PCM). Seu principal papel e objetivo é fornecer uma visão sistêmica e integrada de todo o ciclo de manutenção, definindo a lógica de entrada, transformação e saída das demandas. Ao estabelecer essa arquitetura, o macrofluxo garante a rastreabilidade das informações, a governança operacional e a base para a melhoria contínua (*Continuous Improvement*).
+
+## Identificação das Demandas de Manutenção (*Work Requests Identification*)
+
+**Passo 1:** A identificação das demandas constitui o ponto inicial do macrofluxo do PCM e representa o momento em que uma necessidade de intervenção em um ativo é reconhecida formalmente pela organização. Essa etapa é fundamental, pois estabelece a entrada do processo de manutenção e define quais necessidades serão tratadas, planejadas e controladas ao longo do ciclo.
+
+No macrofluxo, a demanda não é tratada como um evento isolado, mas como o resultado de múltiplas fontes de informação que refletem o comportamento dos ativos, as condições operacionais e as estratégias de manutenção adotadas. As demandas podem ter como origens principais:
+
+* Planos Diretores de Manutenção e estratégias de longo prazo (*Master Maintenance Plans*).
+* Ordens sistemáticas geradas automaticamente pelo sistema (Preventivas baseadas em tempo ou uso).
+* Inspeções preditivas (*Predictive Maintenance*) ou sensitivas (rotas de inspeção).
+* Solicitações diretas da Operação (*Operator Requests*).
+* Melhorias operacionais, trocas de componentes e atualizações tecnológicas (*Asset Upgrades*).
+* Alertas automáticos abertos através de interface com outros sistemas (ex: sensores IoT, telemetria).
+
+::: {.callout-tip title="💡 Insight Operacional: A Conexão Físico-Sistêmica"}
+A identificação é o marco inicial que conecta a realidade operacional (o chão de fábrica, a mina ou a frota) ao sistema formal de gestão. Demandas mal identificadas, genéricas ou incompletas na origem tendem a gerar falhas no planejamento, desvios na programação e retrabalho na execução.
+:::
+
+O macrofluxo também contempla a ocorrência de demandas emergenciais (*Breakdowns*), caracterizadas por situações que apresentam risco imediato à segurança das pessoas, ao meio ambiente, à integridade dos equipamentos ou à continuidade do processo produtivo. Essas demandas são reconhecidas já nesta fase, pois exigem resposta imediata.
+
+**Exemplo Prático de Identificação:**
+Durante uma ronda sensitiva de rotina na planta de britagem, o operador percebe um ruído anormal e uma vibração excessiva em um rolete da correia transportadora de minério principal. A anomalia é identificada visual e auditivamente, configurando o reconhecimento físico de que uma intervenção será necessária.
+
+## Registro da Demanda no Sistema (*Work Order Creation & Data Entry*)
+
+**Passo 2:** O registro da demanda de manutenção representa a formalização da necessidade identificada na etapa anterior, constituindo um ponto de transição crítico no macrofluxo. Enquanto a identificação reconhece que existe uma necessidade, o registro é o momento em que essa necessidade passa a integrar oficialmente o sistema de gestão da manutenção (*CMMS / EAM*).
+
+No macrofluxo, o registro é tratado como uma **condição obrigatória** para a continuidade do processo. Nenhuma demanda deve avançar para as etapas seguintes sem que esteja devidamente documentada. Para que o registro cumpra seu papel de viabilizar o planejamento e o rastreamento, ele deve conter um conjunto mínimo de informações:
+
+* **Identificação do Ativo:** A *Tag* ou código do equipamento e seu local de instalação.
+* **Descrição do Sintoma:** O que está ocorrendo de errado ou qual a necessidade exata (ex: vazamento, ruído, falha de partida).
+* **Origem/Solicitante:** Quem identificou a anomalia (produção, inspeção, engenharia).
+* **Percepção de Urgência:** A avaliação inicial de quem abriu a solicitação.
+
+::: {.callout-warning title="⚠️ Nota Técnica: A Armadilha da Informalidade"}
+Manutenções solicitadas "de boca", via rádio ou aplicativos de mensagens pessoais, que não são transformadas em registros formais no sistema, destroem a governança e a confiabilidade dos indicadores (*KPIs*). A regra de ouro do PCM é clara: *"Se não está no sistema, não aconteceu"*.
+:::
+
+O registro ocorre por meio da criação de uma nota de solicitação (*Maintenance Notification*) ou da abertura direta de uma ordem de manutenção (*Work Order - WO*). É a partir dele que se consolida o histórico técnico do ativo.
+
+**Exemplo Prático de Registro:**
+O operador que identificou a vibração no rolete pega seu *tablet* corporativo e abre uma Nota de Manutenção no ERP da empresa. Ele insere a *Tag* da correia transportadora, descreve o ruído anômalo no rolete de carga da seção 3, anexa uma foto do local e salva o documento. A demanda agora existe formalmente no PCM.
+
+## Classificação e Priorização da Demanda (*Work Order Triage & Prioritization*)
+
+**Passo 3:** A classificação e priorização constituem a etapa decisória central do macrofluxo, responsável por definir o caminho exato que a demanda registrada seguirá. Após a formalização, é indispensável avaliar sua natureza, seu impacto e sua urgência.
+
+A **classificação** organiza as solicitações para direcionar os esforços técnicos adequados, categorizando a demanda em:
+* Manutenção Preventiva (Sistemática ou Condicional).
+* Manutenção Corretiva (Planejada/Programada ou Emergencial).
+* Inspeções, Calibrações ou Melhorias.
+
+A **priorização** define a ordem de atendimento com base no impacto sobre o negócio. Essa decisão cruza variáveis como:
+* **Segurança e Meio Ambiente (SSMA):** Risco de acidentes ou vazamentos.
+* **Criticidade do Ativo (*Asset Criticality*):** Se o equipamento é vital (Curva A), importante (Curva B) ou secundário (Curva C) para a produção.
+* **Continuidade Operacional:** O equipamento já parou a planta ou ainda está rodando com restrições?
+
+::: {.callout-tip title="💡 Insight Operacional: Criticidade vs. Urgência"}
+Um erro comum é confundir esses dois conceitos. A **Criticidade** é uma característica fixa do equipamento (ex: a correia principal parar paralisa toda a mina). A **Urgência** é uma característica da falha (ex: o rolete já travou e rasgou a correia, ou ele apenas está fazendo barulho e aguenta até a próxima semana?). Uma boa priorização cruza a criticidade do ativo com a urgência do sintoma.
+:::
+
+Demandas de alto impacto e risco recebem prioridade máxima e podem avançar diretamente para a execução com planejamento simplificado. Para as demais, esta fase define o momento adequado para a execução, funcionando como um filtro de qualidade que barra demandas duplicadas, inconsistentes ou que não se justificam economicamente.
+
+**Exemplo Prático de Priorização:**
+O coordenador de PCM recebe a Nota de Manutenção do rolete. Ele avalia que a correia transportadora é um ativo Crítico (Curva A - paralisa a produção). Porém, como a correia continua operando e o rolete está apenas vibrando, ele classifica a demanda como **Corretiva Programada**. Ela recebe prioridade "Média/Alta", devendo ser inserida no planejamento para execução na próxima janela semanal de manutenção, evitando assim uma parada emergencial desnecessária no meio do turno produtivo.
+
+## Planejamento da Manutenção (*Maintenance Job Planning*)
+
+**Passo 4:** O planejamento da manutenção representa o núcleo estruturante do macrofluxo do PCM, sendo a etapa responsável por transformar uma demanda classificada e priorizada em uma intervenção tecnicamente definida, organizada e viável. Após a identificação, o registro e a priorização, o planejamento consolida as informações necessárias para que a manutenção possa ser executada de forma previsível, segura e eficiente.
+
+No macrofluxo, o planejamento não é tratado como uma simples etapa administrativa, mas como um processo técnico de detalhamento e preparação. Seu objetivo principal é reduzir incertezas, minimizar improvisações e garantir que a execução ocorra conforme o esperado. É nessa fase que a demanda assume a forma de uma ordem de manutenção plenamente estruturada.
+
+Para garantir essa previsibilidade, o planejamento deve mapear os seguintes elementos essenciais:
+* **Escopo da Intervenção (*Scope of Work*):** Definição clara do que será executado e dos limites da ordem, evitando mudanças de escopo durante a execução (*Scope Creep*).
+* **Detalhamento das Atividades (*Job Steps*):** O passo a passo técnico da intervenção.
+* **Estimativa de Tempo e Mão de Obra (*Estimated Time & Labor Requirements*):** Dimensionamento das horas necessárias considerando a complexidade do serviço e a experiência da equipe.
+* **Especificação de Recursos (*Bill of Materials - BOM*):** Identificação de materiais, componentes, ferramentas, equipamentos especiais e serviços contratados.
+* **Requisitos de SSMA (*HSE - Health, Safety, and Environment*):** Avaliação de riscos, necessidade de permissões de trabalho (*Permit to Work - PTW*) e procedimentos operacionais seguros (ex: bloqueio de energias).
+
+::: {.callout-tip title="💡 Insight Operacional: A Fronteira do Planejamento"}
+Um erro clássico na gestão da manutenção é confundir Planejamento com Programação. O planejamento responde às perguntas **"O QUÊ?"** e **"COMO?"** fazer. Ele não define o momento exato da execução, nem organiza as ordens no tempo. Essa separação clara de responsabilidades é um elemento central da maturidade do modelo de gestão.
+:::
+
+O macrofluxo também reconhece que o planejamento é um processo iterativo, sujeito a ajustes e revisões. Caso sejam identificadas inconsistências ou inviabilidades técnicas, a ordem pode retornar para ajustes antes de avançar no fluxo, reforçando a interdependência entre as etapas.
+
+**Exemplo Prático de Planejamento:**
+Imagine a necessidade corretiva de substituição de um rolete em uma correia transportadora de minério. O planejamento não se limita a escrever "trocar rolete". Ele deve especificar o código do rolete no sistema, determinar que serão necessários 2 mecânicos por 3 horas, listar as chaves de impacto necessárias, prever o andaime para acesso e exigir a Permissão de Trabalho em Altura e o Bloqueio Elétrico do transportador.
+
+O planejamento da manutenção prepara tecnicamente a intervenção, enquanto a programação será responsável por organizá-la no tempo. Atuando como elo entre a priorização estratégica e a organização operacional, a eficácia dessa etapa influencia diretamente os custos, a qualidade e a confiabilidade dos ativos.
+
+## Aprovisionamento de Recursos (*Procurement & Resource Provisioning*)
+
+**Passo 5:** O aprovisionamento de recursos representa a etapa responsável por assegurar a disponibilidade dos meios necessários à execução da manutenção, a partir das definições estabelecidas no planejamento. Ele atua como a ponte entre a preparação da intervenção e sua viabilização prática.
+
+No macrofluxo, o aprovisionamento não é uma atividade meramente logística, mas um processo estratégico. Seu objetivo é garantir que todos os recursos estejam disponíveis nas condições corretas e no momento adequado (*Just-in-Time Availability*). Essa etapa tem início a partir das saídas do planejamento, viabilizando:
+
+* Separação física ou reserva sistêmica de materiais em estoque (*Material Reservations* / *Kitting*).
+* Emissão de requisições e pedidos de compra para itens de aplicação direta (*Purchase Orders*).
+* Contratação e mobilização de serviços especializados de terceiros.
+* Organização de ferramentas e recursos auxiliares (ex: locação de guindastes).
+
+Um aspecto central do aprovisionamento é o diligenciamento ativo (*Expediting*). Não se trata apenas de solicitar materiais, mas de acompanhar proativamente sua disponibilidade, confirmar especificações e identificar possíveis desvios antes que impactem a execução. Os desvios mais comuns que exigem atuação rápida incluem:
+* Atrasos de entrega por parte de fornecedores.
+* Indisponibilidade inesperada no almoxarifado (*Stockout*).
+* Incompatibilidade técnica ou erros de especificação dos materiais recebidos.
+
+::: {.callout-warning title="⚠️ Nota Técnica: O Retorno Sistêmico"}
+Quando são identificados desvios no aprovisionamento, o macrofluxo prevê mecanismos de retorno e ajuste. Dependendo da criticidade da demanda, pode ser necessário reavaliar o planejamento (buscando um material alternativo), ajustar uma programação futura ou escalar o problema para os níveis de gestão (*Escalation*).
+:::
+
+O aprovisionamento desempenha um papel fundamental na redução de riscos operacionais. Ele evita a "falsa largada", ou seja, situações em que equipes são mobilizadas e equipamentos são paralisados sem que todos os recursos estejam efetivamente em mãos, o que resulta em retrabalho, horas ociosas e perda de produção.
+
+**Exemplo Prático de Aprovisionamento:**
+Dando sequência ao exemplo da correia transportadora, o aprovisionamento é a etapa em que o PCM (ou o setor de materiais) confirma fisicamente se o rolete especificado está na prateleira do almoxarifado (separando-o em um *Kit* de serviço) e se a empresa terceira que vai montar o andaime já confirmou presença para a data desejada. Somente após esse "sinal verde" o serviço está apto para o próximo passo.
+
+Com a demanda devidamente identificada, registrada, classificada, planejada e com seus recursos assegurados, o processo de PCM cria as condições necessárias para que a intervenção seja organizada no tempo, etapa que será tratada a seguir por meio da programação da manutenção (*Maintenance Scheduling*).
+
+## Programação da Manutenção (*Maintenance Scheduling*)
+
+**Passo 6:** A programação da manutenção representa a etapa do macrofluxo responsável por organizar temporalmente as intervenções planejadas, transformando ordens tecnicamente preparadas e com recursos assegurados em um plano executável. Essa etapa marca a transição entre a preparação da manutenção e sua realização prática, consolidando as condições necessárias para a execução.
+
+No macrofluxo, a programação não se confunde com o planejamento. Enquanto o planejamento define *o que* será feito e *quais* recursos serão necessários, a programação define **quando** e em **que sequência** as ordens de manutenção serão executadas. Essa distinção é essencial para a maturidade do processo de PCM e para a previsibilidade das intervenções.
+
+A programação tem como principal objetivo equilibrar a demanda de manutenção com a capacidade disponível, considerando fatores críticos como:
+* **Capacidade de Mão de Obra (*Capacity Planning*):** Quantas horas-homem (HH) reais estão disponíveis na oficina ou equipe de área.
+* **Janelas Operacionais (*Operational Windows*):** Momentos em que a produção permite a parada do equipamento.
+* **Sincronismo de Recursos:** Garantir que materiais, ferramentas especiais e serviços terceirizados coincidam na mesma data e horário.
+* **Prioridades Estabelecidas:** O sequenciamento lógico com base no cruzamento entre urgência e criticidade.
+
+::: {.callout-tip title="💡 Insight Operacional: A Linha de Base (*Schedule Baseline*)"}
+Um aspecto central da programação é a formalização da "Linha de Base". Trata-se do "aperto de mãos" (compromisso) entre PCM, Manutenção e Operação de que um conjunto específico de ordens será executado naquela semana. É contra essa linha de base que, no futuro, mediremos o indicador de Aderência à Programação (*Schedule Compliance*), o termômetro definitivo da estabilidade operacional.
+:::
+
+A programação é um processo decisório dinâmico. Caso a capacidade não seja suficiente para atender todas as demandas, torna-se necessário reavaliar prioridades ou redistribuir cargas de trabalho (*Resource Leveling*). Uma vez consolidada, ela é amplamente divulgada a todas as partes interessadas (*Stakeholders*), reduzindo conflitos, retrabalhos e interrupções não planejadas.
+
+**Exemplo Prático de Programação:**
+A ordem de manutenção do rolete da correia transportadora já está planejada e aprovisionada (o rolete está no almoxarifado). O programador de PCM negocia com a Operação da planta uma janela de parada da correia para a próxima terça-feira, das 09h às 12h. Ele aloca formalmente os dois mecânicos da equipe "Alfa" para esse horário e agenda a empresa terceirizada para montar o andaime às 08h. A ordem entra oficialmente na programação semanal.
+
+Com as ordens devidamente programadas e divulgadas, o processo de PCM avança para a etapa de execução da manutenção, na qual as intervenções planejadas são efetivamente realizadas.
+
+## Execução da Manutenção (*Work Execution*)
+
+**Passo 7:** A execução da manutenção representa a etapa do macrofluxo em que as intervenções planejadas, aprovisionadas e programadas são efetivamente realizadas nos ativos, materializando todo o trabalho desenvolvido nas fases anteriores. Essa etapa corresponde ao momento em que o planejamento se transforma em ação prática, sendo a fase mais visível do ciclo de manutenção.
+
+No macrofluxo, a execução ocorre a partir das ordens liberadas, respeitando as definições técnicas e sequências temporais estabelecidas. A condução do trabalho em campo exige o cumprimento rigoroso de algumas premissas:
+* **Mobilização Integrada:** Deslocamento simultâneo de equipes, ferramentas e materiais para o local do ativo.
+* **Cumprimento de SSMA:** Execução dos bloqueios de energia (LOTO - *Lockout/Tagout*), liberação de permissões de trabalho e uso de EPIs/EPCs.
+* **Rigor Técnico:** Realização das atividades (inspeções, ajustes, substituições) conforme os padrões exigidos no planejamento.
+* **Comissionamento e Testes:** Verificações finais para assegurar que o equipamento retorne às condições adequadas antes da entrega à operação (*Handover*).
+
+O macrofluxo reconhece que a execução está sujeita a variáveis e imprevistos. Podem surgir situações como peças severamente engripadas, identificação de falhas colaterais não previstas ou restrições operacionais de última hora (o chamado *Emergent Work* ou *Scope Creep*).
+
+::: {.callout-warning title="⚠️ Nota Técnica: O Vínculo Inquebrável com o PCM"}
+A execução não deve ocorrer de forma desconectada do sistema. Se, durante o serviço, a equipe precisar de mais materiais ou descobrir que outro componente precisa ser trocado, o macrofluxo orienta que esses desvios sejam registrados. Abre-se uma ordem complementar ou ajusta-se o escopo ativamente. Execuções informais e "puxadinhos" técnicos destroem o histórico do equipamento.
+:::
+
+A qualidade dessa etapa é resultado direto da eficácia das fases anteriores e exerce influência significativa sobre a confiabilidade dos equipamentos e a percepção de valor da manutenção pela organização.
+
+**Exemplo Prático de Execução:**
+Chega a terça-feira, 08h. O andaime é montado conforme programado. Às 09h, a Operação para a correia transportadora e os mecânicos realizam o bloqueio elétrico. Durante a troca do rolete, os mecânicos percebem que o suporte de fixação está trincado (um imprevisto). Eles informam o supervisor, realizam o reparo do suporte (registrando a necessidade de horas adicionais na ordem) e concluem a troca do rolete. Às 11h45, retiram os bloqueios, testam a correia e devolvem o ativo operando perfeitamente para a Produção.
+
+Concluídas as atividades de execução, o processo de PCM avança para o registro das informações da intervenção e o encerramento técnico da ordem de manutenção, assegurando a consolidação dos dados gerados.
+
+## Registro e Encerramento da Ordem (*Work Order Closeout & Data Entry*)
+
+**Passo 8:** O registro e o encerramento da ordem de manutenção representam a etapa do macrofluxo responsável por consolidar formalmente as informações geradas durante a execução da intervenção. Essa etapa marca o fechamento do ciclo operacional da ordem, conectando a execução prática de volta ao sistema de gestão e assegurando a integridade do histórico do ativo.
+
+No macrofluxo, o registro das informações não é tratado como uma atividade burocrática, mas como um elemento essencial para a governança do PCM. A ausência ou a baixa qualidade desses registros compromete diretamente a confiabilidade das análises futuras e distorce os indicadores de desempenho (*KPIs*). Durante a execução, são geradas informações técnicas vitais que precisam ser corretamente inseridas no sistema:
+
+* **Apontamento de Horas (*Time Tracking / Labor Bookings*):** O tempo real gasto pelas equipes na execução do serviço.
+* **Consumo de Materiais (*Material Consumption*):** O que foi efetivamente utilizado versus o que havia sido planejado.
+* **Apontamento de Parada (*Downtime*):** O tempo exato de indisponibilidade do equipamento para a operação.
+* **Códigos de Falha e Causa (*Failure Codes*):** A classificação técnica padronizada do defeito encontrado.
+* **Desvios e Observações:** Relato de imprevistos, anomalias adicionais ou sugestões da equipe de campo.
+
+::: {.callout-warning title="⚠️ Nota Técnica: O Encerramento Técnico (*TECO - Technical Completion*)"}
+O encerramento técnico não deve ocorrer automaticamente ao término das atividades físicas. Ele é uma validação formal. A ordem só recebe o *status* de encerrada após a verificação de que não existem pendências associadas. Ordens "esquecidas" abertas no sistema, devoluções de peças não registradas ou horas em branco destroem a precisão dos dados do PCM.
+:::
+
+O encerramento técnico assegura que a ordem esteja apta a ser considerada no cálculo de indicadores, contribuindo diretamente para a padronização e a disciplina operacional.
+
+**Exemplo Prático de Registro e Encerramento:**
+Após entregar a correia transportadora operando para a Produção, o supervisor da equipe mecânica acessa o sistema (*CMMS*). Ele aponta as 3 horas inicialmente previstas para a troca do rolete, e adiciona 1 hora extra gasta no reparo do suporte que estava trincado. Ele registra o código de causa "Fadiga de Material" para o suporte, devolve dois parafusos sobressalentes fisicamente e sistemicamente ao almoxarifado e, com todas as informações consistentes, realiza o Encerramento Técnico (*TECO*) da ordem de manutenção.
+
+Com as ordens devidamente registradas e encerradas, o processo de PCM passa a dispor de informações consolidadas que subsidiam a análise de desempenho e a melhoria contínua do sistema de manutenção.
+
+## Controle e Melhoria Contínua (*Performance Monitoring & Continuous Improvement*)
+
+**Passo 9:** O controle e a melhoria contínua representam a etapa final do macrofluxo e têm como principal objetivo avaliar o desempenho do processo de manutenção como um todo. Essa fase fecha o ciclo do macrofluxo e, ao mesmo tempo, cria as condições para seu reinício de forma mais madura e eficiente.
+
+No macrofluxo, o controle baseia-se na análise sistemática dos dados gerados nas etapas anteriores. Essa etapa contempla a apuração de indicadores de desempenho, que refletem aspectos fundamentais do processo e devem ser analisados de maneira integrada:
+* **Aderência à Programação (*Schedule Compliance*):** Mede a eficiência operacional e o cumprimento dos acordos de prazo.
+* **Qualidade do Planejamento:** Avalia a variação entre horas/materiais planejados *versus* realizados.
+* **Acúmulo de Serviços (*Maintenance Backlog*):** Controla o volume de trabalho pendente no sistema.
+* **Confiabilidade e Custos:** Impacto na disponibilidade dos equipamentos (*MTBF/MTTR*) e o custo real das intervenções.
+
+Quando os indicadores apontam desvios em relação aos resultados esperados, o processo prevê a investigação das causas por meio de ferramentas como a Análise de Causa Raiz (*Root Cause Analysis - RCA*). O objetivo é identificar falhas de processo, limitações de recursos ou problemas de planejamento que impactaram o desempenho.
+
+::: {.callout-tip title="💡 Insight Operacional: O Ciclo Vivo do PCM"}
+A melhoria contínua não se restringe a corrigir falhas pontuais. O aspecto mais relevante desta etapa é a retroalimentação (*Feedback Loop*). As lições aprendidas retornam às etapas iniciais do macrofluxo, aprimorando os planos sistemáticos, revisando critérios de priorização ou ajustando estratégias de aprovisionamento. Isso deixa claro que o processo de manutenção é cíclico e evolutivo, e não linear e estático.
+:::
+
+O controle estratégico permite que a manutenção deixe de ser apenas reativa e passe a ser orientada por dados, garantindo que os recursos sejam utilizados de forma eficiente para assegurar a continuidade operacional.
+
+**Exemplo Prático de Melhoria Contínua:**
+Na reunião semanal de indicadores (*Weekly Review Review*), o coordenador de PCM nota um leve desvio na Aderência à Programação e nos Custos da semana. Ao detalhar os dados, percebe que isso ocorreu devido àquela 1 hora extra e ao serviço de solda não previstos no suporte do rolete da correia transportadora. Como ação de melhoria contínua, a Engenharia de Manutenção altera o Plano de Manutenção Preventiva da correia, incluindo um novo passo: *"Inspecionar integridade estrutural e soldas dos suportes de fixação"*. Assim, o conhecimento gerado evita que o problema se repita como uma falha não planejada no futuro.
+
+Dessa forma, o macrofluxo do PCM estabelece um ciclo integrado e contínuo, no qual identificar, planejar, aprovisionar, programar, executar, registrar, controlar e melhorar não são etapas isoladas, mas partes interdependentes de um mesmo sistema de gestão da manutenção.
+
+## Transição do Macrofluxo para os Processos Detalhados
+
+A descrição do macrofluxo do Planejamento e Controle da Manutenção (PCM) permite compreender o processo de manutenção em uma visão sistêmica e integrada, evidenciando como as demandas são identificadas, registradas, classificadas, planejadas, aprovisionadas, programadas, executadas, encerradas e analisadas de forma cíclica. Essa visão global estabelece a lógica que orienta toda a gestão da manutenção, funcionando como a base conceitual do modelo adotado.
+
+Entretanto, por sua própria natureza, o macrofluxo não se aprofunda nas particularidades operacionais de cada etapa. Seu objetivo é apresentar as macroetapas do processo, deixando explícitas as conexões, os pontos decisórios e a retroalimentação entre elas, sem detalhar atividades, responsabilidades específicas ou variações de fluxo associadas a diferentes tipos de manutenção.
+
+Dessa forma, os fluxos específicos de trabalho (que serão detalhados a seguir) têm a função de desdobrar o macrofluxo, aprofundando as etapas que nele são apresentadas de forma consolidada. Cada um desses fluxos detalha um subconjunto do macrofluxo, explicando como as decisões e diretrizes gerais se materializam na rotina operacional, em critérios técnicos e nas interações entre áreas:
+
+* **Inspeção:** Aprofunda os mecanismos de identificação e geração de demandas.
+* **Planejamento:** Evidencia como as demandas são transformadas em intervenções estruturadas.
+* **Aprovisionamento e Programação:** Explora a garantia de recursos e a organização temporal.
+* **Execução (Preventiva e Corretiva):** Descreve a realização em campo, incluindo exceções e desvios.
+* **Controle e Análise:** Aprofunda os mecanismos de apuração de indicadores e melhoria contínua.
+
+Assim, o macrofluxo deve ser compreendido como um **mapa orientador**, que define a arquitetura do PCM, enquanto os processos subsequentes representam seus desdobramentos operacionais. Essa abordagem possibilita uma compreensão progressiva do processo, partindo da visão global para o detalhamento das práticas que sustentam a rotina.
+
+---
+
+## O Processo de Inspeção no PCM (*Inspection Workflows*)
+
+O processo de inspeção constitui um dos pilares fundamentais do Planejamento e Controle da Manutenção (PCM), atuando como mecanismo estruturado de identificação e geração de demandas de manutenção. No contexto do macrofluxo, a inspeção não se limita a uma atividade operacional isolada, mas representa uma função estratégica que conecta a condição real dos ativos ao sistema formal de gestão.
+
+### O Papel da Inspeção no Macrofluxo
+
+A inspeção está diretamente relacionada às etapas iniciais do processo (Passo 1 do Macrofluxo). Por meio dela, a organização monitora o comportamento dos ativos, identifica sinais de degradação, tendências de falha ou condições anormais de operação, permitindo que intervenções sejam planejadas *antes* da ocorrência de falhas funcionais graves.
+
+A inspeção atua como um instrumento de antecipação. Ao transformar observações técnicas em informações estruturadas, ela reduz drasticamente a dependência exclusiva de manutenções corretivas emergenciais (*Run-to-Failure*), contribuindo para o aumento da confiabilidade e a redução de riscos operacionais.
+
+### Tipos de Inspeção e Geração de Demandas
+
+O fluxo contempla diferentes modalidades, cada uma com um papel específico:
+
+* **Inspeções Preditivas (*Predictive Maintenance - PdM*):** Utilizam técnicas e medições (como análise de vibração, termografia e ultrassom) para avaliar a condição dos ativos ao longo do tempo e identificar tendências de degradação.
+* **Inspeções Sensitivas (*Sensory Inspections*):** Baseiam-se na observação direta (visão, audição, tato, olfato), percepção operacional e experiência técnica das equipes nas rotas de campo.
+* **Inspeções Esporádicas:** Ocorrem em situações específicas, como investigações pontuais após eventos anormais.
+
+Independentemente da modalidade, o desdobramento é claro: se não houver anomalias, o processo se encerra naquele ciclo; se detectadas condições anormais, a inspeção gera imediatamente notas ou ordens de manutenção, alimentando o fluxo formal do PCM.
+
+### Avaliação da Condição e Tomada de Decisão
+
+Durante a inspeção, as informações coletadas são analisadas à luz de critérios técnicos para avaliar a gravidade da condição. O fluxo evidencia que nem toda anomalia exige intervenção imediata; algumas podem ser apenas monitoradas, enquanto outras demandam ações corretivas programadas.
+
+::: {.callout-tip title="💡 INSIGHT OPERACIONAL: A Gestão do Risco"}
+Quando a inspeção identifica situações críticas (ex: risco à segurança, perda material iminente), o macrofluxo prevê o acionamento de demandas com prioridade máxima. Esse mecanismo de "fura-fila" técnico reforça o papel da inspeção não apenas como levantamento de dados, mas como elemento ativo na gestão de riscos da planta.
+:::
+
+### Registro Estruturado das Informações
+
+Um aspecto central da inspeção é o registro estruturado das informações. Observações não registradas perdem valor gerencial. Os resultados devem ser formalizados no sistema (*CMMS*), incluindo a descrição clara da condição observada, medições realizadas (ex: temperatura de um mancal em °C), identificação de modos de falha iniciais e indicação preliminar de materiais ou serviços necessários para o tratamento.
+
+::: {.example #exm-registro-inspecao name="Registro Estruturado de Inspeção"}
+Durante a rota sensitiva, o inspetor identifica um leve vazamento de óleo no redutor da correia transportadora de minério. Em vez de anotar de forma genérica ou apenas comunicar verbalmente, ele insere no sistema a *Tag* do redutor, descreve o gotejamento específico na vedação do eixo de alta rotação e sugere a necessidade de troca do retentor. A demanda já nasce qualificada, direcionando o planejamento de forma assertiva.
+:::
+
+A qualidade dessas informações influencia diretamente a eficiência do planejamento das intervenções.
+
+### Integração com o Planejamento da Manutenção
+
+A inspeção não atua de forma isolada. As demandas geradas por ela alimentam diretamente a carteira de serviços (*Backlog*) do PCM. Essa integração permite que as intervenções sejam estruturadas com base em informações reais e atualizadas sobre a "saúde" do ativo.
+
+Além disso, informações provenientes da inspeção podem indicar a necessidade de ajustes em dados mestres do sistema, como a alteração da frequência de um plano de manutenção ou a inclusão de novos pontos de medição, promovendo a evolução contínua da engenharia de manutenção.
+
+### Tratamento de Desvios e Retroalimentação
+
+O processo também contempla o tratamento de desvios. Se o inspetor identificar retrabalhos (um equipamento recém-consertado que voltou a falhar) ou inconsistências nas informações, o fluxo prevê mecanismos de correção. Essas lições aprendidas garantem que o macrofluxo seja continuamente retroalimentado.
+
+### Contribuição para a Melhoria Contínua
+
+Por fim, a inspeção fornece a matéria-prima (dados) que subsidia as análises de Confiabilidade e Manutenibilidade. As informações coletadas em campo permitem identificar padrões crônicos de falha e orientar decisões de longo prazo.
+
+::: {.callout-note title="⚠️ Nota Técnica: A Mudança de Cultura"}
+O processo de inspeção não deve ser compreendido apenas como uma atividade de chão de fábrica, mas como o motor estratégico essencial para a transição de um modelo reativo ("quebra-conserta") para uma gestão estruturada e preventiva, orientada por dados de saúde dos ativos.
+:::
+
+As demandas geradas e qualificadas pelo processo de inspeção alimentam diretamente as etapas de planejamento e programação da manutenção, que serão detalhadas a seguir, evidenciando o papel da inspeção como o ponto de partida técnico do macrofluxo do PCM.
+
+### Distinção entre Inspeção, Manutenção Preventiva e Corretiva
+
+No contexto do macrofluxo do Planejamento e Controle da Manutenção (PCM), as atividades de inspeção, manutenção preventiva e manutenção corretiva desempenham papéis distintos, porém complementares, dentro do processo de gestão da manutenção. Embora frequentemente tratadas de forma conjunta na prática operacional, essas abordagens possuem objetivos, momentos de atuação e impactos diferentes sobre a confiabilidade dos ativos e a previsibilidade das intervenções. Para uma compreensão adequada do modelo de gestão representado pelos fluxogramas, torna-se necessário diferenciar claramente essas três frentes, evidenciando suas funções no macrofluxo e suas contribuições específicas para o desempenho do processo de manutenção.
+
+| Aspecto | Inspeção | Manutenção Preventiva | Manutenção Corretiva |
+| :--- | :--- | :--- | :--- |
+| **Papel no Macrofluxo** | Etapa de identificação e geração de demandas. | Etapa de execução planejada sistemática. | Etapa de execução para correção de falhas. |
+| **Função principal** | Avaliar a condição dos ativos e identificar anomalias. | Evitar falhas por meio de intervenções periódicas. | Restaurar a função do ativo após falha. |
+| **Momento no processo** | Início do macrofluxo. | Após planejamento, aprovisionamento e programação. | Após identificação de falha (planejada ou emergencial). |
+| **Natureza da atuação** | Diagnóstica e preventiva. | Preventiva e sistemática. | Reativa ou corretiva planejada. |
+| **Gera demanda de manutenção?** | Sim. | Não (a demanda já existe no plano). | Sim (quando não planejada previamente). |
+| **Resultado principal** | Nota ou Ordem de Manutenção. | Execução de atividade prevista em plano. | Correção da falha e restabelecimento do ativo. |
+| **Relação com o planejamento** | Alimenta o planejamento com informações técnicas. | Já nasce planejada no sistema. | Pode exigir planejamento simplificado ou completo. |
+| **Relação com a programação** | Indireta (via demanda gerada). | Direta (ordens programadas previamente). | Direta ou imediata (em casos emergenciais). |
+| **Critério de disparo** | Condição observada, tendência ou solicitação. | Tempo, uso, ciclo ou condição previamente definida. | Ocorrência de falha ou degradação funcional. |
+| **Urgência típica** | Variável (baixa a alta). | Baixa a média. | Média a muito alta. |
+| **Risco associado** | Antecipação e mitigação de riscos. | Redução de riscos futuros. | Mitigação de riscos imediatos. |
+| **Previsibilidade** | Média. | Alta. | Baixa (especialmente em falhas emergenciais). |
+| **Impacto na confiabilidade** | Alto (base para decisões corretas). | Alto (reduz probabilidade de falhas). | Necessário, porém não desejável como predominante. |
+| **Registro no sistema** | Registro de inspeção + Nota/OM quando aplicável. | OM gerada automaticamente pelo plano. | OM criada para correção da falha. |
+| **Contribuição para melhoria contínua** | Identifica padrões e causas iniciais. | Avalia efetividade dos planos. | Fornece dados de falhas e perdas. |
+
+: Quadro Comparativo – Inspeção, Manutenção Preventiva e Manutenção Corretiva {#tbl-comparativo-manutencao}
+
+A comparação entre inspeção, manutenção preventiva e manutenção corretiva evidencia que essas práticas não competem entre si, mas se complementam dentro de um modelo de gestão estruturado da manutenção. A inspeção atua como elemento de diagnóstico e antecipação, fornecendo informações essenciais para a tomada de decisão; a manutenção preventiva materializa a estratégia planejada, reduzindo a probabilidade de falhas; e a manutenção corretiva responde às ocorrências inevitáveis, restabelecendo a função dos ativos. No macrofluxo do PCM, o equilíbrio entre essas abordagens é fundamental para a evolução da maturidade do processo de manutenção, permitindo a transição de um modelo predominantemente reativo para uma gestão orientada por planejamento, controle e melhoria contínua.
+
+::: {.callout-note title="💡 Síntese Estratégica"}
+Enquanto a **inspeção** atua na identificação e antecipação das necessidades de manutenção, a **manutenção preventiva** executa intervenções sistemáticas planejadas, e a **manutenção corretiva** responde à ocorrência de falhas, restabelecendo a função dos ativos.
+:::
+
+## Planejamento de Médio Prazo da Manutenção
+
+A aba Planejamento de Médio Prazo representa, no conjunto dos processos de PCM, a etapa responsável por organizar e estruturar as demandas de manutenção em um horizonte intermediário, normalmente compreendido entre curto e longo prazo (ex: 4 a 12 semanas). Essa etapa atua como um elo entre a visão estratégica da manutenção e a programação operacional, permitindo a antecipação de recursos, o balanceamento de capacidade e a redução de riscos associados a intervenções futuras.
+
+No macrofluxo, o planejamento de médio prazo tem como principal característica a visão agregada das demandas, sem ainda entrar no nível de detalhamento operacional típico do curto prazo. Seu foco está na preparação do sistema para absorver intervenções relevantes, garantindo previsibilidade e alinhamento com as restrições produtivas e organizacionais.
+
+### O Papel do Planejamento de Médio Prazo no PCM
+
+A função central desta etapa é antecipar e organizar as intervenções de manutenção que não demandam execução imediata, mas que possuem impacto significativo sobre a confiabilidade dos ativos, a disponibilidade operacional e o uso de recursos. No contexto do macrofluxo, essa etapa:
+* Conecta o planejamento estratégico e as diretrizes de manutenção com a execução futura.
+* Reduz a pressão e o "efeito surpresa" sobre o planejamento de curto prazo.
+* Permite a análise antecipada de restrições críticas (grandes peças, guindastes, paradas de planta).
+* Atua como mecanismo de estabilidade do processo de manutenção.
+
+### Entradas do Planejamento de Médio Prazo
+
+O fluxo é alimentado por diferentes fontes de demanda que já passaram pelas etapas iniciais do macrofluxo (identificação, registro e classificação). Entre as principais entradas estão:
+* Demandas oriundas de inspeções que não exigem ação imediata.
+* Ordens de manutenção corretivas planejáveis.
+* Manutenções preventivas de maior porte (sistemáticas).
+* Trocas e reformas de componentes principais.
+* Intervenções associadas a grandes paradas de planta.
+* Demandas de melhoria ou modificações técnicas.
+* *Backlog* de manutenção priorizado.
+
+### Consolidação e Organização das Demandas
+
+Uma das principais atividades desta fase é a consolidação das demandas em uma visão estruturada, permitindo avaliar o volume de trabalho previsto e sua distribuição no tempo. O processo busca agrupar demandas por tipo, criticidade ou área; identificar intervenções recorrentes ou correlatas; avaliar dependências entre atividades; e definir janelas preliminares de execução.
+
+::: {.callout-tip title="💡 INSIGHT ESTRATÉGICO: O Efeito 'Carona'"}
+A consolidação no médio prazo permite aplicar a estratégia de agrupamento de serviços. Se uma correia transportadora precisará parar daqui a 45 dias para a troca de um tambor principal (demanda de grande porte), o PCM mapeia todo o *backlog* daquela área e "pega carona" nessa janela de parada para executar dezenas de pequenas preventivas e corretivas menores, otimizando a disponibilidade do ativo.
+:::
+
+### Avaliação de Capacidade e Restrições
+
+O planejamento de médio prazo incorpora uma análise antecipada da capacidade disponível e das principais restrições operacionais. Avalia-se a capacidade global de mão de obra, a necessidade de serviços contratados de longo prazo, a disponibilidade de equipamentos auxiliares (ex: guindastes pesados), restrições de produção, limitações orçamentárias e o *lead time* (tempo de entrega) de componentes críticos. Isso permite identificar gargalos e antecipar decisões gerenciais.
+
+### Integração com Planejamento de Curto Prazo e COI
+
+Esta etapa não atua de forma isolada. O fluxo evidencia sua conexão direta com o Planejamento de Curto Prazo (que herdará e detalhará essas demandas), com o COI (Centro de Operações Integradas) ou PCP (Planejamento e Controle da Produção), garantindo alinhamento com o plano de produção, e com as áreas de suprimentos e contratos.
+
+### Tratamento de Desvios e Saídas do Processo
+
+O cenário operacional é dinâmico. Mudanças na condição dos ativos ou alterações no plano de produção podem exigir a repriorização de demandas ou a postergação de intervenções. Como resultado formal, o planejamento de médio prazo gera uma carteira de demandas organizada por horizonte, indicações de necessidades futuras de recursos e fornece as diretrizes exatas para que a equipe de curto prazo inicie seu trabalho com um nível reduzido de incertezas.
+
+Ao antecipar demandas e integrar áreas, essa etapa contribui ativamente para a redução de manutenções emergenciais e para a transição definitiva de um modelo reativo para um modelo planejado.
+
+---
+
+## Planejamento de Curto Prazo da Manutenção
+
+O Planejamento de Curto Prazo representa a etapa responsável por transformar as diretrizes definidas no médio prazo em um plano operacional estritamente executável, com foco em um horizonte temporal reduzido (normalmente de 1 a 4 semanas). Essa etapa é caracterizada pelo altíssimo nível de detalhamento técnico, forte interação com a operação de campo e decisões imediatas voltadas à execução.
+
+No macrofluxo, o planejamento de curto prazo atua como o ponto de consolidação final antes da execução, garantindo que as demandas priorizadas sejam organizadas de forma realista, considerando a capacidade e as restrições reais do período.
+
+### O Papel do Planejamento de Curto Prazo no Macrofluxo
+
+Sua função principal é preparar a manutenção para a execução iminente. No contexto do macrofluxo, essa etapa:
+* Converte diretrizes de médio prazo em ações operacionais de campo.
+* Atua como filtro final de viabilidade técnica e logística.
+* Reduz a zero as incertezas antes da ordem ir para a programação.
+* Aumenta drasticamente a aderência da execução ao que foi planejado.
+
+### Entradas e Análise de Prioridades
+
+O fluxo é alimentado pela carteira herdada do médio prazo, preventivas a vencer na semana, demandas de inspeções recentes e corretivas planejáveis urgentes. Uma característica central desta fase é a **reavaliação das prioridades** à luz das condições reais da planta hoje. Demandas previamente priorizadas podem ter sua urgência ajustada devido à rápida degradação de um ativo ou mudanças emergenciais no plano de produção.
+
+### Detalhamento Operacional das Ordens de Manutenção
+
+Nesta etapa, as ordens passam por uma "sintonia fina" (micro-planejamento) visando eliminar qualquer lacuna antes do agendamento. As atividades incluem:
+* Validação rigorosa do passo a passo técnico.
+* Confirmação exata das estimativas de HH (Homens-Hora).
+* Verificação da necessidade de isolamento de energias e permissões de trabalho (PT).
+* Confirmação física (*Kitting*) dos materiais e recursos auxiliares.
+
+::: {.example #exm-planejamento-curto name="O Filtro de Curto Prazo"}
+A troca do tambor da correia transportadora, planejada de forma agregada há 45 dias (Médio Prazo), agora entra no radar do Curto Prazo (para a próxima semana). O planejador não olha mais para "tendências". Ele liga para a locadora para confirmar a placa do guindaste que chegará na terça-feira, verifica fisicamente se os parafusos de fixação do tambor já estão separados no palete do almoxarifado e emite as Permissões de Trabalho em Altura com o setor de Segurança. O serviço agora é 100% factível.
+:::
+
+### Integração com Aprovisionamento e Programação
+
+O planejamento de curto prazo atua lado a lado com o aprovisionamento. Confirma-se a disponibilidade imediata de materiais e identifica-se qualquer risco de atraso de última hora. Quando são identificadas restrições críticas intratáveis (ex: a peça importada foi retida na alfândega), o planejamento de curto prazo devolve a demanda ao médio prazo ou propõe o cancelamento da ordem antes que ela polua a programação da semana.
+
+### Consolidação do Plano e Tratamento de Exceções
+
+Como resultado, consolida-se um conjunto de ordens aptas (maduras) para a programação, formando a base do plano de execução do período. Esse "pacote de ordens" representa um compromisso operacional.
+
+O fluxo também contempla o tratamento de exceções (demandas urgentes ou *quebra-conserta*). Nesses casos, avalia-se o impacto da emergência sobre o plano existente, realiza-se a repriorização controlada (retirando um serviço planejado para inserir o emergencial) e registra-se formalmente o desvio no sistema. Esse mecanismo assegura flexibilidade à planta sem destruir a governança do PCM.
+
+### Contribuição para a Estabilidade Operacional
+
+No modelo representado pelo macrofluxo, o planejamento de curto prazo é o grande guardião da estabilidade da execução. Ao antecipar ajustes operacionais, validar recursos in loco e alinhar as áreas de interface, essa etapa garante a redução de serviços extra-programação e a eliminação de horas ociosas por falta de material.
+
+Ao final desta etapa, as ordens de manutenção encontram-se maduras e prontas para a etapa de Programação (*Scheduling*), onde serão definitivamente alocadas no tempo conforme a capacidade do período. Assim, o Planejamento de Curto Prazo consolida-se como a ponte definitiva entre a estratégia e a execução operacional.
+
+### Distinção entre Planejamento de Médio e Curto Prazo
+
+No âmbito do Planejamento e Controle da Manutenção (PCM), a distinção entre Planejamento de Médio Prazo e Planejamento de Curto Prazo é fundamental para a organização eficiente das intervenções e para a estabilidade do processo de manutenção. Embora ambos façam parte do mesmo macrofluxo e compartilhem objetivos comuns, esses dois horizontes de planejamento possuem papéis, níveis de detalhamento e impactos operacionais distintos.
+
+A compreensão clara dessas diferenças permite entender como as decisões estratégicas e táticas são progressivamente traduzidas em ações operacionais, garantindo previsibilidade, melhor utilização de recursos e redução de improvisações. Nesse contexto, o quadro a seguir apresenta uma comparação entre os dois níveis de planejamento, evidenciando suas principais características e contribuições para o processo de manutenção.
+
+| Aspecto | Planejamento de Médio Prazo | Planejamento de Curto Prazo |
+| :--- | :--- | :--- |
+| **Horizonte temporal** | Intermediário (semanas a meses). | Curto (imediato, até ~90 dias). |
+| **Papel no Macrofluxo** | Etapa de antecipação e organização estratégica. | Etapa de preparação final para execução. |
+| **Objetivo principal** | Preparar o sistema para intervenções futuras relevantes. | Garantir viabilidade operacional da execução iminente. |
+| **Nível de detalhamento** | Médio, com visão agregada. | Alto, com foco operacional. |
+| **Foco da análise** | Volume de demandas, impacto e restrições futuras. | Viabilidade real no período (capacidade, recursos, paradas). |
+| **Tipo de decisão predominante**| Tática / estratégica. | Operacional. |
+| **Origem das demandas** | Inspeções, *backlog*, preventivas de maior porte, corretivas planejáveis, grandes paradas. | Demandas do médio prazo, sistemáticas a vencer, inspeções recentes, urgências. |
+| **Definição de datas** | Não define datas exatas (define janelas). | Prepara o pacote exato para a programação. |
+| **Relação com a execução** | Indireta. | Direta. |
+| **Relação com a programação** | Fornece diretrizes. | Alimenta diretamente a programação. |
+| **Análise de capacidade** | Global e preliminar. | Detalhada e restritiva. |
+| **Análise de recursos** | Antecipação de necessidades. | Confirmação física de disponibilidade (*Kitting*). |
+| **Tratamento de desvios** | Repriorização e replanejamento de demandas. | Ajustes imediatos e exceções controladas. |
+| **Flexibilidade** | Média. | Alta. |
+| **Risco associado** | Planejamento inadequado pode gerar gargalos futuros. | Planejamento inadequado impacta diretamente a execução diária. |
+| **Impacto na estabilidade** | Médio. | Alto. |
+| **Contribuição para maturidade**| Reduz emergências e improvisações futuras. | Aumenta aderência e previsibilidade da execução. |
+
+: Quadro Comparativo – Planejamento de Médio Prazo × Planejamento de Curto Prazo {#tbl-comparativo-planejamento}
+
+A análise comparativa evidencia que esses horizontes não são redundantes, mas complementares e interdependentes dentro do macrofluxo do PCM. O planejamento de médio prazo atua como um mecanismo de antecipação e organização tática, preparando o sistema para absorver demandas futuras e reduzindo riscos estruturais. Já o planejamento de curto prazo funciona como o último nível de ajuste antes da execução, assegurando viabilidade operacional, aderência à capacidade disponível e alinhamento com as condições reais do período.
+
+A articulação perfeita entre esses dois níveis é essencial para a maturidade do processo de manutenção, permitindo a transição de uma gestão reativa para um modelo planejado, previsível e orientado por controle e melhoria contínua.
+
+::: {.callout-note title="💡 Síntese Estratégica"}
+Enquanto o **planejamento de médio prazo** antecipa e organiza as demandas de manutenção em uma visão tática, o **planejamento de curto prazo** traduz essas diretrizes em decisões operacionais, preparando efetivamente as ordens para execução.
+:::
+
+---
+
+## Programação da Manutenção (*Maintenance Scheduling*)
+
+Uma vez compreendida a articulação entre os horizontes de planejamento de médio e curto prazo, torna-se possível avançar para a etapa de Programação da Manutenção. O planejamento de curto prazo encerra a fase de preparação do macrofluxo, criando as condições necessárias para que a Programação transforme o planejamento consolidado em um cronograma executável.
+
+A Programação da Manutenção representa a etapa do PCM responsável por organizar no tempo as ordens de manutenção que já se encontram planejadas e com recursos assegurados. No macrofluxo, essa etapa atua como a ponte final entre o planejamento e a execução, sendo decisiva para a estabilidade operacional e para a aderência do que foi planejado ao que será efetivamente executado.
+
+Diferentemente do planejamento, que se concentra na definição *técnica* das intervenções, a programação tem foco *temporal e organizacional*, buscando equilibrar demandas, capacidade e restrições do período. Trata-se de uma etapa essencialmente integradora, que exige forte alinhamento entre PCM, execução, operação, aprovisionamento e estruturas de controle de produção (ex: COI).
+
+### O Papel da Programação no Macrofluxo
+
+A função principal da programação é transformar ordens tecnicamente maduras em compromissos operacionais, definindo quando, em que sequência e sob quais condições as intervenções serão realizadas. Esta etapa:
+* Consolida as decisões tomadas no planejamento de curto prazo.
+* Define o cronograma de execução das ordens.
+* Garante alinhamento indissolúvel entre Manutenção e Operação.
+* Reduz drasticamente improvisações e serviços fora da programação (*Schedule Breakers*).
+* Cria a linha de base (*Schedule Baseline*) para controle e medição da execução.
+
+### Entradas do Processo de Programação
+
+O processo é alimentado estritamente por ordens que já transitaram com sucesso pelas etapas de identificação, registro, classificação, planejamento e aprovisionamento. As principais entradas incluem:
+* Ordens planejadas, liberadas e com materiais fisicamente separados.
+* Demandas consolidadas na etapa de curto prazo.
+* Ordens sistemáticas (Preventivas/Lubrificação) prontas para execução.
+* Corretivas planejáveis de alta prioridade.
+* Informações em tempo real sobre a disponibilidade de mão de obra.
+* Mapeamento de janelas de parada fornecidas pela Operação.
+
+### Análise de Capacidade e Restrições Operacionais
+
+Um dos principais focos da programação é o balanceamento matemático da capacidade disponível frente à demanda prevista (*Resource Leveling*). São analisados:
+* Capacidade líquida de mão de obra disponível (horas-homem, descontando faltas, férias e treinamentos).
+* Disponibilidade de equipes especializadas e terceiros.
+* Necessidade de recursos auxiliares compartilhados (ex: um único munck para três frentes de serviço).
+* Restrições de produção e conflitos de liberação de equipamentos.
+
+Quando a demanda excede a capacidade, o processo exige ajustes controlados, como o corte de ordens de menor prioridade (que retornam ao *backlog*) ou a negociação de horas extras, preservando sempre a governança do PCM.
+
+### Definição do Cronograma de Execução
+
+A partir desse nivelamento de capacidade, a programação estabelece o cronograma oficial de execução. Ele define as datas-alvo (*Target Dates*), a sequência cronológica das intervenções, o agrupamento de ordens correlatas para aproveitar a mesma janela de parada e os horários exatos de bloqueio/desbloqueio acordados com a Operação. Esse cronograma é o principal produto da programação e serve como o "contrato" de trabalho da semana.
+
+### Consolidação e Divulgação da Programação
+
+Uma vez definido, o plano é consolidado e formalmente divulgado a todas as áreas. Essa divulgação (geralmente feita em reuniões de programação semanal) é essencial para garantir previsibilidade, permitindo que almoxarifado, segurança do trabalho e supervisores de campo se preparem de forma antecipada. O objetivo é reduzir atritos, alinhar expectativas e "congelar" a linha de base da programação.
+
+### Tratamento de Alterações e Exceções
+
+O fluxo reconhece que a planta industrial é um ambiente dinâmico. Falhas emergenciais (*Breakdowns*) ou quebras de safra ocorrerão. Nesses casos, a programação pode (e deve) ser ajustada, desde que as alterações sejam tecnicamente justificadas, os desvios sejam registrados no sistema, as áreas impactadas sejam imediatamente comunicadas e, principalmente, uma ordem programada seja retirada para que a emergencial ocupe o espaço das horas-homem disponíveis.
+
+### Integração Direta com a Execução
+
+No macrofluxo, a programação não aperta parafusos, mas cria o cenário perfeito para que isso ocorra de forma ordenada. A qualidade desta etapa reflete instantaneamente na execução:
+* Elevando a aderência ao cronograma (*Schedule Compliance*).
+* Garantindo o cumprimento rígido de prazos e metas de disponibilidade.
+* Maximizando o "tempo de chave na mão" (Wrench Time) do mecânico, ao evitar que ele perca tempo procurando peças ou esperando a liberação da máquina.
+
+A programação da manutenção atua como o motor de estabilidade operacional da planta. Dessa forma, ela consolida o processo de preparação, estabelecendo os compromissos operacionais que viabilizam a execução. No próximo tópico, será abordada a Execução da Manutenção, etapa na qual as ordens programadas são efetivamente realizadas em campo, materializando todas as decisões tomadas ao longo do macrofluxo do PCM.
+
+### Distinção Conceitual entre Planejamento e Programação
+
+No processo de Planejamento e Controle da Manutenção (PCM), a distinção entre planejamento e programação da manutenção é um elemento conceitual fundamental para a compreensão do macrofluxo e para a maturidade da gestão da manutenção. Embora essas etapas sejam frequentemente tratadas de forma conjunta na prática organizacional, elas possuem objetivos, focos e responsabilidades distintas, atuando em momentos diferentes do processo.
+
+O planejamento concentra-se na preparação técnica das intervenções, enquanto a programação organiza essas intervenções no tempo, considerando restrições operacionais e capacidade disponível. Nesse sentido, o quadro a seguir apresenta uma comparação rigorosa entre planejamento e programação da manutenção, com o objetivo de evidenciar suas diferenças e complementaridades no contexto do PCM.
+
+| Aspecto | Planejamento da Manutenção | Programação da Manutenção |
+| :--- | :--- | :--- |
+| **Posição no Macrofluxo** | Etapa de preparação técnica da intervenção. | Etapa de organização temporal da execução. |
+| **Pergunta central que responde** | O *que* será feito e *como* será feito? | *Quando* e em que *ordem* será feito? |
+| **Objetivo principal** | Estruturar tecnicamente a ordem de manutenção. | Transformar ordens planejadas em cronograma executável. |
+| **Foco predominante** | Técnico e preparatório. | Temporal e organizacional. |
+| **Momento no processo** | Antes da programação. | Imediatamente antes da execução. |
+| **Nível de detalhamento** | Técnico (escopo, atividades, recursos). | Operacional (datas, sequência, alocação). |
+| **Definição de escopo** | Sim. | Não (escopo já definido). |
+| **Definição de atividades** | Sim. | Não. |
+| **Estimativa de tempo (HH)** | Sim. | Usa a estimativa do planejamento. |
+| **Definição de materiais e recursos** | Sim. | Apenas verifica disponibilidade (*Kitting*). |
+| **Análise de capacidade** | Preliminar. | Detalhada e restritiva (*Resource Leveling*). |
+| **Definição de datas** | Não define datas exatas. | Define datas-alvo e janelas de execução. |
+| **Sequenciamento de ordens** | Não. | Sim. |
+| **Integração com a operação** | Indireta. | Direta e intensiva. |
+| **Flexibilidade** | Média (ajustes técnicos). | Alta (reprogramações controladas). |
+| **Impacto na execução** | Indireto. | Direto e imediato. |
+| **Risco associado a falhas** | Planejamento inadequado gera retrabalho. | Programação inadequada gera atrasos e conflitos. |
+| **Produto principal** | Ordem de manutenção tecnicamente preparada. | Cronograma de execução da manutenção (*Schedule*). |
+| **Contribuição para maturidade** | Reduz improvisações técnicas. | Aumenta aderência, previsibilidade e estabilidade. |
+
+: Quadro Comparativo – Planejamento × Programação da Manutenção {#tbl-comparativo-plan-prog}
+
+::: {.callout-important title="💡 Síntese Conceitual: A Regra de Ouro do PCM"}
+O **planejamento** define o conteúdo técnico da intervenção, enquanto a **programação** define seu posicionamento temporal e operacional no processo de manutenção.
+
+Para a governança do PCM, valem as seguintes premissas:
+* Planejar é preparar tecnicamente a intervenção.
+* Programar é organizar essa intervenção no tempo.
+* Uma ordem pode estar planejada, mas não programada.
+* Uma ordem **nunca** deve ser programada sem estar planejada.
+:::
+
+A comparação entre planejamento e programação da manutenção evidencia que essas etapas não são redundantes nem substituíveis, mas complementares e interdependentes dentro do macrofluxo do PCM. O planejamento assegura que as ordens de manutenção estejam tecnicamente corretas, completas e viáveis, enquanto a programação garante que essas ordens sejam executadas no momento adequado, de forma organizada e alinhada às condições operacionais.
+
+A separação clara entre essas funções contribui para a redução de improvisações, aumento da aderência à execução (*Schedule Compliance*) e melhoria do desempenho global do processo de manutenção. Dessa forma, a integração eficaz entre planejamento e programação é um dos principais fatores para a previsibilidade, estabilidade e evolução da maturidade do PCM.
+
+Com as ordens de manutenção devidamente planejadas e programadas, o processo de Planejamento e Controle da Manutenção avança para a etapa de Execução da Manutenção, na qual as intervenções previstas são efetivamente realizadas em campo, materializando as decisões técnicas e operacionais tomadas ao longo do macrofluxo.
+
+## Execução da Manutenção (*Work Execution*)
+
+A Execução da Manutenção corresponde à etapa do Planejamento e Controle da Manutenção (PCM) em que as intervenções planejadas e programadas são efetivamente realizadas em campo, representando a materialização prática de todas as decisões técnicas e organizacionais tomadas ao longo do macrofluxo. Essa etapa é a mais visível do processo de manutenção e aquela que gera impacto direto sobre a disponibilidade, a confiabilidade dos ativos e a percepção de valor da manutenção pela organização.
+
+No macrofluxo, a execução ocorre somente após as ordens de manutenção terem sido devidamente planejadas, aprovisionadas e programadas, garantindo que as atividades sejam realizadas de forma estruturada, segura e controlada. Dessa forma, a execução não deve ser compreendida como um evento isolado, mas como parte integrante de um sistema de gestão que busca previsibilidade, disciplina operacional e melhoria contínua.
+
+### O Papel da Execução no Macrofluxo do PCM
+
+No contexto do macrofluxo, a execução tem como função principal realizar as atividades previstas nas ordens de manutenção, respeitando o escopo definido no planejamento e o cronograma estabelecido na programação. É nessa etapa que o trabalho técnico é efetivamente aplicado aos ativos, promovendo a prevenção de falhas, a correção de anomalias ou a restauração da função dos equipamentos.
+
+A execução conecta diretamente o planejamento à realidade operacional, sendo também a principal fonte de informações para as etapas posteriores de registro, controle e análise de desempenho.
+
+### Condições para Início da Execução
+
+O início da execução pressupõe que determinadas condições tenham sido atendidas ao longo do macrofluxo, entre as quais destacam-se:
+
+* Ordem de manutenção planejada e liberada;
+* Programação definida e divulgada;
+* Materiais, ferramentas e recursos auxiliares disponíveis;
+* Equipes alocadas conforme capacidade planejada;
+* Condições operacionais e de segurança atendidas;
+* Alinhamento com a operação quanto à parada ou liberação de equipamentos.
+
+Essas condições são fundamentais para evitar improvisações, atrasos e retrabalhos durante a execução.
+
+### Execução das Atividades de Manutenção
+
+Durante a execução, as equipes de manutenção realizam as atividades previstas na ordem de manutenção, seguindo procedimentos técnicos, instruções de trabalho e normas de segurança e meio ambiente. As intervenções podem envolver diferentes tipos de manutenção, como:
+
+* Execução de manutenções preventivas sistemáticas;
+* Correção de falhas planejadas;
+* Atendimentos corretivos emergenciais;
+* Serviços de apoio, inspeções complementares ou ajustes técnicos.
+
+O macrofluxo reconhece que, mesmo com planejamento adequado, a execução está sujeita a variáveis de campo, como condições reais do equipamento, acessibilidade, interferências operacionais ou limitações não previstas.
+
+### Tratamento de Desvios Durante a Execução
+
+Um aspecto relevante da execução da manutenção é o tratamento controlado de desvios. Durante a realização das atividades, podem surgir situações como:
+
+* Necessidade de material adicional;
+* Identificação de falhas não previstas;
+* Alterações no escopo do serviço;
+* Serviços extra programação;
+* Impossibilidade de execução conforme planejado.
+
+Nesses casos, o macrofluxo prevê que os desvios sejam devidamente registrados e comunicados, permitindo a abertura de novas demandas, reprogramações ou ajustes no planejamento, sempre mantendo a rastreabilidade e a governança do processo.
+
+::: {.callout-important title="⚠️ Nota Técnica: A Armadilha da Execução Informal"}
+O tratamento de desvios é o "calcanhar de Aquiles" de muitas indústrias. Executar serviços extras sem registrar ou consumir materiais sem apontá-los na ordem de manutenção destrói a integridade dos dados do PCM. A governança exige que qualquer desvio físico em campo tenha seu espelho formal no sistema de gestão.
+:::
+
+### Interação com a Operação e Outras Áreas
+
+A execução da manutenção exige forte integração com a operação, especialmente quando envolve paradas de equipamentos ou intervenções em ativos críticos. Essa interação é essencial para garantir segurança, minimizar impactos produtivos e assegurar a liberação adequada dos equipamentos após a intervenção.
+
+Além da operação, a execução também se relaciona com outras áreas, como aprovisionamento, programação e inspeção, criando um fluxo contínuo de informações ao longo do macrofluxo.
+
+### Testes, Liberação e Retorno à Operação
+
+Concluídas as atividades de manutenção, a execução contempla a realização de testes e verificações, com o objetivo de assegurar que o equipamento ou sistema interveniente esteja em condições adequadas de operação. Apenas após a validação do funcionamento esperado é que o ativo é liberado para uso (*Handover*), encerrando a etapa técnica da intervenção. Esse procedimento é fundamental para garantir a qualidade da manutenção realizada e reduzir a recorrência de falhas.
+
+### Geração de Informações para o Controle do Processo
+
+A execução da manutenção é uma das principais fontes de dados do PCM. Durante essa etapa são geradas informações relacionadas a:
+
+* Horas de mão de obra aplicadas;
+* Materiais efetivamente utilizados;
+* Desvios em relação ao planejamento;
+* Ocorrência de falhas e modos de falha;
+* Dificuldades encontradas durante a intervenção.
+
+Essas informações alimentam diretamente as etapas seguintes do macrofluxo, especialmente o registro, o encerramento das ordens e o controle do desempenho.
+
+### Contribuição da Execução para o Desempenho da Manutenção
+
+A qualidade da execução está diretamente associada à eficácia das etapas anteriores do macrofluxo. Uma execução disciplinada e alinhada ao planejamento contribui para:
+
+* Maior aderência à programação;
+* Redução de retrabalhos;
+* Melhor utilização dos recursos;
+* Aumento da confiabilidade dos ativos;
+* Melhoria dos indicadores de desempenho da manutenção.
+
+Por outro lado, falhas na execução tendem a expor fragilidades do planejamento, da programação ou do aprovisionamento, reforçando o caráter integrado e sistêmico do macrofluxo do PCM.
+
+### Transição para Registro, Encerramento e Controle
+
+No macrofluxo, a execução não representa o fim do processo, mas o ponto de transição para a consolidação das informações geradas. Após a conclusão das atividades em campo, o processo avança para o registro das informações da intervenção, o encerramento técnico da ordem de manutenção e, posteriormente, para o controle e análise de desempenho, fechando o ciclo da manutenção.
+
+Dessa forma, a Execução da Manutenção consolida-se como a etapa em que o planejamento se transforma em resultado concreto, impactando diretamente a disponibilidade e a confiabilidade dos ativos. Sua eficácia depende da integração com as demais etapas do macrofluxo e exerce influência decisiva sobre o desempenho global do PCM, reforçando a importância de uma execução disciplinada, segura e alinhada às diretrizes do processo de manutenção.
+
+---
+
+### Distinção entre Execução Preventiva e Execução Corretiva
+
+No âmbito da etapa de Execução da Manutenção, o macrofluxo do Planejamento e Controle da Manutenção (PCM) contempla diferentes modalidades de intervenção, entre as quais se destacam a execução preventiva e a execução corretiva. Embora ambas estejam inseridas na mesma macroetapa do processo e compartilhem princípios comuns de segurança, registro e controle, elas apresentam finalidades, gatilhos e impactos operacionais distintos.
+
+A compreensão dessas diferenças é essencial para a análise do desempenho da manutenção e para a avaliação do grau de maturidade do PCM. Nesse contexto, o quadro a seguir apresenta uma comparação entre execução preventiva e execução corretiva, evidenciando seus papéis e características no macrofluxo da manutenção.
+
+| Aspecto | Execução Preventiva | Execução Corretiva |
+| :--- | :--- | :--- |
+| **Papel no Macrofluxo** | Execução de intervenções planejadas e sistemáticas. | Execução de intervenções para correção de falhas. |
+| **Objetivo principal** | Evitar falhas e degradação dos ativos. | Restabelecer a função do ativo após falha. |
+| **Gatilho da execução** | Plano de manutenção, tempo, uso ou condição. | Ocorrência de falha ou anomalia funcional. |
+| **Natureza da atuação** | Proativa e planejada. | Reativa ou corretiva planejada. |
+| **Previsibilidade** | Alta. | Baixa a média. |
+| **Relação com o planejamento** | Totalmente planejada previamente. | Pode ser planejada ou emergencial. |
+| **Relação com a programação** | Programada com antecedência. | Programada ou executada de forma imediata. |
+| **Urgência típica** | Baixa a média. | Média a muito alta. |
+| **Impacto na operação** | Controlado e previsível. | Potencialmente elevado. |
+| **Risco associado** | Redução de riscos futuros. | Mitigação de riscos imediatos. |
+| **Uso de recursos** | Otimizado e previsível. | Pode gerar sobrecarga e conflitos. |
+| **Ocorrência de desvios** | Menor incidência. | Maior incidência. |
+| **Registro no sistema** | Ordem preventiva sistemática. | Ordem corretiva ou emergencial. |
+| **Contribuição para confiabilidade** | Alta. | Necessária, porém reativa. |
+| **Impacto nos indicadores** | Melhora aderência, custo e planejamento. | Impacta custo, prazo e *backlog*. |
+| **Frequência desejável** | Alta (como estratégia predominante). | Baixa (como exceção controlada). |
+
+: Quadro Comparativo – Execução Preventiva × Execução Corretiva {#tbl-comparativo-execucao}
+
+A comparação entre execução preventiva e execução corretiva evidencia que ambas são componentes necessários do processo de manutenção, porém com papéis claramente distintos dentro do macrofluxo do PCM. A execução preventiva atua como instrumento de estabilidade e previsibilidade, sustentando a confiabilidade dos ativos por meio de intervenções planejadas e sistemáticas. Já a execução corretiva responde às falhas inevitáveis, sendo essencial para a continuidade operacional, embora associada a maiores riscos, custos e impactos produtivos.
+
+::: {.callout-tip title="💡 Síntese Estratégica: Maturidade do PCM"}
+A predominância da **execução preventiva** sobre a corretiva é um indicativo direto de maior maturidade do processo de manutenção, enquanto o aumento da **execução corretiva** sinaliza fragilidades crônicas nas etapas de inspeção, planejamento ou programação. O equilíbrio entre essas modalidades, aliado ao controle rigoroso, é fundamental para o desempenho global do PCM.
+:::
+
+## Registro, Encerramento e Controle da Manutenção
+
+As etapas de registro, encerramento e controle da manutenção representam a fase final do macrofluxo do Planejamento e Controle da Manutenção (PCM), sendo responsáveis por consolidar formalmente as informações geradas durante a execução, validar as intervenções realizadas e transformar dados operacionais em insumos para análise e melhoria contínua. Essas etapas garantem que o ciclo da manutenção seja fechado de forma estruturada, rastreável e orientada por resultados.
+
+No macrofluxo, registro, encerramento e controle não devem ser compreendidos como atividades meramente administrativas, mas como elementos essenciais para a governança do processo de manutenção, a confiabilidade das informações e a evolução da maturidade do PCM.
+
+### O Papel do Registro no Macrofluxo do PCM
+
+O registro da manutenção tem como função principal documentar fielmente o que foi executado em campo, assegurando que a intervenção realizada corresponda às informações disponíveis no sistema de manutenção. É nessa etapa que os dados gerados durante a execução são formalizados, permitindo rastreabilidade e análise posterior.
+
+Entre as principais informações registradas destacam-se:
+* Horas de mão de obra aplicadas (*Time Tracking*);
+* Materiais efetivamente utilizados (*Material Consumption*);
+* Serviços executados;
+* Desvios em relação ao planejamento;
+* Eventos de parada (*Downtime*);
+* Classes e modos de falha (*Failure Codes*);
+* Resultados de medições e testes.
+
+A qualidade desses registros é determinante para a confiabilidade do histórico do ativo e para a análise do desempenho do processo de manutenção.
+
+### A Importância do Registro para a Qualidade da Informação
+
+No macrofluxo, o registro é tratado como condição indispensável para o encerramento da ordem de manutenção. Registros incompletos, incorretos ou inconsistentes comprometem severamente:
+* A análise de falhas recorrentes;
+* A confiabilidade dos indicadores de desempenho (*KPIs*);
+* A avaliação da efetividade do planejamento;
+* A tomada de decisão gerencial.
+
+::: {.callout-warning title="⚠️ Nota Técnica: O Custo do Mau Registro"}
+O registro não se limita a “fechar” a ordem no sistema para limpar o *backlog*. Ordens encerradas sem o apontamento correto de horas, materiais ou causa da falha geram uma falsa sensação de controle e impedem que a execução gere o verdadeiro **conhecimento organizacional** necessário para a Engenharia de Manutenção.
+:::
+
+### Encerramento Técnico da Ordem de Manutenção
+
+O encerramento técnico (*TECO - Technical Completion*) representa a validação formal da conclusão da intervenção, indicando que todas as atividades previstas foram executadas e que as informações relevantes foram devidamente registradas. No macrofluxo, esse encerramento ocorre somente após a verificação rigorosa de que:
+* Não existem pendências de material (físico *vs.* sistêmico);
+* Movimentações de componentes reparáveis foram concluídas;
+* Apontamentos de mão de obra estão corretos e justificados;
+* Informações técnicas (como laudos ou medições) estão completas e consistentes.
+
+O encerramento técnico assegura que a ordem de manutenção esteja apta a ser considerada nas análises de desempenho e no controle financeiro do processo.
+
+### Integração entre Execução, Registro e Encerramento
+
+O macrofluxo evidencia que execução, registro e encerramento formam um conjunto indissociável. A execução gera informações, o registro consolida essas informações e o encerramento valida o ciclo operacional da ordem. A ausência ou fragilidade em qualquer uma dessas etapas compromete o fechamento adequado do processo. Essa integração reforça a necessidade de disciplina operacional e padronização dos procedimentos de *closeout*.
+
+### Controle da Manutenção e Análise de Desempenho
+
+Após o encerramento das ordens, o macrofluxo avança para a etapa de controle, na qual os dados consolidados são utilizados para avaliar o desempenho do processo de manutenção. Essa análise ocorre por meio de indicadores que refletem aspectos cruciais, como:
+* Aderência ao planejamento (*Planning Compliance*);
+* Aderência à programação (*Schedule Compliance*);
+* Custos reais de manutenção *versus* orçado;
+* Volume e envelhecimento do *Backlog*;
+* Qualidade da execução (índice de retrabalho);
+* Frequência de falhas (*MTBF*) e tempo de reparo (*MTTR*).
+
+O controle permite identificar desvios crônicos, gargalos de recursos e oportunidades de melhoria ao longo de todo o macrofluxo.
+
+### Melhoria Contínua e Retroalimentação do Processo
+
+O controle da manutenção não tem caráter punitivo, mas orientador e evolutivo. A partir da análise dos indicadores e das informações registradas, o macrofluxo prevê a proposição de ações de melhoria (*Continuous Improvement*), tais como:
+* Ajustes nos planos de manutenção preventiva;
+* Revisão de critérios de priorização de ordens;
+* Aprimoramento das estimativas de planejamento e da rotina de programação;
+* Capacitação técnica das equipes de execução;
+* Revisão de estratégias de manutenção (ex: migrar de preventiva para preditiva).
+
+Essas ações retroalimentam o processo, devolvendo as "lições aprendidas" para o Passo 1 do fluxo, reforçando o caráter vivo, cíclico e contínuo do PCM.
+
+### Contribuição para a Maturidade do PCM
+
+No modelo representado pelo macrofluxo, as etapas de registro, encerramento e controle são o grande divisor de águas na evolução da maturidade da manutenção. Processos que executam muito, mas não registram ou analisam adequadamente suas intervenções, estão fadados a permanecer em um estágio reativo perpétuo (apagando incêndios). Por outro lado, a consolidação e a análise sistemática das informações permitem o aprendizado organizacional, a previsibilidade e a melhoria sustentada do desempenho.
+
+---
+
+### Distinção entre Execução e Registro da Manutenção
+
+No macrofluxo do PCM, embora a execução e o registro da manutenção estejam intimamente relacionados, eles possuem funções distintas e complementares. A execução corresponde à realização física das atividades de manutenção, enquanto o registro consolida formalmente as informações geradas durante essa execução. A distinção clara entre essas etapas é essencial para garantir rastreabilidade, confiabilidade dos dados e efetividade do controle do processo. O quadro a seguir apresenta uma comparação estruturada entre execução e registro, evidenciando seus papéis no macrofluxo.
+
+| Aspecto | Execução da Manutenção | Registro da Manutenção |
+| :--- | :--- | :--- |
+| **Função principal** | Realizar as atividades de manutenção em campo. | Documentar e consolidar as informações da execução. |
+| **Momento no macrofluxo** | Após planejamento e programação. | Após ou durante a execução. |
+| **Natureza da atividade** | Operacional e técnica. | Administrativa e informacional. |
+| **Foco** | Intervenção física no ativo. | Qualidade da informação e rastreabilidade. |
+| **Geração de dados** | Gera dados primários. | Consolida e valida os dados gerados. |
+| **Impacto direto** | Disponibilidade e confiabilidade do ativo. | Confiabilidade do histórico e dos indicadores. |
+| **Risco associado à falha** | Falha gera indisponibilidade ou retrabalho. | Falha gera perda de informação e distorção de análises. |
+| **Relação com indicadores** | Indireta. | Direta. |
+| **Papel na melhoria contínua**| Fonte de aprendizado prático. | Base de dados para análise e tomada de decisão. |
+
+: Quadro Comparativo – Execução × Registro da Manutenção {#tbl-comparativo-execucao-registro}
+
+A comparação entre execução e registro da manutenção evidencia que executar corretamente não é suficiente para garantir a eficácia do processo de manutenção. A ausência de registros adequados compromete o controle, a análise de desempenho e a melhoria contínua do PCM.
+
+::: {.callout-note title="💡 Síntese Estratégica"}
+Enquanto a **execução** assegura a restauração ou preservação da função física dos ativos, o **registro** transforma a execução em conhecimento organizacional.
+:::
+
+A integração eficaz entre execução, registro e encerramento é condição essencial para a maturidade do processo de manutenção e para a consolidação de um modelo de gestão efetivamente orientado por dados e resultados (*Data-driven*).
+
+***
+
+## A Gestão Transversal por KPIs no PCM
+
+::: {.callout-tip title="🎯 Objetivos desta Seção"}
+Após compreendermos o macrofluxo completo do PCM, estabeleceremos agora a modelagem analítica desse processo. Ao final desta leitura, você será capaz de:
+
+* **Entender** os KPIs do PCM como elementos transversais, e não como métricas isoladas de setores específicos.
+* **Mapear** os pontos exatos do macrofluxo onde os indicadores de Qualidade, Custo, Atendimento, Moral e Backlog sofrem maior influência (alavancagem).
+* **Utilizar** a Matriz de Relacionamento para orientar a tomada de decisão baseada em dados reais do sistema de manutenção.
+:::
+
+Os Indicadores-Chave de Desempenho (KPIs) do PCM devem ser analisados de forma transversal, uma vez que cada indicador é influenciado por múltiplas etapas do macrofluxo. A gestão da manutenção consolida os indicadores em duas fases críticas (Planejamento de Curto Prazo e Execução), organizando-os metodologicamente nas dimensões de Qualidade, Custo, Atendimento, Moral/Equipe e Backlog.
+
+A análise não pode ser setorial. Indicadores como **aderência ao planejamento (Hh)**, **aderência ao custo planejado** e **tempo médio planejado** refletem diretamente a qualidade das estimativas técnicas feitas pelo time de Planejamento. Por outro lado, o **percentual de OMs reprogramadas** e a **aderência à programação** evidenciam a estabilidade da rotina e o cumprimento da execução em campo pelas equipes técnicas.
+
+Já indicadores operacionais como IAMO e AMS reforçam a importância da etapa de Registro e da disciplina técnica, pois dependem diretamente da apropriação correta da mão de obra. Por fim, o **backlog** atua como o grande indicador estrutural de balanço de massa: resultante do equilíbrio matemático entre a entrada de demandas (inspeções e urgências) e a saída produtiva do sistema.
+
+### Matriz KPI × Etapa do Macrofluxo (PCM)
+
+Para fortalecer a governança, é importante não apenas relacionar cada KPI às macroetapas, mas também apontar onde o indicador aparece como *evidência documental* no fluxo. A lógica transversal pressupõe que cada KPI é influenciado por várias etapas, mas possui um "ponto de maior alavancagem" (onde ele é controlável) e um "ponto de medição" (onde ele é apurado).
+
+Dessa forma, a @tbl-matriz-kpi combina o nome do KPI, sua categoria gerencial, a etapa típica onde é apurado, as macroetapas de influência e a leitura que conecta todo o processo.
+
+| KPI (Indicador) | Categoria | Apuração / Evidência no Fluxo | Etapas com Maior Alavancagem | Leitura Transversal |
+| :--- | :--- | :--- | :--- | :--- |
+| **Aderência ao Planejamento (Hh)** | Qualidade | Planejamento de Curto Prazo | Planejamento, Execução, Registro e Encerramento. | Conecta a estimativa de HH com a disciplina de execução. Desvios indicam necessidade de recalibrar padrões de planejamento. |
+| **Percentual de OMs Reprogramadas** | Qualidade | Execução Preventiva e Corretiva | Programação, Aprovisionamento, Execução. | Indicador-síntese de estabilidade. Reflete restrições de recursos, falta de peças (*stockout*) ou mudanças da Operação. |
+| **Aderência ao Custo Planejado** | Custo | Planejamento de Curto Prazo | Planejamento, Aprovisionamento, Execução. | Conecta a estimativa de materiais com o consumo real. Desvios indicam falhas de escopo ou diligenciamento ineficaz. |
+| **Índice de Apropriação de Mão de Obra (IAMO)** | Custo | Execução Preventiva e Corretiva | Execução, Registro e Encerramento. | Mede a disciplina de apontamento de HH. Sem registro, o indicador perde confiabilidade, destruindo análises de produtividade. |
+| **Tempo Médio Planejado** | Atendimento | Planejamento de Curto Prazo | Planejamento, Programação, Execução. | Conecta estimativas de duração com viabilidade operacional. Sugere necessidade de melhoria em especificações técnicas. |
+| **Aderência à Manutenção Sistêmica (AMS)** | Atendimento | Execução Preventiva e Corretiva | Programação, Execução, Aprovisionamento. | Captura o cumprimento das preventivas. A queda deste indicador gera aumento imediato de corretivas emergenciais e *backlog*. |
+| **Aderência à Programação (*Schedule Compliance*)** | Moral / Equipe | Execução Preventiva e Corretiva | Programação, Execução, Aprovisionamento. | Conecta a qualidade do cronograma com a execução. A baixa aderência acompanha alto índice de urgências concorrentes. |
+| **Backlog de Manutenção** | Backlog | Planejamento de Curto Prazo | Identificação, Planejamento, Programação, Execução. | Indicador estrutural de volume. Cresce com a entrada de novas demandas e reduz com a capacidade; orienta dimensionamento. |
+
+: Matriz Transversal – KPI × Etapas do Macrofluxo do PCM {#tbl-matriz-kpi}
+
+### Análise Sistêmica dos Indicadores
+
+Ao analisar a matriz e incluir a "Evidência no Fluxo", o material ganha rastreabilidade documental. Observa-se que o **Planejamento de Curto Prazo** concentra indicadores ligados a estimativas estruturais (HH, custo planejado e *backlog*). Por outro lado, as etapas de **Execução** (Preventiva e Corretiva) consolidam os indicadores fortemente associados ao cumprimento do plano e à disciplina de campo (reprogramações, IAMO e AMS).
+
+::: {.callout-note title="💡 Insight Gerencial: Efeito Sistêmico e a Correia Transportadora"}
+Lembra do nosso exemplo da correia transportadora de minério? Uma queda brusca na **Aderência à Programação** na semana da troca daquele rolete não significa necessariamente que os mecânicos atrasaram o serviço. O indicador foi afetado porque o andaime da empresa terceirizada chegou atrasado (falha de **Aprovisionamento**).
+
+A leitura transversal rompe com a visão departamentalizada ("a culpa é da execução"). Ela trata os desvios não como falhas locais, mas como efeitos sistêmicos do macrofluxo, orientando a engenharia a agir nos pontos corretos de alavancagem.
+:::
+
+## 📝 Resumo do Capítulo
+
+* **O Macrofluxo Sistêmico:** O PCM não é um conjunto de tarefas isoladas, mas um ciclo interdependente. A demanda nasce na identificação e registro, ganha forma no planejamento, viabilidade no aprovisionamento, data na programação, materialidade na execução e gera conhecimento estratégico no encerramento e controle.
+* **A Fronteira do Planejamento e Programação:** Planejar é definir o escopo técnico, recursos e tempos necessários. Programar é organizar essas ordens já viáveis na linha do tempo, nivelando a capacidade da equipe e as restrições da operação. A regra de ouro é: uma ordem nunca deve ser programada sem estar exaustivamente planejada.
+* **Os Horizontes de Atuação:** O planejamento de médio prazo atua de forma tática (agrupando grandes demandas e antecipando necessidades de recursos), enquanto o curto prazo funciona como o filtro operacional final, garantindo que o pacote vá para a programação com zero incertezas logísticas.
+* **Preventiva vs. Corretiva:** A execução preventiva atua como o motor de estabilidade da planta industrial, pautada na previsibilidade. A corretiva, embora inevitável na vida útil dos equipamentos, é reativa e deve ser tratada como exceção controlada. O equilíbrio estratégico entre elas define o nível de maturidade da gestão de ativos.
+* **A Governança do Registro:** O encerramento de uma ordem de manutenção não é um mero ato burocrático, mas a consolidação fidedigna do histórico do ativo. O rigor nos apontamentos de horas, consumo de materiais e códigos de falha é o que alimenta os algoritmos de Engenharia de Manutenção com dados reais.
+* **Gestão Transversal por KPIs:** Indicadores de manutenção não pertencem a departamentos isolados. A *Aderência à Programação*, o *Backlog* e o *IAMO* atuam como sensores sistêmicos. A leitura transversal permite que o gestor localize o verdadeiro ponto de alavancagem de um problema (seja no suprimento, no planejamento ou no campo) para impulsionar a melhoria contínua.

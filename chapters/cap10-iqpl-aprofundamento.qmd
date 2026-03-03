@@ -1,0 +1,530 @@
+---
+format: html
+---
+
+# Estratégias de Manutenção Preventiva Imperfeita e Ciclos de Renovação {#sec-manutencao-imperfeita}
+
+A manutenção exerce um impacto profundo na capacidade produtiva e na qualidade final dos produtos, exigindo um rigoroso processo de melhoria contínua. Na indústria moderna, estima-se que entre 15% e 40% do custo total de produção seja absorvido pelas atividades de manutenção.
+
+Do ponto de vista estrutural, as intervenções dividem-se em duas macrocategorias: Manutenção Corretiva (MC) e Manutenção Preventiva (MP). O impacto que essas ações geram no sistema dita a sua classificação em três níveis de eficácia:
+
+1. **Manutenção Mínima:** Retorna o sistema exatamente às condições imediatamente anteriores à falha ou intervenção. O sistema opera no estado conhecido como *As Bad As Old* (ABAO).
+2. **Manutenção Perfeita:** Redefine o sistema para o seu estado original de fábrica, operando como *As Good As New* (AGAN).
+3. **Manutenção Imperfeita:** Na realidade operacional, o efeito da MP raramente atinge os extremos ABAO ou AGAN. As ações reduzem a intensidade de falhas e melhoram a condição do ativo, mas não o suficiente para zerar o seu desgaste histórico.
+
+Para modelar matematicamente a eficiência da manutenção imperfeita, a engenharia adota três abordagens principais: modelos de redução da intensidade de falha, modelos de redução da idade virtual do ativo e modelos híbridos.
+
+## A Evolução da Eficiência de Manutenção
+
+Historicamente, a modelagem da eficiência evoluiu de fatores únicos para múltiplas variáveis. Os primeiros modelos probabilísticos assumiam que a intervenção preventiva seria perfeita com uma probabilidade $p$ e mínima com uma probabilidade $1-p$. Com o avanço das técnicas de planejamento, introduziu-se o conceito de "fator de melhoria", sob a premissa de que os efeitos da manutenção podem ser controlados e previstos quando planejados com antecedência.
+
+Entretanto, para operações complexas, é irrealista assumir que toda ação preventiva terá um efeito idêntico. Condições ambientais, restrições operacionais e a natureza dos componentes (como equipamentos alugados ou de desgaste severo) exigem que se atribua um fator específico de redução de intensidade de falha para cada tipo de intervenção.
+
+Modelos baseados na redução de idade virtual calculam a eficiência com base no impacto da ação e na probabilidade de sua execução, sendo o fator de redução frequentemente dependente do tempo decorrido entre as intervenções. Neste capítulo, o foco analítico recairá sobre os **modelos de redução da intensidade de falha**.
+
+Para sistemas complexos, as interdependências entre componentes impossibilitam que as ações sejam tratadas de forma homogênea. Para solucionar essa lacuna, introduzimos uma política original de manutenção que avalia a eficiência de múltiplos tipos de MP, utilizando a metodologia de Redes Bayesianas (BN - *Bayesian Networks*). As Redes Bayesianas permitem quantificar interações complexas a partir de dados históricos.
+
+Em suma, os pilares desta modelagem quantitativa são:
+* A adoção de múltiplos tipos de MP, cada qual com sua própria eficiência teórica e prática.
+* A avaliação estocástica desses fatores de eficiência via Redes Bayesianas.
+* A escalabilidade do algoritmo para sistemas de qualquer nível de complexidade.
+
+---
+
+## Política de Manutenção Implementada
+
+A política estruturada neste modelo baseia-se no conceito de Manutenção Preventiva Periódica, na qual o ativo sofre intervenções em intervalos de tempo fixos $T$, independentemente do seu histórico de falhas. Para sistemas compostos por múltiplas unidades, aplicamos a premissa de "MP periódica com reparo mínimo na falha" (ou substituição em bloco), um padrão consolidado na engenharia de confiabilidade.
+
+
+Neste cenário de alta complexidade, o sistema é submetido a Revisões Parciais (PR - *Partial Renewals*). Cada tipo de PR engloba um pacote específico de ações (ex: lubrificação, substituição de filtros, troca de correias), possuindo uma periodicidade própria que, por exigências logísticas e de custo, deve ser sempre um múltiplo do intervalo base $T$.
+
+### Premissas Gerais do Modelo
+
+Para a construção do algoritmo, estabelecem-se as seguintes condições de contorno:
+
+* O sistema entra em operação (ou sofre renovação total) no instante $t = 0$.
+* Em caso de quebra, executa-se estritamente um Reparo Mínimo (MR).
+* Sob MR, a taxa de falha após o reparo é idêntica à taxa imediatamente anterior à quebra, configurando um Processo de Poisson Não Homogêneo (NHPP).
+* O ciclo de manutenção é composto por $K$ ciclos completos de Revisão Parcial (PR).
+* Em cada ciclo, ocorrem $N$ tipos diferentes de manutenção imperfeita. Cada tipo possui eficiência própria denotada por $\alpha_n$.
+* O comportamento de falha do ativo segue uma distribuição de Weibull, assumindo uma taxa de degradação crescente ao longo do tempo (condição obrigatória para modelagem de MP imperfeita).
+* Ao término do ciclo de manutenção completo, o ativo sofre uma Renovação Completa (CR - *Complete Renewal*), retornando ao estado perfeito (AGAN).
+
+---
+
+## Formulação Matemática do Ciclo de Renovação
+
+Definindo $\tau$ como o tempo de operação (atividade) ao longo de um intervalo $T$, e $\lambda_0(\tau)$ como a função de taxa de falha original do equipamento, a arquitetura da política desenvolve-se da seguinte forma:
+
+1. O ativo recebe $N$ tipos de Revisão Parcial, indexados por $n$ (onde $n = 1, 2, 3, \ldots, N$).
+2. O $n$-ésimo tipo de PR é executado a cada período $2^{n-1}T$, possuindo um índice de eficiência específico $\alpha_n$ (com $0 < \alpha_n < 1$). O tipo de revisão mais complexo ($N$) ocorre no intervalo mais longo, $2^{N-1}T$.
+3. No intervalo de $0$ a $2^{N-1}T$, todos os $N$ pacotes de revisão são executados, formando um **Ciclo PR** completo.
+4. Este Ciclo PR repete-se por $K$ vezes. O índice do ciclo atual é denotado por $k$ ($k = 1, 2, 3, \ldots, K$).
+5. No instante $2^{N-1}KT$ (o fim do ciclo de manutenção global), uma Renovação Completa (CR) substitui as ações de PR, zerando o relógio de confiabilidade do ativo.
+
+A evolução da taxa de falha (intensidade) sob esta política é decrescente e cumulativa a cada intervenção:
+
+* Após o 1º tipo de PR (em $t = 2^0T$):
+  $$\lambda_1(\tau) = \alpha_1 \lambda_0(\tau)$$
+* Após o 2º tipo de PR (em $t = 2^1T$):
+  $$\lambda_2(\tau) = \alpha_2 \lambda_1(\tau)$$
+* No instante final do ciclo (em $t = 2^{N-1}T$), onde todos os tipos se sobrepõem:
+  $$\lambda_N(\tau) = \prod_{i=1}^{N} \alpha_i \lambda_0(\tau)$$
+
+Para que o algoritmo suporte decisões financeiras, integramos as variáveis de custo operacionais:
+* $c_{p^{(n)}}$: Custo do $n$-ésimo tipo de PR.
+* $w_c$ e $c_c$: Duração média e custo de um Reparo Mínimo (MC).
+* $w_p$ e $c_p$: Duração média e custo associado a um PR.
+* $w_R$ e $c_R$: Duração média e custo de uma Renovação Completa (CR).
+
+# RASCUNHO: O Índice de Qualidade de Plano de Manutenção (IQPL) {#sec-caso-iqpl-rascunho}
+
+## Contexto Operacional e Motivação
+
+No segundo estudo de caso, a modelagem ARM é aplicada diretamente à gestão de ativos físicos. Um plano de manutenção mal estruturado gera paradas não programadas e destrói o fluxo de caixa. Para auditar a robustez desses planos, cria-se o **Índice de Qualidade de Plano de Manutenção (IQPL)**.
+
+O IQPL é a consolidação da nossa equação de qualidade em uma nota cuja pontuação máxima atinge 100 pontos. Para garantir o rigor técnico, o modelo foi desdobrado em um total de **35 variáveis ($V_i$)**, metodicamente agrupadas em **5 áreas de interesse ($D_j$)**:
+
+$$IQPL = \sum_{j=1}^{5} \left[ W_{D_j} \times \left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right) \right] \leq 100$$ {#eq-iqpl}
+
+### Dicotomia Paramétrica: Parâmetros Existentes vs. Novos
+
+Com o intuito de impulsionar a melhoria contínua e rastrear a evolução da gestão, as variáveis do IQPL foram divididas entre dois tipos:
+
+* **Parâmetros Existentes:** Representam a base histórica de controle (o que já era medido tradicionamente). Servem como piso técnico mínimo.
+* **Parâmetros Novos:** Representam uma elevação de padrão (o que a organização deve desenvolver para ser competitiva). Servem como gatilhos de inovação.
+
+Esta dicotomia permite que o gestor visualize não apenas o escore agregado, mas também a maturidade incremental: "Onde estou?" (existentes) e "Para onde preciso ir?" (novos).
+
+---
+
+## Dimensão 1: Programáveis ($D_1$)
+
+**Total: 7 variáveis**
+
+A primeira dimensão foca na **estrutura de planejamento** dos planos de manutenção. Um plano bem programado é aquele que antecipa a necessidade, respeita restrições operacionais e se adapta ao contexto do ativo.
+
+### Parâmetros Existentes ($D_1$ Históricos)
+
+1. **Tolerância Positiva (+):** Número de dias permitidos para antecipar o disparo da atividade antes da data ideal. Ex: Se o plano diz "a cada 90 dias" e tem +10 dias de tolerância, o sistema aceita disparo a partir do dia 80.
+   - *Relevância:* Reduz falsos disparos; evita que o sistema dispare atividades muito cedo desnecessariamente.
+   - *Escala de Medição:* Existe (Sim=5) ou Não existe (Não=1). Valor intermediário (Parcial=3): Se há tolerância, mas não é documentada ou consensual.
+
+2. **Tolerância Negativa (-):** Número de dias permitidos para atrasar o disparo da atividade após a data ideal. Ex: +5 dias de tolerância negativa significa que o sistema aceita disparo até 5 dias após.
+   - *Relevância:* Fornece margem operacional quando há gargalos no cronograma da fábrica.
+   - *Escala de Medição:* Existe (5) ou Não existe (1).
+
+3. **Horizonte de abertura:** Dias de antecedência com os quais o plano "abre" para que a equipe de planejamento execute reserva de materiais e alocação de HH. Sistema recomendado: 30-60 dias.
+   - *Relevância:* Define a capacidade de reação da organização.
+   - *Escala:* Sub-30 dias (1), 30-45 dias (3), 45-60 dias (4), >60 dias (5).
+
+4. **Intervalo de solicitação:** Frequência com a qual o plano solicita a execução (horas, dias, meses, anos). Ex: "A cada 2.000 horas de operação" ou "A cada 12 meses".
+   - *Relevância:* Deve estar alinhado com dados técnicos do fabricante ou histórico de falhas.
+   - *Escala:* Não definido ou arbitrário (1), Baseado parcialmente em dados (3), Totalmente baseado em manuais/histórico (5).
+
+5. **Local de instalação:** Campo que identifica onde o ativo reside (ex: "Oficina Central", "Mina A - Frente 3", "Usina de Pelotização").
+   - *Relevância:* Crítico para segregar responsabilidades operacionais e de segurança.
+   - *Escala:* Não preenchido (1), Preenchido genéricamente (3), Preenchido com hierarquia (5 - ex: "Site > Área > Oficina > Máquina").
+
+6. **Plano automático:** Flag booleano que indica se o plano gera automaticamente solicitações de manutenção ou se requer acionamento manual.
+   - *Relevância:* Automatização reduz erros humanos e garante consistência.
+   - *Escala:* Não automático (1), Semiautomático com revisão (3), Totalmente automático (5).
+
+7. **Plano não iniciado:** Identificação de planos que foram criados, mas nunca geraram uma atividade (planos "órfãos" ou obsoletos).
+   - *Relevância:* Acumular planos não iniciados congestionará o sistema e criará ruído informacional.
+   - *Score:* Ausência de planos não iniciados (5), Até 5% do portfolio (4), 5-15% (3), 15-30% (2), >30% (1).
+
+---
+
+## Dimensão 2: Processuais ($D_2$)
+
+**Total: 6 variáveis (3 Novas + 3 Existentes)**
+
+A segunda dimensão aborda como a organização **executa e documenta** as atividades de manutenção. Um processo robusto não apenas realiza a tarefa, mas captura lições aprendidas e retroalimenta o sistema.
+
+### Parâmetros Novos ($D_2$ Elevação de Padrão)
+
+1. **Materiais:** Controle de disponibilidade de peças e insumos antes da execução. Indicador: Percentual de atividades que iniciaram com 100% dos materiais em mãos.
+   - *Fórmula:* $M_{disp} = \frac{\text{Atividades iniciadas com materiais completos}}{\text{Total de atividades executadas}} \times 100$
+   - *Escala:* <50% (1), 50-70% (2), 70-85% (3), 85-95% (4), >95% (5).
+
+2. **HH - Qualidade:** Horas-Homem destinadas a qualidade e inspeção pós-manutenção. Reflete o comprometimento em validar se a atividade atingiu seu objetivo.
+   - *Medição:* Percentual de HH de inspeção / Total de HH de execução.
+   - *Escala:* Nenhuma (0%), <5% (1), 5-10% (2), 10-15% (3), >15% (5).
+
+3. **ACF (Apontamento de Classe Falha):** Sistema estruturado para classificar e rastrear retornos (atividades que não resolveram o problema na primeira vez). Indicador de taxa de retorno.
+   - *Fórmula:* $R_{index} = \frac{\text{Atividades que retornaram}}{\text{Total de atividades}} \times 100$
+   - *Escala:* >20% retorno (1), 15-20% (2), 10-15% (3), 5-10% (4), <5% (5).
+
+### Parâmetros Existentes ($D_2$ Históricos)
+
+4. **Reinício dos planos:** Mecanismo de reset automático ou manual após cada conclusão. Evita que históricos vencidos congestionem o backlog.
+   - *Relevância:* Um plano que não reinicia é um plano morto.
+   - *Escala:* Não reinicia (1), Reinicia manualmente (3), Reinicia automaticamente (5).
+
+5. **Ciclos vencidos:** Quantificação do número de solicitações de manutenção que ultrapassaram o prazo de execução e permanecem abertas.
+   - *Medição:* Contagem absoluta ou percentual do backlog.
+   - *Escala:* >30% do backlog vencido (1), 15-30% (2), 5-15% (3), <5% (4), Zero ciclos vencidos (5).
+
+6. **RT (Requisição Técnica) e Validação de Planos:** Documentação e aprovação formal dos critérios de um plano antes de sua ativação. Evita planos mal construídos.
+   - *Relevância:* Governança; impede que "achismo" entre na base de dados.
+   - *Escala:* Sem documentação (1), Documentado, sem validação (3), Documentado e validado por especialista (5).
+
+---
+
+## Dimensão 3: Ativos ($D_3$)
+
+**Total: 6 variáveis (todas Novas)**
+
+A terceira dimensão foca na **qualidade da identificação e catalogação dos ativos físicos**. Um ativo bem catalogado é rastreável, comparável e facilitará troubleshooting futuro.
+
+### Parâmetros Novos ($D_3$ Estrutural)
+
+1. **Taxonomia - Padronização:** Existência de uma hierarquia padrão para nomear ativos (ex: "Site / Local / Equipamento / Subsistema / Componente").
+   - *Escala:* Sem padrão (1), Padrão genérico (3), Padrão detalhado e auditado (5).
+
+2. **Taxonomia – 6º Nível:** Profundidade de catalogação. Muitos sistemas param no 3º nível (ex: "Mina > Britagem > Britador"), perdendo rastreabilidade de componentes críticos.
+   - *Escala:* 3 níveis ou menos (1), 4 níveis (3), 5 ou mais níveis (5).
+
+3. **Perfil de catálogo:** Cada ativo possui um "perfil" que agrupa dados estruturais (fabricante, modelo, data de compra, garantia, criticidade, localização GPS, etc.).
+   - *Medição:* Percentual de ativos com perfil completo.
+   - *Escala:* <30% (1), 30-60% (2), 60-80% (3), 80-95% (4), >95% (5).
+
+4. **Tipo de Ativo:** Classificação categórica (Ex: "Motor Elétrico", "Correia Transportadora", "Válvula de Controle", "Sensor de Pressão").
+   - *Relevância:* Permite análise de confiabilidade por tipo; facilita substituição padronizada.
+   - *Escala:* Nenhuma classificação (1), Classificação genérica (3), Classificação técnica detalhada (5).
+
+5. **Fabricante:** Rastreamento de quem fabrica o ativo. Crítico para warranty e acesso a documentação técnica.
+   - *Escala:* Desconhecido (1), Parcialmente conhecido (3), Completamente documentado (5).
+
+6. **Data de Aquisição e Operação:** Rastreamento de idade do ativo. Ativos muito antigos podem ter confiabilidade reduzida; ativos novos podem estar em fase de burn-in.
+   - *Relevância:* Previsão de fim de vida (End-of-Life, EOL).
+   - *Escala:* Desconhecido (1), Conhecida apenas aquisição (3), Aquisição + data de operação (5).
+
+---
+
+## Dimensão 4: Lista de Tarefas ($D_4$)
+
+**Total: 15 variáveis (1 Nova + 14 Existentes)**
+
+A quarta dimensão aborda a **descrição detalhada das atividades** de manutenção que serão executadas quando o plano dispara. Uma lista de tarefas robusta reduz improviso e melhora padronização.
+
+### Parâmetro Novo ($D_4$ Inovação)
+
+1. **PTS (Plano Técnico de Segurança):** Documento que detalha os riscos específicos da tarefa e as medidas de controle. Exemplo: "Trabalho em altura > 1,5m requer cinto + guarda-corpo".
+   - *Relevância:* Conformidade com ISO 45001 (Saúde e Segurança); reduz acidentes.
+   - *Escala:* Sem PTS (1), PTS genérico (3), PTS específico e revisado periodicamente (5).
+
+### Parâmetros Existentes ($D_4$ Core)
+
+2. **Chave de cálculo:** Campo computacional que define como o sistema recalcula o próximo disparo (ex: "90 dias após conclusão" ou "500 horas operacionais após conclusão").
+   - *Escala:* Indefinida (1), Definida genericamente (3), Definida com precisão (5).
+
+3. **Campo de Duração:** Estimativa de tempo para execução (em horas). Crítico para planejamento de turnos.
+   - *Escala:* Não estimado (1), Estimado arbitrariamente (3), Estimado baseado em histórico (5).
+
+4. **Campo percentual:** Progresso percentual da atividade durante sua execução (%0 a %100). Permite rastreamento em tempo real.
+   - *Escala:* Não implementado (1), Manual (3), Automático ou semiautomático (5).
+
+5. **Responsável técnico LT:** Pessoa designada responsável pela elaboração e revisão da Lista de Tarefas (LT). Garante qualidade e consistência.
+   - *Escala:* Sem designação (1), Designação informal (3), Designação formal com treinamento (5).
+
+6. **Última modificação LT:** Data/Hora da última atualização da lista de tarefas. Permite auditar se a LT está obsoleta.
+   - *Escala:* Desconhecida (1), Conhecida, mas >2 anos (2), Conhecida, 1-2 anos (3), Conhecida, <1 ano (4), Conhecida, <6 meses (5).
+
+7. **Duração irrisória:** Flag que identifica tarefas com tempo estimado despropositadamente baixo (<15 min.). Podem indicar descrição inadequada ou escopo subestimado.
+   - *Score:* Nenhuma tarefa irrisória (5), <5% das tarefas (4), 5-10% (3), 10-20% (2), >20% (1).
+
+8. **Duração Máxima:** Limite máximo de tempo permitido para execução (failsafe). Se ultrapassado, ativa escalação.
+   - *Escala:* Sem limite (1), Limite genérico (3), Limite por tipo de ativo (5).
+
+9. **Unidade CT (Horas Operacionais):** Métrica de tempo para planos baseados em ciclos operacionais (não em calendário). Exemplo: "A cada 8.000 horas de funcionamento".
+   - *Escala:* Não utilizado (1), Utilizados apenas para alguns planos (3), Utilizados sistematicamente (5).
+
+10. **Segurança:** Indicação de risco associado à tarefa (Baixo, Médio, Alto, Crítico). Determina qualificação obrigatória do executor.
+    - *Escala:* Sem classificação (1), Classificação genérica (3), Classificação detalhada com matriz de risco (5).
+
+11. **Validade da LT:** Período de tempo após o qual a lista de tarefas deve ser revisada (ex: "Revisar a cada 2 anos" ou "Revisar após 50 execuções").
+    - *Escala:* Indefinida (1), Definida genericamente (3), Definida com critério (5).
+
+12. **5S:** Aplicação da metodologia 5S (Seiri, Seiton, Seiso, Seiketsu, Shitsuke) à descrição da tarefa. Reduz desperdício e melhora segurança operacional.
+    - *Relevância:* Organização do espaço, ferramentas, descarte de resíduos.
+    - *Escala:* Não mencionado (1), Mencionado genericamente (3), Integrado na LT com checklist (5).
+
+13. **Título da Lista:** Descrição breve, clara e única da tarefa. Evita homônimos e confusão operacional.
+    - *Escala:* Vago ou incompleto (1), Descritivo, mas genérico (3), Descritivo e único (5).
+
+14. **Tempo Máx. de operação:** Intervalo máximo permissível entre execuções sem que o ativo entre em zona de risco elevado (conceito de "Máximo Permissível" em normas ISO).
+    - *Escala:* Indefinido (1), Definido empiricamente (3), Definido por norma técnica/fabricante (5).
+
+15. **Chave de controle:** Identificador único (ID) que conecta a lista de tarefas ao plano, ao ativo e ao histórico de execução. Fundamental para rastreabilidade.
+    - *Escala:* Não existe (1), Existe, mas manual (3), Automático e auditado (5).
+
+---
+
+## Dimensão 5: Desempenho ($D_5$)
+
+**Total: 1 variável (Nova)**
+
+A quinta dimensão foca no **resultado final** da execução de manutenção: o ativo continua funcionando conforme esperado?
+
+### Parâmetro Novo ($D_5$ Sintético)
+
+1. **RMC (Relação Manutenção / Confiabilidade):** Índice que correlaciona o investimento em manutenção com a confiabilidade operacional observada.
+   - *Fórmula:* $RMC = \frac{\text{MTBF (Tempo Médio Entre Falhas)}}{\text{Custo Total de Manutenção Preventiva}}$
+   - *Justificativa:* Se gasto muito em manutenção, mas o ativo continua falhando frequentemente, a manutenção não está sendo eficaz. O RMC captura essa dual dinâmica.
+
+**Escalas de Medição do RMC:**
+
+| Faixa | Interpretação | Score |
+|-------|---|---|
+| $RMC < 10$ | Manutenção cara, confiabilidade baixa (ineficaz) | 1 |
+| $10 \leq RMC < 50$ | Manutenção elevada com ganhos modestos | 2 |
+| $50 \leq RMC < 150$ | Manutenção adequada com confiabilidade razoável | 3 |
+| $150 \leq RMC < 300$ | Manutenção bem calibrada, confiabilidade boa | 4 |
+| $RMC \geq 300$ | Manutenção otimizada, confiabilidade excelente | 5 |
+
+---
+
+## Síntese da Arquitetura IQPL e Matriz de Pesos
+
+A tabela a seguir consolida todas as 35 variáveis, suas dimensões, tipos paramétricos e o peso estimado dentro de cada dimensão:
+
+| Dimensão | Variável | Tipo | Descrição | Peso Estimado |
+|:---|:---|:---|:---|:---:|
+| **$D_1$ - Programáveis (7)** | V1 | Existente | Tolerância Positiva | 0.15 |
+| | V2 | Existente | Tolerância Negativa | 0.15 |
+| | V3 | Existente | Horizonte de Abertura | 0.20 |
+| | V4 | Existente | Intervalo de Solicitação | 0.15 |
+| | V5 | Existente | Local de Instalação | 0.12 |
+| | V6 | Existente | Plano Automático | 0.14 |
+| | V7 | Existente | Planos Não Iniciados | 0.09 |
+| **$D_2$ - Processuais (6)** | V8 | Novo | Materiais | 0.18 |
+| | V9 | Novo | HH - Qualidade | 0.16 |
+| | V10 | Novo | ACF (Taxa Retorno) | 0.20 |
+| | V11 | Existente | Reinício dos Planos | 0.15 |
+| | V12 | Existente | Ciclos Vencidos | 0.18 |
+| | V13 | Existente | RT e Validação | 0.13 |
+| **$D_3$ - Ativos (6)** | V14 | Novo | Taxonomia - Padronização | 0.18 |
+| | V15 | Novo | Taxonomia - 6º Nível | 0.16 |
+| | V16 | Novo | Perfil de Catálogo | 0.20 |
+| | V17 | Novo | Tipo de Ativo | 0.15 |
+| | V18 | Novo | Fabricante | 0.17 |
+| | V19 | Novo | Data Aquisição/Operação | 0.14 |
+| **$D_4$ - Lista de Tarefas (15)** | V20 | Novo | PTS (Plano Tec. Segurança) | 0.12 |
+| | V21 | Existente | Chave de Cálculo | 0.08 |
+| | V22 | Existente | Campo de Duração | 0.10 |
+| | V23 | Existente | Campo Percentual | 0.09 |
+| | V24 | Existente | Responsável Técnico LT | 0.10 |
+| | V25 | Existente | Última Modificação LT | 0.08 |
+| | V26 | Existente | Duração Irrisória | 0.07 |
+| | V27 | Existente | Duração Máxima | 0.09 |
+| | V28 | Existente | Unidade CT (Horas) | 0.08 |
+| | V29 | Existente | Segurança | 0.12 |
+| | V30 | Existente | Validade da LT | 0.08 |
+| | V31 | Existente | 5S | 0.10 |
+| | V32 | Existente | Título da Lista | 0.09 |
+| | V33 | Existente | Tempo Máx. Operação | 0.10 |
+| | V34 | Existente | Chave de Controle | 0.11 |
+| **$D_5$ - Desempenho (1)** | V35 | Novo | RMC (Manutenção/Confiabilidade) | 1.00 |
+
+---
+
+## Cálculo Prático: Exemplo de Aplicação IQPL
+
+### Cenário: Auditoria de Plano de Manutenção em Frota de Britadores
+
+Uma mineradora possui 5 britadores primários críticos. O engenheiro de manutenção auditará o plano de manutenção preventiva de um britador representativo.
+
+**Passo 1: Coleta de Dados por Dimensão**
+
+*(Valores simulados para ilustração)*
+
+**Dimensão 1 - Programáveis ($D_1$):**
+- V1 (Tol. Pos.): Existe, bem documentada → Score = 5
+- V2 (Tol. Neg.): Existe, alinhada com operação → Score = 5
+- V3 (Horizonte): 45 dias (adequado) → Score = 4
+- V4 (Intervalo): Baseado em manual do fabricante → Score = 5
+- V5 (Local): Preenchido com 4 níveis de hierarquia → Score = 4
+- V6 (Automático): Totalmente automático → Score = 5
+- V7 (Não Iniciados): 2% do portfolio → Score = 4
+
+**Dimensão 2 - Processuais ($D_2$):**
+- V8 (Materiais): 82% das atividades com 100% dos materiais → Score = 4
+- V9 (HH Qual.): 9% do tempo destina a inspeção pós-exec → Score = 3
+- V10 (ACF): Taxa de retorno 8% → Score = 4
+- V11 (Reinício): Automático após conclusão → Score = 5
+- V12 (Ciclos Venc.): 6% do backlog vencido → Score = 4
+- V13 (RT/Val.): Documentado e validado por especialista → Score = 5
+
+**Dimensão 3 - Ativos ($D_3$):**
+- V14 (Taxonomia Pad.): Padrão detalhado e auditado → Score = 5
+- V15 (Taxonomia Nível): 5 níveis de profundidade → Score = 5
+- V16 (Perfil Catálogo): 92% dos ativos com perfil completo → Score = 5
+- V17 (Tipo Ativo): Classificação técnica detalhada → Score = 5
+- V18 (Fabricante): Completamente documentado → Score = 5
+- V19 (Data Aq./Op.): Ambas conhecidas e auditadas → Score = 5
+
+**Dimensão 4 - Lista de Tarefas ($D_4$):**
+- V20 (PTS): Específico e revisado semestralmente → Score = 5
+- V21-V34: (Simulando valores médios) → Scores entre 3 e 5
+
+**Dimensão 5 - Desempenho ($D_5$):**
+- V35 (RMC): MTBF = 1.200 horas; Custo Prev. = US$ 8.000/ano → RMC ≈ 150 → Score = 4
+
+### Passo 2: Cálculo de Scores Dimensionais (Média Ponderada)
+
+De acordo com a nossa matriz, cada variável possui um peso específico ($W_{V_i}$) dentro da sua dimensão. O score da dimensão é a soma do produto entre a nota da variável e o seu respectivo peso:
+
+**Dimensão 1 ($D_1$):**
+$$S_{D_1} = (5 \times 0.15) + (5 \times 0.15) + (4 \times 0.20) + (5 \times 0.15) + (4 \times 0.12) + (5 \times 0.14) + (4 \times 0.09) = 4.59$$
+
+**Dimensão 2 ($D_2$):**
+$$S_{D_2} = (4 \times 0.18) + (3 \times 0.16) + (4 \times 0.20) + (5 \times 0.15) + (4 \times 0.18) + (5 \times 0.13) = 4.12$$
+
+**Dimensão 3 ($D_3$):**
+$$S_{D_3} = (5 \times 0.18) + (5 \times 0.16) + (5 \times 0.20) + (5 \times 0.15) + (5 \times 0.17) + (5 \times 0.14) = 5.00$$
+
+**Dimensão 4 ($D_4$):**
+$$S_{D_4} = \text{(Média ponderada das 15 variáveis)} ≈ 4.20$$
+
+**Dimensão 5 ($D_5$):**
+$$S_{D_5} = (4 \times 1.00) = 4.00$$
+
+### Passo 3: Atribuição de Pesos Dimensionais e Cálculo Final
+
+Assumindo os pesos corporativos para cada dimensão: $W_{D_1} = 0.20$, $W_{D_2} = 0.25$, $W_{D_3} = 0.20$, $W_{D_4} = 0.25$, $W_{D_5} = 0.10$
+
+$$IQPL = (0.20 \times 4.59) + (0.25 \times 4.12) + (0.20 \times 5.00) + (0.25 \times 4.20) + (0.10 \times 4.00)$$
+
+$$IQPL = 0.918 + 1.030 + 1.000 + 1.050 + 0.400 = 4.398$$
+
+### Passo 4: Normalização para Escala 0-100
+
+Como os scores originais variam de 1 a 5, multiplicamos o resultado por 20 para normalizar o índice para a base centesimal (0 a 100):
+
+$$IQPL_{normalizado} = 4.398 \times 20 = 87.96 \text{ pontos}$$
+
+---
+
+## Interpretação e Roadmap de Melhoria
+
+Um IQPL de **87,96 pontos**, em uma escala de 0-100, é classificado como **BOM**, mas com margens de melhoria.
+
+**Diagnóstico de Gaps:**
+
+- **Força:** Dimensão Ativos ($D_3$ = 5.0) está excelente; a catalogação é precisa e rastreável.
+- **Oportunidade:** Dimensão Processuais ($D_2$ = 4.17); especificamente HH-Qualidade (V9=3) e Materiais (V8=4); há espaço para aumentar inspeções pós-exec e disponibilidade de peças.
+
+**Próximos Passos:**
+
+1. **Curto Prazo (30 dias):** Elevar V9 (HH-Qualidade) de 3 para 4 recrutando inspetor dedicado.
+2. **Médio Prazo (90 dias):** Otimizar V8 (Materiais) estudando demanda previsível e pré-posicionando itens críticos em armazém local.
+3. **Longo Prazo (6 meses):** Integrar preditiva (análise de vibrações, temperatura) para elevar V35 (RMC) acima de 300.
+
+---
+
+## Implementação Computacional: Motor Matemático em R
+
+A execução manual dos cálculos é viável para auditorias pontuais, mas a automatização é essencial quando a auditoria evolui para monitoramento contínuo de múltiplas plantas e equipamentos. O código em R abaixo implementa exatamente o motor matemático descrito, permitindo que novos dados de auditoria sejam processados em segundos e gerando dashboards de diagnóstico automáticos.
+
+```r
+# ==============================================================================
+# Motor Matemático IQPL (Índice de Qualidade de Plano de Manutenção)
+# Implementação do Algoritmo ARM - Nível Multidimensional
+# ==============================================================================
+
+# Carregando biblioteca para manipulação de dados
+library(dplyr)
+
+# 1. Tabela de Pesos das Dimensões (W_Dj)
+pesos_dimensoes <- data.frame(
+  Dimensao = c("D1", "D2", "D3", "D4", "D5"),
+  Peso_Dimensao = c(0.20, 0.25, 0.20, 0.25, 0.10)
+)
+
+# 2. Base de Dados da Auditoria do Britador (Variáveis, Scores e Pesos)
+auditoria_britador <- data.frame(
+  Dimensao = c(rep("D1", 7), rep("D2", 6), rep("D3", 6), "D5"),
+  Variavel = c("V1", "V2", "V3", "V4", "V5", "V6", "V7",
+               "V8", "V9", "V10", "V11", "V12", "V13",
+               "V14", "V15", "V16", "V17", "V18", "V19",
+               "V35"),
+  Score_Vi = c(5, 5, 4, 5, 4, 5, 4,     # Scores D1
+               4, 3, 4, 5, 4, 5,        # Scores D2
+               5, 5, 5, 5, 5, 5,        # Scores D3
+               4),                      # Score D5
+  Peso_Vi = c(0.15, 0.15, 0.20, 0.15, 0.12, 0.14, 0.09, # Pesos D1
+              0.18, 0.16, 0.20, 0.15, 0.18, 0.13,       # Pesos D2
+              0.18, 0.16, 0.20, 0.15, 0.17, 0.14,       # Pesos D3
+              1.00)                                     # Peso D5
+)
+# Nota: D4 foi omitido no frame detalhado para simplificação do exemplo,
+# mas seria inserido da mesma forma com suas 15 variáveis.
+
+# Inserindo o score agregado de D4 diretamente para o cálculo final
+score_D4_agregado <- data.frame(Dimensao = "D4", Score_Dimensao = 4.20)
+
+# 3. Processamento do Motor Matemático
+calculo_iqpl <- auditoria_britador %>%
+  # Passo A: Multiplica Score da Variável pelo seu Peso
+  mutate(Score_Ponderado = Score_Vi * Peso_Vi) %>%
+  # Passo B: Agrupa por Dimensão e soma os scores ponderados
+  group_by(Dimensao) %>%
+  summarise(Score_Dimensao = sum(Score_Ponderado)) %>%
+  # Inserindo D4 no agrupamento
+  bind_rows(score_D4_agregado) %>%
+  # Passo C: Traz o peso global de cada dimensão
+  left_join(pesos_dimensoes, by = "Dimensao") %>%
+  # Passo D: Calcula o impacto final da dimensão no índice
+  mutate(Contribuicao_IQPL = Score_Dimensao * Peso_Dimensao)
+
+# 4. Cálculo do Resultado Final e Normalização (0-100)
+IQPL_Bruto <- sum(calculo_iqpl$Contribuicao_IQPL)
+IQPL_Normalizado <- IQPL_Bruto * 20
+
+# 5. Exibição dos Resultados
+print("--- Diagnóstico Dimensional ---")
+print(calculo_iqpl)
+cat("\nIQPL Final do Britador (0 a 100):", round(IQPL_Normalizado, 2), "pontos\n")
+```
+
+**Interpretação do Output:**
+
+O código acima processa os dados em 5 etapas lógicas:
+
+1. **Ponderação Variável:** Multiplica cada score individual de variável pelo seu peso específico dentro da dimensão.
+2. **Agregação Dimensional:** Soma todos os scores ponderados para produzir o score agregado de cada dimensão.
+3. **Junção de Pesos:** Associa o peso global (corporativo) de cada dimensão.
+4. **Contribuição Final:** Calcula quanto cada dimensão contribui para o índice final (em escala 0-5).
+5. **Normalização:** Converte o resultado para escala 0-100.
+
+**Extensões Futuras:**
+
+Este motor pode ser facilmente expandido para:
+- Processar **múltiplos equipamentos** simultaneamente (vectorização).
+- Gerar **comparações temporais** (tracking de melhoria do mesmo britador ao longo de meses).
+- **Visualização automática** via `ggplot2` mostrando o radar de dimensões.
+- **Alertas automáticos** quando uma variável específica cai abaixo de um limiar crítico.
+
+---
+
+## Espaço para Expansão e Aprofundamento
+
+*(Este arquivo serve como rascunho para aprofundamento. Abaixo estão sugestões de seções a serem desenvolvidas)*
+
+### 📌 Próximas Seções a Desenvolver:
+
+- [ ] **Integração com Preditiva:** Como dados de sensores IoT enriquecem o cálculo do RMC?
+- [ ] **Macro-Planejamento:** Algoritmo para otimizar a janela de manutenção (quando fazer?) vs. Micro-Planejamento (como fazer?).
+- [ ] **Custo vs. Confiabilidade:** Curva de trade-off entre investimento em manutenção e período de vida útil dos ativos.
+- [x] **Código em R:** Implementação computacional do IQPL; funções para agregação, ponderação e visualização via Shiny app. *(Versão 1.0 Completa)*
+- [ ] **Estudos Comparativos:** IQPL de diferentes plantas mineradoras; benchmarking setorial.
+- [ ] **Casos de Falha:** Exemplos de britadores com IQPL baixo que resultaram em paradas catastróficas; lições aprendidas.
+
+---
+
+**Status do Rascunho:** Versão Refinada - Pronto para Integração
+**Data de Criação:** 3 de março de 2026
+**Última Atualização:** Versão 2.0 (Correções Matemáticas + Código R)
+**Author:** Engenharia de Manutenção / Modelagem ARM

@@ -30,20 +30,22 @@ book:
         - chapters/cap6-caixa-ferramentas.qmd    # Cap 6: Ferramentas da Qualidade
         - chapters/cap7-estudos-casos.qmd        # Cap 7: Aplicações Multidimensionais e Prática Mineral
 
-    # PARTE 2: Aplicação Operacional na Mineração (Ciclo de Mina)
+# PARTE 2: Metrologia, Gestão de Ativos e Confiabilidade
     - part: chapters/part2-intro.qmd
+      chapters:
+        - chapters/cap8-metrologia-kpi.qmd       # Cap 8: Metrologia Operacional (Telemetria, DF, UF, RO, OEE)
+        - chapters/cap9-gestao-ativos-pco.qmd    # Cap 9: Gestão de Ativos e PCO (Planejamento da Mina)
+        - chapters/cap10-plan-crtl-manut.qmd     # Cap 10: PCM e Auditoria de Qualidade com IQPL
+        - chapters/cap11-indicadores-manut.qmd   # Cap 11: Indicadores de Manutenção (MTBF, MTTR, ISAC, ATSP, IDF)
+        - chapters/cap12-confiabilidade.qmd      # Cap 12: Engenharia de Confiabilidade (Estatística Avançada e Processos de Contagem)
+        - chapters/cap13-manut-imperfeita.qmd    # Cap 13: Manutenção Imperfeita (Ciclos PR, ABAO/AGAN)
+
+    # PARTE 3: Aplicação Operacional na Mineração (Ciclo de Mina)
+    - part: chapters/part3-intro.qmd
       chapters:
         - chapters/ciclo1-perfuracao.qmd
         - chapters/ciclo2-carregamento.qmd
         - chapters/ciclo3-transporte.qmd
-
-    # PARTE 3: Gestão de Ativos, Manutenção e Confiabilidade
-    - part: chapters/part3-intro.qmd
-      chapters:
-        - chapters/plan-crtl-opera.qmd
-        - chapters/plan-crtl-manut.qmd
-        - chapters/modelagem_manut.qmd
-        - chapters/confiabilidade.qmd
 
   appendices:
     - chapters/appendix/a-dicionario-dados.qmd
