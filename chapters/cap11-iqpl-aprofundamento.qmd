@@ -23,7 +23,9 @@ O IQPL é a consolidação da avaliação da qualidade do planejamento em uma no
 
 $$IQPL = \sum_{j=1}^{5} \left[ W_{D_j} \times \left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right) \right] \leq 100$$ {#eq-iqpl}
 
-Onde $W$ representa o peso (*Weight*) e $S$ o escore (*Score*) atribuído à variável ou dimensão durante a auditoria. **Nota:** A representação matemática acima constitui uma abstração didática para fins de compreensão conceitual. A operacionalização do cálculo em ambiente corporativo segue a metodologia e as ponderações específicas definidas no manual de auditoria do IQPL.
+O IQPL é calculado a partir da soma de pontuações fixas por grupo temático e por parâmetro, previamente definidas no modelo corporativo, totalizando 100 pontos.
+
+A representação matemática apresentada neste capítulo deve ser entendida como uma **abstração didática**, utilizada para facilitar a compreensão conceitual do modelo multicritério, e não como a fórmula operacional implementada nos sistemas corporativos.
 
 ### Dicotomia Paramétrica: Parâmetros Existentes vs. Novos
 
@@ -69,7 +71,9 @@ A segunda dimensão aborda como a organização **executa e documenta** as ativi
 
 **Parâmetros Existentes ($D_2$ Históricos)**
 
-4. **Reinício dos Planos:** Evento excepcional de ressincronização dos parâmetros de programação de um plano de manutenção. O reinício não é automático nem rotineiro, e quando ocorre, implica perda temporária de pontuação do parâmetro durante o período de avaliação subsequente, conforme regra corporativa. Serve para corrigir desalinhamentos críticos entre o planejado e a realidade operacional.
+4. **Reinício dos Planos:** Evento excepcional de ressincronização dos parâmetros de programação de um plano de manutenção.
+
+   O reinício não é automático nem rotineiro e, quando ocorre, implica **perda temporária de pontuação** do parâmetro durante o período de avaliação subsequente, conforme regra corporativa.
 5. **Ciclos Vencidos:** Quantificação do número de solicitações de manutenção que ultrapassaram o prazo de tolerância de execução e permanecem abertas em atraso.
 6. **RT (Requisição Técnica) e Validação de Planos:** Documentação e aprovação formal dos critérios de um plano antes de sua ativação definitiva no sistema, impedindo que o "achismo" contamine a base de dados.
 
@@ -117,8 +121,9 @@ A quinta dimensão foca estritamente no **resultado final sintético** da execu�
 
 **Parâmetro Novo ($D_5$ Sintético)**
 
-1. **RMC — Relação de Manutenção Corretiva:** Métrica que expressa a proporção de horas aplicadas em manutenção corretiva (emergencial e não emergencial) em relação ao total de horas de manutenção investidas no ativo.
-   - *Definição Formal:* $RMC = \frac{\text{Horas de Manutenção Corretiva}}{\text{Total de Horas de Manutenção}}$ . Embora o RMC permita leituras gerenciais associadas à confiabilidade operacional, sua definição permanece como a relação entre horas aplicadas em corretivas (emergenciais e não emergenciais) e o total de horas de manutenção, conforme metodologia corporativa.
+1. **RMC — Relação de Manutenção Corretiva:** Índice estratégico que correlaciona as horas aplicadas em manutenções corretivas (emergenciais e não emergenciais) com o total de horas de manutenção.
+
+   Embora o RMC permita leituras gerenciais associadas à confiabilidade operacional, sua definição formal permanece como a relação entre horas aplicadas em corretivas e o total de horas de manutenção, conforme metodologia corporativa.
 
 ## Relação entre o Macrofluxo do PCM e o IQPL
 
