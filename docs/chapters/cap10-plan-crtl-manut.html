@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/cap11-indicadores-manut.html" rel="next">
+<link href="../chapters/cap11-iqpl-aprofundamento.html" rel="next">
 <link href="../chapters/cap9-gestao-ativos-pco.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -203,20 +203,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/cap11-indicadores-manut.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Capítulo 11: Indicadores de Manutenção (MTBF, MTTR, ISAC, ATSP, IDF)</span></span></a>
+  <a href="../chapters/cap11-iqpl-aprofundamento.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Estratégias de Manutenção Imperfeita e o Índice de Qualidade (IQPL)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/cap12-confiabilidade.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Análise de Confiabilidade de Ativos</span></span></a>
+  <a href="../chapters/cap12-indicadores-manut.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Indicadores de Manutenção (MTBF, MTTR, ISAC, ATSP, IDF)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/cap13-manut-imperfeita.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Indicadores Chave de Desempenho (KPI)</span></span></a>
+  <a href="../chapters/cap13-confiabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Análise de Confiabilidade de Ativos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap14-manut-imperfeita.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Indicadores Chave de Desempenho (KPI)</span></span></a>
   </div>
 </li>
       </ul>
@@ -233,19 +239,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ciclo1-perfuracao.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ciclo2-carregamento.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">A Identidade Fundamental do Carregamento</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A Identidade Fundamental do Carregamento</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/ciclo3-transporte.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A Jornada de 7 Eventos e o Ciclo de Transporte</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">A Jornada de 7 Eventos e o Ciclo de Transporte</span></span></a>
   </div>
 </li>
       </ul>
@@ -388,7 +394,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#matriz-kpi-etapa-do-macrofluxo-pcm" id="toc-matriz-kpi-etapa-do-macrofluxo-pcm" class="nav-link" data-scroll-target="#matriz-kpi-etapa-do-macrofluxo-pcm"><span class="header-section-number">10.18.1</span> Matriz KPI × Etapa do Macrofluxo (PCM)</a></li>
   <li><a href="#análise-sistêmica-dos-indicadores" id="toc-análise-sistêmica-dos-indicadores" class="nav-link" data-scroll-target="#análise-sistêmica-dos-indicadores"><span class="header-section-number">10.18.2</span> Análise Sistêmica dos Indicadores</a></li>
   </ul></li>
-  <li><a href="#resumo-do-capítulo" id="toc-resumo-do-capítulo" class="nav-link" data-scroll-target="#resumo-do-capítulo"><span class="header-section-number">10.19</span> 📝 Resumo do Capítulo</a></li>
+  <li><a href="#maturidade-do-planejamento-e-controle-da-manutenção-pcm" id="toc-maturidade-do-planejamento-e-controle-da-manutenção-pcm" class="nav-link" data-scroll-target="#maturidade-do-planejamento-e-controle-da-manutenção-pcm"><span class="header-section-number">10.19</span> Maturidade do Planejamento e Controle da Manutenção (PCM)</a>
+  <ul class="collapse">
+  <li><a href="#o-macrofluxo-como-salto-de-maturidade" id="toc-o-macrofluxo-como-salto-de-maturidade" class="nav-link" data-scroll-target="#o-macrofluxo-como-salto-de-maturidade"><span class="header-section-number">10.19.1</span> O Macrofluxo como Salto de Maturidade</a></li>
+  <li><a href="#kpis-como-marcadores-de-maturidade" id="toc-kpis-como-marcadores-de-maturidade" class="nav-link" data-scroll-target="#kpis-como-marcadores-de-maturidade"><span class="header-section-number">10.19.2</span> KPIs como Marcadores de Maturidade</a></li>
+  <li><a href="#guia-de-evolução-ações-práticas-por-nível-de-maturidade" id="toc-guia-de-evolução-ações-práticas-por-nível-de-maturidade" class="nav-link" data-scroll-target="#guia-de-evolução-ações-práticas-por-nível-de-maturidade"><span class="header-section-number">10.19.3</span> Guia de Evolução: Ações Práticas por Nível de Maturidade</a></li>
+  <li><a href="#o-caráter-cumulativo-da-evolução" id="toc-o-caráter-cumulativo-da-evolução" class="nav-link" data-scroll-target="#o-caráter-cumulativo-da-evolução"><span class="header-section-number">10.19.4</span> O Caráter Cumulativo da Evolução</a></li>
+  </ul></li>
+  <li><a href="#resumo-do-capítulo" id="toc-resumo-do-capítulo" class="nav-link" data-scroll-target="#resumo-do-capítulo"><span class="header-section-number">10.20</span> 📝 Resumo do Capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -1763,8 +1776,117 @@ Tabela&nbsp;10.6: Matriz Transversal – KPI × Etapas do Macrofluxo do PCM
 </div>
 </section>
 </section>
-<section id="resumo-do-capítulo" class="level2" data-number="10.19">
-<h2 data-number="10.19" class="anchored" data-anchor-id="resumo-do-capítulo"><span class="header-section-number">10.19</span> 📝 Resumo do Capítulo</h2>
+<section id="maturidade-do-planejamento-e-controle-da-manutenção-pcm" class="level2" data-number="10.19">
+<h2 data-number="10.19" class="anchored" data-anchor-id="maturidade-do-planejamento-e-controle-da-manutenção-pcm"><span class="header-section-number">10.19</span> Maturidade do Planejamento e Controle da Manutenção (PCM)</h2>
+<p>Ao longo da análise do macrofluxo e de seus desdobramentos, observa-se que o modelo de governança da manutenção não se limita a prescrever tarefas, mas estabelece uma jornada evolutiva. A maturidade do PCM pode ser compreendida como o grau de controle, previsibilidade e aprendizado organizacional alcançado pelo processo, à medida que ele evolui de um modelo predominantemente reativo (“quebra-conserta”) para um modelo planejado, programado e orientado por indicadores.</p>
+<section id="o-macrofluxo-como-salto-de-maturidade" class="level3" data-number="10.19.1">
+<h3 data-number="10.19.1" class="anchored" data-anchor-id="o-macrofluxo-como-salto-de-maturidade"><span class="header-section-number">10.19.1</span> O Macrofluxo como Salto de Maturidade</h3>
+<p>O próprio desenho do macrofluxo já representa um salto de maturidade estrutural. Processos imaturos tendem a misturar planejamento com execução, reagir a falhas sem análise estruturada e executar intervenções sem registro consistente. Em contrapartida, o macrofluxo aqui estabelecido pressupõe uma doutrina operacional clara:</p>
+<ol type="1">
+<li><strong>Planejar</strong> antes de executar.</li>
+<li><strong>Programar</strong> antes de intervir.</li>
+<li><strong>Registrar</strong> antes de encerrar.</li>
+<li><strong>Analisar</strong> antes de melhorar.</li>
+</ol>
+<p>Essa separação rigorosa entre identificação, planejamento, programação, execução e controle é o alicerce para que os KPIs deixem de ser apenas números em um relatório e passem a refletir a verdadeira disciplina do processo.</p>
+</section>
+<section id="kpis-como-marcadores-de-maturidade" class="level3" data-number="10.19.2">
+<h3 data-number="10.19.2" class="anchored" data-anchor-id="kpis-como-marcadores-de-maturidade"><span class="header-section-number">10.19.2</span> KPIs como Marcadores de Maturidade</h3>
+<p>Os KPIs transversais funcionam como marcadores objetivos do nível evolutivo da planta. Em um <strong>PCM de baixa maturidade</strong>, os sintomas sistêmicos são evidentes: alto percentual de OMs reprogramadas, baixa aderência à programação, crescimento contínuo do <em>backlog</em> e baixa confiabilidade nos apontamentos (IAMO inconsistente). Esses sinais indicam um planejamento frágil e uma execução reativa.</p>
+<p>À medida que o processo entra em <strong>maturação</strong>, indicadores de meio de fluxo ganham relevância: aderência ao planejamento (Hh), tempo médio planejado e aderência ao custo. Neste estágio, a organização já planeja com mais rigor e começa a comparar o “planejado vs.&nbsp;realizado”.</p>
+<p>Por fim, em <strong>níveis elevados de maturidade</strong>, destacam-se a Aderência à Manutenção Sistemática (AMS), a Aderência à Programação estrita e um IAMO confiável. Esses indicadores refletem uma execução disciplinada, uma forte integração com o aprovisionamento e o uso sistemático de dados para retroalimentar a engenharia.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="💡 Síntese Conceitual">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>💡 Síntese Conceitual
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A maturidade do Planejamento e Controle da Manutenção manifesta-se na capacidade do processo de transformar dados operacionais em aprendizado organizacional. No modelo analisado, essa maturidade é evidenciada pela separação clara das etapas do macrofluxo e pelo uso de KPIs que avaliam não apenas resultados, mas a disciplina do planejamento, da programação, da execução e do registro. Indicadores como aderência ao planejamento, aderência à programação, AMS, IAMO e backlog funcionam como marcadores objetivos do nível de maturidade do PCM, permitindo identificar fragilidades, orientar melhorias e sustentar a evolução contínua do processo de manutenção.</p>
+</div>
+</div>
+</section>
+<section id="guia-de-evolução-ações-práticas-por-nível-de-maturidade" class="level3" data-number="10.19.3">
+<h3 data-number="10.19.3" class="anchored" data-anchor-id="guia-de-evolução-ações-práticas-por-nível-de-maturidade"><span class="header-section-number">10.19.3</span> Guia de Evolução: Ações Práticas por Nível de Maturidade</h3>
+<p>A análise da maturidade do PCM só se torna efetiva quando associada a ações práticas de evolução do processo. Identificar o nível atual é importante, mas insuficiente se não houver direcionamento claro sobre o que deve ser feito para avançar ao próximo estágio.</p>
+<p>Nesse sentido, a <a href="#tbl-matriz-maturidade" class="quarto-xref">Tabela&nbsp;<span>10.7</span></a> cruza os níveis de maturidade do PCM com ações recomendadas, alinhadas ao macrofluxo e aos KPIs, servindo como um guia lógico de evolução.</p>
+<div id="tbl-matriz-maturidade" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-matriz-maturidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;10.7: Quadro Guia – Nível de Maturidade × Ações Recomendadas para o PCM
+</figcaption>
+<div aria-describedby="tbl-matriz-maturidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Nível de Maturidade</th>
+<th style="text-align: left;">Foco Principal de Gestão</th>
+<th style="text-align: left;">Ações Recomendadas no PCM</th>
+<th style="text-align: left;">Etapas mais Impactadas</th>
+<th style="text-align: left;">KPIs mais Sensíveis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Nível 1 - Reativo / Inicial</strong></td>
+<td style="text-align: left;">Controle mínimo e resposta a falhas.</td>
+<td style="text-align: left;">Formalizar registro de todas as demandas; Eliminar execuções sem OM; Padronizar abertura/encerramento; Garantir apontamento básico de HH.</td>
+<td style="text-align: left;">Identificação, Registro, Execução.</td>
+<td style="text-align: left;"><em>Backlog</em>, IAMO (baixo), Reprogramações elevadas.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Nível 2 - Estruturado</strong></td>
+<td style="text-align: left;">Organização do fluxo e disciplina básica.</td>
+<td style="text-align: left;">Separar claramente planejamento, programação e execução; Estruturar planejamento técnico; Introduzir programação formal de rotina.</td>
+<td style="text-align: left;">Planejamento, Programação, Registro.</td>
+<td style="text-align: left;">Aderência ao planejamento (Hh), Tempo médio planejado.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Nível 3 - Planejado</strong></td>
+<td style="text-align: left;">Qualidade do planejamento e previsibilidade.</td>
+<td style="text-align: left;">Melhorar estimativas de HH e materiais; Integrar aprovisionamento; Reduzir reprogramações por falta de peças; Tratar <em>backlog</em> de forma estruturada.</td>
+<td style="text-align: left;">Planejamento, Aprovisionamento, Programação.</td>
+<td style="text-align: left;">Aderência ao planejamento, Custo planejado, <em>Backlog</em>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Nível 4 - Controlado</strong></td>
+<td style="text-align: left;">Estabilidade e controle por indicadores.</td>
+<td style="text-align: left;">Analisar KPIs sistematicamente; Tratar causas raiz de reprogramação; Melhorar aderência à programação; Reforçar disciplina de registro em campo.</td>
+<td style="text-align: left;">Programação, Execução, Registro/Encerramento.</td>
+<td style="text-align: left;">Aderência à programação, IAMO, AMS.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Nível 5 - Maduro / Otimizado</strong></td>
+<td style="text-align: left;">Melhoria contínua e decisão baseada em dados.</td>
+<td style="text-align: left;">Utilizar histórico para ajuste de planos; Balancear preventiva vs corretiva; Atuar em tendências preditivas; Integrar PCM à estratégia de produção.</td>
+<td style="text-align: left;">Controle/Melhoria, Planejamento, Inspeção.</td>
+<td style="text-align: left;">AMS estável, <em>Backlog</em> sustentável, KPIs previsíveis.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="o-caráter-cumulativo-da-evolução" class="level3" data-number="10.19.4">
+<h3 data-number="10.19.4" class="anchored" data-anchor-id="o-caráter-cumulativo-da-evolução"><span class="header-section-number">10.19.4</span> O Caráter Cumulativo da Evolução</h3>
+<p>O cruzamento entre níveis de maturidade e ações recomendadas evidencia que a evolução do PCM ocorre de forma progressiva e cumulativa, não sendo possível avançar diretamente para estágios mais elevados sem consolidar os fundamentos do processo.</p>
+<p>Ações avançadas, como o uso de algoritmos preditivos ou a estabilização da programação, só produzem resultados consistentes quando as etapas básicas — como o registro disciplinado (Nível 1) e o planejamento estruturado (Nível 2) — já estão maduras. Saltos diretos de maturidade não são sustentáveis.</p>
+<p>Assim, a maturidade do PCM não está associada a iniciativas isoladas ou à simples compra de um <em>software</em> caro, mas à execução consistente do macrofluxo metodológico e ao uso dos indicadores (<em>KPIs</em>) como instrumento real de aprendizado e tomada de decisão, orientando a engenharia rumo à excelência operacional.</p>
+</section>
+</section>
+<section id="resumo-do-capítulo" class="level2" data-number="10.20">
+<h2 data-number="10.20" class="anchored" data-anchor-id="resumo-do-capítulo"><span class="header-section-number">10.20</span> 📝 Resumo do Capítulo</h2>
 <ul>
 <li><strong>O Macrofluxo Sistêmico:</strong> O PCM não é um conjunto de tarefas isoladas, mas um ciclo interdependente. A demanda nasce na identificação e registro, ganha forma no planejamento, viabilidade no aprovisionamento, data na programação, materialidade na execução e gera conhecimento estratégico no encerramento e controle.</li>
 <li><strong>A Fronteira do Planejamento e Programação:</strong> Planejar é definir o escopo técnico, recursos e tempos necessários. Programar é organizar essas ordens já viáveis na linha do tempo, nivelando a capacidade da equipe e as restrições da operação. A regra de ouro é: uma ordem nunca deve ser programada sem estar exaustivamente planejada.</li>
@@ -2197,8 +2319,8 @@ Tabela&nbsp;10.6: Matriz Transversal – KPI × Etapas do Macrofluxo do PCM
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/cap11-indicadores-manut.html" class="pagination-link" aria-label="Capítulo 11: Indicadores de Manutenção (MTBF, MTTR, ISAC, ATSP, IDF)">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Capítulo 11: Indicadores de Manutenção (MTBF, MTTR, ISAC, ATSP, IDF)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/cap11-iqpl-aprofundamento.html" class="pagination-link" aria-label="Estratégias de Manutenção Imperfeita e o Índice de Qualidade (IQPL)">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Estratégias de Manutenção Imperfeita e o Índice de Qualidade (IQPL)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
