@@ -320,3 +320,159 @@ cat("\n=========================================\n")
 * **Maturidade Documentada:** Processos reativos tendem a focar apenas em realizar a manutenção a qualquer custo. Organizações que aplicam o IQPL de maneira metodológica escalam níveis de maturidade e utilizam os *gaps* do índice para direcionar o treinamento de pessoas e o controle financeiro de aprovisionamento e estoque.
 * **Do Diagnóstico à Ação Estratégica:** O cálculo numérico do IQPL transforma auditorias textuais e subjetivas em um índice acionável (escala de 0 a 100). Ele revela não apenas a aderência do plano à norma, mas projeta exatamente onde o corpo de engenheiros deve concentrar a governança nos próximos 90 dias para reduzir o *downtime* não programado.
 * **Conformidade Normativa (8.1 a 8.12):** A maturidade do PCM é validada por uma régua normativa que escala do nível 0 ao 4. Requisitos como separação de funções, disciplina de registro e gestão de grandes paradas confirmam que o macrofluxo estruturado é o único caminho para atingir os níveis de classe mundial na gestão de ativos.
+
+---
+
+# ANEXO A – Quadros-Síntese do PCM, KPIs, IQPL e Maturidade
+
+## Sumário dos Quadros (para facilitar navegação)
+
+1. [Matriz KPI × Etapa do Macrofluxo (com Evidência no Fluxo)](#quadro-a1)
+2. [Planejamento de Médio Prazo × Planejamento de Curto Prazo](#quadro-a2)
+3. [Planejamento × Programação da Manutenção](#quadro-a3)
+4. [Execução Preventiva × Execução Corretiva](#quadro-a4)
+5. [Execução × Registro da Manutenção](#quadro-a5)
+6. [Nível de Maturidade × Características do PCM](#quadro-a6)
+7. [Nível de Maturidade × Ações Recomendadas](#quadro-a7)
+8. [IQPL × Nível de Maturidade do PCM](#quadro-a8)
+9. [Quadro-Resumo Final – Maturidade do PCM](#quadro-a9)
+
+---
+
+## Quadro A.1 — Matriz KPI × Etapa do Macrofluxo (com "Evidência no Fluxo") {#quadro-a1}
+
+Este quadro consolida os **KPIs explicitados no macrofluxo** e os relaciona transversalmente às macroetapas do PCM, indicando onde o indicador é mais influenciado e onde aparece como evidência nos fluxogramas.
+
+| KPI (nome como aparece) | Categoria | Etapas com maior alavancagem (influência) | Etapa típica de apuração/controle | Evidência no fluxo | Leitura transversal |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Aderência ao Planejamento HH | Qualidade | Planejamento; Execução; Registro/Encerramento | Controle/Melhoria | Caixa "KPIs" do Planejamento Curto Prazo – Qualidade | Relaciona HH estimado × HH realizado; indica calibração do planejamento e disciplina de apontamento. |
+| Percentual de OMs Reprogramadas | Qualidade | Programação; Aprovisionamento; Execução | Controle/Melhoria | Caixa "KPIs" da Execução Preventiva/Corretiva – Qualidade | Síntese de instabilidade: falta de recurso, material, interferência operacional. |
+| Aderência ao Custo Planejado | Custo | Planejamento; Aprovisionamento; Execução | Controle/Melhoria | Caixa "KPIs" do Planejamento Curto Prazo – Custo | Relaciona custo estimado × custo realizado; evidencia qualidade de escopo. |
+| IAMO – Índice de Apropriação de Mão de Obra | Custo | Execução; Registro/Encerramento | Controle/Melhoria | Caixa "KPIs" da Execução Preventiva (Custo) | Indicador de disciplina de apontamento; sustenta confiabilidade do histórico e planejamento futuro. |
+| Tempo Médio Planejado | Atendimento | Planejamento; Programação; Execução | Controle/Melhoria | Caixa "KPIs" do Planejamento Curto Prazo – Atendimento | Qualifica padrões de duração e viabilidade do plano (sensível a restrições). |
+| AMS – Aderência à Manutenção Sistemática | Atendimento | Programação; Execução; Aprovisionamento | Controle/Melhoria | Caixa "KPIs" da Execução Preventiva – Atendimento | Indica cumprimento do sistemático; queda tende a aumentar corretivas. |
+| Aderência à Programação | Moral/Equipe | Programação; Execução; Aprovisionamento | Controle/Melhoria | Caixa "KPIs" da Execução Preventiva/Corretiva – Moral/Equipe | Captura estabilidade do ciclo programar–executar; sensível a reprogramações. |
+| Backlog | Backlog | Identificação; Priorização; Planejamento; Programação; Execução | Controle/Melhoria | Caixa "KPIs" do Planejamento Curto Prazo – Backlog | Indicador estrutural: entrada de demandas × capacidade de execução. |
+
+O quadro evidencia que os KPIs são **efeitos sistêmicos do macrofluxo**, e por isso devem ser tratados transversalmente: desvios observados na execução geralmente têm causas em planejamento, aprovisionamento e programação, enquanto backlog e aderências refletem o equilíbrio global do processo.
+
+## Quadro A.2 — Planejamento de Médio Prazo × Planejamento de Curto Prazo {#quadro-a2}
+
+Este quadro resume as diferenças funcionais entre os horizontes de planejamento, mostrando como o médio prazo atua de forma tática (antecipação) e o curto prazo operacionaliza (preparação final para execução).
+
+| Aspecto | Planejamento de Médio Prazo | Planejamento de Curto Prazo |
+| :--- | :--- | :--- |
+| Horizonte | Intermediário (trimestral/semestral) | Imediato (ex.: D+90) |
+| Papel | Antecipação e estabilidade | Preparação final para execução |
+| Detalhamento | Agregado | Alto (operacional) |
+| Decisão predominante | Tática/estratégica | Operacional |
+| Saída | Diretrizes e consolidação | Carteira pronta para programar |
+| Sensibilidade | Restrições futuras | Restrições presentes (capacidade/material/janela) |
+
+Em termos de maturidade do PCM, a existência e o bom funcionamento desses dois níveis reduz improvisações, aumenta previsibilidade e melhora aderência aos planos.
+
+## Quadro A.3 — Planejamento × Programação da Manutenção {#quadro-a3}
+
+Este quadro reforça a separação conceitual entre preparar tecnicamente a intervenção (planejamento) e posicioná-la no tempo (programação), ponto crítico de maturidade organizacional.
+
+| Aspecto | Planejamento | Programação |
+| :--- | :--- | :--- |
+| Pergunta central | "O que e como fazer?" | "Quando e em que ordem?" |
+| Produto | OM tecnicamente preparada | Cronograma executável |
+| Foco | Técnico | Temporal/organizacional |
+| Data | Não define data exata | Define datas-alvo/janelas |
+| Risco típico | Retrabalho técnico | Conflitos e atrasos operacionais |
+
+Separar bem essas etapas reduz reprogramações e melhora a aderência à programação, impactando diretamente os KPIs associados ao ciclo curto.
+
+## Quadro A.4 — Execução Preventiva × Execução Corretiva {#quadro-a4}
+
+Este quadro sintetiza as diferenças entre execução preventiva (proativa/sistemática) e corretiva (reativa/restaurativa), essenciais para discutir maturidade e estabilidade operacional.
+
+| Aspecto | Execução Preventiva | Execução Corretiva |
+| :--- | :--- | :--- |
+| Objetivo | Evitar falhas | Restaurar função após falha |
+| Previsibilidade | Alta | Baixa a média |
+| Gatilho | Plano sistemático/condição | Falha/anomalia |
+| Impacto operacional | Controlado | Potencialmente elevado |
+| Sinal de maturidade | Predominância | Exceção controlada |
+
+A predominância de preventivas com AMS estável indica maturidade; aumento de corretivas e reprogramações tende a sinalizar fragilidades em inspeção, planejamento ou programação.
+
+## Quadro A.5 — Execução × Registro da Manutenção {#quadro-a5}
+
+Este quadro evidencia que executar bem não é suficiente: o registro transforma execução em dado confiável, sustentando controle e melhoria contínua.
+
+| Aspecto | Execução | Registro |
+| :--- | :--- | :--- |
+| Função | Realizar intervenção | Documentar e consolidar dados |
+| Produto | Serviço realizado | Histórico, apontamentos e base analítica |
+| Impacto | Disponibilidade imediata | Confiabilidade do controle e KPIs |
+| Falha típica | Retrabalho/indisponibilidade | Perda de rastreabilidade e distorção de indicadores |
+
+A disciplina de registro e encerramento é um divisor de águas entre maturidade operacional e maturidade gerencial do PCM.
+
+## Quadro A.6 — Nível de Maturidade × Características do PCM {#quadro-a6}
+
+Este quadro resume a evolução do PCM em níveis (1 a 5), conectando disciplina de processo com previsibilidade e aprendizado.
+
+| Nível | Características |
+| :--- | :--- |
+| **1 – Reativo** | Baixa padronização; execução sem OM; urgência domina; registro deficiente |
+| **2 – Estruturado** | Rotinas básicas instituídas; registro e apontamento padronizados; KPIs iniciais |
+| **3 – Planejado** | Integração planejamento–programação–aprovisionamento; horizonte definido; controle por período |
+| **4 – Controlado** | KPIs usados sistematicamente; tratativa estruturada de desvios; aderências estáveis |
+| **5 – Otimizado** | Melhoria contínua; PCM estratégico; decisões baseadas em histórico e ciclo de vida |
+
+O avanço de maturidade é cumulativo: níveis superiores dependem da consolidação dos fundamentos de níveis anteriores.
+
+## Quadro A.7 — Nível de Maturidade × Ações Recomendadas {#quadro-a7}
+
+Este quadro direciona a evolução: dado um nível, quais ações priorizar para avançar ao próximo estágio.
+
+| Nível | Ações Recomendadas (síntese) |
+| :--- | :--- |
+| **De 1 → 2** | Padronizar registro; eliminar execução sem OM; instituir apontamento mínimo obrigatório |
+| **De 2 → 3** | Separar planejamento/programação/execução; integrar aprovisionamento; melhorar estimativas |
+| **De 3 → 4** | Reduzir reprogramações; estabilizar AMS; tratar causas de desvios; integrar KPIs na rotina |
+| **De 4 → 5** | Elevar aderência (>95%); otimizar planos por histórico; confiabilidade e LCC como rotina |
+
+O quadro transforma diagnóstico em plano de evolução, evitando melhorias "soltas" e priorizando alavancas reais do macrofluxo.
+
+## Quadro A.8 — IQPL × Nível de Maturidade do PCM {#quadro-a8}
+
+Este quadro conecta o instrumento IQPL aos níveis de maturidade, indicando que parâmetros mais avançados dependem de processos mais maduros.
+
+| Grupo IQPL | N1 Reativo | N2 Estruturado | N3 Planejado | N4 Controlado | N5 Otimizado |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Plano de Manutenção** | Parcial | Formal | Completo | Estável | Otimizado |
+| **Programáveis** | Frágil | Básico | Padronizado | Validado | Calibrado por histórico |
+| **Lista de Tarefas** | Incompleta | Básica | Estruturada | Validada | Otimizada |
+| **Processuais** | Baixo controle | Registro básico | Integrado | Controlado | Retroalimentado |
+| **Desempenho (RMC)** | Não usado | Pontual | Analisado | Sistemático | Estratégico |
+| **Ativos** | Base frágil | Padronização inicial | Estruturada | Confiável | Integrada ao ciclo de vida |
+
+O IQPL atua como "camada de qualidade do plano"; já o PCM garante "qualidade do processo". O aumento de maturidade torna o IQPL mais estável e acionável como instrumento de melhoria.
+
+## Quadro A.9 — Quadro-Resumo Final da Maturidade do PCM {#quadro-a9}
+
+Este quadro consolida o fechamento da discussão sobre maturidade, sintetizando níveis, síntese executiva e transição esperada.
+
+| Nível | Síntese Executiva | Transição Esperada |
+| :--- | :--- | :--- |
+| **0 – Inexistente** | Ausência de processo formalizado | Implementar rotinas mínimas |
+| **1 – Reativo** | Reatividade e formalização inicial | Padronizar e registrar tudo |
+| **2 – Estruturado** | Estruturação e estabilização básica | Separar funções e integrar aprovisionamento |
+| **3 – Planejado** | Integração e controle por período | Usar dados para decisão |
+| **4 – Controlado** | Estabilidade e melhoria contínua sustentada | Otimizar planos e estratégia de ativos |
+| **5 – Otimizado** | Excelência operacional; estratégia alinhada | Manutenção como vantagem competitiva |
+
+O quadro final serve como "âncora" para conclusão: maturidade é a capacidade de integrar o macrofluxo e usar dados (KPIs/IQPL) para decisão e melhoria contínua.
+
+---
+
+## Encerramento do Anexo
+
+Este anexo consolida os principais quadros-síntese utilizados neste capítulo, oferecendo uma visão estruturada e comparativa do PCM em suas dimensões de processo (macrofluxo), gestão (planejamento, programação, execução, registro, controle), desempenho (KPIs) e qualidade (IQPL), além de sua evolução em maturidade. O conjunto de quadros facilita a leitura transversal do tema e fortalece a rastreabilidade conceitual entre o que foi descrito nos fluxos, o que é executado na prática e o que é avaliado por indicadores e parâmetros de qualidade (IQPL, requisitos normativos 8.1 a 8.12).
+
+A numeração e titulação seguem o padrão **ABNT** (Quadro A.1, A.2, etc.), proporcionando fácil navegação e referência cruzada dentro do documento e em apresentações corporativas.
