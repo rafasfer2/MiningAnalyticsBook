@@ -143,6 +143,59 @@ Para que esse modelo seja metodologicamente robusto e aceito em auditorias, anco
 
 : Evolução do Conceito de Qualidade: Da Filosofia à Matemática {#tbl-evolucao-arm}
 
+#### A Operacionalização Matemática da Norma {#sec-operacionalizacao-matematica}
+
+Para alinhar os requisitos das cláusulas da ISO 9001 com a Modelagem Analítica de Requisitos, convertemos o vocabulário normativo em uma notação matemática. Considere um conjunto de requisitos $j = 1, \dots, m$:
+
+* **Variáveis medidas (características):** $x = [x_1, x_2, \dots, x_m]$
+* **Alvos/requisitos (especificação):** $r = [r_1, r_2, \dots, r_m]$
+* **Tolerâncias/limites:** $\Delta = [\Delta_1, \Delta_2, \dots, \Delta_m]$
+* **Pesos (importância):** $w = [w_1, w_2, \dots, w_m]$, com $w_j \ge 0$
+* **Função de nota por requisito:** $s_j = S(x_j; r_j, \Delta_j)$, tipicamente normalizada em $[0, 1]$. Exemplo genérico: $s_j = 1 - \min\{1, |x_j - r_j| / \Delta_j\}$.
+
+O **Índice Global de Qualidade (ARM)** é dado pela média ponderada:
+$$Q = \frac{\sum_{j=1}^m w_j s_j}{\sum_{j=1}^m w_j}$$
+
+Caso existam externalidades, aplica-se uma **Penalidade ($P$)**: $P = \sum_k \rho_k g_k$ (riscos, perdas, incidentes). Resultando na **Qualidade Ajustada por Risco ($Q^*$):**
+$$Q^* = Q - P$$
+
+Na ARM, as cláusulas 4–6 da ISO 9001 definem o que medir ($x$), o que é requerido ($r, \Delta$) e o que importa mais ($w$); as cláusulas 7–8 garantem a confiabilidade da medição e o controle que gera $x$; as cláusulas 9–10 fecham o ciclo ao avaliar $Q(t)$ e ajustar o sistema.
+
+::: {.example #exm-arm-siderurgia name="Siderurgia: Produção de Bobinas de Aço"}
+* **Essência (Variáveis $x$):** Teor químico, limite de escoamento.
+* **Subjetividade (Pesos $w$):** Confiabilidade histórica do fornecedor (Cláusula 4.2).
+* **Intencional (Alvos $r$):** Entregar exatamente a liga projetada (Cláusula 6).
+* **Responsável (Penalidade $P$):** Sucata e alto consumo energético reduzem o índice.
+
+**Dinâmica ISO/ARM:** A Liderança (Cláusula 5) define $Q \ge Q_{\min}$ como meta. A Operação (Cláusula 8) só libera o lote se a nota de cada variável atender ao mínimo ($s_j \ge s_{\min}$). A Melhoria (Cláusula 10) atua ajustando os parâmetros do forno para reduzir a variabilidade ($\Delta$).
+:::
+
+::: {.example #exm-arm-montadora name="Montadora: Linha de Montagem de Veículos"}
+* **Essência (Variáveis $x$):** Falhas críticas, conformidade dimensional, segurança.
+* **Subjetividade (Pesos $w$):** Ruídos e acabamento percebidos pelo cliente. A prioridade "zero defeitos" força $w_{\text{segurança}}$ a ter o peso máximo (Cláusula 5).
+* **Transformadora (Impacto $Q$):** Maior confiabilidade reduz custo de manutenção do cliente, refletindo em um índice $Q$ superior.
+* **Responsável (Penalidade $P$):** Riscos de *recall* entram com alto impacto em $P$.
+
+**Dinâmica ISO/ARM:** O Suporte (Cláusula 7) calibra os robôs, reduzindo o erro de medição das variáveis. A Avaliação (Cláusula 9) mede as falhas em campo e valida se os pesos ($w$) realmente refletem a voz do cliente.
+:::
+
+::: {.example #exm-arm-porto name="Logística Portuária: Movimentação de Cargas"}
+* **Essência (Variáveis $x$):** Tempo de atracação, produtividade t/h e avarias.
+* **Intencional (Alvos $r$):** SLA contratual para as janelas de navio.
+* **Excepcional (Excelência):** Operação rápida que evita *demurrage* (multa contratual).
+* **Responsável (Penalidade $P$):** Acidentes e filas excessivas de caminhões.
+
+**Dinâmica ISO/ARM:** O Contexto (Cláusula 4) seleciona as variáveis de tempo e avaria. A Operação (Cláusula 8) usa telemetria para garantir a exatidão da leitura de $x$. A Melhoria (Cláusula 10) otimiza o *layout* do pátio, reduzindo a tolerância de atrasos ($\Delta$) e atualizando as metas ($r$).
+:::
+
+| Setor | Foco Central / Essência | Variáveis ARM Dominantes |
+| :--- | :--- | :--- |
+| **Siderurgia** | Propriedades e conformidade do aço | Teor químico, resistência, variabilidade |
+| **Montadora** | Segurança e confiabilidade veicular | Falhas, conformidade, experiência |
+| **Logística Portuária** | Prazo, previsibilidade e integridade | Tempo de atracação, avarias, produtividade |
+
+: Comparação Sintética entre os Setores {#tbl-sintese-arm-setorial}
+
 ---
 
 ### Passos de Execução e Abordagens {#sec-passos-abordagens}
@@ -544,11 +597,13 @@ Como estruturar essa investigação para descobrir a causa raiz de um problema d
 ## Exercícios de Fixação {#sec-exercicios-cap3}
 
 Para consolidar os conceitos deste capítulo, consulte a seção [**Capítulo 3 — Motor Matemático (ARM)**](cap8-exercicios-parte1.qmd#sec-cap8-cap3) no [**Capítulo 8: Exercícios Integrados da Parte I**](cap8-exercicios-parte1.qmd#sec-cap8-exercicios).
+
+::: {#exr-cap3-arm-mineral}
 **Construção de Score Global**
 Defina um modelo ARM unidimensional para avaliar a qualidade de um **Minério de Ferro Britado**, identificando pelo menos 5 variáveis (ex: teor de Fe, umidade, granulometria, impurezas, viscosidade). Atribua pesos e notas fictícias, calculando o score global resultante.
 :::
 
-::: {#exr-cap3-árvore-valor}
+::: {#exr-cap3-arvore-valor}
 **Árvore de Valor: Escavadeira**
 Construa uma Árvore de Valor para avaliar a **Qualidade de Operação de uma Escavadeira Hidráulica**. Comece com o objetivo geral (raiz), desdobre em 3-4 Dimensões, e em cada Dimensão identifique 2-3 Variáveis.
 :::
@@ -558,19 +613,15 @@ Construa uma Árvore de Valor para avaliar a **Qualidade de Operação de uma Es
 Considerando 4 variáveis críticas de um britador (Disponibilidade, Estabilidade, Eficiência, Segurança), utilize a matriz de Mudge para estabelecer seus pesos relativos de forma sistematizada.
 :::
 
-### Seção 2: Modelos Multidimensionais
-
 ::: {#exr-cap3-kpi-transporte}
 **Modelo Multidimensional para Transporte**
-Desenvolva um modelo ARM multidimensional para **Desempenho de Transporte (caminhões fora estrada)** com as seguintes dimensões: (a) Confiabilidade; (b) Eficiência; (c) Segurança. Em cada dimensão, defina 2 variáveis, atribua notas e calcule uma nota final por dimensão e um score global.
+Desenvolva um modelo ARM multidimensional para **Desempenho de Transporte (caminhões fora de estrada)** com as seguintes dimensões: (a) Confiabilidade; (b) Eficiência; (c) Segurança. Em cada dimensão, defina 2 variáveis, atribua notas e calcule uma nota final por dimensão e um score global.
 :::
 
 ::: {#exr-cap3-unidimensional-vs-multi}
 **Comparação Unidimensional vs. Multidimensional**
 Por que um modelo multidimensional pode ser mais robusto que um unidimensional na tomada de decisão gerencial? Cite um exemplo de contexto onde cada um é mais apropriado.
 :::
-
-### Seção 3: Aplicação Prática
 
 ::: {#exr-cap3-ajuste-pesos}
 **Reajuste de Pesos Conforme Estratégia**
@@ -582,24 +633,19 @@ Um britador primário possui um modelo ARM com as seguintes variáveis: Disponib
 Uma escavadeira apresenta: Produtividade = 8/10, Confiabilidade = 6/10, Custo Operacional = 9/10. Como usar a equação ARM para decidir entre: (a) Substituir o equipamento; (b) Investir em manutenção para aumentar confiabilidade?
 :::
 
-### Seção 4: Estudo de Caso
-
 ::: {#exr-cap3-case-qualidade-completa}
 **Modelagem Completa: Sistema de Britagem**
 Um sistema de britagem (primário + secundário + terciário) necessita de um modelo ARM integrado. Defina:
-
-1. As 3 Dimensões principais (ex: Qualidade do Produto, Disponibilidade dos Equipamentos, Impacto Ambiental).
+1. As 3 Dimensões principais (ex: Qualidade do Produto, Disponibilidade, Impacto Ambiental).
 2. Pelo menos 2 Variáveis em cada Dimensão.
 3. Desenhe a Árvore de Valor correspondente.
 4. Estabeleça os pesos usando o Diagrama de Mudge.
 5. Calcule um score global fictício apresentando a interpretação.
 :::
 
-### Seção 5: Questões de Reflexão
-
 ::: {#exr-cap3-ref-q1}
 **Subjetividade vs. Objetividade**
-Se os pesos em um modelo ARM são definidos subjeti vamente (por painéis de especialistas ou diagrama de Mudge), como garantir a objetividade final do score global?
+Se os pesos em um modelo ARM são definidos subjetivamente (por painéis de especialistas ou diagrama de Mudge), como garantir a objetividade final do score global?
 :::
 
 ::: {#exr-cap3-ref-q2}
@@ -611,22 +657,3 @@ Por que o capítulo enfatiza que o score ARM é um "gatilho para a ação" e nã
 **Machine Learning e ARM**
 Como um modelo ARM bem estruturado pode servir de base para algoritmos de Machine Learning na previsão de falhas ou otimização de processos?
 :::
-## Exercícios de Fixação {#sec-exercicios-cap3}
-
-::: {#exr-cap3-2-1}
-**Construção de Indicador Estratégico (Hoshin Kanri)**
-
-**Contexto:** Você é gestor de manutenção em uma mina e recebeu a seguinte meta estratégica:
-
-*"Reduzir custos de manutenção em 15% no próximo ano mantendo disponibilidade acima de 90%"*
-
-**Pergunta:**
-
-a) Desdobre essa meta em **objetivos táticos** (programação mensal) e **operacionais** (KPIs semanais).
-
-b) Defina quais equipes são responsáveis por cada objetivo.
-
-c) Estabeleça uma **cadeia de causa-efeito** que relacione os objetivos operacionais aos resultados estratégicos.
-:::
-
-**Resposta:** Consulte o [Gabarito da Parte I](appendix/gabarito-parte1.qmd#sec-gabarito-2-1){target="_blank"} para a resolução detalhada.
