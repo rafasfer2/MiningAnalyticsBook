@@ -953,6 +953,122 @@ O mesmo raciocínio aplica-se a operações minerais. Reduzir o tempo de ciclo d
 
 ---
 
+### Resolução do @sec-simulado-economia (Simulado de Engenharia: Economia e Modelagem da Qualidade) {#sec-gabarito-simulado-economia}
+
+**Gabarito do Simulado de Economia e Modelagem:**
+
+### Resolução do @exr-modelagem-otimo (O Ponto Ótimo de Investimento) {#sec-gabarito-modelagem-otimo}
+
+Temos:
+$$CTQ(q) = q^2 + \frac{843.750}{q}$$
+
+Derivando:
+$$CTQ'(q) = 2q - \frac{843.750}{q^2}$$
+
+No ponto ótimo:
+$$2q - \frac{843.750}{q^2} = 0 \implies 2q^3 = 843.750 \implies q^3 = 421.875$$
+
+Logo:
+$$q = \sqrt[3]{421.875} = 75$$
+
+**Resposta:** $\mathbf{q = 75\%}$.
+
+---
+
+### Resolução do @exr-retrabalho-fabrica (A Matemática da Fábrica Oculta) {#sec-gabarito-retrabalho-fabrica}
+
+**Dados:**
+- Produção: 2.000 unidades/dia
+- RTY inicial: 85% (falha de 15%)
+- Custo de retrabalho por peça: R$ 60,00
+- Investimento em prevenção: R$ 5.000,00/dia
+- RTY após melhoria: 95% (falha de 5%)
+
+**A) Custo total do retrabalho por dia (situação inicial):**
+
+Falhas por dia:
+$$0,15 \times 2.000 = 300\ \text{peças}$$
+
+Custo de retrabalho:
+$$300 \times 60 = \text{R\$ }18.000,00/\text{dia}$$
+
+**B) Ganho líquido diário após elevar RTY para 95%:**
+
+Novas falhas por dia:
+$$0,05 \times 2.000 = 100\ \text{peças}$$
+
+Novo custo de retrabalho:
+$$100 \times 60 = \text{R\$ }6.000,00/\text{dia}$$
+
+Economia com retrabalho:
+$$18.000 - 6.000 = \text{R\$ }12.000,00/\text{dia}$$
+
+Ganho líquido (descontando prevenção):
+$$12.000 - 5.000 = \text{R\$ }7.000,00/\text{dia}$$
+
+**Resposta:**
+- Item A: **R$ 18.000,00/dia**
+- Item B: **Ganho líquido de R$ 7.000,00/dia**
+
+---
+
+### Resolução do @exr-falha-externa-caso (Análise de Falha Externa) {#sec-gabarito-falha-externa-caso}
+
+**Dados:**
+- Reparo de emergência: R$ 120.000,00
+- Demurrage: US$ 40.000/dia por 2 dias = US$ 80.000
+- Câmbio: US$ 1,00 = R$ 5,00
+
+Conversão da multa:
+$$80.000 \times 5 = \text{R\$ }400.000,00$$
+
+Prejuízo total:
+$$120.000 + 400.000 = \text{R\$ }520.000,00$$
+
+**Resposta:** **Prejuízo financeiro total de R$ 520.000,00**.
+
+**Justificativa gerencial (Custo de Oportunidade):**
+A economia inicial de R$ 50.000,00 ao cortar avaliação técnica criou exposição a uma falha externa com custo direto mais de dez vezes superior, além de danos de imagem, perda de confiabilidade perante armadores e risco de contratos futuros. Ou seja, foi redução de custo aparente com aumento real de risco sistêmico.
+
+---
+
+### Resolução do @exr-superqualidade-desperdicio (Identificando a Superqualidade) {#sec-gabarito-superqualidade-desperdicio}
+
+**Classificação correta:** **Custo de Exceder Requerimentos (Superqualidade)**.
+
+**Justificativa técnica:**
+- O processo aumentou custo em 20%.
+- O desempenho funcional não melhorou (tempo de descarregamento igual).
+- O cliente não reconhece valor adicional e não paga prêmio.
+
+Logo, houve gasto sem retorno em função, mercado ou receita.
+
+**Impacto na Equação da Produtividade:**
+
+Pela relação
+$$Produtividade = \frac{Valor\,Produzido}{Custo}$$
+
+se o valor produzido permanece constante e o custo sobe 20%, a produtividade financeira cai proporcionalmente. É perda de margem por sobreengenharia não demandada.
+
+---
+
+### Resolução do @exr-amostragem-risco (O Dilema da Amostragem) {#sec-gabarito-amostragem-risco}
+
+O nível ótimo de conformidade depende da inclinação da curva de custo de falha externa em cada setor.
+
+**Aviação civil:**
+- A falha externa tem impacto extremo (vidas humanas, paralisação de frota, litígios bilionários, dano reputacional potencialmente irreversível).
+- A curva de falha é muito íngreme, justificando inspeção rigorosa e conformidade próxima de 100%.
+
+**Fábrica de pregos:**
+- A falha externa unitária tem baixo impacto econômico e social (centavos por item defeituoso).
+- Inspeção total encareceria o processo além do benefício gerado, tornando racional aceitar uma fração pequena de falhas (ex.: 95% de conformidade).
+
+**Síntese:**
+Não existe um único alvo universal de conformidade. O alvo ótimo resulta do equilíbrio entre custo de controle e severidade/impacto da falha externa no contexto do produto e do risco sistêmico envolvido.
+
+---
+
 ### Resolução do @exr-tqm-semeadoras (Falha Sistêmica no TQM) {#sec-gabarito-tqm-semeadoras}
 
 A ocorrência de um lote inteiro com cor errada demonstra uma **falha sistêmica** que corrompe a "corrente" do TQM. Os alunos podem identificar diversas quebras de fatores, tais como:
