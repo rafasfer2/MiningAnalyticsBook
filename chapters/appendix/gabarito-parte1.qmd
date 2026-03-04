@@ -737,6 +737,21 @@ A **Qualidade Total** (Feigenbaum) é o remédio comprensivo: integração horiz
 
 ---
 
+### Estudo de Caso: O Descarrilamento da "Express Mineral" {#sec-gabarito-case-express-mineral}
+
+**Resolução do @case-express-mineral (O Descarrilamento da "Express Mineral"):**
+
+* **Mapeamento de Causa e Efeito (A Falha Sistêmica):** O caso prova que a Perspectiva Financeira é um *indicador de atraso* (*lagging indicator*); ela reflete o resultado do que foi feito no passado. A cascata de destruição ocorreu de baixo para cima: O corte em treinamentos e pessoas (Aprendizado) gerou operadores não qualificados e via mal conservada. Isso destruiu a integridade física da ferrovia e aumentou as quebras (Processos). Os descarrilamentos atrasaram as entregas e romperam a confiança (Clientes). Sem clientes e pagando multas milionárias, a empresa destruiu sua margem de lucro operacional (Financeira).
+* **Onde a Qualidade "Quebrou"?** A Qualidade falhou na Perspectiva de **Processos Internos**. A engenharia e a gestão da qualidade deveriam ter embasado tecnicamente a proibição do aumento de carga acima do limite do projeto e exigido a *Conformidade Técnica* dos trilhos. O custo de Prevenção foi ignorado, dando lugar ao letal Custo de Falha Externa.
+* **Plano de Recuperação (Exemplo de Ações):**
+  * *Aprendizado:* Retomar imediatamente a capacitação em simuladores para os maquinistas; contratar especialistas em via permanente.
+  * *Processos:* Restabelecer os limites de carga e velocidade do projeto original; implementar ultrassom nos trilhos (manutenção preditiva).
+  * *Clientes:* Criar um comitê de crise para renegociar com a mineradora, apresentando um plano transparente de SLA (*Service Level Agreement*) focado em segurança e previsibilidade.
+  * *Financeira:* Focar na redução drástica dos Custos de Falha (multas e acidentes) para recuperar o EBITDA de forma orgânica e sustentável, não por cortes cegos.
+* **Conexão com o TQM (Perdas à Sociedade):** A quarta vertente da qualidade foca no impacto pós-entrega e nas externalidades. O descarrilamento de minério de ferro causa *Perdas por Impacto Colateral* massivas: destruição da fauna e flora local, poluição de rios próximos, risco de vida para as comunidades lindeiras e custos altíssimos para o Estado (Defesa Civil e limpeza). A "não-qualidade" da ferrovia foi transferida como um passivo incalculável para a sociedade.
+
+---
+
 ### Resolução do @exr-dimensoes-hospital (Setor de Saúde) {#sec-gabarito-dimensoes-hospital}
 
 **A sequência correta é: 2, 4, 1, 3.**
@@ -781,6 +796,40 @@ A engenharia de produção deve evitar o erro estratégico de investir em "grau 
 
 ---
 
+### Resolução do @exr-tqm-semeadoras (Falha Sistêmica no TQM) {#sec-gabarito-tqm-semeadoras}
+
+A ocorrência de um lote inteiro com cor errada demonstra uma **falha sistêmica** que corrompe a "corrente" do TQM. Os alunos podem identificar diversas quebras de fatores, tais como:
+
+* **Mensuração da Qualidade:** Falha direta na conferência das especificações. Não houve medição objetiva ou verificação da cor da tinta antes do lote ser liberado para a linha de pintura. A inspeção visual deveria ter detectado o desvio imediatamente nas primeiras peças.
+
+* **Parceria com o Fornecedor:** O erro pode ter se originado fora da fábrica, com o fornecedor entregando o lote de tinta com a especificação incorreta sem que houvesse um alinhamento prévio. A falta de *certificado de conformidade* ou de inspeção no recebimento permitiu que a tinta errada entrasse no processo.
+
+* **Gestão de Processos (Prevenção):** Faltou uma **trava de prevenção** (como um sensor de cor, um *checklist* de setup de máquina ou um Poka-Yoke) que impedisse que o operador iniciasse a pintura com a tinta errada. O processo não tinha um mecanismo à prova de erros.
+
+* **Treinamento / Envolvimento dos Funcionários:** Os operadores da cabine de pintura não foram devidamente treinados para checar a ordem de serviço contra a especificação da tinta, ou não se sentiram "donos" do processo (falta de **Empowerment**) para parar a linha ao notar uma cor atípica. O envolvimento ativo teria interrompido a produção na primeira máquina.
+
+* **Melhoria Contínua (Kaizen):** A fábrica pode não ter aprendido com erros passados. Se houve ocorrências anteriores de cor errada (mesmo que em peças isoladas), elas não foram analisadas para implementar ações preventivas permanentes.
+
+* **Comprometimento da Alta Administração:** Se a diretoria prioriza apenas "volume de produção" sem fiscalizar a aderência a especificações, a equipe pode sentir que "entregar rápido" é mais importante que "entregar certo", criando uma cultura de negligenciar detalhes.
+
+**Análise Estrutural:**
+
+Este caso demonstra que o TQM é uma **corrente**, não uma lista de tarefas isoladas. A falha em qualquer um dos 9 fatores críticos cria uma vulnerabilidade que pode se propagar. O erro não foi "azar" ou "falha humana isolada" — foi uma **falha do sistema**:
+
+- O fornecedor entregou errado (Parceria falhou)
+- O almoxarifado não conferiu (Mensuração falhou)
+- O operador não checou (Treinamento/Empowerment falhou)
+- O supervisor não inspecionou a primeira peça (Gestão de Processos falhou)
+- A direção não criou travas preventivas (Comprometimento falhou)
+
+O lote inteiro saiu errado porque **nenhuma camada de defesa funcionou**. No TQM maduro, o erro seria capturado em múltiplos pontos antes de virar prejuízo.
+
+**Lição Prática:**
+
+Em ambientes industriais críticos (aeroespacial, automotivo, mineração), essa lógica é vital. Um chassi com cor errada é apenas um inconvêniente estético. Mas se a falha fosse no torque de aperto de um parafuso estrutural ou na dosagem de um reagente químico, as consequências seriam catastróficas. O TQM exige **redundância de verificações**, não confiança cega.
+
+---
+
 ## Seção 2: Questões de Reflexão (Sem Gabarito — Use Para Debate)
 
 ### Q1: Qual é a diferença entre "Filosofia da Qualidade" e "Sistema de Qualidade"?
@@ -805,5 +854,124 @@ Este gabarito apresenta resoluções detalhadas para os **6 exercícios integrad
 - 2 exercícios de governança (PDCA + Pareto)
 - 1 estudo de caso integrado (Operação de Carregamento)
 
-**Próxima Etapa:** Gabaritos para exercícios dos Capítulos 2-7 serão adicionados em futuras atualizações.
+---
+
+# Gabarito — Capítulo 2: Modelos de Gestão da Qualidade
+
+## Seção 1: Filosofias e Ferramentas
+
+### @exr-cap2-tqm-semeadoras — Falha Sistêmica na Produção das Semeadoras
+
+**Resposta:**
+
+Este caso demonstra que o TQM é uma **corrente**, não uma lista de tarefas isoladas. A falha em qualquer um dos 9 fatores críticos cria uma vulnerabilidade que pode se propagar. O erro não foi "azar" ou "falha humana isolada" — foi uma **falha do sistema**:
+
+- O fornecedor entregou errado (Parceria falhou)
+- O almoxarifado não conferiu (Mensuração falhou)
+- O operador não checou (Treinamento/Empowerment falhou)
+- O supervisor não inspecionou a primeira peça (Gestão de Processos falhou)
+- A direção não criou travas preventivas (Comprometimento falhou)
+
+O lote inteiro saiu errado porque **nenhuma camada de defesa funcionou**. No TQM maduro, o erro seria capturado em múltiplos pontos antes de virar prejuízo.
+
+**Lição Prática:**
+
+Em ambientes industriais críticos (aeroespacial, automotivo, mineração), essa lógica é vital. Um chassi com cor errada é apenas um inconveniente estético. Mas se a falha fosse no torque de aperto de um parafuso estrutural ou na dosagem de um reagente químico, as consequências seriam catastróficas. O TQM exige **redundância de verificações**, não confiança cega.
+
+---
+
+## Resoluções: Simulado Final Integrado {#sec-gabarito-simulado}
+
+**1. Resposta: (B) Joseph Juran**
+
+*Justificativa:* Juran introduziu a trilogia da qualidade (planejamento, controle e melhoria) e focou na premissa direta de "Adequação ao Uso", enfatizando que um produto só possui qualidade real se satisfaz as necessidades práticas do cliente em sua rotina diária.
+
+**2. Resposta: (A) Falha Interna**
+
+*Justificativa:* Custos de Falha Interna ocorrem quando o defeito é detectado e corrigido *antes* de o produto ser entregue ao mercado. Exemplos clássicos incluem retrabalho na linha, descarte de sucata e reinspeção. Se o item já tivesse saído da fábrica e chegado ao cliente, seria contabilizado como uma letal Falha Externa.
+
+**3. Resposta: (C) Aprendizado (*Learn*)**
+
+*Justificativa:* O MEG evoluiu o PDCA para o PDCL para evidenciar que o foco das organizações excelentes não é a simples padronização cega (*Act*), mas sim a geração de Conhecimento Organizacional, garantindo que a empresa aprenda tanto com suas inovações de sucesso quanto com seus fracassos.
+
+**4. Resposta: (A) Superprodução**
+
+*Justificativa:* No Sistema Toyota de Produção (*Lean*), a Superprodução é o "pior dos desperdícios" (a mãe de todas as falhas). Ela esconde ineficiências de máquina e gera montanhas de estoques desnecessários, engessando um capital de giro que a empresa poderia investir em inovação.
+
+**5. Resposta: (B) DMAIC**
+
+*Justificativa:* O roteiro DMAIC (*Define, Measure, Analyze, Improve, Control*) é o método universal do Seis Sigma para projetos voltados à redução drástica de variabilidade. O PDCA, por outro lado, é mais focado em melhorias de rotina e o 5S na base de organização.
+
+**6. Resposta: (B) A versão 2015 foca em Riscos e Liderança**
+
+*Justificativa:* A transição da versão 1994 (Era Burocrática focada em pilhas de papel e carimbos) para a versão 2015 (Era Estratégica) exigiu que a Alta Direção se tornasse a protagonista do SGQ e implementasse de forma mandatória o "Pensamento Baseado em Riscos".
+
+**7. Resposta: (C) SDCA**
+
+*Justificativa:* O ciclo *Standard-Do-Check-Act* é a ferramenta clássica de manutenção. Enquanto o PDCA (*Plan*) busca subir o nível e melhorar o processo, o SDCA (*Standard*) atua como uma "cunha", estabilizando o novo patamar alcançado para garantir que a operação não retroceda aos velhos vícios.
+
+**8. Resposta: (C) Entregar atributos que o cliente não valoriza nem paga**
+
+*Justificativa:* A Superqualidade (*Over-quality*) é um desperdício gerencial que ocorre quando a engenharia "excede os requerimentos funcionais" sem embasamento mercadológico. A empresa eleva o próprio custo de produção, mas, como o cliente não enxerga valor naquilo, não consegue repassar para o preço de venda, destruindo a margem de lucro operacional.
+
+**9. Resposta: (C) Equipe de Operação**
+
+*Justificativa:* No fluxo do ARI, a Operação do chão de fábrica atua estritamente como o cliente interno que "consome" os procedimentos, treinamentos e infraestruturas fornecidas pela Equipe de Apoio (engenharia, RH, TI). Se o apoio falha, a operação fica sem recursos para cumprir a meta da gestão.
+
+**10. Resposta: (A) $Produtividade = \frac{Preço \times Quantidade}{Custo}$**
+
+*Justificativa:* Esta é a equação econômica vital da engenharia da qualidade. Ela prova matematicamente que a produtividade financeira da empresa ($Produtividade \uparrow$) aumenta em duas frentes simultâneas proporcionadas pela excelência: pelo aumento de faturamento gerado pelo maior valor percebido (Preço e Volume altos) e pela alta eficiência operacional de chão de fábrica (menor Custo por redução de falhas).
+
+---
+
+### Resolução do @exr-masp-5w2h (Estruturando um 5W2H no Porto) {#sec-gabarito-masp-5w2h}
+
+**Resolução do @exr-masp-5w2h (Estruturando um 5W2H no Porto):**
+
+Espera-se que o aluno compreenda que a ação deve ser direta e endereçar a secagem ou blendagem da carga. Exemplo de preenchimento válido:
+* **What (O que será feito):** Realizar a blendagem (mistura) emergencial desta carga úmida com lotes de minério ultrasseco estocados no pátio e aplicar lonas de proteção nas pilhas.
+* **Why (Por que será feito):** Para rebaixar a umidade média global do lote de 12% para o limite aceitável de 8%, garantindo o embarque e evitando multas milionárias.
+* **Where (Onde será feito):** No pátio de estocagem do terminal portuário.
+* **When (Quando será feito):** Início imediato, com prazo máximo de 24 horas antes do limite da janela de atracação do navio.
+* **Who (Quem fará):** O Supervisor de Pátio, coordenando os operadores de pás carregadeiras e recuperadoras.
+* **How (Como será feito):** Movimentando e misturando o material mecanicamente no pátio, ao mesmo tempo em que a usina na mina é notificada para ajustar o nível de secagem dos próximos envios.
+* **How Much (Quanto custará):** Custo do óleo diesel das máquinas e horas extras da equipe (Ex: R$ 15.000,00) — um valor irrisório se comparado ao custo de cancelamento do navio.
+
+---
+
+### Resolução do @exr-manutencao-retrabalho (O Custo do Retrabalho na Oficina) {#sec-gabarito-manutencao-retrabalho}
+
+**Resolução do @exr-manutencao-retrabalho (O Custo do Retrabalho):**
+
+**1. Três Perdas Econômicas Diretas:**
+
+* **Peça:** O rolamento quebrado precisa ser substituído. Como a falha foi catastrófica, provavelmente danificou também o eixo, exigindo usinagem ou troca completa (R$ 15.000 - R$ 40.000).
+
+* **Mão de Obra:** O mecânico que montou errado precisará desmontar tudo novamente. Além disso, é necessário mobilizar uma equipe de emergência para recuperar o caminhão parado na pista. Custo estimado: 16 horas-homem de trabalho extraordinário.
+
+* **Lucro Cessante (Produção Parada):** Um CAT 797 transporta ~400 toneladas por viagem. Se a pista principal está bloqueada, a mina inteira pode parar. Mesmo que o caminhão seja removido em 4 horas, o prejuízo de produção não realizada pode ultrapassar R$ 200.000 (dependendo do preço do minério e da capacidade nominal da operação).
+
+**Lição Crítica:** O "ganho de tempo" de 5 minutos que o mecânico teve ao não usar o torquímetro custou à empresa centenas de milhares de reais. Este é o efeito multiplicador da não-qualidade em ambientes de capital intensivo.
+
+**2. Etapa do Ciclo de Vida do Ativo:**
+
+A falha ocorreu na **Etapa 5: Manutenção**. O ativo já estava em operação, e a intervenção de manutenção (troca do rolamento) foi executada de forma inadequada, gerando uma falha prematura que comprometeu a disponibilidade física.
+
+**3. Prevenção por 5S ou Poka-Yoke:**
+
+* **5S (Seiketsu - Padronização):** A oficina poderia ter um quadro visual próximo à bancada de montagem listando os "Itens Obrigatórios para Montagem de Rolamentos": limpeza, temperatura da peça, lubrificação correta e, crucialmente, uso do torquímetro calibrado. O mecânico vê o checklist toda vez que inicia o trabalho.
+
+* **Poka-Yoke (Dispositivo à Prova de Erros):** Implementar uma trava física ou eletrônica na Ordem de Serviço (OS) digital que não permite o "fechamento" da tarefa no sistema sem que o mecânico escaneie o QR Code do torquímetro, provando que a ferramenta foi retirada do paiol. Sem essa confirmação, o sistema bloqueia a liberação do caminhão para a operação.
+
+**Síntese Final:**
+
+Este caso demonstra que a cultura TQM não é um "luxo teórico", mas uma necessidade econômica vital. O torquímetro não é uma ferramenta de fiscalização; é um instrumento de proteção do ativo, da operação e da lucratividade da empresa. Quando o engenheiro de produção reforça essa mentalidade no chão de fábrica, ele reduz drasticamente os Custos de Falha Interna e protege a Disponibilidade Física — o coração da excelência operacional mineral.
+
+---
+
+## Seção 2: Questões de Reflexão (Sem Gabarito — Use Para Debate)
+
+---
+
+**Próxima Etapa:** Gabaritos para exercícios dos Capítulos 3-7 serão adicionados em futuras atualizações.
 
