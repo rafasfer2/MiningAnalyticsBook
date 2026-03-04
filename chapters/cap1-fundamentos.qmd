@@ -143,27 +143,29 @@ Ainda analisando o mesmo **Caminhão Fora-de-Estrada**, o equilíbrio para a sat
 
 A literatura contemporânea sistematiza diferentes concepções de qualidade, que coexistem e se sobrepõem conforme o contexto da organização. Para a engenharia de produção, elas ditam a forma como a empresa se posiciona no mercado:
 
-### 1. Qualidade como Intencional (Conformidade Rigorosa)
+### Qualidade como Intencional (Conformidade Rigorosa)
 
 A qualidade intencional define excelência como o cumprimento fiel do que foi planejado no projeto ou contrato. Em uma linha de envase, a qualidade intencional é atingida quando cada garrafa contém o volume exato especificado e o rótulo posicionado corretamente. Não se trata de surpreender o cliente, mas de cumprir rigorosamente a promessa técnica. Essa concepção é o núcleo de ambientes regulados, onde desvios representam riscos.
 
-### 2. Qualidade como Excepcional (Superação Deliberada)
+### Qualidade como Excepcional (Superação Deliberada)
 
 Está associada à superação de padrões mínimos e à busca por distinção. Algumas empresas elevam deliberadamente o padrão do processo, reduzindo ainda mais a variabilidade e oferecendo um desempenho superior ao mínimo exigido. Um equipamento fora-de-estrada premium, por exemplo, pode apresentar sistemas redundantes e materiais de alta resistência que excedem os requisitos básicos. Essa qualidade excepcional sustenta vantagem competitiva, mas exige cautela: se os atributos não forem valorizados pelo cliente, transformam-se em custo inútil (superqualidade).
 
-### 3. Qualidade como Transformadora (Impacto no Cliente)
+### Qualidade como Transformadora (Impacto no Cliente)
 
 A concepção transformadora avalia a qualidade pelo impacto positivo gerado na operação do usuário. Considere um software de planejamento de produção (ERP). Sua qualidade não está apenas na ausência de bugs, mas na capacidade de transformar a rotina do cliente: reduzir o tempo de decisão, aumentar a previsibilidade e simplificar a manutenção. Se o produto muda a forma como o trabalho é realizado, ele é transformador.
 
-### 4. Qualidade como Responsável (Externalidades e Sociedade)
+### Qualidade como Responsável (Externalidades e Sociedade)
 
 A qualidade responsável amplia o olhar para além do cliente imediato. A empresa avalia seus impactos externos: desperdício de matéria-prima, consumo energético, geração de resíduos e riscos de acidentes. Um equipamento altamente eficiente, mas que gera resíduos tóxicos de difícil tratamento, falha sob a ótica da responsabilidade. A não qualidade manifesta-se quando os custos operacionais são transferidos para a sociedade.
 
 ::: {.callout-important title="🚀 O Gancho para a Prática: Rumo à Modelagem"}
 Todas essas dimensões abstratas e concepções filosóficas convergem para um único objetivo na engenharia: a necessidade de quantificação. A Modelagem Analítica de Requisitos (ARM) transforma a qualidade de um conceito interpretativo em um sistema mensurável, no qual variáveis representam atributos, pesos traduzem o valor percebido e o índice final expressa, de forma objetiva, a capacidade do processo em atender e sustentar os requisitos do mercado.
 
-**Nota:** No Capítulo 7 (Estudos de Caso Integrados), retomaremos estas quatro concepções (Intencional, Excepcional, Transformadora e Responsável) para demonstrar, na prática, como elas se alinham às diretrizes da ISO 9001 e às equações do ARM. Analisaremos cenários profundos que vão desde o controle de um Processo Industrial Crítico até a Avaliação de um Curso de Graduação.
+**Nota:** No Capítulo 7 (Estudos de Caso Integrados), retomaremos estas quatro concepções (Intencional, Excepcional, Transformadora e Responsável) para demonstrar, na prática, como elas se alinham às diretrizes da ISO 9001 e às equações do ARM.
 :::
+
+## As Eras da Qualidade: Uma Evolução Operacional {#sec-eras-qualidade}
 
 Desde a Idade Média, a necessidade de diferenciar os produtos oferecidos em um mercado competitivo forçou a evolução do significado e das práticas de qualidade. Historicamente, a literatura divide essa evolução em três grandes eras operacionais.
 
@@ -273,7 +275,7 @@ Aplicando as mesmas vertentes para entender como um brinde promocional é perceb
 * **Satisfação Plena (Market-in):** A fornecedora antecipa que os clientes estão sobrecarregados de telas e oferece um "kit de desconexão" com caderno de papel semente (plantável). O setor de compras (cliente interno) recebe o material já separado em kits individuais, permitindo que a equipe de marketing entregue o brinde com agilidade e zero erro, encantando o cliente final.
 :::
 
-### A Visão dos Autores Clássicos (Gurus da Qualidade) {#sec-gurus-qualidade}
+## A Visão dos Autores Clássicos (Gurus da Qualidade) {#sec-gurus-qualidade}
 
 Embora tenhamos consolidado uma definição normativa e prática, é fundamental reconhecer que o conceito de qualidade na literatura técnica apresenta uma vasta variação, onde diferentes autores enfatizam aspectos específicos de acordo com sua escola de pensamento. Essa diversidade teórica não deve ser vista como uma contradição, mas como camadas de entendimento que amadureceram paralelamente à própria profissão de gestor da qualidade.
 
@@ -1126,22 +1128,6 @@ Para um aplicativo de delivery (como iFood ou Uber Eats), demonstre como os quat
 Analise um e-commerce de roupas e descreva como a aplicação dos quatro níveis de adequação é fundamental para converter uma simples visita em uma compra recorrente.
 :::
 
-::: {#exr-dimensoes-hospital}
-**As Múltiplas Dimensões no Setor de Saúde**
-
-A excelência de um modelo de gestão exige a integração de quatro dimensões fundamentais. Utilizando como cenário um Hospital, relacione cada elemento abaixo com a sua respectiva dimensão de qualidade:
-
-1. Qualidade dos Transformadores.
-2. Qualidade Percebida dos Serviços.
-3. Qualidade Operacional.
-4. Qualidade do Ambiente.
-
-( ) A lavanderia entregando lençóis esterilizados no horário correto para a equipe de enfermagem.
-( ) A agilidade na troca de informações críticas entre a recepção e o centro cirúrgico sobre a chegada de um paciente acidentado.
-( ) Os protocolos de triagem médica e a calibração dos equipamentos de Raio-X.
-( ) A equipe médica realizando as cirurgias no tempo previsto e com taxa zero de infecções hospitalares.
-:::
-
 ::: {#exr-carro-eletrico}
 **Adequação na Indústria Automotiva: Carro Elétrico**
 Para um carro elétrico, a qualidade vai além da bateria e abrange toda a experiência de mobilidade. Aplique os quatro níveis de adequação a este produto.
@@ -1248,4 +1234,20 @@ Considere a seguinte situação de consumo: um aluno compra uma caneta esferogr�
 a) Se a caneta de R$ 1,00 escreve até o fim da carga sem falhar, qual a sua qualidade?
 b) Se a caneta de R$ 500,00 vaza tinta na primeira semana, qual a sua qualidade?
 c) O preço (uma característica atribuída) define se a caneta tem qualidade ou define apenas o seu grau?
+:::
+
+::: {#exr-dimensoes-hospital}
+**As Múltiplas Dimensões no Setor de Saúde**
+
+A excelência de um modelo de gestão exige a integração de quatro dimensões fundamentais. Utilizando como cenário um Hospital, relacione cada elemento abaixo com a sua respectiva dimensão de qualidade:
+
+1. Qualidade dos Transformadores.
+2. Qualidade Percebida dos Serviços.
+3. Qualidade Operacional.
+4. Qualidade do Ambiente.
+
+( ) A lavanderia entregando lençóis esterilizados no horário correto para a equipe de enfermagem.
+( ) A agilidade na troca de informações críticas entre a recepção e o centro cirúrgico sobre a chegada de um paciente acidentado.
+( ) Os protocolos de triagem médica e a calibração dos equipamentos de Raio-X.
+( ) A equipe médica realizando as cirurgias no tempo previsto e com taxa zero de infecções hospitalares.
 :::
