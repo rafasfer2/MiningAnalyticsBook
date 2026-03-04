@@ -303,22 +303,20 @@ Das 5 peças, 3 estão conformes.
 
 Para visualizar como a conformidade se comporta ao longo do tempo, o gráfico de Controle de Tendência mostra que um processo pode estar "conforme" hoje, mas caminhando para o erro amanhã.
 
-```text
-Medida (mm)
-      ^
- 10,15|                                 (X) FORA DE CONFORMIDADE (Refugo)
-      |------------------------------------------------------------------ LSE (Limite Superior)
- 10,10|                          (X)  (X)
-      |                   (X)  (X)
- 10,05|            (X)  (X)             <-- DERIVA (O processo está "subindo")
-      |     (X)  (X)
- 10,00|__(X)_____________________________________________________________ ALVO (Projeto)
-      |
-  9,95|
-      |------------------------------------------------------------------ LIE (Limite Inferior)
-  9,90|
-      |__________________________________________________________________> Tempo (Turno)
-            08:00h   10:00h   12:00h   14:00h   16:00h
+```{mermaid}
+%%| label: fig-deriva-processo
+%%| fig-cap: "Evolução temporal da Deriva de um Processo rumo à Não Conformidade"
+flowchart LR
+    A["08:00h<br>Medida: 10,00 mm<br>No ALVO"] --> B["10:00h<br>Medida: 10,02 mm<br>Aceitável"]
+    B -->|Início da Deriva| C["12:00h<br>Medida: 10,05 mm<br>Atenção"]
+    C -->|Subindo| D["14:00h<br>Medida: 10,08 mm<br>Risco Crítico"]
+    D -->|Ultrapassa LSE| E["16:00h<br>Medida: 10,12 mm<br>REFUGO"]
+
+    style A fill:#2ecc71,stroke:#333,color:#fff
+    style B fill:#27ae60,stroke:#333,color:#fff
+    style C fill:#f1c40f,stroke:#333,color:#000
+    style D fill:#e67e22,stroke:#333,color:#fff
+    style E fill:#e74c3c,stroke:#333,color:#fff
 ```
 **Explicação Pedagógica: A "Deriva" da Qualidade**
 
@@ -402,21 +400,30 @@ O termo $(x - t)^2$ faz com que a perda dispare rapidamente conforme o desvio au
 
 Para que o aluno visualize a diferença entre a visão tradicional (binária: dentro ou fora) e a visão de Taguchi (gradual), observe o gráfico abaixo:
 
-```text
-Perda Financeira (R$)
-      ^
-      |           (B) CURVA DE TAGUCHI (L)
-      |             Perda cresce ao se afastar do alvo
-      |      \                  /
-      |       \                /
-      |        \              /
-______|_________\____________/_________  (A) VISÃO TRADICIONAL
-      |          |    |     |            (O degrau da tolerância)
-      |          |    |     |
-      |__________|____|_____|__________>  Valor da Característica
-                LIE  ALVO  LSE
+```{mermaid}
+%%| label: fig-taguchi-comparativo
+%%| fig-cap: "Comparativo Lógico: Visão Tradicional (Degrau) vs. Função Perda de Taguchi"
+flowchart TD
+    subgraph TRADICIONAL ["Visão Tradicional: O Degrau de Tolerância"]
+        direction LR
+        T1["No Alvo<br>10,00 mm"] -->|Aceito| T_OK["Zero Perda<br>Financeira"]
+        T2["No Limite<br>10,09 mm"] -->|Aceito| T_OK
+        T3["Fora do Limite<br>10,11 mm"] -->|Rejeitado| T_NOK["Perda Total<br>Refugo"]
+    end
+
+    subgraph TAGUCHI ["Visão de Taguchi: A Perda Incremental"]
+        direction LR
+        G1["No Alvo<br>10,00 mm"] -->|Perfeição| G_OK["Zero Perda<br>Financeira"]
+        G2["Fora do Alvo<br>10,05 mm"] -->|Desgaste Ativo| G_WARN["Perda Financeira<br>Leve"]
+        G3["No Limite<br>10,09 mm"] -->|Quase Falhando| G_CRIT["Alta Perda<br>Financeira"]
+    end
+
+    style T_OK fill:#2ecc71,color:#fff,stroke:#333
+    style T_NOK fill:#e74c3c,color:#fff,stroke:#333
+    style G_OK fill:#2ecc71,color:#fff,stroke:#333
+    style G_WARN fill:#f1c40f,color:#000,stroke:#333
+    style G_CRIT fill:#e67e22,color:#fff,stroke:#333
 ```
-*(Onde LIE = Limite Inferior de Especificação e LSE = Limite Superior de Especificação)*
 
 * **Curva A (Visão Tradicional - "Meta do Engenheiro de Papel"):** Se o Alvo é 10 mm e os limites são 9,9 e 10,1, qualquer valor dentro dessa faixa tem zero perda. O problema: um produto com 10,09 mm é aceito como "perfeito", mas ele já está quase falhando.
 * **Curva B (Função Perda - "Meta do Engenheiro de Valor"):** A perda é zero *apenas* no ponto exato do Alvo. Por que existe perda mesmo dentro do limite? Porque peças que não estão no alvo geram maior atrito e menor durabilidade.
@@ -610,30 +617,15 @@ Em 2007, a Apple entrou no mercado sem nunca ter fabricado um telefone antes. El
 
 Este infográfico resume a mudança de mentalidade necessária para o profissional moderno. Enquanto o engenheiro tradicional foca na *máquina*, o engenheiro de excelência foca na *solução*.
 
-```text
-      [ ENGENHEIRO PRODUCT-OUT ]               [ ENGENHEIRO MARKET-IN ]
-        "O Guardião da Fábrica"                  "O Arquiteto de Valor"
+| Dimensão Analisada | 🏭 Engenheiro PRODUCT-OUT ("O Guardião da Fábrica") | 🎯 Engenheiro MARKET-IN ("O Arquiteto de Valor") |
+| :--- | :--- | :--- |
+| **Objetivo Principal** | Otimizar a máquina e o custo interno de produção. | Resolver o problema do cliente final e interno. |
+| **Prioridades (Top 3)** | 1. Especificação Técnica <br> 2. Velocidade da Linha <br> 3. Redução de Refugo | 1. Necessidade do Usuário <br> 2. Facilidade de Uso (UX) <br> 3. Valor Percebido |
+| **Visão do Erro** | "O cliente não sabe usar o que nós projetamos." | "O processo falhou em entender o que o cliente precisa." |
+| **Relação Interna (ARI)**| Entrega o que está no *script* e "passa a bola" adiante. | Pergunta ao próximo processo: "Como posso facilitar seu trabalho?" |
+| **Métrica de Sucesso** | Bater a meta de produção diária ou mensal. | Bater a meta de satisfação e uso fluido do cliente. |
 
-               OBJETIVO                                 OBJETIVO
-      Otimizar a máquina e o custo             Resolver o problema do cliente
-        interno de produção.                     final e interno.
-
-            PRIORIDADES                              PRIORIDADES
-      1. Especificação Técnica                 1. Necessidade do Usuário
-      2. Velocidade da Linha                   2. Facilidade de Uso (UX)
-      3. Redução de Refugo                     3. Valor Percebido
-
-          VISÃO DO ERRO                            VISÃO DO ERRO
-      "O cliente não sabe usar                 "O processo falhou em entender
-        o que nós projetamos."                   o que o cliente precisa."
-
-        RELAÇÃO INTERNA                          RELAÇÃO INTERNA
-      Entrega o que está no                    Pergunta ao próximo processo:
-      script e "passa a bola".                 "Como posso facilitar seu trabalho?"
-
-            SUCESSO                                  SUCESSO
-      Bater a meta de produção.                Bater a meta de satisfação.
-```
+: Perfil Profissional: O Guardião vs. O Arquiteto {#tbl-perfil-engenheiro}
 
 * **Engenheiro Product-out (Foco no "COMO"):** Sua obsessão é a *Conformidade com o Projeto*. Ele acredita que se o produto segue a norma técnica, ele tem qualidade automática. *Frase típica:* "O produto está perfeito, o mercado é que não entende a nossa tecnologia."
 * **Engenheiro Market-in (Foco no "PORQUÊ"):** Sua obsessão é a *Adequação ao Uso* e a *Satisfação Plena*. Ele entende que a norma técnica é o mínimo, mas a qualidade real é o benefício que o cliente obtém. *Frase típica:* "Se o cliente está tendo dificuldade, nosso projeto precisa mudar, não importa o quão 'perfeito' ele pareça no papel."
