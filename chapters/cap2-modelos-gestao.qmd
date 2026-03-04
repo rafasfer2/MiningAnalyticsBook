@@ -892,57 +892,7 @@ b) Como essas três perspectivas podem ser integradas em uma única definição 
 c) Qual ferramenta da Parte I você utilizaria para harmonizar essas visões?
 :::
 
-**Resposta:** Consulte o [Gabarito da Parte I](appendix/gabarito-parte1.qmd#sec-gabarito-1-1){target="_blank"} para a resolução detalhada.
-
----
-
-## O Mapeamento Sistêmico: ISO 9001, Qualidade e a Modelagem ARM {#sec-mapeamento-iso-arm}
-
-Para que a transição da filosofia normativa para a engenharia de dados seja executável, precisamos mapear exatamente onde cada conceito abstrato de qualidade "encosta" na norma ISO 9001 e como o modelo ARM o transforma em matemática. O diagrama abaixo ilustra o fluxo dessa operacionalização: a norma dita as regras do sistema, o conceito de qualidade define os atributos vitais e a ARM converte tudo isso em números gerenciáveis.
-
-```{mermaid}
-%%| label: fig-fluxo-iso-arm
-%%| fig-cap: "Diagrama de Operacionalização: Da ISO 9001 ao Motor Matemático ARM"
-flowchart TB
-    subgraph ISO [ISO 9001 - SGQ]
-        direction TB
-        Ctx[4 Contexto / Partes interessadas]
-        Lead[5 Liderança]
-        Plan[6 Planejamento]
-        Sup[7 Suporte]
-        Oper[8 Operação]
-        Perf[9 Avaliação]
-        Imp[10 Melhoria]
-    end
-
-    ISO --> |Traduz o que importa em requisitos| Qualidade
-
-    subgraph Qualidade [QUALIDADE - Conceito Integrador]
-        direction TB
-        A1[Atributos essenciais / Essência]
-        A2[Conformidade / Intencional]
-        A3[Excelência / Excepcional]
-        A4[Impacto / Transformadora]
-        A5[Risco e Externalidades / Responsável]
-    end
-
-    Qualidade --> |Operacionaliza em números| ARM_Model
-
-    subgraph ARM_Model [ARM - Modelo Analítico]
-        direction TB
-        V1[Variáveis] --- P1[Pesos]
-        N1[Notas] --> I1[Índice de Qualidade Global]
-    end
-
-    ARM_Model --> |Retroalimenta o PDCA| ISO
-```
-
-Para sistematizar essa integração na rotina da engenharia de produção, a tabela a seguir cruza as oito partes conceituais do modelo com as cláusulas normativas e a sua respectiva tradução para o algoritmo ARM:
-
-| Conceito da Qualidade | Cláusulas ISO 9001 Relacionadas | Tradução Matemática na ARM |
-| :--- | :--- | :--- |
-| **1. Atributo e essência** | **8 (Operação); 8.5.1** (Controle da produção) | Atributos essenciais do produto/processo tornam-se **variáveis mensuráveis**. |
-| **2. Dimensão objetiva e subjetiva** | **9 (Avaliação); 4.2** (Partes interessadas) | Medições reais = **Valores/Notas**; Percepção de importância = **Pesos**. |
+**Resposta:** Consulte o [Gabarito da Parte I](appendix/gabarito-parte1.qmd#sec-gabarito-1-1){target="_blank"} para a resolução detalhada. | Medições reais = **Valores/Notas**; Percepção de importância = **Pesos**. |
 | **3. Qualidade como intencional** | **6 (Planejamento); 8.5.1; 8.6** (Liberação) | Requisitos planejados tornam-se **valores-alvo** (limites) das variáveis. |
 | **4. Qualidade como excepcional** | **6 (Planejamento); 9 (Avaliação); 10 (Melhoria)** | Desempenho acima do mínimo gera notas altas, *desde que haja peso*. |
 | **5. Qualidade como transformadora** | **4 (Contexto); 9 (Avaliação); 10 (Melhoria)** | Impacto conjunto das variáveis reflete-se no **índice global de qualidade**. |
@@ -950,13 +900,7 @@ Para sistematizar essa integração na rotina da engenharia de produção, a tab
 | **7. Qualidade, valor e competitividade** | **4.2 (Partes interessadas); 6.2** (Objetivos) | Valor percebido define a discrepância entre **pesos estratégicos**. |
 | **8. Qualidade como sistema de gestão** | **4.4 (SGQ); 5 (Liderança); 7 (Suporte)** | A ARM opera como o **motor analítico contínuo** de apoio à decisão do SGQ. |
 
-: Mapeamento Integrado — Qualidade × ISO 9001 × ARM {#tbl-mapeamento-iso-arm}
-
-### O Contexto da Mineração Industrial
-
-Para consolidar essa arquitetura, vejamos como essas premissas regem a operação diária em uma planta de beneficiamento:
-
-1. **Atributo e essência:** A essência do produto é definida por teor metálico, granulometria e umidade. Na ARM, são as *variáveis críticas*.
+ A essência do produto é definida por teor metálico, granulometria e umidade. Na ARM, são as *variáveis críticas*.
 2. **Objetiva e subjetiva:** Lotes conformes podem ter dispersões diferentes. O teor é a nota (objetivo), a confiabilidade do cliente define o *peso* da estabilidade (subjetivo).
 3. **Intencional:** O contrato estabelece o teor mínimo. Na ARM, esse é o *valor-alvo*; qualquer desvio é uma não conformidade matemática.
 4. **Excepcional:** Entregar teor acima do mínimo com baixa variabilidade. Se o cliente valoriza, a ARM dá peso e nota altos. Se não, o modelo evidencia custo desnecessário (*superqualidade*).
@@ -1172,26 +1116,4 @@ O Lean foi desenvolvido em ambientes de produção em massa (Toyota). Como adapt
 **Seis Sigma em Processos Naturais**
 Seis Sigma funciona bem em manufatura repetitiva. Qual seria o maior desafio em aplicar Seis Sigma a um minério cujas características naturalmente variam por geologia (teor heterogêneo)?
 :::
-
-## Exercícios de Fixação {#sec-exercicios-cap2}
-
-::: {#exr-cap2-1-1}
-**Definição Contextual de Qualidade**
-
-**Contexto:** Em uma operação de britagem, três stakeholders definem "qualidade" de forma diferente:
-
-- **Operador de Britador:** "Qualidade é rodando sem parar"
-- **Engenheiro de Processo:** "Qualidade é granulometria dentro da especificação (P80 = 12 mm)"
-- **Gerente de Mina:** "Qualidade é entregar minério no prazo ao menor custo"
-
-**Pergunta:**
-
-a) Qual das três definições está "errada"? Justifique sua resposta.
-
-b) Como essas três perspectivas podem ser integradas em uma única definição de qualidade operacional para esse equipamento?
-
-c) Qual ferramenta da Parte I você utilizaria para harmonizar essas visões?
-:::
-
-**Resposta:** Consulte o [Gabarito da Parte I](appendix/gabarito-parte1.qmd#sec-gabarito-1-1){target="_blank"} para a resolução detalhada.
 
