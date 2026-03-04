@@ -59,10 +59,10 @@ A partir da interpretação desta figura, conseguimos materializar a aplicação
 
 A qualidade possui, portanto, níveis intrínsecos de subjetividade:
 
-* A definição de quais características importam pode ser subjetiva.
-* A intensidade da associação dessas características pode ser subjetiva.
-* A forma de mensuração e interpretação pode ser subjetiva.
-* A própria característica pode ser subjetiva.
+    * A **definição** de quais características importam pode ser subjetiva.
+    * A **intensidade** da associação dessas características pode ser subjetiva.
+    * A **forma de mensuração** e **interpretação** pode ser subjetiva.
+    * A **própria característica** pode ser subjetiva.
 
 ### Dimensões da Qualidade: Objetiva vs. Subjetiva {#sec-dimensoes-qualidade}
 
@@ -75,8 +75,6 @@ Para compreender a complexidade de medir e atestar a qualidade de um produto, pr
 
 Retomando a nossa analogia da bola de neve e expandindo-a para uma nova perspectiva térmica, essa dicotomia exata entre o objetivo e o subjetivo é ilustrada na @fig-boladeneve-termometro através de dois cenários distintos:
 
-![Ilustração da Bola de Neve e do Termômetro](../images/fig-boladeneve-termometro.png){#fig-boladeneve-termometro fig-align="center"}
-
 ::: {.example #exm-percepcao-sensorial name="A Percepção Sensorial - A Bola de Neve"}
 No primeiro cenário, o objeto (bola de neve) possui propriedades materiais exatas. No entanto, o "poder" desse objeto na nossa percepção é a capacidade de gerar em nossa mente ideias qualitativas e sensoriais, como "esférica", "gelada" e "branca". O desafio gerencial surge exatamente dessa distinção: é extremamente difícil padronizar ou verificar um atributo de qualidade se ele depender puramente da capacidade de "produzir uma sensação" no cliente, pois essa percepção varia de pessoa para pessoa.
 :::
@@ -85,59 +83,65 @@ No primeiro cenário, o objeto (bola de neve) possui propriedades materiais exat
 A dificuldade de verificação se torna ainda mais evidente quando o observador capta o efeito, mas ignora a causa, como demonstrado na segunda parte da figura. Sabemos, de forma objetiva, que o Sol emite energia térmica com a propriedade física de dilatar o mercúrio dentro de um termômetro. Contudo, se entregarmos esse instrumento a um "homem das cavernas", ele perceberá visualmente a coluna de líquido subindo (experimentando a dimensão subjetiva do fenômeno), mas não fará a menor ideia da relação físico-química que a radiação solar exerce sobre o equipamento (a dimensão objetiva real).
 :::
 
+![Ilustração da Bola de Neve e do Termômetro](../images/fig-boladeneve-termometro.png){#fig-boladeneve-termometro fig-align="center"}
+
 Na engenharia de produção, o @exm-causalidade-oculta atua como um alerta crítico: não podemos atestar a qualidade de um processo baseando-nos apenas naquilo que conseguimos enxergar superficialmente, sem compreender a variável raiz que governa o sistema.
 
 ### A Evolução do Conceito (Níveis de Adequação) {#sec-evolucao-conceito}
 
-Apesar do interesse das empresas, essa confusão conceitual exige um alinhamento. A evolução do conceito de qualidade é caracterizada por quatro adequações ou níveis:
+Apesar do interesse corporativo, a confusão conceitual sobre o que realmente define um bom produto ou serviço exige um alinhamento rigoroso. A evolução do conceito de qualidade é caracterizada por quatro adequações ou níveis:
 
-* **Adequação ao Padrão:**
-  Define a qualidade como o produto que faz estritamente aquilo que os projetistas pretenderam que ele fizesse.
-* **Adequação ao Uso:**
-  É o meio de garantir a satisfação das necessidades de mercado. O produto pode ser utilizado da maneira como os clientes querem utilizá-lo? Neste nível, qualidade é a satisfação do cliente quanto à adequação do produto ao uso.
-* **Adequação ao Custo:**
-  Significa alta qualidade atrelada a custo baixo. Remete ao conceito estatístico de que a qualidade é inversamente proporcional à variabilidade no processo de produção.
-* **Adequação à Necessidade Latente:**
-  Significa a satisfação das necessidades do cliente antes mesmo que ele esteja consciente delas.
+* **Adequação ao Padrão:** Define a qualidade como o produto que faz estritamente aquilo que os projetistas pretenderam que ele fizesse (conformidade com a especificação).
+* **Adequação ao Uso:** É o meio de garantir a satisfação das necessidades de mercado. O produto pode ser utilizado da maneira como os clientes querem utilizá-lo na prática? Neste nível, qualidade é a satisfação do cliente quanto à utilidade real do produto.
+* **Adequação ao Custo:** Significa alta qualidade atrelada a custo baixo. Remete ao conceito estatístico de que a qualidade é inversamente proporcional à variabilidade no processo de produção (menos falhas, menor custo).
+* **Adequação à Necessidade Latente:** Significa a satisfação das necessidades do cliente antes mesmo que ele esteja consciente delas, gerando inovação e encantamento.
+
+::: {.example #exm-niveis-smartphone name="Os Quatro Níveis na Indústria Eletrônica"}
+Para visualizar essa evolução, observe o desenvolvimento de um **Smartphone**:
+1. **Padrão:** O aparelho sai da linha de montagem sem defeitos físicos, com o processador atingindo a velocidade projetada pela engenharia.
+2. **Uso:** O sistema operacional é fluido, a tela é legível sob a luz do sol e a bateria dura um dia inteiro de trabalho intenso.
+3. **Custo:** A padronização de componentes internos e a automação reduzem o desperdício fabril, permitindo entregar uma tela de alta resolução por um preço competitivo.
+4. **Necessidade Latente:** O software introduz, via Inteligência Artificial, um modo de "Foco" que silencia notificações automaticamente no trabalho, resolvendo um problema que o cliente ainda não tinha percebido conscientemente.
+:::
 
 Este conceito moderno exerce uma função dupla: satisfaz os clientes e permite à companhia funcionar da forma mais eficiente possível. A qualidade é, talvez, a única área na qual há grande alinhamento entre as metas dos clientes e as metas da organização.
 
-Pressupõe-se que deve existir uma concordância de conceituação entre o produtor e o consumidor. Para o consumidor, o conceito de qualidade gravita em torno de um ponto de equilíbrio entre os seguintes fatores:
+Pressupõe-se que deve existir uma concordância de conceituação entre o produtor e o consumidor. Para o consumidor, o conceito de qualidade gravita em torno de um ponto de equilíbrio entre quatro fatores fundamentais:
 
-* **Qualidade Intrínseca do Produto:**
-  Refere-se aos atributos intrínsecos do produto (funcionalidade, durabilidade, confiabilidade).
-* **Qualidade do Atendimento:**
-  Envolve quantidade ofertada, prazos de entrega, disponibilidade e responsividade comercial.
-* **Qualidade dos Serviços Associados ao uso do Produto:**
-  Inclui assistência técnica, garantia, suporte pós-venda e facilidade de manutenção.
-* **Custo Total:**
-  Soma de todos os gastos envolvidos na aquisição, uso e descarte do produto.
+* **Qualidade Intrínseca do Produto:** Refere-se aos atributos inerentes do produto (funcionalidade, durabilidade, confiabilidade técnica).
+* **Qualidade do Atendimento:** Envolve a quantidade ofertada, o cumprimento de prazos de entrega, a disponibilidade e a responsividade comercial.
+* **Qualidade dos Serviços Associados:** Inclui a assistência técnica, a garantia, o suporte pós-venda e a facilidade de manutenção.
+* **Custo Total:** A soma de todos os gastos envolvidos na aquisição, uso operacional e descarte do produto.
 
-A satisfação total do consumidor deve ser alcançada em todos esses fatores. Para transformar essa expectativa em algo gerenciável e auditável, a indústria precisou estabelecer uma linguagem universal.
+A satisfação total do consumidor só é alcançada quando há equilíbrio em todos esses fatores. Para transformar essa expectativa abstrata em algo gerenciável, a indústria precisou estabelecer uma linguagem de controle universal.
 
-::: {.example #exm-conceito-qualidade name="Conceito de Qualidade e Satisfação"}
-**PERGUNTA 01 – Por que o conceito de Qualidade depende do contexto a que ele se refere?**
-*Resposta:* Porque a qualidade não é um atributo isolado, mas uma propriedade que determina a essência de um objeto específico. Ela deve ser sempre empregada de forma composta, explicitando o substantivo a que se refere (ex: qualidade de um líder vs. qualidade de um estrategista).
-
-**PERGUNTA 02 – Por que o conceito de Qualidade depende do momento histórico em que se vive?**
-*Resposta:* Porque as necessidades e expectativas do mercado são dinâmicas. O que era considerado um requisito de alta qualidade em um período pode tornar-se obsoleto no momento seguinte.
-
-**PERGUNTA 03 – Quais são os dois aspectos necessários para uma adequada conceituação num contexto específico?**
-*Resposta:* 1) Explicitar o substantivo (objeto) a que o termo se refere; e 2) Definir os atributos e características que permitem distinguir esse objeto dos demais.
-
-**PERGUNTA 04 – Aplicação prática (Ferramenta Elétrica):**
-
-* **Contexto:**
-  A qualidade da ferramenta para um hobbista (facilidade de uso) difere da qualidade para um profissional (durabilidade sob uso contínuo).
-* **Momento:**
-  Uma ferramenta sem bateria de lítio hoje pode não atender ao requisito de conveniência que o mercado exige.
-* **Aspectos:**
-  Definir como "Parafusadeira Profissional" (substantivo) e listar "Torque" e "Autonomia" (características).
-* **Satisfação:**
-  O profissional estará satisfeito se a ferramenta tiver potência (intrínseca), for entregue na obra no prazo (atendimento), possuir assistência técnica rápida (serviços) e custo operacional baixo (custo total).
+::: {.example #exm-fatores-restaurante name="Os Quatro Fatores no Setor de Serviços"}
+Em um **Restaurante**, o equilíbrio desses fatores dita a percepção final do cliente:
+1. **Padrão:** O prato é servido exatamente como descrito na ficha técnica. O bife chega à mesa com o peso e cozimento exatos do projeto da cozinha.
+2. **Uso:** O restaurante oferece um menu executivo servido em 15 minutos para quem tem pouco tempo, sendo altamente funcional para o propósito do cliente.
+3. **Custo:** A utilização de ingredientes da estação e o *mise en place* organizado evitam desperdícios, permitindo um preço justo e competitivo.
+4. **Necessidade Latente:** Antes de o cliente pedir, o garçom oferece um suporte para bolsas ou uma cortesia ao perceber que o grupo está em uma celebração especial, gerando encantamento.
 :::
 
----
+::: {.example #exm-niveis-caminhao name="Os Quatro Níveis em Equipamentos de Mineração"}
+Para visualizar essa evolução no contexto de maquinário pesado, observe o desenvolvimento e a aquisição de um **Caminhão Fora-de-Estrada**:
+* **Padrão:** O equipamento sai da linha de montagem com o chassi soldado milimetricamente conforme o projeto de engenharia, a capacidade de carga é de exatas 240 toneladas e o motor entrega a potência rigorosamente especificada no manual.
+* **Uso:** A cabine possui isolamento acústico, ar-condicionado e ergonomia avançada, garantindo que o operador trabalhe um turno inteiro sem fadiga. A suspensão é projetada para lidar perfeitamente com as irregularidades das vias da mina.
+* **Custo:** A fabricante adota a padronização de componentes modulares na montagem, reduzindo o custo fabril. Para a mineradora, o caminhão oferece alta eficiência de combustível (*payload* por litro), reduzindo significativamente o custo operacional da lavra.
+* **Necessidade Latente:** O equipamento vem de fábrica com telemetria preditiva embarcada. O sistema avisa automaticamente o PCM (*Planejamento e Controle da Manutenção*) sobre a degradação de um componente hidráulico semanas antes da falha, evitando paradas não programadas e encantando a gestão da frota.
+:::
+
+::: {.example #exm-fatores-caminhao name="Os Quatro Fatores de Satisfação em Ativos Críticos"}
+Ainda analisando o mesmo **Caminhão Fora-de-Estrada**, o equilíbrio para a satisfação da mineradora (consumidora) gravita nos seguintes fatores:
+* **Qualidade Intrínseca:** A robustez estrutural do chassi, a confiabilidade do motor sob regime severo e a resistência dos pneus contra cortes nas rochas.
+* **Atendimento:** O cumprimento rigoroso do prazo de entrega do equipamento na mina (montagem (*site assembly*) no prazo) e a prontidão do time comercial para ajustes no contrato.
+* **Serviços Associados:** A presença de técnicos do fabricante (*site support*) na operação, o treinamento fornecido aos operadores e mecânicos locais, e a agilidade no fornecimento de peças sobressalentes.
+* **Custo Total:** A visão financeira completa (TCO - *Total Cost of Ownership*), que soma o valor de aquisição (*CapEx*), os gastos ao longo da vida útil com combustível, pneus e manutenção (*OpEx*), e o valor residual do ativo no momento do descarte ou revenda.
+:::
+
+## As Eras da Qualidade: Uma Evolução Operacional {#sec-eras-qualidade}
+
+Desde a Idade Média, a necessidade de diferenciar os produtos oferecidos em um mercado competitivo forçou a evolução do significado e das práticas de qualidade. Historicamente, a literatura divide essa evolução em três grandes eras operacionais.
 
 ## As Eras da Qualidade: Uma Evolução Operacional {#sec-eras-qualidade}
 
@@ -147,7 +151,7 @@ Desde a Idade Média, a necessidade de diferenciar os produtos oferecidos em um 
 
 O período de fiscalização teve seus primeiros traços na Idade Média, com os artesãos que trabalhavam para garantir a qualidade individual de seus produtos. Nesse período, começaram a ser definidos padrões básicos de qualidade para bens e serviços, bem como níveis primários de desempenho do trabalho.
 
-Com o advento da produção em massa, surgiu a necessidade de uma "inspeção formal", impulsionada primordialmente pela exigência de verificação de peças intercambiáveis nas linhas de montagem. Em 1922, a obra "The Control of Quality in Manufacturing" de G.S. Radford apresentou, de forma pioneira, as atividades de inspeção ligadas ao controle da qualidade. Pela primeira vez, a qualidade foi vista como uma responsabilidade gerencial distinta e uma função independente.
+Com o advento da produção em massa, surgiu a necessidade de uma "inspeção formal", impulsionada primordialmente pela exigência de verificação de peças intercambiáveis nas linhas de montagem. Em 1922, a obra *The Control of Quality in Manufacturing* de G.S. Radford apresentou, de forma pioneira, as atividades de inspeção ligadas ao controle da qualidade. Pela primeira vez, a qualidade foi vista como uma responsabilidade gerencial distinta e uma função independente.
 
 Nesta primeira era, a preocupação central estava em examinar o produto detalhadamente, um a um, com o objetivo exclusivo de encontrar possíveis falhas para impedir que o defeito chegasse ao cliente. Essa atividade era majoritariamente corretiva e realizada sem metodologias analíticas preestabelecidas. As principais conquistas foram a introdução de sistemas racionais de medidas, gabaritos e acessórios de verificação.
 
@@ -155,13 +159,20 @@ Nesta primeira era, a preocupação central estava em examinar o produto detalha
 
 A segunda fase da evolução ocorreu quando o aumento em larga escala da produção tornou inviável (tanto física quanto financeiramente) a verificação de produtos um a um. A inspeção precisou evoluir e passou a ser realizada através da amostragem e da utilização de técnicas estatísticas.
 
-As ferramentas estatísticas foram desenvolvidas com o intuito de satisfazer as reais necessidades de controle de qualidade em ambientes de alto volume. É nesta fase que a engenharia introduz conceitos fundamentais e preditivos, tais como: risco do produtor e do consumidor, probabilidade de aceitação, fração tolerada defeituosa e o Nível Aceitável de Qualidade (AQL).
+As ferramentas estatísticas foram desenvolvidas com o intuito de satisfazer as reais necessidades de controle de qualidade em ambientes de alto volume. É nesta fase que a engenharia introduz conceitos fundamentais e preditivos, tais como: risco do produtor e do consumidor, probabilidade de aceitação, fração tolerada defeituosa e o Nível Aceitável de Qualidade (AQL - *Acceptable Quality Level*).
 
 ### A Era da Garantia e Gestão Estratégica da Qualidade {#sec-era-garantia}
 
 Todo esse movimento de racionalização ganhou força monumental após a 2ª Guerra Mundial e estende-se até os dias de hoje, marcando a terceira era. Nela, a qualidade deixa de ser apenas uma ferramenta de fábrica e passa a ser vista como parte indissociável do gerenciamento estratégico da organização.
 
-A era contemporânea é caracterizada pelo surgimento de novos elementos integradores, como a quantificação dos custos da qualidade, a engenharia de confiabilidade, o conceito de "zero falhas" (introduzido por Crosby) e o Controle Total da Qualidade (liderado por Feigenbaum). A gestão deslocou-se definitivamente do foco em "encontrar o defeito" para o foco em "garantir que o sistema não produza o defeito".
+A era contemporânea é caracterizada pelo surgimento de novos elementos integradores, como a quantificação dos custos da qualidade, a engenharia de confiabilidade, o conceito de "zero falhas" e o Controle Total da Qualidade (*Total Quality Control*). A gestão deslocou-se definitivamente do foco em "encontrar o defeito" para o foco em "garantir que o sistema não produza o defeito".
+
+::: {.example #exm-eras-automobilistica name="A Evolução Histórica na Indústria Automobilística"}
+Para tangibilizar essa evolução, observe a mudança de foco no setor automotivo:
+* **Inspeção:** No início das linhas de montagem da Ford, um inspetor batia com um martelo em cada peça para ouvir o som e decidir se estava "boa ou ruim" antes de montá-la. O foco era totalmente na detecção manual.
+* **Controle Estatístico:** A fábrica passou a retirar 5 motores a cada 100 produzidos para testes de desempenho em bancada, utilizando cálculos matemáticos para prever se o lote inteiro estava dentro do Nível Aceitável de Qualidade (AQL).
+* **Garantia Estratégica:** A montadora implementa o *Poka-Yoke* (dispositivos à prova de erros) direto na linha, onde uma peça só encaixa se estiver na posição exata. A qualidade deixa o chão de fábrica e é discutida na diretoria como diferencial competitivo (oferecendo 5 anos de garantia para dominar fatias de mercado).
+:::
 
 ---
 
@@ -558,3 +569,141 @@ Com essa ponte conceitual estabelecida, encerramos a fundamentação teórica. O
 * **Economia e Produtividade:** A verdadeira Qualidade reduz a variabilidade operacional. Ao investir em custos de controle (prevenção), a operação elimina os devastadores custos de falha, aumentando a produtividade e a participação de mercado sem a necessidade de reduzir preços.
 * **A Base Normativa (ISO 9000):** Para que a gestão seja universal, é preciso unificar o idioma. O "Objeto" gera "Saídas" (Produtos ou Serviços). O "Grau" representa o nível de exigência da categoria, enquanto a "Qualidade" é estritamente o nível de atendimento ao "Requisito".
 * **A Ponte para a Engenharia de Dados:** O sistema normativo não é apenas um guia de auditoria, mas a base do nosso algoritmo. O que a norma chama de *Característica, Requisito e Grau*, a estatística e a programação tratarão como *Variável, Peso e Nota*.
+
+---
+
+## Exercícios de Fixação {#sec-exercicios-cap1}
+
+Para consolidar os conceitos deste capítulo, consulte a seção [**Capítulo 1 — Fundamentos e Conceitos da Qualidade**](cap8-exercicios-parte1.qmd#sec-cap8-cap1) no [**Capítulo 8: Exercícios Integrados da Parte I**](cap8-exercicios-parte1.qmd#sec-cap8-exercicios).
+
+Para consolidar o entendimento sobre a Evolução do Conceito de Qualidade, resolva as questões teóricas e os estudos de caso propostos abaixo. As respostas detalhadas encontram-se no @sec-gabarito-parte1.
+
+::: {#exr-qualidade-contexto}
+**A Dependência do Contexto**
+Explique por que o conceito de Qualidade não é um atributo isolado e depende fundamentalmente do contexto a que ele se refere.
+:::
+
+::: {#exr-qualidade-tempo}
+**O Fator Temporal na Qualidade**
+Justifique por que o conceito de Qualidade é dinâmico e depende do momento histórico em que a sociedade vive.
+:::
+
+::: {#exr-qualidade-aspectos}
+**Aspectos de Conceituação**
+Quais são os dois aspectos (ou passos) necessários para se estabelecer uma adequada conceituação de qualidade em um contexto específico?
+:::
+
+::: {#exr-fatores-consumidor}
+**Fatores de Equilíbrio do Consumidor**
+Cite e explique brevemente os quatro fatores fundamentais em torno dos quais o conceito de qualidade gravita na perspectiva do consumidor.
+:::
+
+::: {#exr-ferramenta-eletrica}
+**Aplicação Prática: Ferramenta Elétrica**
+Imagine a comercialização de uma Parafusadeira Profissional. Descreva como a satisfação do cliente pode ser alcançada aplicando os quatro fatores de avaliação do consumidor (Intrínseca, Atendimento, Serviços Associados e Custo Total).
+:::
+
+::: {#exr-garrafa-termica}
+**Adequação em Bens de Consumo: Garrafa Térmica**
+Descreva como os quatro níveis de adequação da qualidade (Padrão, Uso, Custo e Necessidade Latente) se aplicam ao projeto e comercialização de uma Garrafa Térmica de Café.
+:::
+
+::: {#exr-app-delivery}
+**Adequação em Plataformas Digitais: App de Delivery**
+Para um aplicativo de delivery (como iFood ou Uber Eats), demonstre como os quatro níveis de qualidade se manifestam na tecnologia e na logística de entrega.
+:::
+
+::: {#exr-ecommerce-roupas}
+**Adequação no Varejo Online: E-commerce**
+Analise um e-commerce de roupas e descreva como a aplicação dos quatro níveis de adequação é fundamental para converter uma simples visita em uma compra recorrente.
+:::
+
+::: {#exr-carro-eletrico}
+**Adequação na Indústria Automotiva: Carro Elétrico**
+Para um carro elétrico, a qualidade vai além da bateria e abrange toda a experiência de mobilidade. Aplique os quatro níveis de adequação a este produto.
+:::
+
+::: {#exr-banco-digital}
+**Adequação no Setor Financeiro: Banco Digital**
+Em um banco digital, a qualidade é frequentemente percebida na agilidade e na segurança de operações invisíveis ao usuário. Detalhe como os quatro níveis de adequação operam neste modelo de negócio.
+:::
+
+::: {#exr-curso-graduacao}
+**Adequação em Serviços Educacionais: Ensino Superior**
+Para um curso de graduação, demonstre como os quatro conceitos de qualidade (Padrão, Uso, Custo e Necessidade Latente) explicam a forma como o conhecimento é projetado, estruturado e entregue ao aluno.
+:::
+
+::: {#exr-salao-beleza}
+**Adequação em Serviços de Estética: Salão de Beleza**
+Para um salão de beleza, os conceitos de qualidade garantem que o cliente saia satisfeito com o visual e com a experiência. Descreva como os quatro níveis de adequação (Padrão, Uso, Custo e Necessidade Latente) se aplicam a este negócio.
+:::
+
+::: {#exr-hotelaria}
+**Adequação em Hospitalidade: Hotelaria**
+Aplique os quatro níveis de adequação da qualidade na operação de um Hotel, considerando desde a limpeza até a experiência do hóspede.
+:::
+
+::: {#exr-transporte-passageiros}
+**Adequação em Logística: Transporte de Passageiros**
+Para uma empresa de transporte (ônibus ou aérea), demonstre como os quatro níveis de adequação se manifestam na segurança, no conforto e na eficiência da viagem.
+:::
+
+::: {#exr-geladeira-inteligente}
+**Fatores do Consumidor: Geladeira Inteligente**
+Para exemplificar o conceito moderno de equilíbrio entre as metas da organização e do consumidor, descreva como a satisfação do cliente é alcançada em uma Geladeira Inteligente, aplicando os quatro fatores de avaliação do consumidor (Intrínseca, Atendimento, Serviços Associados e Custo Total).
+:::
+
+::: {#exr-saas-erp}
+**Fatores do Consumidor: Serviço de Software (SaaS)**
+Aplique os quatro fatores de avaliação do consumidor a um Serviço de Software B2B, como um ERP (Enterprise Resource Planning) para empresas.
+:::
+
+::: {#exr-fator-smartphone}
+**Fatores do Consumidor: Smartphones (Apple/Samsung)**
+Avalie a percepção de qualidade na compra de um Smartphone de alto padrão sob a ótica dos quatro fatores de equilíbrio do consumidor.
+:::
+
+::: {#exr-fator-cia-aerea}
+**Fatores do Consumidor: Companhia Aérea**
+Além da aeronave em si, aplique os quatro fatores do consumidor para mapear a qualidade da experiência em uma Companhia Aérea.
+:::
+
+::: {#exr-fator-concessionaria}
+**Fatores do Consumidor: Concessionária de Energia**
+Para uma Concessionária de Energia Elétrica, descreva como a qualidade é percebida pelo cliente final utilizando os quatro fatores do consumidor.
+:::
+
+::: {#exr-fator-tenis}
+**Fatores do Consumidor: Tênis de Performance**
+Analise um fabricante de tênis de alta performance (ex: Nike/Adidas) e detalhe como ele entrega valor através dos quatro fatores do consumidor.
+:::
+
+::: {#exr-fator-supermercado}
+**Fatores do Consumidor: Supermercado Online**
+Descreva como os quatro fatores do consumidor determinam o sucesso e a qualidade percebida de um Supermercado Online.
+:::
+
+::: {#exr-eras-lampada}
+**As Eras da Qualidade: Produção de Lâmpadas**
+Descreva como a fabricação em massa de lâmpadas evoluiu através das três eras da qualidade (Inspeção, Controle Estatístico e Garantia Estratégica).
+:::
+
+::: {#exr-eras-software}
+**As Eras da Qualidade: Desenvolvimento de Software**
+Na indústria de tecnologia, a busca por sistemas sem *bugs* também passou por estágios evolutivos. Aplique os conceitos das três eras da qualidade ao desenvolvimento de um *Software*.
+:::
+
+::: {#exr-eras-medicamentos}
+**As Eras da Qualidade: Indústria Farmacêutica**
+Dada a criticidade do setor, detalhe como a fabricação de medicamentos superou a era da inspeção visual e atingiu a gestão estratégica da qualidade.
+:::
+
+::: {#exr-eras-aviacao}
+**As Eras da Qualidade: Manutenção Aeronáutica**
+Utilize a aviação (manutenção e gestão de peças) para exemplificar a transição do foco em "olhar o produto pronto" para "gerenciar o sistema para que a falha não exista", passando pelas três eras operacionais.
+:::
+
+::: {#exr-eras-transicao}
+**A Mudança de Paradigma**
+Qual foi o principal fator físico e econômico que forçou a transição da "Era da Inspeção" (100% de verificação) para a "Era do Controle Estatístico da Qualidade"?
+:::

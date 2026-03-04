@@ -571,6 +571,109 @@ Para que os objetivos do PDCA sejam alcançados sem sobressaltos, as propostas d
 
 * **O Desdobramento da Estratégia:** O alinhamento de uma organização exige método. Utilizando o **GPD (Gerenciamento pelas Diretrizes)** e os passos do *Hoshin Kanri*, a estratégia é desdobrada em três horizontes temporais críticos: longo prazo (3 a 5 anos), tático (1 ano) e rotina (1 dia).
 * **O Equilíbrio das Metas:** O *Balanced Scorecard* (BSC) evita que o foco exclusivo no volume de produção destrua o orçamento ou a segurança. A **Matriz X** atua consolidando essas perspectivas, amarrando ações, metas e responsáveis em uma única visão sistêmica.
+* **OKR vs. KPI:** O "sistema nervoso" da empresa divide-se em dois: os **OKRs** atuam como o motor da mudança e da inovação (os aceleradores), enquanto os **KPIs** medem a saúde e a estabilidade da rotina operacional (os termômetros).
+* **A Engenharia da Meta:** Na gestão da rotina, não se aceitam "meios" como "fins". Toda meta deve focar no resultado final e seguir uma anatomia rigorosa: **Verbo + Objeto + Valor (Gap) + Prazo**. Ruídos estatísticos da linha de base (*Baseline*) devem ser purgados utilizando técnicas como a Média Aparada.
+* **O Roteiro Prático de Solução (PDCA/MASP):** Quando a fase de Controle da rotina falha, a engenharia aciona o método. O roteiro se divide em: **Plan** (medir o Gap, delimitar o sistema com SIPOC, mapear a causa raiz com Ishikawa/GUT e planejar via 5W2H); **Do** (treinar e executar); **Check** (validar estatisticamente); e **Act** (padronizar).
+* **Os Motores Físicos e Humanos:** O método não roda no vácuo. Ele depende das pessoas (mobilizadas *bottom-up* através dos Círculos de Controle da Qualidade - CCQ) e da saúde das máquinas (integrando a Qualidade à Manutenção de Ativos).
+* **A Trava do Sistema:** O Procedimento Operacional Padrão (POP) e as Auditorias funcionam como a "cunha" estrutural do PDCA. São eles que impedem a entropia do processo, garantindo que a operação não regrida aos padrões antigos de falha.
+
+---
+
+## Exercícios de Fixação {#sec-exercicios-cap5}
+
+Para consolidar os conceitos deste capítulo, consulte a seção [**Capítulo 5 — Cérebro da Operação**](cap8-exercicios-parte1.qmd#sec-cap8-cap5) no [**Capítulo 8: Exercícios Integrados da Parte I**](cap8-exercicios-parte1.qmd#sec-cap8-exercicios).
+**Estruturação Completa do Ciclo PDCA**
+Um processo de carregamento em mina apresenta tempo de ciclo oscilante entre 45 e 60 minutos, quando deveria ser estável em 50 minutos (meta ±3%). Estruture o ciclo PDCA completo, detal hando:
+a) **Plan:** Como você delimitaria o problema? Quais dados colecionaria?
+b) **Do:** Como executaria os testes de solução?
+c) **Check:** Como validaria se a solução funcionou?
+d) **Act:** Como padronizaria o novo nível alcançado?
+:::
+
+::: {#exr-cap5-ishikawa-britador}
+**Diagrama de Ishikawa (Causa-Efeito)**
+Um britador primário apresenta redução anormal de capacidade (de 400 t/h para 280 t/h). Construa um Diagrama de Ishikawa com as 6 causas principais (Máquina, Método, Material, Mão-de-Obra, Medida, Meio Ambiente) para investigar esse problema.
+:::
+
+::: {#exr-cap5-5w2h-acao}
+**Plano de Ação 5W2H**
+Considere que o Diagrama de Ishikawa identificou que o britador está perdendo capacidade porque a lubrificação dos mancais é feita a cada 1.000 horas, quando deveria ser a cada 500 horas. Construa um Plano de Ação 5W2H para implementar a mudança na frequência de lubrificação.
+:::
+
+::: {#exr-cap5-masp-problema}
+**MASP: Do Problema à Solução**
+Descreva os 8 passos do MASP aplicados a um problema real de sua escolha na mineração. Inclua: Observação, Definição do Problema, Análise (com Ishikawa e GUT), Plano de Ação, Execução, Verificação, Padronização e Reflexão.
+:::
+
+### Seção 2: Balanced Scorecard e OKR/KPI
+
+::: {#exr-cap5-bsc-mineracao}
+**Construção de BSC para Operação de Mina**
+Desenvolva um Balanced Scorecard (4 perspectivas: Financeira, Clientes, Processos, Aprendizado) para uma operação de mineração. Em cada perspectiva, defina pelo menos 2 indicadores e suas metas para o próximo ano.
+:::
+
+::: {#exr-cap5-okr-vs-kpi}
+**Diferenciação: OKR vs. KPI**
+Uma gerência define: "Aumentar a Disponibilidade Física (DF) para 95% em 12 meses" e "Executar auditoria de manutenção todos os segundos segundas-feiras". Qual é OKR e qual é KPI? Por quê?
+:::
+
+::: {#exr-cap5-meta-realista}
+**Engenharia da Meta: Baseline e Realismo**
+A Disponibilidade Física média dos últimos 12 meses é 82%, com desvio padrão de 5%. A proposta é aumentar para 90%. Usando a técnica da Média Aparada (filtrando outliers), qual seria uma meta mais realista e justificada estatisticamente?
+:::
+
+### Seção 3: Procedimentos e Auditoria
+
+::: {#exr-cap5-pop-construction}
+**Construção de POP (Procedimento Operacional Padrão)**
+Para o processo de "Troca de Óleo do Britador Primário", construa um POP detalhado incluindo: (1) Objetivos, (2) Responsáveis, (3) Materiais necessários, (4) Etapas numeradas, (5) Tempo estimado, (6) Avisos de segurança, (7) Frequência de execução.
+:::
+
+::: {#exr-cap5-auditoria-checklist}
+**Auditoria via Checklist**
+Desenvolva um Checklist de Auditoria Operacional para verificar se o POP de troca de óleo está sendo cumprido corretamente. O checklist deve ter pelo menos 10 itens verificáveis, com espaço para comentários do auditor.
+:::
+
+### Seção 4: Gestão de Pessoas (CCQ)
+
+::: {#exr-cap5-ccq-estrutura}
+**Círculos de Controle da Qualidade (CCQ)**
+Se você fosse implantar um CCQ em um setor de manutenção de frota de caminhões, como estruturaria o programa? Defina: (1) Frequência de reuniões, (2) Temas prioritários iniciais, (3) Mecanismo de priorização de ideias (GUT, Pareto), (4) Alinhamento com a Gestão.
+:::
+
+### Seção 5: Estudo de Caso Integrado — PDCA Completo
+
+::: {#exr-cap5-case-pdca-completo}
+**Do Diagnóstico à Padronização: Caso Completo**
+Uma mina de ouro enfrenta o seguinte cenário: **Problema:** Taxa de falha inesperada em Ordens de Manutenção subiu de 5% para 18% nos últimos 3 meses. **Consequência:** Aumento de retrabalhos (custo +15%), piora  na DF (87% → 76%) e risco de perda de clientes.
+
+Desenvolva:
+1. Um SIPOC para delimitar o processo de Execução de Ordens de Manutenção.
+2. Um Diagrama de Ishikawa investigando as 6 causas possíveis.
+3. Uma Matriz GUT priorizando as causas raiz.
+4. Um 5W2H detalhado para a causa #1.
+5. Um Plano de Verificação (como você testaria se a solução funciona?).
+6. Um Padrão (POP) que evite regressão após a solução ser implementada.
+7. Um cronograma de Auditorias para monitorar sustentabilidade (próximos 6 meses).
+:::
+
+### Seção 6: Questões de Reflexão
+
+::: {#exr-cap5-ref-q1}
+**Ciclo Contínuo**
+Por que o PDCA é um "ciclo" e não uma "sequência linear"? Qual é a importância do retorno à fase de "Plan" após a "Act"?
+:::
+
+::: {#exr-cap5-ref-q2}
+**Padronização e Inovação**
+Se o POP padroniza um processo, como evitar que a padronização mate a inovação? Como balancear estabilidade com melhoria contínua?
+:::
+
+::: {#exr-cap5-ref-q3}
+**Auditoria como Ferramenta**
+Por que auditoria é descrita como uma "cunha estrutural"? O que aconteceria se a auditoria fosse removida após 6 meses de implantação do POP?
+:::
+
 
 ```{mermaid}
 %%| label: fig-resumo-bsc

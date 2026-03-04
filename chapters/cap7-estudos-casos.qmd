@@ -446,3 +446,137 @@ Para transpor essa barreira, o desenvolvimento do instrumento de medição segui
 3. **Instrumentalização Matemática:** Para modelar e codificar essas percepções, a modelagem se apoiará na **Teoria da Resposta ao Item (TRI)** *(Item Response Theory - IRT)*, técnica estatística avançada que permitirá validar as variáveis qualitativas do sistema de gestão.
 
 *(Nota: O desenvolvimento do código, das equações da Teoria da Resposta ao Item e das funções matemáticas em R para este estudo de caso serão detalhados nas seções seguintes).*
+
+## 📝 Resumo do Capítulo
+
+* **A Modelagem Multidimensional do Capital Humano:** O modelo ARM expande-se para avaliar competências, habilidades e atitudes de profissionais. Desdobrando 51 variáveis operacionais em 3 dimensões (Competências, Habilidades, Atitudes), a abordagem permite diagnósticos específicos superiores a simples "notas globais".
+* **Vieses em Autopercepção:** Questionários de autoavaliação sofrem distorções sistemáticas (desejabilidade social, viés de consistência, ancoragem, etc.). A engenharia de dados deve mitigar essas distorções através de técnicas de tratamento rigoroso.
+* **O IQPL (Índice de Qualidade de Plano de Manutenção):** Aplicação prática do ARM para auditoria de sistemas de manutenção. Com 35 variáveis agrupadas em 5 dimensões (Programáveis, Processuais, Ativos, Lista de Tarefas, Desempenho), o IQPL fornece uma nota única (máximo 100 pontos) para guiar a melhoria de planos de manutenção.
+* **Ambientes de Relacionamento Interno (ARI):** A terceira camada de aplicação examina como a comunicação e a percepção entre departamentos (Apoio vs. Operação) impactam o desempenho. Introduz-se a **Teoria da Resposta ao Item (TRI/IRT)** para modelar variáveis qualitativas complexas com rigor estatístico.
+* **Escalabilidade da Arquitetura:** Os estudos de caso demonstram que a mesma equação base (ARM) é universal: funciona para avaliar minério, britadores, humanos ou sistemas abstratos (como comunicação interna). A mudança está apenas na granularidade das variáveis ($V_i$) e na estrutura dimensional ($D_j$).
+
+---
+
+## Exercícios de Fixação {#sec-exercicios-cap7}
+
+Para consolidar os conceitos deste capítulo, consulte a seção [**Capítulo 7 — Estudos de Casos**](cap8-exercicios-parte1.qmd#sec-cap8-cap7) no [**Capítulo 8: Exercícios Integrados da Parte I**](cap8-exercicios-parte1.qmd#sec-cap8-exercicios).
+b) 5 Habilidades operacionais associadas a cada competência.
+c) 5 Atitudes comportamentais que você esperaria de um profissional de excelência.
+d) Um modelo simplificado ARM (com pesos) que avaliasse este profissional em escala 0-100.
+:::
+
+::: {#exr-cap7-vieses-percepcao}
+**Análise de Vieses em Autopercepção**
+Em um questionário de autoavaliação de profissionais de manutenção, você observa que 80% dos respondentes são classificados como "Forte" (nota 5 em uma escala 1-5) em "Habilidades Técnicas", enquanto apenas 10% se classificam como "Forte" em "Liderança". Qual viés está presente? Como reformularia o instrumento para mitigar essa distorção?
+:::
+
+::: {#exr-cap7-ndimensional}
+**Modelo N-Dimensional de Competência**
+Construa um modelo ARM bidimensional (2 dimensões principais) avaliando um "Técnico de Manutenção Sênior" em Mineração, com:
+- Dimensão 1: Competência Técnica (5 variáveis, pesos dados)
+- Dimensão 2: Competência Comportamental (5 variáveis, pesos dados)
+- Calcule um score global (escala 0-100) para um respondente fictício.
+:::
+
+### Seção 2: IQPL e Auditoria de Planos de Manutenção
+
+::: {#exr-cap7-iqpl-simplificado}
+**Cálculo Simplificado do IQPL**
+Usando a fórmula do IQPL apresentada no capítulo, construa versão simplificada com apenas 10 variáveis (em vez de 35), agrupadas em 3 dimensões. Atribua pesos aos variáveis e dimensões, e calcule um score IQPL fictício para um plano de manutenção de um britador primário.
+:::
+
+::: {#exr-cap7-auditoria-manutencao}
+**Auditoria de Plano de Manutenção Usando ARM**
+Para um Caminhão Fora de Estrada em operação, audite o seu plano de manutenção respondendo às seguintes questões:
+
+a) Quais são as 3 variáveis mais críticas que devem estar no plano para maximizar a DF (Disponibilidade Física)?
+b) Como você estruturaria as dimensões (Programáveis, Processuais, Ativos, Listas)?
+c) Qual seria uma meta de IQPL realista para este equipamento (0-100)?
+:::
+
+::: {#exr-cap7-iqpl-comparacao}
+**Comparação de Dois Planos (IQPL Relativo)**
+Dois britadores (A e B) foram auditados com os seguintes resultados:
+- Britador A: IQPL = 78/100
+- Britador B: IQPL = 65/100
+
+Qual equipamento merecia priorização imediata? Como você desdobraria o diagnóstico para identificar as fraquezas específicas do Britador B?
+:::
+
+### Seção 3: Ambientes de Relacionamento Interno (ARI)
+
+::: {#exr-cap7-ari-diagnostico}
+**Diagnóstico de Cultura entre Apoio e Operação**
+Em uma mineradora, a equipe de Planejamento (Apoio) diz que os planos são bem estruturados, mas a equipe de Chão de Fábrica (Operação) reclama que "os planos nunca funcionam na prática". Estruture um modelo ARI para diagnosticar essa discrepância de percepção:
+
+a) Defina as partes (clientes internos) em interação.
+b) Proponga 3 fatores críticos que poderiam estar gerando essa desconexão.
+c) Como você mediria o "grau de desalinhamento" entre as percepções?
+:::
+
+::: {#exr-cap7-comunicacao-integral}
+**Modelo ARM para Efetividade de Comunicação**
+Construa um modelo ARM para avaliar a qualidade da comunicação interna entre o departamento de Confiabilidade e o de Operações (variáveis: Clareza de Mensagens, Frequência, Responsividade, Acesso a Dados, Confiança). Calcule um score global que indique o "nível de sintonia" entre os departamentos.
+:::
+
+### Seção 4: Estudo de Caso Integrado — Transformação Completa
+
+::: {#exr-cap7-case-transformacao-integral}
+**Transformação da Gestão de Manutenção via ARM Multidimensional**
+Uma mineradora de ouro enfrenta os seguintes problemas interconectados:
+
+**Problema 1 (Gestão de Ativos):**
+- Plano de Manutenção (IQPL) baixo (58/100), faltam dados sobre ativos.
+- OEE dos britadores caiu de 78% para 62%.
+- Equipe de manutenção sente-se "executora" e não "dona" dos resultados.
+
+**Problema 2 (Comunicação Interna):**
+- Operação reclama: "Planejamento não entende a realidade de campo".
+- Apoio responde: "Operação não manda avisos antecipados, reclama de tudo depois".
+- Resultado: Ordens de Manutenção (OMs) com falha em 25% dos casos.
+
+**Problema 3 (Competência Humana):**
+- Técnicos de manutenção com alta competência técnica, mas baixa liderança.
+- Coordenadores com visão estratégica, mas desconectados da operação.
+
+**Sua Tarefa:**
+
+1. **Dimensão 1 — Diagnóstico Integrado:**
+   - Construa um modelo ARM consolidado que una as 3 problemáticas em uma única "Nota de Saúde Organizacional" (0-100).
+   - Defina as 3 grandes dimensões (Gestão de Ativos, Relacionamento Interno, Competências).
+   - Cada dimensão terá 3-4 variáveis, com pesos.
+
+2. **Dimensão 2 — Cause-to-Effect:**
+   - Mostre a cadeia causal: como baixa competência em "Liderança" causa problemas de "Comunicação Interna", que por sua vez impacta a "Qualidade do IQPL".
+
+3. **Dimensão 3 — Roadmap de Melhoria:**
+   - Priorize as 3 ações mais impactantes (usando GUT ou Pareto).
+   - Para cada ação, construa um 5W2H detalhado.
+   - Defina as metas intermediárias (mês 1, 3, 6) para cada dimensão.
+
+4. **Dimensão 4 — Governança de Sustentabilidade:**
+   - Como medir se as melhorias estão sustentadas após 1 ano?
+   - Que métricas você monitoraria semanalmente?
+:::
+
+### Seção 5: Questões de Reflexão
+
+::: {#exr-cap7-ref-q1}
+**Universalidade do ARM**
+O capítulo argumenta que o ARM é "universal" — aplicável a minério, máquinas, humanos e relacionamentos. Cite exemplos de contextos onde essa universalidade seria quebrada (onde o ARM NÃO seria adequado)?
+:::
+
+::: {#exr-cap7-ref-q2}
+**Vieses Sistêmicos**
+Se todo instrumento de medida sofre vieses (como discutido no caso de competências), como uma organização pode confiar nos dados gerados para tomar decisões estratégicas?
+:::
+
+::: {#exr-cap7-ref-q3}
+**Complexidade e Simplicidade**
+O IQPL tem 35 variáveis. O modelo de Competências tem 51 variáveis. Por que não simplificar para 5-10 variáveis? Qual é a vantagem de manter tanta granularidade?
+:::
+
+::: {#exr-cap7-ref-q4}
+**Integração de Três Mundos**
+O capítulo integra a avaliação de (1) Pessoas, (2) Máquinas/Processos, (3) Comunicação. Como esses três "mundos" interagem em uma operação real de mineração? Qual é a ordem de prioridade de melhoria?
+:::

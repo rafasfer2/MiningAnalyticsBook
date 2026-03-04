@@ -1,0 +1,540 @@
+---
+format: html
+---
+
+# Gabarito — Parte I: Engenharia da Qualidade {#sec-gabarito-parte1}
+
+::: {.callout-tip title="📖 Como usar este gabarito"}
+Este documento apresenta os exercícios propostos nos Capítulos 1 a 7 da Parte I **com as respostas esperadas e orientações detalhadas**. As respostas não são "respostas únicas", mas guias estruturados que demonstram o raciocínio esperado em cada contexto. Use este gabarito para:
+- **Professores/Instrutores:** Validar respostas de alunos e acompanhar aprendizado
+- **Alunos (auto-avaliação):** Comparar suas respostas com o esperado após tentar resolver sozinho
+
+⚠️ **Importante:** Tente resolver os exercícios do Cap 8 ANTES de consultar este gabarito.
+:::
+
+---
+
+## Seção 1: Exercícios de Integração (Capítulos 1-7)
+
+### Exercício 1.1 — Definição Contextual de Qualidade
+
+**Contexto:** Em uma operação de britagem, três stakeholders definem "qualidade" de forma diferente:
+
+- **Operador de Britador:** "Qualidade é rodando sem parar"
+- **Engenheiro de Processo:** "Qualidade é granulometria dentro da especificação (P80 = 12 mm)"
+- **Gerente de Mina:** "Qualidade é entregar minério no prazo ao menor custo"
+
+**Pergunta:**
+
+a) Qual das três definições está "errada"? Justifique sua resposta.
+
+b) Como essas três perspectivas podem ser integradas em uma única definição de qualidade operacional para esse equipamento?
+
+c) Qual ferramenta da Parte I você utilizaria para harmonizar essas visões?
+
+---
+
+**GABARITO 1.1:**
+
+a) **Nenhuma definição está "errada"** — cada uma reflete uma dimensão legítima da qualidade:
+   - Operador: perspectiva de **confiabilidade operacional** (Disponibilidade/Uptime)
+   - Engenheiro: perspectiva de **conformidade técnica** (Especificação do produto)
+   - Gerente: perspectiva de **eficiência financeira** (Rentabilidade)
+
+b) **Integração em definição única:** "Qualidade é a capacidade de entregar minério dentro da especificação de granulometria (P80 = 12 mm), com disponibilidade mínima de 90%, mantendo custo unitário em $X/ton" — esta definição contempla as três dimensões simultaneamente.
+
+c) **Ferramentas de integração:**
+   - **Hoshin Kanri** (Cap 4): desdobra a meta estratégica em cascata, conectando objetivos operacionais a metas financeiras
+   - **PDCA estruturado** (Cap 5): estabelece ciclos de melhoria contínua para cada dimensão
+   - **X-Matrix**: visualiza a relação entre as três perspectivas
+
+---
+
+### Exercício 1.2 — Adequação ao Uso vs. Conformidade com Projeto
+
+**Contexto:** Uma empresa de mineração adquire um **detector de metais portátil** para inspeção de segurança em frentes de corte/detonação.
+
+- **Especificação técnica (Projeto):** Detecta metais ferrosos acima de 2 gramas a distância de até 50 cm.
+- **Realidade de Campo:** O equipamento funciona perfeitamente no laboratório, mas em campo sua sensibilidade cai para 8 gramas devido a interferência eletromagnética de maquinários próximos.
+
+**Pergunta:**
+
+a) Segundo a ótica "Conformidade com Projeto", o equipamento é de qualidade ou não?
+
+b) Segundo a ótica "Adequação ao Uso", o equipamento é de qualidade ou não?
+
+c) Como você resolveria essa contradição? Quais modificações fariam o equipamento ser considerado de qualidade em ambas perspectivas?
+
+---
+
+**GABARITO 1.2:**
+
+a) **Conformidade com Projeto: NÃO é de qualidade**
+   - A especificação prometia 2g a 50 cm
+   - Em campo, apenas atinge 8g a 50 cm
+   - A falha é de **validação de projeto** (não testaram em ambiente real)
+
+b) **Adequação ao Uso: DEPENDE do risco aceitável**
+   - Se fragmentos de 8g ou maiores podem causar dano (segurança comprometida) → NÃO é adequado
+   - Se fragmentos > 8g são raros no processo e o risco é aceitável → PODE ser adequado
+   - Resposta: Provavelmente NÃO é adequado (segurança é crítica)
+
+c) **Soluções para garantir qualidade em ambas perspectivas:**
+
+   **Opção 1: Redesenho do projeto**
+   - Adicionar blindagem eletromagnética ao detector
+   - Refazer testes em ambiente representativo (com máquinas ligadas)
+   - Nova especificação: detecta 2g a 30 cm em ambiente real (menos ambicioso, mas realista)
+
+   **Opção 2: Adaptação ao uso**
+   - Retreinar operadores para usar o detector a 30 cm do alvo (não 50 cm)
+   - Aumentar frequência de inspeções para compensar menor sensibilidade
+   - Documentar que sensibilidade em campo é 8g, não 2g, mas aceitável para segurança
+
+   **Opção 3: Mudança de ferramental**
+   - Adquirir equipamento mais robusto a interferência eletromagnética (mais caro)
+   - Implementar zonas de segurança ao redor de equipamentos que geram interferência
+
+   **Conclusão:** Qualidade requer que a **especificação seja realista** (conformidade) E que o equipamento seja **seguro em uso real** (adequação). Se há contradição, o projeto está errado.
+
+---
+
+### Exercício 2.1 — Construção de Indicador Estratégico (Hoshin Kanri)
+
+**Contexto:** Você é gestor de manutenção em uma mina e recebeu a seguinte meta estratégica:
+
+*"Reduzir custos de manutenção em 15% no próximo ano mantendo disponibilidade acima de 90%"*
+
+**Pergunta:**
+
+a) Desdobre essa meta em **objetivos táticos** (programação mensal) e **operacionais** (KPIs semanais).
+
+b) Defina quais equipes são responsáveis por cada objetivo.
+
+c) Estabeleça uma **cadeia de causa-efeito** que relacione os objetivos operacionais aos resultados estratégicos.
+
+---
+
+**GABARITO 2.1:**
+
+a) **Desdobramento em cascata:**
+
+| **Nível** | **Objetivo** | **Métrica** | **Meta Anual** | **Meta Mensal** | **Meta Semanal** |
+| --- | --- | --- | --- | --- | --- |
+| **Estratégico** | Reduzir custos manutenção | R$/ton ao custeio | -15% | -1,25% | -0,29% |
+| **Tático/Mensal** | Aumentar MTBF | Horas/falha | +20% | +1,67% | +0,39% |
+| **Tático/Mensal** | Reduzir paradas emergenciais | % preventiva | 85% | 85% | 85% |
+| **Operacional** | Reduzir OMs emergenciais | Qtde/semana | < 2 | Var. mensal | < 2 |
+| **Operacional** | Aumentar OMs preventivas | Qtde/semana | > 8 | Var. mensal | > 8 |
+
+b) **Responsabilidades por nível:**
+
+| **Nível** | **Responsável** | **Ação Típica** |
+| --- | --- | --- |
+| Estratégico | Diretor/Gerente Geral | Aprovar orçamento, alocar recursos |
+| Tático-Mensal | Engenheiro de Confiabilidade | Planejar preventivas, validar MTBF |
+| Operacional | Supervisor/Encarregado | Executar OMs, preenchimento de dados, feedback diário |
+
+c) **Cadeia de causa-efeito:**
+
+```
+Mais OMs Preventivas (supervisor executa 8+/sem)
+    ↓
+MTBF aumenta (+20% no ano)
+    ↓
+Menos falhas totais (% preventiva ↑ para 85%)
+    ↓
+Menos horas de indisponibilidade
+    ↓
+Disponibilidade sobe para 90%+
+    ↓
+Custos emergenciais caem, peças usadas mais eficientemente
+    ↓
+Custo total manutenção reduz 15%
+    ↓
+Resultado estratégico alcançado
+```
+
+---
+
+### Exercício 2.2 — Análise de Modo de Falha (FMEA Simplificado)
+
+**Contexto:** Um sistema de correias em uma moega apresenta falhas crônicas de desalinhamento.
+
+**Pergunta:**
+
+a) Identifique pelo menos 3 **modos de falha** possíveis (ex: desgaste de rolamento, desalinhamento axial, fadiga de estrutura).
+
+b) Para cada modo, estime a **Severidade (S)**, **Ocorrência (O)** e **Detecção (D)** em escala 1-10.
+
+c) Calcule o **RPN (Risco de Priorização)** para cada modo.
+
+d) Qual modo deveria receber prioridade máxima de correção?
+
+---
+
+**GABARITO 2.2:**
+
+a) **3+ modos de falha em sistema de correias:**
+
+1. **Desgaste de rolamento** (por falta de lubrificação ou idade)
+2. **Desalinhamento axial** (eixo-motor/eixo-moega desalinhados)
+3. **Fadiga de estrutura** (trinca em suporte metálico por vibração crônica)
+4. **Retenção inadequada de correia** (correia escorrega quando deveria puxar)
+5. **Corrosão de polia** (ambiente úmido reduz atrito)
+
+b) **Estimativa S-O-D para os 3 principais:**
+
+| **Modo de Falha** | **S** | **O** | **D** | **RPN** | **Prioridade** |
+| --- | --- | --- | --- | --- | --- |
+| Desgaste rolamento | 8 | 7 | 6 | **336** | 🔴 CRÍTICA |
+| Desalinhamento axial | 7 | 8 | 7 | **392** | 🔴 CRÍTICA |
+| Fadiga de estrutura | 9 | 4 | 8 | **288** | 🟠 ALTA |
+| Retenção inadequada correia | 6 | 5 | 7 | **210** | 🟡 MÉDIA |
+| Corrosão de polia | 5 | 6 | 6 | **180** | 🟡 MÉDIA |
+
+c) **RPN = S × O × D**
+   - Desalinhamento: 7 × 8 × 7 = 392 ✓ MÁXIMO
+   - Desgaste: 8 × 7 × 6 = 336
+   - Fadiga: 9 × 4 × 8 = 288
+   - Retenção: 6 × 5 × 7 = 210
+   - Corrosão: 5 × 6 × 6 = 180
+
+d) **Prioridade máxima: Desalinhamento Axial (RPN = 392)**
+
+   **Ações recomendadas:**
+   - Implementar **verificação de alinhamento** com laser (semanal)
+   - **Limpeza de eixo** antes/após troca de correia
+   - Documentar **procedimento de alinhamento** com tolerância máxima de 2 mm
+   - Treinar mecânico em técnica de alinhamento
+   - Verificar aperto de parafuso de travamento (vibração solta)
+
+---
+
+### Exercício 3.1 — PDCA Aplicado a Redução de Downtime
+
+**Contexto:** Seu britador primário teve **3 paradas emergenciais** em um mês, totalizando **18 horas de indisponibilidade**, quando a meta era máximo 4 horas.
+
+**Pergunta:**
+
+a) **PLAN:** Descreva qual problema você investigaria primeiro e que dados coletaria.
+
+b) **DO:** Que ação corretiva você implementaria?
+
+c) **CHECK:** Como você verificaria se a ação funcionou?
+
+d) **ACT:** Se a ação funcionou, como você a padronizaria?
+
+---
+
+**GABARITO 3.1:**
+
+a) **PLAN (Planejar):**
+
+   **Problema a investigar (por RPN ou frequência):** Qual das 3 paradas é recorrente? Causas:
+   - Parada 1: Correia quebrada
+   - Parada 2: Sensor tranca equipamento
+   - Parada 3: Falta combustível (operador esqueceu)
+
+   **Dados a coletar:**
+   - Log detalhado de cada falha (hora, duração, causa raiz)
+   - Histórico de manutenção (últimas trocas de peça)
+   - Procedimento operacional (quantas vezes refueled, horários)
+   - Temperatura, vibração, pressão em tempo real
+
+   **Meta:** Reduzir indisponibilidade de 18h/mês para <4h/mês em 60 dias
+
+b) **DO (Fazer):**
+
+   **Para cada tipo de falha:**
+   - **Correia:** Estoque de correia de reposição, treinamento rápido de troca (30 min)
+   - **Sensor:** Validar funcionamento diário, substituir por sensor mais robusto
+   - **Combustível:** Implementar checklist pré-operacional, alarme de combustível baixo
+
+   **Implementar a ação mais impactante primeiro** (ex: sensor, se causou 50% das paradas)
+
+c) **CHECK (Verificar):**
+
+   **Semanas 1-4 após ação:**
+   - Contar quantidade de paradas (meta: <2 por semana)
+   - Cronometrar duração (meta: <30 min se houver parada)
+   - Registrar causa de cada parada (para validar se foi resolvida)
+
+   **Métrica:** Gráfico de série temporal mostrando indisponibilidade reduzindo semana a semana
+
+   **Critério de sucesso:** Em 60 dias, conseguir <4h/mês de paradas emergenciais
+
+d) **ACT (Agir):**
+
+   **Se funcionou (ação bem-sucedida):**
+   - Documentar procedimento no **Manual de Operação**
+   - Criar checklist diário baseado na ação (ex: "Verificar nível de combustível")
+   - Treinar todos operadores e supervisores
+   - Revisar a cada 3 meses se a parada voltou (variação comum)
+
+   **Se não funcionou:**
+   - Investigar falhas residuais
+   - Voltar ao PLAN e testar outra ação
+   - Nunca aceitar indisponibilidade >4h/mês sem ação
+
+---
+
+### Exercício 3.2 — Seleção de Ferramenta Apropriada
+
+**Contexto:** Você identifica que existem **5 causas diferentes** gerando atrasos nas ordens de manutenção:
+- Falta de peças (40% dos atrasos)
+- Equipe indisponível (25%)
+- Documentação incompleta (20%)
+- Ferramenta quebrada (10%)
+- Outros (5%)
+
+**Pergunta:**
+
+a) Qual ferramenta você usaria para visualizar essa distribuição de causas?
+
+b) Como você interpretaria o resultado? Qual é o próximo passo?
+
+c) Você concentraria esforços na causa de 40% ou distribuiria igualmente? Por quê?
+
+---
+
+**GABARITO 3.2:**
+
+a) **Ferramenta: Gráfico de Pareto**
+
+   ```
+   Atrasos em Ordens de Manutenção
+
+   Frequência | ███████ Falta peças (40%)
+   40         | ███████
+   35         | ███████
+   30         | ███████
+   25         | █████ Equipe indisponível (25%)
+   20         | ████ Documentação (20%)
+   15         |
+   10         | ██ Ferramenta quebrada (10%)
+    5         | Outros (5%)
+              +──────────────────
+                Causa raiz
+   ```
+
+   **Linha de corte Pareto:** 80% dos atrasos vêm de ~20% das causas
+
+b) **Interpretação:**
+   - **Falta de peças + Equipe indisponível = 65%** (maioria dos problemas vem de 2 causas)
+   - **Documentação + Ferramenta + Outros = 35%** (causas menores)
+
+   **Próximos passos:**
+   1. Focar em **Falta de peças** (40%) → ação: criar estoque estratégico
+   2. Focar em **Equipe indisponível** (25%) → ação: criar escalas de plantão/backup
+   3. Monitorar se essas 2 ações reduzem os atrasos em 65%
+
+c) **Concentrar vs. Distribuir:**
+
+   **RESPOSTA: Concentre recursos nas 2 principais (Pareto)**, NÃO distribua igualmente.
+
+   **Justificativa:**
+   - Recurso limitado ($ de orçamento, tempo de gestão)
+   - Resolver a causa de 40% elimina mais atrasos que resolver tudo de 5%
+   - **ROI (Retorno sobre Investimento)** é melhor no alto do Pareto
+
+   **Exemplo de distribuição ERRADA:**
+   - Investir igualmente em todas 5 causas → pouco progresso em cada uma
+   - Resultado: alguns atrasos diminuem um pouco, nenhum resolve completamente
+
+   **Exemplo de distribuição CERTA (Pareto):**
+   - 70% do orçamento → resolver falta de peças
+   - 20% do orçamento → resolver equipe indisponível
+   - 10% do orçamento → observar se o resto resolve sozinho
+   - Resultado: 65% dos atrasos eliminados em 2-3 meses
+
+---
+
+### Estudo de Caso 4.1 — Sistema de Qualidade para Operação de Carregamento
+
+**Contexto Geral:**
+
+Uma operação de carregamento e transporte de minério possui:
+- **3 escavadeiras hidráulicas** (principal fonte de produção)
+- **8 caminhões fora-de-estrada**
+- **Meta de produção:** 500 toneladas/dia
+- **Problema:** Disponibilidade das escavadeiras cai para 65% nos períodos de chuva
+
+**Situação Específica:**
+
+Na última semana chuvosa:
+- Escavadeira A: 2 paradas (correntes entupidas de barro)
+- Escavadeira B: 3 paradas (sensor de inclinação desativa em umidade alta)
+- Escavadeira C: 1 parada (operador mal treinado em terreno molhado)
+
+**Perguntas:**
+
+1. **Filosofia da Qualidade:** O que isso significa em termos ISO 9000? Estamos com problema de "Produto" (equipamento) ou "Processo" (operação)?
+
+2. **Modelagem Estratégica:** Construa um **Hoshin Kanri** para aumentar disponibilidade em época chuvosa.
+
+3. **Quantificação:** Defina **3 KPIs operacionais** que você monitoraria semanalmente.
+
+4. **Ferramentas:** Se você tivesse 1 mês para resolver, qual seria sua **sequência de ferramentas**?
+
+5. **Governança:** Como você estruturaria o **PDCA mensal** para acompanhar progressos?
+
+---
+
+**GABARITO 4.1:**
+
+**1. Filosofia e ISO 9000:**
+
+**O problema é de PROCESSO, não de Produto:**
+- ISO 9000 define qualidade como "capacidade de satisfazer necessidades explícitas e implícitas"
+- A **meta de 500 ton/dia não é atingida** quando chove (aproximadamente 325 ton/dia com 65% disponibilidade)
+- A **raiz não é o equipamento em si**, mas a **operação em condição não planejada** (chuva)
+
+**Problema de Processo:**
+- Falta procedimento específico para chuva
+- Falta capacitação operacional para terreno molhado
+- Falta sensores adequados para ambiente úmido
+- Falta manutenção preventiva sazonal (antes de período chuvoso)
+
+**Solução:** Implementar **Sistema de Qualidade Processual** que inclua:
+- Procedimentos por condição climática
+- Manutenção preventiva sazonal
+- Treinamento operacional em ambientes adversos
+- Sensores/equipamentos mais robustos
+
+---
+
+**2. Hoshin Kanri para Disponibilidade em Época Chuvosa:**
+
+| **Nível** | **Objetivos** | **Responsável** | **Métrica** | **Meta Ano 1** |
+| --- | --- | --- | --- | --- |
+| **Estratégico** | Aumentar disponibilidade em época chuvosa | Diretor Operações | Disponibilidade período chuvoso | 85% (acima dos 65% atuais) |
+| **Tático** | Reduzir paradas por entupimento | Engenheiro Manutenção | Paradas por corrente/semana | <1 |
+| **Tático** | Aumentar robustez de sensores | Engenheiro Equipamentos | % sensores resistentes a umidade | 100% |
+| **Tático** | Capacitar operadores em chuva | Supervisor Operações | % operadores treinados | 100% |
+| **Operacional** | Limpeza preventiva pré-chuva | Mecânico | Checklist/semana em época chuvosa | 3x/semana |
+| **Operacional** | Manutenção de sensores | Técnico Instrumental | Teste de sensor (pass/fail) | 100% funcional |
+| **Operacional** | Treinamento prático molhado | Encarregado | Horas de treino/operador | 8h/operador antes de chuva |
+
+**X-Matrix (Causa-Efeito):**
+```
+Procedimentos específicos para chuva
+    + Limpeza preventiva semanal
+    + Sensores mais robustos
+    + Operadores bem treinados
+    ↓
+Menos paradas (corrente, sensor, operação)
+    ↓
+Disponibilidade sobe de 65% para 85%
+    ↓
+Produção de 500 ton/dia mantida mesmo em chuva
+    ↓
+Receita não cai em períodos sazonais
+```
+
+---
+
+**3. KPIs Operacionais (monitoramento semanal):**
+
+| **KPI** | **Definição** | **Meta Semanal** | **Fórmula** |
+| --- | --- | --- | --- |
+| **Disponibilidade** | % de tempo que escavadeiras funcionam | 85% (em chuva) / 95% (seco) | (Horas produção) / (Horas totais) × 100 |
+| **MTBF** | Tempo médio entre falhas | ≥ 80 horas | Horas de operação / Nº de paradas |
+| **% Paradas Preventivas** | % de paradas planejadas vs. emergenciais | ≥ 80% preventiva | Paradas preventivas / Paradas totais |
+
+**Monitoramento:**
+- Atualizar KPIs toda sexta-feira (reunião semanal)
+- Se disponibilidade < 85% na semana: ativar plano de recuperação segunda-feira seguinte
+- Gráfico de série temporal (trending) para ver se melhora ao longo das semanas
+
+---
+
+**4. Sequência de Ferramentas (1 mês):**
+
+**Semana 1: Diagnóstico**
+- Ferramenta: **Brainstorm + Ishikawa** (Diagrama de Espinha de Peixe)
+  - Mapa todas as causas possíveis: Equipamento, Método, Clima, Pessoal, Material
+  - Resultado: Identifica as 3 principais (correntes entupidas, sensor, treinamento)
+
+**Semana 2: Priorização**
+- Ferramenta: **Pareto + GUT**
+  - Pareto: qual causa daria maior impacto se resolvida?
+  - GUT: Gravidade × Urgência × Tendência
+  - Resultado: Foco em sensor (máximo impacto, resolve 50% das paradas)
+
+**Semana 3: Implementação**
+- Ferramenta: **PDCA (micro-ciclos)**
+  - PLAN: Substituir sensor ou criar proteção para sensor
+  - DO: Executar substituição / proteção
+  - CHECK: Testar em dias com umidade alta (simulado ou natural)
+  - ACT: Se funcionar, repetir nas 3 escavadeiras
+
+**Semana 4: Padronização**
+- Ferramenta: **Procedimento + Treinamento**
+  - Documentar "OP-Procedimento de Operação em Chuva" com checklist
+  - Treinar todos operadores e supervisor
+  - Estabelecimento de KPI semanal
+
+**Sequência resumida:** Brainstorm → Ishikawa → Pareto → PDCA → Documentação
+
+---
+
+**5. Governança — PDCA Mensal:**
+
+**Ciclo PDCA Mensal para Disponibilidade:**
+
+| **Etapa** | **Atividade** | **Quando** | **Responsável** | **Saída** |
+| --- | --- | --- | --- | --- |
+| **PLAN** | Reunião de planejamento mensal | 1º dia útil do mês | Engenheiro Operações | Plano de ações para o mês |
+| **PLAN** | Revisar meta (85% disponibilidade) | 1º dia útil | Supervisor | Metas por semana |
+| **DO** | Executar ações (troca sensor, treinamento, limpeza) | Semanas 1-3 do mês | Mecânico, Encarregado, Técnico | Ações completadas |
+| **DO** | Registrar dados diários (disponibilidade, paradas) | Todos os dias | Operador/Supervisor | Planilha de dados |
+| **CHECK** | Análise semanal de disponibilidade | Toda sexta | Supervisor + Engenheiro | Gráfico de série temporal & desvios |
+| **CHECK** | Reunião de 15 min pós-chuva | Quando chove | Encarregado + Equipe | Feedback de problemas em tempo real |
+| **ACT** | Revisão mensal (último dia do mês) | Dia 28-30 | Diretor + Engenheiro + Supervisor | Lições aprendidas & plano próximo mês |
+| **ACT** | Documentar procedimentos atualizados | Fim do mês | Engenheiro | Manual atualizado |
+
+**Formato Reunião Mensal (última sexta do mês):**
+```
+1. Disponibilidade real vs. meta (gráfico)
+2. Causas de desvios (Pareto de paradas)
+3. Ações tomadas (o que funcionou, o que não funcionou)
+4. Ações novas para próximo mês
+5. Treinamentos pendentes
+6. Documentação necessária (atualizações em procedimentos)
+```
+
+**Meta de Melhoria (Meses subsequentes):**
+- Mês 1: Disponibilidade de 65% → 75% (1ª mudança de sensor)
+- Mês 2: 75% → 82% (treinamento completo)
+- Mês 3: 82% → 88% (limpeza preventiva padronizada)
+- Mês 4+: Manter 85%+ (monitoramento contínuo)
+
+---
+
+## Seção 2: Questões de Reflexão (Sem Gabarito — Use Para Debate)
+
+### Q1: Qual é a diferença entre "Filosofia da Qualidade" e "Sistema de Qualidade"?
+
+### Q2: Por que Juran separa "Planejamento da Qualidade" de "Controle da Qualidade"? Cite um exemplo mineral.
+
+### Q3: Qual é o papel do **Hoshin Kanri** em conectar estratégia a operações?
+
+### Q4: Se um equipamento é "conforme" mas "não adéquo ao uso", qual versão de qualidade você prioriza? Por quê?
+
+### Q5: Qual é a relação entre a trilogia de Juran (Planejamento, Controle, Melhoria) e o PDCA de Deming?
+
+---
+
+## Encerramento do Gabarito — Parte I
+
+Este gabarito apresenta resoluções detalhadas para os **6 exercícios integrados** (seções 1-4) e questões de reflexão para discussão.
+
+✅ **Exercícios com Resolução Completa (Seção 1-4):**
+- 2 exercícios fundamentais (Conceituação de Qualidade)
+- 2 exercícios de modelagem (Hoshin + FMEA)
+- 2 exercícios de governança (PDCA + Pareto)
+- 1 estudo de caso integrado (Operação de Carregamento)
+
+**Próxima Etapa:** Gabaritos para exercícios dos Capítulos 2-7 serão adicionados em futuras atualizações.
+

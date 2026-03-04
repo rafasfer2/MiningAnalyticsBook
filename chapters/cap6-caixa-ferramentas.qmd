@@ -414,3 +414,111 @@ A @tbl-5w2h-exemplo demonstra como essa decisão estatística é traduzida em um
 : Matriz 5W2H aplicada à manutenção do britador. {#tbl-5w2h-exemplo}
 
 Ao formalizar o plano de ação nesta matriz, a equipe de engenharia garante que o esforço analítico (*Mining Analytics*) seja convertido em uma intervenção física auditável. Assim que a ação for executada, a roda do PDCA gira para a fase de Verificação (*Check*), onde o engenheiro rodará novamente o código no R para gerar um novo Histograma e comprovar matematicamente que a melhoria foi, de fato, sustentada.
+
+## 📝 Resumo do Capítulo
+
+* **Mapeamento de Processos:** Antes de quantificar, visualizar. O Fluxograma e o SIPOC definem as fronteiras do problema e revelam gargalos invisíveis.
+* **Priorização com Pareto:** O Princípio 80/20 orienta o foco gerencial. Investir tempo em poucas, mas críticas, alavancas traz resultados exponenciais.
+* **Diagnóstico com Ishikawa:** As 6 causas (Máquina, Método, Material, Mão-de-Obra, Medida, Meio Ambiente) estruturam a investigação de causa raiz de forma sistemática.
+* **Priorização de Causas com GUT:** Gravidade, Urgência e Tendência permitem atacar os problemas que causam maior impacto imediato.
+* **Histogramas e Distribuição Normal:** A visualização gráfica dos dados revela o "tipo" de problema (centralização vs. dispersão).
+* **Índices de Capacidade (Cp/Cpk):** Quantificam se um processo é capaz de atender à especificação (Cpk ≥ 1.33).
+* **Cartas de Controle (SPC):** Monitoram a estabilidade do processo ao longo do tempo, diferenciando variação comum de variação especial.
+* **Diagrama de Dispersão:** Revela correlações entre variáveis, auxiliando na construção de modelos preditivos de causa-efeito.
+* **Plano de Ação 5W2H:** Formaliza a execução da solução, garantindo clareza de responsabilidade, prazo e orçamento. É a ponte entre análise e ação.
+
+---
+
+## Exercícios de Fixação {#sec-exercicios-cap6}
+
+Para consolidar os conceitos deste capítulo, consulte a seção [**Capítulo 6 — Caixa de Ferramentas**](cap8-exercicios-parte1.qmd#sec-cap8-cap6) no [**Capítulo 8: Exercícios Integrados da Parte I**](cap8-exercicios-parte1.qmd#sec-cap8-exercicios).
+
+::: {#exr-cap6-fluxograma}
+**Construção de Fluxograma**
+Construa um Fluxograma detalhado do processo de "Execução de Ordem de Manutenção (OM) em Caminhão" desde a sua abertura até o encerramento. Utilize símbolos padrão (retângulos para ações, losangos para decisões, elipses para atrasos) e identifique pelo menos 3 pontos de gargalo.
+:::
+
+::: {#exr-cap6-sipoc}
+**SIPOC para Carregamento de Minério**
+Construa um SIPOC para o processo de Carregamento em uma frente de lavra. Defina claramente os Fornecedores (S), Entradas (I), Processo (P), Saídas (O) e Clientes (C).
+:::
+
+::: {#exr-cap6-pareto-falhas}
+**Diagrama de Pareto: Análise de Falhas**
+Você coleciona dados de 6 meses de falhas em um britador e obtém: Sistema Hidráulico (145 falhas), Revestimentos (98), Caixas de Mancal (67), Motor Elétrico (45), Sensor de Granulometria (32), Correia Transportadora (18). Construa um Diagrama de Pareto e interprete o resultado (qual categoria merecia priorização imediata?).
+:::
+
+### Seção 2: Diagnosis com Ishikawa e GUT
+
+::: {#exr-cap6-ishikawa-mineracao}
+**Diagrama de Ishikawa para Problema de Minério**
+Um minério de cobre apresenta teor de Fe oscilando irregularmente entre 2% e 8%, quando deveria ser 5% ± 1%. Construa um Diagrama de Ishikawa investigando as 6 causas possíveis dessa variabilidade.
+:::
+
+::: {#exr-cap6-gut-prioriza}
+**Matriz GUT: Priorizando Causas**
+Considere que o Ishikawa do exercício anterior identificou 8 causas possíveis. Atribua notas fictícias de Gravidade (1-5), Urgência (1-5) e Tendência (1-5) e use a matriz GUT para determinar qual causa deve ser atacada primeiro.
+:::
+
+### Seção 3: Ferramentas Estatísticas
+
+::: {#exr-cap6-histograma-cpk}
+**Histograma e Índice Cpk**
+Você coleciona 30 medições de granulometria (P80) de um britador que especifica 15 mm ± 2 mm. Os dados mostram Média = 16,5 mm e Desvio Padrão = 1,2 mm. Calcule:
+a) O Índice Cp (capacidade potencial).
+b) O Índice Cpk (capacidade real).
+c) Interprete o resultado: o processo é capaz?
+:::
+
+::: {#exr-cap6-carta-controle}
+**Cartas de Controle (SPC)**
+Você monitora o consumo de combustível diário de uma frota de 5 caminhões durante 20 dias. Defina:
+a) Os Limites de Controle Superior (LCS) e Inferior (LCI) usando média ± 3σ.
+b) Como interpretar se um ponto "sai" dos limites.
+c) Qual seria a próxima ação?
+:::
+
+::: {#exr-cap6-dispersao-correlacao}
+**Diagrama de Dispersão e Correlação**
+Você suspeita que o "Tempo de Ciclo de Carregamento" e a "Carga Transportada" são correlacionados. Colete 15 pares de dados (tempo em minutos, carga em toneladas) e calcule:
+a) O Coeficiente de Correlação (r).
+b) O Coeficiente de Determinação (R²).
+c) O significado prático desses números.
+:::
+
+### Seção 4: Plano de Ação 5W2H
+
+::: {#exr-cap6-5w2h-completo}
+**Matriz 5W2H Detalhada**
+Suponha que os exercícios anteriores diagnosticaram que o britador tem Cpk = 0,85 (incapaz) porque está gerando produtos granulares maiores que o especificado (P80 = 17 mm vs. meta de 15 mm). A causa raiz é a erosão das mantas internas. Construa uma matriz 5W2H completa para substituir as mantas.
+:::
+
+### Seção 5: Estudo de Caso Integrado
+
+::: {#exr-cap6-case-toolkit-completo}
+**Do Sintoma à Solução: Toolkit Completo**
+Um carregador frontal apresenta redução de 20% na sua produtividade nominal (de 350 t/h para 280 t/h) após 6 meses de operação.
+
+1. **Mapeamento:** Construa um Fluxograma do processo de operação do carregador (ciclo de carregamento e descarregamento).
+2. **Priorização:** Proponha 5 causas possíveis (mecânicas, operacionais, ambientais) e use a matriz GUT para priorizá-las.
+3. **Diagnosis:** Selecione a causa #1 (do GUT) e estruture um Diagrama de Ishikawa para expandir essa causa em sub-causas.
+4. **Quantificação:** Simulando dados fictícios, mostre como um Histograma ou Carta de Controle revelaria a anomalia.
+5. **Ação:** Construa um 5W2H detalhado para a solução e execução.
+:::
+
+### Seção 6: Questões de Reflexão
+
+::: {#exr-cap6-ref-q1}
+**Ferramentas vs. Método**
+Por que uma ferramenta isolada (ex: Pareto) nunca é suficiente? Como as ferramentas se conectam dentro do PDCA/MASP?
+:::
+
+::: {#exr-cap6-ref-q2}
+**Simplicidade e Rigor**
+Algumas ferramentas (como Fluxograma) são "visuais e simples". Outras (como Cpk) são "estatísticas e complexas". Qual é mais importante: a simplicidade de comunicação ou o rigor analítico?
+:::
+
+::: {#exr-cap6-ref-q3}
+**Dados e Decisão**
+Se um Diagrama de Pareto mostrar que 5% das causas geram 80% dos problemas, por que algumas organizações ainda investem em todas as 100 causas?
+:::

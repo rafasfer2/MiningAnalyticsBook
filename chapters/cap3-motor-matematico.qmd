@@ -538,3 +538,76 @@ Como estruturar essa investigação para descobrir a causa raiz de um problema d
 * **Os 5 Passos da Engenharia:** A extração dos números do mundo real exige rigor. Utiliza-se a *Árvore de Valor* para definir variáveis e o *Diagrama de Mudge* para calibrar matematicamente os pesos de relevância sem "chutes".
 * **Produto vs. Processo:** O modelo ARM é universal. Ele quantifica desde a excelência de um General histórico ou do teor de ferro de um minério (Produto), até a disponibilidade física e o consumo de energia de um britador primário (Processo).
 * **O Gatilho para a Ação:** Quando a nota global de um processo cai de forma anormal, a quantificação cumpriu seu papel de alerta. A partir desse ponto, cessa a medição e inicia-se a investigação de causa raiz através do **MASP** e do ciclo **PDCA**.
+
+---
+
+## Exercícios de Fixação {#sec-exercicios-cap3}
+
+Para consolidar os conceitos deste capítulo, consulte a seção [**Capítulo 3 — Motor Matemático (ARM)**](cap8-exercicios-parte1.qmd#sec-cap8-cap3) no [**Capítulo 8: Exercícios Integrados da Parte I**](cap8-exercicios-parte1.qmd#sec-cap8-exercicios).
+**Construção de Score Global**
+Defina um modelo ARM unidimensional para avaliar a qualidade de um **Minério de Ferro Britado**, identificando pelo menos 5 variáveis (ex: teor de Fe, umidade, granulometria, impurezas, viscosidade). Atribua pesos e notas fictícias, calculando o score global resultante.
+:::
+
+::: {#exr-cap3-árvore-valor}
+**Árvore de Valor: Escavadeira**
+Construa uma Árvore de Valor para avaliar a **Qualidade de Operação de uma Escavadeira Hidráulica**. Comece com o objetivo geral (raiz), desdobre em 3-4 Dimensões, e em cada Dimensão identifique 2-3 Variáveis.
+:::
+
+::: {#exr-cap3-diagrama-mudge}
+**Diagrama de Mudge: Ponderação de Pesos**
+Considerando 4 variáveis críticas de um britador (Disponibilidade, Estabilidade, Eficiência, Segurança), utilize a matriz de Mudge para estabelecer seus pesos relativos de forma sistematizada.
+:::
+
+### Seção 2: Modelos Multidimensionais
+
+::: {#exr-cap3-kpi-transporte}
+**Modelo Multidimensional para Transporte**
+Desenvolva um modelo ARM multidimensional para **Desempenho de Transporte (caminhões fora estrada)** com as seguintes dimensões: (a) Confiabilidade; (b) Eficiência; (c) Segurança. Em cada dimensão, defina 2 variáveis, atribua notas e calcule uma nota final por dimensão e um score global.
+:::
+
+::: {#exr-cap3-unidimensional-vs-multi}
+**Comparação Unidimensional vs. Multidimensional**
+Por que um modelo multidimensional pode ser mais robusto que um unidimensional na tomada de decisão gerencial? Cite um exemplo de contexto onde cada um é mais apropriado.
+:::
+
+### Seção 3: Aplicação Prática
+
+::: {#exr-cap3-ajuste-pesos}
+**Reajuste de Pesos Conforme Estratégia**
+Um britador primário possui um modelo ARM com as seguintes variáveis: Disponibilidade (peso 0.3), Consumo de Energia (peso 0.2), Qualidade de Fragmentação (peso 0.5). Se a estratégia da mineradora muda de "Máxima Produção" para "Máxima Eficiência Energética", como você ajustaria os pesos?
+:::
+
+::: {#exr-cap3-trade-off}
+**Análise de Trade-off**
+Uma escavadeira apresenta: Produtividade = 8/10, Confiabilidade = 6/10, Custo Operacional = 9/10. Como usar a equação ARM para decidir entre: (a) Substituir o equipamento; (b) Investir em manutenção para aumentar confiabilidade?
+:::
+
+### Seção 4: Estudo de Caso
+
+::: {#exr-cap3-case-qualidade-completa}
+**Modelagem Completa: Sistema de Britagem**
+Um sistema de britagem (primário + secundário + terciário) necessita de um modelo ARM integrado. Defina:
+
+1. As 3 Dimensões principais (ex: Qualidade do Produto, Disponibilidade dos Equipamentos, Impacto Ambiental).
+2. Pelo menos 2 Variáveis em cada Dimensão.
+3. Desenhe a Árvore de Valor correspondente.
+4. Estabeleça os pesos usando o Diagrama de Mudge.
+5. Calcule um score global fictício apresentando a interpretação.
+:::
+
+### Seção 5: Questões de Reflexão
+
+::: {#exr-cap3-ref-q1}
+**Subjetividade vs. Objetividade**
+Se os pesos em um modelo ARM são definidos subjeti vamente (por painéis de especialistas ou diagrama de Mudge), como garantir a objetividade final do score global?
+:::
+
+::: {#exr-cap3-ref-q2}
+**Gatilho para Ação**
+Por que o capítulo enfatiza que o score ARM é um "gatilho para a ação" e não a ação em si? O que vem após a identificação de uma anomalia?
+:::
+
+::: {#exr-cap3-ref-q3}
+**Machine Learning e ARM**
+Como um modelo ARM bem estruturado pode servir de base para algoritmos de Machine Learning na previsão de falhas ou otimização de processos?
+:::

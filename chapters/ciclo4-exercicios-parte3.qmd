@@ -1,0 +1,324 @@
+---
+format: html
+---
+
+# Exercícios — Parte III: Aplicação Operacional na Mineração {#sec-ciclo4-exercicios}
+
+::: {.callout-tip title="🎯 Propósito deste Capítulo"}
+Este capítulo consolida os aprendizados da **Parte III** através de exercícios que integram **perfuração, carregamento e transporte** em um contexto de **gestão de qualidade, metrologia e confiabilidade**. O objetivo é transformar os conceitos das Partes I e II em ações concretas de campo, permitindo que o operador, supervisor e engenheiro enxerguem a interconexão entre os ciclos operacionais e o impacto cumulativo na disponibilidade de frota e produtividade.
+:::
+
+---
+
+## Seção 1: Ciclo de Perfuração (Capítulo Ciclo 1)
+
+### Exercício 1.1 — Qualidade de Furo e Impacto na Britagem
+
+**Contexto:** Uma frente de mineração apresenta **dois cenários de perfuração**:
+
+**Cenário A (Perfuração Convencional):**
+- Espaçamento: 5,0 m × 5,0 m
+- Profundidade: 15 m
+- Desvio de verticalidade: ±0,5 m (aceitável)
+- Resultado: Fragmentação P80 = 80 cm
+
+**Cenário B (Perfuração Otimizada com GPS):**
+- Espaçamento: 4,8 m × 4,8 m
+- Profundidade: 15 m
+- Desvio de verticalidade: ±0,1 m (precisão alta)
+- Resultado: Fragmentação P80 = 60 cm
+
+**Pergunta:**
+
+a) Qual é a **diferença em número de furos** necessários para uma frente de 200 m × 100 m?
+
+b) Como a diferença de **P80 (fragmentação)** impacta o **britador primário**? (Considere: P80 menor = menos redução necessária)
+
+c) Qual cenário requer **menos tempo de britagem** por tonelada extraída?
+
+d) Qual é o **inverso**: se o britador exigir P80 < 70 cm, qual deve ser a precisão mínima de perfuração?
+
+**Resposta esperada:**
+
+Cenário A: ~1.700 furos; Cenário B: ~1.875 furos (+175 furos, +10%).
+Impacto britagem: P80 menor significa menos carga no britador, maior disponibilidade, menor desgaste.
+Inversão: Para P80 < 70 cm, perfuração deve ter desvio < ±0.2 m (precisão GPS obrigatória).
+
+---
+
+### Exercício 1.2 — Análise de Falhas em Equipamento de Perfuração
+
+**Contexto:** Uma perfuratriz apresentou 4 paradas emergenciais em uma semana:
+
+| Parada | Causa | Tempo (horas) | Impacto na Produção |
+| --- | --- | --- | --- |
+| 1 | Mangueira arrebentada | 3 | -50 furos |
+| 2 | Motor travado | 6 | -120 furos |
+| 3 | Sensor desalinhado | 2 | -40 furos |
+| 4 | Óleo contaminado | 4 | -80 furos |
+
+**Pergunta:**
+
+a) Qual é o **MTBF** dessa perfuratriz? (Considere semana = 120 horas de operação planejada)
+
+b) Qual parada tem maior **impacto relativo** (tempo × produção perdida)?
+
+c) Se você tivesse tempo/orçamento para apenas **1 ação preventiva**, qual escolheria? Por quê?
+
+d) Projete uma **estratégia de inspeção preventiva** quinzenal que minimize essas 4 falhas.
+
+**Resposta esperada:**
+
+- MTBF = 120 / 4 = 30 horas (muito baixo; crítico)
+- Parada 2 tem maior impacto (6 h × 120 furos = 720 hora-furos perdidos)
+- Prioridade: Motor travado (investigar causa raiz, trocar óleo, alinhar sensor, revisar mangueiras)
+- Inspeção: Filtro de óleo, alinhamento laser, testes de motor, inspeção visual de mangueiras
+
+---
+
+## Seção 2: Ciclo de Carregamento (Capítulo Ciclo 2)
+
+### Exercício 2.1 — Produtividade de Escavadeira vs. Qualidade de Fragmentação
+
+**Contexto:** Você dispõe de **2 modelos de escavadeira** para o mesmo material:
+
+**Escavadeira A (Modelo antigo, bucket 10 m³):**
+- Ciclo de movimento: 45 segundos
+- Capacidade de movimento: 100% (pode carregar fragmentos até 1 m)
+- Disponibilidade: 85%
+- Consumo de combustível: 250 L/dia
+
+**Escavadeira B (Modelo novo, bucket 12 m³):**
+- Ciclo de movimento: 50 segundos
+- Capacidade de movimento: 90% (rejeta fragmentos > 0,8 m)
+- Disponibilidade: 95%
+- Consumo de combustível: 280 L/dia
+
+**Pergunta:**
+
+a) Calcule a **produtividade bruta** (toneladas/hora) de cada escavadeira. (Assuma: 1 m³ ≈ 2,5 toneladas)
+
+b) Qual é a **produtividade líquida** (considerando disponibilidade)?
+
+c) Qual escavadeira gera **menos sobretamanho** (fragmentos > 80 cm) aos caminhões?
+
+d) Qual é o custo operacional por tonelada? (Combustível: R$ 5,00/L; Manutenção: R$ 50/hora operacional)
+
+e) **Decisão:** Qual escavadeira você compraria? Justifique com dados.
+
+**Resposta esperada:**
+
+- Escavadeira A: (10 m³ × 2,5 t/m³) / (45 s) = ~200 t/h bruto → 170 t/h líquido
+- Escavadeira B: (12 m³ × 2,5 t/m³) / (50 s) = ~216 t/h bruto → 205 t/h líquido
+- B gera menos sobretamanho (melhor para transporte)
+- Custo A: (250 × 5 + 50) / 170 = ~R$ 8,50/t
+- Custo B: (280 × 5 + 50) / 205 = ~R$ 7,34/t
+- **Escavadeira B é superior** em produtividade, confiabilidade e custo unitário
+
+---
+
+### Exercício 2.2 — Análise de Compatibilidade Equipamento-Caminhão
+
+**Contexto:** Você carrega **caminhões CAT 794F** (capacidade 350 toneladas) com 2 modelos diferentes de escavadeira:
+
+**Escavadeira CAT 390F:** 3 cucharadas por caminhão (bucket = 2,5 m³)
+**Escavadeira CAT 390: 4 cucharadas por caminhão (bucket = 1,9 m³)
+
+**Pergunta:**
+
+a) Qual é o **tempo de carregamento** de cada cenário? (Ciclo de escavadeira: 40 s + 5 s deslocamento = 45 s por cucharada)
+
+b) Qual configura uma melhor **sinergia operacional**? Por quê?
+
+c) Se o caminhão demora **180 segundos** do carregador até o britador (ida) e **120 segundos** na volta (vazio), qual é o **ciclo total** (carregamento + translado)?
+
+d) Quantos caminhões você precisaria para **não deixar a escavadeira esperando**?
+
+**Resposta esperada:**
+
+- 390F: 3 × 45 s = 135 s de carregamento
+- 390: 4 × 45 s = 180 s de carregamento
+- Ciclo 390F: 135 + 180 + 120 = 435 s
+- Ciclo 390: 180 + 180 + 120 = 480 s
+- Caminhões necessários: 435 / (180+120) = 2.18 para 390F; 480 / 300 = 1.6 para 390
+- Recomendação: **390F com 2-3 caminhões** é a melhor configuração
+
+---
+
+## Seção 3: Ciclo de Transporte (Capítulo Ciclo 3)
+
+### Exercício 3.1 — Otimização de Rota e Combustível
+
+**Contexto:** Você opera **3 rotas de transporte** de minério:
+
+**Rota 1 (Frente A → Britador):**
+- Distância: 8 km (ida/volta 16 km)
+- Tempo de ciclo: 45 minutos
+- Consumo: 45 L/ciclo
+
+**Rota 2 (Frente B → Britador):**
+- Distância: 12 km (ida/volta 24 km)
+- Tempo de ciclo: 65 minutos
+- Consumo: 60 L/ciclo
+
+**Rota 3 (Frente C → Britador):**
+- Distância: 20 km (ida/volta 40 km)
+- Tempo de ciclo: 105 minutos
+- Consumo: 95 L/ciclo
+
+**Pergunta:**
+
+a) Calcule a **eficiência de combustível** (km/L) para cada rota.
+
+b) Qual rota é **mais econômica** em termos de consumo por ciclo?
+
+c) Se você **reduzisse 1 km de distância** em cada rota (melhorando a estrada), qual rota economizaria mais combustível em 1 ano? (Considere: 300 ciclos/ano por rota)
+
+d) Quantos caminhões você precisa em cada rota para **entregar 500 t/dia** ao britador? (Capacidade caminhão = 350 t)
+
+**Resposta esperada:**
+
+- Rota 1: 16 km / 45 L = 0,36 km/L
+- Rota 2: 24 km / 60 L = 0,40 km/L
+- Rota 3: 40 km / 95 L = 0,42 km/L
+- Rota 1 é menos eficiente; Rota 3 é mais eficiente (distância maior justifica melhor combustibilidade por km)
+- Redução 1 km: Rota 3 economizaria ~5.3 L/ciclo × 300 = ~1.590 L/ano (maior impacto)
+- Caminhões: Rota 1 precisa ~2 caminhões; Rota 2 ~2 caminhões; Rota 3 ~2 caminhões (confira com ciclos de repouso)
+
+---
+
+### Exercício 3.2 — Análise de Disponibilidade de Frota de Transporte
+
+**Contexto:** Frota de 15 caminhões para transporte:
+
+| Mês | Caminhões Operacionais | Horas Disponíveis | Horas Utilizadas | OMs Preventivas | OMs Corretivas |
+| --- | --- | --- | --- | --- | --- |
+| Mês 1 | 13 | 936 | 850 | 6 | 4 |
+| Mês 2 | 12 | 864 | 760 | 5 | 7 |
+| Mês 3 | 11 | 792 | 680 | 6 | 10 |
+
+**Pergunta:**
+
+a) Calcule **DF (disponibilidade física)** para cada mês.
+
+b) Qual é a **tendência**? (crescente, decrescente, estável?)
+
+c) Se a tendência continuar, qual será a disponibilidade em **mês 6**?
+
+d) Qual seria o **impacto** em toneladas transportadas se você precisar manter 500 t/dia?
+
+e) Que ações você tomaria para **reverter a tendência**?
+
+**Resposta esperada:**
+
+- Mês 1: DF = 13/15 = 86.7%
+- Mês 2: DF = 12/15 = 80%
+- Mês 3: DF = 11/15 = 73.3%
+- Tendência: **Descendente** (~-6.7% ao mês)
+- Mês 6: ~46.7% (crítico!)
+- Impacto: Não conseguiria entregar 500 t/dia (capacidade: 500 × 0.467 = 233 t/dia)
+- Ações: 1) Aumentar preventiva, 2) Investigar padrão de falhas (vide Mês 3: 10 OMs corretivas), 3) Revisar idade média da frota, 4) Treinar motoristas
+
+---
+
+## Seção 4: Estudo de Caso Integrado — Operação Completa
+
+### Estudo de Caso 4.1 — Auditoria de Qualidade e Produtividade: Ciclo Completo Frente A
+
+**Contexto Global:**
+
+A **Frente A** da mina produz 1.000 toneladas de ROM por dia, extraído através de:
+1. **Perfuração** (2 perfuratrizes CAT 390, 1 disponível)
+2. **Carregamento** (2 escavadeiras CAT 390F, 1 disponível)
+3. **Transporte** (12 caminhões CAT 794F, 10 disponíveis)
+4. **Britagem** (1 britador CAT HP800, disponibilidade = 88%)
+
+**Dados do Mês Anterior:**
+
+| Etapa | Métrica | Valor |
+| --- | --- | --- |
+| **Perfuração** | MTBF | 180 h |
+| | Furos planejados | 2.500 |
+| | Furos executados | 2.340 |
+| **Carregamento** | Prod. bruta | 450 t/h |
+| | Prod. líquida (disp.) | 380 t/h |
+| | Tempo médio de espera | 8 min/caminhão |
+| **Transporte** | Distância média | 10 km (ciclo) |
+| | Consumo médio | 55 L/ciclo |
+| | Ciclos completados | 2.800 |
+| **Britagem** | P80 entrada | 75 cm |
+| | P80 saída | 25 cm |
+| | Custo por tonelada britada | R$ 12,50 |
+
+**Perguntas Integradas:**
+
+1. **Qualidade de Perfuração:**
+   - MTBF de 180 h é bom? Qual é o problema?
+   - 2.340 / 2.500 = 93,6%. É aceitável? Qual é o impacto em carregamento?
+
+2. **Sinergia Carregamento-Transporte:**
+   - Tempo de espera de 8 min/caminhão indica o quê?
+   - Você tem excesso ou falta de caminhões? Calcule.
+
+3. **Eficiência Energética:**
+   - Consumo de 55 L/ciclo e distância de 10 km: qual é a eficiência?
+   - Se P80 entrada fosse 60 cm (melhor perfuração), o transporte seria mais eficiente? Por quê?
+
+4. **Impacto Cumulativo:**
+   - Se a perfuração melhorasse para MTBF = 300 h, qual seria o impacto em carregamento?
+   - Se o carregamento tivesse 1 equipamento adicional, qual seria o impacto em tempo de espera?
+   - Se P80 caísse para 70 cm, qual seria o impacto na disponibilidade do britador (↑ vida útil de peças)?
+
+5. **Decisão Estratégica:**
+   - Você investiria em: a) Melhorar perfuração (GPS), b) Adicionar escavadeira, c) Adicionar caminhões, d) Melhorar britador?
+   - Justifique com dados de ROI.
+
+6. **Plano de Ação:**
+   - Construa um plano 3 meses para aumentar produtividade em 15% sem comprometer confiabilidade.
+   - Defina métricas de monitoramento semanal.
+
+**Resposta Esperada:**
+
+Uma análise sistêmica mostrando:
+- Perfuração é gargalo (MTBF baixo, execução 93,6%)
+- Carregamento tem tempo de espera → excesso de caminhões
+- Oportunidade: Melhorar perfuração → P80 menor → maior disponibilidade britador → maior produção
+- ROI: Investimento em GPS para perfuração pode pagar-se em 2 meses via ganhos em britagem
+
+---
+
+## Seção 5: Questões de Reflexão
+
+### Q1: Como a qualidade de perfuração (P80) impacta a vida útil do equipamento de britagem?
+
+### Q2: Por que é importante **sincronizar** a capacidade de perfuração, carregamento e transporte?
+
+### Q3: Um caminhão está disponível 90% do tempo, mas é utilizado apenas 60%. Qual é o problema?
+
+### Q4: Como você definiria "qualidade" em uma operação de mina? (Considere produto, processo, e conformidade)
+
+### Q5: Se melhorar fragmentação custa R$ 200.000 em investimento em GPS para perfuração, como você justificaria esse investimento?
+
+---
+
+## Encerramento da Parte III
+
+Este conjunto de exercícios consolida os conhecimentos de **Aplicação Operacional na Mineração**, integrando todos os conceitos das Partes I e II em contextos de **campo real**. Ao completá-los, você deverá estar apto a:
+
+✅ Auditar qualidade em cada ciclo operacional (perfuração, carregamento, transporte).
+✅ Identificar gargalos e sinergias entre etapas.
+✅ Aplicar metrologia para quantificar produtividade.
+✅ Utilizar dados para tomar decisões de investimento (ROI).
+✅ Estruturar planos de ação integrados na mineração.
+
+---
+
+## 🎓 Conclusão: Do Conhecimento à Prática
+
+Os **25 exercícios** distribuídos ao longo das Partes I, II e III constituem um **roadmap de competência** para o gestor moderne de mineração. Eles transformam:
+
+- **Conceitos abstratos** (filosofia da qualidade) em **métricas concretas** (OEE, MTBF, IQPL)
+- **Teorias isoladas** (Juran, Deming, Weibull) em **decisões integradas** (qual equipamento comprar, como otimizar rota)
+- **Dados brutos** (horas de parada, consumo de combustível) em **inteligência estratégica** (ROI, priorização de investimentos)
+
+**Seu próximo passo:** Aplique esses aprendizados em sua operação. Comece pequeno (1 equipamento, 1 ciclo), documente os resultados, e expanda o modelo para toda a mina. A excelência operacional é construída iterativamente, passo a passo, utilizando dados como bússola.

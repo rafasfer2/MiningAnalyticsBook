@@ -966,3 +966,48 @@ a.footnote-back:hover {
   letter-spacing: 0.5px;
 }
 
+/* ==============================================================================
+   21. ESTILIZAÇÃO DE EXERCÍCIOS (EXERCISES)
+   ============================================================================== */
+
+/* Estiliza os blocos de exercícios numerados automaticamente pelo Quarto (#exr-) */
+div[id^="exr-"] {
+  background-color: #f0f4fa !important; /* Fundo azul acinzentado super leve */
+  border-left: 5px solid var(--color-blue-deep) !important; /* Azul Profundo para rigor acadêmico */
+  border-radius: 4px !important;
+  padding: 1.2em 1.5em !important;
+  margin: 1.5em 0 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Ajuste para o título gerado pelo Quarto na caixa de exercício (theorem-title) */
+div[id^="exr-"] .theorem-title {
+  display: block !important;
+  color: var(--color-blue-deep) !important;
+  font-size: 1.1em !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.8em !important;
+  padding-bottom: 0.4em !important;
+  border-bottom: 1px solid rgba(8, 60, 146, 0.15) !important; /* Linha inferior sutil */
+}
+
+/* Mantém o negrito padrão da numeração do Quarto alinhado com o título */
+div[id^="exr-"] .theorem-title strong {
+  color: inherit !important;
+  font-weight: 700 !important;
+}
+
+/* Formatação do texto do enunciado dentro do bloco */
+div[id^="exr-"] > p {
+  margin-bottom: 0.8em !important;
+  line-height: 1.6 !important;
+  color: #333333 !important; /* Contraste ideal para leitura */
+}
+
+/* Ajuste para listas dentro dos exercícios (caso a pergunta tenha múltiplos itens) */
+div[id^="exr-"] ul,
+div[id^="exr-"] ol {
+  margin-bottom: 1rem !important;
+  color: #333333 !important;
+}
+
