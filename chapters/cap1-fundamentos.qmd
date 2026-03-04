@@ -5,6 +5,7 @@ format: html
 # Fundamentos e Conceitos da Qualidade {#sec-cap1}
 
 ::: {.callout-tip title="🎯 Objetivos deste Capítulo"}
+
 Neste capítulo, estabeleceremos os alicerces teóricos e normativos da Qualidade. Ao final da leitura, você será capaz de:
 
 * **Compreender** a dupla dimensão da Qualidade (objetiva e subjetiva) e sua evolução histórica rumo à gestão estratégica (*Market-in*).
@@ -33,6 +34,7 @@ iii. Ela é o que **determina a essência** ou a natureza do que se avalia.
 A dificuldade de observar a Qualidade de forma isolada ocorre porque ela só se materializa através de seus atributos. Consideremos a afirmação: *"Napoleão Bonaparte possuía as qualidades de um grande general"*. A Qualidade não é algo identificável e observável diretamente de forma isolada; ela é definida por meio de suas características. O que significa na prática essa frase? Significa que as palavras "qualidades", "propriedades", "atributos" ou "características" são intercambiáveis. Ele possuía os atributos que definiam a essência de um grande general (como rigor, sabedoria, coragem, sinceridade e benevolência).
 
 ::: {.callout-note title="💡 Reflexão sobre o uso do termo"}
+
 A ambiguidade que cerca a palavra "Qualidade" decorre, em grande parte, da omissão do contexto por parte de quem a utiliza. Tecnicamente, a Qualidade não deveria ser tratada como um adjetivo isolado, mas sim como um termo composto. É indispensável atrelá-la sempre a um substantivo específico, pois as competências que definem a excelência de um estrategista militar não guardam relação direta com as características exigidas de um líder político. Sem essa delimitação contextual, o atributo perde seu sentido prático na gestão.
 :::
 
@@ -82,10 +84,12 @@ Para compreender a complexidade de medir e atestar a qualidade de um produto, pr
 Retomando a nossa analogia da bola de neve e expandindo-a para uma nova perspectiva térmica, essa dicotomia exata entre o objetivo e o subjetivo é ilustrada na @fig-boladeneve-termometro através de dois cenários distintos:
 
 ::: {.example #exm-percepcao-sensorial name="A Percepção Sensorial - A Bola de Neve"}
+
 No primeiro cenário, o objeto (bola de neve) possui propriedades materiais exatas. No entanto, o "poder" desse objeto na nossa percepção é a capacidade de gerar em nossa mente ideias qualitativas e sensoriais, como "esférica", "gelada" e "branca". O desafio gerencial surge exatamente dessa distinção: é extremamente difícil padronizar ou verificar um atributo de qualidade se ele depender puramente da capacidade de "produzir uma sensação" no cliente, pois essa percepção varia de pessoa para pessoa.
 :::
 
 ::: {.example #exm-causalidade-oculta name="A Causalidade Oculta - O Sol e o Termômetro"}
+
 A dificuldade de verificação se torna ainda mais evidente quando o observador capta o efeito, mas ignora a causa, como demonstrado na segunda parte da figura. Sabemos, de forma objetiva, que o Sol emite energia térmica com a propriedade física de dilatar o mercúrio dentro de um termômetro. Contudo, se entregarmos esse instrumento a um "homem das cavernas", ele perceberá visualmente a coluna de líquido subindo (experimentando a dimensão subjetiva do fenômeno), mas não fará a menor ideia da relação físico-química que a radiação solar exerce sobre o equipamento (a dimensão objetiva real).
 :::
 
@@ -111,6 +115,7 @@ Apesar do interesse corporativo, a confusão conceitual sobre o que realmente de
 * **Adequação à Necessidade Latente:** Significa a satisfação das necessidades do cliente antes mesmo que ele esteja consciente delas, gerando inovação e encantamento.
 
 ::: {.example #exm-niveis-caminhao name="Os Quatro Níveis em Equipamentos de Mineração"}
+
 Para visualizar essa evolução no contexto de maquinário pesado, observe o desenvolvimento e a aquisição de um **Caminhão Fora-de-Estrada**:
 
 1. **Padrão:** O equipamento sai da linha de montagem com o chassi soldado milimetricamente conforme o projeto de engenharia, a capacidade de carga é de exatas 240 toneladas e o motor entrega a potência rigorosamente especificada no manual.
@@ -131,6 +136,7 @@ Pressupõe-se que deve existir uma concordância de conceituação entre o produ
 A satisfação total do consumidor só é alcançada quando há equilíbrio em todos esses fatores. Para transformar essa expectativa abstrata em algo gerenciável, a indústria precisou estabelecer uma linguagem de controle universal.
 
 ::: {.example #exm-fatores-caminhao name="Os Quatro Fatores de Satisfação em Ativos Críticos"}
+
 Ainda analisando o mesmo **Caminhão Fora-de-Estrada**, o equilíbrio para a satisfação da mineradora (consumidora) gravita nos seguintes fatores:
 
 * **Qualidade Intrínseca:** A robustez estrutural do chassi, a confiabilidade do motor sob regime severo e a resistência dos pneus contra cortes nas rochas.
@@ -158,6 +164,7 @@ A concepção transformadora tira o foco do "objeto físico" e passa a avaliar a
 A qualidade responsável é a visão mais madura e sistêmica, pois amplia o olhar para além do cliente imediato e do lucro de curto prazo. A empresa passa a avaliar os impactos externos (externalidades) de sua operação na sociedade. Envolve o controle rigoroso sobre o desperdício de matéria-prima, o consumo energético, a geração de resíduos e os riscos de acidentes. Um motor de grande porte pode ser altamente eficiente e potente (cumprindo as outras três concepções), mas se gerar resíduos tóxicos de difícil tratamento ou emitir ruído acima do tolerável, ele falha sob a ótica da responsabilidade. Na engenharia contemporânea, alinhada aos pilares ESG (*Environmental, Social, and Governance*), a não qualidade manifesta-se sempre que os custos operacionais da fábrica são, de forma antiética, transferidos para a sociedade pagar.
 
 ::: {.callout-important title="🚀 O Gancho para a Prática: Rumo à Modelagem"}
+
 Todas essas dimensões abstratas e concepções filosóficas convergem para um único objetivo na engenharia: a necessidade de quantificação. A Modelagem Analítica de Requisitos (ARM) transforma a qualidade de um conceito interpretativo em um sistema mensurável, no qual variáveis representam atributos, pesos traduzem o valor percebido e o índice final expressa, de forma objetiva, a capacidade do processo em atender e sustentar os requisitos do mercado.
 
 **Nota:** No Capítulo 7 (Estudos de Caso Integrados), retomaremos estas quatro concepções (Intencional, Excepcional, Transformadora e Responsável) para demonstrar, na prática, como elas se alinham às diretrizes da ISO 9001 e às equações do ARM.
@@ -214,6 +221,7 @@ Muitas vezes, uma solução "simples" tem mais qualidade do que uma "sofisticada
 As demandas do mercado são naturalmente dinâmicas. Consumidores diferentes possuem rotinas e níveis de exigência distintos para um mesmo item.
 
 ::: {.example #exm-relatividade-uso name="A Relatividade do Uso e as Perguntas de Contorno"}
+
 Para dominar essa vertente, o engenheiro deve sempre aplicar o filtro das **Perguntas de Contorno**: *Quem é o usuário? Onde será usado? Para que serve?*
 
 **Cenário: Ferramentas de Manutenção (O Martelo)**
@@ -231,6 +239,7 @@ A @fig-copos-descartaveis ilustra visualmente essa relatividade em um ambiente d
 ![Comparativo de Qualidade entre Copos - Adequação ao Uso](../images/fig-copos-descartaveis.png){#fig-copos-descartaveis fig-align="center"}
 
 ::: {.callout-important title="🎯 Dinâmica de Classe: Análise de Contorno"}
+
 **O Problema:** "Uma mineradora precisa comprar lanternas para seus operários que trabalham no subsolo."
 
 * **Debate 1:** Uma lanterna de plástico de altíssima potência de iluminação, mas que usa pilhas comuns que duram apenas 2 horas, tem Adequação ao Uso neste contexto?
@@ -249,6 +258,7 @@ Na conformidade, o documento mestre é a Especificação Técnica. Ela transform
 * **Conformidade Binária:** Se a peça mede 10,04 mm, ela é *Conforme*. Se mede 10,06 mm, ela é *Não Conforme* (defeito), mesmo que ainda funcione. Para a engenharia de conformidade, o erro é puramente o desvio do plano.
 
 ::: {.example #exm-otica-laboratorial name="A Lógica do Laboratório e da Conformidade"}
+
 **Cenário A: Indústria de Parafusos Automotivos**
 
 * *O Projeto:* O parafuso deve suportar um torque de 50 N.m e ter uma rosca com passo de 1,25 mm.
@@ -270,12 +280,14 @@ Na rotina industrial, a conformidade é medida pelo impacto financeiro da falha:
 O objetivo é reduzir a variabilidade para que 100% das peças "nasçam" dentro da faixa.
 
 ::: {.callout-tip title="💡 Insight Pedagógico: Conformidade vs. Satisfação"}
+
 A Conformidade é uma condição necessária, mas não suficiente. Um restaurante pode seguir o projeto (receita) à risca e entregar um prato na temperatura exata (Alta Conformidade), mas se o cliente não gostar do tempero, o prato terá Baixa Adequação ao Uso. A Conformidade garante que a fábrica fez o que prometeu a si mesma; a Satisfação garante que fez o que o cliente queria.
 :::
 
 Esta **Tabela de Inspeção de Atributos** (Tabela Passa/Não Passa) é a ferramenta básica de controle. Ela transforma a observação subjetiva em um dado binário.
 
 ::: {.example #exm-auditoria-canetas name="Auditoria de Conformidade (Simulação de Chão de Fábrica)"}
+
 *Instruções:* Vocês são Inspetores de uma linha de canetas. O projeto definiu 4 requisitos críticos. O lote é rejeitado se houver mais de 1 Não Conformidade (NC) total nas amostras.
 
 | Amostra | Req 1: Comprimento ($140 \pm 1$ mm) | Req 2: Esfera na Ponta | Req 3: Cor Tinta | Req 4: Escrita (Sem falha) | Status |
@@ -348,6 +360,7 @@ Aqui o foco muda de *medir* a peça para *garantir* o processo.
 * **Garantia (QA - Quality Assurance):** "Vou auditar se a máquina está calibrada para que todas as canetas saiam com 140 mm." (Proativo).
 
 ::: {.example #exm-qa-cozinha name="Manual de Garantia (QA): Cozinha Industrial"}
+
 Para eliminar o retrabalho em uma cozinha que faz 2.000 refeições/dia:
 
 1. **Padronização das Entradas:** A Falha (QC): Tempero forte por sal diferente. A Garantia (QA): Ficha Técnica com pesos exatos em balança digital.
@@ -362,6 +375,7 @@ Para eliminar o retrabalho em uma cozinha que faz 2.000 refeições/dia:
 :::
 
 ::: {.callout-important title="🎯 Desafios Práticos para a Sala de Aula"}
+
 **Debate 1: A Falsa Sensação de Conforto**
 
 "Um lote de parafusos foi produzido com o aço correto, mas a rosca ficou ligeiramente mais grossa ($0,02\text{ mm}$ acima do limite). O cliente consegue rosquear com mais força." O inspetor deve aprovar esse lote por ser "funcional"? Qual o risco para a montagem final automatizada se ele aprovar?
@@ -429,6 +443,7 @@ flowchart TD
 * **Curva B (Função Perda - "Meta do Engenheiro de Valor"):** A perda é zero *apenas* no ponto exato do Alvo. Por que existe perda mesmo dentro do limite? Porque peças que não estão no alvo geram maior atrito e menor durabilidade.
 
 ::: {.example #exm-taguchi-ventilador name="A Visão de Taguchi: O Eixo do Ventilador"}
+
 * **Padrão Tradicional:** O eixo deve ter 10 mm. Se tiver 10,05 mm, o inspetor aprova. O ventilador funciona e o cliente compra.
 * **Visão de Taguchi:** O eixo de 10,05 mm causa uma microvibração. Essa vibração gera ruído (perda de função) e faz o motor esquentar mais (impacto colateral: gasto de energia). Em 2 anos, o rolamento quebra.
 * **A Perda Social:** O cliente gastou mais na conta de luz e terá que descartar o ventilador mais cedo, gerando lixo eletrônico. A fábrica economizou na precisão de usinagem, mas a *Sociedade pagou a conta*.
@@ -478,10 +493,12 @@ Esta ferramenta analítica permite visualizar a "perda para a sociedade", retira
 : Matriz de Análise de Impacto Social da Qualidade {#tbl-matriz-perdas-sociedade}
 
 ::: {.callout-note title="💡 Insight Pedagógico: A Qualidade Ética e o ESG"}
+
 Esta vertente transforma o engenheiro em um agente social. Projetar algo que "funciona, mas polui" ou que "dura pouco para vender mais" (obsolescência programada) é um atentado ético contra a qualidade, pois transfere o prejuízo da fábrica para o bolso do cidadão. Empresas modernas usam a redução dessas perdas como estratégia de **ESG (*Environmental, Social, and Governance*)**.
 :::
 
 ::: {.callout-important title="🎯 Dinâmicas de Debate para a Sala de Aula"}
+
 **Debate 1: O Dilema do Carro Popular**
 
 *"Um carro barato é fabricado sem isolamento acústico para reduzir o preço. O motorista fica exposto a ruídos acima de 85 decibéis durante 2 horas de trânsito por dia."*
@@ -512,6 +529,7 @@ Imagine que o protocolo médico (Requisito) define que um paciente com dor abdom
 > *O Custo Social:* Se o hospital demora 4 horas para atender 100 pessoas por dia, ele está "roubando" 400 horas de vida produtiva daquela comunidade diariamente. Isso é uma Baixa Qualidade Sistêmica.
 
 ::: {.callout-tip title="💡 Insight Pedagógico: A Função Perda no Tempo"}
+
 Explique aos alunos que, em serviços, a **variabilidade do tempo** é a maior fonte de perda social. Um hospital que atende *sempre* em 20 minutos é muito superior a um que atende "na média" de 20 minutos, mas que às vezes demora 5 minutos e às vezes 2 horas. A incerteza gera custo: o paciente não consegue planejar sua vida, o transporte fica parado e a rede de apoio se desarticula.
 :::
 
@@ -568,10 +586,12 @@ Para que o produto chegue com qualidade ao mercado, o conceito de *Market-in* de
 * **Cena 2 (Excelência):** A equipe de Planejamento pergunta à Manutenção: *"Quais ferramentas você precisa que eu preveja no cronograma para você trabalhar com segurança?"*. Ela está sendo *Market-in* (tratando a Manutenção como seu cliente interno).
 
 ::: {.callout-tip title="💡 Insight Pedagógico para os Alunos"}
+
 Explique que o **Product-out** foi o sucesso da Era da Produção em Massa (como dizia Henry Ford: *"o cliente pode ter o carro da cor que quiser, desde que seja preto"*). Já o **Market-in** é a única forma de sobreviver na Era da Experiência e da Concorrência Global contemporânea.
 :::
 
 ::: {.example #exm-nokia-apple name="Estudo de Caso: A Batalha dos Gigantes (Nokia vs. Apple)"}
+
 Este estudo de caso é o exemplo clássico da literatura de negócios para ilustrar a queda de uma gigante focada no produto e a ascensão de uma novata focada na experiência do usuário.
 
 **1. O Cenário (Anos 2000)**
@@ -608,6 +628,7 @@ Em 2007, a Apple entrou no mercado sem nunca ter fabricado um telefone antes. El
 :::
 
 ::: {.callout-important title="🎯 Pergunta para Debate em Sala"}
+
 "A Nokia tinha **Alta Qualidade** em seus requisitos de durabilidade, mas faliu. A Apple tinha **Baixa Qualidade** inicial (bateria ruim e sem 3G na primeira versão), mas dominou o mundo. Como os conceitos de *Adequação ao Uso* e *Market-in* explicam esse paradoxo?"
 
 *(Resposta esperada: A Apple acertou no Grau e na Adequação ao Uso, entregando um benefício tão superior que o cliente perdoou a falha técnica inicial. A Nokia ficou presa na Conformidade de um Projeto perfeito que o mercado não queria mais comprar).*
@@ -635,6 +656,7 @@ Este infográfico resume a mudança de mentalidade necessária para o profission
 Para compreender como as diferentes vertentes (Conformidade, Perdas à Sociedade, Adequação ao Uso e Satisfação Plena) se aplicam simultaneamente a um mesmo cenário, analise as aplicações cotidianas a seguir:
 
 ::: {.example #exm-vertentes-estadio name="As Vertentes da Qualidade: O Copo no Estádio"}
+
 Vamos analisar o fornecimento de copos em um estádio de futebol, dividindo a análise entre bebidas frias e quentes:
 
 **Cenário A: Copo Descartável para Bebida Fria (Água/Cerveja)**
@@ -651,6 +673,7 @@ Vamos analisar o fornecimento de copos em um estádio de futebol, dividindo a an
 :::
 
 ::: {.example #exm-vertentes-brinde name="As Vertentes da Qualidade: O Brinde Corporativo"}
+
 Aplicando as mesmas vertentes para entender como um brinde promocional é percebido:
 
 * **Adequação ao Uso:** Uma caneta de metal pesada é excelente para assinar contratos. No entanto, se entregue em uma corrida de rua, perde sua adequação ao uso, pois é pesada para carregar (uma garrafa flexível seria ideal).
@@ -660,6 +683,7 @@ Aplicando as mesmas vertentes para entender como um brinde promocional é perceb
 :::
 
 ::: {.callout-note title="🎯 Conclusão do Módulo de Vertentes"}
+
 O aluno agora compreende que a Engenharia de Produção não é apenas sobre "fazer coisas", mas sobre **gerenciar sistemas que geram valor para pessoas**. A qualidade não é um acidente; ela é o resultado direto de processos desenhados com os olhos voltados para fora da fábrica.
 :::
 
@@ -677,6 +701,7 @@ Para fechar o entendimento teórico, o quadro abaixo consolida a "personalidade"
 : Quadro Comparativo: As 4 Vertentes da Qualidade {#tbl-resumo-vertentes}
 
 ::: {.callout-note title="💡 Exercício Rápido de Fixação"}
+
 "Uma fábrica de cadeiras de rodas produz um modelo de titânio (leve e caro). O projeto diz que ela suporta exatos 100 kg. Na prática, um usuário de 110 kg a compra, a usa e ela quebra. Além disso, o titânio utilizado não é reciclável na região."
 
 *Analise sob as 4 vertentes:*
@@ -705,6 +730,7 @@ Abaixo, a @tbl-gurus-qualidade sintetiza as visões dos principais "gurus" que f
 Para aplicar a visão dos Gurus de forma didática, vamos utilizar dois cenários que contrastam produtos físicos com serviços digitais, mostrando como cada autor "enxergaria" a excelência:
 
 ::: {.example #exm-gurus-paineis name="A Visão dos Gurus: Fabricação de Painéis Solares"}
+
 * **Deming (Uniformização e Custo):** A qualidade é vista na linha de produção automatizada que garante que cada célula fotovoltaica seja idêntica à outra, reduzindo a variabilidade e o desperdício. O foco é produzir um painel fiável e barato, acessível ao mercado de massa.
 * **Juran (Adequação ao Uso):** O painel tem qualidade se ele realmente gera a energia prometida sob o sol forte e resiste a 20 anos de intempéries (chuva, granizo). Se ele cumpre a função prática de reduzir a conta de luz do cliente, ele tem qualidade.
 * **Feigenbaum (Total das Características):** A qualidade envolve desde o marketing (promessa clara de eficiência) até a manutenção (facilidade de limpar os painéis). É a integração sistêmica entre os departamentos para que o cliente não tenha dor de cabeça em nenhuma etapa.
@@ -712,6 +738,7 @@ Para aplicar a visão dos Gurus de forma didática, vamos utilizar dois cenário
 :::
 
 ::: {.example #exm-gurus-streaming name="A Visão dos Gurus: Serviço de Streaming (Netflix/Spotify)"}
+
 * **Deming (Especificações e Gestão):** A qualidade está na estabilidade do servidor (*uptime*). A gestão de topo investe continuamente em tecnologia para que o vídeo não trave, mantendo a uniformidade da transmissão mesmo em conexões lentas.
 * **Juran (Satisfação das Necessidades):** O serviço tem qualidade porque permite que o usuário assista ao que quer, quando quer e em qualquer dispositivo. O foco é a conveniência e adequação de uso para o assinante.
 * **Feigenbaum (Expectativas Globais):** A qualidade une a engenharia (algoritmo de recomendação) ao atendimento (suporte rápido). O produto só é bom se a experiência total (escolha, carregamento e pagamento) atender ao que o cliente espera sistemicamente.
@@ -719,6 +746,7 @@ Para aplicar a visão dos Gurus de forma didática, vamos utilizar dois cenário
 :::
 
 ::: {.callout-tip title="💡 Dica de Memorização: As Palavras-Chave dos Gurus"}
+
 Para diferenciar rapidamente a essência de cada autor na prática gerencial, associe-os às seguintes premissas:
 * **Deming:** Estatística, custos, uniformidade e papel da alta gestão.
 * **Juran:** Adequação ao uso, utilidade e missão do produto.
@@ -750,6 +778,7 @@ Portanto, adicionar ou agregar valor significa fornecer benefícios adicionais a
 $$Valor\,Agregado = Benefícios - Custos$$ {#eq-valor-agregado}
 
 ::: {.example #exm-show-artista name="A Matemática Intuitiva do Valor Agregado"}
+
 Para materializar essa equação, vamos analisar uma decisão de consumo cotidiana. Faça a si mesmo a seguinte pergunta: **Qual é o valor máximo que você estaria disposto a pagar para ir a um show do seu artista preferido?**
 
 Quando você faz esse cálculo mental para decidir se compra ou não o ingresso, seu cérebro está processando exatamente a equação do Valor Agregado, dividindo a decisão em duas dimensões opostas:
@@ -767,6 +796,7 @@ Se a resposta mental for positiva ($Benefícios > Custos$), há **Valor Agregado
 :::
 
 ::: {.example #exm-jarro-quebrado name="A Matemática do Valor e o Custo Irrecuperável"}
+
 Imagine que você decidiu comprar um jarro de porcelana por **R$ 314,30** — um valor superior à média de mercado de R$ 219,90. Sua decisão levou em consideração as qualidades superiores e os traços refinados da peça.
 
 Para a sua mente aprovar a compra inicial, o benefício subjetivo precisa ser maior que o custo objetivo. Suponha que, para você, a satisfação de ter aquele jarro na sala tenha um "valor monetário equivalente" de **R$ 380,00**.
@@ -781,6 +811,7 @@ Mas, na prática, a mente do consumidor não funciona assim. O cérebro faz uma 
 :::
 
 ::: {.callout-tip title="💡 INSIGHT ESTRATÉGICO: A Relatividade do Valor"}
+
 **O Dilema da Padaria vs. Supermercado**
 
 Para consolidar a complexidade do Valor Agregado, suponha que no meio da tarde surja a vontade de comer um bolo. Você se depara com duas opções clássicas:
@@ -809,6 +840,7 @@ A partir dessa percepção de valor pelo cliente, definimos a escala evolutiva d
   É gerar mais valor que seus concorrentes por um longo período de tempo. Exige possuir aspectos, características ou atributos de qualidade difíceis de serem copiados, como, por exemplo, a excelência no atendimento e nos serviços associados.
 
 ::: {.example #exm-praca-alimentacao name="A Batalha da Praça de Alimentação e o ARM"}
+
 Para visualizar a evolução dessa competitividade, imagine uma praça de alimentação em um grande shopping center. Todos os estabelecimentos ali presentes (hamburgueria, pizzaria, comida a quilo, culinária oriental) agregam valor à sua maneira. Partindo da premissa básica de que a necessidade fisiológica do consumidor é "matar a fome", qualquer uma dessas opções é tecnicamente válida.
 
 * **A Competitividade (Requisitos Qualificadores):** Para um restaurante simplesmente manter suas portas abertas naquela praça, ele precisa entregar o básico exigido pelo mercado. Isso significa possuir alvará da vigilância sanitária, aceitar pagamento via cartão ou Pix e servir comida em um tempo razoável e em um balcão limpo. Se a pizzaria falhar nesses requisitos, ela sequer entra na disputa mental do cliente. Ela está fora do jogo.
@@ -854,72 +886,36 @@ Apresenta uma relação com direção mais clara, dependendo da dimensão da qua
 
 ![Relação Qualidade x Participação no Mercado](../images/fig-relacao-qualidade-participacao.png){#fig-relacao-qualidade-participacao fig-align="center"}
 
-### Qualidade vs. Custo e Produtividade {#sec-custo-produtividade}
+### Relações Econômicas (Preço, Propaganda e Participação) {#sec-relacoes-economicas}
 
-Esta é a relação forte e de direção inquestionável. Na engenharia de produção, a qualidade está diretamente ligada à redução da variabilidade e das falhas operacionais. A confiança no processo produtivo remete ao conceito de que qualidade é inversamente proporcional à variabilidade (seja na manufatura, no ambiente de operação ou na deterioração do produto).
+Para compreender o impacto da qualidade na base de negócios, é necessário analisar como ela se relaciona com as principais variáveis microeconômicas de uma organização: o Preço ($P$), a Quantidade Vendida ($Q$), o Custo de Produção ($C$) e o Lucro resultante ($L$).
 
-A equação fundamental que rege essa relação garante que alta qualidade e baixo custo devem caminhar juntos para gerar produtividade:
+#### Relação Qualidade vs. Preço
 
-$$Produtividade = \frac{Valor\,Produzido}{Valor\,Consumido} = \frac{Qualidade}{Custo} = \frac{Faturamento}{Custos}$$ {#eq-produtividade}
+É considerada uma relação fraca e sem direção clara. Existe uma força negativa ditada pela Lei da Demanda (maiores preços tendem a reduzir a quantidade demandada) e uma força positiva, onde o preço mais alto atua como um "símbolo" de qualidade extra percebida pelo consumidor. A @fig-relacao-qualidade-preco ilustra o perigo de manipular preços sem embasamento de valor:
 
-Para otimizar essa fração, não basta que a empresa corte gastos de forma arbitrária; o engenheiro precisa gerenciar os **Custos da Qualidade**. Em vez de uma simples categorização contábil, esses custos representam a tradução financeira do descompasso entre a capacidade do processo e os requisitos do cliente (que modelaremos matematicamente mais à frente).
+* **O Cenário de Risco (Gráfico da Esquerda):** A empresa decide aumentar seu preço ($P \uparrow$) de forma artificial, sem melhorar o produto. Como não há percepção de valor, a curva de Demanda (linha azul) permanece inalterada. O mercado reage negativamente, a quantidade vendida despenca ($Q \downarrow$) e, mesmo com o custo constante ($C \leftrightarrow$), a área total de faturamento encolhe, resultando em queda no lucro ($L \downarrow$).
+* **A Estratégia de Valor (Gráfico da Direita):** A empresa investe em atributos que o cliente valoriza. Isso desloca toda a curva de Demanda para a direita/cima (linha verde). Agora, a empresa consegue cobrar um preço superior ($P \uparrow$) e, como o cliente percebe o benefício, o volume de vendas se mantém estável ($Q \leftrightarrow$). O resultado é uma expansão maciça da margem e o aumento real do lucro ($L \uparrow$).
 
-#### Os Custos da Qualidade: A Tradução Financeira da Operação {#sec-custos-qualidade}
+![Relação Qualidade x Preço](../images/fig-relacao-qualidade-preco.png){#fig-relacao-qualidade-preco fig-align="center"}
 
-Para o engenheiro, a qualidade deve ser traduzida em moeda corrente. Gerenciar os custos da qualidade não significa "cortar gastos" de forma arbitrária, mas sim otimizar o investimento para evitar o prejuízo. Esses custos são divididos em quatro categorias fundamentais, agrupadas em **Custos de Controle** e **Custos de Falha**.
+#### Relação Qualidade vs. Propaganda
 
-**1. Custos de Controle (O Investimento)**
+Também apresenta uma relação de alto risco. O investimento em publicidade é útil para sinalizar menor risco e criar contraste frente à concorrência, mas ele introduz uma penalidade imediata na equação: a elevação direta dos custos operacionais ($C \uparrow$). A @fig-relacao-qualidade-propaganda demonstra essa dinâmica:
 
-É o capital alocado ativamente para blindar o sistema contra a variabilidade e garantir que o produto "nasça" correto.
+* **A Ilusão do Volume (Gráfico da Esquerda):** A empresa gasta com propaganda ($C \uparrow$) mantendo o preço estável ($P \leftrightarrow$). A demanda até sofre um leve deslocamento positivo, aumentando timidamente as vendas ($Q \uparrow$). Contudo, o ganho de receita não é suficiente para cobrir o rombo deixado pelo custo da publicidade, fazendo o lucro total cair ($L \downarrow$).
+* **A Propaganda Efetiva (Gráfico da Direita):** A propaganda comunica de forma tão eficaz a qualidade do produto que o mercado aceita pagar mais caro ($P \uparrow$) e comprar em maior volume ($Q \uparrow$). Somente com esse deslocamento agressivo da demanda é que o aumento do faturamento supera o gasto publicitário ($C \uparrow$), gerando um lucro sustentável ($L \uparrow$).
 
-* **Custos de Prevenção:** Gastos para evitar que o erro ocorra. Incluem o treinamento da equipe, a manutenção preditiva de máquinas, a homologação de fornecedores e o planejamento do SGQ. É o custo de "fazer certo da primeira vez".
-* **Custos de Avaliação:** Gastos para descobrir erros antes que o produto saia da fábrica. Incluem inspeções de laboratório, testes de protótipos, auditorias de processo e calibração de instrumentos de medição.
+![Relação Qualidade x Propaganda](../images/fig-relacao-qualidade-propaganda.png){#fig-relacao-qualidade-propaganda fig-align="center"}
 
-**2. Custos de Falha (O Prejuízo)**
+#### Relação Qualidade vs. Participação no Mercado
 
-Representam o "desperdício puro", gerado quando o processo não atinge os requisitos estabelecidos.
+Apresenta uma relação com direção mais clara, dependendo da dimensão da qualidade explorada. Se a qualidade for focada estritamente em "desempenho tecnológico superior", o produto fatalmente custará mais e venderá menos volume. Porém, se o foco for melhoria de conformidade (redução de defeitos) e usabilidade, a lógica se inverte, como mostrado na @fig-relacao-qualidade-participacao:
 
-* **Falhas Internas:** O erro é detectado ainda dentro da empresa. Gera **Refugo** (perda total do material) ou **Retrabalho** (custo extra de mão de obra e energia para consertar a peça). É a "fábrica oculta" trabalhando para corrigir o que foi feito mal.
-* **Falhas Externas:** O erro chega ao cliente. É a categoria mais devastadora, pois inclui custos de garantia, *recalls*, devoluções, multas contratuais e, principalmente, a **perda de reputação** (custo de oportunidade).
+* **O Custo da "Falsa" Qualidade (Gráfico da Esquerda):** A empresa tenta empurrar um produto com características complexas que o cliente não pediu. Isso encarece a produção ($C \uparrow$) e força um aumento de preço ($P \uparrow$), resultando em rejeição do mercado, queda nas vendas ($Q \downarrow$) e prejuízo na margem ($L \downarrow$).
+* **Ganho de Escala pela Conformidade (Gráfico da Direita):** A empresa foca em reduzir a variabilidade de seus processos. O custo de produção se mantém estável ou até cai ($C \leftrightarrow$). Ela não aumenta o preço final ($P \leftrightarrow$), mas a altíssima confiabilidade e reputação do produto atraem os clientes da concorrência, deslocando a demanda. O volume de vendas dispara ($Q \uparrow$), dominando a participação no mercado e alavancando a rentabilidade de forma orgânica ($L \uparrow$).
 
-::: {.example #exm-custos-mineracao name="O Custo da Não-Conformidade na Mineração"}
-**Cenário: Britador de Mandíbulas**
-
-* **Investimento (Prevenção):** R$ 10.000,00 em sensores de vibração e lubrificação automática.
-* **Falha Interna:** O sensor avisa um superaquecimento; a máquina para por 1 hora para ajuste. *Custo:* R$ 5.000,00 de hora-máquina parada.
-* **Falha Externa:** Não houve investimento em sensores. O rolamento trava, quebra o eixo e o britador para por 7 dias. *Custo:* R$ 500.000,00 (peças + perda de produção + multa por atraso no porto).
-
-*Conclusão:* O custo da falha externa foi 50 vezes superior ao investimento em prevenção.
-:::
-
-**3. A Armadilha da Superqualidade (Exceder Requerimentos)**
-
-Existe um custo sutil e perigoso: a **Superqualidade**. Ocorre quando a engenharia entrega atributos que o cliente não pediu, não valoriza e, consequentemente, não paga por eles.
-
-* **O Erro:** Usar uma liga de aço inoxidável cirúrgico para fabricar um clipe de papel comum. O clipe será "eterno", mas o custo de produção inviabiliza o preço de venda no mercado.
-* **O Insight:** Qualidade plena é atingir o alvo do requisito. Entregar a mais do que o necessário é gerar desperdício de recursos transformadores.
-
-::: {.callout-important title="🎯 Dinâmica de Classe: O 'Trade-off' Econômico"}
-**O Problema:** Uma fábrica de notebooks avalia se deve testar as telas de seus aparelhos. A inspeção custa R$ 50,00 por máquina. Se o notebook não for testado e chegar com defeito ao cliente, o custo de garantia, frete e substituição é de R$ 10.000,00 por caso.
-
-* **Debate 1:** Considerando um lote de 1.000 notebooks com taxa histórica de falha de 1%, qual a decisão financeiramente mais inteligente para o Engenheiro de Qualidade? Inspecionar todos ou pagar a garantia dos que falharem?
-* **Debate 2:** Como o "Custo de Reputação" (difícil de medir contabilmente) deve pesar nessa equação matemática caso as reclamações se tornem virais nas redes sociais?
-:::
-
-::: {.example #exm-bicicletas-eletricas name="Relações Econômicas e Custos na Prática: Bicicletas Elétricas"}
-Para exemplificar essas relações econômicas e de custo de forma integrada, vamos utilizar o caso de uma Fabricante de Bicicletas Elétricas:
-
-**Relação Qualidade vs. Preço**
-* **Cenário de Risco:** A empresa sobe o preço da bicicleta para R$ 7.000 apenas para "parecer premium", sem mudar nada no produto. O cliente percebe que a bateria e o motor são os mesmos da concorrência. *Resultado:* As vendas despencam e o lucro encolhe.
-* **Estratégia de Valor:** A empresa investe em um quadro de fibra de carbono (mais leve) e uma bateria de maior autonomia. O cliente vê valor real. A empresa sobe o preço para R$ 7.500 e as vendas continuam altas. *Resultado:* O lucro dispara porque a percepção de benefício deslocou a demanda para cima.
-
-**Relação Qualidade vs. Propaganda**
-* **A Ilusão do Volume:** A empresa gasta milhões em comerciais de TV com celebridades, mas a bicicleta continua apresentando falhas no freio. O custo da propaganda aumenta o custo total ($C \uparrow$), e o pequeno aumento nas vendas não paga a conta. *Resultado:* Queda no lucro ($L \downarrow$).
-* **Propaganda Efetiva:** A propaganda foca em testes de segurança independentes que provam que a bicicleta é a mais confiável do mercado. Isso convence o público a pagar mais caro pelo produto. *Resultado:* O aumento no preço e no volume supera o gasto com marketing, gerando lucro real.
-
-**Relação Qualidade vs. Participação no Mercado**
-* **Custo da "Falsa" Qualidade:** A engenharia adiciona uma tela 4K *touch* no guidão que o ciclista não consegue usar sob o sol e que encarece o produto. O preço sobe, o cliente rejeita a complexidade e a empresa perde mercado.
-* **Ganho por Conformidade:** A empresa foca em eliminar o ruído na corrente e garantir que a totalidade das bicicletas saia da fábrica sem ajustes necessários. A alta confiabilidade faz com que os clientes indiquem a marca. Sem subir o preço, ela atrai clientes da concorrência pelo boca a boca. *Resultado:* Domínio do mercado pelo volume e reputação.
+![Relação Qualidade x Participação no Mercado](../images/fig-relacao-qualidade-participacao.png){#fig-relacao-qualidade-participacao fig-align="center"}
 
 ### Qualidade vs. Custo e Produtividade {#sec-custo-produtividade}
 
@@ -960,6 +956,7 @@ Representam o "desperdício puro", gerado quando o processo não atinge os requi
 * **Falhas Externas:** O erro chega ao cliente. É a categoria mais devastadora, pois inclui custos de garantia, *recalls*, devoluções, multas contratuais e, principalmente, a **perda de reputação** (custo de oportunidade).
 
 ::: {.example #exm-custos-mineracao name="O Custo da Não-Conformidade na Mineração"}
+
 **Cenário: Britador de Mandíbulas**
 
 * **Investimento (Prevenção):** R$ 10.000,00 em sensores de vibração e lubrificação automática.
@@ -970,6 +967,7 @@ Representam o "desperdício puro", gerado quando o processo não atinge os requi
 :::
 
 ::: {.example #exm-falha-externa-energytech name="Estudo de Caso: O Custo Invisível da Imagem (Falha Externa)"}
+
 **Cenário: A Crise das Baterias "Premium"**
 
 A empresa *EnergyTech* lançou um novo modelo de bateria para notebooks. Para economizar R$ 50,00 por unidade em custos de Avaliação (testes de estresse térmico), a diretoria decidiu lançar o produto baseada apenas em testes laboratoriais rápidos.
@@ -994,10 +992,125 @@ Existe um custo sutil e perigoso: a **Superqualidade**. Ocorre quando a engenhar
 * **O Insight:** Qualidade plena é atingir o alvo do requisito. Entregar a mais do que o necessário é gerar desperdício de recursos transformadores.
 
 ::: {.callout-important title="🎯 Dinâmica de Classe: O 'Trade-off' Econômico"}
+
 **O Problema:** Uma fábrica de notebooks tem um custo de R$ 50,00 para inspecionar cada tela de sua linha de montagem. Se um notebook com tela defeituosa chegar ao cliente (falha externa), o custo do processo de garantia, devolução e queima de imagem atinge a marca de R$ 10.000,00 por caso.
 
 * **Debate 1:** Considerando um lote de 1.000 notebooks com taxa histórica de falhas de 1%, qual a decisão financeiramente mais inteligente para o Engenheiro de Qualidade? Inspecionar todos ou pagar a garantia dos que falharem?
 * **Debate 2:** Como o "Custo de Reputação" (difícil de medir contabilmente) deve pesar nessa equação matemática caso as reclamações se tornem virais nas redes sociais?
+:::
+
+#### A Modelagem Matemática dos Custos da Qualidade {#sec-modelagem-matematica}
+
+O desafio do engenheiro de produção não é atingir o "erro zero" a qualquer custo, mas sim encontrar o nível de conformidade que minimiza o **Custo Total da Qualidade ($CTQ$)**. Matematicamente, o $CTQ$ é a soma dos investimentos (Controle) e das perdas (Falhas):
+
+$$CTQ(q) = C_{controle}(q) + C_{falha}(q)$$ {#eq-ctq}
+
+Onde $q$ representa o nível de conformidade (de 0 a 100%).
+
+* **Curva de Falha (Decrescente):** Representa os prejuízos ($C_{falha}$). Quanto maior a conformidade ($q$), menores as falhas. Em processos críticos (como aviação), essa curva tem declínio exponencial, pois uma única falha custa milhões.
+* **Curva de Controle (Crescente):** Representa o investimento ($C_{controle}$). Para aproximar-se da perfeição ($q \to 100\%$), o custo de prevenção e avaliação sobe de forma assintótica. Eliminar o "último 1%" de erro costuma custar mais caro do que eliminar os primeiros 50%.
+
+**Cálculo do Ponto Ótimo de Qualidade (Otimização via Derivada)**
+
+O gráfico de custos revela que existe um Ponto Ótimo de Qualidade. Se a empresa investe pouco, a falha destrói o lucro. Se investe demais, entra na zona de Superqualidade, onde o custo marginal do controle não compensa a redução marginal das falhas.
+
+Para consolidar a visão analítica, considere uma fábrica de componentes eletrônicos onde as funções de custo (em Reais) foram modeladas da seguinte forma:
+
+* Custo de Falhas (A perda cai conforme a conformidade $q$ aumenta): $C_{falha}(q) = \frac{1.194.000}{q}$
+* Custo de Controle (O custo sobe exponencialmente para atingir a perfeição): $C_{controle}(q) = q^2$
+
+**Qual o nível de conformidade ($q$) que minimiza o Custo Total ($CTQ$)?**
+
+1. Montamos a Função Custo Total:
+   $$CTQ(q) = q^2 + \frac{1.194.000}{q}$$
+2. Derivamos em relação a $q$ para encontrar a taxa de variação marginal:
+   $$CTQ'(q) = 2q - \frac{1.194.000}{q^2}$$
+3. Igualamos a zero para achar o ponto mínimo da curva de custos:
+   $$2q - \frac{1.194.000}{q^2} = 0 \implies 2q^3 = 1.194.000 \implies q^3 = 597.000$$
+4. Extraindo a raiz cúbica:
+   $$q = \sqrt[3]{597.000} \approx \mathbf{84,2\%}$$
+
+**Insight para o Aluno:** Para este processo específico, o custo mínimo financeiro ocorre em **84,2%** de conformidade. Tentar forçar o processo a chegar em 99% custaria muito mais caro em inspeções do que o prejuízo gerado pelas falhas residuais. A matemática impede o "perfeccionismo antieconômico".
+
+Para consolidar o aprendizado, vamos aplicar a modelagem matemática e o estudo de caso a um cenário de **Indústria de Alimentos (Linha de Envase de Sucos)**. Aqui, o desvio de qualidade pode significar tanto desperdício de produto quanto multas severas de órgãos reguladores (como o INMETRO e a Vigilância Sanitária).
+
+**Modelagem Matemática: O Custo do "Enchimento Excessivo"**
+
+Um engenheiro de produção monitora uma máquina de envase de sucos de $1.000\text{ ml}$. O projeto aceita uma variação mínima, mas o engenheiro quer saber qual o nível de precisão de conformidade ($q$) minimiza o custo total, considerando as seguintes funções modeladas (em Reais):
+
+* **Custo de Falhas ($C_{falha}$):** Se o bico de envase erra para menos, o lote é rejeitado e gera multas. Se erra para mais, a empresa "doa" suco de graça (Superqualidade). A perda cai conforme a precisão aumenta:
+  $$C_{falha}(q) = \frac{1.024.000}{q}$$
+
+* **Custo de Controle ($C_{controle}$):** Para aumentar a precisão (comprando sensores a laser e parando para manutenção constante), o custo sobe exponencialmente:
+  $$C_{controle}(q) = q^2$$
+
+*Resolução do Ponto Ótimo (Custo Total Mínimo):*
+
+1. **Função Custo Total:** $CTQ(q) = q^2 + \frac{1.024.000}{q}$
+2. **Derivada (Igualando a Zero):** $CTQ'(q) = 2q - \frac{1.024.000}{q^2} = 0$
+3. **Cálculo Algébrico:** $2q^3 = 1.024.000 \implies q^3 = 512.000$
+4. **Raiz Cúbica:** $q = \sqrt[3]{512.000} \implies \mathbf{q = 80\%}$
+
+*Conclusão para o Aluno:* O engenheiro descobriu matematicamente que manter o bico de envase com **80% de precisão absoluta** é o ponto de menor custo total financeiro. Tentar calibrar a máquina para chegar a 99% de precisão custaria tanto em manutenção e sensores de ponta que o "suco economizado" não pagaria o investimento de controle.
+
+::: {.example #exm-falha-externa-graos name="Estudo de Caso: Falha Externa em Lote de Exportação"}
+
+**Cenário: Contaminação de Lote de Grãos**
+Uma *trading* de grãos decidiu economizar R$ 20.000,00 em custos de Avaliação (testes laboratoriais de micotoxinas) em um carregamento de 30 mil toneladas de milho destinado à Europa.
+
+**O Evento de Falha Externa:**
+Ao chegar no porto de destino (Roterdã), a fiscalização sanitária europeia detectou níveis de aflatoxina acima do permitido. O lote foi imediatamente bloqueado.
+
+**O Levantamento dos Custos de "Não Qualidade":**
+* **Demurrage (Multa por navio parado):** US$ 10.000/dia durante 30 dias aguardando liberação. (Aprox. R$ 1.500.000,00).
+* **Logística de Reenvio:** O milho teve que ser desviado para um mercado menos exigente (para fabricação de ração animal não nobre), gerando um frete extra de R$ 800.000,00.
+* **Perda de Margem:** O produto foi vendido com desconto de 40% sobre o preço de mercado devido à baixa qualidade, resultando em perda de receita de R$ 12.000.000,00.
+* **Blacklist:** A empresa foi suspensa de exportar para aquele grupo de compradores por 2 anos (Custo de Oportunidade imensurável).
+
+*Análise Crítica:* A "economia" inicial de R$ 20.000,00 em testes gerou um prejuízo contábil direto de mais de R$ 14 milhões. Na engenharia de exportação e logística, o custo da *Avaliação* é, na verdade, um seguro obrigatório contra a destruição financeira da companhia.
+:::
+
+::: {.callout-tip title="💡 Insight de Fechamento: O Papel do Engenheiro de Produção"}
+Nos dois exemplos acima, o engenheiro atua como um gestor de riscos e de capital:
+* No **Envase**, ele evita a *Superqualidade* (dar produto de graça) e o custo de Avaliação excessivo.
+* Na **Exportação**, ele investe o máximo possível na Avaliação para evitar a *Falha Externa* catastrófica que pode falir a empresa.
+:::
+
+#### Resumo das Categorias de Custo (Matriz de Decisão) {#sec-matriz-custos}
+
+| Categoria | Tipo | Exemplo Prático | Objetivo Gerencial |
+| :--- | :--- | :--- | :--- |
+| **Prevenção** | Investimento | Treinamento e Manutenção Preditiva. | **Aumentar** (Reduz falhas no longo prazo). |
+| **Avaliação** | Investimento | Inspeção, Testes e Auditorias. | **Otimizar** (Substituir por prevenção). |
+| **Falha Interna** | Prejuízo | Retrabalho e Sucata (*Scrap*). | **Reduzir** (Eficiência operacional). |
+| **Falha Externa** | Prejuízo | Devoluções, Multas e Perda de Imagem. | **Eliminar** (Sobrevivência do negócio). |
+| **Superqualidade**| Desperdício | Polimento desnecessário em peça oculta. | **Cortar** (Não agrega valor ao cliente). |
+
+: Matriz de Decisão Gerencial dos Custos da Qualidade {#tbl-matriz-custos}
+
+Aqui estão dois exemplos práticos finais para diferenciar a Qualidade Estratégica da Superqualidade em ramos distintos da engenharia:
+
+::: {.example #exm-superqualidade-concreto name="Superqualidade na Construção Civil: O Caso do Concreto"}
+* **Requisito do Cliente:** Um prédio residencial comum exige colunas com resistência de 30 MPa (MegaPascal). Isso é o que garante a segurança estrutural e a conformidade técnica.
+* **Qualidade (Ponto Ótimo):** O engenheiro calibra a betoneira para entregar 32 MPa, garantindo uma margem de segurança estatística para que nenhuma amostra fique abaixo dos 30 MPa exigidos por norma.
+* **Superqualidade (Desperdício):** Por medo ou falta de controle de processo estatístico, a usina entrega um concreto de 50 MPa (resistência exigida para uma ponte estaiada) para uma simples casa térrea.
+* **O Impacto Financeiro:** O custo do cimento extra é altíssimo, fazendo o custo de produção disparar ($C \uparrow$).
+* **A Percepção de Valor:** O cliente final não enxerga diferença estrutural, não vai morar em uma casa "mais segura" por causa disso e não pagará um centavo a mais pelo excesso de cimento. É lucro jogado fora.
+:::
+
+::: {.example #exm-superqualidade-suco name="Superqualidade na Indústria de Alimentos: O Caso do Açúcar"}
+* **Requisito do Mercado:** Um fabricante de suco de caixinha define que o teor de açúcar deve ser de 10% (± 0,5%) para manter o sabor padrão.
+* **Qualidade (Ponto Ótimo):** O engenheiro instala sensores industriais que garantem que o suco saia sempre com 10,1%, evitando que o cliente sinta o suco "azedo" (prevenindo uma falha externa).
+* **Superqualidade (Desperdício):** O engenheiro decide que o suco deve ter 0,001% de precisão. Ele aprova a compra de um espectrômetro de massa com precisão laboratorial da NASA para medir o açúcar em tempo real na linha de envase.
+* **O Impacto Financeiro:** O custo de aquisição, depreciação da máquina e a manutenção especializada são astronômicos.
+* **A Percepção de Valor:** O paladar humano não possui resolução para distinguir a diferença entre 10,1% e 10,1001% de açúcar. A empresa elevou drasticamente o custo de produção ($C \uparrow$) sem conseguir elevar o preço de venda ($P \leftrightarrow$). Consequentemente, a produtividade financeira ($Produtividade \downarrow$) despenca.
+:::
+
+::: {.callout-warning title="⚠️ A Armadilha do Engenheiro"}
+O engenheiro estritamente técnico e perfeccionista tende a buscar a **Superqualidade** a qualquer custo. Já o engenheiro de produção busca a **Eficiência** sistêmica.
+
+* **Qualidade:** É entregar ao cliente rigorosamente *tudo* o que ele pediu e valoriza.
+* **Superqualidade:** É entregar o que o cliente *não pediu*, não percebe, não valoriza e, no final das contas, arcar com a conta desse excesso sozinho.
 :::
 
 #### A Modelagem Matemática dos Custos da Qualidade {#sec-modelagem-matematica}
@@ -1065,6 +1178,7 @@ Um engenheiro de produção monitora uma máquina de envase de sucos de $1.000\t
 *Conclusão para o Aluno:* O engenheiro descobriu matematicamente que manter o bico de envase com **80% de precisão absoluta** é o ponto de menor custo total financeiro. Tentar calibrar a máquina para chegar a 99% de precisão custaria tanto em manutenção e sensores de ponta que o "suco economizado" não pagaria o investimento de controle.
 
 ::: {.example #exm-falha-externa-graos name="Estudo de Caso: Falha Externa em Lote de Exportação"}
+
 **Cenário: Contaminação de Lote de Grãos**
 Uma *trading* de grãos decidiu economizar R$ 20.000,00 em custos de Avaliação (testes laboratoriais de micotoxinas) em um carregamento de 30 mil toneladas de milho destinado à Europa.
 
@@ -1072,6 +1186,7 @@ Uma *trading* de grãos decidiu economizar R$ 20.000,00 em custos de Avaliação
 Ao chegar no porto de destino (Roterdã), a fiscalização sanitária europeia detectou níveis de aflatoxina acima do permitido. O lote foi imediatamente bloqueado.
 
 **O Levantamento dos Custos de "Não Qualidade":**
+
 * **Demurrage (Multa por navio parado):** US$ 10.000/dia durante 30 dias aguardando liberação. (Aprox. R$ 1.500.000,00).
 * **Logística de Reenvio:** O milho teve que ser desviado para um mercado menos exigente (para fabricação de ração animal não nobre), gerando um frete extra de R$ 800.000,00.
 * **Perda de Margem:** O produto foi vendido com desconto de 40% sobre o preço de mercado devido à baixa qualidade, resultando em perda de receita de R$ 12.000.000,00.
@@ -1411,7 +1526,9 @@ Enquanto as tabelas anteriores focam no resultado (a saída), este *checklist* a
 :::
 
 ::: {.callout-note title="💡 Dica Pedagógica: Produto vs. Processo"}
+
 A diferença crucial na mentalidade da auditoria reside na pergunta base:
+
 * **Auditoria de Produto/Serviço:** A pergunta é *"O que eu recebi, presta?"*. No caso do elevador, se o Produto for perfeito (nunca quebra), mas o Serviço Associado for péssimo (técnico grosseiro), o Produto Ampliado falhou e a experiência foi ruim.
 * **Auditoria de Processo:** A pergunta é *"O jeito que estamos trabalhando garante que o resultado sempre preste no futuro?"*.
 :::
@@ -1434,6 +1551,7 @@ Com base nessa representação visual do processo, a avaliação total da qualid
 4. **Qualidade do Ambiente:** É a capacidade em que as equipes de apoio conseguem dar suporte às equipes de operação, transmitindo efetivamente as informações. Esta dimensão possui via de mão dupla: avalia o ofertante (ao entregar o serviço adequado ao propósito) e o cliente interno (ao fornecer informações claras sobre demandas, necessidades e dificuldades de área).
 
 ::: {.callout-note title="💡 Insight Operacional: O Fator Humano"}
+
 Conjuntamente, essas quatro dimensões guiam a geração de resultados operacionais. A conceituação desse formato deixa claro que a excelência técnica (transformadores) e o batimento de metas (operacional) são insuficientes se não houver harmonia na interface de serviços e no ambiente. É a interação alinhada entre diferentes perfis de profissionais que sustenta os objetivos da empresa.
 :::
 
@@ -1443,8 +1561,8 @@ Para tangibilizar essas quatro dimensões operando em conjunto, observe como ela
 
 ::: {.example #exm-dimensoes-energia name="Múltiplas Dimensões: Usina Fotovoltaica"}
 
-
 Em uma Usina de Energia Solar, a integração entre a engenharia (apoio) e a manutenção (operação) dita a eficiência da planta:
+
 * **Qualidade dos Transformadores (A Base Técnica):** A Engenharia desenvolve um software de monitoramento e um manual de procedimentos para a limpeza dos painéis. Se o software trava ou o manual é confuso, a "Qualidade do Transformador" é baixa, impedindo o alcance da máxima eficiência energética.
 * **Qualidade Percebida dos Serviços (Satisfação Interna):** O RH realiza um treinamento para os eletricistas e o Almoxarifado entrega os Kits de Reparo no horário. O supervisor (cliente interno) avalia se o material recebido permite executar o trabalho sem paradas.
 * **Qualidade Operacional (O Batimento de Metas):** A meta da usina é gerar 500 MWh/mês com 98% de disponibilidade. A equipe de operação é avaliada por sua capacidade de gerir o dia a dia para que o sol captado se transforme efetivamente na energia planejada.
@@ -1453,8 +1571,8 @@ Em uma Usina de Energia Solar, a integração entre a engenharia (apoio) e a man
 
 ::: {.example #exm-dimensoes-mineracao name="Múltiplas Dimensões: A Mineradora de Ferro"}
 
-
 Em uma mina, o resultado financeiro depende da integração entre a oficina (apoio) e a operação de lavra:
+
 * **Qualidade dos Transformadores:** O Planejamento de Manutenção cria um Cronograma de Preventivas e define os Procedimentos Operacionais Padrão (POP) para reforma de motores. Se o POP for falho, a oficina não terá a "ferramenta intelectual" adequada.
 * **Qualidade Percebida dos Serviços:** O Almoxarifado entrega os filtros no *box* da oficina exatamente no horário em que o caminhão encosta. O mecânico avalia se o serviço foi ágil para evitar que a equipe fique ociosa esperando a peça.
 * **Qualidade Operacional:** A meta da manutenção é manter a Disponibilidade Física (DF) da frota > 90%. Os mecânicos são avaliados pela capacidade de realizar a reforma no tempo previsto e com *zero retrabalho*.
@@ -1465,12 +1583,14 @@ Em uma mina, o resultado financeiro depende da integração entre a oficina (apo
 **Cenário:** O caminhão fora-de-estrada nº 42, vital para bater a meta de produção do dia, quebrou na pista. A produção parou e cada hora de atraso custa R$ 50.000,00 à empresa. O professor rodará um cronômetro no projetor.
 
 **Divisão de Papéis (Grupos de 4):**
+
 1. **O Planejador (Transformadores):** Detém o manual de conserto, mas ele está desatualizado.
 2. **O Almoxarife (Serviços):** Tem a peça na prateleira, mas o sistema de estoque diz que está em falta.
 3. **O Mecânico (Operacional):** Sofre extrema pressão; se errar a montagem, o caminhão quebra de novo (retrabalho).
 4. **O Operador da Mina (Ambiente):** Viu o aviso de falha no painel horas antes, mas omitiu para não perder o bônus de produção.
 
 **Desafio (20 minutos):**
+
 1. **Diagnóstico:** Em qual das 4 dimensões a falha foi mais grave para iniciar esse caos sistêmico? (Gabarito: No Ambiente, pela omissão de informação).
 2. **Solução Imediata:** Como o Ambiente (Operador) e o Serviço (Almoxarife) podem se coordenar *agora* para liberar o mecânico?
 3. **Prevenção Longo Prazo:** O que o Planejador deve mudar nos Transformadores para que isso não ocorra na próxima quebra?
@@ -1598,9 +1718,11 @@ Este instrumento foi desenhado para que o aluno ou profissional consiga identifi
 ### Requisito e Grau (Diferenciando Qualidade de Luxo) {#sec-requisito-grau}
 
 **Requisito (3.6.4)**
+
 É a necessidade ou expectativa declarada, obrigatória ou "geralmente implícita" (aquilo que o cliente nem pede, mas pressupõe que terá, como a segurança no uso). Se as características inerentes são as variáveis que medimos, os **requisitos** são os alvos que precisamos atingir. É o requisito (a voz do cliente ou da norma) que dita a "importância" ou o peso de cada característica.
 
 **Grau (3.6.3)**
+
 É a categoria ou classificação dada a diferentes requisitos para um objeto tendo o mesmo uso funcional.
 
 * **Exemplos práticos:** A classe do tíquete de uma companhia aérea (Econômica vs. Primeira Classe) ou a categoria de um hotel em um folheto (3 estrelas vs. 5 estrelas). Ao estabelecer o requisito da qualidade, o grau é geralmente especificado.
@@ -1627,7 +1749,6 @@ Para fechar este módulo com clareza, vamos aplicar a distinção entre Grau e Q
 
 ::: {.example #exm-grau-hotelaria name="Grau vs. Qualidade: Setor de Hospedagem"}
 
-
 Imagine dois hotéis que possuem o mesmo uso funcional (dormir e tomar banho):
 * **Hotel A (Baixo Grau - 2 Estrelas):** O projeto prevê um quarto pequeno, ventilador e café da manhã simples.
   * **Qualidade:** O quarto está impecável, o ventilador é silencioso e o pão é fresco. **Resultado:** Alta Qualidade (atende 100% dos requisitos do seu grau).
@@ -1636,6 +1757,7 @@ Imagine dois hotéis que possuem o mesmo uso funcional (dormir e tomar banho):
 :::
 
 ::: {.example #exm-grau-mineracao name="Tradução da Norma: Transporte de Carga na Mineração"}
+
 Aplicando a estratégia de nomenclatura para o ambiente de uma mina:
 * **Objeto:** Caminhão Basculante.
 * **Grau (Nota):** Categoria de 30 toneladas (uso urbano) vs. Categoria de 240 toneladas (uso fora-de-estrada).
