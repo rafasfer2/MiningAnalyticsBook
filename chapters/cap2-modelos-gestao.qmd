@@ -549,7 +549,7 @@ O VPS utiliza um portfólio integrado de ferramentas:
 O grande diferencial do VPS não está nas ferramentas individuais (que são públicas), mas na forma como elas são **integradas sistemicamente**. O 5S não é um programa isolado; ele suporta o TPM, que por sua vez aumenta a Disponibilidade de Ativos, que é um dos pilares estratégicos da Vale.
 :::
 
-## Sistemas Proprietários de Excelência: O Caso VPS {#sec-vps}
+## Sistemas Proprietários de Excelência: O Caso VPS {#sec-vps-ferrovia}
 
 Para exemplificar como grandes corporações consolidam metodologias isoladas (TQM, Lean, Seis Sigma) em um ecossistema único de gestão, vamos analisar o **Sistema de Produção Vale (VPS)**. Utilizaremos o cenário de uma Oficina de Manutenção de Locomotivas em uma ferrovia minerária. O foco aqui é demonstrar que o VPS não é uma mera lista de tarefas, mas uma engrenagem sistêmica.
 
@@ -975,6 +975,27 @@ graph TD
 * **Camada 2 (TQM, Lean, Seis Sigma):** Fornece as ferramentas e métodos para melhoria contínua e eficiência.
 * **Camada 3 (VPS, MEG):** Integra tudo em um sistema coeso alinhado à estratégia corporativa.
 * **Camada 4 (Resultados):** Entrega os KPIs de desempenho esperados pela operação.
+
+### O Mapeamento Sistêmico: ISO 9001 e a Engenharia de Dados {#sec-mapeamento-iso-qualidade}
+
+Para que a transição da filosofia normativa para a engenharia de dados seja executável, precisamos mapear exatamente onde cada conceito abstrato de qualidade "encosta" na norma ISO 9001. O diagrama abaixo ilustra o fluxo dessa operacionalização: a norma dita as regras do sistema, e o conceito de qualidade define os atributos vitais que precisarão ser controlados na rotina operacional.
+
+Para sistematizar essa integração na rotina da engenharia de produção, a @tbl-mapeamento-iso cruza as concepções de qualidade com as cláusulas normativas:
+
+| Conceito da Qualidade | Cláusulas ISO 9001 Relacionadas | Tradução Operacional |
+| :--- | :--- | :--- |
+| **Atributo e essência** | **8 (Operação); 8.5.1** (Controle da produção) | Os atributos vitais do produto tornam-se os indicadores críticos de controle. |
+| **Dimensão objetiva e subjetiva** | **9 (Avaliação); 4.2** (Partes interessadas) | A medição real representa o objetivo; a expectativa do cliente dita a importância (subjetivo). |
+| **Qualidade como intencional** | **6 (Planejamento); 8.5.1; 8.6** (Liberação) | Requisitos contratuais e de projeto tornam-se os alvos de aceitação. |
+| **Qualidade como excepcional** | **6 (Planejamento); 9 (Avaliação); 10 (Melhoria)** | Desempenho superior só é válido se o mercado reconhecer valor estratégico nisso. |
+| **Qualidade como transformadora** | **4 (Contexto); 9 (Avaliação); 10 (Melhoria)** | O impacto reflete-se no ganho de eficiência global do cliente. |
+| **Qualidade como responsável** | **6.1 (Riscos); 8.7** (Saídas não conformes) | Desperdícios, passivos e riscos são classificados como não qualidade. |
+| **Valor e competitividade** | **4.2 (Partes interessadas); 6.2** (Objetivos) | O valor percebido separa os requisitos qualificadores dos diferenciais competitivos. |
+| **Sistema de gestão** | **4.4 (SGQ); 5 (Liderança); 7 (Suporte)** | A governança corporativa garante a manutenção e melhoria do ciclo (PDCA). |
+
+: Mapeamento Integrado — Qualidade × ISO 9001 {#tbl-mapeamento-iso}
+
+> *Independentemente do setor — siderurgia, indústria automotiva ou logística portuária —, é a tradução rigorosa destes conceitos para a engenharia de dados que ditará o sucesso das operações. No @sec-cap3, aprofundaremos essa necessidade de quantificação através do modelo matemático ARM.*
 
 ## Escolhendo a Abordagem Certa {#sec-escolha-abordagem}
 
