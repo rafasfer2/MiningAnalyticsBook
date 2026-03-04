@@ -143,23 +143,19 @@ Ainda analisando o mesmo **Caminhão Fora-de-Estrada**, o equilíbrio para a sat
 
 ### Concepções Contemporâneas de Qualidade {#sec-concepcoes-contemporaneas}
 
-A literatura contemporânea sistematiza diferentes concepções de qualidade, que coexistem e se sobrepõem conforme o contexto da organização. Para a engenharia de produção, elas ditam a forma como a empresa se posiciona no mercado:
+A literatura contemporânea sistematiza diferentes concepções de qualidade, que coexistem e se sobrepõem conforme o contexto da organização. Para a engenharia de produção, elas não são excludentes, mas ditam a forma como a empresa se posiciona no mercado, aloca seus recursos e enxerga o seu próprio produto:
 
-### Qualidade como Intencional (Conformidade Rigorosa)
+**1. Qualidade como Intencional (Conformidade Rigorosa)**
+A qualidade intencional define excelência como o cumprimento fiel e irrestrito do que foi planejado no projeto ou estabelecido em contrato. Em uma linha de envase, por exemplo, a qualidade intencional é atingida quando cada garrafa contém o volume exato especificado e o rótulo está posicionado nas coordenadas milimétricas corretas. Sob essa ótica, não se trata de surpreender ou encantar o cliente com algo novo, mas de cumprir rigorosamente a promessa técnica. Essa concepção é o núcleo de ambientes altamente regulados (como a indústria farmacêutica ou aeronáutica), onde qualquer desvio ou variação representa um risco crítico.
 
-A qualidade intencional define excelência como o cumprimento fiel do que foi planejado no projeto ou contrato. Em uma linha de envase, a qualidade intencional é atingida quando cada garrafa contém o volume exato especificado e o rótulo posicionado corretamente. Não se trata de surpreender o cliente, mas de cumprir rigorosamente a promessa técnica. Essa concepção é o núcleo de ambientes regulados, onde desvios representam riscos.
+**2. Qualidade como Excepcional (Superação Deliberada)**
+Esta concepção está associada à superação de padrões mínimos e à busca constante por distinção. É a transição da "qualidade obrigatória" para a "qualidade atrativa". Algumas empresas elevam deliberadamente o padrão do processo, reduzindo ainda mais a variabilidade e oferecendo um desempenho superior ao mínimo exigido por norma. Um equipamento fora-de-estrada *premium*, por exemplo, pode apresentar sistemas redundantes e materiais de altíssima resistência que excedem em muito os requisitos básicos da mineração. Essa qualidade excepcional sustenta a vantagem competitiva de longo prazo, mas exige extrema cautela gerencial: se os atributos superlativos não forem percebidos ou valorizados pelo cliente, eles se transformam em custo inútil (o desperdício da superqualidade).
 
-### Qualidade como Excepcional (Superação Deliberada)
+**3. Qualidade como Transformadora (Impacto no Cliente)**
+A concepção transformadora tira o foco do "objeto físico" e passa a avaliar a qualidade pelo impacto positivo gerado na operação e na vida do usuário. O valor do produto não reside apenas no que ele *é*, mas no que ele *permite que o cliente faça*. Considere um software de planejamento de produção (ERP): sua qualidade não é atestada apenas pela ausência de *bugs* ou travamentos, mas pela sua capacidade real de transformar a rotina de quem o utiliza. Se a ferramenta reduz o tempo de tomada de decisão, aumenta a previsibilidade financeira e simplifica a operação de um setor inteiro, ela atinge a qualidade transformadora, tornando-se indispensável para o cliente.
 
-Está associada à superação de padrões mínimos e à busca por distinção. Algumas empresas elevam deliberadamente o padrão do processo, reduzindo ainda mais a variabilidade e oferecendo um desempenho superior ao mínimo exigido. Um equipamento fora-de-estrada premium, por exemplo, pode apresentar sistemas redundantes e materiais de alta resistência que excedem os requisitos básicos. Essa qualidade excepcional sustenta vantagem competitiva, mas exige cautela: se os atributos não forem valorizados pelo cliente, transformam-se em custo inútil (superqualidade).
-
-### Qualidade como Transformadora (Impacto no Cliente)
-
-A concepção transformadora avalia a qualidade pelo impacto positivo gerado na operação do usuário. Considere um software de planejamento de produção (ERP). Sua qualidade não está apenas na ausência de bugs, mas na capacidade de transformar a rotina do cliente: reduzir o tempo de decisão, aumentar a previsibilidade e simplificar a manutenção. Se o produto muda a forma como o trabalho é realizado, ele é transformador.
-
-### Qualidade como Responsável (Externalidades e Sociedade)
-
-A qualidade responsável amplia o olhar para além do cliente imediato. A empresa avalia seus impactos externos: desperdício de matéria-prima, consumo energético, geração de resíduos e riscos de acidentes. Um equipamento altamente eficiente, mas que gera resíduos tóxicos de difícil tratamento, falha sob a ótica da responsabilidade. A não qualidade manifesta-se quando os custos operacionais são transferidos para a sociedade.
+**4. Qualidade como Responsável (Externalidades e Sociedade)**
+A qualidade responsável é a visão mais madura e sistêmica, pois amplia o olhar para além do cliente imediato e do lucro de curto prazo. A empresa passa a avaliar os impactos externos (externalidades) de sua operação na sociedade. Envolve o controle rigoroso sobre o desperdício de matéria-prima, o consumo energético, a geração de resíduos e os riscos de acidentes. Um motor de grande porte pode ser altamente eficiente e potente (cumprindo as outras três concepções), mas se gerar resíduos tóxicos de difícil tratamento ou emitir ruído acima do tolerável, ele falha sob a ótica da responsabilidade. Na engenharia contemporânea, alinhada aos pilares ESG (*Environmental, Social, and Governance*), a não qualidade manifesta-se sempre que os custos operacionais da fábrica são, de forma antiética, transferidos para a sociedade pagar.
 
 ::: {.callout-important title="🚀 O Gancho para a Prática: Rumo à Modelagem"}
 Todas essas dimensões abstratas e concepções filosóficas convergem para um único objetivo na engenharia: a necessidade de quantificação. A Modelagem Analítica de Requisitos (ARM) transforma a qualidade de um conceito interpretativo em um sistema mensurável, no qual variáveis representam atributos, pesos traduzem o valor percebido e o índice final expressa, de forma objetiva, a capacidade do processo em atender e sustentar os requisitos do mercado.
@@ -202,7 +198,7 @@ Para tangibilizar essa evolução, observe a mudança de foco no setor automotiv
 
 A evolução da qualidade, partindo de uma visão estritamente subjetiva para um modelo de gestão pragmático, pode ser compreendida através de diferentes correntes de pensamento. Para facilitar o entendimento, dividiremos o conceito em quatro abordagens centrais.
 
-### Qualidade sob a Ótica da Adequação ao Uso {#sec-adequacao-uso}
+#### Qualidade sob a Ótica da Adequação ao Uso {#sec-adequacao-uso}
 
 Esta corrente defende que um produto detém qualidade se ele cumpre de forma satisfatória a função para a qual foi adquirido pelo usuário final. Ou seja, a sua excelência é medida pela sua utilidade prática no dia a dia.
 
@@ -218,7 +214,7 @@ A @fig-copos-descartaveis ilustra visualmente essa relatividade. Ao analisarmos 
 
 ![Comparativo de Qualidade entre Copos - Adequação ao Uso](../images/fig-copos-descartaveis.png){#fig-copos-descartaveis fig-align="center"}
 
-### Qualidade como Conformidade com o Projeto {#sec-conformidade-projeto}
+#### Qualidade como Conformidade com o Projeto {#sec-conformidade-projeto}
 
 Esta segunda abordagem argumenta que a gestão da qualidade só se torna viável, na prática diária de uma operação, se for balizada por métricas e especificações técnicas estabelecidas antes do início da fabricação. Nesse cenário, o nível de excelência é determinado rigorosamente pelo alinhamento exato entre o item entregue e o que foi parametrizado no projeto da engenharia.
 
@@ -228,7 +224,7 @@ Retomando o exemplo do copo descartável, para atestar sua qualidade sob essa ó
 
 A avaliação neste método costuma ser categórica (binária): ou a peça cumpre as especificações (estando conforme) ou não as cumpre (sendo não conforme). Na rotina industrial, a qualidade do processo é frequentemente avaliada pelo índice percentual de rejeição de um lote.
 
-### Qualidade Mensurada pelas Perdas à Sociedade {#sec-perdas-sociedade}
+#### Qualidade Mensurada pelas Perdas à Sociedade {#sec-perdas-sociedade}
 
 Ao contrário das visões tradicionais focadas no lucro, esta vertente analisa o problema sob a ótica da falha, ou da "não qualidade". Aqui, a avaliação fundamenta-se no impacto financeiro ou socioambiental que um produto gera para a comunidade após ser comercializado e entrar em uso. Essas perdas são categorizadas em duas frentes:
 
@@ -247,32 +243,143 @@ Nesta quarta vertente, a busca por atender expectativas evolui para o conceito m
 
 Para dominar esse nível estratégico, é imprescindível entender a transição da filosofia de produção voltada estritamente para dentro da fábrica (*Product-out*) para a filosofia voltada para o mercado (*Market-in*).
 
-* Na cultura *Market-in*, o cliente dita o ritmo e o escopo do negócio. As informações do mercado alimentam o planejamento produtivo.
+* Na cultura **Market-in**, o cliente dita o ritmo e o escopo do negócio. As informações do mercado alimentam o planejamento produtivo.
 * Na gestão contemporânea, a qualidade passa a englobar a habilidade da empresa em prever movimentos e despertar necessidades adormecidas (latentes) que o próprio consumidor ainda não sabia que possuía.
 
 Outro pilar revolucionário dessa vertente é a consciência de que **toda pessoa dentro da organização possui um cliente**. A equipe de britagem é "cliente" da equipe de perfuração de mina. Essa rede de "cliente-fornecedor interno" exige que todos os departamentos operem sob o mesmo padrão de excelência, onde desde o operador até a Alta Direção tornam-se responsáveis diretos pela garantia da excelência.
 
+#### O Contraste Estratégico: Product-out vs. Market-in
+
+Para expandir o entendimento dessa transição estratégica, vamos contrastar as duas mentalidades com exemplos práticos que mostram como a "direção" do pensamento muda o resultado final do negócio.
+
+**1. Product-out: "Eu fabrico o que eu sei fazer"**
+Nesta abordagem, a empresa olha primeiro para dentro (suas máquinas, sua tecnologia e seus processos) e depois "empurra" o resultado para o mercado.
+* **Lógica:** O departamento de engenharia projeta o que considera tecnicamente superior e o marketing tenta convencer o cliente de que ele precisa daquilo.
+* **Exemplo na Indústria de Celulares:** Uma fabricante desenvolve um aparelho com uma câmera de 500 megapixels (extrema capacidade técnica), mas o celular é pesado e a bateria dura apenas 4 horas. Ela foca na *capacidade de produção*, ignorando que o uso real do cliente exige portabilidade e autonomia.
+* **Risco:** Gerar estoques de produtos que ninguém quer ou produzir algo com *Superqualidade* (excesso de funções caras que o cliente não valoriza).
+
+**2. Market-in: "Eu fabrico o que o cliente valoriza"**
+Aqui, o fluxo é invertido: a empresa começa ouvindo o mercado (dores, desejos e necessidades latentes) e usa essas informações para configurar sua fábrica.
+* **Lógica:** O cliente é o "ponto de partida" do projeto. A qualidade é medida pela satisfação e pelo valor percebido, não apenas pela precisão do parafuso.
+* **Exemplo na Mineração (Logística):** A mineradora percebe que as usinas siderúrgicas (clientes) estão sofrendo com a variação da umidade do minério, que trava os silos no inverno. Em vez de apenas "vender minério", a empresa investe em filtragem e galpões cobertos. Ela resolve um problema do cliente, garantindo a entrega no tempo exato (*Just-in-Time*).
+* **Necessidade Latente:** O cliente nem pediu o galpão, mas a empresa previu que isso evitaria paradas na usina dele. Isso é *Market-in estratégico*.
+
+A @tbl-contraste-estrategico consolida as diferenças operacionais entre essas duas visões:
+
+| Característica | Product-out (Foco Interno) | Market-in (Foco Externo) |
+| :--- | :--- | :--- |
+| **Ponto de Partida** | Capacidade da Fábrica / Tecnologia. | Necessidades e Desejos do Cliente. |
+| **Definição de Qualidade**| Conformidade com o projeto técnico. | Satisfação plena e valor percebido. |
+| **Papel do Cliente** | Alvo de vendas (passivo). | Guia da estratégia (ativo). |
+| **Cadeia de Valor** | Departamentos isolados (Silos). | Rede de Cliente-Fornecedor Interno. |
+| **Exemplo de Frase** | *"Este é o melhor motor que já fizemos."* | *"Como este motor resolve o problema do cliente?"* |
+
+: Contraste Estratégico: Product-out vs. Market-in {#tbl-contraste-estrategico}
+
+**3. O Pilar do Cliente Interno (O "Market-in" dentro de casa)**
+Para que o produto chegue com qualidade ao mercado, o conceito de *Market-in* deve ser aplicado entre os departamentos:
+* **Cena 1 (Falha):** A equipe de Planejamento entrega um cronograma impossível para a Manutenção. Ela está sendo *Product-out* (olhando apenas para sua planilha e capacidade de gerar relatórios).
+* **Cena 2 (Excelência):** A equipe de Planejamento pergunta à Manutenção: *"Quais ferramentas você precisa que eu preveja no cronograma para você trabalhar com segurança?"*. Ela está sendo *Market-in* (tratando a Manutenção como seu cliente interno).
+
+::: {.callout-tip title="💡 Insight Pedagógico para os Alunos"}
+Explique que o **Product-out** foi o sucesso da Era da Produção em Massa (como dizia Henry Ford: *"o cliente pode ter o carro da cor que quiser, desde que seja preto"*). Já o **Market-in** é a única forma de sobreviver na Era da Experiência e da Concorrência Global contemporânea.
+:::
+
+::: {.example #exm-nokia-apple name="Estudo de Caso: A Batalha dos Gigantes (Nokia vs. Apple)"}
+Este estudo de caso é o exemplo clássico da literatura de negócios para ilustrar a queda de uma gigante focada no produto e a ascensão de uma novata focada na experiência do usuário.
+
+**1. O Cenário (Anos 2000)**
+A Nokia era a líder absoluta do mercado mundial de celulares. Seus aparelhos eram famosos pela *Qualidade Intrínseca*: baterias que duravam uma semana, resistência a quedas ("inquebráveis") e sinal de recepção impecável. A engenharia da Nokia era a melhor do mundo em hardware.
+
+**2. A Abordagem Nokia: O auge do Product-out**
+A mentalidade da Nokia era: *"Nós sabemos fazer os melhores telefones. O cliente quer um teclado físico durável e um sistema operacional que economize memória."*
+* **Foco Interno:** A engenharia ditava o que o mercado deveria consumir.
+* **O Erro:** Eles ignoraram que o cliente estava mudando. O usuário não queria mais apenas um "telefone", ele queria um "computador de bolso" para navegar na internet e usar aplicativos.
+* **Resultado:** A Nokia continuou lançando modelos baseados em sua capacidade técnica de hardware, "empurrando" teclados físicos e telas pequenas quando o mundo pedia toque e interface fluida.
+
+**3. A Abordagem Apple (iPhone): O triunfo do Market-in**
+Em 2007, a Apple entrou no mercado sem nunca ter fabricado um telefone antes. Ela não olhou para o que "sabia fazer", mas para o que o consumidor desejava (e nem sabia que podia ter).
+* **Foco Externo:** Identificou a *Necessidade Latente*: o cliente odiava teclados minúsculos e queria uma tela grande para fotos, vídeos e música.
+* **Estratégia:** O iPhone nasceu da interface (software/usuário) para o hardware. A tecnologia servia ao desejo do cliente, e não o contrário.
+* **Resultado:** Mesmo com uma bateria que durava menos e sendo mais frágil que um Nokia, o iPhone entregava *Satisfação Plena*. O cliente aceitou os "defeitos" técnicos em troca da *Adequação ao Uso* e do prazer da experiência.
+
+**4. Aplicação no ARI (Ambiente de Relacionamento Interno)**
+* Na **Nokia**, o setor de Software era "escravo" do Hardware. O hardware (fornecedor interno) entregava uma tela pequena e o software (cliente interno) que se virasse para enfiar os menus ali.
+* Na **Apple**, o Design de Interface era o "chefe". Ele definia a experiência e a Engenharia de Hardware tinha que encontrar uma forma de fazer aquela bateria fina e aquela tela gigante funcionarem.
+
+| Dimensão | Nokia (Product-out) | Apple (Market-in) |
+| :--- | :--- | :--- |
+| **Voz do Projeto** | Engenharia de Hardware (O que podemos fazer?) | Voz do Cliente / UX (O que o usuário deseja?) |
+| **Qualidade** | Conformidade Técnica (Resistência e Sinal) | Adequação ao Uso (Navegação e Apps) |
+| **Inovação** | Incremental (Melhorar o teclado atual) | Disruptiva (Eliminar o teclado físico) |
+| **Visão do Cliente** | Consumidor de um aparelho de voz | Usuário de um ecossistema digital |
+:::
+
+::: {.callout-important title="🎯 Pergunta para Debate em Sala"}
+"A Nokia tinha **Alta Qualidade** em seus requisitos de durabilidade, mas faliu. A Apple tinha **Baixa Qualidade** inicial (bateria ruim e sem 3G na primeira versão), mas dominou o mundo. Como os conceitos de *Adequação ao Uso* e *Market-in* explicam esse paradoxo?"
+
+*(Resposta esperada: A Apple acertou no Grau e na Adequação ao Uso, entregando um benefício tão superior que o cliente perdoou a falha técnica inicial. A Nokia ficou presa na Conformidade de um Projeto perfeito que o mercado não queria mais comprar).*
+:::
+
+#### O Perfil do Engenheiro de Excelência
+
+Este infográfico resume a mudança de mentalidade necessária para o profissional moderno. Enquanto o engenheiro tradicional foca na *máquina*, o engenheiro de excelência foca na *solução*.
+
+```text
+      [ ENGENHEIRO PRODUCT-OUT ]               [ ENGENHEIRO MARKET-IN ]
+        "O Guardião da Fábrica"                  "O Arquiteto de Valor"
+
+               OBJETIVO                                 OBJETIVO
+      Otimizar a máquina e o custo             Resolver o problema do cliente
+        interno de produção.                     final e interno.
+
+            PRIORIDADES                              PRIORIDADES
+      1. Especificação Técnica                 1. Necessidade do Usuário
+      2. Velocidade da Linha                   2. Facilidade de Uso (UX)
+      3. Redução de Refugo                     3. Valor Percebido
+
+          VISÃO DO ERRO                            VISÃO DO ERRO
+      "O cliente não sabe usar                 "O processo falhou em entender
+        o que nós projetamos."                   o que o cliente precisa."
+
+        RELAÇÃO INTERNA                          RELAÇÃO INTERNA
+      Entrega o que está no                    Pergunta ao próximo processo:
+      script e "passa a bola".                 "Como posso facilitar seu trabalho?"
+
+            SUCESSO                                  SUCESSO
+      Bater a meta de produção.                Bater a meta de satisfação.
+```
+* **Engenheiro Product-out (Foco no "COMO"):** Sua obsessão é a *Conformidade com o Projeto*. Ele acredita que se o produto segue a norma técnica, ele tem qualidade automática. *Frase típica:* "O produto está perfeito, o mercado é que não entende a nossa tecnologia."
+* **Engenheiro Market-in (Foco no "PORQUÊ"):** Sua obsessão é a *Adequação ao Uso* e a *Satisfação Plena*. Ele entende que a norma técnica é o mínimo, mas a qualidade real é o benefício que o cliente obtém. *Frase típica:* "Se o cliente está tendo dificuldade, nosso projeto precisa mudar, não importa o quão 'perfeito' ele pareça no papel."
+
+#### As Vertentes Trabalhando em Conjunto
+
+Para compreender como as diferentes vertentes (Conformidade, Perdas à Sociedade, Adequação ao Uso e Satisfação Plena) se aplicam simultaneamente a um mesmo cenário, analise as aplicações cotidianas a seguir:
+
 ::: {.example #exm-vertentes-estadio name="As Vertentes da Qualidade: O Copo no Estádio"}
-Para compreender como as diferentes vertentes da qualidade se aplicam a um mesmo cenário e mudam conforme a necessidade, vamos analisar o fornecimento de copos em um estádio de futebol, dividindo a análise entre bebidas frias e quentes:
+Vamos analisar o fornecimento de copos em um estádio de futebol, dividindo a análise entre bebidas frias e quentes:
 
 **Cenário A: Copo Descartável para Bebida Fria (Água/Cerveja)**
-* **Conformidade com o Projeto:** O copo deve atender rigorosamente à ficha técnica da fábrica: ter exatamente 0,5mm de espessura, diâmetro de boca de 70mm e suportar o peso de 300ml de líquido sem deformar. Se um lote apresentar bordas cortantes ou variação na transparência fora do padrão, ele é rotulado como "não conforme", independentemente de ainda conseguir segurar a bebida.
-* **Perdas à Sociedade:** A "não qualidade" aqui é medida pelo impacto pós-uso. Se o copo for fabricado com um polímero de baixa resistência que racha, a *perda por desvio de função* é a bebida desperdiçada e a sujeira. A *perda por impacto colateral* é o custo público de varrição e o dano ambiental causado por plásticos entupindo bueiros, gerando passivo financeiro para a prefeitura.
-* **Satisfação Plena (Market-in):** A organização deixa de focar no "copo" e passa a focar na "experiência de beber". O fornecedor antecipa a necessidade de sustentabilidade e propõe um copo reutilizável com cordão (brinde). Internamente, a logística garante bebidas geladas para a frente de caixa, assegurando entrega rápida, sem filas e satisfação total.
+* **Conformidade com o Projeto:** O copo deve atender rigorosamente à ficha técnica: 0,5mm de espessura e diâmetro de boca de 70mm. Se apresentar bordas cortantes, é "não conforme", independentemente de segurar a bebida.
+* **Perdas à Sociedade:** Se o copo racha, a *perda de função* é a bebida desperdiçada. A *perda colateral* é o custo público de varrição e o dano ambiental dos plásticos entupindo bueiros.
+* **Satisfação Plena (Market-in):** A organização foca na "experiência". O fornecedor propõe um copo reutilizável com cordão (brinde sustentável). Internamente, a logística garante bebidas geladas para a frente de caixa, assegurando entrega rápida e sem filas.
 
 **Cenário B: Recipiente para Café Recém-Coado (Bebida Quente)**
-* **Conformidade com o Projeto:** A engenharia define um copo de parede dupla. A conformidade técnica exige um coeficiente de condutividade térmica específico (ex: abaixo de 0,04 W/m.K) para que a face externa não ultrapasse 45°C enquanto o líquido interno está a 80°C. Uma falha na colagem da base que cause vazamento torna o lote "não conforme", mesmo que o isolamento térmico seja perfeito.
-* **Perdas à Sociedade:** Se o copo falhar no isolamento, a perda imediata é a queimadura na mão do torcedor ou na pessoa da frente, gerando custos médicos. Sob a ótica colateral, se o estádio optar por copos de isopor (difíceis de reciclar), impõe um passivo ambiental de longo prazo à cidade, transferindo o custo de aterros sanitários para a sociedade.
-* **Satisfação Plena (Market-in):** O estádio percebe que o torcedor quer tomar café, mas não quer perder o lance do jogo. O fornecedor oferece um copo com tampa hermética e bico pequeno (*sip-hole*), evitando derramamentos na comemoração de um gol. A equipe interna garante a temperatura ideal, entregando a bebida pronta para consumo seguro e prazeroso.
+* **Conformidade com o Projeto:** A engenharia define um copo de parede dupla com coeficiente térmico exato para a face externa não ultrapassar 45°C. Uma falha na colagem da base torna o lote "não conforme".
+* **Perdas à Sociedade:** Se o copo falhar no isolamento, a perda imediata é a queimadura na mão do torcedor. Sob a ótica colateral, copos de isopor impõem um passivo ambiental de longo prazo à cidade.
+* **Satisfação Plena (Market-in):** O estádio percebe que o torcedor quer tomar café, mas não quer perder o lance do jogo. O fornecedor oferece um copo com tampa hermética e bico pequeno (*sip-hole*), evitando derramamentos na comemoração do gol.
 :::
 
 ::: {.example #exm-vertentes-brinde name="As Vertentes da Qualidade: O Brinde Corporativo"}
-Aplicando as mesmas vertentes para entender como um brinde promocional é percebido tanto pela empresa que o adquire quanto pelo cliente que o recebe:
+Aplicando as mesmas vertentes para entender como um brinde promocional é percebido:
+* **Adequação ao Uso:** Uma caneta de metal pesada é excelente para assinar contratos. No entanto, se entregue em uma corrida de rua, perde sua adequação ao uso, pois é pesada para carregar (uma garrafa flexível seria ideal).
+* **Conformidade com o Projeto:** A logomarca deve ter a cor exata do manual (Pantone). Se a caneta for entregue com tinta preta em vez de azul, ela é não conforme, mesmo que escreva bem.
+* **Perdas à Sociedade:** Se a caneta vaza no bolso, há desvio de função (estragou a roupa). Se for de plástico não reciclável que vai para o lixo rapidamente, gera-se um passivo ambiental e imagem de poluidora.
+* **Satisfação Plena (Market-in):** A fornecedora antecipa a "fadiga de telas" e oferece um caderno de papel semente. O setor de compras (cliente interno) o recebe separado em kits, permitindo que o marketing entregue o brinde com agilidade e zero erro, encantando o cliente final.
+:::
 
-* **Adequação ao Uso:** Uma caneta de metal pesada e elegante é excelente para um executivo assinar contratos em uma reunião. No entanto, se o brinde for entregue em um evento de corrida de rua, ela perde sua adequação ao uso, pois é pesada para carregar e pouco prática para o contexto esportivo (onde uma garrafa flexível seria ideal).
-* **Conformidade com o Projeto:** A logomarca da empresa deve estar centralizada e com a cor exata do manual da marca (Pantone específico). Se a caneta for projetada para escrita de 0.7mm com tinta azul e for entregue com ponta 1.0mm ou tinta preta, ela é tecnicamente não conforme, mesmo que escreva bem.
-* **Perdas à Sociedade:** Se a caneta vaza tinta no bolso da camisa do cliente, há uma perda por desvio de função (estragou uma roupa e gerou frustração). Sob a ótica de impactos colaterais, se o brinde for de plástico não reciclável que vai para o lixo em uma semana, a empresa gera um passivo ambiental e uma imagem de "poluidora".
-* **Satisfação Plena (Market-in):** A fornecedora antecipa que os clientes estão sobrecarregados de telas e oferece um "kit de desconexão" com caderno de papel semente (plantável). O setor de compras (cliente interno) recebe o material já separado em kits individuais, permitindo que a equipe de marketing entregue o brinde com agilidade e zero erro, encantando o cliente final.
+::: {.callout-note title="🎯 Conclusão do Módulo de Vertentes"}
+O aluno agora compreende que a Engenharia de Produção não é apenas sobre "fazer coisas", mas sobre **gerenciar sistemas que geram valor para pessoas**. A qualidade não é um acidente; ela é o resultado direto de processos desenhados com os olhos voltados para fora da fábrica.
 :::
 
 ## A Visão dos Autores Clássicos (Gurus da Qualidade) {#sec-gurus-qualidade}
