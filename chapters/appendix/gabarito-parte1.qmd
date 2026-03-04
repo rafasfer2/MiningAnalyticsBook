@@ -512,6 +512,66 @@ Receita não cai em períodos sazonais
 
 ---
 
+### Resoluções das Eras da Qualidade
+
+**Resolução do @exr-eras-lampada (Produção de Lâmpadas):**
+
+* **Inspeção:** No final da esteira, um funcionário rosqueava cada lâmpada em um bocal para ver se acendia. Se não acendesse, era descartada (ação corretiva 100%).
+* **Controle Estatístico:** Utilização de Cartas de Controle para monitorar a espessura do filamento por amostragem. Se a média começasse a variar, a máquina era ajustada preventivamente.
+* **Garantia Estratégica:** Foco na Engenharia de Confiabilidade para garantir durabilidade (ex: 15.000 horas). O fornecedor da matéria-prima torna-se um parceiro estratégico para garantir "zero falhas" desde a origem do componente.
+
+---
+
+**Resolução do @exr-eras-software (Desenvolvimento de Software):**
+
+* **Inspeção:** Após o código estar pronto, um revisor lia linha por linha procurando erros de digitação ou lógica para "consertar" o programa antes do lançamento.
+* **Controle Estatístico:** Testes automatizados rodam em amostras de funções para medir a densidade de *bugs* por mil linhas de código, decidindo matematicamente se o software está estável.
+* **Garantia Estratégica:** Adoção de metodologias ágeis como *DevOps* e Integração Contínua (CI/CD). O sistema é desenhado com travas arquiteturais para impedir que o erro seja sequer codificado.
+
+---
+
+**Resolução do @exr-eras-medicamentos (Indústria Farmacêutica):**
+
+* **Inspeção:** Antigamente, conferia-se visualmente se os frascos estavam cheios e se os comprimidos não estavam quebrados no final do processo manual.
+* **Controle Estatístico:** Análise laboratorial de uma pequena amostra de cada lote para verificar a concentração do princípio ativo, aceitando uma fração tolerada defeituosa mínima (AQL) definida por lei.
+* **Garantia Estratégica:** Gestão total através das Boas Práticas de Fabricação (BPF / *GMP*). O foco está no controle do ambiente (salas limpas), treinamento e rastreabilidade total, tornando impossível produzir um lote fora do padrão.
+
+---
+
+**Resolução do @exr-eras-aviacao (Manutenção Aeronáutica):**
+
+* **Inspeção:** Mecânicos mediam cada parafuso individualmente com gabaritos manuais para garantir que a peça intercambiável encaixaria na asa do avião.
+* **Controle Estatístico:** Introdução do monitoramento de fadiga de materiais por amostragem, prevendo a falha de componentes baseando-se em probabilidade de ciclos de voo.
+* **Garantia Estratégica:** Implementação do SMS (*Safety Management System*). A qualidade torna-se estratégia de sobrevivência; busca-se o "erro zero" através de sistemas redundantes e forte cultura não-punitiva de reporte de quase-falhas (*near-misses*).
+
+---
+
+**Resolução do @exr-eras-transicao (A Mudança de Paradigma):**
+
+O principal fator foi o advento da produção em massa em larguíssima escala (impulsionada após a Revolução Industrial e as Grandes Guerras). O volume de produção tornou-se tão colossal que verificar os produtos "um a um" (100% de inspeção) tornou-se fisicamente impossível e financeiramente inviável. Isso forçou a engenharia a adotar a estatística e a teoria das probabilidades (amostragem) para garantir a qualidade sem parar a linha de produção.
+
+---
+
+### Resoluções dos Novos Exercícios (Capítulo 1)
+
+**Resolução do @exr-niveis-smartphone (Adequação na Indústria Eletrônica: Smartphone):**
+
+* **Adequação ao Padrão:** O aparelho sai da linha de montagem sem defeitos físicos, com o processador atingindo exatamente a velocidade projetada pela engenharia (conformidade com a especificação).
+* **Adequação ao Uso:** O sistema operacional é fluido, a tela é legível sob a luz do sol e a bateria dura um dia inteiro de trabalho intenso, garantindo a utilidade real na rotina do cliente.
+* **Adequação ao Custo:** A padronização de componentes internos e a automação reduzem o desperdício fabril, permitindo entregar uma tela de alta resolução e processamento robusto por um preço competitivo.
+* **Adequação à Necessidade Latente:** O software introduz, via Inteligência Artificial, um modo de "Foco" que silencia notificações automaticamente no ambiente de trabalho, resolvendo um problema de distração que o cliente ainda não tinha percebido conscientemente.
+
+---
+
+**Resolução do @exr-niveis-restaurante (Adequação no Setor de Serviços: Restaurante):**
+
+* **Adequação ao Padrão:** O prato é servido exatamente como descrito na ficha técnica. Se a especificação do projeto da cozinha é um bife de 200g servido ao ponto, ele chega à mesa com esse peso e cozimento exatos.
+* **Adequação ao Uso:** O restaurante oferece um menu executivo que é servido em apenas 15 minutos para atender clientes corporativos que têm pouco tempo de almoço, sendo altamente funcional para o propósito do cliente.
+* **Adequação ao Custo:** A utilização de ingredientes da estação e um processo de *mise en place* organizado evitam desperdícios operacionais, permitindo oferecer alta gastronomia por um preço justo e viável.
+* **Adequação à Necessidade Latente:** Antes de o cliente solicitar, o garçom oferece água gelada em dias quentes ou chá especial em dias frios, resolvendo necessidades implícitas de conforto que agregam valor à experiência sem custo adicional significativo.
+
+---
+
 ## Seção 2: Questões de Reflexão (Sem Gabarito — Use Para Debate)
 
 ### Q1: Qual é a diferença entre "Filosofia da Qualidade" e "Sistema de Qualidade"?
