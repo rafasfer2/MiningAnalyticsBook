@@ -11,15 +11,51 @@ format: html
 * Reconhecer como essas filosofias se integram ao Sistema de Gestão da Qualidade (SGQ).
 :::
 
-No @sec-cap1, estabelecemos os fundamentos conceituais e normativos da qualidade. Definimos o que é qualidade segundo a ISO 9000, compreendemos suas vertentes filosóficas e justificamos sua importância estratégica. Agora, daremos o próximo passo: conhecer os **modelos operacionais** que transformam essa teoria em sistemas de gestão práticos e escaláveis.
+No @sec-cap1, estabelecemos os fundamentos conceituais e normativos da qualidade. Definimos o que é qualidade, compreendemos suas vertentes filosóficas e justificamos sua evolução histórica. Agora, daremos o próximo passo: conhecer os **modelos operacionais** que transformam essa teoria em sistemas de gestão práticos e escaláveis.
 
-Este capítulo apresenta as três grandes filosofias de excelência que dominam o mercado global — **TQM (Gestão da Qualidade Total)**, **Lean Manufacturing (Manufatura Enxuta)** e **Seis Sigma** — e demonstra como elas foram adaptadas e integradas por grandes corporações minerais através de sistemas proprietários como o **VPS (Sistema de Produção Vale)**.
+Este capítulo apresenta as três grandes filosofias de excelência que dominam o mercado global — **TQM (Gestão da Qualidade Total)**, **Lean Manufacturing (Manufatura Enxuta)** e **Seis Sigma** — e demonstra como elas foram adaptadas e integradas por grandes corporações através de sistemas proprietários.
 
 ## As Abordagens de Excelência Operacional {#sec-abordagens-excelencia}
 
 ### TQM (Total Quality Management) - Gestão da Qualidade Total {#sec-tqm}
 
-A Gestão da Qualidade Total é uma filosofia de gestão que coloca a qualidade como responsabilidade de todos os membros da organização, não apenas do departamento de qualidade. Desenvolvida no Japão pós-guerra e consolidada por Deming, Juran e Ishikawa, o TQM é a base conceitual de todos os sistemas modernos de gestão.
+A Gestão da Qualidade Total (TQM) é o estágio de maturidade onde as quatro vertentes que discutimos anteriormente (Padrão, Uso, Custo e Necessidade Latente) deixam de ser ilhas departamentais isoladas e passam a funcionar como um **sistema único e estratégico**.
+
+Desenvolvida no Japão pós-guerra e consolidada por Deming, Juran e Ishikawa, o TQM coloca a qualidade como responsabilidade de todos os membros da organização, não apenas do departamento de inspeção. É o "guarda-chuva" que garante que o produto seja conforme o projeto, adequado ao uso do cliente, produzido com baixo custo interno e com o mínimo de perdas para a sociedade.
+
+::: {.example #exm-tqm-fastfood name="A Integração das Vertentes: Rede de Fast-Food Global"}
+Para conectar os conceitos do Capítulo 1 ao TQM, observe a operação de uma rede de *Fast-Food*:
+
+* **Foco no Cliente (Market-in):** No TQM, a qualidade não nasce na cozinha, mas no mercado. A rede percebe que o cliente deseja opções saudáveis (Necessidade Latente). Ela desenha o cardápio com base no que o cliente valoriza, conectando a *Adequação ao Uso* à estratégia do negócio.
+* **Melhoria Contínua (Conformidade):** A conformidade técnica (ex: fritar a batata a exatos 175°C por 3 minutos) não é um fim, mas o ponto de partida. Se o processo gera 1% de erro, o TQM busca reduzir para 0,1%, unindo a *Conformidade com o Projeto* à eficiência.
+* **Cadeia Cliente-Fornecedor Interno (Envolvimento):** O conceito de que "toda pessoa tem um cliente" é vital. O almoxarifado (fornecedor interno) deve entregar o óleo no prazo para o cozinheiro (cliente interno). Se essa cadeia falha, a *Qualidade Intrínseca* do lanche é comprometida.
+* **Responsabilidade Social (Perdas à Sociedade):** O TQM integra ética e sustentabilidade. A empresa substitui plásticos por papel. Ela entende que a não-qualidade (poluição) é um custo pago pela sociedade que destrói o valor da marca.
+:::
+
+#### A Evolução de Paradigma
+
+Para consolidar o aprendizado estrutural, a tabela abaixo apresenta a evolução do pensamento focado no produto (Era da Inspeção) para o pensamento sistêmico do TQM:
+
+| Característica | Era da Inspeção | Gestão da Qualidade Total (TQM) |
+| :--- | :--- | :--- |
+| **Foco Principal** | O Produto (encontrar o defeito) | O Processo e o Cliente (prevenir o defeito) |
+| **Responsabilidade**| Departamento de Inspeção (Isolado) | Todos (do CEO à base Operacional) |
+| **Orientação** | *Product-out* (empurrar para o mercado) | *Market-in* (ouvir a voz do cliente) |
+| **Ação** | Corretiva (reparo ou descarte) | Preventiva e Proativa (melhoria contínua) |
+| **Visão do Erro** | Falha humana ou "azar" | Falha do Sistema ou do Processo |
+| **Relação Interna** | Departamentos isolados (Silos) | Cadeia Cliente-Fornecedor Interno |
+
+
+
+::: {.example #exm-tqm-hospital name="TQM em Ambientes Críticos: Hospital de Alta Complexidade"}
+Em cenários de alto risco, o TQM garante que a vida do usuário seja o centro do sistema:
+
+* **Adequação ao Uso:** O hospital percebe que pacientes idosos têm dificuldade com totens digitais e instala um sistema híbrido com atendentes humanos, medindo a qualidade pela facilidade de acesso.
+* **Conformidade com o Projeto:** Cada cirurgia segue um *Checklist*. A conformidade técnica exige que a pressão e a oxigenação sigam os parâmetros exatos do projeto médico. Um medicamento atrasado é uma não-conformidade grave.
+* **Cadeia Cliente-Fornecedor:** A Lavanderia é a fornecedora interna do Centro Cirúrgico. Se os lençóis não chegam esterilizados no prazo, a cirurgia atrasa, impactando diretamente o paciente.
+* **Perdas à Sociedade:** O hospital investe em tratamento de resíduos infectantes. O lixo hospitalar mal gerido cria um passivo ambiental e de saúde pública.
+* **Melhoria Contínua (Kaizen):** Se o índice de infecção hospitalar subir 0,1%, a equipe redesenha o processo de higienização das mãos, buscando o "Zero Falhas".
+:::
 
 #### Princípios Fundamentais do TQM
 
@@ -33,10 +69,10 @@ A Gestão da Qualidade Total é uma filosofia de gestão que coloca a qualidade 
 
 * **Círculos de Controle da Qualidade (CCQ):** Grupos de trabalho autônomos focados em resolver problemas locais.
 * **As 7 Ferramentas da Qualidade:** Diagrama de Pareto, Ishikawa, Histograma, Cartas de Controle, Diagrama de Dispersão, Fluxograma e Estratificação.
-* **Ciclo PDCA:** Plan-Do-Check-Act como motor da melhoria contínua.
+* **Ciclo PDCA:** *Plan-Do-Check-Act* como motor da melhoria contínua.
 
 ::: {.callout-note title="💡 APLICAÇÃO NA MINERAÇÃO"}
-Na mineração, o TQM se manifesta através da integração entre Operação, Manutenção e Engenharia. A qualidade do minério não é responsabilidade apenas do laboratório, mas de toda a cadeia: desde o plano de lavra (que define a frente de extração) até o controle de blendagem na usina.
+Na mineração, o TQM se manifesta através da integração rigorosa entre Operação, Manutenção e Engenharia. A qualidade do minério não é responsabilidade apenas do laboratório, mas de toda a cadeia: desde o plano de lavra (que define a frente de extração) até o controle de blendagem na usina de beneficiamento.
 :::
 
 #### Os 9 Fatores Críticos de Sucesso do TQM {#sec-tqm-9pilares}
