@@ -614,6 +614,129 @@ A definição de qualidade estritamente como "conformidade com as exigências/re
 
 ---
 
+### Exercício 1.X — Reflexão Econômica: Qualidade vs. Superqualidade {#sec-gabarito-1-x}
+
+**Contexto:** Uma padaria de bairro decide embalar cada pão francês individualmente em uma pequena caixa de cetim com laço de fita, sob o pretexto de garantir que ele chegue morno e com apresentação *premium* ao cliente. Contudo, o preço de venda do pão na vitrine continua o mesmo (R$ 0,50 a unidade).
+
+**Pergunta:**
+
+a) Esta iniciativa caracteriza um ganho de Qualidade Estratégica ou um erro de Superqualidade?
+
+b) O que acontecerá com a curva de Custo Total e com a Margem de Lucro desta padaria?
+
+---
+
+**GABARITO 1.X (A Padaria e a Caixa de Cetim):**
+
+a) **Trata-se de um erro clássico de Superqualidade** (*Over-quality*). O cliente de uma padaria comum que compra um pão de R$ 0,50 possui como **requisitos qualificadores** (e ganhadores de pedido) a textura crocante, a temperatura morna e a rapidez no atendimento. A caixa de cetim excede drasticamente os requisitos funcionais esperados para a categoria do produto, entregando um "grau" de luxo que o mercado **não solicitou** para aquele contexto.
+
+   - O cliente **não pediu** embalagem premium
+   - O cliente **não percebe** o valor da caixa de cetim em um pão comum
+   - O cliente **não está disposto a pagar** mais caro por isso
+
+b) **Impacto Financeiro Desastroso:**
+
+   - **Custo Total ($C \uparrow$):** A empresa adiciona o custo da caixa de cetim, do laço de fita, do material de enchimento e do tempo de embalagem manual a cada unidade produzida. Isso aumenta substantially o custo unitário.
+   - **Preço de Venda ($P \leftrightarrow$):** O preço no balcão permanece em R$ 0,50, pois o cliente rejeita pagar mais por uma embalagem que não valoriza. Não houve transferência de valor para o preço.
+   - **Margem de Lucro ($L \downarrow\downarrow$):** A equação de lucro é simples: $L = P - C$. Como o preço permanece constante e o custo dispara, a margem de lucro por unidade é **engolida** drasticamente. Se o custo subia de R$ 0,20 para R$ 0,40 por unidade (do novo custo de embalagem), o lucro passa de R$ 0,30 para apenas R$ 0,10 por pão vendido.
+
+   **Resultado Final:** A padaria corre sério risco de **falência** por ineficiência gerencial. Quanto mais pães vende, mais prejuízo acumula. A estratégia é economicamente insustentável.
+
+**Lição Central:** A Superqualidade é a **diferença entre entregar ao cliente exatamente aquilo que ele pediu e valoriza, versus desperdiçar recursos em atributos não solicitados**. O objetivo da engenharia de produção é **eficiência sistêmica**, não perfeccionismo técnico desconectado do valor percebido pelo mercado.
+
+---
+
+### Estudo de Caso: O Renascimento da "Sabor & Frio" {#sec-gabarito-case-sabor-frio}
+
+**Resolução do @case-sabor-frio (Indústria de Sorvetes):**
+
+**Tarefa 1: Diagnóstico pelos Gurus**
+
+* **a) Crosby:** Exigiria "Zero Defeitos" e o "Fazer Certo da Primeira Vez". Para ele, é inaceitável que o processo permita a colagem errada do lacre; o sistema de selagem deve ser à prova de falhas para atender aos requisitos. Implementaria um **Poka-Yoke** (dispositivo à prova de erros) nas seladoras para garantir que nenhum pote siga sem o lacre perfeitamente colado.
+
+* **b) Juran:** Afirmaria que a baunilha de Madagascar viola a "Adequação ao Uso" e cria **Superqualidade desnecessária**. O cliente da Linha Econômica não possui paladar discriminatorio para distinguir a fava da baunilha sintética e **não paga a mais** por isso. Juran usaria o conceito de "Grau vs. Qualidade": a baunilha gourmet é maior *Grau* (luxo), mas a *Qualidade* esperada é conformidade com um gosto aceitável a este segmento.
+
+* **c) Feigenbaum:** Proporia a **Qualidade Total** (Total Quality Control), evidenciando que o problema não é culpa só da produção ou só das compras. A qualidade não é um atributo isolado; ela emerge de toda a integração organizacional. Feigenbaum integraria as metas de Compras e Produção através de:
+  - **Parceria Fornecedor-Cliente Interno:** O setor de Compras negocia com a Produção os requisitos mínimos aceitáveis do leite (teor de gordura, acidez, contaminação).
+  - **Indicadores Compartilhados:** A qualidade do leite recebido é auditada semanalmente e integrada ao desempenho de Compras (comunicação interdepartamental).
+  - **Prevenção Sistêmica:** O conflito surge porque cada departamento otimiza sua métrica isoladamente. A solução é otimizar a cadeia (sistema) como um todo.
+
+**Tarefa 2: Análise das Eras**
+
+* **Controle Estatístico (Era 2):** Em vez de provar o sorvete pronto (inspeção 100%), a fábrica instalaria:
+  - **Sensores de temperatura** no *freezer* de batida, monitorando em tempo real.
+  - **Sensores de agitação** para medir a incorporação de ar (*overrun*).
+  - **Cartas de Controle X-R** plotando os dados. Se a temperatura oscilasse, o maquinário seria ajustado **automaticamente** antes de congelar o lote (amostragem contínua, não pós-hoc).
+  - Redução de variabilidade através de **estabilização estatística do processo**.
+
+* **Garantia Estratégica / TQM (Era 3):** A empresa envolveria todos os funcionários na filosofia de excelência:
+  - **Manutenção Autônoma:** Os operadores do *freezer* realizam limpeza diária e detecção precoce de problemas (não apenas profissionais de manutenção).
+  - **Parcerias Estratégicas:** A empresa cria um contrato de parceria com fornecedores de leite, garantindo matéria-prima com variabilidade mínima (prevenção absoluta).
+  - **Cultura de Qualidade:** Cada funcionário é treinado e responsabilizado por "fazer certo da primeira vez" (Crosby + Deming combinados).
+  - **Resultado:** Eliminação quase completa de cristais de gelo e lacres defeituosos, recuperação da reputação.
+
+**Tarefa 3: Modelagem Econômica**
+
+a) **Produtividade Financeira Atual:**
+$$Produtividade = \frac{Faturamento}{Custo} = \frac{R\$ 1.000.000}{R\$ 800.000} = 1,25$$
+
+Interpretação: A cada R$ 1,00 investido em custos, a empresa retorna R$ 1,25 em receita. A margem de lucro bruto é 25%.
+
+b) **Eliminação da Superqualidade (Baunilha Madagascar):**
+
+Se o custo cai para R$ 700.000,00 (ao substituir a baunilha importada por uma nacional de igual qualidade sensorial):
+$$Produtividade = \frac{R\$ 1.000.000}{R\$ 700.000} = 1,43$$
+
+**Aumento de 14% na eficiência** apenas cortando um luxo desnecessário. Nenhuma mudança no faturamento; ganho puro de eficiência.
+
+c) **Viabilidade do Investimento Preventivo:**
+
+O investimento de R$ 20.000 em manutenção das seladoras elimina as falhas externas (-R$ 40.000 de multas e frete):
+
+**Novo Custo Total:** $R\$ 700.000 + R\$ 20.000 - R\$ 40.000 = R\$ 680.000$
+
+**Nova Produtividade:**
+$$Produtividade = \frac{R\$ 1.000.000}{R\$ 680.000} = 1,47$$
+
+**Análise Econômica:**
+- **Investimento:** +R$ 20.000
+- **Economia de Falhas:** -R$ 40.000
+- **Benefício Líquido Imediato:** -R$ 20.000 (custo de prevenção)
+- **Ganho de Eficiência:** de 1,25 para 1,47 (aumento de 17,6%)
+
+**Conclusão:** Sim, **vale extraordinariamente a pena**. O investimento de R$ 20.000 gera uma economia de R$ 40.000 (*payback* em 6 meses). Além disso, a recuperação da reputação (os 15% de mercado perdido), a confiança dos supermercados e a redução de devoluções geram benefícios indiretos que superam em muito o investimento inicial.
+
+**Matemática Aplicada à Decisão:**
+A razão benefício/custo é de $\frac{40.000}{20.000} = 2$. A cada real investido em prevenção, economiza-se dois reais em falhas. Qualquer executivo assinaria essa decisão imediatamente.
+
+**Tarefa 4: Vertentes da Qualidade**
+
+* **a) Adequação ao Uso:** O consumidor que compra sorvete tem como expectativa central o **prazer sensorial** de saborear um produto **cremoso, macio e gelado**. A textura de "cristais de gelo" (arenosa, granulosa) arruína completamente essa experiência. O consumidor:
+  - **Percebe:** "Este sorvete está gelado demais" ou "sinto cristais".
+  - **Julga:** Qualidade ruim; marca de m\u00e3 performance.
+  - **Decide:** Não compra mais || Compra a marca concorrente.
+
+  Falha crítica na vertente de **Adequação ao Uso**, causando defecção do cliente e perda de participação de mercado.
+
+* **b) Conformidade com o Projeto:** A ficha técnica de engenharia da Sabor & Frio estabelece especificações rigorosas:
+  - Temperatura de batida: -7°C ± 0,5°C
+  - Incorporação de ar (*overrun*): 95% ± 5%
+  - Tamã<br/>o de cristal de gelo: < 50 micrometros
+
+  O maquinário quebrado (falta de manutenção nos *freezers*) descumpriu a **especificação rigorosa**. Não é um erro de design; é um erro de **execução e controle de processo**. Falha crítica na vertente de **Conformidade com o Projeto**, evidenciando que o processo não está sob controle estatístico.
+
+**Síntese Integradora:**
+
+Este caso demonstra que a crise da Sabor & Frio não foi causada por falta de ambição ou competência técnica isolada. Os problemas emergiram de um **desconexão sistêmica**:
+
+1. **Entrada (Input):** Compras de leite de baixa qualidade para economizar custos departamentais (falta de integração).
+2. **Processo (Transformation):** Equipamentos sem manutenção preventiva (falta de Garantia Estratégica); decisões de *overengineering* na baunilha (falta de análise econômica).
+3. **Saída (Output):** Produto final com variabilidade excessiva e perda de reputação (falha de percepção do cliente).
+
+A **Qualidade Total** (Feigenbaum) é o remédio comprensivo: integração horizontal entre departamentos, investimento obsessivo em prevenção, eliminação simultânea de desperdícios disfarçados de qualidade, e mensuração rigorosa de todas as três vertentes (Uso, Conformidade, Economia).
+
+---
+
 ## Seção 2: Questões de Reflexão (Sem Gabarito — Use Para Debate)
 
 ### Q1: Qual é a diferença entre "Filosofia da Qualidade" e "Sistema de Qualidade"?

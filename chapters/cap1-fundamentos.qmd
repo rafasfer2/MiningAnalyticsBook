@@ -509,7 +509,33 @@ O engenheiro de produção deve mostrar aos alunos que o objetivo da gestão fin
 * Para **eliminar** os custos catastróficos de Falha (especialmente as Externas)...
 * E **cortar** a Superqualidade (aquilo que o cliente não pediu e não paga para ter).
 :::
+Para fechar o entendimento da modelagem econômica, a **Superqualidade** (*Over-quality*) é o ponto onde o investimento em controle cruza a linha da utilidade e passa a ser desperdício puro. Matematicamente, ela ocorre quando aumentamos os custos de controle ($C_{controle} \uparrow$) e a conformidade técnica muito além do que o mercado está disposto a pagar, sem que isso reduza significativamente os custos de falha.
 
+Aqui estão dois exemplos práticos para diferenciar a Qualidade Estratégica da Superqualidade em ramos distintos da engenharia:
+
+::: {.example #exm-superqualidade-concreto name="Superqualidade na Construção Civil: O Caso do Concreto"}
+
+* **Requisito do Cliente:** Um prédio residencial comum exige colunas com resistência de 30 MPa (MegaPascal). Isso é o que garante a segurança estrutural e a conformidade técnica.
+* **Qualidade (Ponto Ótimo):** O engenheiro calibra a betoneira para entregar 32 MPa, garantindo uma margem de segurança estatística para que nenhuma amostra fique abaixo dos 30 MPa exigidos por norma.
+* **Superqualidade (Desperdício):** Por medo ou falta de controle de processo estatístico, a usina entrega um concreto de 50 MPa (resistência exigida para uma ponte estaiada) para uma simples casa térrea.
+* **O Impacto Financeiro:** O custo do cimento extra é altíssimo, fazendo o custo de produção disparar ($C \uparrow$).
+* **A Percepção de Valor:** O cliente final não enxerga diferença estrutural, não vai morar em uma casa "mais segura" por causa disso e não pagará um centavo a mais pelo excesso de cimento. É lucro jogado fora.
+:::
+
+::: {.example #exm-superqualidade-suco name="Superqualidade na Indústria de Alimentos: O Caso do Açúcar"}
+
+* **Requisito do Mercado:** Um fabricante de suco de caixinha define que o teor de açúcar deve ser de 10% (± 0,5%) para manter o sabor padrão.
+* **Qualidade (Ponto Ótimo):** O engenheiro instala sensores industriais que garantem que o suco saia sempre com 10,1%, evitando que o cliente sinta o suco "azedo" (prevenindo uma falha externa).
+* **Superqualidade (Desperdício):** O engenheiro decide que o suco deve ter 0,001% de precisão. Ele aprova a compra de um espectrômetro de massa com precisão laboratorial da NASA para medir o açúcar em tempo real na linha de envase.
+* **O Impacto Financeiro:** O custo de aquisição, depreciação da máquina e a manutenção especializada são astronômicos.
+* **A Percepção de Valor:** O paladar humano não possui resolução para distinguir a diferença entre 10,1% e 10,1001% de açúcar. A empresa elevou drasticamente o custo de produção ($C \uparrow$) sem conseguir elevar o preço de venda ($P \leftrightarrow$). Consequentemente, a produtividade financeira ($Produtividade \downarrow$) despenca.
+:::
+
+::: {.callout-warning title="⚠️ A Armadilha do Engenheiro"}
+O engenheiro estritamente técnico e perfeccionista tende a buscar a **Superqualidade** a qualquer custo. Já o engenheiro de produção busca a **Eficiência** sistêmica.
+* **Qualidade:** É entregar ao cliente rigorosamente *tudo* o que ele pediu e valoriza.
+* **Superqualidade:** É entregar o que o cliente *não pediu*, não percebe, não valoriza e, no final das contas, arcar com a conta desse excesso sozinho.
+:::
 ### O Impacto Sistêmico: Ciclo Negativo vs. Ciclo Positivo {#sec-impacto-sistemico}
 
 Para ilustrar de forma definitiva porque o gerenciamento se tornou vital, podemos contrastar os impactos sistêmicos de uma operação a partir do nível de qualidade alcançado:
@@ -921,5 +947,13 @@ Utilize a aviação (manutenção e gestão de peças) para exemplificar a trans
 ::: {#exr-eras-transicao}
 **A Mudança de Paradigma**
 Qual foi o principal fator físico e econômico que forçou a transição da "Era da Inspeção" (100% de verificação) para a "Era do Controle Estatístico da Qualidade"?
+:::
+
+::: {#exr-padaria-superqualidade}
+**Reflexão Econômica: Qualidade vs. Superqualidade**
+Uma padaria de bairro decide embalar cada pão francês individualmente em uma pequena caixa de cetim com laço de fita, sob o pretexto de garantir que ele chegue morno e com apresentação *premium* ao cliente. Contudo, o preço de venda do pão na vitrine continua o mesmo (R$ 0,50 a unidade).
+Responda justificando economicamente:
+a) Esta iniciativa caracteriza um ganho de Qualidade Estratégica ou um erro de Superqualidade?
+b) O que acontecerá com a curva de Custo Total e com a Margem de Lucro desta padaria?
 :::
 
