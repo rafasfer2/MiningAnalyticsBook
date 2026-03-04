@@ -1,0 +1,13 @@
+ERROR: NotFound: O sistema n├úo pode encontrar o arquivo especificado. (os error 2): stat 'C:\Projetos\MiningAnalyticsBook\chapters\cap5-cerebro-operacao_files'
+
+Stack trace:
+    at Object.statSync (ext:deno_fs/30_fs.js:415:3)
+    at createWalkEntrySync (file:///C:/Users/rafas/AppData/Local/Programs/Quarto/bin/quarto.js:2163:22)
+    at walkSync (file:///C:/Users/rafas/AppData/Local/Programs/Quarto/bin/quarto.js:2283:11)
+    at walkSync.next (<anonymous>)
+    at advanceMatch (file:///C:/Users/rafas/AppData/Local/Programs/Quarto/bin/quarto.js:2401:21)
+    at advanceMatch.next (<anonymous>)
+    at expandGlobSync (file:///C:/Users/rafas/AppData/Local/Programs/Quarto/bin/quarto.js:2423:18)
+    at expandGlobSync.next (<anonymous>)
+    at expandGlobs (file:///C:/Users/rafas/AppData/Local/Programs/Quarto/bin/quarto.js:6095:18)
+    at resolveGlobs (file:///C:/Users/rafas/AppData/Local/Programs/Quarto/bin/quarto.js:6178:24)
