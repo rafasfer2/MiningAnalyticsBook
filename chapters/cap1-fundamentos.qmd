@@ -194,11 +194,11 @@ Para tangibilizar essa evolução, observe a mudança de foco no setor automotiv
 * **Garantia Estratégica:** A montadora implementa o *Poka-Yoke* (dispositivos à prova de erros) direto na linha, onde uma peça só encaixa se estiver na posição exata. A qualidade deixa o chão de fábrica e é discutida na diretoria como diferencial competitivo (oferecendo 5 anos de garantia para dominar fatias de mercado).
 :::
 
-### Vertentes Clássicas no Conceito de Qualidade {#sec-vertentes-qualidade}
+## Vertentes Clássicas no Conceito de Qualidade {#sec-vertentes-qualidade}
 
 A evolução da qualidade, partindo de uma visão estritamente subjetiva para um modelo de gestão pragmático, pode ser compreendida através de diferentes correntes de pensamento. Para facilitar o entendimento, dividiremos o conceito em quatro abordagens centrais.
 
-#### Qualidade sob a Ótica da Adequação ao Uso {#sec-adequacao-uso}
+### Qualidade sob a Ótica da Adequação ao Uso {#sec-adequacao-uso}
 
 Esta corrente defende que um produto detém qualidade se ele cumpre de forma satisfatória a função para a qual foi adquirido pelo usuário final. Ou seja, a sua excelência é medida pela sua utilidade prática no dia a dia.
 
@@ -214,7 +214,7 @@ A @fig-copos-descartaveis ilustra visualmente essa relatividade. Ao analisarmos 
 
 ![Comparativo de Qualidade entre Copos - Adequação ao Uso](../images/fig-copos-descartaveis.png){#fig-copos-descartaveis fig-align="center"}
 
-#### Qualidade como Conformidade com o Projeto {#sec-conformidade-projeto}
+### Qualidade como Conformidade com o Projeto {#sec-conformidade-projeto}
 
 Esta segunda abordagem argumenta que a gestão da qualidade só se torna viável, na prática diária de uma operação, se for balizada por métricas e especificações técnicas estabelecidas antes do início da fabricação. Nesse cenário, o nível de excelência é determinado rigorosamente pelo alinhamento exato entre o item entregue e o que foi parametrizado no projeto da engenharia.
 
@@ -224,18 +224,47 @@ Retomando o exemplo do copo descartável, para atestar sua qualidade sob essa ó
 
 A avaliação neste método costuma ser categórica (binária): ou a peça cumpre as especificações (estando conforme) ou não as cumpre (sendo não conforme). Na rotina industrial, a qualidade do processo é frequentemente avaliada pelo índice percentual de rejeição de um lote.
 
-#### Qualidade Mensurada pelas Perdas à Sociedade {#sec-perdas-sociedade}
+### Qualidade Mensurada pelas Perdas à Sociedade {#sec-perdas-sociedade}
 
-Ao contrário das visões tradicionais focadas no lucro, esta vertente analisa o problema sob a ótica da falha, ou da "não qualidade". Aqui, a avaliação fundamenta-se no impacto financeiro ou socioambiental que um produto gera para a comunidade após ser comercializado e entrar em uso. Essas perdas são categorizadas em duas frentes:
+Ao contrário das visões tradicionais focadas no lucro da corporação, esta vertente analisa o problema sob a ótica da falha, ou da "não qualidade", de forma macro. A avaliação fundamenta-se no impacto financeiro ou socioambiental que um produto gera para a comunidade após ser comercializado e entrar em uso. Essas perdas são categorizadas em duas frentes:
 
-* **Perdas por desvios na função principal:**
-  Ocorrem quando a operação básica do produto apresenta ineficiência estrutural. Considere um motor elétrico de grande porte que deveria entregar potência contínua. Se ele desperdiçar energia sob a forma de vibração excessiva ou ruído ensurdecedor, será classificado como um equipamento de baixa qualidade.
-* **Perdas por impactos colaterais:**
-  Estão ligadas aos prejuízos externos gerados não pela falha, mas pelo próprio consumo do produto. Se o mesmo maquinário apresentar vazamentos crônicos de fluidos hidráulicos no solo, ele estará impondo um passivo direto ao meio ambiente e à sociedade.
+* **Perdas por desvios na função principal:** Ocorrem quando a operação básica do produto apresenta ineficiência estrutural. Considere um motor elétrico que desperdiça energia sob a forma de vibração excessiva ou ruído ensurdecedor.
+* **Perdas por impactos colaterais:** Estão ligadas aos prejuízos externos gerados não pela falha, mas pelo próprio uso ou descarte do produto.
 
-::: {.example #exm-custo-invisivel name="O Custo Invisível e o Passivo Ambiental"}
-O copo de plástico ilustra perfeitamente esses custos invisíveis. Falhas de injeção plástica podem gerar copos rachados que vazam a bebida, gerando perdas e frustração. Em segundo lugar, o descarte irregular deste material descartável em vias públicas cria um gravíssimo passivo ecológico, cujo custo de limpeza recairá sobre o sistema público e a sociedade como um todo.
-:::
+Para expandir esse conceito, devemos recorrer à lógica de **Genichi Taguchi**, que revolucionou a engenharia ao afirmar que a qualidade não é apenas "estar dentro da tolerância", mas sim *minimizar a perda total para o sistema*.
+
+#### A Função Perda de Taguchi (O Conceito Matemático)
+
+Tradicionalmente, se um produto está dentro do limite (ex: entre 9,9 mm e 10,1 mm), ele é considerado "bom". Para Taguchi, se o alvo é 10,0 mm, qualquer valor diferente disso (mesmo 10,01 mm) já começa a gerar uma **perda incremental**.
+* **A Lógica:** Quanto mais longe do alvo, maior o custo de ajuste, maior o desgaste de peças e maior o consumo de energia. A perda cresce de forma quadrática conforme nos afastamos do centro do projeto.
+
+A fórmula simplificada de Taguchi é:
+$$L = k(x - t)^2$$ {#eq-taguchi}
+
+Onde:
+* $L$ = Perda financeira (em Reais).
+* $x$ = Valor medido da característica.
+* $t$ = Valor Alvo (*Target*).
+* $k$ = Constante de custo financeiro da falha.
+
+O termo $(x - t)^2$ faz com que a perda dispare rapidamente conforme o desvio aumenta. **Qualidade é acertar o alvo, não apenas estar dentro do limite.**
+
+Para que o aluno visualize a diferença entre a visão tradicional (binária: dentro ou fora) e a visão de Taguchi (gradual), observe o gráfico abaixo:
+
+```text
+Perda Financeira (R$)
+      ^
+      |           (B) CURVA DE TAGUCHI (L)
+      |             Perda cresce ao se afastar do alvo
+      |      \                  /
+      |       \                /
+      |        \              /
+______|_________\____________/_________  (A) VISÃO TRADICIONAL
+      |          |    |     |            (O degrau da tolerância)
+      |          |    |     |
+      |__________|____|_____|__________>  Valor da Característica
+                LIE  ALVO  LSE
+```
 
 ### Qualidade Definida pela Satisfação Plena (Market-in) {#sec-satisfacao-plena}
 
@@ -292,19 +321,29 @@ Este estudo de caso é o exemplo clássico da literatura de negócios para ilust
 A Nokia era a líder absoluta do mercado mundial de celulares. Seus aparelhos eram famosos pela *Qualidade Intrínseca*: baterias que duravam uma semana, resistência a quedas ("inquebráveis") e sinal de recepção impecável. A engenharia da Nokia era a melhor do mundo em hardware.
 
 **2. A Abordagem Nokia: O auge do Product-out**
+
 A mentalidade da Nokia era: *"Nós sabemos fazer os melhores telefones. O cliente quer um teclado físico durável e um sistema operacional que economize memória."*
+
 * **Foco Interno:** A engenharia ditava o que o mercado deveria consumir.
+
 * **O Erro:** Eles ignoraram que o cliente estava mudando. O usuário não queria mais apenas um "telefone", ele queria um "computador de bolso" para navegar na internet e usar aplicativos.
+
 * **Resultado:** A Nokia continuou lançando modelos baseados em sua capacidade técnica de hardware, "empurrando" teclados físicos e telas pequenas quando o mundo pedia toque e interface fluida.
 
 **3. A Abordagem Apple (iPhone): O triunfo do Market-in**
+
 Em 2007, a Apple entrou no mercado sem nunca ter fabricado um telefone antes. Ela não olhou para o que "sabia fazer", mas para o que o consumidor desejava (e nem sabia que podia ter).
+
 * **Foco Externo:** Identificou a *Necessidade Latente*: o cliente odiava teclados minúsculos e queria uma tela grande para fotos, vídeos e música.
+
 * **Estratégia:** O iPhone nasceu da interface (software/usuário) para o hardware. A tecnologia servia ao desejo do cliente, e não o contrário.
+
 * **Resultado:** Mesmo com uma bateria que durava menos e sendo mais frágil que um Nokia, o iPhone entregava *Satisfação Plena*. O cliente aceitou os "defeitos" técnicos em troca da *Adequação ao Uso* e do prazer da experiência.
 
 **4. Aplicação no ARI (Ambiente de Relacionamento Interno)**
+
 * Na **Nokia**, o setor de Software era "escravo" do Hardware. O hardware (fornecedor interno) entregava uma tela pequena e o software (cliente interno) que se virasse para enfiar os menus ali.
+
 * Na **Apple**, o Design de Interface era o "chefe". Ele definia a experiência e a Engenharia de Hardware tinha que encontrar uma forma de fazer aquela bateria fina e aquela tela gigante funcionarem.
 
 | Dimensão | Nokia (Product-out) | Apple (Market-in) |
