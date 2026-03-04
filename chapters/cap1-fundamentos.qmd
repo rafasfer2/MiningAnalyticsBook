@@ -216,13 +216,79 @@ A @fig-copos-descartaveis ilustra visualmente essa relatividade. Ao analisarmos 
 
 ### Qualidade como Conformidade com o Projeto {#sec-conformidade-projeto}
 
-Esta segunda abordagem argumenta que a gestão da qualidade só se torna viável, na prática diária de uma operação, se for balizada por métricas e especificações técnicas estabelecidas antes do início da fabricação. Nesse cenário, o nível de excelência é determinado rigorosamente pelo alinhamento exato entre o item entregue e o que foi parametrizado no projeto da engenharia.
+Esta segunda abordagem argumenta que a gestão da qualidade só se torna viável na prática diária de uma operação se for balizada por métricas e especificações técnicas estabelecidas antes do início da fabricação. Nesse cenário, o nível de excelência é determinado rigorosamente pelo alinhamento exato entre o item entregue e o que foi parametrizado no projeto de engenharia. A qualidade não é uma opinião, mas uma **comparação estatística** entre o "Dever Ser" (Projeto) e o "É" (Produto Real).
 
-::: {.example #exm-otica-laboratorial name="Ótica Laboratorial e Conformidade"}
-Retomando o exemplo do copo descartável, para atestar sua qualidade sob essa ótica laboratorial, a linha de produção precisaria de uma ficha técnica detalhando sua espessura em milímetros, seu diâmetro, a resistência à tração e a composição química exata do polímero.
+#### A Ficha Técnica (O "DNA" da Qualidade)
+
+Na conformidade, o documento mestre é a Especificação Técnica. Ela transforma desejos abstratos em números auditáveis.
+* **Limites de Tolerância:** O projeto nunca define apenas um número fixo (ex: 10 mm), mas uma faixa aceitável (ex: $10 \pm 0,05$ mm).
+* **Conformidade Binária:** Se a peça mede 10,04 mm, ela é *Conforme*. Se mede 10,06 mm, ela é *Não Conforme* (defeito), mesmo que ainda funcione. Para a engenharia de conformidade, o erro é puramente o desvio do plano.
+
+::: {.example #exm-otica-laboratorial name="A Lógica do Laboratório e da Conformidade"}
+**Cenário A: Indústria de Parafusos Automotivos**
+* *O Projeto:* O parafuso deve suportar um torque de 50 N.m e ter uma rosca com passo de 1,25 mm.
+* *A Auditoria:* O laboratório testa amostras. Se o passo for de 1,30 mm, o lote é bloqueado. Mesmo que "pareça" bom, ele impediria a montagem automatizada na fábrica de carros.
+
+**Cenário B: Produção de Medicamentos (Cápsulas)**
+* *O Projeto:* Cada cápsula deve conter exatamente 500 mg de princípio ativo.
+* *A Auditoria:* Uma balança de precisão pesa a amostra. Se tiver 510 mg, é Não Conforme. O desvio gera risco de superdosagem, provando que seguir o projeto é uma questão de segurança.
 :::
 
-A avaliação neste método costuma ser categórica (binária): ou a peça cumpre as especificações (estando conforme) ou não as cumpre (sendo não conforme). Na rotina industrial, a qualidade do processo é frequentemente avaliada pelo índice percentual de rejeição de um lote.
+#### O Indicador Chave: Taxa de Refugo e Retrabalho
+
+Na rotina industrial, a conformidade é medida pelo impacto financeiro da falha:
+* **Refugo (*Scrap*):** Peças não conformes que não podem ser consertadas (Perda Total).
+* **Retrabalho (*Rework*):** Peças não conformes que voltam para a máquina para ajustes (Perda de Produtividade).
+O objetivo é reduzir a variabilidade para que 100% das peças "nasçam" dentro da faixa.
+
+::: {.callout-tip title="💡 Insight Pedagógico: Conformidade vs. Satisfação"}
+A Conformidade é uma condição necessária, mas não suficiente. Um restaurante pode seguir o projeto (receita) à risca e entregar um prato na temperatura exata (Alta Conformidade), mas se o cliente não gostar do tempero, o prato terá Baixa Adequação ao Uso. A Conformidade garante que a fábrica fez o que prometeu a si mesma; a Satisfação garante que fez o que o cliente queria.
+:::
+
+Esta **Tabela de Inspeção de Atributos** (Tabela Passa/Não Passa) é a ferramenta básica de controle. Ela transforma a observação subjetiva em um dado binário.
+
+::: {.example #exm-auditoria-canetas name="Auditoria de Conformidade (Simulação de Chão de Fábrica)"}
+*Instruções:* Vocês são Inspetores de uma linha de canetas. O projeto definiu 4 requisitos críticos. O lote é rejeitado se houver mais de 1 Não Conformidade (NC) total nas amostras.
+
+| Amostra | Req 1: Comprimento ($140 \pm 1$ mm) | Req 2: Esfera na Ponta | Req 3: Cor Tinta | Req 4: Escrita (Sem falha) | Status |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| **#01** | $140,5\text{ mm}$ | Presente | Azul | OK | **C** |
+| **#02** | $139,8\text{ mm}$ | Presente | Azul | OK | **C** |
+| **#03** | $141,2\text{ mm}$ | Presente | Azul | OK | **NC** |
+| **#04** | $140,0\text{ mm}$ | Ausente | Azul | Falha | **NC** |
+| **#05** | $140,0\text{ mm}$ | Presente | Azul | OK | **C** |
+
+**A Lógica da Conformidade Binária (O "Muro" da Qualidade)**
+Amostra #03: Tem $141,2\text{ mm}$. São apenas $0,2\text{ mm}$ acima do Limite Superior. A caneta ainda escreve? Sim. Mas é NÃO CONFORME. Ela pode travar a máquina de embalagem ou não caber na caixa padrão, gerando custo logístico imenso.
+
+**O Indicador de Qualidade do Processo**
+Das 5 peças, 3 estão conformes.
+* **Yield (Rendimento):** $60\%$ (apenas $60\%$ do que foi produzido presta).
+* **Refugo (*Scrap*):** $40\%$.
+* *Conclusão:* Este processo está "fora de controle". O custo de $40\%$ de perda tornará o produto inviável financeiramente.
+:::
+
+#### A Deriva do Processo e Limites de Conformidade
+
+Para visualizar como a conformidade se comporta ao longo do tempo, o gráfico de Controle de Tendência mostra que um processo pode estar "conforme" hoje, mas caminhando para o erro amanhã.
+
+```text
+Medida (mm)
+      ^
+ 10,15|                                 (X) FORA DE CONFORMIDADE (Refugo)
+      |------------------------------------------------------------------ LSE (Limite Superior)
+ 10,10|                          (X)  (X)
+      |                   (X)  (X)
+ 10,05|            (X)  (X)             <-- DERIVA (O processo está "subindo")
+      |     (X)  (X)
+ 10,00|__(X)_____________________________________________________________ ALVO (Projeto)
+      |
+  9,95|
+      |------------------------------------------------------------------ LIE (Limite Inferior)
+  9,90|
+      |__________________________________________________________________> Tempo (Turno)
+            08:00h   10:00h   12:00h   14:00h   16:00h
+```
 
 ### Qualidade Mensurada pelas Perdas à Sociedade {#sec-perdas-sociedade}
 
@@ -265,6 +331,86 @@ ______|_________\____________/_________  (A) VISÃO TRADICIONAL
       |__________|____|_____|__________>  Valor da Característica
                 LIE  ALVO  LSE
 ```
+*(Onde LIE = Limite Inferior de Especificação e LSE = Limite Superior de Especificação)*
+
+* **Curva A (Visão Tradicional - "Meta do Engenheiro de Papel"):** Se o Alvo é 10 mm e os limites são 9,9 e 10,1, qualquer valor dentro dessa faixa tem zero perda. O problema: um produto com 10,09 mm é aceito como "perfeito", mas ele já está quase falhando.
+* **Curva B (Função Perda - "Meta do Engenheiro de Valor"):** A perda é zero *apenas* no ponto exato do Alvo. Por que existe perda mesmo dentro do limite? Porque peças que não estão no alvo geram maior atrito e menor durabilidade.
+
+::: {.example #exm-taguchi-ventilador name="A Visão de Taguchi: O Eixo do Ventilador"}
+* **Padrão Tradicional:** O eixo deve ter 10 mm. Se tiver 10,05 mm, o inspetor aprova. O ventilador funciona e o cliente compra.
+* **Visão de Taguchi:** O eixo de 10,05 mm causa uma microvibração. Essa vibração gera ruído (perda de função) e faz o motor esquentar mais (impacto colateral: gasto de energia). Em 2 anos, o rolamento quebra.
+* **A Perda Social:** O cliente gastou mais na conta de luz e terá que descartar o ventilador mais cedo, gerando lixo eletrônico. A fábrica economizou na precisão de usinagem, mas a *Sociedade pagou a conta*.
+:::
+
+#### Exemplos Práticos: Desvios de Função vs. Impactos Colaterais
+
+**Cenário A: Indústria de Pneus de Carga**
+* **Perda por Desvio na Função:** O pneu foi projetado para rodar 60.000 km, mas devido à baixa qualidade da borracha, deforma com 40.000 km.
+  * *Perda para a sociedade:* O transportador gasta mais com substituição, o frete encarece e os alimentos no supermercado ficam mais caros.
+* **Perda por Impacto Colateral:** O pneu tem uma resistência ao rolamento muito alta (gera muito atrito).
+  * *Perda para a sociedade:* O caminhão queima mais diesel para vencer o atrito, lançando mais CO2, mesmo que o pneu nunca fure.
+
+**Cenário B: Lâmpada de LED de Baixo Custo**
+* **Perda por Desvio na Função:** A lâmpada pisca (*flicker*) ou queima em 6 meses, em vez de durar 5 anos.
+  * *Perda para a sociedade:* Gera frustração e custo de reaquisição.
+* **Perda por Impacto Colateral:** Utiliza componentes de difícil reciclagem (metais pesados).
+  * *Perda para a sociedade:* Quando descartada, contamina o solo, gerando custo de remediação ambiental pago via impostos.
+
+**Cenário C: O Dilema das Sacolas de Supermercado**
+* **Perda por Desvio de Função:** Uma sacola fina rasga no estacionamento. Ovos quebram e produtos sujam. O cliente perdeu dinheiro e tempo.
+* **Perda por Impacto Colateral:** Bilhões de sacolas descartadas entopem bueiros (causando inundações) e matam a fauna marinha.
+  * *Quem paga?* O cidadão, através de impostos para limpeza urbana e obras de drenagem.
+
+#### O Custo de Oportunidade como Perda Social
+A "não qualidade" também gera o Custo de Oportunidade Social. Por exemplo, um software de gestão pública que trava constantemente. A perda não é apenas o valor do *software*, mas as horas de cidadãos parados em filas em serviços de saúde. Essa energia humana desperdiçada é uma perda invisível, mas real, para o PIB e o bem-estar.
+
+#### Matriz de Avaliação: Perdas à Sociedade (Taguchi vs. Mercado)
+Esta ferramenta analítica permite visualizar a "perda para a sociedade", retirando o foco do lucro da empresa e colocando-o no custo real para o cidadão e o meio ambiente.
+
+| Dimensão da Perda | Critério de Análise | Produto A (Referência) | Produto B (Baixo Custo) |
+| :--- | :--- | :--- | :--- |
+| **Desvio de Função** | O produto entrega 100% da sua promessa técnica? | Ilumina bem por 5 anos. | Pisca ou queima em 6 meses. |
+| **Custo de Reposição** | Com que frequência a sociedade precisa comprar outro? | Baixa (Longa durabilidade). | Alta (Ciclo de descarte rápido). |
+| **Ineficiência Energética** | O uso consome mais recursos do que o necessário? | Baixa (Eficiência A). | Alta (Esquenta e gasta mais). |
+| **Impacto Colateral** | O descarte gera poluentes ou resíduos tóxicos? | Reciclável / Logística Reversa. | Lixo comum / Metais pesados. |
+| **Custo Oculto (Impostos)**| A sociedade pagará pela limpeza ou saúde pública? | Baixo impacto no sistema. | Alto custo de remediação. |
+
+: Matriz de Análise de Impacto Social da Qualidade {#tbl-matriz-perdas-sociedade}
+
+::: {.callout-note title="💡 Insight Pedagógico: A Qualidade Ética e o ESG"}
+Esta vertente transforma o engenheiro em um agente social. Projetar algo que "funciona, mas polui" ou que "dura pouco para vender mais" (obsolescência programada) é um atentado ético contra a qualidade, pois transfere o prejuízo da fábrica para o bolso do cidadão. Empresas modernas usam a redução dessas perdas como estratégia de **ESG (*Environmental, Social, and Governance*)**.
+:::
+
+::: {.callout-important title="🎯 Dinâmicas de Debate para a Sala de Aula"}
+**Debate 1: O Dilema do Carro Popular**
+*"Um carro barato é fabricado sem isolamento acústico para reduzir o preço. O motorista fica exposto a ruídos acima de 85 decibéis durante 2 horas de trânsito por dia."*
+Isso é um Desvio de Função ou um Impacto Colateral? Quem paga a "conta" dessa economia da fábrica no longo prazo? *(Dica: Pense em saúde pública e perda auditiva).*
+
+**Debate 2: O Gás Refrigerante**
+*"Um fabricante de ar-condicionado usa um gás refrigerante barato que é altamente inflamável e destrói a camada de ozônio."*
+Como o Engenheiro de Processos pode usar a lógica matemática da Função Perda de Taguchi para convencer a diretoria a trocar o gás, mesmo que o novo seja mais caro? *(Dica: Foque na redução do risco $L$ de multas astronômicas e no valor de marca).*
+:::
+
+#### A Função Perda Aplicada a Serviços: O Pronto Socorro
+
+Para fechar este conteúdo com uma visão de Serviços, vamos aplicar a lógica de Taguchi (Perda à Sociedade) ao tempo de espera em um Pronto Socorro (PS). Aqui, o "Alvo" não é um milímetro, mas sim o *tempo ideal de início do tratamento*.
+
+**1. O Alvo ($t$) e o Desvio em Serviços**
+Imagine que o protocolo médico (Requisito) define que um paciente com dor abdominal suspeita deve ser atendido em, no máximo, 30 minutos ($LSE$) para garantir a eficácia do diagnóstico. O alvo ($t$) ideal, contudo, é o atendimento imediato (ex: 5 minutos para triagem).
+* **Visão Tradicional:** Se o paciente espera 29 minutos, o hospital considera "Meta Batida" (Qualidade OK). Se espera 31 minutos, é "Falha".
+* **Visão de Taguchi:** Cada minuto que o paciente passa sentado na recepção além dos 5 minutos iniciais já gera uma *perda incremental*. O desvio do alvo ($x - t$) começa a cobrar seu preço muito antes do limite burocrático.
+
+**2. Decomposição das Perdas no Pronto Socorro**
+* **Perda por Desvios na Função Principal (Ineficiência):** O objetivo do PS é diagnosticar e estabilizar. Quanto mais tempo o paciente espera, maior a probabilidade de o quadro clínico se agravar (ex: uma apendicite que vira infecção generalizada). O desvio do tempo alvo gera uma "não qualidade" estrutural: o tratamento será mais complexo, exigirá mais exames e ocupará o leito por mais dias.
+* **Perda por Impactos Colaterais (Prejuízo Externo):** São os custos gerados para a sociedade que não aparecem na conta do hospital, mas existem no sistema. O paciente perde um dia de trabalho (perda de produtividade para o país). A família precisa faltar ao emprego para acompanhá-lo. O estresse gerado na recepção causa conflitos e sobrecarga emocional na equipe de enfermagem.
+
+> *O Custo Social:* Se o hospital demora 4 horas para atender 100 pessoas por dia, ele está "roubando" 400 horas de vida produtiva daquela comunidade diariamente. Isso é uma Baixa Qualidade Sistêmica.
+
+::: {.callout-tip title="💡 Insight Pedagógico: A Função Perda no Tempo"}
+Explique aos alunos que, em serviços, a **variabilidade do tempo** é a maior fonte de perda social. Um hospital que atende *sempre* em 20 minutos é muito superior a um que atende "na média" de 20 minutos, mas que às vezes demora 5 minutos e às vezes 2 horas. A incerteza gera custo: o paciente não consegue planejar sua vida, o transporte fica parado e a rede de apoio se desarticula.
+:::
+
+**Resumo do Módulo:** A qualidade mensurada pelas Perdas à Sociedade ensina que o engenheiro de produção bem-sucedido não busca apenas a "aprovação no teste", mas a *estabilidade no alvo*. Reduzir a variabilidade é a forma mais ética e lucrativa de gerir um negócio.
 
 ### Qualidade Definida pela Satisfação Plena (Market-in) {#sec-satisfacao-plena}
 
@@ -1359,4 +1505,35 @@ A excelência de um modelo de gestão exige a integração de quatro dimensões 
 ( ) A agilidade na troca de informações críticas entre a recepção e o centro cirúrgico sobre a chegada de um paciente acidentado.
 ( ) Os protocolos de triagem médica e a calibração dos equipamentos de Raio-X.
 ( ) A equipe médica realizando as cirurgias no tempo previsto e com taxa zero de infecções hospitalares.
+:::
+
+::: {#exr-taguchi-simulado name="Simulado Prático: A Função Perda de Taguchi"}
+Este simulado confronta a visão tradicional de engenharia (binária) com a lógica de Taguchi (gradual e social), forçando a reflexão sobre o custo invisível do desvio.
+
+**Questão 1: O "Aceitável" vs. o "Excelente"**
+Uma fábrica de eixos para motores elétricos trabalha com um alvo de $10,0\text{ mm}$. O limite inferior de especificação (LIE) é $9,9\text{ mm}$ e o superior (LSE) é $10,1\text{ mm}$. Um lote de eixos é produzido com média de $10,09\text{ mm}$. Sob a ótica da visão tradicional e da Função Perda de Taguchi, como esse lote é classificado?
+A) Tradicional: Rejeitado | Taguchi: Perda Zero.
+B) Tradicional: Aprovado | Taguchi: Perda Zero.
+C) Tradicional: Aprovado | Taguchi: Perda incremental (Afasta-se do alvo).
+D) Tradicional: Rejeitado | Taguchi: Perda máxima.
+
+**Questão 2: Identificando a Natureza da Perda**
+Um fabricante de condicionadores de ar utiliza um compressor que, embora resfrie o ambiente conforme o projeto, gera uma vibração excessiva que causa ruído incômodo para os vizinhos e aumenta o consumo de energia elétrica em 15% acima do esperado. Essas falhas são classificadas, respectivamente, como:
+A) Ambas são Impactos Colaterais.
+B) Ambas são Desvios na Função Principal.
+C) Ruído: Desvio na Função Principal | Consumo de Energia: Impacto Colateral.
+D) Ruído: Impacto Colateral | Consumo de Energia: Desvio na Função Principal.
+
+**Questão 3: A Lógica Matemática da Perda**
+Considerando a fórmula da Função Perda de Taguchi $L = k(x - t)^2$, se um engenheiro consegue reduzir o desvio de uma peça em relação ao alvo pela metade, o que acontece com a perda financeira gerada para a sociedade?
+A) A perda é reduzida pela metade.
+B) A perda é reduzida a um quarto (redução de 75%).
+C) A perda permanece constante se estiver dentro da tolerância.
+D) A perda dobra, pois o custo de precisão aumenta.
+:::
+
+::: {#exr-taguchi-servicos name="Exercício de Fechamento: O Custo do Minuto"}
+Um engenheiro de produção em um hospital reduz o tempo médio de espera de 45 para 20 minutos, mantendo a mesma equipe.
+a) Calcule a redução da Perda Social usando a lógica de Taguchi (Dica: Lembre-se de que a perda cai ao *quadrado* da redução do desvio).
+b) Como essa melhoria nos Processos Internos (BSC) impacta a Perspectiva Financeira do hospital no longo prazo? (Pense em redução de complicações clínicas e processos judiciais).
 :::

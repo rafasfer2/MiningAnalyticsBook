@@ -796,6 +796,163 @@ A engenharia de produção deve evitar o erro estratégico de investir em "grau 
 
 ---
 
+### Resolução do @exr-taguchi-simulado (Simulado Prático: A Função Perda de Taguchi) {#sec-gabarito-taguchi-simulado}
+
+**Questão 1: O "Aceitável" vs. o "Excelente"**
+
+**Resposta: (C) Tradicional: Aprovado | Taguchi: Perda incremental (Afasta-se do alvo).**
+
+*Justificativa:*
+
+* **Visão Tradicional (Binária):** Para a engenharia clássica de inspeção, existe apenas uma lógica categórica: "dentro do limite é bom, fora do limite é ruim". Como a média de 10,09 mm está **dentro da faixa de tolerância** (9,9 mm a 10,1 mm), o lote é **aprovado** e liberado para o cliente sem questionamentos.
+
+* **Visão de Taguchi (Gradual e Social):** Taguchi revolucionou a engenharia ao demonstrar que a qualidade não é binária. Para ele, **qualquer desvio em relação ao alvo** (mesmo que dentro da tolerância) **já gera perda econômica para a sociedade**. No caso, o alvo é 10,0 mm, mas a produção está em 10,09 mm — próxima ao limite superior. Isso significa que o eixo está **quase no erro máximo aceitável**. Quando esse eixo for montado no motor elétrico, ele gerará:
+  - **Atrito excessivo** entre componentes (desgaste prematuro)
+  - **Aquecimento anormal** do conjunto (risco de falha térmica)
+  - **Vibração e ruído** (perda de conforto e eficiência energética)
+  - **Redução da vida útil** do equipamento (custo extra de manutenção para o usuário final)
+
+Portanto, mesmo que o lote seja "aprovado" pela inspeção tradicional, ele já está gerando **perda incremental real** para o cliente e para a sociedade. A fábrica transferiu seu custo de controle de processo para o bolso do consumidor.
+
+**Conexão com a Função Perda:** A fórmula $L = k(x - t)^2$ demonstra que a perda cresce de forma **quadrática** conforme o desvio aumenta. No caso:
+- No alvo (10,0 mm): $L = 0$ (perda zero)
+- Em 10,09 mm: $L = k(0,09)^2 = 0,0081k$ (perda existe e é mensurável)
+- No limite (10,1 mm): $L = k(0,1)^2 = 0,01k$ (perda máxima tolerada)
+
+A empresa que opera em 10,09 mm está gerando **81% da perda máxima tolerável**, mesmo estando "dentro da especificação". Taguchi exigiria que o processo fosse recentrado para 10,0 mm, eliminando essa perda desnecessária.
+
+---
+
+**Questão 2: Identificando a Natureza da Perda**
+
+**Resposta: (C) Ruído: Desvio na Função Principal | Consumo de Energia: Impacto Colateral.**
+
+*Justificativa:*
+
+Taguchi classifica as perdas em duas categorias fundamentais:
+
+1. **Perdas por Desvios na Função Principal:** São falhas na entrega do **objetivo primário** do produto. O condicionador de ar tem como função essencial **resfriar o ambiente**. Ele está cumprindo essa função (resfria conforme o projeto), mas a **vibração excessiva** que gera **ruído incômodo** representa uma **ineficiência na função principal**. O equipamento deveria resfriar de forma silenciosa e estável, mas está falhando nessa entrega, prejudicando o conforto (que é parte integrante da função de climatização).
+
+2. **Perdas por Impactos Colaterais:** São prejuízos externos, não relacionados à função primária, mas que afetam o cliente e a sociedade. O **consumo excessivo de energia elétrica** (+15% acima do esperado) não impede que o aparelho resfrie, mas gera um **passivo externo**:
+   - **Para o usuário:** Conta de luz mais cara (custo operacional elevado ao longo de anos)
+   - **Para a sociedade:** Maior demanda na matriz energética nacional (desperdício de recursos naturais e impacto ambiental)
+   - **Para a rede elétrica:** Sobrecarga desnecessária que poderia ter sido evitada
+
+Esse desperdício energético é um **impacto colateral** — uma externalidade negativa que a empresa fabril transferiu para o bolso do consumidor e para a infraestrutura pública.
+
+**Síntese Conceitual:**
+
+Este exercício demonstra que a Função Perda de Taguchi não se limita ao produto físico. Ela abrange:
+- **Falhas técnicas** (o compressor vibra e aquece porque foi mal projetado ou mal montado)
+- **Falhas econômicas** (o cliente paga mais pela energia desperdiçada)
+- **Falhas sociais** (a matriz energética do país é sobrecarregada por ineficiência individual)
+
+A engenharia de produção contemporânea deve prevenir ambos os tipos de perda, não apenas se preocupar em "entregar o produto conforme". A qualidade só é plena quando o equipamento **cumpre sua função sem gerar prejuízos ao cliente ou à sociedade**.
+
+---
+
+**Questão 3: A Lógica Matemática da Perda**
+
+**Resposta: (B) A perda é reduzida a um quarto (redução de 75%).**
+
+*Justificativa:*
+
+A Função Perda de Taguchi é expressa matematicamente como:
+$$L = k(x - t)^2$$
+
+Onde:
+- $L$ = Perda financeira/social
+- $k$ = Constante (custo da perda quando o desvio atinge o limite de tolerância)
+- $x$ = Valor medido da característica
+- $t$ = Valor alvo (target)
+
+O elemento crítico dessa fórmula é o **expoente 2** (quadrático). Isso significa que a perda não é proporcional ao desvio, mas sim ao **quadrado do desvio**. Essa é a revolução conceitual de Taguchi.
+
+**Demonstração Numérica:**
+
+Suponha que uma peça está com um desvio inicial de 2 mm em relação ao alvo:
+- **Situação Inicial:** $L_1 = k(2)^2 = 4k$
+- **Após Melhoria (desvio reduzido pela metade, para 1 mm):** $L_2 = k(1)^2 = 1k$
+
+Calculando a redução percentual:
+$$\text{Redução} = \frac{L_1 - L_2}{L_1} \times 100\% = \frac{4k - 1k}{4k} \times 100\% = \frac{3k}{4k} \times 100\% = 75\%$$
+
+**Interpretação Gerencial:**
+
+Quando o engenheiro consegue reduzir o desvio pela metade (de 2 mm para 1 mm), ele não reduz a perda pela metade (50%), mas sim **a um quarto do valor original** — uma redução de **75%**. Isso acontece porque o impacto da variação cresce de forma exponencial.
+
+**Implicação Estratégica:**
+
+Esta matemática justifica por que empresas de classe mundial investem obsessivamente na **centralização do processo** (redução de variabilidade). Pequenas melhorias no controle estatístico geram ganhos financeiros desproporcionalmente grandes. Por exemplo:
+- Reduzir o desvio de 4 mm para 2 mm → perda cai de 16k para 4k (redução de 75%)
+- Reduzir de 2 mm para 1 mm → perda cai de 4k para 1k (mais 75% de redução)
+- Reduzir de 1 mm para 0,5 mm → perda cai de 1k para 0,25k (mais 75% de redução)
+
+Cada passo rumo ao alvo gera um **retorno exponencial** sobre o investimento em melhoria de processo. É por isso que o Seis Sigma (que busca reduzir defeitos a 3,4 por milhão) é economicamente viável — o ganho no cliente final supera em muito o custo de implementação.
+
+---
+
+### Resolução do @exr-taguchi-servicos (Exercício de Fechamento: O Custo do Minuto) {#sec-gabarito-taguchi-servicos}
+
+**a) Calcule a redução da Perda Social usando a lógica de Taguchi:**
+
+**Solução:**
+
+A Função Perda de Taguchi estabelece que a perda é proporcional ao **quadrado do desvio** em relação ao ideal. Para o tempo de espera, assumimos que o **alvo ideal é 0 minutos** (atendimento imediato) e qualquer espera gera frustração e risco clínico.
+
+**Situação Inicial:**
+- Tempo de espera médio: **45 minutos**
+- Perda proporcional: $L_1 = k(45)^2 = 2025k$
+
+**Situação Após Melhoria:**
+- Tempo de espera médio: **20 minutos**
+- Perda proporcional: $L_2 = k(20)^2 = 400k$
+
+**Redução da Perda:**
+$$\text{Redução} = \frac{L_1 - L_2}{L_1} \times 100\% = \frac{2025k - 400k}{2025k} \times 100\% = \frac{1625k}{2025k} \times 100\% = 80,2\%$$
+
+**Interpretação:**
+
+Ao reduzir o tempo de espera de 45 para 20 minutos (redução de 55,6% no tempo), o engenheiro **eliminou 80,2% da Perda Social**. Isso demonstra o poder da lógica quadrática: pequenas melhorias no processo geram ganhos desproporcionalmente grandes na satisfação e segurança do paciente.
+
+**b) Como essa melhoria nos Processos Internos (BSC) impacta a Perspectiva Financeira do hospital no longo prazo?**
+
+**Resposta:**
+
+A redução do tempo de espera afeta positivamente múltiplas dimensões financeiras e estratégicas do hospital, conforme mapeado pelo Balanced Scorecard (BSC):
+
+**1. Perspectiva de Processos Internos → Impacto Direto**
+- **Fluxo Operacional:** Com menos gargalo na recepção/triagem, o hospital consegue processar mais pacientes por turno sem aumentar a equipe.
+- **Utilização de Salas:** Quartos, leitos de observação e salas de emergência são liberados mais rapidamente, permitindo maior rotatividade.
+
+**2. Perspectiva do Cliente → Impacto em Satisfação e Segurança**
+- **Redução de NPS Negativo:** Pacientes insatisfeitos com longas esperas geram reclamações públicas (redes sociais, ouvidoria, processos). A redução da espera eleva a reputação institucional.
+- **Redução de Risco Clínico:** Quanto menor o tempo de espera, menor a chance de agravamento do quadro clínico durante a triagem. Isso reduz drasticamente processos judiciais por negligência ou erro médico (passivos judiciais).
+
+**3. Perspectiva Financeira → Impacto de Longo Prazo**
+
+* **Redução de Passivos Trabalhistas e Judiciais:**
+  - Menos complicações clínicas → menos processos por imperícia/negligência
+  - Economia de honorários advocatícios e indenizações (podem ultrapassar milhões de reais)
+
+* **Aumento de Receita Operacional:**
+  - Maior rotatividade de leitos → mais pacientes atendidos por dia (aumento de faturamento)
+  - Hospital ganha certificação de excelência (ONA, JCI) → atrai convênios premium e clientes particulares
+
+* **Redução de Custos de Falha:**
+  - Menos complicações pós-atendimento → menos readmissões e tratamentos prolongados
+  - Equipe trabalha sob menor estresse → redução de turnover de profissionais qualificados (economia em recrutamento e treinamento)
+
+**Síntese Estratégica (Conexão BSC):**
+
+Este exercício demonstra o **efeito cascata** do BSC. A melhoria iniciou na base (**Processos Internos** — redução de espera), subiu para a **Perspectiva do Cliente** (maior satisfação e segurança) e culminou no topo (**Perspectiva Financeira** — maior lucratividade sustentável). Não foi um corte de custo cego, mas uma **melhoria sistêmica** que aumentou a eficiência sem comprometer a segurança — o Santo Graal da gestão hospitalar.
+
+**Lição para Mineração:**
+
+O mesmo raciocínio aplica-se a operações minerais. Reduzir o tempo de ciclo de um caminhão (Processos Internos) → aumenta a disponibilidade física (Cliente Interno - Operação) → gera maior produção a menor custo (Financeira). O investimento em melhoria de processo sempre se paga através da eliminação da perda social distribuída ao longo da cadeia.
+
+---
+
 ### Resolução do @exr-tqm-semeadoras (Falha Sistêmica no TQM) {#sec-gabarito-tqm-semeadoras}
 
 A ocorrência de um lote inteiro com cor errada demonstra uma **falha sistêmica** que corrompe a "corrente" do TQM. Os alunos podem identificar diversas quebras de fatores, tais como:
