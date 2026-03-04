@@ -45,6 +45,8 @@ Para consolidar o aprendizado estrutural, a tabela abaixo apresenta a evolução
 | **Visão do Erro** | Falha humana ou "azar" | Falha do Sistema ou do Processo |
 | **Relação Interna** | Departamentos isolados (Silos) | Cadeia Cliente-Fornecedor Interno |
 
+: Evolução de Paradigma: Da Era da Inspeção ao TQM {#tbl-evolucao-paradigma}
+
 
 
 ::: {.example #exm-tqm-hospital name="TQM em Ambientes Críticos: Hospital de Alta Complexidade"}
@@ -195,7 +197,7 @@ Dar autonomia à operação para agir rapidamente sobre os desvios.
 * Transferência da execução da inspeção da qualidade para os próprios operadores (autocontrole), reduzindo a dependência de inspetores externos.
 * Divulgação e celebração interna das experiências de sucesso na solução de problemas.
 
-::: {.tech-note}
+::: {.callout-note title="💡 Evolução Histórica: TQC, CWQC e TQM"}
 **A Evolução Histórica: TQC, CWQC e TQM**
 
 A origem da Qualidade Total remonta à década de 1950 e desdobrou-se na seguinte evolução:
@@ -301,7 +303,7 @@ O Modelo Toyota estrutura a filosofia Lean em 14 princípios organizados em 4 bl
 13. **Tomar decisões lentamente por consenso, implementar rapidamente:** Considerar todas as opções (Nemawashi), mas agir com velocidade na execução.
 14. **Tornar-se uma organização que aprende através da reflexão (Hansei) e melhoria contínua (Kaizen):** Aprender com erros e standardizar as lições.
 
-::: {.tech-note}
+::: {.callout-note title="⚙️ Aplicação do Jidoka na Mineração"}
 **Aplicação do Jidoka na Mineração**
 
 Na linha de britagem, sensores detectam automaticamente sobrecarga no alimentador. O sistema para a correia (autonomação), evitando danos mecânicos e forçando a equipe a investigar a causa raiz: problema de granulometria na alimentação ou falha no britador primário?
@@ -656,7 +658,7 @@ A MASP é a aplicação prática e estruturada do ciclo PDCA voltada para resolu
 8. **Conclusão:** Reflexão sobre o processo, registro de lições aprendidas e identificação de problemas remanescentes.
    * *Ferramentas:* Banco de Dados de Conhecimento, Hansei (Reflexão).
 
-::: {.tech-note}
+::: {.callout-note title="📌 Diferença entre PDCA e MASP"}
 **Diferença entre PDCA e MASP**
 
 * **PDCA:** Genérico, aplicável a qualquer tipo de melhoria (incremental ou de inovação).
@@ -679,7 +681,7 @@ O grupo escolhe um problema específico da sua área, analisa as causas e tenta 
 * **Espírito de Equipe:** Além de otimizar o processo, a iniciativa faz a equipe trabalhar de maneira unida. O operador sente-se ouvido e valorizado.
 * **Aplicação Prática:** Em operações de alta complexidade, como ferrovias e minas de grande porte, os CCQs têm sido fundamentais para resolver anomalias crônicas que antes pareciam difíceis de mapear, utilizando unicamente o conhecimento empírico de quem está na linha de frente.
 
-::: {.tech-note}
+::: {.callout-note title="📚 Reflexão Acadêmica"}
 **Reflexão Acadêmica**
 
 Como destaca Oliveira (2009), a qualidade precisa ser construída de forma coletiva, envolvendo todas as pessoas no compromisso com padrões estáveis. Essa visão é corroborada por Deming (1990), que enfatiza que a verdadeira melhoria contínua só acontece quando existe método, uso disciplinado de dados e a valorização profunda do conhecimento de quem vive a rotina de produção. O CCQ é, portanto, o caminho mais simples, direto e eficiente para materializar o **Empowerment** discutido no TQM.
@@ -729,7 +731,7 @@ Para que a qualidade do processo produtivo não sofra variações ao longo dos a
 6. **Reforma ou Expansão:** Melhorias no equipamento (retrofits) ou substituições parciais para prolongar sua utilidade.
 7. **Descarte:** O encerramento seguro e ambientalmente correto ao final da vida útil.
 
-::: {.tech-note}
+::: {.callout-note title="🎯 Conclusão Operacional"}
 **Conclusão Operacional**
 
 Para que os objetivos estratégicos da qualidade sejam alcançados sem sobressaltos, as propostas de manutenção, reforma e renovação dos ativos devem obrigatoriamente fazer parte do planejamento anual da empresa. Afinal, um processo cujos equipamentos falham constantemente jamais será capaz de entregar um produto em conformidade com as exigências do cliente.
@@ -877,157 +879,4 @@ O Lean foi desenvolvido em ambientes de produção em massa (Toyota). Como adapt
 Seis Sigma funciona bem em manufatura repetitiva. Qual seria o maior desafio em aplicar Seis Sigma a um minério cujas características naturalmente variam por geologia (teor heterogêneo)?
 :::
 
-::: {#exr-cap2-1-1}
-**Definição Contextual de Qualidade**
-
-**Contexto:** Em uma operação de britagem, três *stakeholders* definem "qualidade" de forma diferente:
-
-* **Operador de Britador:** "Qualidade é rodar sem parar"
-* **Engenheiro de Processo:** "Qualidade é granulometria dentro da especificação (P80 = 12 mm)"
-* **Gerente de Mina:** "Qualidade é entregar minério no prazo ao menor custo"
-
-**Pergunta:**
-a) Qual das três definições está "errada"? Justifique sua resposta.
-b) Como essas três perspectivas podem ser integradas em uma única definição de qualidade operacional para esse equipamento?
-c) Qual ferramenta da Parte I você utilizaria para harmonizar essas visões?
-:::
-
-**Resposta:** Consulte o [Gabarito da Parte I](appendix/gabarito-parte1.qmd#sec-gabarito-1-1){target="_blank"} para a resolução detalhada. | Medições reais = **Valores/Notas**; Percepção de importância = **Pesos**. |
-| **3. Qualidade como intencional** | **6 (Planejamento); 8.5.1; 8.6** (Liberação) | Requisitos planejados tornam-se **valores-alvo** (limites) das variáveis. |
-| **4. Qualidade como excepcional** | **6 (Planejamento); 9 (Avaliação); 10 (Melhoria)** | Desempenho acima do mínimo gera notas altas, *desde que haja peso*. |
-| **5. Qualidade como transformadora** | **4 (Contexto); 9 (Avaliação); 10 (Melhoria)** | Impacto conjunto das variáveis reflete-se no **índice global de qualidade**. |
-| **6. Qualidade como responsável** | **6.1 (Riscos); 8.7** (Saídas não conformes) | Inclusão de **variáveis sistêmicas e penalizadoras** (risco, perda, impacto). |
-| **7. Qualidade, valor e competitividade** | **4.2 (Partes interessadas); 6.2** (Objetivos) | Valor percebido define a discrepância entre **pesos estratégicos**. |
-| **8. Qualidade como sistema de gestão** | **4.4 (SGQ); 5 (Liderança); 7 (Suporte)** | A ARM opera como o **motor analítico contínuo** de apoio à decisão do SGQ. |
-
- A essência do produto é definida por teor metálico, granulometria e umidade. Na ARM, são as *variáveis críticas*.
-2. **Objetiva e subjetiva:** Lotes conformes podem ter dispersões diferentes. O teor é a nota (objetivo), a confiabilidade do cliente define o *peso* da estabilidade (subjetivo).
-3. **Intencional:** O contrato estabelece o teor mínimo. Na ARM, esse é o *valor-alvo*; qualquer desvio é uma não conformidade matemática.
-4. **Excepcional:** Entregar teor acima do mínimo com baixa variabilidade. Se o cliente valoriza, a ARM dá peso e nota altos. Se não, o modelo evidencia custo desnecessário (*superqualidade*).
-5. **Transformadora:** A melhoria granulométrica reduz paradas na usina do cliente. O ganho não aparece em uma variável isolada, mas eleva o *índice global* da ARM.
-6. **Responsável:** O produto está bom, mas consumiu muita água ou energia. Essas métricas entram como *variáveis negativas* (penalidades) no cálculo do índice.
-7. **Valor e competitividade:** A regularidade de entrega é requisito qualificador (peso mínimo); a estabilidade química é ganhadora de pedido (peso máximo).
-8. **Sistema de Gestão:** Os dados alimentam a ARM a cada turno, priorizando ações no *dashboard* e sustentando o PDCA da ISO 9001.
-
-### A Universalidade do Modelo: Notação Matemática e Aplicações Setoriais {#sec-exemplos-setoriais}
-
-Para alinhar as cláusulas da ISO 9001 com a Modelagem Analítica de Requisitos, é necessário estabelecer uma notação matemática mínima. Esse arcabouço permite traduzir as especificidades operacionais de qualquer setor em decisões quantitativas.
-
-#### Notação ARM (A Ponte entre ISO e Matemática)
-
-Considere um conjunto de requisitos $j = 1, \dots, m$:
-
-* **Variáveis medidas (características):** $x = [x_1, x_2, \dots, x_m]$
-* **Alvos/requisitos (especificação):** $r = [r_1, r_2, \dots, r_m]$
-* **Tolerâncias/limites:** $\Delta = [\Delta_1, \Delta_2, \dots, \Delta_m]$
-* **Pesos (importância):** $w = [w_1, w_2, \dots, w_m]$, com $w_j \ge 0$
-* **Função de nota por requisito:** $s_j = S(x_j; r_j, \Delta_j)$, tipicamente normalizada em $[0, 1]$
-
-O **Índice Global de Qualidade (ARM)** é dado pela média ponderada:
-$$Q = \frac{\sum_{j=1}^m w_j s_j}{\sum_{j=1}^m w_j}$$
-
-Caso existam riscos ou impactos negativos, aplica-se uma **Penalidade ($P$)**:
-$$P = \sum_k \rho_k g_k$$
-(riscos, perdas, incidentes)
-
-Resultando na **Qualidade Ajustada por Risco ($Q^*$):**
-$$Q^* = Q - P$$
-
-> *Na ARM, as cláusulas 4–6 definem o que medir ($x$), o que é requerido ($r, \Delta$) e o que importa mais ($w$); as cláusulas 7–8 garantem a confiabilidade da medição e o controle que gera $x$; as cláusulas 9–10 fecham o ciclo ao avaliar $Q(t)$ e ajustar o sistema (processo e parâmetros do modelo).*
-
----
-
-#### Exemplo 1 — Siderurgia: Produção de Bobinas de Aço
-
-* **Essência (Variáveis):** Teor de carbono, limite de escoamento.
-* **Subjetividade (Pesos):** Confiabilidade histórica do fornecedor.
-* **Intencional (Alvos):** Entregar exatamente a liga projetada.
-* **Responsável (Penalidade):** Sucata e alto consumo energético reduzem o índice.
-
-| Cláusula ISO 9001 | Tradução direta para a ARM (Siderurgia) |
-| :--- | :--- |
-| **4. Contexto** | Seleciona $x$ (ex.: %C, %Mn, $Re$, espessura) e base para pesos $w$. |
-| **5. Liderança** | Restrições corporativas (ex.: $Q \ge Q_{\min}$) e patamares de aceitação. |
-| **6. Planejamento** | Estabelece alvos $r$ e $\Delta$ (faixas químicas) e termo de penalidade $P$. |
-| **7. Suporte** | Confiabilidade de $x_j$ (incerteza $\sigma_j$ dos laboratórios). |
-| **8. Operação** | Liberação depende de critérios: libera se $s_j \ge s_{\min}$ para todo $j$. |
-| **9. Avaliação** | Consolida $Q(t)$ para recalibrar $S(\cdot)$ e revisar pesos $w$. |
-| **10. Melhoria** | Ajusta parâmetros de forno (muda $x$), reduz $\Delta$ (menor variabilidade). |
-
----
-
-#### Exemplo 2 — Montadora de Automóveis: Linha de Montagem
-
-* **Essência (Variáveis):** Segurança, falhas por mil veículos, conformidade dimensional.
-* **Subjetividade (Pesos):** Percepção do cliente sobre ruídos e acabamento.
-* **Excepcional (Excelência):** Acabamento superior que o mercado valoriza.
-* **Transformadora (Impacto):** Confiabilidade que reduz o custo de manutenção do cliente.
-
-| Cláusula ISO 9001 | Tradução direta para a ARM (Montadora) |
-| :--- | :--- |
-| **4. Contexto** | Define $x$ (torque crítico, *gap/flush*) e estrutura dos pesos $w$. |
-| **5. Liderança** | Prioridade "zero defeitos" força $w_{\text{segurança}}$ a ter o peso máximo. |
-| **6. Planejamento** | Alvos $r, \Delta$ por versão do carro; risco de *recall* vira penalidade $P$. |
-| **7. Suporte** | Calibração de robôs melhora medição e reduz incerteza de $s_j$. |
-| **8. Operação** | Checkpoints: se $s_j < s_{\min} \rightarrow$ bloqueio da linha e retrabalho. |
-| **9. Avaliação** | Mede falhas em campo e valida se os pesos $w$ refletem o cliente. |
-| **10. Melhoria** | Ações robustecem o projeto, redefinindo alvos $r$ nas novas versões. |
-
----
-
-#### Exemplo 3 — Logística Portuária: Movimentação de Cargas
-
-* **Essência (Variáveis):** Tempo de atracação, taxa de avarias e produtividade.
-* **Intencional (Alvos):** Cumprir janelas de atracação e normas de segurança.
-* **Excepcional (Excelência):** Operação ultrarrápida que evita *demurrage* (multa) do cliente.
-* **Responsável (Penalidade):** Filas excessivas de caminhões e emissões entram como $P$.
-
-| Cláusula ISO 9001 | Tradução direta para a ARM (Porto) |
-| :--- | :--- |
-| **4. Contexto** | Define $x$ (tempo de espera, produtividade t/h) por armador. |
-| **5. Liderança** | Regras de segurança geram bloqueios operacionais no modelo. |
-| **6. Planejamento** | Tolerâncias $\Delta$ (SLA contratual) e $P$ (acidentes e avarias). |
-| **7. Suporte** | Telemetria nos guindastes garante dados exatos para cálculo de $x$. |
-| **8. Operação** | Execução por navio: operação prossegue se $Q$ estiver no alvo. |
-| **9. Avaliação** | Revisa pesos $w$ de tempo conforme o impacto financeiro das filas. |
-| **10. Melhoria** | Otimização de pátio muda $x$ e lições aprendidas atualizam metas $r$. |
-
----
-
-#### Síntese Comparativa Setorial
-
-| Setor | Foco Central / Essência da Qualidade | Variáveis ARM Dominantes |
-| :--- | :--- | :--- |
-| **Siderurgia** | Estabilidade, propriedades e conformidade do aço | Teor químico, resistência mecânica, variabilidade, sucata |
-| **Montadora** | Segurança e confiabilidade do veículo | Falhas, conformidade dimensional, experiência e satisfação |
-| **Logística Portuária** | Prazo, previsibilidade e integridade do serviço | Tempo de operação, avarias, produtividade, segurança |
-
-: Comparação Sintética entre os Setores {#tbl-sintese-setorial}
-
-> *Independentemente do setor — siderurgia, indústria automotiva ou logística portuária —, a Modelagem Analítica de Requisitos (ARM) permite traduzir os requisitos da ISO 9001 e as múltiplas concepções de qualidade em um modelo único, mensurável e comparável, orientando decisões técnicas com base em valor real.*
-
-## 📝 Resumo do Capítulo
-
-* **TQM (Gestão da Qualidade Total):** Filosofia cultural de engajamento de todos os colaboradores na busca pela qualidade. Ferramentas: PDCA, CCQ, 7 Ferramentas da Qualidade.
-* **Lean Manufacturing:** Foco na eliminação dos 8 desperdícios (mudas) e otimização do fluxo de valor. Ferramentas: 5S, VSM, Kanban, TPM.
-* **Seis Sigma:** Metodologia estatística rigorosa para redução de variabilidade, estruturada em belts (White, Yellow, Green, Black, Master Black) e seguindo o roteiro DMAIC.
-* **MEG (Modelo de Excelência da Gestão):** Referencial brasileiro da FNQ baseado em 8 fundamentos e no ciclo PDCL (Plan-Do-Check-Learn).
-* **VPS (Sistema de Produção Vale):** Sistema proprietário que integra TQM, Lean e Seis Sigma em 7 pilares estratégicos (Segurança, Disponibilidade, Estabilidade, Utilização, Custos, Qualidade, Sustentabilidade).
-* **Integração Sistêmica:** As filosofias de excelência não substituem o SGQ (ISO 9001), mas o potencializam, criando uma arquitetura de gestão robusta e orientada a resultados.
-
----
-
-## Implementação Computacional (Modelagem ARM) {#sec-implementacao-arm}
-
-A codificação do modelo ARM em linguagens de programação (como R ou Python) transforma os conceitos teóricos em algoritmos executáveis, permitindo o cálculo automático dos índices de qualidade a partir de dados reais da operação.
-
-```{r}
-#| label: processamento-modelagem-arm
-#| warning: false
-#| message: false
-
-# Espaço reservado para implementação prática da ARM em R
-# Será desenvolvido no contexto de análise prática da operação
-
-```
 

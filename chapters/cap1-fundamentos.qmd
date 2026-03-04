@@ -415,7 +415,7 @@ Sem essa estruturação, a vantagem competitiva é apenas um palpite ou um golpe
 
 Para compreender o impacto da qualidade na base de negócios, é necessário analisar como ela se relaciona com as principais variáveis microeconômicas de uma organização: o Preço ($P$), a Quantidade Vendida ($Q$), o Custo de Produção ($C$) e o Lucro resultante ($L$).
 
-#### 1. Relação Qualidade vs. Preço
+#### Relação Qualidade vs. Preço
 É considerada uma relação fraca e sem direção clara. Existe uma força negativa ditada pela Lei da Demanda (maiores preços tendem a reduzir a quantidade demandada) e uma força positiva, onde o preço mais alto atua como um "símbolo" de qualidade extra percebida pelo consumidor. A @fig-relacao-qualidade-preco ilustra o perigo de manipular preços sem embasamento de valor:
 
 * **O Cenário de Risco (Gráfico da Esquerda):** A empresa decide aumentar seu preço ($P \uparrow$) de forma artificial, sem melhorar o produto. Como não há percepção de valor, a curva de Demanda (linha azul) permanece inalterada. O mercado reage negativamente, a quantidade vendida despenca ($Q \downarrow$) e, mesmo com o custo constante ($C \leftrightarrow$), a área total de faturamento encolhe, resultando em queda no lucro ($L \downarrow$).
@@ -423,7 +423,7 @@ Para compreender o impacto da qualidade na base de negócios, é necessário ana
 
 ![Relação Qualidade x Preço](../images/fig-relacao-qualidade-preco.png){#fig-relacao-qualidade-preco fig-align="center"}
 
-#### 2. Relação Qualidade vs. Propaganda
+#### Relação Qualidade vs. Propaganda
 Também apresenta uma relação de alto risco. O investimento em publicidade é útil para sinalizar menor risco e criar contraste frente à concorrência, mas ele introduz uma penalidade imediata na equação: a elevação direta dos custos operacionais ($C \uparrow$). A @fig-relacao-qualidade-propaganda demonstra essa dinâmica:
 
 * **A Ilusão do Volume (Gráfico da Esquerda):** A empresa gasta com propaganda ($C \uparrow$) mantendo o preço estável ($P \leftrightarrow$). A demanda até sofre um leve deslocamento positivo, aumentando timidamente as vendas ($Q \uparrow$). Contudo, o ganho de receita não é suficiente para cobrir o rombo deixado pelo custo da publicidade, fazendo o lucro total cair ($L \downarrow$).
@@ -431,7 +431,7 @@ Também apresenta uma relação de alto risco. O investimento em publicidade é 
 
 ![Relação Qualidade x Propaganda](../images/fig-relacao-qualidade-propaganda.png){#fig-relacao-qualidade-propaganda fig-align="center"}
 
-#### 3. Relação Qualidade vs. Participação no Mercado
+#### Relação Qualidade vs. Participação no Mercado
 Apresenta uma relação com direção mais clara, dependendo da dimensão da qualidade explorada. Se a qualidade for focada estritamente em "desempenho tecnológico superior", o produto fatalmente custará mais e venderá menos volume. Porém, se o foco for melhoria de conformidade (redução de defeitos) e usabilidade, a lógica se inverte, como mostrado na @fig-relacao-qualidade-participacao:
 
 * **O Custo da "Falsa" Qualidade (Gráfico da Esquerda):** A empresa tenta empurrar um produto com características complexas que o cliente não pediu. Isso encarece a produção ($C \uparrow$) e força um aumento de preço ($P \uparrow$), resultando em rejeição do mercado, queda nas vendas ($Q \downarrow$) e prejuízo na margem ($L \downarrow$).
@@ -452,6 +452,63 @@ Para otimizar essa fração, não basta que a empresa corte gastos de forma arbi
 * **Custos de Controle (O Investimento):** Incluem os *Custos de Prevenção* (ex: manutenção preditiva na frota) e os *Custos de Avaliação* (ex: testes contínuos de laboratório e amostragem). É o capital alocado ativamente para blindar o sistema contra a variabilidade.
 * **Custos de Falha (O Prejuízo):** Englobam as *Falhas Internas* (retrabalho e recirculação de carga fora de especificação antes de sair da usina) e as devastadoras *Falhas Externas* (pagamento de multas, devoluções e *demurrage* em portos porque o cliente recebeu o produto contaminado). Incluem também o *Custo de Oportunidade*, que é a perda de fatia de mercado pela má fama.
 * **Custos de Exceder Requerimentos (A Superqualidade):** Este é um erro sutil e perigoso. Ocorre quando a operação entrega mais do que foi solicitado sem que o cliente valorize ou pague por isso. Exemplo: gastar energia extra no moinho para atingir uma granulometria extremamente fina, quando o contrato tolerava uma malha grossa. É o desperício gerado por não compreender o peso real que o mercado dá àquela característica.
+
+::: {.example #exm-bicicletas-eletricas name="Relações Econômicas e Custos na Prática: Bicicletas Elétricas"}
+Para exemplificar essas relações econômicas e de custo de forma integrada, vamos utilizar o caso de uma Fabricante de Bicicletas Elétricas:
+
+**Relação Qualidade vs. Preço**
+* **Cenário de Risco:** A empresa sobe o preço da bicicleta para R$ 7.000 apenas para "parecer premium", sem mudar nada no produto. O cliente percebe que a bateria e o motor são os mesmos da concorrência. *Resultado:* As vendas despencam e o lucro encolhe.
+* **Estratégia de Valor:** A empresa investe em um quadro de fibra de carbono (mais leve) e uma bateria de maior autonomia. O cliente vê valor real. A empresa sobe o preço para R$ 7.500 e as vendas continuam altas. *Resultado:* O lucro dispara porque a percepção de benefício deslocou a demanda para cima.
+
+**Relação Qualidade vs. Propaganda**
+* **A Ilusão do Volume:** A empresa gasta milhões em comerciais de TV com celebridades, mas a bicicleta continua apresentando falhas no freio. O custo da propaganda aumenta o custo total ($C \uparrow$), e o pequeno aumento nas vendas não paga a conta. *Resultado:* Queda no lucro ($L \downarrow$).
+* **Propaganda Efetiva:** A propaganda foca em testes de segurança independentes que provam que a bicicleta é a mais confiável do mercado. Isso convence o público a pagar mais caro pelo produto. *Resultado:* O aumento no preço e no volume supera o gasto com marketing, gerando lucro real.
+
+**Relação Qualidade vs. Participação no Mercado**
+* **Custo da "Falsa" Qualidade:** A engenharia adiciona uma tela 4K *touch* no guidão que o ciclista não consegue usar sob o sol e que encarece o produto. O preço sobe, o cliente rejeita a complexidade e a empresa perde mercado.
+* **Ganho por Conformidade:** A empresa foca em eliminar o ruído na corrente e garantir que a totalidade das bicicletas saia da fábrica sem ajustes necessários. A alta confiabilidade faz com que os clientes indiquem a marca. Sem subir o preço, ela atrai clientes da concorrência pelo boca a boca. *Resultado:* Domínio do mercado pelo volume e reputação.
+
+**Qualidade vs. Custo e Produtividade (Os Custos da Qualidade)**
+Imagine o dia a dia desta fábrica:
+
+* **Custos de Prevenção (Investimento):** Treinar os montadores e fazer manutenção preventiva nas máquinas de solda.
+* **Custos de Avaliação (Investimento):** Testar cada bateria em um simulador antes de instalar na bicicleta.
+* **Falha Interna (Prejuízo):** Uma peça é montada errada e precisa ser desmontada e refeita antes de sair da fábrica (retrabalho).
+* **Falha Externa (O Devastador):** A bicicleta quebra na mão do cliente, gerando custos de frete para devolução, troca de peças na garantia e uma avaliação negativa na internet (perda de oportunidade).
+* **Superqualidade (O Desperdício):** Pintar a parte interna do quadro (onde ninguém vê) com 5 camadas de tinta automotiva de luxo, sendo que uma camada simples bastaria. O cliente não paga a mais por isso, e a empresa joga dinheiro fora.
+:::
+
+::: {.callout-tip title="💡 Dica de Aplicação para os Alunos"}
+Peça para os alunos identificarem em uma marca famosa (como Apple, Tesla ou Havaianas) qual dessas estratégias ela utiliza para manter sua margem de lucro e como essas empresas gerenciam seus diferentes custos da qualidade.
+:::
+
+::: {.example #exm-custos-cafe name="Gestão dos Custos da Qualidade: Torrefação de Café Gourmet"}
+
+
+Para exemplificar a gestão dos Custos da Qualidade, vamos utilizar o caso de uma Torrefação de Café Gourmet que fornece para cafeterias e supermercados. Este exemplo permite visualizar como cada real gasto ou perdido afeta a operação do engenheiro de produção:
+
+**Custos de Controle (O Investimento)**
+Aqui, a empresa gasta dinheiro para "comprar tranquilidade" e evitar que a variabilidade domine o processo.
+* **Custos de Prevenção:** A empresa investe no treinamento dos mestres de torra e em um software de manutenção preditiva para os sensores de temperatura do torrador. O objetivo é evitar que o equipamento oscile e queime o grão.
+* **Custos de Avaliação:** O engenheiro implementa um laboratório de classificação onde amostras de cada lote torrado são provadas (teste de *cupping*) e analisadas por colorímetros antes de serem embaladas.
+
+**Custos de Falha (O Prejuízo)**
+Aqui o dinheiro "escorre pelo ralo" porque o processo não foi capaz de atender aos requisitos.
+* **Falhas Internas:** O sensor do torrador falhou e um lote de 500 kg de café saiu muito escuro (queimado). A empresa precisa moer esse café e vendê-lo como uma linha inferior (recirculação) ou descartá-lo, gerando perda de matéria-prima e tempo de máquina.
+* **Falhas Externas:** Um lote com umidade acima do permitido chegou ao cliente e mofou na prateleira do supermercado. A empresa agora precisa pagar o frete de devolução, arcar com a multa contratual por desabastecimento e ainda sofre com o custo de oportunidade: o supermercado decide reduzir os pedidos futuros por falta de confiança na marca (má fama).
+
+**Custos de Exceder Requerimentos (A Superqualidade)**
+Este é o desperdício "disfarçado" de boa intenção, onde se entrega o que não foi pedido.
+* **O Erro da Superqualidade:** O contrato com o cliente exige que o café seja entregue em embalagens de 500g com fechamento simples (clipe metálico). No entanto, o marketing decide usar uma válvula desgaseificadora italiana de alta tecnologia que custa 3 vezes mais, em um produto que o cliente vai consumir em apenas 2 dias.
+* **O Impacto:** O cliente não valoriza o custo extra da válvula (não paga a mais por isso) e a empresa reduziu sua margem de lucro à toa. O engenheiro gastou recursos em um "requerimento" que o mercado não solicitou.
+:::
+
+::: {.callout-tip title="💡 Resumo para Aplicação em Aula"}
+O engenheiro de produção deve mostrar aos alunos que o objetivo da gestão financeira da qualidade não é o "gasto zero", mas sim o equilíbrio contínuo. A regra de ouro é:
+* **Aumentar** os investimentos em Controle (Prevenção e Avaliação)...
+* Para **eliminar** os custos catastróficos de Falha (especialmente as Externas)...
+* E **cortar** a Superqualidade (aquilo que o cliente não pediu e não paga para ter).
+:::
 
 ### O Impacto Sistêmico: Ciclo Negativo vs. Ciclo Positivo {#sec-impacto-sistemico}
 
