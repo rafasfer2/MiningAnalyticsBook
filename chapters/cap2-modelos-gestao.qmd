@@ -5,6 +5,7 @@ format: html
 # Modelos de Gestão e Excelência Operacional {#sec-cap2}
 
 ::: {.callout-tip title="🎯 Objetivos deste Capítulo"}
+
 * Compreender as três principais abordagens de excelência operacional: TQM, Lean e Seis Sigma.
 * Diferenciar os objetivos, ferramentas e métricas de cada filosofia de gestão.
 * Entender a aplicação dos modelos de excelência corporativa (MEG e VPS) no contexto mineral.
@@ -24,6 +25,7 @@ A Gestão da Qualidade Total (TQM) é o estágio de maturidade onde as quatro ve
 Desenvolvida no Japão pós-guerra e consolidada por Deming, Juran e Ishikawa, o TQM coloca a qualidade como responsabilidade de todos os membros da organização, não apenas do departamento de inspeção. É o "guarda-chuva" que garante que o produto seja conforme o projeto, adequado ao uso do cliente, produzido com baixo custo interno e com o mínimo de perdas para a sociedade.
 
 ::: {.example #exm-tqm-fastfood name="A Integração das Vertentes: Rede de Fast-Food Global"}
+
 Para conectar os conceitos do Capítulo 1 ao TQM, observe a operação de uma rede de *Fast-Food*:
 
 * **Foco no Cliente (Market-in):** No TQM, a qualidade não nasce na cozinha, mas no mercado. A rede percebe que o cliente deseja opções saudáveis (Necessidade Latente). Ela desenha o cardápio com base no que o cliente valoriza, conectando a *Adequação ao Uso* à estratégia do negócio.
@@ -50,6 +52,7 @@ Para consolidar o aprendizado estrutural, a tabela abaixo apresenta a evolução
 
 
 ::: {.example #exm-tqm-hospital name="TQM em Ambientes Críticos: Hospital de Alta Complexidade"}
+
 Em cenários de alto risco, o TQM garante que a vida do usuário seja o centro do sistema:
 
 * **Adequação ao Uso:** O hospital percebe que pacientes idosos têm dificuldade com totens digitais e instala um sistema híbrido com atendentes humanos, medindo a qualidade pela facilidade de acesso.
@@ -74,6 +77,7 @@ Em cenários de alto risco, o TQM garante que a vida do usuário seja o centro d
 * **Ciclo PDCA:** *Plan-Do-Check-Act* como motor da melhoria contínua.
 
 ::: {.callout-note title="💡 APLICAÇÃO NA MINERAÇÃO"}
+
 Na mineração, o TQM se manifesta através da integração rigorosa entre Operação, Manutenção e Engenharia. A qualidade do minério não é responsabilidade apenas do laboratório, mas de toda a cadeia: desde o plano de lavra (que define a frente de extração) até o controle de blendagem na usina de beneficiamento.
 :::
 
@@ -199,7 +203,6 @@ Dar autonomia à operação para agir rapidamente sobre os desvios.
 
 ::: {.example #exm-tqm-implementos name="Os 9 Fatores na Prática: Fabricação de Implementos Agrícolas"}
 
-
 Para exemplificar os Fatores Críticos de Sucesso operando em conjunto, vamos utilizar o caso de uma Indústria de Fabricação de Implementos Agrícolas (Arados e Semeadoras), onde a durabilidade no campo é o diferencial competitivo:
 
 * **Comprometimento da Alta Administração:** A diretoria não apenas cobra metas, mas participa mensalmente do "Comitê de Qualidade". Eles aprovaram uma verba específica para a compra de um robô de solda de alta precisão, demonstrando que a qualidade é uma prioridade orçamentária e estratégica, não apenas um discurso.
@@ -214,6 +217,7 @@ Para exemplificar os Fatores Críticos de Sucesso operando em conjunto, vamos ut
 :::
 
 ::: {.callout-tip title="💡 Dica Pedagógica: O TQM como Cadeia de Valor"}
+
 Para visualizar a dependência sistêmica, imagine o TQM como um prédio sustentado por colunas, onde todos os fatores precisam estar "vivos" simultaneamente:
 * A **Liderança** dá o orçamento e a meta;
 * O **Consumidor** dita o que quer e o **Fornecedor** entrega o insumo;
@@ -225,6 +229,7 @@ Se a Alta Administração não dá dinheiro para o Treinamento, o Funcionário n
 :::
 
 ::: {.callout-note title="💡 Evolução Histórica: TQC, CWQC e TQM"}
+
 **A Evolução Histórica: TQC, CWQC e TQM**
 
 A origem da Qualidade Total remonta à década de 1950 e desdobrou-se na seguinte evolução:
@@ -274,6 +279,7 @@ Para que os pilares funcionem, o alicerce operacional da casa deve ser sólido, 
 * **TPM (Manutenção Produtiva Total):** A responsabilidade pela máquina é descentralizada. O próprio operador do caminhão fora-de-estrada realiza inspeções autônomas diárias (nível de óleo, drenagem de filtros d'água, avaliação visual de pneus) antes de iniciar o turno. Ele desenvolve o sentimento de "dono do equipamento", liberando a equipe especializada de manutenção para focar exclusivamente em grandes reformas estruturais.
 
 ::: {.callout-warning title="⚠️ Insight Operacional: A Armadilha Lean"}
+
 A implementação do *Lean* em cadeias de capital intensivo (como a mineração) exige **resiliência**. Se a gerência decidir reduzir o estoque de pneus de grande porte a zero apenas com a intenção teórica de "eliminar desperdícios", e o fornecedor atrasar a entrega por um entrave logístico, a frota para completamente. O prejuízo financeiro da mina paralisada será 100 vezes maior que a economia contábil gerada pela redução do estoque.
 
 O *Lean* industrial prega que o sistema deve ser **Enxuto, mas nunca Raquítico**. O estoque de segurança deve ser calculado estatisticamente para absorver as variabilidades normais do processo.
@@ -333,6 +339,7 @@ O Modelo Toyota estrutura a filosofia Lean em 14 princípios organizados em 4 bl
 14. **Tornar-se uma organização que aprende através da reflexão (Hansei) e melhoria contínua (Kaizen):** Aprender com erros e standardizar as lições.
 
 ::: {.callout-note title="⚙️ Aplicação do Jidoka na Mineração"}
+
 **Aplicação do Jidoka na Mineração**
 
 Na linha de britagem, sensores detectam automaticamente sobrecarga no alimentador. O sistema para a correia (autonomação), evitando danos mecânicos e forçando a equipe a investigar a causa raiz: problema de granulometria na alimentação ou falha no britador primário?
@@ -413,6 +420,7 @@ O método Seis Sigma segue um roteiro rigoroso de 5 fases:
 5. **Control (Controlar):** Definir sistemas de controle contínuos (cartas de controle, POPs) para garantir que o novo patamar de qualidade seja mantido ao longo do tempo.
 
 ::: {.callout-important title="🔬 EXEMPLO MINERAL: Projeto Seis Sigma"}
+
 **Problema:** Taxa de disponibilidade física da frota de caminhões fora de estrada abaixo de 85%, impactando a meta de produção.
 
 **Meta Seis Sigma:** Reduzir o tempo médio entre falhas (MTBF) em 30% e o tempo médio de reparo (MTTR) em 20%, elevando a disponibilidade para 90%.
@@ -498,6 +506,7 @@ A versão moderna do modelo baseia-se em 8 fundamentos interdependentes que sust
 * **Geração de Valor:** Todos os esforços devem culminar em valor tangível (econômico, social e ambiental) para todas as partes interessadas.
 
 ::: {.callout-note title="🔍 ZOOM: Dissecando o Pensamento Sistêmico na Prática"}
+
 Para entender como a Estrutura Conceitual de desdobramento funciona na vida real, tomemos como exemplo o Fundamento 1 (**Pensamento Sistêmico**). Ele se divide em dois grandes *Temas* interdependentes: **Tomada de Decisão** e **Alinhamento**.
 
 O MEG orienta a estruturação de *Processos* principais dentro desses temas, que por sua vez possuem *Detalhamentos* específicos de execução:
@@ -546,6 +555,7 @@ O VPS utiliza um portfólio integrado de ferramentas:
 * **5S:** Organização de áreas operacionais e administrativas.
 
 ::: {.callout-tip title="💡 INSIGHT: Integração Sistêmica"}
+
 O grande diferencial do VPS não está nas ferramentas individuais (que são públicas), mas na forma como elas são **integradas sistemicamente**. O 5S não é um programa isolado; ele suporta o TPM, que por sua vez aumenta a Disponibilidade de Ativos, que é um dos pilares estratégicos da Vale.
 :::
 
@@ -576,6 +586,7 @@ Para compreender a "origem genética" de cada peça do VPS, a tabela abaixo cruz
 | **Disponibilidade (TPM)** | *Lean* / TPM | Garantir que ativos de capital intensivo (escavadeiras/trens) não parem. |
 
 ::: {.callout-tip title="💡 Insight para o Engenheiro: A Conexão Sistêmica"}
+
 No VPS, o engenheiro de produção deve entender que **"Tudo está conectado"**.
 Se o **5S** estiver ruim, o vazamento não é visto e o **TPM** falha; se o TPM falha, a **Disponibilidade** física da frota cai; se a frota para, a meta de **Custos** operacionais estoura. O sistema de produção é a "cola" que une o suor da oficina à estratégia financeira da diretoria.
 :::
@@ -626,6 +637,7 @@ Ao gerenciar equipes, lembre-se da premissa da Curva de Bradley (muito utilizada
 :::
 
 ::: {.callout-important title="🎯 Dinâmica de Classe: Onde Estamos?"}
+
 Avaliem a **Biblioteca da Faculdade** ou a **Cantina/Restaurante Universitário** utilizando a Curva de Maturidade:
 1. **Diagnóstico:** Se a comida acaba todo dia no meio do turno e a fila é gigante e desorganizada, em qual estágio a cantina se encontra? *(Resposta: Estágio 1 - Reativo).*
 2. **Evolução:** O que a Engenharia de Produção implementaria para elevar esse serviço ao Estágio 3 (Proativo)? *(Exemplo de Resposta: Previsão de demanda baseada em dados históricos de alunos matriculados, sistema de pagamento ágil pré-pago e coleta contínua de feedback via QR Code).*
@@ -657,10 +669,12 @@ Imagine que a diretoria defina a meta financeira macro: **Aumentar o Lucro Líqu
 :::
 
 ::: {.callout-tip title="💡 Insight Estratégico: A Qualidade como 'Motor' do BSC"}
+
 A Gestão da Qualidade é, na essência, o "recheio" da Perspectiva de **Processos Internos**. Se a qualidade falha nesse elo, ela interrompe todo o fluxo de causa e efeito: o cliente fica imediatamente insatisfeito (destruindo a Perspectiva Cliente) e os altos custos de falha técnica engolem a margem (destruindo a Perspectiva Financeira). O BSC é a prova matemática para a diretoria de que a qualidade **não é custo, é investimento**.
 :::
 
 ::: {.callout-warning title="⚠️ Aviso Pedagógico: A Armadilha dos Indicadores Isolados"}
+
 O BSC impede que gestores "maquiem" resultados departamentais. Por exemplo: se um gerente corta o orçamento de treinamentos (Aprendizado) para mostrar uma "economia" e bater sua meta de curto prazo (Financeira), o painel do BSC revelará que, em seis meses, os erros operacionais explodirão (Processos) e a base de consumidores irá encolher (Clientes). O BSC exige uma visão inegociável de **equilíbrio**.
 :::
 
@@ -751,6 +765,7 @@ A MASP é a aplicação prática e estruturada do ciclo PDCA voltada para resolu
    * *Ferramentas:* Banco de Dados de Conhecimento, Hansei (Reflexão).
 
 ::: {.callout-note title="📌 Diferença entre PDCA e MASP"}
+
 **Diferença entre PDCA e MASP**
 
 * **PDCA:** Genérico, aplicável a qualquer tipo de melhoria (incremental ou de inovação).
@@ -775,6 +790,7 @@ O MASP é composto por 8 etapas rigorosas. A @tbl-masp-ferrovia demonstra como a
 : Aplicação do MASP em Logística Ferroviária {#tbl-masp-ferrovia}
 
 ::: {.callout-tip title="💡 Insight para os Alunos: Ação de Bloqueio vs. 'Gambiarra'"}
+
 Explique que trocar o trilho quebrado (Etapa 5) é apenas uma **correção** imediata para o trem voltar a andar. O MASP só se torna eficaz e estratégico se a equipe chegar na **Etapa 7 (Padronização)**, mudando o processo de Compras e a cultura da Gestão para garantir que o erro original (comprar material ruim) nunca mais volte a acontecer.
 :::
 
@@ -877,6 +893,7 @@ ________________________________________________________________________________
 :::
 
 ::: {.callout-note title="📚 Reflexão Acadêmica"}
+
 Como destaca Oliveira (2009), a qualidade precisa ser construída de forma coletiva, envolvendo todas as pessoas no compromisso com padrões estáveis. Essa visão é corroborada por Deming (1990), que enfatiza que a verdadeira melhoria contínua só acontece quando existe método, uso disciplinado de dados e a valorização profunda do conhecimento de quem vive a rotina de produção. O CCQ é, portanto, o caminho mais simples, direto e eficiente para materializar o **Empowerment** discutido no TQM.
 :::
 
@@ -930,12 +947,14 @@ A gestão da qualidade sistêmica acompanha o equipamento do "nascimento ao túm
 7. **Descarte:** No fim de sua vida útil, o metal é 100% reciclado e os óleos contaminados são coletados por uma empresa especializada, cumprindo os preceitos de Responsabilidade Social e Ambiental.
 
 ::: {.callout-tip title="💡 Insight para os Alunos: A Disponibilidade Física (DF)"}
+
 Explique para a turma que a Disponibilidade é o indicador de ouro que une todas as áreas da indústria. A lógica da interdependência é simples e implacável:
 
 Se a Manutenção falha, a Máquina para. Se a Máquina para, o Processo produtivo para. Se o Processo para, a Qualidade (a entrega no prazo, no custo e no volume esperado pelo cliente) morre. Sem uma operação de manutenção forte, o Sistema de Gestão da Qualidade (SGQ) é apenas um desejo escrito no papel.
 :::
 
 ::: {#exr-manutencao-retrabalho}
+
 **Exercício de Fixação: O Custo do Retrabalho**
 
 Considere o seguinte cenário real em uma oficina pesada: "Um mecânico montou apressadamente um rolamento e não utilizou o torquímetro exigido para aplicar a força correta (falha clara na cultura TQM). O caminhão rodou apenas 2 horas na operação e o rolamento quebrou catastroficamente, paralisando a pista principal da mina."
@@ -1002,6 +1021,7 @@ Para sistematizar essa integração na rotina da engenharia de produção, a @tb
 Não existe uma "melhor" filosofia. A escolha depende do contexto operacional, maturidade da organização e natureza do problema:
 
 ::: {.callout-tip title="🎯 GUIA DE DECISÃO"}
+
 * **Use TQM quando:** O problema é cultural; falta engajamento e responsabilização pela qualidade.
 * **Use Lean quando:** O problema é desperdício; há muito tempo de espera, movimentação excessiva ou estoque.
 * **Use Seis Sigma quando:** O problema é variabilidade; o processo oscila e não atinge o alvo consistentemente.
@@ -1030,26 +1050,31 @@ Para consolidar os conceitos deste capítulo, consulte a seção [**Capítulo 2 
 ### Seção 1: Filosofias e Ferramentas
 
 ::: {#exr-cap2-tqm-vs-lean}
+
 **TQM vs. Lean**
 Explique a principal diferença entre a Gestão da Qualidade Total (TQM) e a Manufatura Enxuta (Lean Manufacturing). Em que contexto organizacional cada uma é mais adequada?
 :::
 
 ::: {#exr-cap2-8mudas}
+
 **Os 8 Desperdícios do Lean**
 Cite os 8 desperdícios (mudas) identificados pelo Lean Manufacturing e demonstre como cada um se manifesta em uma operação de mineração (perfuração, carregamento ou transporte).
 :::
 
 ::: {#exr-cap2-6sigma-dmaic}
+
 **Metodologia Seis Sigma: DMAIC**
 Descreva as 5 fases da metodologia Seis Sigma (DMAIC) e cite pelo menos 1 ferramenta estatística utilizada em cada etapa.
 :::
 
 ::: {#exr-cap2-9pilares}
+
 **Os 9 Pilares do TQM**
 Dos 9 Fatores Críticos de Sucesso do TQM mencionados no capítulo, cite 3 e explique brevemente como cada um impacta a execução de uma Ordem de Manutenção em uma escavadeira.
 :::
 
 ::: {#exr-tqm-semeadoras}
+
 **Desafio do Engenheiro: Falha Sistêmica no TQM**
 
 Um lote de 50 semeadoras saiu de uma fábrica de implementos agrícolas com a cor do chassi errada (pintadas de verde limão em vez de verde escuro). Tecnicamente a máquina funciona com perfeição e a qualidade da tinta é excelente, mas a estética exigida pelo projeto falhou e os equipamentos estão bloqueados no pátio.
@@ -1060,16 +1085,19 @@ Analise este evento sob a ótica dos Fatores Críticos de Sucesso do TQM e ident
 ### Seção 2: Integração de Sistemas
 
 ::: {#exr-cap2-sgq-iso}
+
 **Norma ISO vs. Filosofia**
 Por que a implementação de um SGQ (Sistema de Gestão da Qualidade) baseado em ISO 9001 não é suficiente, por si só, para garantir excelência operacional? O que mais é necessário?
 :::
 
 ::: {#exr-cap2-meg-vps}
+
 **Diferença entre MEG e VPS**
 Qual é a principal diferença entre o Modelo de Excelência da Gestão (MEG) brasileiro e o Sistema de Produção Vale (VPS)? Ambos são aplicáveis em uma mineradora que não pertence ao grupo Vale?
 :::
 
 ::: {#exr-cap2-hierarquia}
+
 **Hierarquia de Integração**
 A figura de integração mostra 4 camadas. Por que a ISO 9001 está na base e não no topo? Justifique a sequência proposta.
 :::
@@ -1077,16 +1105,19 @@ A figura de integração mostra 4 camadas. Por que a ISO 9001 está na base e n�
 ### Seção 3: Escolha e Aplicação
 
 ::: {#exr-cap2-britador-problem}
+
 **Seleção de Metodologia: Britador Primário**
 Um britador primário apresenta o seguinte panorama: quebra de mandíbula a cada 3 meses; desperdício de 2 horas/semana aguardando peças; falhas de comunicação entre operadores e técnicos de manutenção. Qual(is) abordagem(ns) você recomendaria? Por quê?
 :::
 
 ::: {#exr-cap2-transporte-eficiencia}
+
 **Aplicação de Lean em Transporte**
 Uma frota de caminhões fora de estrada apresenta tempo médio de ciclo (ida + descarga + volta) de 2 horas, mas apenas 50 minutos são dedicados ao transporte propriamente dito. Que tipo de desperdício Lean está presente? Como mapearia o fluxo de valor?
 :::
 
 ::: {#exr-cap2-variabilidade-ore}
+
 **Aplicação de Seis Sigma em Qualidade de Minério**
 O teor de ferro (Fe) em um produto britado especifica 65 ± 2%. Medições semanais mostram valores oscilando entre 63% e 68%. Qual é o problema: conformidade ou variabilidade? Que abordagem resolveria melhor?
 :::
@@ -1094,6 +1125,7 @@ O teor de ferro (Fe) em um produto britado especifica 65 ± 2%. Medições seman
 ### Seção 4: Estudo de Caso Integrado
 
 ::: {#exr-cap2-case-operacao}
+
 **Implantação de Modelo de Excelência em Operação Completa**
 Uma mineradora de cobre necessita melhorar sua rentabilidade. Os problemas diagnosticados são: (1) Engajamento baixo dos colaboradores; (2) Excesso de movimentação de materiais nas operações; (3) Oscilação grande na recuperação metalúrgica.
 
@@ -1106,21 +1138,25 @@ Uma mineradora de cobre necessita melhorar sua rentabilidade. Os problemas diagn
 ### Seção 5: Questões de Reflexão
 
 ::: {#exr-cap2-ref-q1}
+
 **Responsabilidade pela Qualidade**
 No TQM, afirma-se que "todos são responsáveis pela qualidade". Como essa responsabilidade se distribui entre o CEO, o gerente de britagem, o operador e o técnico de laboratório?
 :::
 
 ::: {#exr-cap2-ref-q2}
+
 **Lean vs. Escala**
 O Lean foi desenvolvido em ambientes de produção em massa (Toyota). Como adaptar seus princípios em uma operação de mineração que é sazonalmente dinâmica?
 :::
 
 ::: {#exr-cap2-ref-q3}
+
 **Seis Sigma em Processos Naturais**
 Seis Sigma funciona bem em manufatura repetitiva. Qual seria o maior desafio em aplicar Seis Sigma a um minério cujas características naturalmente variam por geologia (teor heterogêneo)?
 :::
 
 ::: {#exr-masp-5w2h}
+
 **Desafio Prático do Módulo: Estruturando um 5W2H**
 
 
@@ -1166,6 +1202,7 @@ Para consolidar todo o conhecimento construído nesta jornada — desde os conce
 ```
 
 ::: {.callout-tip title="🚀 Manual de Boas Práticas: Qualidade + Manutenção (Para o Aluno)"}
+
 Se você estiver em um laboratório ou em uma visita técnica industrial, siga estes **5 Mandamentos do Engenheiro de Excelência**:
 
 **1. O Padrão é o Piso, não o Teto:** Nunca aceite menos que o Procedimento Operacional Padrão (POP). Se o padrão é ruim, use o Kaizen para melhorá-lo, mas nunca o ignore.
@@ -1212,10 +1249,12 @@ Como o Engenheiro de Produção escolhe a "arma" certa para cada tipo de problem
 : Guia de Decisão de Ferramentas de Qualidade {#tbl-guia-decisao}
 
 ::: {.callout-warning title="⚠️ Insight para os Alunos: O Erro da Inversão"}
+
 Tentar aplicar **Seis Sigma** (complexo e altamente estatístico) em uma empresa que não possui sequer a ISO 9001 implantada (padronização básica e organização) é como tentar instalar um motor de Ferrari em um carro sem rodas. A **hierarquia de qualidade** serve exatamente para garantir que a empresa tenha **maturidade processual** antes de avançar e desperdiçar dinheiro com ferramentas sofisticadas.
 :::
 
 ::: {#exr-diagnostico-padaria}
+
 **Diagnóstico de Consultoria: A Padaria Industrial**
 
 Você foi recém-contratado por uma padaria industrial para salvar a operação. A sua auditoria inicial revela três problemas crônicos: a linha de produção descarta muitos pães queimados (defeito), há muita gente ociosa e parada na cozinha (espera) e os novos funcionários não seguem nenhuma receita fixa (falta de padrão de qualidade).
@@ -1247,6 +1286,7 @@ Este **Quadro Resumo** foi desenhado para ser o "mapa de bolso" de revisão do a
 : O Mapa de Bolso da Excelência Operacional {#tbl-mapa-bolso}
 
 ::: {.callout-note title="📚 Mensagem Final para o Aluno de Engenharia"}
+
 **"A Gestão da Qualidade não é um conjunto de formulários burocráticos para um auditor checar uma vez por ano. É a ciência exata de gerenciar a variabilidade, eliminar o desperdício estrutural e garantir que cada diretriz, cada procedimento e cada informação gerada no Ambiente de Relacionamento Interno (ARI) se transforme em valor real percebido para o cliente e em lucro sustentável de longo prazo para a organização e a sociedade."**
 :::
 
