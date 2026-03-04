@@ -628,6 +628,149 @@ Para quantificar a excelência de um processo no dia a dia da mineração, preci
 
 Com essa ponte conceitual estabelecida, encerramos a fundamentação teórica. O próximo passo é executar a matemática por trás da norma. No @sec-cap3, aprofundaremos essa estrutura por meio da **Modelagem Analítica de Requisitos (ARM)**, onde cada um desses termos ganhará um símbolo matemático para o cálculo do índice de qualidade.
 
+### O Mapeamento Sistêmico: ISO 9001, Qualidade e a Modelagem ARM {#sec-mapeamento-iso-arm}
+
+Para que a transição da filosofia normativa para a engenharia de dados seja executável, precisamos mapear exatamente onde cada conceito abstrato de qualidade "encosta" na norma ISO 9001 e como o modelo analítico (ARM) o transforma em elementos gerenciáveis.
+
+O diagrama abaixo ilustra o fluxo dessa operacionalização: a norma dita as regras do sistema, o conceito de qualidade define os atributos vitais, e a modelagem converte tudo isso em variáveis e pesos.
+
+```{mermaid}
+%%| label: fig-fluxo-iso-arm
+%%| fig-cap: "Diagrama de Operacionalização: Da ISO 9001 à Modelagem ARM"
+flowchart TB
+    subgraph ISO [ISO 9001 - SGQ]
+        direction TB
+        Ctx[4 Contexto / Partes interessadas]
+        Lead[5 Liderança]
+        Plan[6 Planejamento]
+        Sup[7 Suporte]
+        Oper[8 Operação]
+        Perf[9 Avaliação]
+        Imp[10 Melhoria]
+    end
+
+    ISO --> |Traduz o que importa em requisitos| Qualidade
+
+    subgraph Qualidade [QUALIDADE - Conceito Integrador]
+        direction TB
+        A1[Atributos essenciais / Essência]
+        A2[Conformidade / Intencional]
+        A3[Excelência / Excepcional]
+        A4[Impacto / Transformadora]
+        A5[Risco e Externalidades / Responsável]
+    end
+
+    Qualidade --> |Operacionaliza em parâmetros| ARM_Model
+
+    subgraph ARM_Model [ARM - Modelo Analítico]
+        direction TB
+        V1[Variáveis] --- P1[Pesos]
+        N1[Notas] --> I1[Índice de Qualidade Global]
+    end
+
+    ARM_Model --> |Retroalimenta o PDCA| ISO
+```
+
+---
+
+Para sistematizar essa integração na rotina da engenharia de produção, a @tbl-mapeamento-iso-arm cruza as partes conceituais do modelo com as cláusulas normativas e a sua respectiva tradução para o modelo ARM:
+
+| Conceito da Qualidade | Cláusulas ISO 9001 Relacionadas | Tradução Conceitual na ARM |
+| :--- | :--- | :--- |
+| **1. Atributo e essência** | **8** (Operação); **8.5.1** (Controle da produção) | Atributos essenciais do produto/processo tornam-se **variáveis mensuráveis**. |
+| **2. Dimensão objetiva e subjetiva** | **9** (Avaliação); **4.2** (Partes interessadas) | Medições reais = Valores medidos; Percepção de importância = Pesos. |
+| **3. Qualidade como intencional** | **6** (Planejamento); **8.5.1**; **8.6** (Liberação) | Requisitos planejados tornam-se **valores-alvo** das variáveis. |
+| **4. Qualidade como excepcional** | **6** (Planejamento); **9** (Avaliação); **10** (Melhoria) | Desempenho acima do mínimo gera notas altas, desde que haja peso estratégico. |
+| **5. Qualidade como transformadora** | **4** (Contexto); **9** (Avaliação); **10** (Melhoria) | Impacto conjunto das variáveis reflete-se no **índice global de qualidade**. |
+| **6. Qualidade como responsável** | **6.1** (Riscos); **8.7** (Saídas não conformes) | Inclusão de **variáveis sistêmicas** (risco, perda, impacto) como penalidades. |
+| **7. Qualidade, valor e competitividade** | **4.2** (Partes interessadas); **6.2** (Objetivos) | O valor percebido define os **pesos estratégicos** (qualificadores vs. ganhadores). |
+| **8. Qualidade como sistema de gestão** | **4.4** (SGQ); **5** (Liderança); **7** (Suporte) | A ARM opera como o **motor analítico contínuo** de apoio à decisão do SGQ. |
+
+: Mapeamento Integrado — Qualidade × ISO 9001 × ARM {#tbl-mapeamento-iso-arm}
+
+Ao mapear os requisitos da ISO 9001 em variáveis, pesos e notas, a Modelagem Analítica de Requisitos transforma a qualidade de um conceito normativo em um sistema quantitativo, capaz de orientar decisões técnicas, estratégicas e econômicas com base em impacto real.
+
+---
+
+### A Universalidade do Modelo: Aplicações Setoriais {#sec-exemplos-setoriais}
+
+Para provar que essa lógica de mapeamento não é restrita a um único nicho, os exemplos a seguir demonstram como os mesmos conceitos da ISO 9001 se adaptam a diferentes realidades operacionais, preparando a estrutura para a quantificação.
+
+#### Exemplo 1 — Siderurgia: Produção e Fornecimento de Bobinas de Aço
+
+* **Qualidade como atributo e essência:** Na siderurgia, a essência do produto é definida por composição química, propriedades mecânicas e dimensionalidade da bobina. Se qualquer um desses atributos estiver fora do especificado, o aço perde sua aplicabilidade industrial.
+  - ➡️ *Na ARM:* cada atributo torna-se uma variável crítica (ex.: teor de carbono, limite de escoamento).
+
+* **Dimensão objetiva e subjetiva:** Objetivamente, o aço atende às normas técnicas. Subjetivamente, o cliente avalia a regularidade entre lotes e a confiabilidade do fornecedor. Dois aços conformes podem gerar percepções distintas.
+  - ➡️ *Na ARM:* medições químicas são valores objetivos; confiabilidade histórica influencia os pesos.
+
+* **Qualidade como intencional:** O planejamento siderúrgico é orientado pelas especificações contratuais. Qualidade significa entregar exatamente o aço projetado, sem desvios.
+  - ➡️ *Na ARM:* especificações tornam-se valores-alvo das variáveis.
+
+* **Qualidade como excepcional:** Reduzir a variabilidade microestrutural além do exigido gera aço mais previsível. Se o cliente valoriza isso, há qualidade excepcional; caso contrário, há superqualidade.
+  - ➡️ *Na ARM:* nota alta só agrega valor se incidir sobre variável de alto peso.
+
+* **Qualidade como transformadora:** A estabilidade do aço reduz perdas na estampagem do cliente. O ganho aparece no índice global, não em uma variável isolada.
+
+* **Qualidade como responsável:** Alto consumo energético, sucata excessiva e retrabalho reduzem a qualidade sistêmica.
+  - ➡️ *Na ARM:* perdas e impactos entram como variáveis negativas.
+
+* **Qualidade como sistema:** Indicadores metalúrgicos, energéticos e produtivos alimentam a ARM, orientando decisões de processo e investimento.
+
+#### Exemplo 2 — Montadora de Automóveis: Produção em Linha de Montagem
+
+* **Qualidade como atributo e essência:** A essência do veículo envolve segurança, funcionalidade, confiabilidade e conformidade dimensional. Um carro que falha em segurança deixa de cumprir sua função básica.
+  - ➡️ *Na ARM:* segurança, falhas por mil veículos e conformidade tornam-se variáveis essenciais.
+
+* **Dimensão objetiva e subjetiva:** Objetivamente, o veículo atende aos testes. Subjetivamente, o cliente percebe ruídos, acabamento e experiência de uso.
+  - ➡️ *Na ARM:* testes técnicos são valores; percepção do cliente define pesos (ex.: ruído pode ter peso alto).
+
+* **Qualidade como intencional:** A montadora planeja o veículo para cumprir normas, projeto e requisitos legais. Qualidade é entregar exatamente o carro projetado.
+
+* **Qualidade como excepcional:** Acabamento superior, menor índice de falhas e maior durabilidade diferenciam o veículo. Só há excelência se o mercado valorizar esses atributos.
+
+* **Qualidade como transformadora:** Um veículo mais confiável reduz custos de manutenção e aumenta satisfação do usuário ao longo do ciclo de vida.
+  - ➡️ *Na ARM:* o impacto aparece no índice final, não em um teste isolado.
+
+* **Qualidade como responsável:** Recall, desperdício na linha, acidentes de trabalho e consumo energético afetam a qualidade global.
+  - ➡️ *Na ARM:* eventos de risco e perdas reduzem o índice global.
+
+* **Qualidade como sistema:** Dados de produção, pós-venda e auditorias realimentam o modelo ARM, sustentando a melhoria contínua.
+
+#### Exemplo 3 — Logística Portuária: Operação de Embarque e Desembarque de Cargas
+
+* **Qualidade como atributo e essência:** A essência do serviço portuário é movimentar cargas com segurança, prazo e integridade. Se a carga não chega no tempo e nas condições acordadas, o serviço perde seu valor.
+  - ➡️ *Na ARM:* tempo de atracação, taxa de avarias e produtividade viram variáveis-chave.
+
+* **Dimensão objetiva e subjetiva:** Objetivamente, o navio atraca e a carga é movimentada. Subjetivamente, armadores e clientes avaliam previsibilidade, fluidez e confiabilidade da operação.
+  - ➡️ *Na ARM:* tempos medidos são objetivos; previsibilidade define pesos.
+
+* **Qualidade como intencional:** O porto planeja operações conforme janelas, contratos e normas. Qualidade é cumprir exatamente o cronograma e os procedimentos.
+
+* **Qualidade como excepcional:** Operações mais rápidas e estáveis reduzem custos de demurrage. Se o cliente valoriza velocidade, há qualidade excepcional.
+
+* **Qualidade como transformadora:** Uma operação previsível permite ao cliente otimizar estoques e cadeias globais.
+  - ➡️ *Na ARM:* o ganho aparece no índice global, refletindo impacto sistêmico.
+
+* **Qualidade como responsável:** Filas excessivas, acidentes, emissões e retrabalho caracterizam não qualidade, mesmo com carga movimentada.
+  - ➡️ *Na ARM:* riscos operacionais e ambientais entram como penalidades.
+
+* **Qualidade como sistema:** Indicadores operacionais, ambientais e de segurança alimentam a ARM, que prioriza ações e investimentos no porto.
+
+#### Síntese Comparativa Setorial
+
+| Setor | Essência da Qualidade (ISO) | Variáveis ARM Centrais |
+| :--- | :--- | :--- |
+| **Siderurgia** | Propriedades e estabilidade do aço | Teor, resistência, variabilidade |
+| **Montadora** | Segurança e confiabilidade do veículo | Falhas, conformidade, experiência |
+| **Logística Portuária** | Prazo, integridade e fluidez | Tempo, avarias, previsibilidade |
+
+: Comparação Sintética entre os Setores {#tbl-sintese-setorial}
+
+Independentemente do setor — siderurgia, indústria automotiva ou logística portuária —, a Modelagem Analítica de Requisitos permite traduzir os requisitos da ISO 9001 e as múltiplas concepções de qualidade em um modelo único, mensurável e comparável, orientando decisões técnicas com base em valor real.
+
+---
+
 ## 📝 Resumo do Capítulo
 
 * **A Subjetividade e o Contexto:** A Qualidade não é um adjetivo isolado. Ela é uma propriedade que determina a essência de um objeto e depende intimamente da percepção do usuário e do contexto de aplicação.
