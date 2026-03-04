@@ -1,37 +1,154 @@
 ---
-title: "Parte II: Análise e Processos de Mina"
+title: "Parte II: Metrologia, Gestão de Ativos e Confiabilidade"
 format: html
 numbered: false
 ---
 
-## O Método de Lavra a Céu Aberto e o Fluxo de Valor
+<span id="part-metrologia-ativos"></span>
 
-No cenário brasileiro, a exploração de minérios através do método de lavra a céu aberto representa a vertente de maior desenvolvimento e volume de produção. Esta predominância justifica-se pelas condições geográficas de nossas regiões, que dispõem de jazidas com alto teor localizadas em camadas superficiais do solo, garantindo sustentabilidade econômica e lucros às mineradoras.
+::: {.callout-tip title="🎯 O MOTOR DA OPERAÇÃO: DA MEDIÇÃO À CONFIABILIDADE"}
+Se na Parte I construímos o "cérebro" do sistema de gestão, na Parte II entramos nos "músculos" e nos "sensores" da excelência operacional. Aqui, a subjetividade é eliminada pela metrologia e a incerteza é domada pela estatística. Esta seção foi desenhada para transformar o engenheiro em um mestre da disponibilidade física, conectando o planejamento da mina à saúde extrema dos ativos.
+:::
 
-A lavra engloba todo o conjunto de operações unitárias de aproveitamento da jazida. Ela corresponde à quarta fase da mineração — precedida pela prospecção, exploração e desenvolvimento — e é alternativamente chamada de explotação. É fundamental compreender que a etapa de explotação representa a mina em operação, ou seja, a retirada efetiva do material de seu depósito mineral.
+Abaixo, apresentamos a trilha lógica dos degraus técnicos desta segunda fase:
 
-## Os Estágios do Aproveitamento Mineral
+<div style="font-size: 1.3em; font-weight: 600; margin-top: 1.5rem;">
 
-Para compreender o fluxo de dados que analisaremos, é preciso situar a explotação dentro da cronologia do empreendimento mineral:
+**[Degrau 8: Metrologia Operacional e Indicadores de Estado](#sec-cap8)**
 
--   **Prospecção**: Focada em localizar o depósito de minério.
+</div>
 
--   **Exploração**: Busca detalhar geologicamente a ocorrência mineral.
+Onde a telemetria se transforma em inteligência de frota e disponibilidade.
 
--   **Desenvolvimento**: Inclui a preparação da jazida para o aproveitamento.
+<div style="margin-left: 2rem;">
 
--   **Explotação**: Atividade incumbida da retirada efetiva do material da mina.
+**[Passo 15: Os Estados do Equipamento (DF, UF, RO)](#sec-indicadores-estado)**
 
-A explotação subdivide-se em subetapas fundamentais que compõem o ciclo de produção da lavra:
+* ***<span style="color: #0C59DB;">O que faz:</span>*** Define matematicamente a Disponibilidade Física, Utilização e Rendimento Operacional.
+* ***<span style="color: #0C59DB;">Por que está aqui:</span>*** O engenheiro precisa de um idioma comum para medir o tempo. Se você não sabe para onde o tempo do ativo está indo, você não está gerindo, está apenas observando.
 
--   **Perfuração e Desmonte**: A perfuração consiste na execução de furos na rocha para alocação de cargas explosivas. O desmonte utiliza esses explosivos para a fragmentação do maciço, reduzindo o sólido em fragmentos menores por ação mecânica para permitir o manuseio. Este processo é o foco do **[Perfuração e Desmonte](#chap-perfuracao)**.
+**[Passo 16: Eficiência Global (OEE)](#sec-oee-mineracao)**
 
--   **Carregamento**: Realizado por equipamentos de carga nas frentes de lavra, consiste na retirada do material fragmentado e sua transferência para as unidades de transporte. Analisaremos sua identidade fundamental no **[Carregamento](#chap-carregamento)**.
+* ***<span style="color: #0C59DB;">O que faz:</span>*** Integra Disponibilidade, Performance e Qualidade em um único índice de eficácia.
+* ***<span style="color: #0C59DB;">Por que está aqui:</span>*** É o indicador máximo de produtividade. Mostra o quanto o ativo realmente agregou valor ao processo produtivo.
 
--   **Transporte**: Responsável por deslocar o material extraído até os locais de descarga, como britadores, pilhas de estéril ou pilhas pulmão[^part1-1]. A variabilidade deste ciclo é o foco do **[Transporte](#chap-transporte)**.
+</div>
 
-[^part1-1]: O material bruto advindo da frente de lavra, denominado **ROM (*Run Of Mine*)**.
+---
 
-Para que esse processo seja bem-sucedido, a seleção dos equipamentos deve ser feita de maneira criteriosa, considerando os tamanhos dos fragmentos, os ciclos esperados e a frota disponível. A @fig-ciclo-mina mostra as operações da etapa de explotação.
+<div style="font-size: 1.3em; font-weight: 600; margin-top: 1.5rem;">
 
-![Ciclos de operações unitárias de uma mina a céu aberto.](/images/processo-lavra-cobre.png){#fig-ciclo-mina}
+**[Degrau 9: Gestão de Ativos e a Interface com a Mina (PCO)](#sec-cap9)**
+
+</div>
+
+Onde o plano de lavra encontra a capacidade real dos equipamentos.
+
+<div style="margin-left: 2rem;">
+
+**[Passo 17: Planejamento e Controle Operacional (PCO)](#sec-pco-mina)**
+
+* ***<span style="color: #0C59DB;">O que faz:</span>*** Explora a conexão entre o planejamento de curto/médio prazo da mina e o suporte de ativos.
+* ***<span style="color: #0C59DB;">Por que está aqui:</span>*** Para evitar o isolamento de silos. A manutenção deve servir ao plano de produção, e o PCO é a ponte que garante esse alinhamento.
+
+</div>
+
+---
+
+<div style="font-size: 1.3em; font-weight: 600; margin-top: 1.5rem;">
+
+**[Degrau 10: O Motor da Manutenção: Macrofluxo do PCM](#sec-cap10)**
+
+</div>
+
+A estruturação do método que garante a disciplina operacional.
+
+<div style="margin-left: 2rem;">
+
+**[Passo 18: O Ciclo de Vida da Ordem de Manutenção](#sec-pcm-macrofluxo)**
+
+* ***<span style="color: #0C59DB;">O que faz:</span>*** Detalha o fluxo desde a Identificação da falha até o Encerramento e Controle.
+* ***<span style="color: #0C59DB;">Por que está aqui:</span>*** Sem um processo de PCM robusto, a oficina vira um hospital de emergências. Este passo ensina a criar uma linha de produção de serviços planejados.
+
+</div>
+
+---
+
+<div style="font-size: 1.3em; font-weight: 600; margin-top: 1.5rem;">
+
+**[Degrau 11: Auditoria Técnica: O Índice IQPL](#sec-cap11)**
+
+</div>
+
+Onde o planejamento é auditado matematicamente para garantir sua eficácia.
+
+<div style="margin-left: 2rem;">
+
+**[Passo 19: Qualidade do Planejamento e IQPL](#sec-iqpl)**
+
+* ***<span style="color: #0C59DB;">O que faz:</span>*** Aplica o modelo de 35 variáveis para dar uma nota de 0 a 100 à qualidade do que foi planejado.
+* ***<span style="color: #0C59DB;">Por que está aqui:</span>*** É o "filtro de qualidade" do PCM. Garante que ordens de manutenção ruins não poluam a programação, evitando retrabalho e desperdício de peças.
+
+</div>
+
+---
+
+<div style="font-size: 1.3em; font-weight: 600; margin-top: 1.5rem;">
+
+**[Degrau 12: Métricas de Desempenho de Manutenção](#sec-cap12)**
+
+</div>
+
+A aferição do resultado tático das intervenções.
+
+<div style="margin-left: 2rem;">
+
+**[Passo 20: Confiabilidade e Manutenibilidade (MTBF e MTTR)](#sec-mtbf-mttr)**
+
+* ***<span style="color: #0C59DB;">O que faz:</span>*** Ensina a calcular o tempo médio entre falhas e o tempo médio de reparo.
+* ***<span style="color: #0C59DB;">Por que está aqui:</span>*** São as métricas vitais. O MTBF mede a qualidade do seu preventivo, enquanto o MTTR mede a agilidade e competência da sua equipe de execução.
+
+**[Passo 21: Aderência e Cumprimento (ISAC e IDF)](#sec-aderencias)**
+
+* ***<span style="color: #0C59DB;">O que faz:</span>*** Mede o quanto o planejado foi cumprido e a eficácia das inspeções.
+* ***<span style="color: #0C59DB;">Por que está aqui:</span>*** Para garantir a disciplina. Um plano de manutenção que não é cumprido é apenas uma peça de ficção no sistema.
+
+</div>
+
+---
+
+<div style="font-size: 1.3em; font-weight: 600; margin-top: 1.5rem;">
+
+**[Degrau 13: Engenharia de Confiabilidade Avançada](#sec-cap13)**
+
+</div>
+
+Onde a estatística profunda prevê o futuro das falhas.
+
+<div style="margin-left: 2rem;">
+
+**[Passo 22: Distribuição de Weibull e Processos de Contagem](#sec-estatistica-confiabilidade)**
+
+* ***<span style="color: #0C59DB;">O que faz:</span>*** Introduz a modelagem matemática para entender se o ativo falha por mortalidade infantil, aleatoriedade ou desgaste.
+* ***<span style="color: #0C59DB;">Por que está aqui:</span>*** Para sair do empirismo. O engenheiro sênior usa dados para definir se deve trocar uma peça por tempo ou por condição, otimizando o custo do ciclo de vida.
+
+</div>
+
+---
+
+<div style="font-size: 1.3em; font-weight: 600; margin-top: 1.5rem;">
+
+**[Degrau 14: Realismo Operacional: Manutenção Imperfeita](#sec-cap14)**
+
+</div>
+
+A quebra dos mitos acadêmicos frente ao ambiente severo da mineração.
+
+<div style="margin-left: 2rem;">
+
+**[Passo 23: Ciclos PR e a Realidade ABAO/AGAN](#sec-manutencao-imperfeita)**
+
+* ***<span style="color: #0C59DB;">O que faz:</span>*** Analisa o impacto real da manutenção, assumindo que o equipamento nem sempre volta a ser novo após um reparo.
+* ***<span style="color: #0C59DB;">Por que está aqui:</span>*** É o fechamento magistral da Parte II. Dá ao gestor a visão realista do "Custo de Manutenção Imperfeita", preparando a base para a estratégia de renovação de frota.
+
+</div>
