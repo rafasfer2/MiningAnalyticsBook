@@ -7,6 +7,7 @@ format: html
 Neste capítulo, operamos a transição definitiva da filosofia normativa para a exatidão da engenharia. Transformamos conceitos abstratos e subjetivos em modelos matemáticos capazes de nortear decisões operacionais e financeiras no setor mineral e na gestão de competências.
 
 ::: {.callout-tip title="🎯 Objetivos deste Capítulo"}
+
 Neste capítulo, faremos a transição definitiva da qualidade filosófica para a engenharia quantitativa. Ao final da leitura, você será capaz de:
 
 * **Transpor** a barreira da subjetividade, transformando opiniões sobre qualidade em indicadores matemáticos auditáveis e gerenciáveis.
@@ -150,6 +151,7 @@ Resultando na **Qualidade Ajustada por Risco ($Q^*$):** $Q^* = ARM_Q - P$.
 Para visualizar a universalidade desta álgebra, acompanhe o desdobramento da norma em vetores para três setores industriais distintos:
 
 ::: {.example #exm-arm-siderurgia name="Siderurgia: Produção e Fornecimento de Bobinas de Aço"}
+
 A tabela abaixo demonstra o que cada cláusula normativa "produz" matematicamente no modelo ARM para uma aciaria.
 
 | Cláusula ISO 9001 | Tradução direta para parâmetros da ARM (Matemática) |
@@ -166,6 +168,7 @@ A tabela abaixo demonstra o que cada cláusula normativa "produz" matematicament
 :::
 
 ::: {.example #exm-arm-montadora name="Montadora: Linha de Montagem de Veículos"}
+
 A estrutura normativa permanece a mesma, mas o vetor de medição e a matriz de pesos mudam drasticamente, priorizando a segurança estrutural.
 
 | Cláusula ISO 9001 | Tradução direta para parâmetros da ARM (Matemática) |
@@ -182,6 +185,7 @@ A estrutura normativa permanece a mesma, mas o vetor de medição e a matriz de 
 :::
 
 ::: {.example #exm-arm-porto name="Logística Portuária: Operação de Carga e Descarga"}
+
 Neste cenário, o produto físico dá lugar a um processo de serviço. A regra de qualidade ancora-se estritamente no prazo, previsibilidade e integridade do fluxo.
 
 | Cláusula ISO 9001 | Tradução direta para parâmetros da ARM (Matemática) |
@@ -327,6 +331,7 @@ Após estabelecer o modelo (Passos 0 a 5), a operação assume o controle, colet
 Para visualizar o ciclo de cálculo completo (do passo 6 ao 10), acompanhe a aplicação matemática formal no estudo de caso abaixo.
 
 ::: {.example #exm-arm-passo-siderurgia name="Aplicação Matemática: Bobinas de Aço na Siderurgia"}
+
 Nesta aplicação, o objeto é um lote de bobinas de aço laminado, com critério de liberação exigindo $Q \ge 0,80$.
 
 **1. Parametrização Inicial do Modelo (Passos 1 a 4)**
@@ -475,6 +480,7 @@ Abaixo, demonstramos a aplicação direta da equação $ARM$ em diferentes cená
 **Nota metodológica:** Você notará que os primeiros estudos de caso estão fortemente focados na modelagem do **Produto** (avaliando variáveis de saída tangíveis, como especificações químicas e físicas). Essa abordagem é intencional, pois é pedagogicamente mais simples compreender a atribuição de notas ($S_i$) e pesos ($W_i$) em um objeto físico que será entregue ao cliente. Posteriormente, no final deste capítulo, expandiremos essa mesma lógica matemática para a avaliação de **Processos**.
 
 ::: {.example #exm-sinter name="Minério de Ferro tipo Sinter Feed"}
+
 Neste cenário, a siderúrgica (usuário) avalia a qualidade do minério baseada em três parâmetros principais: o Teor de Ferro ($V_1$), o Teor de Sílica ($V_2$) e a Granulometria ($V_3$).
 
 **1. Atribuição de Pesos ($W_i$)**
@@ -510,6 +516,7 @@ Neste exemplo, o Índice de Qualidade foi **7,7**.
 :::
 
 ::: {.example #exm-ferrovia name="Serviço de Escoamento Ferroviário"}
+
 Neste cenário, o usuário (o terminal portuário) avalia a qualidade do serviço prestado pela ferrovia através de três parâmetros: Pontualidade ($V_1$), Integridade da Carga ($V_2$) e Disponibilidade de Vagões ($V_3$).
 
 **1. Atribuição de Pesos ($W_i$)**
@@ -545,6 +552,7 @@ Embora a ferrovia tenha sido perfeita na integridade ($S_2=10$) e muito boa na o
 :::
 
 ::: {.example #exm-gestao name="Qualidade pelo Atingimento de Metas (Gestão)"}
+
 Para finalizar a aplicação conceitual, utilizaremos como objeto a própria Organização e sua eficácia no cumprimento do plano estratégico.
 
 **1. Atribuição de Pesos ($W_i$)**
@@ -578,6 +586,7 @@ A Qualidade Total da Organização foi **7,3**.
 :::
 
 ::: {.example #exm-silica name="Estudo de Caso I: O Desafio do Minério de Alta Sílica"}
+
 Neste estudo, o objeto é o "Produto B", um minério de ferro com alta sílica processado em uma usina na região Norte. O desafio reside no fato de este material ser altamente abrasivo e não possuir dados históricos, exigindo monitoramento rigoroso via KPIs.
 
 **Passo 1: Definição dos Parâmetros ($V_i$)**
@@ -635,6 +644,7 @@ O resultado de **7,13** indica que, embora o teste tenha sido um sucesso sob a �
 :::
 
 ::: {.example #exm-ppcj name="Estudo de Caso II: Acurácia de Estoque e Medição (PPCJ)"}
+
 Neste cenário, o objeto é o processo de produção e estocagem do produto PPCJ. O principal desafio é a divergência entre o estoque contábil (balanças) e o estoque físico (topografia), que frequentemente supera o limite aceitável de ±2%.
 
 **Passo 1: Definição dos Parâmetros ($V_i$)**
@@ -710,6 +720,7 @@ Como podemos aplicar a equação $ARM$ para medir a "qualidade" de uma operaçã
 A resposta é deslocar o objeto de estudo. Em vez de avaliar a rocha, avaliamos o maquinário e o fluxo de trabalho. As variáveis ($V_i$) deixam de ser propriedades químicas e passam a ser **Métricas de Desempenho Operacional (KPIs)**.
 
 ::: {.example #exm-britagem name="Estudo de Caso III: Qualidade do Processo de Britagem Primária"}
+
 A gerência precisa avaliar a "saúde" e a eficiência operacional da planta de britagem primária em uma determinada semana, não pelo tamanho da pedra que sai, mas por *como* a máquina está sendo operada.
 
 **1. Definição dos Parâmetros do Processo ($V_i$) e Pesos ($W_i$)**
@@ -767,41 +778,49 @@ Como estruturar essa investigação para descobrir a causa raiz de um problema d
 Para consolidar os conceitos deste capítulo, consulte a seção [**Capítulo 3 — Motor Matemático (ARM)**](cap8-exercicios-parte1.qmd#sec-cap8-cap3) no [**Capítulo 8: Exercícios Integrados da Parte I**](cap8-exercicios-parte1.qmd#sec-cap8-exercicios).
 
 ::: {#exr-cap3-arm-mineral}
+
 **Construção de Score Global**
 Defina um modelo ARM unidimensional para avaliar a qualidade de um **Minério de Ferro Britado**, identificando pelo menos 5 variáveis (ex: teor de Fe, umidade, granulometria, impurezas, viscosidade). Atribua pesos e notas fictícias, calculando o score global resultante.
 :::
 
 ::: {#exr-cap3-arvore-valor}
+
 **Árvore de Valor: Escavadeira**
 Construa uma Árvore de Valor para avaliar a **Qualidade de Operação de uma Escavadeira Hidráulica**. Comece com o objetivo geral (raiz), desdobre em 3-4 Dimensões, e em cada Dimensão identifique 2-3 Variáveis.
 :::
 
 ::: {#exr-cap3-diagrama-mudge}
+
 **Diagrama de Mudge: Ponderação de Pesos**
 Considerando 4 variáveis críticas de um britador (Disponibilidade, Estabilidade, Eficiência, Segurança), utilize a matriz de Mudge para estabelecer seus pesos relativos de forma sistematizada.
 :::
 
 ::: {#exr-cap3-kpi-transporte}
+
 **Modelo Multidimensional para Transporte**
 Desenvolva um modelo ARM multidimensional para **Desempenho de Transporte (caminhões fora de estrada)** com as seguintes dimensões: (a) Confiabilidade; (b) Eficiência; (c) Segurança. Em cada dimensão, defina 2 variáveis, atribua notas e calcule uma nota final por dimensão e um score global.
 :::
 
 ::: {#exr-cap3-unidimensional-vs-multi}
+
 **Comparação Unidimensional vs. Multidimensional**
 Por que um modelo multidimensional pode ser mais robusto que um unidimensional na tomada de decisão gerencial? Cite um exemplo de contexto onde cada um é mais apropriado.
 :::
 
 ::: {#exr-cap3-ajuste-pesos}
+
 **Reajuste de Pesos Conforme Estratégia**
 Um britador primário possui um modelo ARM com as seguintes variáveis: Disponibilidade (peso 0.3), Consumo de Energia (peso 0.2), Qualidade de Fragmentação (peso 0.5). Se a estratégia da mineradora muda de "Máxima Produção" para "Máxima Eficiência Energética", como você ajustaria os pesos?
 :::
 
 ::: {#exr-cap3-trade-off}
+
 **Análise de Trade-off**
 Uma escavadeira apresenta: Produtividade = 8/10, Confiabilidade = 6/10, Custo Operacional = 9/10. Como usar a equação ARM para decidir entre: (a) Substituir o equipamento; (b) Investir em manutenção para aumentar confiabilidade?
 :::
 
 ::: {#exr-cap3-case-qualidade-completa}
+
 **Modelagem Completa: Sistema de Britagem**
 Um sistema de britagem (primário + secundário + terciário) necessita de um modelo ARM integrado. Defina:
 1. As 3 Dimensões principais (ex: Qualidade do Produto, Disponibilidade, Impacto Ambiental).
@@ -812,16 +831,19 @@ Um sistema de britagem (primário + secundário + terciário) necessita de um mo
 :::
 
 ::: {#exr-cap3-ref-q1}
+
 **Subjetividade vs. Objetividade**
 Se os pesos em um modelo ARM são definidos subjetivamente (por painéis de especialistas ou diagrama de Mudge), como garantir a objetividade final do score global?
 :::
 
 ::: {#exr-cap3-ref-q2}
+
 **Gatilho para Ação**
 Por que o capítulo enfatiza que o score ARM é um "gatilho para a ação" e não a ação em si? O que vem após a identificação de uma anomalia?
 :::
 
 ::: {#exr-cap3-ref-q3}
+
 **Machine Learning e ARM**
 Como um modelo ARM bem estruturado pode servir de base para algoritmos de Machine Learning na previsão de falhas ou otimização de processos?
 :::
