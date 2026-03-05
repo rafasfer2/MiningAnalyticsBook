@@ -846,6 +846,7 @@ Para visualizar a evolução dessa competitividade, imagine uma praça de alimen
 * **A Competitividade (Requisitos Qualificadores):** Para um restaurante simplesmente manter suas portas abertas naquela praça, ele precisa entregar o básico exigido pelo mercado. Isso significa possuir alvará da vigilância sanitária, aceitar pagamento via cartão ou Pix e servir comida em um tempo razoável e em um balcão limpo. Se a pizzaria falhar nesses requisitos, ela sequer entra na disputa mental do cliente. Ela está fora do jogo.
 * **A Vantagem Competitiva (Ganhadores de Pedido):** Em um determinado dia, a hamburgueria atrai uma fila de clientes visivelmente maior que a do restaurante de macarrão ao lado. Ela possui uma vantagem competitiva porque entrega *critérios ganhadores de pedido*. Os benefícios (que nascem de forma subjetiva e individual na cabeça de cada consumidor) tornaram-se evidentes e formaram um consenso coletivo: seja pelo sabor exclusivo de um molho, pela rapidez imbatível ou pelo preço agressivo. Ela gera mais valor do que as demais.
 * **A Vantagem Sustentável (O Atributo Oculto):** Ao ver o sucesso da hamburgueria, o restaurante vizinho tenta copiar: abaixa seus preços e lança um molho parecido. Mesmo assim, um ano depois, a fila da hamburgueria continua reinando. Por quê? Porque a vantagem da hamburgueria não era apenas o molho (que é visual e copiável), mas um sistema complexo: uma logística refinada que entrega ingredientes frescos diariamente e uma cultura de treinamento que zera os erros de anotação de pedidos. A dificuldade de copiar esses atributos reside no fato de que eles não são evidentes na vitrine.
+:::
 
 **A Conexão com a Engenharia e a Necessidade de Quantificação:**
 Aqui reside o grande desafio da engenharia de produção. O sucesso comercial nasce de um conjunto de características subjetivas que, quando consolidadas, geram a vantagem competitiva. No entanto, o atributo que garante a sustentabilidade desse sucesso raramente é óbvio ou comum.
@@ -853,38 +854,6 @@ Aqui reside o grande desafio da engenharia de produção. O sucesso comercial na
 Como gerenciar e replicar algo que é, na sua essência, subjetivo? A resposta está na quantificação. O papel da engenharia é entrar nessa operação e transformar o "sucesso aparentemente subjetivo" em um modelo matemático. É preciso desdobrar a percepção do cliente em indicadores claros de desempenho (como o tempo exato da fila e a taxa de acerto do pedido) e atribuir pesos de importância para cada uma dessas exigências.
 
 Sem essa estruturação, a vantagem competitiva é apenas um palpite ou um golpe de sorte. A ferramenta técnica exata para realizar essa tradução do mundo subjetivo dos negócios para as variáveis matemáticas da engenharia — denominada **Modelagem Analítica de Requisitos (ARM)** — será o objeto central de estudo do @sec-cap3.
-:::
-
-### Relações Econômicas (Preço, Propaganda e Participação) {#sec-relacoes-economicas}
-
-Para compreender o impacto da qualidade na base de negócios, é necessário analisar como ela se relaciona com as principais variáveis microeconômicas de uma organização: o Preço ($P$), a Quantidade Vendida ($Q$), o Custo de Produção ($C$) e o Lucro resultante ($L$).
-
-#### Relação Qualidade vs. Preço
-
-É considerada uma relação fraca e sem direção clara. Existe uma força negativa ditada pela Lei da Demanda (maiores preços tendem a reduzir a quantidade demandada) e uma força positiva, onde o preço mais alto atua como um "símbolo" de qualidade extra percebida pelo consumidor. A @fig-relacao-qualidade-preco ilustra o perigo de manipular preços sem embasamento de valor:
-
-* **O Cenário de Risco (Gráfico da Esquerda):** A empresa decide aumentar seu preço ($P \uparrow$) de forma artificial, sem melhorar o produto. Como não há percepção de valor, a curva de Demanda (linha azul) permanece inalterada. O mercado reage negativamente, a quantidade vendida despenca ($Q \downarrow$) e, mesmo com o custo constante ($C \leftrightarrow$), a área total de faturamento encolhe, resultando em queda no lucro ($L \downarrow$).
-* **A Estratégia de Valor (Gráfico da Direita):** A empresa investe em atributos que o cliente valoriza. Isso desloca toda a curva de Demanda para a direita/cima (linha verde). Agora, a empresa consegue cobrar um preço superior ($P \uparrow$) e, como o cliente percebe o benefício, o volume de vendas se mantém estável ($Q \leftrightarrow$). O resultado é uma expansão maciça da margem e o aumento real do lucro ($L \uparrow$).
-
-![Relação Qualidade x Preço](../images/fig-relacao-qualidade-preco.png){#fig-relacao-qualidade-preco fig-align="center"}
-
-#### Relação Qualidade vs. Propaganda
-
-Também apresenta uma relação de alto risco. O investimento em publicidade é útil para sinalizar menor risco e criar contraste frente à concorrência, mas ele introduz uma penalidade imediata na equação: a elevação direta dos custos operacionais ($C \uparrow$). A @fig-relacao-qualidade-propaganda demonstra essa dinâmica:
-
-* **A Ilusão do Volume (Gráfico da Esquerda):** A empresa gasta com propaganda ($C \uparrow$) mantendo o preço estável ($P \leftrightarrow$). A demanda até sofre um leve deslocamento positivo, aumentando timidamente as vendas ($Q \uparrow$). Contudo, o ganho de receita não é suficiente para cobrir o rombo deixado pelo custo da publicidade, fazendo o lucro total cair ($L \downarrow$).
-* **A Propaganda Efetiva (Gráfico da Direita):** A propaganda comunica de forma tão eficaz a qualidade do produto que o mercado aceita pagar mais caro ($P \uparrow$) e comprar em maior volume ($Q \uparrow$). Somente com esse deslocamento agressivo da demanda é que o aumento do faturamento supera o gasto publicitário ($C \uparrow$), gerando um lucro sustentável ($L \uparrow$).
-
-![Relação Qualidade x Propaganda](../images/fig-relacao-qualidade-propaganda.png){#fig-relacao-qualidade-propaganda fig-align="center"}
-
-#### Relação Qualidade vs. Participação no Mercado
-
-Apresenta uma relação com direção mais clara, dependendo da dimensão da qualidade explorada. Se a qualidade for focada estritamente em "desempenho tecnológico superior", o produto fatalmente custará mais e venderá menos volume. Porém, se o foco for melhoria de conformidade (redução de defeitos) e usabilidade, a lógica se inverte, como mostrado na @fig-relacao-qualidade-participacao:
-
-* **O Custo da "Falsa" Qualidade (Gráfico da Esquerda):** A empresa tenta empurrar um produto com características complexas que o cliente não pediu. Isso encarece a produção ($C \uparrow$) e força um aumento de preço ($P \uparrow$), resultando em rejeição do mercado, queda nas vendas ($Q \downarrow$) e prejuízo na margem ($L \downarrow$).
-* **Ganho de Escala pela Conformidade (Gráfico da Direita):** A empresa foca em reduzir a variabilidade de seus processos. O custo de produção se mantém estável ou até cai ($C \leftrightarrow$). Ela não aumenta o preço final ($P \leftrightarrow$), mas a altíssima confiabilidade e reputação do produto atraem os clientes da concorrência, deslocando a demanda. O volume de vendas dispara ($Q \uparrow$), dominando a participação no mercado e alavancando a rentabilidade de forma orgânica ($L \uparrow$).
-
-![Relação Qualidade x Participação no Mercado](../images/fig-relacao-qualidade-participacao.png){#fig-relacao-qualidade-participacao fig-align="center"}
 
 ### Relações Econômicas (Preço, Propaganda e Participação) {#sec-relacoes-economicas}
 
@@ -1053,6 +1022,77 @@ Um engenheiro de produção monitora uma máquina de envase de sucos de $1.000\t
 
 *Conclusão para o Aluno:* O engenheiro descobriu matematicamente que manter o bico de envase com **80% de precisão absoluta** é o ponto de menor custo total financeiro. Tentar calibrar a máquina para chegar a 99% de precisão custaria tanto em manutenção e sensores de ponta que o "suco economizado" não pagaria o investimento de controle.
 
+```{r}
+#| label: fig-modelagem-custos
+#| fig-cap: "Curvas de Custos da Qualidade e Ponto Ótimo de Precisão"
+#| warning: false
+#| echo: true
+
+# Carregar bibliotecas necessárias
+library(ggplot2)
+library(scales)
+
+# 1. Preparação dos Dados
+# Definindo o intervalo de q (precisão de 40 a 100 para melhor visualização)
+q_vals <- seq(40, 100, by = 0.5)
+
+# Calculando os custos com base nas funções modeladas
+c_falha <- 1024000 / q_vals
+c_controle <- q_vals^2
+c_total <- c_falha + c_controle
+
+# Criando um DataFrame no formato longo para facilitar a plotagem no ggplot
+df_custos <- data.frame(
+  q = rep(q_vals, 3),
+  Custo = c(c_falha, c_controle, c_total),
+  Curva = factor(rep(c("Custo de Falhas", "Custo de Controle", "Custo Total (CTQ)"),
+                     each = length(q_vals)),
+                 levels = c("Custo de Controle", "Custo de Falhas", "Custo Total (CTQ)"))
+)
+
+# 2. Definição do Ponto Ótimo (calculado via derivada)
+q_otimo <- 80
+custo_otimo <- (q_otimo^2) + (1024000 / q_otimo) # Resultado = 19.200
+
+# 3. Construção do Gráfico
+ggplot(df_custos, aes(x = q, y = Custo, color = Curva, linetype = Curva)) +
+  geom_line(linewidth = 1.2) +
+
+  # Customizando cores (Azul para Controle, Vermelho para Falha, Verde para Total)
+  scale_color_manual(values = c("Custo de Controle" = "#2980b9",
+                                "Custo de Falhas" = "#c0392b",
+                                "Custo Total (CTQ)" = "#27ae60")) +
+
+  # Diferenciando o traço da curva total para destacá-la
+  scale_linetype_manual(values = c("Custo de Controle" = "solid",
+                                   "Custo de Falhas" = "solid",
+                                   "Custo Total (CTQ)" = "dashed")) +
+
+  # Destacando o eixo do Ponto Ótimo
+  geom_vline(xintercept = q_otimo, linetype = "dotted", color = "#7f8c8d", linewidth = 1) +
+  geom_point(aes(x = q_otimo, y = custo_otimo), color = "#27ae60", size = 4, show.legend = FALSE) +
+
+  # Anotação de texto no ponto ótimo
+  annotate("text", x = q_otimo, y = custo_otimo + 2000,
+           label = paste0("Ponto Ótimo\n(q = 80%, R$ 19.200)"),
+           color = "#27ae60", fontface = "bold", hjust = -0.1) +
+
+  # Formatação dos Eixos (Porcentagem em X e Moeda em Y)
+  scale_x_continuous(labels = function(x) paste0(x, "%"), breaks = seq(40, 100, by = 10)) +
+  scale_y_continuous(labels = dollar_format(prefix = "R$ ", big.mark = ".", decimal.mark = ",")) +
+
+  # Títulos e Tema
+  labs(title = "Modelagem Matemática dos Custos da Qualidade",
+       subtitle = "Máquina de Envase: Investimento em Controle vs. Prejuízo de Falhas",
+       x = "Nível de Precisão da Máquina (q)",
+       y = "Custo Mensal",
+       color = "", linetype = "") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "bottom",
+        plot.title = element_text(face = "bold"),
+        panel.grid.minor = element_blank())
+```
+
 ::: {.example #exm-falha-externa-graos name="Estudo de Caso: Falha Externa em Lote de Exportação"}
 
 **Cenário: Contaminação de Lote de Grãos**
@@ -1062,6 +1102,7 @@ Uma *trading* de grãos decidiu economizar R$ 20.000,00 em custos de Avaliação
 Ao chegar no porto de destino (Roterdã), a fiscalização sanitária europeia detectou níveis de aflatoxina acima do permitido. O lote foi imediatamente bloqueado.
 
 **O Levantamento dos Custos de "Não Qualidade":**
+
 * **Demurrage (Multa por navio parado):** US$ 10.000/dia durante 30 dias aguardando liberação. (Aprox. R$ 1.500.000,00).
 * **Logística de Reenvio:** O milho teve que ser desviado para um mercado menos exigente (para fabricação de ração animal não nobre), gerando um frete extra de R$ 800.000,00.
 * **Perda de Margem:** O produto foi vendido com desconto de 40% sobre o preço de mercado devido à baixa qualidade, resultando em perda de receita de R$ 12.000.000,00.
@@ -1114,93 +1155,6 @@ O engenheiro estritamente técnico e perfeccionista tende a buscar a **Superqual
 :::
 
 #### A Modelagem Matemática dos Custos da Qualidade {#sec-modelagem-matematica}
-
-O desafio do engenheiro de produção não é atingir o "erro zero" a qualquer custo, mas sim encontrar o nível de conformidade que minimiza o **Custo Total da Qualidade ($CTQ$)**. Matematicamente, o $CTQ$ é a soma dos investimentos (Controle) e das perdas (Falhas):
-
-$$CTQ(q) = C_{controle}(q) + C_{falha}(q)$$ {#eq-ctq}
-
-Onde $q$ representa o nível de conformidade (de 0 a 100%).
-
-* **Curva de Falha (Decrescente):** Representa os prejuízos ($C_{falha}$). Quanto maior a conformidade ($q$), menores as falhas. Em processos críticos (como aviação), essa curva tem declínio exponencial, pois uma única falha custa milhões.
-* **Curva de Controle (Crescente):** Representa o investimento ($C_{controle}$). Para aproximar-se da perfeição ($q \to 100\%$), o custo de prevenção e avaliação sobe de forma assintótica. Eliminar o "último 1%" de erro costuma custar mais caro do que eliminar os primeiros 50%.
-
-**Cálculo do Ponto Ótimo de Qualidade (Otimização via Derivada)**
-
-O gráfico de custos revela que existe um Ponto Ótimo de Qualidade. Se a empresa investe pouco, a falha destrói o lucro. Se investe demais, entra na zona de Superqualidade, onde o custo marginal do controle não compensa a redução marginal das falhas.
-
-Para consolidar a visão analítica, considere uma fábrica onde as funções de custo (em Reais) foram modeladas da seguinte forma:
-
-* Custo de Falhas (A perda cai conforme a conformidade $q$ aumenta): $C_{falha}(q) = \frac{1.194.000}{q}$
-* Custo de Controle (O custo sobe exponencialmente para atingir a perfeição): $C_{controle}(q) = q^2$
-
-**Qual o nível de conformidade ($q$) que minimiza o Custo Total ($CTQ$)?**
-
-1. Montamos a Função Custo Total:
-   $$CTQ(q) = q^2 + \frac{1.194.000}{q}$$
-
-2. Derivamos em relação a $q$ para encontrar a taxa de variação marginal:
-   $$CTQ'(q) = 2q - \frac{1.194.000}{q^2}$$
-
-3. Igualamos a zero para achar o ponto mínimo da curva de custos:
-   $$2q - \frac{1.194.000}{q^2} = 0 \implies 2q^3 = 1.194.000 \implies q^3 = 597.000$$
-
-4. Extraindo a raiz cúbica:
-   $$q = \sqrt[3]{597.000} \approx 84,2\%$$
-
-**Insight para o Aluno:** Para este processo específico, o custo mínimo financeiro ocorre em **84,2%** de conformidade. Tentar forçar o processo a chegar em 99% custaria muito mais caro em inspeções do que o prejuízo gerado pelas falhas residuais. A matemática impede o "perfeccionismo antieconômico".
-
-::: {.callout-note title="📈 O Insight do Engenheiro"}
-O objetivo da gestão não é o gasto zero, mas o **equilíbrio**:
-* **Aumentar** Prevenção e Avaliação...
-* Para **eliminar** Falhas Externas e reduzir Falhas Internas...
-* Até que o **Custo Total** atinja seu valor mínimo. E **cortar** a Superqualidade que não agrega valor.
-:::
-
-Para consolidar o aprendizado, vamos aplicar a modelagem matemática e o estudo de caso a um cenário de **Indústria de Alimentos (Linha de Envase de Sucos)**. Aqui, o desvio de qualidade pode significar tanto desperdício de produto quanto multas severas de órgãos reguladores (como o INMETRO e a Vigilância Sanitária).
-
-**1. Modelagem Matemática: O Custo do "Enchimento Excessivo"**
-
-Um engenheiro de produção monitora uma máquina de envase de sucos de $1.000\text{ ml}$. O projeto aceita uma variação mínima, mas o engenheiro quer saber qual o nível de precisão de conformidade ($q$) minimiza o custo total, considerando as seguintes funções modeladas (em Reais):
-
-* **Custo de Falhas ($C_{falha}$):** Se o bico de envase erra para menos, o lote é rejeitado e gera multas. Se erra para mais, a empresa "doa" suco de graça (Superqualidade). A perda cai conforme a precisão aumenta:
-  $$C_{falha}(q) = \frac{1.024.000}{q}$$
-
-* **Custo de Controle ($C_{controle}$):** Para aumentar a precisão (comprando sensores a laser e parando para manutenção constante), o custo sobe exponencialmente:
-  $$C_{controle}(q) = q^2$$
-
-*Resolução do Ponto Ótimo (Custo Total Mínimo):*
-
-1. **Função Custo Total:** $CTQ(q) = q^2 + \frac{1.024.000}{q}$
-2. **Derivada (Igualando a Zero):** $CTQ'(q) = 2q - \frac{1.024.000}{q^2} = 0$
-3. **Cálculo Algébrico:** $2q^3 = 1.024.000 \implies q^3 = 512.000$
-4. **Raiz Cúbica:** $q = \sqrt[3]{512.000} \implies \mathbf{q = 80}$
-
-*Conclusão para o Aluno:* O engenheiro descobriu matematicamente que manter o bico de envase com **80% de precisão absoluta** é o ponto de menor custo total financeiro. Tentar calibrar a máquina para chegar a 99% de precisão custaria tanto em manutenção e sensores de ponta que o "suco economizado" não pagaria o investimento de controle.
-
-::: {.example #exm-falha-externa-graos name="Estudo de Caso: Falha Externa em Lote de Exportação"}
-
-**Cenário: Contaminação de Lote de Grãos**
-Uma *trading* de grãos decidiu economizar R$ 20.000,00 em custos de Avaliação (testes laboratoriais de micotoxinas) em um carregamento de 30 mil toneladas de milho destinado à Europa.
-
-**O Evento de Falha Externa:**
-Ao chegar no porto de destino (Roterdã), a fiscalização sanitária europeia detectou níveis de aflatoxina acima do permitido. O lote foi imediatamente bloqueado.
-
-**O Levantamento dos Custos de "Não Qualidade":**
-
-* **Demurrage (Multa por navio parado):** US$ 10.000/dia durante 30 dias aguardando liberação. (Aprox. R$ 1.500.000,00).
-* **Logística de Reenvio:** O milho teve que ser desviado para um mercado menos exigente (para fabricação de ração animal não nobre), gerando um frete extra de R$ 800.000,00.
-* **Perda de Margem:** O produto foi vendido com desconto de 40% sobre o preço de mercado devido à baixa qualidade, resultando em perda de receita de R$ 12.000.000,00.
-* **Blacklist:** A empresa foi suspensa de exportar para aquele grupo de compradores por 2 anos (Custo de Oportunidade imensurável).
-
-*Análise Crítica:* A "economia" inicial de R$ 20.000,00 em testes gerou um prejuízo contábil direto de mais de R$ 14 milhões. Na engenharia de exportação e logística, o custo da *Avaliação* é, na verdade, um seguro obrigatório contra a destruição financeira da companhia.
-:::
-
-::: {.callout-tip title="💡 Insight de Fechamento: O Papel do Engenheiro de Produção"}
-Nos dois exemplos acima, o engenheiro atua como um gestor de riscos e de capital:
-* No **Envase**, ele evita a *Superqualidade* (dar produto de graça) e o custo de Avaliação excessivo.
-* Na **Exportação**, ele investe o máximo possível na Avaliação para evitar a *Falha Externa* catastrófica que pode falir a empresa.
-:::
-
 #### Resumo das Categorias de Custo (Matriz de Decisão) {#sec-matriz-custos}
 
 | Categoria | Tipo | Exemplo Prático | Objetivo Gerencial |
