@@ -5,1373 +5,209 @@ format: html
 # Gabarito — Parte I: Engenharia da Qualidade {#sec-gabarito-parte1}
 
 ::: {.callout-tip title="📖 Como usar este gabarito"}
-Este documento apresenta os exercícios propostos nos Capítulos 1 a 7 da Parte I **com as respostas esperadas e orientações detalhadas**. As respostas não são "respostas únicas", mas guias estruturados que demonstram o raciocínio esperado em cada contexto. Use este gabarito para:
-- **Professores/Instrutores:** Validar respostas de alunos e acompanhar aprendizado
-- **Alunos (auto-avaliação):** Comparar suas respostas com o esperado após tentar resolver sozinho
+Este documento apresenta os exercícios propostos na Parte I com as respostas esperadas e orientações detalhadas. As respostas não são fechadas, mas guias estruturados que demonstram o raciocínio esperado na engenharia.
 
-⚠️ **Importante:** Tente resolver os exercícios do Cap 8 ANTES de consultar este gabarito.
+⚠️ **Importante:** Tente resolver os problemas antes de consultar a resolução.
 :::
 
----
-
-### Resoluções: Bloco 1 - Fundamentos e a Subjetividade da Qualidade
-
-**Resolução do @exr-qualidade-contexto (A Dependência do Contexto):**
-A Qualidade não pode ser definida no vazio porque ela é o conjunto de características que determinam a *essência* de algo. O que dita essa essência é a necessidade de quem usa e o ambiente onde é usado. As características que fazem um "bom" carro de Fórmula 1 (velocidade, leveza) são inúteis e perigosas para um "bom" trator de mineração (torque, peso, robustez). Logo, a qualidade só ganha sentido prático quando atrelada a um substantivo e a um contexto de aplicação.
-
-**Resolução do @exr-qualidade-tempo (O Fator Temporal na Qualidade):**
-O conceito é dinâmico porque as necessidades humanas (subjetivas) e a tecnologia (objetiva) evoluem. O que era considerado um diferencial competitivo ou "alta qualidade" há 10 anos pode ser apenas um requisito mínimo obrigatório hoje. Por exemplo, um celular com câmera fotográfica já foi sinônimo de superqualidade; hoje, um aparelho sem câmera não tem sequer adequação ao uso básico.
-
-**Resolução do @exr-qualidade-aspectos (Aspectos de Conceituação):**
-Para conceituar qualidade de forma plena, a engenharia deve alinhar dois aspectos:
-1. **Dimensão Objetiva:** A métrica física, química ou mecânica inerente ao produto (ex: o tecido suporta 50 kg de tração).
-2. **Dimensão Subjetiva:** A percepção e interpretação humana sobre aquele produto (ex: o cliente sente que o tecido é macio e seguro). A excelência exige que o objetivo sustente o subjetivo.
-
----
-
-### Resoluções: Bloco 2 - Níveis de Adequação e Fatores do Consumidor
-
-**Resolução do @exr-fatores-consumidor (Fatores de Equilíbrio do Consumidor):**
-1. **Qualidade Intrínseca:** A funcionalidade, robustez e nível de defeitos do produto físico em si.
-2. **Atendimento:** A facilidade de compra, a disponibilidade em estoque e o cumprimento do prazo de entrega.
-3. **Serviços Associados:** O suporte técnico, a política de trocas, a garantia e o pós-venda.
-4. **Custo Total:** O sacrifício financeiro global (preço de compra + manutenção + gasto de uso + descarte). A percepção de excelência ocorre quando esses quatro operam em harmonia.
-
-**Resolução do @exr-ferramenta-eletrica (Ferramenta Elétrica):**
-* *Intrínseca:* O motor não queima facilmente e o torque é o prometido na caixa.
-* *Atendimento:* A loja tem o produto a pronta entrega e o vendedor soube orientar a compra.
-* *Serviços Associados:* Há uma rede ampla de assistência técnica e garantia de 2 anos.
-* *Custo Total:* O preço da máquina somado à economia de tempo de trabalho gera forte valor agregado.
-
-**Resolução do @exr-garrafa-termica (Garrafa Térmica):**
-* *Padrão:* A garrafa é fabricada com o tipo de inox especificado e soldas perfeitas.
-* *Uso:* Na prática, ela mantém o café quente por 12 horas no ar-condicionado do escritório, cumprindo sua missão.
-* *Custo:* A fabricação enxuta permite vendê-la a um preço acessível sem perder margem.
-* *Latente:* A tampa possui um termômetro digital embutido que o cliente não pediu, mas que o encanta por evitar queimaduras.
-
-**Resolução do @exr-app-delivery (App de Delivery):**
-* *Padrão:* O código do aplicativo é limpo, leve e não trava no celular (0 bugs).
-* *Uso:* A comida chega rápida, inteira e na temperatura correta.
-* *Custo:* As taxas de serviço e frete são consideradas justas pela conveniência.
-* *Latente:* O app rastreia o motoboy no mapa em tempo real, aliviando a ansiedade do cliente.
-
-**Resolução do @exr-ecommerce-roupas (E-commerce):**
-* *Padrão:* A roupa entregue tem exatamente a cor e a costura da ficha técnica.
-* *Uso:* O tecido é confortável, não encolhe na lavagem e o caimento no corpo é bom.
-* *Custo:* O frete é gratuito a partir de um valor, melhorando o custo total.
-* *Latente:* O site possui um provador virtual 3D que sugere o tamanho exato baseado no peso/altura do cliente, eliminando o medo de comprar errado.
-
-**Resolução do @exr-carro-eletrico (Carro Elétrico):**
-* *Padrão:* A montagem das baterias e peças da carroceria segue tolerâncias micrométricas.
-* *Uso:* O carro entrega a autonomia real prometida e o painel multimídia é fluido.
-* *Custo:* A recarga elétrica é tão barata que compensa o preço premium de aquisição do veículo.
-* *Latente:* Atualizações de software via Wi-Fi (Over-The-Air) melhoram o desempenho do freio enquanto o carro dorme na garagem, sem precisar ir à oficina.
-
-**Resolução do @exr-banco-digital (Banco Digital):**
-* *Padrão:* O sistema transacional não possui falhas de conciliação; cada centavo bate.
-* *Uso:* O cliente resolve qualquer problema pelo celular, sem pegar filas na agência.
-* *Custo:* Isenção total de taxas de transferência e manutenção de conta.
-* *Latente:* O banco cria um "cartão virtual temporário" que expira após 1 compra online, protegendo o cliente contra fraudes que ele nem sabia como evitar.
-
-**Resolução do @exr-curso-graduacao (Ensino Superior):**
-* *Padrão:* A matriz curricular exigida pelo MEC é cumprida rigorosamente com professores titulados.
-* *Uso:* O aluno aprende habilidades que são, de fato, úteis e aplicáveis na sua rotina de estágio.
-* *Custo:* A mensalidade se paga rapidamente com a valorização salarial do aluno formado.
-* *Latente:* A faculdade integra o TCC com problemas reais de empresas parceiras, gerando contratações automáticas.
-
-**Resolução do @exr-salao-beleza (Salão de Beleza):**
-* *Padrão:* Uso de produtos dentro da validade e aplicação no tempo exato da bula do fabricante.
-* *Uso:* O corte de cabelo é funcional e prático para a cliente manter no dia a dia.
-* *Custo:* O valor cobrado é proporcional à durabilidade do procedimento estético.
-* *Latente:* A cadeira do lavatório possui massagem nas costas e é servido um cappuccino especial durante a espera.
-
-**Resolução do @exr-hotelaria (Hotelaria):**
-* *Padrão:* Quartos limpos com as metragens e especificações arquitetônicas prometidas no site.
-* *Uso:* Chuveiro com alta pressão, cama confortável e internet estável para trabalho.
-* *Custo:* Diária e taxas de frigobar percebidas como justas.
-* *Latente:* Check-in/check-out express pelo celular e escolha do tipo de travesseiro antes da chegada.
-
-**Resolução do @exr-transporte-passageiros (Transporte de Passageiros):**
-* *Padrão:* A manutenção da frota cumpre 100% dos manuais da fabricante (ônibus seguro).
-* *Uso:* Viagem pontual, sem paradas desnecessárias e poltrona espaçosa.
-* *Custo:* Tarifa acessível comparada ao gasto com combustível e pedágio do carro particular.
-* *Latente:* Tomadas USB individuais e Wi-Fi de alta velocidade em toda a rota.
-
-**Resolução do @exr-geladeira-inteligente (Geladeira Inteligente):**
-* *Intrínseca:* Compressor potente que gela rápido e não faz barulho.
-* *Atendimento:* Logística de entrega cuidadosa que não risca o inox na escada.
-* *Serviços Associados:* Agilidade da assistência técnica para trocar o filtro de água.
-* *Custo Total:* Preço de loja + baixíssimo consumo de energia na conta de luz (Selo Procel A+++).
-
-**Resolução do @exr-saas-erp (Serviço de Software SaaS):**
-* *Intrínseca:* O servidor não cai (alto *uptime*) e as rotinas de cálculo de impostos são exatas.
-* *Atendimento:* A equipe comercial faz a implantação na empresa do cliente no prazo prometido.
-* *Serviços Associados:* O chat de suporte técnico resolve as dúvidas do RH em menos de 5 minutos.
-* *Custo Total:* A licença mensal é muito mais barata que o custo das horas extras da equipe fazendo cálculos manuais.
-
-**Resolução do @exr-fator-smartphone (Smartphones):**
-* *Intrínseca:* Tela resistente, câmera nítida e sistema operacional que não trava.
-* *Atendimento:* Facilidade de comprar no lançamento sem filas virtuais desgastantes.
-* *Serviços Associados:* Armazenamento em nuvem fluido e seguro integrado.
-* *Custo Total:* Apesar do alto preço de compra, o aparelho dura 4 anos e possui altíssimo valor de revenda (reduzindo o custo global de propriedade).
-
-**Resolução do @exr-fator-cia-aerea (Companhia Aérea):**
-* *Intrínseca:* Aeronave nova, limpa, assentos funcionais e segurança de voo absoluta.
-* *Atendimento:* App fácil de usar, despacho de bagagem sem filas e cordialidade dos comissários.
-* *Serviços Associados:* Clube de milhagens vantajoso, sala VIP e remarcação flexível.
-* *Custo Total:* O preço da passagem + economia do tempo do cliente (fator crucial para clientes corporativos).
-
-**Resolução do @exr-fator-concessionaria (Concessionária de Energia):**
-* *Intrínseca:* Tensão estável, sem "piscar", não queimando eletrodomésticos.
-* *Atendimento:* Fatura fácil de ler e portal que permite resolver problemas sem ligar.
-* *Serviços Associados:* Equipes de campo que restabelecem a energia rapidamente após tempestades.
-* *Custo Total:* A tarifa por kWh repassada de forma transparente e justa.
-
-**Resolução do @exr-fator-tenis (Tênis de Performance):**
-* *Intrínseca:* O solado não descola, a costura não cede e o amortecimento protege o joelho.
-* *Atendimento:* A loja (física ou online) possui todos os tamanhos e uma tabela de medidas precisa.
-* *Serviços Associados:* Política de devolução fácil caso o tênis cause bolhas após o primeiro uso.
-* *Custo Total:* O preço pago é diluído na alta quilometragem que o calçado suporta antes de desgastar.
-
-**Resolução do @exr-fator-supermercado (Supermercado Online):**
-* *Intrínseca:* Produtos entregues dentro da validade, hortifruti fresco (não amassado).
-* *Atendimento:* O aplicativo é intuitivo e a entrega acontece exatamente na janela de horário combinada.
-* *Serviços Associados:* O SAC estorna automaticamente o valor no cartão se algum item vier errado, sem burocracia.
-* *Custo Total:* Preços de gôndola competitivos somados a uma taxa de entrega econômica.
-
----
-
-### Resoluções: Bloco 3 - Exercícios de Integração (Capítulos 1-7)
-
-### Exercício 1.1 — Definição Contextual de Qualidade {#sec-gabarito-1-1}
-
-**Contexto:** Em uma operação de britagem, três stakeholders definem "qualidade" de forma diferente:
-
-- **Operador de Britador:** "Qualidade é rodando sem parar"
-- **Engenheiro de Processo:** "Qualidade é granulometria dentro da especificação (P80 = 12 mm)"
-- **Gerente de Mina:** "Qualidade é entregar minério no prazo ao menor custo"
-
-**Pergunta:**
-
-a) Qual das três definições está "errada"? Justifique sua resposta.
-
-b) Como essas três perspectivas podem ser integradas em uma única definição de qualidade operacional para esse equipamento?
-
-c) Qual ferramenta da Parte I você utilizaria para harmonizar essas visões?
-
----
-
-**GABARITO 1.1:**
-
-a) **Nenhuma definição está "errada"** — cada uma reflete uma dimensão legítima da qualidade:
-   - Operador: perspectiva de **confiabilidade operacional** (Disponibilidade/Uptime)
-   - Engenheiro: perspectiva de **conformidade técnica** (Especificação do produto)
-   - Gerente: perspectiva de **eficiência financeira** (Rentabilidade)
-
-b) **Integração em definição única:** "Qualidade é a capacidade de entregar minério dentro da especificação de granulometria (P80 = 12 mm), com disponibilidade mínima de 90%, mantendo custo unitário em $X/ton" — esta definição contempla as três dimensões simultaneamente.
-
-c) **Ferramentas de integração:**
-   - **Hoshin Kanri** (Cap 4): desdobra a meta estratégica em cascata, conectando objetivos operacionais a metas financeiras
-   - **PDCA estruturado** (Cap 5): estabelece ciclos de melhoria contínua para cada dimensão
-   - **X-Matrix**: visualiza a relação entre as três perspectivas
-
----
-
-### Exercício 1.2 — Adequação ao Uso vs. Conformidade com Projeto
-
-**Contexto:** Uma empresa de mineração adquire um **detector de metais portátil** para inspeção de segurança em frentes de corte/detonação.
-
-- **Especificação técnica (Projeto):** Detecta metais ferrosos acima de 2 gramas a distância de até 50 cm.
-- **Realidade de Campo:** O equipamento funciona perfeitamente no laboratório, mas em campo sua sensibilidade cai para 8 gramas devido a interferência eletromagnética de maquinários próximos.
-
-**Pergunta:**
-
-a) Segundo a ótica "Conformidade com Projeto", o equipamento é de qualidade ou não?
-
-b) Segundo a ótica "Adequação ao Uso", o equipamento é de qualidade ou não?
-
-c) Como você resolveria essa contradição? Quais modificações fariam o equipamento ser considerado de qualidade em ambas perspectivas?
-
----
-
-**GABARITO 1.2:**
-
-a) **Conformidade com Projeto: NÃO é de qualidade**
-   - A especificação prometia 2g a 50 cm
-   - Em campo, apenas atinge 8g a 50 cm
-   - A falha é de **validação de projeto** (não testaram em ambiente real)
-
-b) **Adequação ao Uso: DEPENDE do risco aceitável**
-   - Se fragmentos de 8g ou maiores podem causar dano (segurança comprometida) → NÃO é adequado
-   - Se fragmentos > 8g são raros no processo e o risco é aceitável → PODE ser adequado
-   - Resposta: Provavelmente NÃO é adequado (segurança é crítica)
-
-c) **Soluções para garantir qualidade em ambas perspectivas:**
-
-   **Opção 1: Redesenho do projeto**
-   - Adicionar blindagem eletromagnética ao detector
-   - Refazer testes em ambiente representativo (com máquinas ligadas)
-   - Nova especificação: detecta 2g a 30 cm em ambiente real (menos ambicioso, mas realista)
-
-   **Opção 2: Adaptação ao uso**
-   - Retreinar operadores para usar o detector a 30 cm do alvo (não 50 cm)
-   - Aumentar frequência de inspeções para compensar menor sensibilidade
-   - Documentar que sensibilidade em campo é 8g, não 2g, mas aceitável para segurança
-
-   **Opção 3: Mudança de ferramental**
-   - Adquirir equipamento mais robusto a interferência eletromagnética (mais caro)
-   - Implementar zonas de segurança ao redor de equipamentos que geram interferência
-
-   **Conclusão:** Qualidade requer que a **especificação seja realista** (conformidade) E que o equipamento seja **seguro em uso real** (adequação). Se há contradição, o projeto está errado.
-
----
-
-### Exercício 2.1 — Construção de Indicador Estratégico (Hoshin Kanri) {#sec-gabarito-2-1}
-
-**Contexto:** Você é gestor de manutenção em uma mina e recebeu a seguinte meta estratégica:
-
-*"Reduzir custos de manutenção em 15% no próximo ano mantendo disponibilidade acima de 90%"*
-
-**Pergunta:**
-
-a) Desdobre essa meta em **objetivos táticos** (programação mensal) e **operacionais** (KPIs semanais).
-
-b) Defina quais equipes são responsáveis por cada objetivo.
-
-c) Estabeleça uma **cadeia de causa-efeito** que relacione os objetivos operacionais aos resultados estratégicos.
-
----
-
-**GABARITO 2.1:**
-
-a) **Desdobramento em cascata:**
-
-| **Nível** | **Objetivo** | **Métrica** | **Meta Anual** | **Meta Mensal** | **Meta Semanal** |
-| --- | --- | --- | --- | --- | --- |
-| **Estratégico** | Reduzir custos manutenção | R$/ton ao custeio | -15% | -1,25% | -0,29% |
-| **Tático/Mensal** | Aumentar MTBF | Horas/falha | +20% | +1,67% | +0,39% |
-| **Tático/Mensal** | Reduzir paradas emergenciais | % preventiva | 85% | 85% | 85% |
-| **Operacional** | Reduzir OMs emergenciais | Qtde/semana | < 2 | Var. mensal | < 2 |
-| **Operacional** | Aumentar OMs preventivas | Qtde/semana | > 8 | Var. mensal | > 8 |
-
-b) **Responsabilidades por nível:**
-
-| **Nível** | **Responsável** | **Ação Típica** |
-| --- | --- | --- |
-| Estratégico | Diretor/Gerente Geral | Aprovar orçamento, alocar recursos |
-| Tático-Mensal | Engenheiro de Confiabilidade | Planejar preventivas, validar MTBF |
-| Operacional | Supervisor/Encarregado | Executar OMs, preenchimento de dados, feedback diário |
-
-c) **Cadeia de causa-efeito:**
-
-```
-Mais OMs Preventivas (supervisor executa 8+/sem)
-    ↓
-MTBF aumenta (+20% no ano)
-    ↓
-Menos falhas totais (% preventiva ↑ para 85%)
-    ↓
-Menos horas de indisponibilidade
-    ↓
-Disponibilidade sobe para 90%+
-    ↓
-Custos emergenciais caem, peças usadas mais eficientemente
-    ↓
-Custo total manutenção reduz 15%
-    ↓
-Resultado estratégico alcançado
-```
-
----
-
-### Exercício 2.2 — Análise de Modo de Falha (FMEA Simplificado) {#sec-gabarito-2-2}
-
-**Contexto:** Um sistema de correias em uma moega apresenta falhas crônicas de desalinhamento.
-
-**Pergunta:**
-
-a) Identifique pelo menos 3 **modos de falha** possíveis (ex: desgaste de rolamento, desalinhamento axial, fadiga de estrutura).
-
-b) Para cada modo, estime a **Severidade (S)**, **Ocorrência (O)** e **Detecção (D)** em escala 1-10.
-
-c) Calcule o **RPN (Risco de Priorização)** para cada modo.
-
-d) Qual modo deveria receber prioridade máxima de correção?
-
----
-
-**GABARITO 2.2:**
-
-a) **3+ modos de falha em sistema de correias:**
-
-1. **Desgaste de rolamento** (por falta de lubrificação ou idade)
-2. **Desalinhamento axial** (eixo-motor/eixo-moega desalinhados)
-3. **Fadiga de estrutura** (trinca em suporte metálico por vibração crônica)
-4. **Retenção inadequada de correia** (correia escorrega quando deveria puxar)
-5. **Corrosão de polia** (ambiente úmido reduz atrito)
-
-b) **Estimativa S-O-D para os 3 principais:**
-
-| **Modo de Falha** | **S** | **O** | **D** | **RPN** | **Prioridade** |
-| --- | --- | --- | --- | --- | --- |
-| Desgaste rolamento | 8 | 7 | 6 | **336** | 🔴 CRÍTICA |
-| Desalinhamento axial | 7 | 8 | 7 | **392** | 🔴 CRÍTICA |
-| Fadiga de estrutura | 9 | 4 | 8 | **288** | 🟠 ALTA |
-| Retenção inadequada correia | 6 | 5 | 7 | **210** | 🟡 MÉDIA |
-| Corrosão de polia | 5 | 6 | 6 | **180** | 🟡 MÉDIA |
-
-c) **RPN = S × O × D**
-   - Desalinhamento: 7 × 8 × 7 = 392 ✓ MÁXIMO
-   - Desgaste: 8 × 7 × 6 = 336
-   - Fadiga: 9 × 4 × 8 = 288
-   - Retenção: 6 × 5 × 7 = 210
-   - Corrosão: 5 × 6 × 6 = 180
-
-d) **Prioridade máxima: Desalinhamento Axial (RPN = 392)**
-
-   **Ações recomendadas:**
-   - Implementar **verificação de alinhamento** com laser (semanal)
-   - **Limpeza de eixo** antes/após troca de correia
-   - Documentar **procedimento de alinhamento** com tolerância máxima de 2 mm
-   - Treinar mecânico em técnica de alinhamento
-   - Verificar aperto de parafuso de travamento (vibração solta)
-
----
-
-### Exercício 3.1 — PDCA Aplicado a Redução de Downtime {#sec-gabarito-3-1}
-
-**Contexto:** Seu britador primário teve **3 paradas emergenciais** em um mês, totalizando **18 horas de indisponibilidade**, quando a meta era máximo 4 horas.
-
-**Pergunta:**
-
-a) **PLAN:** Descreva qual problema você investigaria primeiro e que dados coletaria.
-
-b) **DO:** Que ação corretiva você implementaria?
-
-c) **CHECK:** Como você verificaria se a ação funcionou?
-
-d) **ACT:** Se a ação funcionou, como você a padronizaria?
-
----
-
-**GABARITO 3.1:**
-
-a) **PLAN (Planejar):**
-
-   **Problema a investigar (por RPN ou frequência):** Qual das 3 paradas é recorrente? Causas:
-   - Parada 1: Correia quebrada
-   - Parada 2: Sensor tranca equipamento
-   - Parada 3: Falta combustível (operador esqueceu)
-
-   **Dados a coletar:**
-   - Log detalhado de cada falha (hora, duração, causa raiz)
-   - Histórico de manutenção (últimas trocas de peça)
-   - Procedimento operacional (quantas vezes refueled, horários)
-   - Temperatura, vibração, pressão em tempo real
-
-   **Meta:** Reduzir indisponibilidade de 18h/mês para <4h/mês em 60 dias
-
-b) **DO (Fazer):**
-
-   **Para cada tipo de falha:**
-   - **Correia:** Estoque de correia de reposição, treinamento rápido de troca (30 min)
-   - **Sensor:** Validar funcionamento diário, substituir por sensor mais robusto
-   - **Combustível:** Implementar checklist pré-operacional, alarme de combustível baixo
-
-   **Implementar a ação mais impactante primeiro** (ex: sensor, se causou 50% das paradas)
-
-c) **CHECK (Verificar):**
-
-   **Semanas 1-4 após ação:**
-   - Contar quantidade de paradas (meta: <2 por semana)
-   - Cronometrar duração (meta: <30 min se houver parada)
-   - Registrar causa de cada parada (para validar se foi resolvida)
-
-   **Métrica:** Gráfico de série temporal mostrando indisponibilidade reduzindo semana a semana
-
-   **Critério de sucesso:** Em 60 dias, conseguir <4h/mês de paradas emergenciais
-
-d) **ACT (Agir):**
-
-   **Se funcionou (ação bem-sucedida):**
-   - Documentar procedimento no **Manual de Operação**
-   - Criar checklist diário baseado na ação (ex: "Verificar nível de combustível")
-   - Treinar todos operadores e supervisores
-   - Revisar a cada 3 meses se a parada voltou (variação comum)
-
-   **Se não funcionou:**
-   - Investigar falhas residuais
-   - Voltar ao PLAN e testar outra ação
-   - Nunca aceitar indisponibilidade >4h/mês sem ação
-
----
-
-### Exercício 3.2 — Seleção de Ferramenta Apropriada {#sec-gabarito-3-2}
-
-**Contexto:** Você identifica que existem **5 causas diferentes** gerando atrasos nas ordens de manutenção:
-- Falta de peças (40% dos atrasos)
-- Equipe indisponível (25%)
-- Documentação incompleta (20%)
-- Ferramenta quebrada (10%)
-- Outros (5%)
-
-**Pergunta:**
-
-a) Qual ferramenta você usaria para visualizar essa distribuição de causas?
-
-b) Como você interpretaria o resultado? Qual é o próximo passo?
-
-c) Você concentraria esforços na causa de 40% ou distribuiria igualmente? Por quê?
-
----
-
-**GABARITO 3.2:**
-
-a) **Ferramenta: Gráfico de Pareto**
-
-   ```
-   Atrasos em Ordens de Manutenção
-
-   Frequência | ███████ Falta peças (40%)
-   40         | ███████
-   35         | ███████
-   30         | ███████
-   25         | █████ Equipe indisponível (25%)
-   20         | ████ Documentação (20%)
-   15         |
-   10         | ██ Ferramenta quebrada (10%)
-    5         | Outros (5%)
-              +──────────────────
-                Causa raiz
-   ```
-
-   **Linha de corte Pareto:** 80% dos atrasos vêm de ~20% das causas
-
-b) **Interpretação:**
-   - **Falta de peças + Equipe indisponível = 65%** (maioria dos problemas vem de 2 causas)
-   - **Documentação + Ferramenta + Outros = 35%** (causas menores)
-
-   **Próximos passos:**
-   1. Focar em **Falta de peças** (40%) → ação: criar estoque estratégico
-   2. Focar em **Equipe indisponível** (25%) → ação: criar escalas de plantão/backup
-   3. Monitorar se essas 2 ações reduzem os atrasos em 65%
-
-c) **Concentrar vs. Distribuir:**
-
-   **RESPOSTA: Concentre recursos nas 2 principais (Pareto)**, NÃO distribua igualmente.
-
-   **Justificativa:**
-   - Recurso limitado ($ de orçamento, tempo de gestão)
-   - Resolver a causa de 40% elimina mais atrasos que resolver tudo de 5%
-   - **ROI (Retorno sobre Investimento)** é melhor no alto do Pareto
-
-   **Exemplo de distribuição ERRADA:**
-   - Investir igualmente em todas 5 causas → pouco progresso em cada uma
-   - Resultado: alguns atrasos diminuem um pouco, nenhum resolve completamente
-
-   **Exemplo de distribuição CERTA (Pareto):**
-   - 70% do orçamento → resolver falta de peças
-   - 20% do orçamento → resolver equipe indisponível
-   - 10% do orçamento → observar se o resto resolve sozinho
-   - Resultado: 65% dos atrasos eliminados em 2-3 meses
-
----
-
-### Estudo de Caso 4.1 — Sistema de Qualidade para Operação de Carregamento {#sec-gabarito-4-1}
-
-**Contexto Geral:**
-
-Uma operação de carregamento e transporte de minério possui:
-- **3 escavadeiras hidráulicas** (principal fonte de produção)
-- **8 caminhões fora-de-estrada**
-- **Meta de produção:** 500 toneladas/dia
-- **Problema:** Disponibilidade das escavadeiras cai para 65% nos períodos de chuva
-
-**Situação Específica:**
-
-Na última semana chuvosa:
-- Escavadeira A: 2 paradas (correntes entupidas de barro)
-- Escavadeira B: 3 paradas (sensor de inclinação desativa em umidade alta)
-- Escavadeira C: 1 parada (operador mal treinado em terreno molhado)
-
-**Perguntas:**
-
-1. **Filosofia da Qualidade:** O que isso significa em termos ISO 9000? Estamos com problema de "Produto" (equipamento) ou "Processo" (operação)?
-
-2. **Modelagem Estratégica:** Construa um **Hoshin Kanri** para aumentar disponibilidade em época chuvosa.
-
-3. **Quantificação:** Defina **3 KPIs operacionais** que você monitoraria semanalmente.
-
-4. **Ferramentas:** Se você tivesse 1 mês para resolver, qual seria sua **sequência de ferramentas**?
-
-5. **Governança:** Como você estruturaria o **PDCA mensal** para acompanhar progressos?
-
----
-
-**GABARITO 4.1:**
-
-**1. Filosofia e ISO 9000:**
-
-**O problema é de PROCESSO, não de Produto:**
-- ISO 9000 define qualidade como "capacidade de satisfazer necessidades explícitas e implícitas"
-- A **meta de 500 ton/dia não é atingida** quando chove (aproximadamente 325 ton/dia com 65% disponibilidade)
-- A **raiz não é o equipamento em si**, mas a **operação em condição não planejada** (chuva)
-
-**Problema de Processo:**
-- Falta procedimento específico para chuva
-- Falta capacitação operacional para terreno molhado
-- Falta sensores adequados para ambiente úmido
-- Falta manutenção preventiva sazonal (antes de período chuvoso)
-
-**Solução:** Implementar **Sistema de Qualidade Processual** que inclua:
-- Procedimentos por condição climática
-- Manutenção preventiva sazonal
-- Treinamento operacional em ambientes adversos
-- Sensores/equipamentos mais robustos
-
----
-
-**2. Hoshin Kanri para Disponibilidade em Época Chuvosa:**
-
-| **Nível** | **Objetivos** | **Responsável** | **Métrica** | **Meta Ano 1** |
-| --- | --- | --- | --- | --- |
-| **Estratégico** | Aumentar disponibilidade em época chuvosa | Diretor Operações | Disponibilidade período chuvoso | 85% (acima dos 65% atuais) |
-| **Tático** | Reduzir paradas por entupimento | Engenheiro Manutenção | Paradas por corrente/semana | <1 |
-| **Tático** | Aumentar robustez de sensores | Engenheiro Equipamentos | % sensores resistentes a umidade | 100% |
-| **Tático** | Capacitar operadores em chuva | Supervisor Operações | % operadores treinados | 100% |
-| **Operacional** | Limpeza preventiva pré-chuva | Mecânico | Checklist/semana em época chuvosa | 3x/semana |
-| **Operacional** | Manutenção de sensores | Técnico Instrumental | Teste de sensor (pass/fail) | 100% funcional |
-| **Operacional** | Treinamento prático molhado | Encarregado | Horas de treino/operador | 8h/operador antes de chuva |
-
-**X-Matrix (Causa-Efeito):**
-```
-Procedimentos específicos para chuva
-    + Limpeza preventiva semanal
-    + Sensores mais robustos
-    + Operadores bem treinados
-    ↓
-Menos paradas (corrente, sensor, operação)
-    ↓
-Disponibilidade sobe de 65% para 85%
-    ↓
-Produção de 500 ton/dia mantida mesmo em chuva
-    ↓
-Receita não cai em períodos sazonais
-```
-
----
-
-**3. KPIs Operacionais (monitoramento semanal):**
-
-| **KPI** | **Definição** | **Meta Semanal** | **Fórmula** |
-| --- | --- | --- | --- |
-| **Disponibilidade** | % de tempo que escavadeiras funcionam | 85% (em chuva) / 95% (seco) | (Horas produção) / (Horas totais) × 100 |
-| **MTBF** | Tempo médio entre falhas | ≥ 80 horas | Horas de operação / Nº de paradas |
-| **% Paradas Preventivas** | % de paradas planejadas vs. emergenciais | ≥ 80% preventiva | Paradas preventivas / Paradas totais |
-
-**Monitoramento:**
-- Atualizar KPIs toda sexta-feira (reunião semanal)
-- Se disponibilidade < 85% na semana: ativar plano de recuperação segunda-feira seguinte
-- Gráfico de série temporal (trending) para ver se melhora ao longo das semanas
-
----
-
-**4. Sequência de Ferramentas (1 mês):**
-
-**Semana 1: Diagnóstico**
-- Ferramenta: **Brainstorm + Ishikawa** (Diagrama de Espinha de Peixe)
-  - Mapa todas as causas possíveis: Equipamento, Método, Clima, Pessoal, Material
-  - Resultado: Identifica as 3 principais (correntes entupidas, sensor, treinamento)
-
-**Semana 2: Priorização**
-- Ferramenta: **Pareto + GUT**
-  - Pareto: qual causa daria maior impacto se resolvida?
-  - GUT: Gravidade × Urgência × Tendência
-  - Resultado: Foco em sensor (máximo impacto, resolve 50% das paradas)
-
-**Semana 3: Implementação**
-- Ferramenta: **PDCA (micro-ciclos)**
-  - PLAN: Substituir sensor ou criar proteção para sensor
-  - DO: Executar substituição / proteção
-  - CHECK: Testar em dias com umidade alta (simulado ou natural)
-  - ACT: Se funcionar, repetir nas 3 escavadeiras
-
-**Semana 4: Padronização**
-- Ferramenta: **Procedimento + Treinamento**
-  - Documentar "OP-Procedimento de Operação em Chuva" com checklist
-  - Treinar todos operadores e supervisor
-  - Estabelecimento de KPI semanal
-
-**Sequência resumida:** Brainstorm → Ishikawa → Pareto → PDCA → Documentação
-
----
-
-**5. Governança — PDCA Mensal:**
-
-**Ciclo PDCA Mensal para Disponibilidade:**
-
-| **Etapa** | **Atividade** | **Quando** | **Responsável** | **Saída** |
-| --- | --- | --- | --- | --- |
-| **PLAN** | Reunião de planejamento mensal | 1º dia útil do mês | Engenheiro Operações | Plano de ações para o mês |
-| **PLAN** | Revisar meta (85% disponibilidade) | 1º dia útil | Supervisor | Metas por semana |
-| **DO** | Executar ações (troca sensor, treinamento, limpeza) | Semanas 1-3 do mês | Mecânico, Encarregado, Técnico | Ações completadas |
-| **DO** | Registrar dados diários (disponibilidade, paradas) | Todos os dias | Operador/Supervisor | Planilha de dados |
-| **CHECK** | Análise semanal de disponibilidade | Toda sexta | Supervisor + Engenheiro | Gráfico de série temporal & desvios |
-| **CHECK** | Reunião de 15 min pós-chuva | Quando chove | Encarregado + Equipe | Feedback de problemas em tempo real |
-| **ACT** | Revisão mensal (último dia do mês) | Dia 28-30 | Diretor + Engenheiro + Supervisor | Lições aprendidas & plano próximo mês |
-| **ACT** | Documentar procedimentos atualizados | Fim do mês | Engenheiro | Manual atualizado |
-
-**Formato Reunião Mensal (última sexta do mês):**
-```
-1. Disponibilidade real vs. meta (gráfico)
-2. Causas de desvios (Pareto de paradas)
-3. Ações tomadas (o que funcionou, o que não funcionou)
-4. Ações novas para próximo mês
-5. Treinamentos pendentes
-6. Documentação necessária (atualizações em procedimentos)
-```
-
-**Meta de Melhoria (Meses subsequentes):**
-- Mês 1: Disponibilidade de 65% → 75% (1ª mudança de sensor)
-- Mês 2: 75% → 82% (treinamento completo)
-- Mês 3: 82% → 88% (limpeza preventiva padronizada)
-- Mês 4+: Manter 85%+ (monitoramento contínuo)
-
----
-
-### Resoluções das Eras da Qualidade
-
-**Resolução do @exr-eras-lampada (Produção de Lâmpadas):**
-
-* **Inspeção:** No final da esteira, um funcionário rosqueava cada lâmpada em um bocal para ver se acendia. Se não acendesse, era descartada (ação corretiva 100%).
-* **Controle Estatístico:** Utilização de Cartas de Controle para monitorar a espessura do filamento por amostragem. Se a média começasse a variar, a máquina era ajustada preventivamente.
-* **Garantia Estratégica:** Foco na Engenharia de Confiabilidade para garantir durabilidade (ex: 15.000 horas). O fornecedor da matéria-prima torna-se um parceiro estratégico para garantir "zero falhas" desde a origem do componente.
-
----
-
-**Resolução do @exr-eras-software (Desenvolvimento de Software):**
-
-* **Inspeção:** Após o código estar pronto, um revisor lia linha por linha procurando erros de digitação ou lógica para "consertar" o programa antes do lançamento.
-* **Controle Estatístico:** Testes automatizados rodam em amostras de funções para medir a densidade de *bugs* por mil linhas de código, decidindo matematicamente se o software está estável.
-* **Garantia Estratégica:** Adoção de metodologias ágeis como *DevOps* e Integração Contínua (CI/CD). O sistema é desenhado com travas arquiteturais para impedir que o erro seja sequer codificado.
-
----
-
-**Resolução do @exr-eras-medicamentos (Indústria Farmacêutica):**
-
-* **Inspeção:** Antigamente, conferia-se visualmente se os frascos estavam cheios e se os comprimidos não estavam quebrados no final do processo manual.
-* **Controle Estatístico:** Análise laboratorial de uma pequena amostra de cada lote para verificar a concentração do princípio ativo, aceitando uma fração tolerada defeituosa mínima (AQL) definida por lei.
-* **Garantia Estratégica:** Gestão total através das Boas Práticas de Fabricação (BPF / *GMP*). O foco está no controle do ambiente (salas limpas), treinamento e rastreabilidade total, tornando impossível produzir um lote fora do padrão.
-
----
-
-**Resolução do @exr-eras-aviacao (Manutenção Aeronáutica):**
-
-* **Inspeção:** Mecânicos mediam cada parafuso individualmente com gabaritos manuais para garantir que a peça intercambiável encaixaria na asa do avião.
-* **Controle Estatístico:** Introdução do monitoramento de fadiga de materiais por amostragem, prevendo a falha de componentes baseando-se em probabilidade de ciclos de voo.
-* **Garantia Estratégica:** Implementação do SMS (*Safety Management System*). A qualidade torna-se estratégia de sobrevivência; busca-se o "erro zero" através de sistemas redundantes e forte cultura não-punitiva de reporte de quase-falhas (*near-misses*).
-
----
-
-**Resolução do @exr-eras-transicao (A Mudança de Paradigma):**
-
-O principal fator foi o advento da produção em massa em larguíssima escala (impulsionada após a Revolução Industrial e as Grandes Guerras). O volume de produção tornou-se tão colossal que verificar os produtos "um a um" (100% de inspeção) tornou-se fisicamente impossível e financeiramente inviável. Isso forçou a engenharia a adotar a estatística e a teoria das probabilidades (amostragem) para garantir a qualidade sem parar a linha de produção.
-
----
-
-### Resoluções dos Novos Exercícios (Capítulo 1)
-
-**Resolução do @exr-niveis-smartphone (Adequação na Indústria Eletrônica: Smartphone):**
-
-* **Adequação ao Padrão:** O aparelho sai da linha de montagem sem defeitos físicos, com o processador atingindo exatamente a velocidade projetada pela engenharia (conformidade com a especificação).
-* **Adequação ao Uso:** O sistema operacional é fluido, a tela é legível sob a luz do sol e a bateria dura um dia inteiro de trabalho intenso, garantindo a utilidade real na rotina do cliente.
-* **Adequação ao Custo:** A padronização de componentes internos e a automação reduzem o desperdício fabril, permitindo entregar uma tela de alta resolução e processamento robusto por um preço competitivo.
-* **Adequação à Necessidade Latente:** O software introduz, via Inteligência Artificial, um modo de "Foco" que silencia notificações automaticamente no ambiente de trabalho, resolvendo um problema de distração que o cliente ainda não tinha percebido conscientemente.
-
----
-
-**Resolução do @exr-niveis-restaurante (Adequação no Setor de Serviços: Restaurante):**
-
-* **Adequação ao Padrão:** O prato é servido exatamente como descrito na ficha técnica. Se a especificação do projeto da cozinha é um bife de 200g servido ao ponto, ele chega à mesa com esse peso e cozimento exatos.
-* **Adequação ao Uso:** O restaurante oferece um menu executivo que é servido em apenas 15 minutos para atender clientes corporativos que têm pouco tempo de almoço, sendo altamente funcional para o propósito do cliente.
-* **Adequação ao Custo:** A utilização de ingredientes da estação e um processo de *mise en place* organizado evitam desperdícios operacionais, permitindo oferecer alta gastronomia por um preço justo e viável.
-* **Adequação à Necessidade Latente:** Antes de o cliente solicitar, o garçom oferece água gelada em dias quentes ou chá especial em dias frios, resolvendo necessidades implícitas de conforto que agregam valor à experiência sem custo adicional significativo.
-
----
-
-### Resoluções: A Visão dos Autores Clássicos (Gurus da Qualidade)
-
-**Resolução do @exr-guru-smartphone (Indústria de Smartphones):**
-
-**Resposta: Crosby**
-
-O foco em "fazer certo da primeira vez", na eliminação do retrabalho e na busca implacável pelo "Zero Defeitos" é a marca registrada de **Philip Crosby**. Para Crosby, a qualidade não é um luxo ou um objetivo vago — é uma conformidade rigorosa com requisitos, associada a uma transformação cultural que motiva todos a aceitar que "a qualidade é gratuita" quando feita certa desde o início.
-
----
-
-**Resolução do @exr-guru-hotel (Gestão Hoteleira):**
-
-**Resposta: Feigenbaum**
-
-A visão de que a qualidade não é responsabilidade de um único setor (como a governança/limpeza), mas sim o "Total das Características" geradas pela união, integração e comunicação de **todos os departamentos** (Marketing, Engenharia, Financeiro, Operações) define o **Controle da Qualidade Total (TQC)** de **Armand Feigenbaum**. Feigenbaum argumenta que a qualidade é um sistema, não uma função isolada.
-
----
-
-**Resolução do @exr-guru-ferramenta (Ferramentas Manuais):**
-
-**Resposta: Juran**
-
-A definição direta e utilitária de que a qualidade é essencialmente a "Adequação ao Uso" — ou seja, o produto satisfazendo a necessidade prática de quem o manuseia — pertence a **Joseph Juran**. Juran foi pragmático: um martelo tem qualidade se cumpre sua função de forma confiável, confortável e durável nas mãos do carpinteiro.
-
----
-
-**Resolução do @exr-guru-montadora (Montadora Automotiva):**
-
-**Resposta: Deming**
-
-A ênfase contínua e obsessiva na redução da variabilidade dos processos através de métodos estatísticos, a busca pela uniformização a baixo custo e a cobrança implacável pelo empenho da "gestão de topo" (alta administração) são os pilares de **W. Edwards Deming**. Deming acreditava que 85% dos problemas de qualidade são responsabilidade da liderança, não dos operadores.
-
----
-
-**Resolução do @exr-guru-consultor (O Discurso do Consultor):**
-
-**Resposta: Crosby**
-
-A definição de qualidade estritamente como "conformidade com as exigências/requisitos" (especificações técnicas) e a simultânea ênfase em **motivação humana** e "não aceitação de falhas" são características de **Philip Crosby**. Crosby desenvolveu a abordagem dos "4 Absolutos da Qualidade": (1) Definição = conformidade; (2) Sistema = prevenção; (3) Padrão de Performance = zero defeitos; (4) Medida = custo da qualidade.
-
----
-
-### Exercício 1.X — Reflexão Econômica: Qualidade vs. Superqualidade {#sec-gabarito-1-x}
-
-**Contexto:** Uma padaria de bairro decide embalar cada pão francês individualmente em uma pequena caixa de cetim com laço de fita, sob o pretexto de garantir que ele chegue morno e com apresentação *premium* ao cliente. Contudo, o preço de venda do pão na vitrine continua o mesmo (R$ 0,50 a unidade).
-
-**Pergunta:**
-
-a) Esta iniciativa caracteriza um ganho de Qualidade Estratégica ou um erro de Superqualidade?
-
-b) O que acontecerá com a curva de Custo Total e com a Margem de Lucro desta padaria?
-
----
-
-**GABARITO 1.X (A Padaria e a Caixa de Cetim):**
-
-a) **Trata-se de um erro clássico de Superqualidade** (*Over-quality*). O cliente de uma padaria comum que compra um pão de R$ 0,50 possui como **requisitos qualificadores** (e ganhadores de pedido) a textura crocante, a temperatura morna e a rapidez no atendimento. A caixa de cetim excede drasticamente os requisitos funcionais esperados para a categoria do produto, entregando um "grau" de luxo que o mercado **não solicitou** para aquele contexto.
-
-   - O cliente **não pediu** embalagem premium
-   - O cliente **não percebe** o valor da caixa de cetim em um pão comum
-   - O cliente **não está disposto a pagar** mais caro por isso
-
-b) **Impacto Financeiro Desastroso:**
-
-   - **Custo Total ($C \uparrow$):** A empresa adiciona o custo da caixa de cetim, do laço de fita, do material de enchimento e do tempo de embalagem manual a cada unidade produzida. Isso aumenta substantially o custo unitário.
-   - **Preço de Venda ($P \leftrightarrow$):** O preço no balcão permanece em R$ 0,50, pois o cliente rejeita pagar mais por uma embalagem que não valoriza. Não houve transferência de valor para o preço.
-   - **Margem de Lucro ($L \downarrow\downarrow$):** A equação de lucro é simples: $L = P - C$. Como o preço permanece constante e o custo dispara, a margem de lucro por unidade é **engolida** drasticamente. Se o custo subia de R$ 0,20 para R$ 0,40 por unidade (do novo custo de embalagem), o lucro passa de R$ 0,30 para apenas R$ 0,10 por pão vendido.
-
-   **Resultado Final:** A padaria corre sério risco de **falência** por ineficiência gerencial. Quanto mais pães vende, mais prejuízo acumula. A estratégia é economicamente insustentável.
-
-**Lição Central:** A Superqualidade é a **diferença entre entregar ao cliente exatamente aquilo que ele pediu e valoriza, versus desperdiçar recursos em atributos não solicitados**. O objetivo da engenharia de produção é **eficiência sistêmica**, não perfeccionismo técnico desconectado do valor percebido pelo mercado.
-
----
-
-### Estudo de Caso: O Renascimento da "Sabor & Frio" {#sec-gabarito-case-sabor-frio}
-
-**Resolução do @case-sabor-frio (Indústria de Sorvetes):**
-
-**Tarefa 1: Diagnóstico pelos Gurus**
-
-* **a) Crosby:** Exigiria "Zero Defeitos" e o "Fazer Certo da Primeira Vez". Para ele, é inaceitável que o processo permita a colagem errada do lacre; o sistema de selagem deve ser à prova de falhas para atender aos requisitos. Implementaria um **Poka-Yoke** (dispositivo à prova de erros) nas seladoras para garantir que nenhum pote siga sem o lacre perfeitamente colado.
-
-* **b) Juran:** Afirmaria que a baunilha de Madagascar viola a "Adequação ao Uso" e cria **Superqualidade desnecessária**. O cliente da Linha Econômica não possui paladar discriminatorio para distinguir a fava da baunilha sintética e **não paga a mais** por isso. Juran usaria o conceito de "Grau vs. Qualidade": a baunilha gourmet é maior *Grau* (luxo), mas a *Qualidade* esperada é conformidade com um gosto aceitável a este segmento.
-
-* **c) Feigenbaum:** Proporia a **Qualidade Total** (Total Quality Control), evidenciando que o problema não é culpa só da produção ou só das compras. A qualidade não é um atributo isolado; ela emerge de toda a integração organizacional. Feigenbaum integraria as metas de Compras e Produção através de:
-  - **Parceria Fornecedor-Cliente Interno:** O setor de Compras negocia com a Produção os requisitos mínimos aceitáveis do leite (teor de gordura, acidez, contaminação).
-  - **Indicadores Compartilhados:** A qualidade do leite recebido é auditada semanalmente e integrada ao desempenho de Compras (comunicação interdepartamental).
-  - **Prevenção Sistêmica:** O conflito surge porque cada departamento otimiza sua métrica isoladamente. A solução é otimizar a cadeia (sistema) como um todo.
-
-**Tarefa 2: Análise das Eras**
-
-* **Controle Estatístico (Era 2):** Em vez de provar o sorvete pronto (inspeção 100%), a fábrica instalaria:
-  - **Sensores de temperatura** no *freezer* de batida, monitorando em tempo real.
-  - **Sensores de agitação** para medir a incorporação de ar (*overrun*).
-  - **Cartas de Controle X-R** plotando os dados. Se a temperatura oscilasse, o maquinário seria ajustado **automaticamente** antes de congelar o lote (amostragem contínua, não pós-hoc).
-  - Redução de variabilidade através de **estabilização estatística do processo**.
-
-* **Garantia Estratégica / TQM (Era 3):** A empresa envolveria todos os funcionários na filosofia de excelência:
-  - **Manutenção Autônoma:** Os operadores do *freezer* realizam limpeza diária e detecção precoce de problemas (não apenas profissionais de manutenção).
-  - **Parcerias Estratégicas:** A empresa cria um contrato de parceria com fornecedores de leite, garantindo matéria-prima com variabilidade mínima (prevenção absoluta).
-  - **Cultura de Qualidade:** Cada funcionário é treinado e responsabilizado por "fazer certo da primeira vez" (Crosby + Deming combinados).
-  - **Resultado:** Eliminação quase completa de cristais de gelo e lacres defeituosos, recuperação da reputação.
-
-**Tarefa 3: Modelagem Econômica**
-
-a) **Produtividade Financeira Atual:**
-$$Produtividade = \frac{Faturamento}{Custo} = \frac{R\$ 1.000.000}{R\$ 800.000} = 1,25$$
-
-Interpretação: A cada R$ 1,00 investido em custos, a empresa retorna R$ 1,25 em receita. A margem de lucro bruto é 25%.
-
-b) **Eliminação da Superqualidade (Baunilha Madagascar):**
-
-Se o custo cai para R$ 700.000,00 (ao substituir a baunilha importada por uma nacional de igual qualidade sensorial):
-$$Produtividade = \frac{R\$ 1.000.000}{R\$ 700.000} = 1,43$$
-
-**Aumento de 14% na eficiência** apenas cortando um luxo desnecessário. Nenhuma mudança no faturamento; ganho puro de eficiência.
-
-c) **Viabilidade do Investimento Preventivo:**
-
-O investimento de R$ 20.000 em manutenção das seladoras elimina as falhas externas (-R$ 40.000 de multas e frete):
-
-**Novo Custo Total:** $R\$ 700.000 + R\$ 20.000 - R\$ 40.000 = R\$ 680.000$
-
-**Nova Produtividade:**
-$$Produtividade = \frac{R\$ 1.000.000}{R\$ 680.000} = 1,47$$
-
-**Análise Econômica:**
-- **Investimento:** +R$ 20.000
-- **Economia de Falhas:** -R$ 40.000
-- **Benefício Líquido Imediato:** -R$ 20.000 (custo de prevenção)
-- **Ganho de Eficiência:** de 1,25 para 1,47 (aumento de 17,6%)
-
-**Conclusão:** Sim, **vale extraordinariamente a pena**. O investimento de R$ 20.000 gera uma economia de R$ 40.000 (*payback* em 6 meses). Além disso, a recuperação da reputação (os 15% de mercado perdido), a confiança dos supermercados e a redução de devoluções geram benefícios indiretos que superam em muito o investimento inicial.
-
-**Matemática Aplicada à Decisão:**
-A razão benefício/custo é de $\frac{40.000}{20.000} = 2$. A cada real investido em prevenção, economiza-se dois reais em falhas. Qualquer executivo assinaria essa decisão imediatamente.
-
-**Tarefa 4: Vertentes da Qualidade**
-
-* **a) Adequação ao Uso:** O consumidor que compra sorvete tem como expectativa central o **prazer sensorial** de saborear um produto **cremoso, macio e gelado**. A textura de "cristais de gelo" (arenosa, granulosa) arruína completamente essa experiência. O consumidor:
-  - **Percebe:** "Este sorvete está gelado demais" ou "sinto cristais".
-  - **Julga:** Qualidade ruim; marca de m\u00e3 performance.
-  - **Decide:** Não compra mais || Compra a marca concorrente.
-
-  Falha crítica na vertente de **Adequação ao Uso**, causando defecção do cliente e perda de participação de mercado.
-
-* **b) Conformidade com o Projeto:** A ficha técnica de engenharia da Sabor & Frio estabelece especificações rigorosas:
-  - Temperatura de batida: -7°C ± 0,5°C
-  - Incorporação de ar (*overrun*): 95% ± 5%
-  - Tamã<br/>o de cristal de gelo: < 50 micrometros
-
-  O maquinário quebrado (falta de manutenção nos *freezers*) descumpriu a **especificação rigorosa**. Não é um erro de design; é um erro de **execução e controle de processo**. Falha crítica na vertente de **Conformidade com o Projeto**, evidenciando que o processo não está sob controle estatístico.
-
-**Síntese Integradora:**
-
-Este caso demonstra que a crise da Sabor & Frio não foi causada por falta de ambição ou competência técnica isolada. Os problemas emergiram de um **desconexão sistêmica**:
-
-1. **Entrada (Input):** Compras de leite de baixa qualidade para economizar custos departamentais (falta de integração).
-2. **Processo (Transformation):** Equipamentos sem manutenção preventiva (falta de Garantia Estratégica); decisões de *overengineering* na baunilha (falta de análise econômica).
-3. **Saída (Output):** Produto final com variabilidade excessiva e perda de reputação (falha de percepção do cliente).
-
-A **Qualidade Total** (Feigenbaum) é o remédio comprensivo: integração horizontal entre departamentos, investimento obsessivo em prevenção, eliminação simultânea de desperdícios disfarçados de qualidade, e mensuração rigorosa de todas as três vertentes (Uso, Conformidade, Economia).
-
----
-
-### Estudo de Caso: O Descarrilamento da "Express Mineral" {#sec-gabarito-case-express-mineral}
-
-**Resolução do @case-express-mineral (O Descarrilamento da "Express Mineral"):**
-
-* **Mapeamento de Causa e Efeito (A Falha Sistêmica):** O caso prova que a Perspectiva Financeira é um *indicador de atraso* (*lagging indicator*); ela reflete o resultado do que foi feito no passado. A cascata de destruição ocorreu de baixo para cima: O corte em treinamentos e pessoas (Aprendizado) gerou operadores não qualificados e via mal conservada. Isso destruiu a integridade física da ferrovia e aumentou as quebras (Processos). Os descarrilamentos atrasaram as entregas e romperam a confiança (Clientes). Sem clientes e pagando multas milionárias, a empresa destruiu sua margem de lucro operacional (Financeira).
-* **Onde a Qualidade "Quebrou"?** A Qualidade falhou na Perspectiva de **Processos Internos**. A engenharia e a gestão da qualidade deveriam ter embasado tecnicamente a proibição do aumento de carga acima do limite do projeto e exigido a *Conformidade Técnica* dos trilhos. O custo de Prevenção foi ignorado, dando lugar ao letal Custo de Falha Externa.
-* **Plano de Recuperação (Exemplo de Ações):**
-  * *Aprendizado:* Retomar imediatamente a capacitação em simuladores para os maquinistas; contratar especialistas em via permanente.
-  * *Processos:* Restabelecer os limites de carga e velocidade do projeto original; implementar ultrassom nos trilhos (manutenção preditiva).
-  * *Clientes:* Criar um comitê de crise para renegociar com a mineradora, apresentando um plano transparente de SLA (*Service Level Agreement*) focado em segurança e previsibilidade.
-  * *Financeira:* Focar na redução drástica dos Custos de Falha (multas e acidentes) para recuperar o EBITDA de forma orgânica e sustentável, não por cortes cegos.
-* **Conexão com o TQM (Perdas à Sociedade):** A quarta vertente da qualidade foca no impacto pós-entrega e nas externalidades. O descarrilamento de minério de ferro causa *Perdas por Impacto Colateral* massivas: destruição da fauna e flora local, poluição de rios próximos, risco de vida para as comunidades lindeiras e custos altíssimos para o Estado (Defesa Civil e limpeza). A "não-qualidade" da ferrovia foi transferida como um passivo incalculável para a sociedade.
-
----
-
-### Resolução do @exr-dimensoes-hospital (Setor de Saúde) {#sec-gabarito-dimensoes-hospital}
-
-**A sequência correta é: 2, 4, 1, 3.**
-
-**Justificativa:**
-
-* **(2) A entrega da lavanderia representa a Qualidade dos Serviços** (o suporte logístico e físico interno).
-  - A lavanderia hospitalar não é o processo principal (cirurgia, tratamento), mas um **serviço de apoio essencial** que viabiliza a operação da linha de frente. Lençóis esterilizados entregues pontualmente garantem a continuidade do fluxo assistencial.
-
-* **(4) A troca ágil de informação entre setores representa a Qualidade do Ambiente** (a comunicação na via de mão dupla).
-  - O ambiente interno do hospital envolve o relacionamento entre departamentos (recepção ↔ centro cirúrgico). A **coordenação e comunicação fluida** entre áreas distintas é característica da dimensão ambiental, garantindo integração sistêmica.
-
-* **(1) Os protocolos médicos e calibração de máquinas representam a Qualidade dos Transformadores** (a base técnica e as ferramentas de trabalho elaboradas pelas áreas de apoio).
-  - Protocolos de triagem e equipamentos calibrados (Raio-X) são os **recursos técnicos e procedimentais** que sustentam a operação. São os meios pelos quais o trabalho é realizado, não o trabalho em si.
-
-* **(3) A realização da cirurgia com zero falhas representa a Qualidade Operacional** (o batimento da meta na ponta da linha).
-  - A execução da cirurgia no prazo e sem infecções hospitalares é o **processo crítico central**, onde a equipe médica entrega o resultado final ao paciente. É a dimensão operacional que converte todos os recursos anteriores em valor percebido.
-
-**Insight Estratégico:**
-
-Este exercício demonstra que a excelência hospitalar não depende apenas de médicos qualificados (Serviços) ou equipamentos de ponta (Transformadores). É preciso **integração sistêmica**: protocolos rigorosos (Transformadores), suporte logístico eficiente (Serviços), coordenação interdepartamental (Ambiente) e execução impecável na linha de frente (Operacional). Um hospital que falha em qualquer uma dessas dimensões compromete a segurança do paciente e a sustentabilidade da operação.
-
----
-
-### Resolução do @exr-caneta-grau (A Escolha da Caneta) {#sec-gabarito-caneta-grau}
-
-**a)** A caneta de R$ 1,00 tem **Alta Qualidade**, pois cumpriu 100% dos requisitos exigidos para o seu escopo e categoria (escrever ininterruptamente até o fim da tinta).
-
-**b)** A caneta de R$ 500,00 tem **Péssima Qualidade**. Apesar do alto luxo, ela falhou no seu requisito funcional básico e essencial.
-
-**c)** O preço define estritamente o **Grau** (a categoria ou sofisticação do projeto). Ele é uma "característica atribuída" que não altera a capacidade "inerente" da caneta de cumprir sua função. A qualidade é atestada pela conformidade da entrega, independentemente de custar 1 ou 500 reais.
-
-**Insight Conceitual:**
-
-Este exercício é fundamental para desmistificar a confusão entre **Grau** e **Qualidade** que permeia o senso comum. O mercado frequentemente associa "preço alto" com "qualidade superior", mas a ISO 9000 é categórica: o Grau é uma característica de **design e posicionamento** (luxo, sofisticação, acabamento), enquanto a Qualidade é a **capacidade de cumprir requisitos funcionais**.
-
-No contexto industrial:
-- Um rolamento de baixo custo (grau básico) que opera 10.000 horas sem falha tem **alta qualidade**.
-- Um rolamento premium (alto grau) que falha em 1.000 horas tem **baixa qualidade**, mesmo custando 10 vezes mais.
-
-A engenharia de produção deve evitar o erro estratégico de investir em "grau desnecessário" (superqualidade) quando o mercado valoriza apenas a conformidade funcional. A sofisticação só agrega valor se o cliente estiver disposto a pagar por ela.
-
----
-
-### Resolução do @exr-taguchi-simulado (Simulado Prático: A Função Perda de Taguchi) {#sec-gabarito-taguchi-simulado}
-
-**Questão 1: O "Aceitável" vs. o "Excelente"**
-
-**Resposta: (C) Tradicional: Aprovado | Taguchi: Perda incremental (Afasta-se do alvo).**
-
-*Justificativa:*
-
-* **Visão Tradicional (Binária):** Para a engenharia clássica de inspeção, existe apenas uma lógica categórica: "dentro do limite é bom, fora do limite é ruim". Como a média de 10,09 mm está **dentro da faixa de tolerância** (9,9 mm a 10,1 mm), o lote é **aprovado** e liberado para o cliente sem questionamentos.
-
-* **Visão de Taguchi (Gradual e Social):** Taguchi revolucionou a engenharia ao demonstrar que a qualidade não é binária. Para ele, **qualquer desvio em relação ao alvo** (mesmo que dentro da tolerância) **já gera perda econômica para a sociedade**. No caso, o alvo é 10,0 mm, mas a produção está em 10,09 mm — próxima ao limite superior. Isso significa que o eixo está **quase no erro máximo aceitável**. Quando esse eixo for montado no motor elétrico, ele gerará:
-  - **Atrito excessivo** entre componentes (desgaste prematuro)
-  - **Aquecimento anormal** do conjunto (risco de falha térmica)
-  - **Vibração e ruído** (perda de conforto e eficiência energética)
-  - **Redução da vida útil** do equipamento (custo extra de manutenção para o usuário final)
-
-Portanto, mesmo que o lote seja "aprovado" pela inspeção tradicional, ele já está gerando **perda incremental real** para o cliente e para a sociedade. A fábrica transferiu seu custo de controle de processo para o bolso do consumidor.
-
-**Conexão com a Função Perda:** A fórmula $L = k(x - t)^2$ demonstra que a perda cresce de forma **quadrática** conforme o desvio aumenta. No caso:
-- No alvo (10,0 mm): $L = 0$ (perda zero)
-- Em 10,09 mm: $L = k(0,09)^2 = 0,0081k$ (perda existe e é mensurável)
-- No limite (10,1 mm): $L = k(0,1)^2 = 0,01k$ (perda máxima tolerada)
-
-A empresa que opera em 10,09 mm está gerando **81% da perda máxima tolerável**, mesmo estando "dentro da especificação". Taguchi exigiria que o processo fosse recentrado para 10,0 mm, eliminando essa perda desnecessária.
-
----
-
-**Questão 2: Identificando a Natureza da Perda**
-
-**Resposta: (C) Ruído: Desvio na Função Principal | Consumo de Energia: Impacto Colateral.**
-
-*Justificativa:*
-
-Taguchi classifica as perdas em duas categorias fundamentais:
-
-1. **Perdas por Desvios na Função Principal:** São falhas na entrega do **objetivo primário** do produto. O condicionador de ar tem como função essencial **resfriar o ambiente**. Ele está cumprindo essa função (resfria conforme o projeto), mas a **vibração excessiva** que gera **ruído incômodo** representa uma **ineficiência na função principal**. O equipamento deveria resfriar de forma silenciosa e estável, mas está falhando nessa entrega, prejudicando o conforto (que é parte integrante da função de climatização).
-
-2. **Perdas por Impactos Colaterais:** São prejuízos externos, não relacionados à função primária, mas que afetam o cliente e a sociedade. O **consumo excessivo de energia elétrica** (+15% acima do esperado) não impede que o aparelho resfrie, mas gera um **passivo externo**:
-   - **Para o usuário:** Conta de luz mais cara (custo operacional elevado ao longo de anos)
-   - **Para a sociedade:** Maior demanda na matriz energética nacional (desperdício de recursos naturais e impacto ambiental)
-   - **Para a rede elétrica:** Sobrecarga desnecessária que poderia ter sido evitada
-
-Esse desperdício energético é um **impacto colateral** — uma externalidade negativa que a empresa fabril transferiu para o bolso do consumidor e para a infraestrutura pública.
-
-**Síntese Conceitual:**
-
-Este exercício demonstra que a Função Perda de Taguchi não se limita ao produto físico. Ela abrange:
-- **Falhas técnicas** (o compressor vibra e aquece porque foi mal projetado ou mal montado)
-- **Falhas econômicas** (o cliente paga mais pela energia desperdiçada)
-- **Falhas sociais** (a matriz energética do país é sobrecarregada por ineficiência individual)
-
-A engenharia de produção contemporânea deve prevenir ambos os tipos de perda, não apenas se preocupar em "entregar o produto conforme". A qualidade só é plena quando o equipamento **cumpre sua função sem gerar prejuízos ao cliente ou à sociedade**.
-
----
-
-**Questão 3: A Lógica Matemática da Perda**
-
-**Resposta: (B) A perda é reduzida a um quarto (redução de 75%).**
-
-*Justificativa:*
-
-A Função Perda de Taguchi é expressa matematicamente como:
-$$L = k(x - t)^2$$
-
-Onde:
-- $L$ = Perda financeira/social
-- $k$ = Constante (custo da perda quando o desvio atinge o limite de tolerância)
-- $x$ = Valor medido da característica
-- $t$ = Valor alvo (target)
-
-O elemento crítico dessa fórmula é o **expoente 2** (quadrático). Isso significa que a perda não é proporcional ao desvio, mas sim ao **quadrado do desvio**. Essa é a revolução conceitual de Taguchi.
-
-**Demonstração Numérica:**
-
-Suponha que uma peça está com um desvio inicial de 2 mm em relação ao alvo:
-- **Situação Inicial:** $L_1 = k(2)^2 = 4k$
-- **Após Melhoria (desvio reduzido pela metade, para 1 mm):** $L_2 = k(1)^2 = 1k$
-
-Calculando a redução percentual:
-$$\text{Redução} = \frac{L_1 - L_2}{L_1} \times 100\% = \frac{4k - 1k}{4k} \times 100\% = \frac{3k}{4k} \times 100\% = 75\%$$
-
-**Interpretação Gerencial:**
-
-Quando o engenheiro consegue reduzir o desvio pela metade (de 2 mm para 1 mm), ele não reduz a perda pela metade (50%), mas sim **a um quarto do valor original** — uma redução de **75%**. Isso acontece porque o impacto da variação cresce de forma exponencial.
-
-**Implicação Estratégica:**
-
-Esta matemática justifica por que empresas de classe mundial investem obsessivamente na **centralização do processo** (redução de variabilidade). Pequenas melhorias no controle estatístico geram ganhos financeiros desproporcionalmente grandes. Por exemplo:
-- Reduzir o desvio de 4 mm para 2 mm → perda cai de 16k para 4k (redução de 75%)
-- Reduzir de 2 mm para 1 mm → perda cai de 4k para 1k (mais 75% de redução)
-- Reduzir de 1 mm para 0,5 mm → perda cai de 1k para 0,25k (mais 75% de redução)
-
-Cada passo rumo ao alvo gera um **retorno exponencial** sobre o investimento em melhoria de processo. É por isso que o Seis Sigma (que busca reduzir defeitos a 3,4 por milhão) é economicamente viável — o ganho no cliente final supera em muito o custo de implementação.
-
----
-
-### Resolução do @exr-taguchi-servicos (Exercício de Fechamento: O Custo do Minuto) {#sec-gabarito-taguchi-servicos}
-
-**a) Calcule a redução da Perda Social usando a lógica de Taguchi:**
-
-**Solução:**
-
-A Função Perda de Taguchi estabelece que a perda é proporcional ao **quadrado do desvio** em relação ao ideal. Para o tempo de espera, assumimos que o **alvo ideal é 0 minutos** (atendimento imediato) e qualquer espera gera frustração e risco clínico.
-
-**Situação Inicial:**
-- Tempo de espera médio: **45 minutos**
-- Perda proporcional: $L_1 = k(45)^2 = 2025k$
-
-**Situação Após Melhoria:**
-- Tempo de espera médio: **20 minutos**
-- Perda proporcional: $L_2 = k(20)^2 = 400k$
-
-**Redução da Perda:**
-$$\text{Redução} = \frac{L_1 - L_2}{L_1} \times 100\% = \frac{2025k - 400k}{2025k} \times 100\% = \frac{1625k}{2025k} \times 100\% = 80,2\%$$
-
-**Interpretação:**
-
-Ao reduzir o tempo de espera de 45 para 20 minutos (redução de 55,6% no tempo), o engenheiro **eliminou 80,2% da Perda Social**. Isso demonstra o poder da lógica quadrática: pequenas melhorias no processo geram ganhos desproporcionalmente grandes na satisfação e segurança do paciente.
-
-**b) Como essa melhoria nos Processos Internos (BSC) impacta a Perspectiva Financeira do hospital no longo prazo?**
-
-**Resposta:**
-
-A redução do tempo de espera afeta positivamente múltiplas dimensões financeiras e estratégicas do hospital, conforme mapeado pelo Balanced Scorecard (BSC):
-
-**1. Perspectiva de Processos Internos → Impacto Direto**
-- **Fluxo Operacional:** Com menos gargalo na recepção/triagem, o hospital consegue processar mais pacientes por turno sem aumentar a equipe.
-- **Utilização de Salas:** Quartos, leitos de observação e salas de emergência são liberados mais rapidamente, permitindo maior rotatividade.
-
-**2. Perspectiva do Cliente → Impacto em Satisfação e Segurança**
-- **Redução de NPS Negativo:** Pacientes insatisfeitos com longas esperas geram reclamações públicas (redes sociais, ouvidoria, processos). A redução da espera eleva a reputação institucional.
-- **Redução de Risco Clínico:** Quanto menor o tempo de espera, menor a chance de agravamento do quadro clínico durante a triagem. Isso reduz drasticamente processos judiciais por negligência ou erro médico (passivos judiciais).
-
-**3. Perspectiva Financeira → Impacto de Longo Prazo**
-
-* **Redução de Passivos Trabalhistas e Judiciais:**
-  - Menos complicações clínicas → menos processos por imperícia/negligência
-  - Economia de honorários advocatícios e indenizações (podem ultrapassar milhões de reais)
-
-* **Aumento de Receita Operacional:**
-  - Maior rotatividade de leitos → mais pacientes atendidos por dia (aumento de faturamento)
-  - Hospital ganha certificação de excelência (ONA, JCI) → atrai convênios premium e clientes particulares
-
-* **Redução de Custos de Falha:**
-  - Menos complicações pós-atendimento → menos readmissões e tratamentos prolongados
-  - Equipe trabalha sob menor estresse → redução de turnover de profissionais qualificados (economia em recrutamento e treinamento)
-
-**Síntese Estratégica (Conexão BSC):**
-
-Este exercício demonstra o **efeito cascata** do BSC. A melhoria iniciou na base (**Processos Internos** — redução de espera), subiu para a **Perspectiva do Cliente** (maior satisfação e segurança) e culminou no topo (**Perspectiva Financeira** — maior lucratividade sustentável). Não foi um corte de custo cego, mas uma **melhoria sistêmica** que aumentou a eficiência sem comprometer a segurança — o Santo Graal da gestão hospitalar.
-
-**Lição para Mineração:**
-
-O mesmo raciocínio aplica-se a operações minerais. Reduzir o tempo de ciclo de um caminhão (Processos Internos) → aumenta a disponibilidade física (Cliente Interno - Operação) → gera maior produção a menor custo (Financeira). O investimento em melhoria de processo sempre se paga através da eliminação da perda social distribuída ao longo da cadeia.
-
----
-
-### Resolução do @sec-simulado-economia (Simulado de Engenharia: Economia e Modelagem da Qualidade) {#sec-gabarito-simulado-economia}
-
-**Gabarito do Simulado de Economia e Modelagem:**
-
-### Resolução do @exr-modelagem-otimo (O Ponto Ótimo de Investimento) {#sec-gabarito-modelagem-otimo}
-
-Temos:
-$$CTQ(q) = q^2 + \frac{843.750}{q}$$
-
-Derivando:
-$$CTQ'(q) = 2q - \frac{843.750}{q^2}$$
-
-No ponto ótimo:
-$$2q - \frac{843.750}{q^2} = 0 \implies 2q^3 = 843.750 \implies q^3 = 421.875$$
-
-Logo:
-$$q = \sqrt[3]{421.875} = 75$$
-
-**Resposta:** $\mathbf{q = 75\%}$.
-
----
-
-### Resolução do @exr-retrabalho-fabrica (A Matemática da Fábrica Oculta) {#sec-gabarito-retrabalho-fabrica}
-
-**Dados:**
-- Produção: 2.000 unidades/dia
-- RTY inicial: 85% (falha de 15%)
-- Custo de retrabalho por peça: R$ 60,00
-- Investimento em prevenção: R$ 5.000,00/dia
-- RTY após melhoria: 95% (falha de 5%)
-
-**A) Custo total do retrabalho por dia (situação inicial):**
-
-Falhas por dia:
-$$0,15 \times 2.000 = 300\ \text{peças}$$
-
-Custo de retrabalho:
-$$300 \times 60 = \text{R\$ }18.000,00/\text{dia}$$
-
-**B) Ganho líquido diário após elevar RTY para 95%:**
-
-Novas falhas por dia:
-$$0,05 \times 2.000 = 100\ \text{peças}$$
-
-Novo custo de retrabalho:
-$$100 \times 60 = \text{R\$ }6.000,00/\text{dia}$$
-
-Economia com retrabalho:
-$$18.000 - 6.000 = \text{R\$ }12.000,00/\text{dia}$$
-
-Ganho líquido (descontando prevenção):
-$$12.000 - 5.000 = \text{R\$ }7.000,00/\text{dia}$$
-
-**Resposta:**
-- Item A: **R$ 18.000,00/dia**
-- Item B: **Ganho líquido de R$ 7.000,00/dia**
-
----
-
-### Resolução do @exr-falha-externa-caso (Análise de Falha Externa) {#sec-gabarito-falha-externa-caso}
-
-**Dados:**
-- Reparo de emergência: R$ 120.000,00
-- Demurrage: US$ 40.000/dia por 2 dias = US$ 80.000
-- Câmbio: US$ 1,00 = R$ 5,00
-
-Conversão da multa:
-$$80.000 \times 5 = \text{R\$ }400.000,00$$
-
-Prejuízo total:
-$$120.000 + 400.000 = \text{R\$ }520.000,00$$
-
-**Resposta:** **Prejuízo financeiro total de R$ 520.000,00**.
-
-**Justificativa gerencial (Custo de Oportunidade):**
-A economia inicial de R$ 50.000,00 ao cortar avaliação técnica criou exposição a uma falha externa com custo direto mais de dez vezes superior, além de danos de imagem, perda de confiabilidade perante armadores e risco de contratos futuros. Ou seja, foi redução de custo aparente com aumento real de risco sistêmico.
-
----
-
-### Resolução do @exr-superqualidade-desperdicio (Identificando a Superqualidade) {#sec-gabarito-superqualidade-desperdicio}
-
-**Classificação correta:** **Custo de Exceder Requerimentos (Superqualidade)**.
-
-**Justificativa técnica:**
-- O processo aumentou custo em 20%.
-- O desempenho funcional não melhorou (tempo de descarregamento igual).
-- O cliente não reconhece valor adicional e não paga prêmio.
-
-Logo, houve gasto sem retorno em função, mercado ou receita.
-
-**Impacto na Equação da Produtividade:**
-
-Pela relação
-$$Produtividade = \frac{Valor\,Produzido}{Custo}$$
-
-se o valor produzido permanece constante e o custo sobe 20%, a produtividade financeira cai proporcionalmente. É perda de margem por sobreengenharia não demandada.
-
----
-
-### Resolução do @exr-amostragem-risco (O Dilema da Amostragem) {#sec-gabarito-amostragem-risco}
-
-O nível ótimo de conformidade depende da inclinação da curva de custo de falha externa em cada setor.
-
-**Aviação civil:**
-- A falha externa tem impacto extremo (vidas humanas, paralisação de frota, litígios bilionários, dano reputacional potencialmente irreversível).
-- A curva de falha é muito íngreme, justificando inspeção rigorosa e conformidade próxima de 100%.
-
-**Fábrica de pregos:**
-- A falha externa unitária tem baixo impacto econômico e social (centavos por item defeituoso).
-- Inspeção total encareceria o processo além do benefício gerado, tornando racional aceitar uma fração pequena de falhas (ex.: 95% de conformidade).
-
-**Síntese:**
-Não existe um único alvo universal de conformidade. O alvo ótimo resulta do equilíbrio entre custo de controle e severidade/impacto da falha externa no contexto do produto e do risco sistêmico envolvido.
-
----
-
-### Resolução do @exr-tqm-semeadoras (Falha Sistêmica no TQM) {#sec-gabarito-tqm-semeadoras}
-
-A ocorrência de um lote inteiro com cor errada demonstra uma **falha sistêmica** que corrompe a "corrente" do TQM. Os alunos podem identificar diversas quebras de fatores, tais como:
-
-* **Mensuração da Qualidade:** Falha direta na conferência das especificações. Não houve medição objetiva ou verificação da cor da tinta antes do lote ser liberado para a linha de pintura. A inspeção visual deveria ter detectado o desvio imediatamente nas primeiras peças.
-
-* **Parceria com o Fornecedor:** O erro pode ter se originado fora da fábrica, com o fornecedor entregando o lote de tinta com a especificação incorreta sem que houvesse um alinhamento prévio. A falta de *certificado de conformidade* ou de inspeção no recebimento permitiu que a tinta errada entrasse no processo.
-
-* **Gestão de Processos (Prevenção):** Faltou uma **trava de prevenção** (como um sensor de cor, um *checklist* de setup de máquina ou um Poka-Yoke) que impedisse que o operador iniciasse a pintura com a tinta errada. O processo não tinha um mecanismo à prova de erros.
-
-* **Treinamento / Envolvimento dos Funcionários:** Os operadores da cabine de pintura não foram devidamente treinados para checar a ordem de serviço contra a especificação da tinta, ou não se sentiram "donos" do processo (falta de **Empowerment**) para parar a linha ao notar uma cor atípica. O envolvimento ativo teria interrompido a produção na primeira máquina.
-
-* **Melhoria Contínua (Kaizen):** A fábrica pode não ter aprendido com erros passados. Se houve ocorrências anteriores de cor errada (mesmo que em peças isoladas), elas não foram analisadas para implementar ações preventivas permanentes.
-
-* **Comprometimento da Alta Administração:** Se a diretoria prioriza apenas "volume de produção" sem fiscalizar a aderência a especificações, a equipe pode sentir que "entregar rápido" é mais importante que "entregar certo", criando uma cultura de negligenciar detalhes.
-
-**Análise Estrutural:**
-
-Este caso demonstra que o TQM é uma **corrente**, não uma lista de tarefas isoladas. A falha em qualquer um dos 9 fatores críticos cria uma vulnerabilidade que pode se propagar. O erro não foi "azar" ou "falha humana isolada" — foi uma **falha do sistema**:
-
-- O fornecedor entregou errado (Parceria falhou)
-- O almoxarifado não conferiu (Mensuração falhou)
-- O operador não checou (Treinamento/Empowerment falhou)
-- O supervisor não inspecionou a primeira peça (Gestão de Processos falhou)
-- A direção não criou travas preventivas (Comprometimento falhou)
-
-O lote inteiro saiu errado porque **nenhuma camada de defesa funcionou**. No TQM maduro, o erro seria capturado em múltiplos pontos antes de virar prejuízo.
-
-**Lição Prática:**
-
-Em ambientes industriais críticos (aeroespacial, automotivo, mineração), essa lógica é vital. Um chassi com cor errada é apenas um inconvêniente estético. Mas se a falha fosse no torque de aperto de um parafuso estrutural ou na dosagem de um reagente químico, as consequências seriam catastróficas. O TQM exige **redundância de verificações**, não confiança cega.
-
----
-
-## Seção 2: Questões de Reflexão (Sem Gabarito — Use Para Debate)
-
-### Q1: Qual é a diferença entre "Filosofia da Qualidade" e "Sistema de Qualidade"?
-
-### Q2: Por que Juran separa "Planejamento da Qualidade" de "Controle da Qualidade"? Cite um exemplo mineral.
-
-### Q3: Qual é o papel do **Hoshin Kanri** em conectar estratégia a operações?
-
-### Q4: Se um equipamento é "conforme" mas "não adéquo ao uso", qual versão de qualidade você prioriza? Por quê?
-
-### Q5: Qual é a relação entre a trilogia de Juran (Planejamento, Controle, Melhoria) e o PDCA de Deming?
-
----
-
-## Encerramento do Gabarito — Parte I
-
-Este gabarito apresenta resoluções detalhadas para os **6 exercícios integrados** (seções 1-4) e questões de reflexão para discussão.
-
-✅ **Exercícios com Resolução Completa (Seção 1-4):**
-- 2 exercícios fundamentais (Conceituação de Qualidade)
-- 2 exercícios de modelagem (Hoshin + FMEA)
-- 2 exercícios de governança (PDCA + Pareto)
-- 1 estudo de caso integrado (Operação de Carregamento)
-
----
-
-# Gabarito — Capítulo 2: Modelos de Gestão da Qualidade
-
-## Seção 1: Filosofias e Ferramentas
-
-### @exr-cap2-tqm-semeadoras — Falha Sistêmica na Produção das Semeadoras
-
-**Resposta:**
-
-Este caso demonstra que o TQM é uma **corrente**, não uma lista de tarefas isoladas. A falha em qualquer um dos 9 fatores críticos cria uma vulnerabilidade que pode se propagar. O erro não foi "azar" ou "falha humana isolada" — foi uma **falha do sistema**:
-
-- O fornecedor entregou errado (Parceria falhou)
-- O almoxarifado não conferiu (Mensuração falhou)
-- O operador não checou (Treinamento/Empowerment falhou)
-- O supervisor não inspecionou a primeira peça (Gestão de Processos falhou)
-- A direção não criou travas preventivas (Comprometimento falhou)
-
-O lote inteiro saiu errado porque **nenhuma camada de defesa funcionou**. No TQM maduro, o erro seria capturado em múltiplos pontos antes de virar prejuízo.
-
-**Lição Prática:**
-
-Em ambientes industriais críticos (aeroespacial, automotivo, mineração), essa lógica é vital. Um chassi com cor errada é apenas um inconveniente estético. Mas se a falha fosse no torque de aperto de um parafuso estrutural ou na dosagem de um reagente químico, as consequências seriam catastróficas. O TQM exige **redundância de verificações**, não confiança cega.
-
----
-
-## Resoluções: Simulado Final Integrado {#sec-gabarito-simulado}
-
-**1. Resposta: (B) Joseph Juran**
-
-*Justificativa:* Juran introduziu a trilogia da qualidade (planejamento, controle e melhoria) e focou na premissa direta de "Adequação ao Uso", enfatizando que um produto só possui qualidade real se satisfaz as necessidades práticas do cliente em sua rotina diária.
-
-**2. Resposta: (A) Falha Interna**
-
-*Justificativa:* Custos de Falha Interna ocorrem quando o defeito é detectado e corrigido *antes* de o produto ser entregue ao mercado. Exemplos clássicos incluem retrabalho na linha, descarte de sucata e reinspeção. Se o item já tivesse saído da fábrica e chegado ao cliente, seria contabilizado como uma letal Falha Externa.
-
-**3. Resposta: (C) Aprendizado (*Learn*)**
-
-*Justificativa:* O MEG evoluiu o PDCA para o PDCL para evidenciar que o foco das organizações excelentes não é a simples padronização cega (*Act*), mas sim a geração de Conhecimento Organizacional, garantindo que a empresa aprenda tanto com suas inovações de sucesso quanto com seus fracassos.
-
-**4. Resposta: (A) Superprodução**
-
-*Justificativa:* No Sistema Toyota de Produção (*Lean*), a Superprodução é o "pior dos desperdícios" (a mãe de todas as falhas). Ela esconde ineficiências de máquina e gera montanhas de estoques desnecessários, engessando um capital de giro que a empresa poderia investir em inovação.
-
-**5. Resposta: (B) DMAIC**
-
-*Justificativa:* O roteiro DMAIC (*Define, Measure, Analyze, Improve, Control*) é o método universal do Seis Sigma para projetos voltados à redução drástica de variabilidade. O PDCA, por outro lado, é mais focado em melhorias de rotina e o 5S na base de organização.
-
-**6. Resposta: (B) A versão 2015 foca em Riscos e Liderança**
-
-*Justificativa:* A transição da versão 1994 (Era Burocrática focada em pilhas de papel e carimbos) para a versão 2015 (Era Estratégica) exigiu que a Alta Direção se tornasse a protagonista do SGQ e implementasse de forma mandatória o "Pensamento Baseado em Riscos".
-
-**7. Resposta: (C) SDCA**
-
-*Justificativa:* O ciclo *Standard-Do-Check-Act* é a ferramenta clássica de manutenção. Enquanto o PDCA (*Plan*) busca subir o nível e melhorar o processo, o SDCA (*Standard*) atua como uma "cunha", estabilizando o novo patamar alcançado para garantir que a operação não retroceda aos velhos vícios.
-
-**8. Resposta: (C) Entregar atributos que o cliente não valoriza nem paga**
-
-*Justificativa:* A Superqualidade (*Over-quality*) é um desperdício gerencial que ocorre quando a engenharia "excede os requerimentos funcionais" sem embasamento mercadológico. A empresa eleva o próprio custo de produção, mas, como o cliente não enxerga valor naquilo, não consegue repassar para o preço de venda, destruindo a margem de lucro operacional.
-
-**9. Resposta: (C) Equipe de Operação**
-
-*Justificativa:* No fluxo do ARI, a Operação do chão de fábrica atua estritamente como o cliente interno que "consome" os procedimentos, treinamentos e infraestruturas fornecidas pela Equipe de Apoio (engenharia, RH, TI). Se o apoio falha, a operação fica sem recursos para cumprir a meta da gestão.
-
-**10. Resposta: (A) $Produtividade = \frac{Preço \times Quantidade}{Custo}$**
-
-*Justificativa:* Esta é a equação econômica vital da engenharia da qualidade. Ela prova matematicamente que a produtividade financeira da empresa ($Produtividade \uparrow$) aumenta em duas frentes simultâneas proporcionadas pela excelência: pelo aumento de faturamento gerado pelo maior valor percebido (Preço e Volume altos) e pela alta eficiência operacional de chão de fábrica (menor Custo por redução de falhas).
-
----
-
-### Resolução do @exr-masp-5w2h (Estruturando um 5W2H no Porto) {#sec-gabarito-masp-5w2h}
-
-**Resolução do @exr-masp-5w2h (Estruturando um 5W2H no Porto):**
-
-Espera-se que o aluno compreenda que a ação deve ser direta e endereçar a secagem ou blendagem da carga. Exemplo de preenchimento válido:
-* **What (O que será feito):** Realizar a blendagem (mistura) emergencial desta carga úmida com lotes de minério ultrasseco estocados no pátio e aplicar lonas de proteção nas pilhas.
-* **Why (Por que será feito):** Para rebaixar a umidade média global do lote de 12% para o limite aceitável de 8%, garantindo o embarque e evitando multas milionárias.
-* **Where (Onde será feito):** No pátio de estocagem do terminal portuário.
-* **When (Quando será feito):** Início imediato, com prazo máximo de 24 horas antes do limite da janela de atracação do navio.
-* **Who (Quem fará):** O Supervisor de Pátio, coordenando os operadores de pás carregadeiras e recuperadoras.
-* **How (Como será feito):** Movimentando e misturando o material mecanicamente no pátio, ao mesmo tempo em que a usina na mina é notificada para ajustar o nível de secagem dos próximos envios.
-* **How Much (Quanto custará):** Custo do óleo diesel das máquinas e horas extras da equipe (Ex: R$ 15.000,00) — um valor irrisório se comparado ao custo de cancelamento do navio.
-
----
-
-### Resolução do @exr-manutencao-retrabalho (O Custo do Retrabalho na Oficina) {#sec-gabarito-manutencao-retrabalho}
-
-**Resolução do @exr-manutencao-retrabalho (O Custo do Retrabalho):**
-
-**1. Três Perdas Econômicas Diretas:**
-
-* **Peça:** O rolamento quebrado precisa ser substituído. Como a falha foi catastrófica, provavelmente danificou também o eixo, exigindo usinagem ou troca completa (R$ 15.000 - R$ 40.000).
-
-* **Mão de Obra:** O mecânico que montou errado precisará desmontar tudo novamente. Além disso, é necessário mobilizar uma equipe de emergência para recuperar o caminhão parado na pista. Custo estimado: 16 horas-homem de trabalho extraordinário.
-
-* **Lucro Cessante (Produção Parada):** Um CAT 797 transporta ~400 toneladas por viagem. Se a pista principal está bloqueada, a mina inteira pode parar. Mesmo que o caminhão seja removido em 4 horas, o prejuízo de produção não realizada pode ultrapassar R$ 200.000 (dependendo do preço do minério e da capacidade nominal da operação).
-
-**Lição Crítica:** O "ganho de tempo" de 5 minutos que o mecânico teve ao não usar o torquímetro custou à empresa centenas de milhares de reais. Este é o efeito multiplicador da não-qualidade em ambientes de capital intensivo.
-
-**2. Etapa do Ciclo de Vida do Ativo:**
-
-A falha ocorreu na **Etapa 5: Manutenção**. O ativo já estava em operação, e a intervenção de manutenção (troca do rolamento) foi executada de forma inadequada, gerando uma falha prematura que comprometeu a disponibilidade física.
-
-**3. Prevenção por 5S ou Poka-Yoke:**
-
-* **5S (Seiketsu - Padronização):** A oficina poderia ter um quadro visual próximo à bancada de montagem listando os "Itens Obrigatórios para Montagem de Rolamentos": limpeza, temperatura da peça, lubrificação correta e, crucialmente, uso do torquímetro calibrado. O mecânico vê o checklist toda vez que inicia o trabalho.
-
-* **Poka-Yoke (Dispositivo à Prova de Erros):** Implementar uma trava física ou eletrônica na Ordem de Serviço (OS) digital que não permite o "fechamento" da tarefa no sistema sem que o mecânico escaneie o QR Code do torquímetro, provando que a ferramenta foi retirada do paiol. Sem essa confirmação, o sistema bloqueia a liberação do caminhão para a operação.
-
-**Síntese Final:**
-
-Este caso demonstra que a cultura TQM não é um "luxo teórico", mas uma necessidade econômica vital. O torquímetro não é uma ferramenta de fiscalização; é um instrumento de proteção do ativo, da operação e da lucratividade da empresa. Quando o engenheiro de produção reforça essa mentalidade no chão de fábrica, ele reduz drasticamente os Custos de Falha Interna e protege a Disponibilidade Física — o coração da excelência operacional mineral.
-
----
-
-## Seção 2: Questões de Reflexão (Sem Gabarito — Use Para Debate)
-
----
-
-**Próxima Etapa:** Gabaritos para exercícios dos Capítulos 3-7 serão adicionados em futuras atualizações.
-
+## Capítulo 1: Fundamentos, Níveis e Fatores da Qualidade {#sec-gabarito-cap1}
+
+### Resolução do @exr-qualidade-contexto {#sec-gab-qualidade-contexto}
+A Qualidade não pode ser definida no vazio porque ela é o conjunto de características que determinam a *essência* de algo, ditada pela necessidade de quem usa e o ambiente onde é usado. As características que fazem um "bom" carro de Fórmula 1 (velocidade, leveza) são inúteis e perigosas para um "bom" trator de mineração (torque, peso, robustez). Logo, a qualidade só ganha sentido prático quando atrelada a um substantivo e a um contexto de aplicação.
+
+### Resolução do @exr-qualidade-tempo {#sec-gab-qualidade-tempo}
+O conceito é dinâmico porque as necessidades humanas e a tecnologia evoluem. O que era diferencial competitivo (alta qualidade) há 10 anos pode ser apenas um requisito mínimo obrigatório hoje. Exemplo: celular com câmera fotográfica já foi sinônimo de superqualidade; hoje, um aparelho sem câmera não tem sequer adequação ao uso básico.
+
+### Resolução do @exr-qualidade-aspectos {#sec-gab-qualidade-aspectos}
+Para conceituar qualidade de forma plena, a engenharia deve alinhar:
+* **Dimensão Objetiva:** A métrica física, química ou mecânica inerente ao produto.
+* **Dimensão Subjetiva:** A percepção e interpretação humana sobre aquele produto. A excelência exige que o objetivo sustente o subjetivo.
+
+### Resolução do @exr-fatores-consumidor {#sec-gab-fatores-consumidor}
+1. **Qualidade Intrínseca:** Funcionalidade, robustez e nível de defeitos.
+2. **Atendimento:** Facilidade de compra e cumprimento do prazo de entrega.
+3. **Serviços Associados:** Suporte técnico, política de trocas e pós-venda.
+4. **Custo Total:** Sacrifício financeiro global (compra + manutenção + uso + descarte). A excelência ocorre na harmonia dos quatro.
+
+### Resoluções Rápidas: Fatores do Consumidor Aplicados {#sec-gab-fatores-aplicados}
+* **@exr-ferramenta-eletrica:** *Intrínseca:* Motor não queima. *Atendimento:* Pronta entrega. *Serviços:* Assistência ampla. *Custo Total:* Preço + ganho de tempo.
+* **@exr-geladeira-inteligente:** *Intrínseca:* Gela rápido/silenciosa. *Atendimento:* Entrega cuidadosa. *Serviços:* SAC ágil. *Custo Total:* Preço + baixo consumo.
+* **@exr-saas-erp:** *Intrínseca:* Servidor 100% online. *Atendimento:* Implantação no prazo. *Serviços:* Chat de suporte rápido. *Custo Total:* Licença vs. economia com RH.
+* **@exr-fator-smartphone:** *Intrínseca:* Tela resistente. *Atendimento:* Compra sem fila. *Serviços:* Nuvem integrada. *Custo Total:* Aparelho com alto valor de revenda.
+* **@exr-fator-cia-aerea:** *Intrínseca:* Aeronave segura. *Atendimento:* App fácil e embarque ágil. *Serviços:* Clube VIP e remarcação. *Custo Total:* Preço + tempo salvo.
+* **@exr-fator-concessionaria:** *Intrínseca:* Tensão estável. *Atendimento:* Fatura transparente. *Serviços:* Restabelecimento rápido. *Custo Total:* Tarifa justa por kWh.
+* **@exr-fator-tenis:** *Intrínseca:* Costura robusta e amortecimento. *Atendimento:* Estoque completo. *Serviços:* Devolução fácil. *Custo Total:* Preço diluído na quilometragem.
+* **@exr-fator-supermercado:** *Intrínseca:* Hortifruti fresco. *Atendimento:* Entrega no horário. *Serviços:* Estorno automático de erros. *Custo Total:* Gôndola barata + frete justo.
+
+### Resoluções Rápidas: Níveis de Adequação Aplicados {#sec-gab-adequacao-aplicados}
+* **@exr-garrafa-termica:** *Padrão:* Inox correto. *Uso:* Mantém café quente por 12h. *Custo:* Produção enxuta. *Latente:* Termômetro na tampa para evitar queimadura.
+* **@exr-app-delivery:** *Padrão:* App sem bugs. *Uso:* Comida quente. *Custo:* Taxa justa. *Latente:* Rastreamento real no mapa aliviando ansiedade.
+* **@exr-ecommerce-roupas:** *Padrão:* Costura exata. *Uso:* Caimento confortável. *Custo:* Frete grátis. *Latente:* Provador virtual 3D sugerindo tamanho.
+* **@exr-carro-eletrico:** *Padrão:* Tolerâncias micrométricas de chassi. *Uso:* Autonomia de bateria real. *Custo:* Recarga barata. *Latente:* Atualização OTA enquanto o carro dorme.
+* **@exr-banco-digital:** *Padrão:* Conciliação exata. *Uso:* Sem filas físicas. *Custo:* Zero anuidade. *Latente:* Cartão virtual temporário antifraude.
+* **@exr-curso-graduacao:** *Padrão:* Matriz do MEC. *Uso:* Habilidades úteis no estágio. *Custo:* Mensalidade paga pelo retorno salarial. *Latente:* TCC que gera contratação.
+* **@exr-salao-beleza:** *Padrão:* Tempo de bula respeitado. *Uso:* Corte prático. *Custo:* Durabilidade alta. *Latente:* Cadeira de massagem no lavatório.
+* **@exr-hotelaria:** *Padrão:* Quarto como na foto. *Uso:* Chuveiro forte e Wi-Fi estável. *Custo:* Diária justa. *Latente:* Check-in pelo celular e escolha de travesseiro.
+* **@exr-transporte-passageiros:** *Padrão:* Manutenção rigorosa. *Uso:* Pontualidade. *Custo:* Mais barato que pedágio/combustível. *Latente:* Wi-Fi e USB individuais.
+* **@exr-niveis-smartphone:** *Padrão:* Velocidade do processador conforme manual. *Uso:* Bateria dura 24h. *Custo:* Automação fabril abaixa o preço. *Latente:* Modo foco por IA.
+* **@exr-niveis-restaurante:** *Padrão:* Bife de 200g. *Uso:* Almoço em 15 min. *Custo:* Ingredientes locais otimizados. *Latente:* Água gelada antes de pedir no verão.
+
+### Resolução do @exr-qualidade-contexto-integrado {#sec-gab-qualidade-contexto-integrado}
+* Nenhuma definição está "errada": cada stakeholder reflete uma dimensão (Operador = confiabilidade; Engenheiro = conformidade; Gerente = eficiência).
+* A integração resulta em: "Capacidade de entregar minério no P80 = 12 mm, com disponibilidade >90%, a custo $X/ton".
+* A ferramenta adequada para esta harmonização é o **Hoshin Kanri** (desdobramento) ou a **X-Matrix**.
+
+### Resolução do @exr-adequacao-vs-conformidade {#sec-gab-adequacao-vs-conformidade}
+* **Conformidade com Projeto:** NÃO. A especificação prometia 2g, mas entrega 8g. Falha de validação de campo.
+* **Adequação ao Uso:** NÃO. Em mineração, fragmentos de 8g comprometem equipamentos caros e a segurança.
+* **Solução:** O projeto possui uma falha grave. A solução exige redesenho (blindagem eletromagnética), ou adaptação rigorosa dos procedimentos operacionais e de distanciamento, priorizando sempre a adequação (segurança).
+
+### Resolução do @exr-caneta-grau {#sec-gab-caneta-grau}
+A caneta de R$ 1,00 possui **Alta Qualidade** (cumpriu 100% de seus requisitos funcionais). A caneta de R$ 500,00 tem **Péssima Qualidade** (falhou em sua função básica). O preço define o **Grau** (luxo, design), mas a qualidade é estritamente a capacidade de cumprir a função sem defeitos.
+
+### Resolução do @exr-eras-qualidade {#sec-gab-eras-qualidade}
+* **Lâmpadas:** Inspeção = testar 1 a 1. Controle Estatístico = cartas de controle para o filamento. Garantia Estratégica = confiabilidade estrutural (15.000h) em parceria com fornecedores.
+* **Software:** Inspeção = ler código pronto. Controle Estatístico = testes de *bugs*/1000 linhas. Garantia Estratégica = *DevOps* e CI/CD impedindo injeção de erros.
+* **Medicamentos:** Inspeção = checar frasco visualmente. Controle Estatístico = amostrar concentração em lote. Garantia Estratégica = BPF/GMP garantindo ambiente livre de contaminação.
+* **Aviação:** Inspeção = medir parafusos um a um. Controle Estatístico = monitoramento de ciclos de fadiga. Garantia Estratégica = SMS (Safety Management System) com foco preventivo.
+* **Fator de Transição:** A produção em massa tornou a inspeção 100% inviável e custosa, forçando a engenharia a adotar o controle amostral para não parar a fábrica.
+
+### Resolução do @exr-diagnostico-padaria {#sec-gab-diagnostico-padaria}
+1. **Hierarquia de Integração:** Deve-se começar pela **Base (Padronização / ISO 9001)**. Como os funcionários não seguem receita, não há padrão. Tentar aplicar metodologias avançadas (como Seis Sigma) em um ambiente sem padrão é inútil, pois a variabilidade é caótica.
+2. **Guia de Decisão:** Para a "espera e ociosidade" na cozinha, a abordagem primária é o **Lean Manufacturing**, que tem ferramentas específicas (como o Mapeamento de Fluxo de Valor e balanceamento de linha) para atacar gargalos e tempos de espera (desperdícios).
+
+### Resolução do @exr-cap2-tqm-vs-lean {#sec-gab-tqm-vs-lean}
+* **TQM (Gestão da Qualidade Total):** Foco em cultura, eliminação de defeitos, adequação ao uso e integração departamental. Ideal para empresas que sofrem com baixa qualidade de produto, rejeição de clientes e falta de comunicação interna.
+* **Lean Manufacturing:** Foco em velocidade, fluxo contínuo e eliminação de desperdícios (mudas). Ideal para empresas que já têm um produto aceitável, mas sofrem com altos custos operacionais, excesso de estoque, gargalos e lentidão na entrega.
+
+### Resolução do @exr-cap2-8mudas {#sec-gab-8mudas}
+1. **Superprodução:** Britar mais minério do que a planta de beneficiamento consegue processar.
+2. **Espera:** Caminhão fora de estrada aguardando na fila da escavadeira.
+3. **Transporte:** Distância excessiva entre a frente de lavra e o britador primário (desperdício de diesel e pneu).
+4. **Superprocessamento:** Moer o minério a uma granulometria muito mais fina do que o cliente exige.
+5. **Estoque:** Pilha gigantesca de ROM parada no pátio, imobilizando capital.
+6. **Movimentação:** Layout ruim da oficina mecânica, obrigando o mecânico a andar muito para buscar ferramentas.
+7. **Defeitos:** Contaminação do minério (ex: sílica alta) gerando necessidade de reprocessamento (retrabalho).
+8. **Talento não utilizado:** Operador experiente que sabe como melhorar o ciclo de carregamento, mas a gerência não ouve suas ideias.
+
+### Resolução do @exr-cap2-6sigma-dmaic {#sec-gab-6sigma-dmaic}
+* **Define (Definir):** Definir o problema e o escopo (Ex: Gráfico de Pareto, Project Charter).
+* **Measure (Medir):** Coletar dados atuais do processo (Ex: Cartas de Controle, Gage R&R para validar o sistema de medição).
+* **Analyze (Analisar):** Descobrir a causa-raiz (Ex: Diagrama de Ishikawa, 5 Porquês, Teste de Hipóteses).
+* **Improve (Melhorar):** Implementar a solução ótima (Ex: DOE - Design de Experimentos, Plano de Ação 5W2H).
+* **Control (Controlar):** Garantir que a melhoria não retroceda (Ex: Poka-Yoke, CEP, Padronização de Procedimentos / SDCA).
+
+### Resolução do @exr-cap2-9pilares {#sec-gab-9pilares}
+*(Exemplo de 3 pilares aplicados a uma Ordem de Manutenção em escavadeira)*
+1. **Treinamento:** O mecânico foi capacitado não apenas a trocar a peça, mas a entender como o desgaste afeta a disponibilidade do equipamento.
+2. **Mensuração da Qualidade:** O uso correto do torquímetro na montagem da peça é aferido e documentado na OM.
+3. **Melhoria Contínua (Kaizen):** O mecânico anota na OM uma sugestão para mudar o local do ponto de lubrificação da escavadeira, tornando as próximas preventivas mais rápidas.
+
+### Resolução do @exr-cap2-sgq-iso {#sec-gab-sgq-iso}
+A ISO 9001 garante a **padronização e a conformidade** (escrever o que faz e fazer o que está escrito). Contudo, é possível "padronizar um processo ineficiente". A certificação não obriga a empresa a ser ágil (Lean) nem exige que a variabilidade seja de classe mundial (Seis Sigma). É a base do edifício, mas não o topo da excelência.
+
+### Resolução do @exr-cap2-meg-vps {#sec-gab-meg-vps}
+O **MEG** é um *framework* genérico de fundamentos gerenciais (liderança, estratégia, clientes) aplicável a qualquer setor. O **VPS (Sistema de Produção Vale)** é um sistema proprietário, altamente focado na rotina operacional, padronização técnica e cultura *Lean* aplicada à mineração. Sim, qualquer mineradora pode "clonar" a arquitetura do VPS (padronização, manutenção autônoma, 5S, gestão à vista), pois seus pilares derivam do TPS (Toyota).
+
+### Resolução do @exr-cap2-hierarquia {#sec-gab-hierarquia}
+A ISO 9001 (Padronização) sustenta a base porque ferramentas avançadas exigem previsibilidade. Não se pode reduzir a variabilidade de um processo com Seis Sigma (topo) se os operadores realizam o processo de maneira diferente a cada dia (falta de base padrão). A melhoria (*Kaizen/Lean*) só ocorre quando existe um padrão estabelecido para ser melhorado.
+
+### Resolução do @exr-cap2-britador-problem {#sec-gab-britador-problem}
+* Quebra da mandíbula $\rightarrow$ **TPM (Manutenção Produtiva Total)** e **Seis Sigma** (para estudar a variabilidade da dureza do minério que causa a quebra).
+* Espera de 2h por peças $\rightarrow$ **Lean Manufacturing** (eliminar o desperdício de "Espera" otimizando a logística do almoxarifado).
+* Falha de comunicação $\rightarrow$ **TQM** (focar no pilar de relacionamento e gestão visual entre operações e manutenção).
+
+### Resolução do @exr-cap2-transporte-eficiencia {#sec-gab-transporte-eficiencia}
+Ocorre o desperdício de **Espera** (fila de equipamentos) ou **Movimentação/Transporte** excessivos. A ferramenta adequada é o **Mapeamento de Fluxo de Valor (VSM - Value Stream Mapping)**, para visualizar onde o caminhão passa as 1 hora e 10 minutos em que não está agregando valor e atacar esses gargalos (ex: balanceamento de frota escavadeira/caminhão).
+
+### Resolução do @exr-cap2-variabilidade-ore {#sec-gab-variabilidade-ore}
+O problema não é o processo não atingir a média (ele atinge), o problema é a **Alta Variabilidade** (o desvio padrão é muito largo, oscilando de 63 a 68). A abordagem correta é o **Seis Sigma (DMAIC)**, que utiliza o CEP (Controle Estatístico de Processo) para fechar o "sino" da curva normal, garantindo que o teor trave próximo a 65% o tempo todo.
+
+### Resolução do @exr-cap2-case-operacao {#sec-gab-case-operacao}
+1. **Modelo Recomendo:** Um sistema integrado semelhante ao VPS, combinando ISO (para travar o processo da planta), Lean (para reduzir a movimentação logística) e Seis Sigma (para estabilizar a recuperação).
+2. **Sequência:** 1º Padrão (Procedimentos operacionais) $\rightarrow$ 2º Lean (Limpar desperdícios e organizar via 5S) $\rightarrow$ 3º Seis Sigma (Estudar a oscilação metalúrgica, que é o problema mais complexo).
+3. **KPIs:** OEE (Eficácia Global do Equipamento); MTBF; e Variância da Recuperação Metalúrgica.
+4. **Governança:** Implementar o SDCA na linha de frente (Diálogos Diários de Segurança e Qualidade) atrelado a auditorias de rotina para que o novo padrão não retroceda.
+
+### Resoluções Rápidas: Debate (Bloco 6) {#sec-gab-debate-cap2}
+* **@exr-cap2-ref-q1:** O CEO aloca recursos e cria a cultura; o gerente traduz a meta em rotina (Hoshin Kanri); o operador cumpre o padrão (SDCA) e sinaliza falhas; o técnico afere as métricas (CEP).
+* **@exr-cap2-ref-q2:** O Lean na mineração não foca em "peça a peça" como em carros, mas sim em "fluxo contínuo" (evitar que a britagem pare por falta de caminhão) e na manutenção extrema (TPM) para que gargalos não quebrem.
+* **@exr-cap2-ref-q3:** O desafio do Seis Sigma em bens naturais é separar a "causa especial" (erro humano ou de máquina) da "causa comum" (a heterogeneidade natural da geologia da mina), exigindo *Design of Experiments* (DOE) complexos de *blendagem*.
+
+## Capítulo 3: Sistemas de Qualidade (TQM e ISO) {#sec-gabarito-cap3}
+
+### Resolução do @exr-cap2-tqm-semeadoras {#sec-gab-tqm-semeadoras}
+O lote de semeadoras com cor errada evidencia uma **falha sistêmica profunda** no TQM:
+* Almoxarifado falhou (Mensuração/Recebimento).
+* Compras falhou (Parceria com Fornecedor).
+* Operador falhou (Falta de Treinamento e Empowerment para frear a linha).
+* Gestão falhou (Falta de travas Poka-Yoke no processo).
+Nenhuma camada de defesa atuou. A qualidade exige redundância preventiva.
+
+### Resolução do @case-sabor-frio {#sec-gabarito-case-sabor-frio}
+* **Visão dos Gurus:** Crosby implementaria Poka-Yoke contra lacres soltos. Juran cortaria a baunilha importada (superqualidade). Feigenbaum uniria Compras e Produção.
+* **Eras da Qualidade:** O salto da Era 1 para a Era 3 trocaria a prova manual de sorvete por sensores automatizados (*overrun* e temperatura) e manutenção autônoma preventiva.
+* **Produtividade Econômica:** A produtividade atual é 1,25. Cortar a superqualidade (baunilha) eleva para 1,43. Investir na preventiva da seladora rende R$ 40k de economia, levando o indicador para 1,47 (ROI indiscutível).
+
+### Resolução do @case-express-mineral {#sec-gabarito-case-express-mineral}
+O corte de custos afetou o **Aprendizado** (treinamento) e os **Processos Internos** (manutenção dos trilhos), culminando em descarrilamento. A falha refletiu no **Cliente** (atrasos) e afundou a área **Financeira** (multas). A perspectiva financeira é um *lagging indicator* (resultado do passado).
+
+### Resolução do @exr-dimensoes-hospital {#sec-gab-dimensoes-hospital}
+A sequência do mapeamento é: **2 (Serviços), 4 (Ambiente), 1 (Transformadores), 3 (Operacional)**.
+A lavanderia é Serviço de Apoio. A comunicação entre setores é o Ambiente interno. Protocolos são Transformadores. A cirurgia bem-sucedida é a Execução Operacional crítica.
+
+### Resolução do @sec-simulado-integrado {#sec-gab-simulado-integrado}
+1. (B) **Joseph Juran:** Adequação ao Uso e Trilogia da Qualidade.
+2. (A) **Falha Interna:** Retrabalho antes de o produto chegar ao mercado.
+3. (C) **Aprendizado (*Learn*):** MEG e PDCL focam no Conhecimento Organizacional.
+4. (A) **Superprodução:** O pior desperdício do *Lean*, pois esconde problemas e consome caixa.
+5. (B) **DMAIC:** Roteiro Seis Sigma para reduzir variabilidade.
+6. (B) **A versão 2015 foca em Riscos e Liderança.**
+7. (C) **SDCA:** O padrão (Standard) garante que a melhoria não retroceda.
+8. (C) **Entregar atributos não valorizados:** Superqualidade destrói margem por aumento isolado de custo.
+9. (C) **Equipe de Operação:** Cliente interno primário no fluxo de ARI.
+10. (A) **Produtividade Financeira:** Elevada pelo aumento do Valor Percebido e corte de Custo.
+
+## Capítulo 4: Ferramentas da Qualidade e MASP {#sec-gabarito-cap4}
+
+### Resolução do @exr-construcao-hoshin {#sec-gab-construcao-hoshin}
+* **Desdobramento Estratégico:** Reduzir custo em 15%.
+* **Desdobramento Tático (Engenharia):** Aumentar MTBF em 20% e garantir 85% de Preventiva no mês.
+* **Desdobramento Operacional (Campo):** Executar >8 OMs preventivas e sofrer <2 paradas emergenciais/semana.
+A matriz de causa-efeito prova que mais preventivas elevam o MTBF, que reduz as quebras de campo, encolhendo os custos de emergência e batendo a meta da diretoria.
+
+### Resolução do @exr-analise-fmea {#sec-gab-analise-fmea}
+O sistema de correias possui falhas como "Desgaste de Rolamento" e "Desalinhamento Axial". Calculando o RPN (Severidade $\times$ Ocorrência $\times$ Detecção):
+* Desalinhamento (7 $\times$ 8 $\times$ 7 = **392**).
+* Desgaste de Rolamento (8 $\times$ 7 $\times$ 6 = **336**).
+A prioridade de ação preventiva vai estritamente para o RPN mais alto (Desalinhamento), aplicando-se rotina de verificação a laser no plano semanal.
+
+### Resolução do @exr-pdca-downtime {#sec-gab-pdca-downtime}
+* **PLAN:** Investigar qual componente (correia, sensor, combustível) causou a maioria das 18h de parada.
+* **DO:** Executar a melhoria prioritária (ex: blindar o sensor contra umidade).
+* **CHECK:** Mensurar no próximo mês se as horas de indisponibilidade caíram para a meta de <4h.
+* **ACT:** Se validado, padronizar o checklist no manual e replicar para os outros equipamentos do pátio.
+
+### Resolução do @exr-selecao-ferramenta {#sec-gab-selecao-ferramenta}
+A ferramenta correta é o **Gráfico de Pareto**. Ele revelará que "Falta de Peças" (40%) e "Equipe Indisponível" (25%) somam 65% do problema. O gestor **NÃO deve distribuir** recursos igualmente. O foco absoluto deve estar em criar estoque estratégico e escalas de <i>backup</i> para essas duas causas, garantindo o maior ROI analítico possível.
+
+### Resolução do @exr-masp-5w2h {#sec-gab-masp-5w2h}
+* **What:** Blendagem emergencial da carga de minério.
+* **Why:** Rebaixar umidade de 12% para o limite de 8%.
+* **Where:** Pátio do terminal portuário.
+* **When:** Nas próximas 24 horas antes do limite do navio.
+* **Who:** Supervisor do Pátio de estocagem.
+* **How:** Via pás carregadeiras e lonamento cruzado.
+* **How Much:** R$ 15.000,00 (horas da equipe e diesel), custo preventivo para evitar multa milionária de *demurrage*.
+
+### Resolução do @exr-manutencao-retrabalho {#sec-gab-manutencao-retrabalho}
+* A falha por não usar torquímetro gerou: perda do rolamento, 16h-homem de retrabalho e um **letar Lucro Cessante** por ter um caminhão CAT 797 parado sem transportar minério (impacto cascata).
+* É uma falha da Etapa 5 (Manutenção de Ativos).
+* Aplica-se **Poka-Yoke:** Bloqueio no software de Ordem de Serviço, impedindo o encerramento do serviço se o mecânico não escanear o QR Code da retirada do torquímetro no paiol de ferramentas.
+
+### Resolução do @exr-case-operacao-carregamento {#sec-gab-case-operacao-carregamento}
+1. **Filosofia:** O problema é de **Processo**. Em chuva, a operação perde controle.
+2. **Hoshin:** Meta estratégica = 85% de disponibilidade em chuva. Meta tática = zerar parada de sensor.
+3. **KPIs:** Disponibilidade Física (%), MTBF e Taxa de Preventiva/Emergencial.
+4. **Trilha de Ferramentas:** Ishikawa (Mapear) $\rightarrow$ Pareto (Priorizar) $\rightarrow$ PDCA (Executar blindagem) $\rightarrow$ Padronização de Método.
+5. **Governança:** Reunião mensal de fechamento (*CHECK*), analisando as quedas e atualizando as rotinas preventivas sazonais de pré-chuva.
