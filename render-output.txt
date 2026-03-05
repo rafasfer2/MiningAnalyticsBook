@@ -1,13 +1,201 @@
-ERROR: NotFound: O sistema n├úo pode encontrar o arquivo especificado. (os error 2): stat 'C:\Projetos\MiningAnalyticsBook\chapters\cap5-cerebro-operacao_files'
 
-Stack trace:
-    at Object.statSync (ext:deno_fs/30_fs.js:415:3)
-    at createWalkEntrySync (file:///C:/Users/rafas/AppData/Local/Programs/Quarto/bin/quarto.js:2163:22)
-    at walkSync (file:///C:/Users/rafas/AppData/Local/Programs/Quarto/bin/quarto.js:2283:11)
-    at walkSync.next (<anonymous>)
-    at advanceMatch (file:///C:/Users/rafas/AppData/Local/Programs/Quarto/bin/quarto.js:2401:21)
-    at advanceMatch.next (<anonymous>)
-    at expandGlobSync (file:///C:/Users/rafas/AppData/Local/Programs/Quarto/bin/quarto.js:2423:18)
-    at expandGlobSync.next (<anonymous>)
-    at expandGlobs (file:///C:/Users/rafas/AppData/Local/Programs/Quarto/bin/quarto.js:6095:18)
-    at resolveGlobs (file:///C:/Users/rafas/AppData/Local/Programs/Quarto/bin/quarto.js:6178:24)
+[ 1/32] index.qmd
+
+[ 2/32] intro.qmd
+
+
+processing file: intro.qmd
+1/3                  
+2/3 [unnamed-chunk-1]
+3/3                  
+output file: intro.knit.md
+
+
+[ 3/32] chapters\part1-intro.qmd
+
+[ 4/32] chapters\cap1-fundamentos.qmd
+[WARNING] Div at line 2118 column 1 unclosed at line 2180 column 1, closing implicitly.
+
+[ 5/32] chapters\cap2-modelos-gestao.qmd
+
+[ 6/32] chapters\cap3-motor-matematico.qmd
+
+[ 7/32] chapters\cap4-alma-estrategia.qmd
+WARNING (C:/Users/rafas/AppData/Local/Programs/Quarto/share/filters/main.lua:9634) 
+The following string was found in the document: :::
+
+This usually indicates a problem with a fenced div in the document. Please check the document for errors.
+
+[ 8/32] chapters\cap5-cerebro-operacao.qmd
+WARNING (C:/Users/rafas/AppData/Local/Programs/Quarto/share/filters/main.lua:9634) 
+The following string was found in the document: :::
+
+This usually indicates a problem with a fenced div in the document. Please check the document for errors.
+WARN: Unable to resolve link target: chapters\cap8-exercicios-parte1.qmd
+WARN: Unable to resolve link target: chapters\cap8-exercicios-parte1.qmd
+
+[ 9/32] chapters\cap6-caixa-ferramentas.qmd
+WARN: Unable to resolve link target: chapters\cap8-exercicios-parte1.qmd
+WARN: Unable to resolve link target: chapters\cap8-exercicios-parte1.qmd
+
+[10/32] chapters\cap7-estudos-casos.qmd
+
+[11/32] chapters\part2-intro.qmd
+
+[12/32] chapters\cap8-metrologia-kpi.qmd
+
+
+processing file: cap8-metrologia-kpi.qmd
+1/21                               
+2/21 [setup]                       
+3/21                               
+4/21 [tbl-consolidacao-horas]      
+5/21                               
+6/21 [tbl-consolidacao-gerencial]  
+7/21                               
+8/21 [tbl-kpi-final]               
+9/21                               
+10/21 [unnamed-chunk-1]             
+11/21                               
+12/21 [tbl-planejamento-estrategico]
+13/21                               
+14/21 [tbl-kpi-impacto-final]       
+15/21                               
+16/21 [fig-waterfall-final]         
+17/21                               
+18/21 [tbl-oee-final]               
+19/21                               
+20/21 [tbl-confiabilidade]          
+21/21                               
+output file: cap8-metrologia-kpi.knit.md
+
+
+[13/32] chapters\cap9-gestao-ativos-pco.qmd
+
+
+processing file: cap9-gestao-ativos-pco.qmd
+1/11                            
+2/11 [unnamed-chunk-1]          
+3/11                            
+4/11 [tbl-metodos-planejamento] 
+5/11                            
+6/11 [tbl-sistemas-despacho]    
+7/11                            
+8/11 [tbl-ferramentas-analytics]
+9/11                            
+10/11 [tbl-kpis-operacionais]    
+11/11                            
+output file: cap9-gestao-ativos-pco.knit.md
+
+
+[14/32] chapters\cap10-plan-crtl-manut.qmd
+
+[15/32] chapters\cap11-iqpl-aprofundamento.qmd
+
+[16/32] chapters\cap12-indicadores-manut.qmd
+
+[17/32] chapters\cap13-confiabilidade.qmd
+
+[18/32] chapters\cap14-manut-imperfeita.qmd
+
+[19/32] chapters\cap15-exercicios-parte2.qmd
+
+[20/32] chapters\part3-intro.qmd
+
+[21/32] chapters\ciclo1-perfuracao.qmd
+
+
+processing file: ciclo1-perfuracao.qmd
+1/21                         
+2/21 [setup]                 
+3/21                         
+4/21 [unnamed-chunk-1]       
+5/21                         
+6/21 [unnamed-chunk-2]       
+7/21                         
+8/21 [unnamed-chunk-3]       
+9/21                         
+10/21 [unnamed-chunk-4]       
+11/21                         
+12/21 [unnamed-chunk-5]       
+13/21                         
+14/21 [tbl-performance-report]
+15/21                         
+16/21 [fig-fases-breakdown]   
+17/21                         
+18/21 [fig-mapa-perfuracao]   
+19/21                         
+20/21 [unnamed-chunk-6]       
+21/21                         
+output file: ciclo1-perfuracao.knit.md
+
+
+[22/32] chapters\ciclo2-carregamento.qmd
+
+
+processing file: ciclo2-carregamento.qmd
+1/7                  
+2/7 [unnamed-chunk-1]
+3/7                  
+4/7 [unnamed-chunk-2]
+5/7                  
+6/7 [unnamed-chunk-3]
+7/7                  
+output file: ciclo2-carregamento.knit.md
+
+
+[23/32] chapters\ciclo3-transporte.qmd
+
+
+processing file: ciclo3-transporte.qmd
+1/5                  
+2/5 [unnamed-chunk-1]
+3/5                  
+4/5 [unnamed-chunk-2]
+5/5                  
+output file: ciclo3-transporte.knit.md
+
+
+[24/32] chapters\ciclo4-exercicios-parte3.qmd
+
+[25/32] chapters\appendix\a-dicionario-dados.qmd
+
+
+processing file: a-dicionario-dados.qmd
+1/3                  
+2/3 [unnamed-chunk-1]
+3/3                  
+output file: a-dicionario-dados.knit.md
+
+
+[26/32] chapters\appendix\b-dicionario-indicadores.qmd
+
+[27/32] chapters\appendix\c-notacoes-abreviacoes.qmd
+
+[28/32] chapters\appendix\d-lista-exemplos.qmd
+
+[29/32] chapters\appendix\e-lista-figuras.qmd
+
+[30/32] chapters\appendix\f-lista-tabelas.qmd
+
+[31/32] chapters\appendix\gabarito-parte1.qmd
+
+[32/32] chapters\appendix\g-perspectivas-qualidade-ensino.qmd
+
+WARN: chapters\appendix\gabarito-parte1.html: Unable to resolve crossref @sec-simulado-economia
+WARN: chapters\appendix\gabarito-parte1.html: Unable to resolve crossref @exr-superqualidade-desperdicio
+WARN: chapters\appendix\gabarito-parte1.html: Unable to resolve crossref @exr-amostragem-risco
+WARN: chapters\appendix\gabarito-parte1.html: Unable to resolve crossref @exr-cap2-tqm-semeadoras
+WARN: chapters\appendix\gabarito-parte1.html: Unable to resolve crossref @exr-niveis-smartphone
+WARN: chapters\appendix\gabarito-parte1.html: Unable to resolve crossref @exr-niveis-restaurante
+WARN: chapters\appendix\gabarito-parte1.html: Unable to resolve crossref @exr-guru-smartphone
+WARN: chapters\appendix\gabarito-parte1.html: Unable to resolve crossref @exr-guru-hotel
+WARN: chapters\appendix\gabarito-parte1.html: Unable to resolve crossref @exr-guru-ferramenta
+WARN: chapters\appendix\gabarito-parte1.html: Unable to resolve crossref @exr-guru-montadora
+WARN: chapters\appendix\gabarito-parte1.html: Unable to resolve crossref @exr-guru-consultor
+WARN: chapters\appendix\gabarito-parte1.html: Unable to resolve crossref @sec-simulado-economia
+WARN: chapters\appendix\gabarito-parte1.html: Unable to resolve crossref @exr-superqualidade-desperdicio
+WARN: chapters\appendix\gabarito-parte1.html: Unable to resolve crossref @exr-amostragem-risco
+WARN: chapters\appendix\gabarito-parte1.html: Unable to resolve crossref @exr-cap2-tqm-semeadoras
+Output created: docs\index.html
+
