@@ -1871,6 +1871,12 @@ Para provar que essa lógica de mapeamento não é restrita a um único nicho, o
 
 Para consolidar o entendimento sobre a Evolução do Conceito de Qualidade, resolva as questões teóricas e os estudos de caso propostos abaixo. As respostas detalhadas encontram-se no @sec-gabarito-parte1.
 
+## Exercícios de Fixação {#sec-exercicios-cap1}
+
+Para consolidar o entendimento teórico e prático deste capítulo, os exercícios a seguir foram estruturados acompanhando a progressão evolutiva da Engenharia da Qualidade.
+
+### Bloco 1: Fundamentos e a Subjetividade da Qualidade
+
 ::: {#exr-qualidade-contexto name="A Dependência do Contexto"}
 Explique por que o conceito de Qualidade não é um atributo isolado e depende fundamentalmente do contexto a que ele se refere.
 :::
@@ -1882,6 +1888,8 @@ Justifique por que o conceito de Qualidade é dinâmico e depende do momento his
 ::: {#exr-qualidade-aspectos name="Aspectos de Conceituação"}
 Quais são os dois aspectos (ou passos) necessários para se estabelecer uma adequada conceituação de qualidade em um contexto específico?
 :::
+
+### Bloco 2: Níveis de Adequação e Fatores de Equilíbrio do Consumidor
 
 ::: {#exr-fatores-consumidor name="Fatores de Equilíbrio do Consumidor"}
 Cite e explique brevemente os quatro fatores fundamentais em torno dos quais o conceito de qualidade gravita na perspectiva do consumidor.
@@ -1955,6 +1963,12 @@ Analise um fabricante de tênis de alta performance (ex: Nike/Adidas) e detalhe 
 Descreva como os quatro fatores do consumidor determinam o sucesso e a qualidade percebida de um Supermercado Online.
 :::
 
+#### Bloco 3: A Evolução Operacional (As Eras da Qualidade)
+
+::: {#exr-eras-transicao name="A Mudança de Paradigma"}
+Qual foi o principal fator físico e econômico que forçou a transição da "Era da Inspeção" (100% de verificação) para a "Era do Controle Estatístico da Qualidade"?
+:::
+
 ::: {#exr-eras-lampada name="As Eras da Qualidade: Produção de Lâmpadas"}
 Descreva como a fabricação em massa de lâmpadas evoluiu através das três eras da qualidade (Inspeção, Controle Estatístico e Garantia Estratégica).
 :::
@@ -1971,16 +1985,7 @@ Dada a criticidade do setor, detalhe como a fabricação de medicamentos superou
 Utilize a aviação (manutenção e gestão de peças) para exemplificar a transição do foco em "olhar o produto pronto" para "gerenciar o sistema para que a falha não exista", passando pelas três eras operacionais.
 :::
 
-::: {#exr-eras-transicao name="A Mudança de Paradigma"}
-Qual foi o principal fator físico e econômico que forçou a transição da "Era da Inspeção" (100% de verificação) para a "Era do Controle Estatístico da Qualidade"?
-:::
-
-::: {#exr-padaria-superqualidade name="Reflexão Econômica: Qualidade vs. Superqualidade"}
-Uma padaria de bairro decide embalar cada pão francês individualmente em uma pequena caixa de cetim com laço de fita, sob o pretexto de garantir que ele chegue morno e com apresentação *premium* ao cliente. Contudo, o preço de venda do pão na vitrine continua o mesmo (R$ 0,50 a unidade).
-Responda justificando economicamente:
-a) Esta iniciativa caracteriza um ganho de Qualidade Estratégica ou um erro de Superqualidade?
-b) O que acontecerá com a curva de Custo Total e com a Margem de Lucro desta padaria?
-:::
+### Bloco 4: Terminologia Normativa e Gestão Sistêmica
 
 ::: {#exr-caneta-grau name="Grau vs. Qualidade: A Escolha da Caneta"}
 Considere a seguinte situação de consumo: um aluno compra uma caneta esferográfica de plástico de R$ 1,00 (baixo grau) e um executivo compra uma caneta de metal luxuosa de R$ 500,00 (alto grau). Responda:
@@ -1994,11 +1999,8 @@ c) O preço (uma característica atribuída) define se a caneta tem qualidade ou
 A excelência de um modelo de gestão exige a integração de quatro dimensões fundamentais. Utilizando como cenário um Hospital, relacione cada elemento abaixo com a sua respectiva dimensão de qualidade:
 
 1. Qualidade dos Transformadores.
-
 2. Qualidade Percebida dos Serviços.
-
 3. Qualidade Operacional.
-
 4. Qualidade do Ambiente.
 
 ( ) A lavanderia entregando lençóis esterilizados no horário correto para a equipe de enfermagem.
@@ -2010,6 +2012,8 @@ A excelência de um modelo de gestão exige a integração de quatro dimensões 
 ( ) A equipe médica realizando as cirurgias no tempo previsto e com taxa zero de infecções hospitalares.
 :::
 
+### Bloco 5: A Vertente de Taguchi e as Perdas à Sociedade
+
 ::: {#exr-taguchi-simulado name="Simulado Prático: A Função Perda de Taguchi"}
 Este simulado confronta a visão tradicional de engenharia (binária) com a lógica de Taguchi (gradual e social), forçando a reflexão sobre o custo invisível do desvio.
 
@@ -2018,11 +2022,8 @@ Este simulado confronta a visão tradicional de engenharia (binária) com a lóg
 Uma fábrica de eixos para motores elétricos trabalha com um alvo de $10,0\text{ mm}$. O limite inferior de especificação (LIE) é $9,9\text{ mm}$ e o superior (LSE) é $10,1\text{ mm}$. Um lote de eixos é produzido com média de $10,09\text{ mm}$. Sob a ótica da visão tradicional e da Função Perda de Taguchi, como esse lote é classificado?
 
 A) Tradicional: Rejeitado | Taguchi: Perda Zero.
-
 B) Tradicional: Aprovado | Taguchi: Perda Zero.
-
 C) Tradicional: Aprovado | Taguchi: Perda incremental (Afasta-se do alvo).
-
 D) Tradicional: Rejeitado | Taguchi: Perda máxima.
 
 **Questão 2: Identificando a Natureza da Perda**
@@ -2030,11 +2031,8 @@ D) Tradicional: Rejeitado | Taguchi: Perda máxima.
 Um fabricante de condicionadores de ar utiliza um compressor que, embora resfrie o ambiente conforme o projeto, gera uma vibração excessiva que causa ruído incômodo para os vizinhos e aumenta o consumo de energia elétrica em 15% acima do esperado. Essas falhas são classificadas, respectivamente, como:
 
 A) Ambas são Impactos Colaterais.
-
 B) Ambas são Desvios na Função Principal.
-
 C) Ruído: Desvio na Função Principal | Consumo de Energia: Impacto Colateral.
-
 D) Ruído: Impacto Colateral | Consumo de Energia: Desvio na Função Principal.
 
 **Questão 3: A Lógica Matemática da Perda**
@@ -2042,11 +2040,8 @@ D) Ruído: Impacto Colateral | Consumo de Energia: Desvio na Função Principal.
 Considerando a fórmula da Função Perda de Taguchi $L = k(x - t)^2$, se um engenheiro consegue reduzir o desvio de uma peça em relação ao alvo pela metade, o que acontece com a perda financeira gerada para a sociedade?
 
 A) A perda é reduzida pela metade.
-
 B) A perda é reduzida a um quarto (redução de 75%).
-
 C) A perda permanece constante se estiver dentro da tolerância.
-
 D) A perda dobra, pois o custo de precisão aumenta.
 :::
 
@@ -2054,13 +2049,18 @@ D) A perda dobra, pois o custo de precisão aumenta.
 Um engenheiro de produção em um hospital reduz o tempo médio de espera de 45 para 20 minutos, mantendo a mesma equipe.
 
 a) Calcule a redução da Perda Social usando a lógica de Taguchi (Dica: Lembre-se de que a perda cai ao *quadrado* da redução do desvio).
-
 b) Como essa melhoria nos Processos Internos (BSC) impacta a Perspectiva Financeira do hospital no longo prazo? (Pense em redução de complicações clínicas e processos judiciais).
 :::
 
-### Simulado de Engenharia: Economia e Modelagem da Qualidade {#sec-simulado-economia}
+### Bloco 6: Custos da Qualidade e Modelagem Econômica
 
-Este simulado foi estruturado para que o aluno aplique a lógica matemática e o raciocínio estratégico da Engenharia de Produção, diferenciando onde a qualidade é um investimento e onde ela se torna um custo catastrófico ou um desperdício.
+::: {#exr-padaria-superqualidade name="Reflexão Econômica: Qualidade vs. Superqualidade"}
+Uma padaria de bairro decide embalar cada pão francês individualmente em uma pequena caixa de cetim com laço de fita, sob o pretexto de garantir que ele chegue morno e com apresentação *premium* ao cliente. Contudo, o preço de venda do pão na vitrine continua o mesmo (R$ 0,50 a unidade).
+Responda justificando economicamente:
+
+a) Esta iniciativa caracteriza um ganho de Qualidade Estratégica ou um erro de Superqualidade?
+b) O que acontecerá com a curva de Custo Total e com a Margem de Lucro desta padaria?
+:::
 
 ::: {#exr-modelagem-otimo name="O Ponto Ótimo de Investimento (Cálculo)"}
 Uma fábrica de rolamentos possui uma função de Custo de Falhas de $C_{falha}(q) = \frac{843.750}{q}$ e uma função de Custo de Controle de $C_{controle}(q) = q^2$ (valores em Reais). Utilize a regra da derivada primeira para calcular qual é o nível exato de conformidade ($q$) que minimiza os gastos totais ($CTQ$) da empresa.
@@ -2070,7 +2070,6 @@ Uma fábrica de rolamentos possui uma função de Custo de Falhas de $C_{falha}(
 Uma linha de montagem produz 2.000 unidades/dia com um custo unitário de R$ 100,00. O rendimento de primeira passagem (RTY) é de apenas 85%. Os 15% restantes sofrem falha interna e precisam de retrabalho, o que custa R$ 60,00 adicionais por peça.
 
 A) Qual o custo total financeiro do retrabalho por dia?
-
 B) Se um investimento em Prevenção de R$ 5.000,00/dia for aprovado e elevar o RTY para 95%, qual será o ganho financeiro líquido diário da empresa com essa ação?
 :::
 
@@ -2078,17 +2077,3 @@ B) Se um investimento em Prevenção de R$ 5.000,00/dia for aprovado e elevar o 
 Uma mineradora decidiu economizar R$ 50.000,00 cancelando a inspeção ultrassônica (Avaliação) nas correias transportadoras de um porto. Três meses depois, uma correia rompeu carregada, parando o embarque de um navio por 48 horas.
 
 * Custo do reparo de emergência: R$ 120.000,00.
-
-* Multa por atraso do navio (*Demurrage*): US$ 40.000,00 por dia (Considere a cotação US$ 1,00 = R$ 5,00).
-
-Calcule o prejuízo financeiro total desta falha externa e explique, com base no conceito de "Custo de Oportunidade", por que essa economia inicial foi tecnicamente um erro gerencial amador.
-:::
-
-::: {#exr-superqualidade-desperdicio name="Identificando a Superqualidade (Desperdício)"}
-Um engenheiro de processos decidiu aumentar o polimento das chapas internas de um silo de armazenamento de carvão para um "nível de espelho", acreditando que isso melhoraria o fluxo de material. O custo de produção do silo subiu 20%, mas o tempo de descarregamento do carvão permaneceu exatamente o mesmo. O cliente afirmou formalmente que não pagará a mais por esse acabamento estético.
-Classifique essa ação dentro das 4 categorias de Custos da Qualidade e explique o seu impacto na Equação da Produtividade.
-:::
-
-::: {#exr-amostragem-risco name="O Dilema da Amostragem (Risco)"}
-Explique, utilizando o comportamento da curva de *Custos de Falha*, por que uma empresa de aviação civil busca um nível de conformidade implacável próximo a 100%, enquanto uma fábrica de pregos aceita tranquilamente um nível de conformidade de 95%. Relacione sua resposta ao impacto financeiro e social da Falha Externa em cada um dos setores.
-:::

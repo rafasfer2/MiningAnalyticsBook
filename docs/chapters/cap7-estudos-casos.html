@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7&nbsp; Estudos de Caso na Prática Mineral – Sistema de Gestão e Excelência Operacional na Mineração</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/part2-intro.html" rel="next">
+<link href="../chapters/cap6-caixa-ferramentas.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-eb767fe655e6f8c8224c258eed8bcfd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Parte I: Introdução à Engenharia da Qualidade</a></li><li class="breadcrumb-item"><a href="../chapters/cap7-estudos-casos.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estudos de Caso na Prática Mineral</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Sistema de Gestão e Excelência Operacional na Mineração</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introdução</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../chapters/part1-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parte I: Introdução à Engenharia da Qualidade</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap1-fundamentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos e Conceitos da Qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap2-modelos-gestao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Modelos de Gestão e Excelência Operacional</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap3-motor-matematico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">O Motor Matemático: Quantificação e Modelagem (ARM)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap4-alma-estrategia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">A Alma do Negócio: Sistemas de Gestão e Estratégia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap5-cerebro-operacao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">O Cérebro da Operação: Método, Rotina e Controle</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap6-caixa-ferramentas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">A Caixa de Ferramentas do Engenheiro</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap7-estudos-casos.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estudos de Caso na Prática Mineral</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../chapters/part2-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parte II: Metrologia, Gestão de Ativos e Confiabilidade</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap8-metrologia-kpi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Excelência Operacional e Metrologia de Performance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap9-gestao-ativos-pco.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Capítulo 8: Gestão de Ativos e Planejamento e Controle Operacional</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap10-plan-crtl-manut.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Planejamento e Controle da Manutenção (PCM)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap11-iqpl-aprofundamento.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Índice de Qualidade de Plano de Manutenção (IQPL)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap12-indicadores-manut.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Indicadores de Manutenção (MTBF, MTTR, ISAC, ATSP, IDF)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap13-confiabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Análise de Confiabilidade de Ativos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap14-manut-imperfeita.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Indicadores Chave de Desempenho (KPI)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap15-exercicios-parte2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Exercícios — Parte II: Metrologia, Gestão de Ativos e Confiabilidade</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../chapters/part3-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parte III: Análise e Processos de Mina</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ciclo1-perfuracao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ciclo2-carregamento.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">A Identidade Fundamental do Carregamento</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ciclo3-transporte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">A Jornada de 7 Eventos e o Ciclo de Transporte</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ciclo4-exercicios-parte3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Exercícios — Parte III: Aplicação Operacional na Mineração</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apêndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/a-dicionario-dados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Dados</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/b-dicionario-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Dicionário de Indicadores (KPIs)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/c-notacoes-abreviacoes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Notações, Símbolos e Abreviações</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/d-lista-exemplos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Lista de Exemplos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/e-lista-figuras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Lista de Figuras</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/f-lista-tabelas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Lista de Tabelas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/gabarito-parte1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Gabarito — Parte I: Engenharia da Qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/g-perspectivas-qualidade-ensino.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Perspectivas de Qualidade no Ensino Superior Brasileiro</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#sec-arm-multidimensional" id="toc-sec-arm-multidimensional" class="nav-link active" data-scroll-target="#sec-arm-multidimensional"><span class="header-section-number">7.1</span> A Expansão Multidimensional: O Perfil do Egresso na Engenharia</a>
+  <ul class="collapse">
+  <li><a href="#a-modelagem-sistêmica-do-ensino-input-process-output" id="toc-a-modelagem-sistêmica-do-ensino-input-process-output" class="nav-link" data-scroll-target="#a-modelagem-sistêmica-do-ensino-input-process-output"><span class="header-section-number">7.1.1</span> A Modelagem Sistêmica do Ensino (Input-Process-Output)</a></li>
+  <li><a href="#sec-caso-competencias" id="toc-sec-caso-competencias" class="nav-link" data-scroll-target="#sec-caso-competencias"><span class="header-section-number">7.1.2</span> O Estudo de Caso: People Analytics na Avaliação de Competências</a></li>
+  <li><a href="#sec-uni-para-multi" id="toc-sec-uni-para-multi" class="nav-link" data-scroll-target="#sec-uni-para-multi"><span class="header-section-number">7.1.3</span> Do Modelo Univariável à Extensão Multivariada</a></li>
+  <li><a href="#sec-porquê-6-perfis" id="toc-sec-porquê-6-perfis" class="nav-link" data-scroll-target="#sec-porquê-6-perfis"><span class="header-section-number">7.1.4</span> A Racionalidade dos 6 Perfis: Por que não mais ou menos?</a></li>
+  <li><a href="#sec-logica-intensidades" id="toc-sec-logica-intensidades" class="nav-link" data-scroll-target="#sec-logica-intensidades"><span class="header-section-number">7.1.5</span> A Lógica das Intensidades: O Paradoxo da Variabilidade</a></li>
+  <li><a href="#sec-dinamica-perfis" id="toc-sec-dinamica-perfis" class="nav-link" data-scroll-target="#sec-dinamica-perfis"><span class="header-section-number">7.1.6</span> A Dinâmica de Triangulação e a Formação de Equipes</a></li>
+  <li><a href="#sec-escalabilidade-disciplinas" id="toc-sec-escalabilidade-disciplinas" class="nav-link" data-scroll-target="#sec-escalabilidade-disciplinas"><span class="header-section-number">7.1.7</span> A Escalabilidade Pedagógica: Aplicação Multidisciplinar</a></li>
+  <li><a href="#a-dinâmica-avançada-sgi-testes-de-julgamento-situacional-sjt" id="toc-a-dinâmica-avançada-sgi-testes-de-julgamento-situacional-sjt" class="nav-link" data-scroll-target="#a-dinâmica-avançada-sgi-testes-de-julgamento-situacional-sjt"><span class="header-section-number">7.1.8</span> A Dinâmica Avançada SGI: Testes de Julgamento Situacional (SJT)</a></li>
+  <li><a href="#sec-estruturacao-tri" id="toc-sec-estruturacao-tri" class="nav-link" data-scroll-target="#sec-estruturacao-tri"><span class="header-section-number">7.1.9</span> A Auditoria do Instrumento: Introdução à Teoria da Resposta ao Item (TRI)</a></li>
+  </ul></li>
+  <li><a href="#sec-caso-iqpl" id="toc-sec-caso-iqpl" class="nav-link" data-scroll-target="#sec-caso-iqpl"><span class="header-section-number">7.2</span> O Índice de Qualidade de Plano de Manutenção (IQPL)</a></li>
+  <li><a href="#sec-caso-ari-irt" id="toc-sec-caso-ari-irt" class="nav-link" data-scroll-target="#sec-caso-ari-irt"><span class="header-section-number">7.3</span> 6.3 Avaliação de Sistemas de Gestão Integrados e o Ambiente de Relacionamento Interno (ARI)</a></li>
+  <li><a href="#resumo-do-capítulo" id="toc-resumo-do-capítulo" class="nav-link" data-scroll-target="#resumo-do-capítulo"><span class="header-section-number">7.4</span> 📝 Resumo do Capítulo</a></li>
+  <li><a href="#sec-exercicios-cap7" id="toc-sec-exercicios-cap7" class="nav-link" data-scroll-target="#sec-exercicios-cap7"><span class="header-section-number">7.5</span> Exercícios de Fixação</a>
+  <ul class="collapse">
+  <li><a href="#seção-2-iqpl-e-auditoria-de-planos-de-manutenção" id="toc-seção-2-iqpl-e-auditoria-de-planos-de-manutenção" class="nav-link" data-scroll-target="#seção-2-iqpl-e-auditoria-de-planos-de-manutenção"><span class="header-section-number">7.5.1</span> Seção 2: IQPL e Auditoria de Planos de Manutenção</a></li>
+  <li><a href="#seção-3-ambientes-de-relacionamento-interno-ari" id="toc-seção-3-ambientes-de-relacionamento-interno-ari" class="nav-link" data-scroll-target="#seção-3-ambientes-de-relacionamento-interno-ari"><span class="header-section-number">7.5.2</span> Seção 3: Ambientes de Relacionamento Interno (ARI)</a></li>
+  <li><a href="#seção-4-estudo-de-caso-integrado-transformação-completa" id="toc-seção-4-estudo-de-caso-integrado-transformação-completa" class="nav-link" data-scroll-target="#seção-4-estudo-de-caso-integrado-transformação-completa"><span class="header-section-number">7.5.3</span> Seção 4: Estudo de Caso Integrado — Transformação Completa</a></li>
+  <li><a href="#seção-5-questões-de-reflexão" id="toc-seção-5-questões-de-reflexão" class="nav-link" data-scroll-target="#seção-5-questões-de-reflexão"><span class="header-section-number">7.5.4</span> Seção 5: Questões de Reflexão</a></li>
+  </ul></li>
+  <li><a href="#sec-exercicios-adicionais-cap7" id="toc-sec-exercicios-adicionais-cap7" class="nav-link" data-scroll-target="#sec-exercicios-adicionais-cap7"><span class="header-section-number">7.6</span> Exercícios Adicionais</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part1-intro.html">Parte I: Introdução à Engenharia da Qualidade</a></li><li class="breadcrumb-item"><a href="../chapters/cap7-estudos-casos.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estudos de Caso na Prática Mineral</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-cap6" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estudos de Caso na Prática Mineral</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Este capítulo consolida o poder analítico do método apresentado ao longo do livro. Até o momento, aplicamos a Modelagem Analítica de Requisitos (ARM) em avaliações de qualidade de produtos físicos e rotinas logísticas. Agora, elevaremos o nível de complexidade para demonstrar a escalabilidade do modelo em três frentes avançadas: a avaliação de perfis humanos (competências do engenheiro), a auditoria de sistemas técnicos (planos de manutenção) e a mensuração do relacionamento interno em sistemas de gestão.</p>
+<section id="sec-arm-multidimensional" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="sec-arm-multidimensional"><span class="header-section-number">7.1</span> A Expansão Multidimensional: O Perfil do Egresso na Engenharia</h2>
+<p>Para demonstrar a verdadeira escalabilidade matemática do ARM, aplicaremos a modelagem em um cenário de alta complexidade intangível: a avaliação de competências humanas na formação universitária e na indústria.</p>
+<p>O egresso de engenharia de produção deve integrar saberes que permitam a sua inserção decisiva no contexto social e profissional. Avaliá-lo de forma puramente subjetiva (“é um bom aluno”) destrói a capacidade de melhoria contínua do sistema de ensino. Precisamos de métricas exatas. Para isso, estruturamos o perfil do profissional moderno através do <strong>Modelo CHAE</strong> (Conhecimento, Habilidades, Atitudes e Entregas):</p>
+<ul>
+<li><strong>Conhecimento (Saber o quê e porquê):</strong> O acúmulo de saberes técnicos e científicos (ex: cálculo, física, pesquisa operacional).</li>
+<li><strong>Habilidade (Saber como fazer):</strong> A técnica e a capacidade de aplicar o conhecimento na prática.</li>
+<li><strong>Atitude (Querer fazer):</strong> A determinação, a identidade e os aspectos socioafetivos (ex: liderança, ética, empatia).</li>
+<li><strong>Entrega (Geração de Valor):</strong> A aplicação do tripé CHA durante os processos de trabalho, resultando em valor agregado real para a sociedade e para a organização.</li>
+</ul>
+<section id="a-modelagem-sistêmica-do-ensino-input-process-output" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="a-modelagem-sistêmica-do-ensino-input-process-output"><span class="header-section-number">7.1.1</span> A Modelagem Sistêmica do Ensino (Input-Process-Output)</h3>
+<p>Para parametrizar o modelo CHAE na equação do ARM, a engenharia pedagógica (neste caso, inspirada nas diretrizes curriculares do MEC/CNE e no PPC de Engenharia de Produção) enxerga a sala de aula como um sistema integrado de produção.</p>
+<p>Essa estrutura conceitual foi operacionalizada em uma matriz que integra os recursos, os conhecimentos, as competências, as habilidades e as atitudes do egresso. A formação compreende conhecimentos básicos, que sustentam as competências técnicas e de gestão na Engenharia de Produção.</p>
+<div id="fig-matriz-chae" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-matriz-chae-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/fig-matriz-chae.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-matriz-chae-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;7.1: Matriz Estrutural do Processo de Ensino-Aprendizagem (CHAE)
+</figcaption>
+</figure>
+</div>
+<p>Conforme ilustrado na <a href="#fig-matriz-chae" class="quarto-xref">Figura&nbsp;<span>7.1</span></a>, os recursos e a infraestrutura adequados são considerados as entradas do processo de ensino-aprendizagem. Ao centro, representando o processo de ensino-aprendizagem em si, existe a formação das competências que dependem dos agentes do processo (docentes, discentes e servidores técnico-administrativos), que tem como base o desenvolvimento dos conhecimentos básicos, profissionalizantes e específicos necessários para atuação. Os conhecimentos e competências são transformados em habilidades e atitudes, que são as saídas do processo:</p>
+<ol type="1">
+<li><strong>Entradas (Inputs):</strong> São os recursos e a infraestrutura (docentes capacitados, metodologias ativas, laboratórios e tecnologias).</li>
+<li><strong>Processo (Transformation):</strong> É a internalização dos <strong>Conhecimentos</strong> (núcleos básico, profissionalizante e específico) que formam as <strong>Competências</strong> centrais do indivíduo.</li>
+<li><strong>Saídas (Outputs):</strong> O resultado final desse processo de transformação não é apenas uma nota em uma prova teórica, mas a consolidação de <strong>Habilidades</strong> e <strong>Atitudes</strong> observáveis.</li>
+</ol>
+<p>Para sustentar a formação das competências (o Processo de transformação), a matriz curricular do curso é estruturada em três grandes blocos de conhecimento, que conectam a ciência pura à prática profissional:</p>
+<ul>
+<li><p><strong>📘 Núcleo Básico:</strong> Algoritmos e Programação, Administração e economia, Ciências dos materiais, Ciências do ambiente, Estatística, Desenho técnico, Expressão gráfica, Eletricidade, Fenômenos de transporte, Física, Informática, Matemática, Mecânica dos sólidos, Metodologia científica e tecnológica, Química.</p></li>
+<li><p><strong>⚙️ Núcleo Profissionalizante:</strong> Automação industrial, Eletrônica básica e instrumentação, Gestão da saúde e segurança, Mecânica geral, Metrologia, Processos de fabricação.</p></li>
+<li><p><strong>🏭 Núcleo Específico:</strong> Engenharia de operações e processo de produção, Logística, Pesquisa operacional, Engenharia da qualidade, Engenharia do produto, Engenharia organizacional, Engenharia econômica, Engenharia do trabalho, Engenharia da sustentabilidade, Educação em engenharia de produção.</p></li>
+</ul>
+</section>
+<section id="sec-caso-competencias" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="sec-caso-competencias"><span class="header-section-number">7.1.2</span> O Estudo de Caso: People Analytics na Avaliação de Competências</h3>
+<p>Este estudo avança sobre a intangibilidade do capital humano. O objetivo é utilizar o modelo ARM para quantificar o perfil profissional do Engenheiro de Produção frente às exigências do mercado e à sua própria percepção de desenvolvimento.</p>
+<p>O grande desafio analítico é traduzir as diretrizes abstratas do Ministério da Educação (O Processo) em comportamentos observáveis mensuráveis (As Saídas). Para estruturar o cálculo, o perfil do engenheiro foi desdobrado em três grandes dimensões analíticas.</p>
+<p><strong>Dimensão 1: A Matriz de Competências Macros</strong></p>
+<div id="tbl-competencias-egresso" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-competencias-egresso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;7.1: Matriz de Desdobramento das Competências do Egresso
+</figcaption>
+<div aria-describedby="tbl-competencias-egresso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Competência Macro (Diretriz Curricular)</th>
+<th style="text-align: left;">Comportamentos Observáveis e Práticos (<span class="math inline">\(V_i\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>C01 -</strong> <strong>Formular e conceber soluções desejáveis de Engenharia</strong>, analisando necessidades dos usuários e seu contexto.</td>
+<td style="text-align: left;">Contribuir com ideias; manter a calma diante de problemas inesperados; transformar ideias em ações; propor soluções criativas; enxergar o problema como um todo.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C02 -</strong> <strong>Analisar e compreender fenômenos físicos e químicos</strong> por meio de modelos simbólicos, físicos e experimentais.</td>
+<td style="text-align: left;">Interpretar gráficos e tabelas; analisar informações antes de decidir; compreender fundamentos técnicos; identificar causas de problemas; reconhecer padrões em dados.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C03 -</strong> <strong>Conceber, projetar e analisar sistemas</strong>, produtos, componentes ou processos.</td>
+<td style="text-align: left;">Organizar etapas de uma tarefa; priorizar atividades importantes; estruturar planejamento; aplicar conceitos teóricos na prática.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C04 -</strong> <strong>Implantar, supervisionar e controlar</strong> soluções de Engenharia.</td>
+<td style="text-align: left;">Cumprir prazos com qualidade; manter persistência em tarefas longas; seguir normas técnicas; manter o grupo organizado e produtivo.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C05 -</strong> <strong>Comunicar-se eficazmente</strong> nas formas escrita, oral e gráfica.</td>
+<td style="text-align: left;">Explicar conceitos a colegas; comunicar-se claramente em apresentações; ter empatia comunicativa; organizar ideias ao escrever relatórios.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C06 -</strong> <strong>Trabalhar e liderar equipes multidisciplinares</strong>.</td>
+<td style="text-align: left;">Contribuir com ideias para o grupo; colaborar com pessoas diferentes; compreender pontos de vista; manter o grupo organizado.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C07 -</strong> <strong>Conhecer e aplicar com ética a legislação</strong> e os atos normativos da profissão.</td>
+<td style="text-align: left;">Relacionar conteúdo com impactos socioambientais; seguir requisitos técnicos; assumir responsabilidade social; refletir sobre melhorias.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C08 -</strong> <strong>Aprender de forma autônoma</strong> e lidar com situações complexas, acompanhando avanços tecnológicos.</td>
+<td style="text-align: left;">Adaptar-se a novas ferramentas; buscar informações por conta própria; aprender conteúdos sem depender totalmente do professor.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><strong>Dimensões 2 e 3: A Matriz de Habilidades e Atitudes</strong></p>
+<p>Para complementar a fundação técnica, definiram-se as Habilidades (capacidade de fazer) e as Atitudes (comportamento diante do saber fazer), agrupadas em dimensões intermediárias e codificadas para a auditoria no sistema:</p>
+<div id="tbl-habilidades-egresso" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-habilidades-egresso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;7.2: Matriz Consolidada de Habilidades do Egresso
+</figcaption>
+<div aria-describedby="tbl-habilidades-egresso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Grupo Intermediário</th>
+<th style="text-align: left;">Habilidade Profissional (<span class="math inline">\(V_i\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Cognitivas e Analíticas</strong></td>
+<td style="text-align: left;"><strong>H01</strong> Conhecer e reconhecer situações e contextos <br> <strong>H02</strong> Compreender fenômenos e processos <br> <strong>H03</strong> Analisar e avaliar dados e cenários <br> <strong>H04</strong> Formular e modelar problemas <br> <strong>H05</strong> Diferenciar causas e impactos <br> <strong>H06</strong> Exercitar pensamento crítico <br> <strong>H07</strong> Lidar com a complexidade sociotécnica</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Técnicas e Operacionais</strong></td>
+<td style="text-align: left;"><strong>H08</strong> Aplicar e implementar métodos <br> <strong>H09</strong> Utilizar tecnologias e ferramentas computacionais <br> <strong>H10</strong> Desenvolver melhorias de processos <br> <strong>H11</strong> Planejar atividades e projetos <br> <strong>H12</strong> Pesquisar informações relevantes <br> <strong>H13</strong> Aplicar conhecimentos em situações reais</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Comunicacionais</strong></td>
+<td style="text-align: left;"><strong>H14</strong> Comunicar de forma clara (oral, escrita e gráfica) <br> <strong>H15</strong> Explicar conceitos para outras pessoas <br> <strong>H16</strong> Organizar informações de forma compreensível</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Interpessoais e Colab.</strong></td>
+<td style="text-align: left;"><strong>H17</strong> Trabalhar em equipe <br> <strong>H18</strong> Colaborar em ambientes multidisciplinares <br> <strong>H19</strong> Facilitar discussões <br> <strong>H20</strong> Mediar conflitos e alinhar expectativas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Criativas e de Inovação</strong></td>
+<td style="text-align: left;"><strong>H21</strong> Ser criativo na solução de problemas <br> <strong>H22</strong> Propor alternativas e novas abordagens <br> <strong>H23</strong> Integrar diferentes perspectivas para gerar soluções</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div id="tbl-atitudes-egresso" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-atitudes-egresso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;7.3: Matriz Consolidada de Atitudes do Egresso
+</figcaption>
+<div aria-describedby="tbl-atitudes-egresso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Grupo Intermediário</th>
+<th style="text-align: left;">Atitude Comportamental (<span class="math inline">\(V_i\)</span>)</th>
+<th style="text-align: left;">Descrição Prática do Comportamento</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Cognitivas e Reflexivas</strong></td>
+<td style="text-align: left;"><strong>A01</strong> Visão sistêmica <br> <strong>A02</strong> Visão holística <br> <strong>A03</strong> Reflexão <br> <strong>A04</strong> Pensamento crítico <br> <strong>A05</strong> Curiosidade intelectual</td>
+<td style="text-align: left;">Enxergar o todo, conexões e impactos. <br> Integrar múltiplas perspectivas. <br> Avaliar o próprio desempenho. <br> Questionar e não aceitar respostas prontas. <br> Buscar entender mais do que o mínimo.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Éticas e Humanistas</strong></td>
+<td style="text-align: left;"><strong>A06</strong> Ética <br> <strong>A07</strong> Consciência social e ambiental <br> <strong>A08</strong> Visão humanista <br> <strong>A09</strong> Empatia <br> <strong>A10</strong> Respeito às diferenças</td>
+<td style="text-align: left;">Agir com integridade e responsabilidade. <br> Perceber impactos socioambientais. <br> Considerar contextos e consequências. <br> Compreender o ponto de vista alheio. <br> Lidar com diferenças e diversidade.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Autonomia e Proatividade</strong></td>
+<td style="text-align: left;"><strong>A11</strong> Autonomia <br> <strong>A12</strong> Persistência <br> <strong>A13</strong> Iniciativa <br> <strong>A14</strong> Criatividade <br> <strong>A15</strong> Empreendedorismo</td>
+<td style="text-align: left;">Conduzir tarefas sem total orientação. <br> Manter esforço diante de dificuldades. <br> Propor ações e alternativas. <br> Gerar soluções originais. <br> Agir com visão de oportunidade.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Interpessoais e Liderança</strong></td>
+<td style="text-align: left;"><strong>A16</strong> Colaboração <br> <strong>A17</strong> Cooperação <br> <strong>A18</strong> Liderança <br> <strong>A19</strong> Comunicação empática <br> <strong>A20</strong> Responsabilidade coletiva</td>
+<td style="text-align: left;">Contribuir para o avanço coletivo. <br> Trabalhar em conjunto para um objetivo comum. <br> Influenciar e orientar grupos. <br> Relacionar-se com diferentes perfis. <br> Cumprir o que foi acordado com a equipe.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="sec-uni-para-multi" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="sec-uni-para-multi"><span class="header-section-number">7.1.3</span> Do Modelo Univariável à Extensão Multivariada</h3>
+<p>Após mapear as <strong>51 variáveis operacionais</strong> (<span class="math inline">\(V_i\)</span>) nas matrizes acima, o desafio da engenharia é transformá-las em um diagnóstico algorítmico. Para entender como a ponderação destas características ocorre na prática, precisamos contrastar a abordagem linear básica com a nossa solução avançada.</p>
+<p><strong>O Exemplo Univariável (<em>Flat Model</em>) e a Teoria Clássica da Medida:</strong> Se fôssemos aplicar o modelo de forma univariada, apoiados na Teoria Clássica da Medida (TCM), o nosso objetivo seria calcular um único <em>Score</em> global para definir o “Engenheiro Perfeito”. Neste cenário, a nota final seria a simples soma das respostas. Como temos 51 itens pontuados em uma escala <em>Likert</em> de 1 a 5, o total variaria matematicamente entre 51 e 255. O problema desta abordagem é duplo. Primeiro, o mercado de trabalho não busca um único tipo de engenheiro; uma mineradora precisa tanto do estatístico brilhante quanto do líder de campo carismático. Segundo, a avaliação humana linear sofre um impacto massivo de distorções de percepção.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="⚠️ GARGALO ANALÍTICO: Vieses gerados no processo de resposta">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Aviso</span>⚠️ GARGALO ANALÍTICO: Vieses gerados no processo de resposta
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ao aplicar questionários de autopercepção, a abordagem linear é frequentemente corrompida. A literatura e a prática evidenciam 10 vieses principais que “achatam” os resultados:</p>
+<ol type="1">
+<li><strong>Viés de desejabilidade social:</strong> Tendência a responder aquilo que parece “correto”, “bem‑visto” ou “profissional”, e não aquilo que realmente representa o comportamento da pessoa.</li>
+<li><strong>Viés de autopercepção:</strong> Pessoas costumam superestimar habilidades técnicas e subestimar habilidades socioemocionais, criando distorções sistemáticas.</li>
+<li><strong>Viés de familiaridade:</strong> Itens mais fáceis de entender ou mais próximos da experiência do respondente recebem notas mais altas, independentemente da competência real.</li>
+<li><strong>Viés de consistência:</strong> Respondentes tendem a repetir padrões (ex.: marcar 4 ou 5 em sequência), reduzindo a variabilidade e mascarando diferenças reais entre dimensões.</li>
+<li><strong>Viés de ancoragem:</strong> A primeira resposta influencia as seguintes; se o início é alto, o restante tende a ser alto também.</li>
+<li><strong>Viés de esforço cognitivo:</strong> Itens mais abstratos, complexos ou vagos recebem notas mais baixas por dificuldade de interpretação, não por falta de competência.</li>
+<li><strong>Viés de saturação dos pesos:</strong> Quando um perfil tem muitos itens classificados como “Forte”, ele tende a ser favorecido independentemente das respostas, porque acumula mais multiplicadores altos.</li>
+<li><strong>Viés estrutural da matriz:</strong> Perfis com pesos calibrados maiores em itens mais respondidos tendem a dominar, mesmo que o respondente não tenha intenção de expressar esse perfil.</li>
+<li><strong>Viés de ordem das perguntas:</strong> Itens no início do formulário recebem mais atenção; itens no final sofrem fadiga e respostas mais rápidas e menos refletidas.</li>
+<li><strong>Viés de interpretação:</strong> Respondentes podem interpretar o mesmo item de maneiras diferentes, especialmente em atitudes e habilidades socioemocionais.</li>
+</ol>
+</div>
+</div>
+<p>A soma desses vieses resulta em uma <strong>baixa variabilidade das respostas</strong>, invalidando o uso cru da Teoria Clássica da Medida.</p>
+<p><strong>A Extensão Multivariada (<em>Simultaneous Scores</em>):</strong> Para resolver o esmagamento da diversidade e mitigar esses vieses, estendemos o modelo. Em vez de uma equação, construímos várias rodando em paralelo. O valor de entrada (a nota <span class="math inline">\(S_i\)</span> que o aluno dá a si mesmo) é o mesmo, mas a matriz de pesos (<span class="math inline">\(W_{i,p}\)</span>) muda dinamicamente dependendo do <em>Cluster</em> (<span class="math inline">\(p\)</span>) calculado, gerando <em>Outputs</em> simultâneos.</p>
+</section>
+<section id="sec-porquê-6-perfis" class="level3" data-number="7.1.4">
+<h3 data-number="7.1.4" class="anchored" data-anchor-id="sec-porquê-6-perfis"><span class="header-section-number">7.1.4</span> A Racionalidade dos 6 Perfis: Por que não mais ou menos?</h3>
+<p>A definição de 6 perfis cobre o espaço vetorial completo da atuação do Engenheiro de Produção, mantendo a parcimônia estatística:</p>
+<p><strong>🧠 1. Perfil Analítico-Técnico (O “Cérebro”):</strong> Forte em matemática, estatística e algoritmos. Habilidade de avaliar cenários e propor soluções fundamentadas. <strong>🏭 2. Perfil de Processos e Operações (O “Motor”):</strong> Interesse por logística, produção e qualidade. Gosta de otimizar rotinas e fluxos. <strong>🎨 3. Perfil Criativo-Inovador (A “Visão”):</strong> Gera ideias, pensa “fora da caixa” e desenvolve novos produtos e serviços. <strong>🗣️ 4. Perfil Comunicador-Articulador (A “Voz”):</strong> Facilita discussões, media conflitos e comunica-se bem oralmente e graficamente. <strong>🧩 5. Perfil Organizacional-Líder (O “Eixo”):</strong> Coordena tarefas, distribui funções e supervisiona equipes com ética e consciência. <strong>🌱 6. Perfil Sustentável-Responsável (A “Consciência”):</strong> Foco em meio ambiente, segurança, análise de riscos e impactos legais.</p>
+</section>
+<section id="sec-logica-intensidades" class="level3" data-number="7.1.5">
+<h3 data-number="7.1.5" class="anchored" data-anchor-id="sec-logica-intensidades"><span class="header-section-number">7.1.5</span> A Lógica das Intensidades: O Paradoxo da Variabilidade</h3>
+<p>Para que o motor do <span class="math inline">\(ARM\)</span> consiga alocar o aluno no <em>cluster</em> correto sem o uso demorado do Diagrama de Mudge, adotamos pesos predefinidos. Para forçar a explosão de variância contra o “Viés de Consistência”, a modelagem adotou uma escala agressiva:</p>
+<ul>
+<li><strong>Forte (2.0) <span class="math inline">\(\rightarrow\)</span> Define o perfil:</strong> Características inegociáveis.</li>
+<li><strong>Moderado (1.0) <span class="math inline">\(\rightarrow\)</span> Contribui:</strong> Características de suporte.</li>
+<li><strong>Fraco (0.2) <span class="math inline">\(\rightarrow\)</span> Não representa:</strong> Características periféricas.</li>
+</ul>
+<section id="abrindo-a-caixa-preta-a-construção-do-perfil-1-analítico-técnico" class="level4" data-number="7.1.5.1">
+<h4 data-number="7.1.5.1" class="anchored" data-anchor-id="abrindo-a-caixa-preta-a-construção-do-perfil-1-analítico-técnico"><span class="header-section-number">7.1.5.1</span> Abrindo a Caixa-Preta: A Construção do Perfil 1 (Analítico-Técnico)</h4>
+<p>Vamos analisar como as <em>Features</em> reagem contra a lente do <strong>Perfil 1</strong>:</p>
+<p><strong>1. Competências Macros (C): O Foco no Método</strong> * <strong>FORTE (2.0):</strong> (C01) Análise de dados; (C02) Modelagem de processos; (C03) Raciocínio lógico; (C08) Criatividade técnica. (O núcleo matemático). * <strong>MODERADA (1.0):</strong> (C04) Comunicação; (C05) Trabalho em equipe. (Habilidades úteis, mas não centrais). * <strong>FRACA (0.2):</strong> (C06) Sustentabilidade; (C07) Liderança. (Entregas delegadas a outros perfis).</p>
+<p><strong>2. Habilidades Profissionais (H): O Domínio das Ferramentas</strong> * <strong>FORTE (2.0):</strong> (H01, H02, H03, H04, H06, H07, H11, H16). Uso de softwares (R, Python) e solução estruturada. * <strong>MODERADA (1.0):</strong> (H08, H09, H20). Leitura técnica e avaliação. * <strong>FRACA (0.2):</strong> (H05, H10, H12 a H15, H17 a H19, H21 a H23). Mediar conflitos de RH desvia o foco estocástico do analista.</p>
+<p><strong>3. Atitudes Comportamentais (A): A Postura do Cientista</strong> * <strong>FORTE (2.0):</strong> (A01 a A05). Questionar dados, evitar respostas prontas e buscar a causa-raiz. * <strong>MODERADA (1.0):</strong> (A06, A07, A20). Ética e consciência, funcionando como <em>guardrails</em>. * <strong>FRACA (0.2):</strong> (A08 a A19). Gestão subjetiva de emoções e mediação psicológica.</p>
+</section>
+<section id="a-prova-do-contraste-a-distribuição-final-dos-pesos-w_i" class="level4" data-number="7.1.5.2">
+<h4 data-number="7.1.5.2" class="anchored" data-anchor-id="a-prova-do-contraste-a-distribuição-final-dos-pesos-w_i"><span class="header-section-number">7.1.5.2</span> A Prova do Contraste: A Distribuição Final dos Pesos (<span class="math inline">\(W_i\)</span>)</h4>
+<p>A verdadeira inteligência do motor multivariado do <span class="math inline">\(ARM\)</span> não está apenas em exaltar o que um perfil tem de melhor, mas em penalizar ativamente as variáveis que não pertencem ao seu escopo central. Essa mecânica de exclusão mútua é o que garante a independência matemática dos arquétipos.</p>
+<p>Para visualizar esse efeito na prática, precisamos olhar para o resultado final da nossa calibragem. Quando aplicamos os multiplicadores de intensidade (2.0, 1.0 e 0.2) e normalizamos os valores para que a dimensão “Competências Macros” some 100% em cada perfil, obtemos a Matriz de Pesos Definitiva.</p>
+<p>A Tabela abaixo demonstra a distribuição exata dos pesos percentuais (<span class="math inline">\(W_i\)</span>) das 8 competências curriculares ao longo do cálculo simultâneo dos 6 perfis:</p>
+<div id="tbl-pesos-competencias" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pesos-competencias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;7.4: Matriz de Pesos Percentuais (<span class="math inline">\(W_i\)</span>) das Competências por Perfil
+</figcaption>
+<div aria-describedby="tbl-pesos-competencias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Cód</th>
+<th style="text-align: left;">Descrição da Competência Macro</th>
+<th style="text-align: center;">P01 (Analítico)</th>
+<th style="text-align: center;">P02 (Operações)</th>
+<th style="text-align: center;">P03 (Criativo)</th>
+<th style="text-align: center;">P04 (Comunicador)</th>
+<th style="text-align: center;">P05 (Líder)</th>
+<th style="text-align: center;">P06 (Sustentável)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>C01</strong></td>
+<td style="text-align: left;">Formular e conceber soluções desejáveis de Engenharia</td>
+<td style="text-align: center;">20,00</td>
+<td style="text-align: center;">15,00</td>
+<td style="text-align: center;">30,00</td>
+<td style="text-align: center;">10,00</td>
+<td style="text-align: center;">15,00</td>
+<td style="text-align: center;">15,00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C02</strong></td>
+<td style="text-align: left;">Analisar e compreender fenômenos físicos e químicos</td>
+<td style="text-align: center;">25,00</td>
+<td style="text-align: center;">10,00</td>
+<td style="text-align: center;">10,00</td>
+<td style="text-align: center;">2,00</td>
+<td style="text-align: center;">2,00</td>
+<td style="text-align: center;">20,00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C03</strong></td>
+<td style="text-align: left;">Conceber, projetar e analisar sistemas e processos</td>
+<td style="text-align: center;">25,00</td>
+<td style="text-align: center;">25,00</td>
+<td style="text-align: center;">25,00</td>
+<td style="text-align: center;">10,00</td>
+<td style="text-align: center;">10,00</td>
+<td style="text-align: center;">15,00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C04</strong></td>
+<td style="text-align: left;">Implantar, supervisionar e controlar soluções</td>
+<td style="text-align: center;">5,00</td>
+<td style="text-align: center;">30,00</td>
+<td style="text-align: center;">5,00</td>
+<td style="text-align: center;">3,00</td>
+<td style="text-align: center;">25,00</td>
+<td style="text-align: center;">5,00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C05</strong></td>
+<td style="text-align: left;">Comunicar-se eficazmente (escrita, oral e gráfica)</td>
+<td style="text-align: center;">3,00</td>
+<td style="text-align: center;">5,00</td>
+<td style="text-align: center;">5,00</td>
+<td style="text-align: center;">40,00</td>
+<td style="text-align: center;">5,00</td>
+<td style="text-align: center;">3,00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C06</strong></td>
+<td style="text-align: left;">Trabalhar e liderar equipes multidisciplinares</td>
+<td style="text-align: center;">2,00</td>
+<td style="text-align: center;">3,00</td>
+<td style="text-align: center;">3,00</td>
+<td style="text-align: center;">20,00</td>
+<td style="text-align: center;">35,00</td>
+<td style="text-align: center;">2,00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C07</strong></td>
+<td style="text-align: left;">Conhecer e aplicar com ética a legislação e normas</td>
+<td style="text-align: center;">5,00</td>
+<td style="text-align: center;">2,00</td>
+<td style="text-align: center;">2,00</td>
+<td style="text-align: center;">5,00</td>
+<td style="text-align: center;">5,00</td>
+<td style="text-align: center;">30,00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C08</strong></td>
+<td style="text-align: left;">Aprender de forma autônoma e lidar com complexidade</td>
+<td style="text-align: center;">15,00</td>
+<td style="text-align: center;">10,00</td>
+<td style="text-align: center;">20,00</td>
+<td style="text-align: center;">10,00</td>
+<td style="text-align: center;">3,00</td>
+<td style="text-align: center;">10,00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>TOTAL DA DIMENSÃO (100%)</strong></td>
+<td style="text-align: center;"><strong>100,00</strong></td>
+<td style="text-align: center;"><strong>100,00</strong></td>
+<td style="text-align: center;"><strong>100,00</strong></td>
+<td style="text-align: center;"><strong>100,00</strong></td>
+<td style="text-align: center;"><strong>100,00</strong></td>
+<td style="text-align: center;"><strong>100,00</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><strong>Analisando o Contraste Matemático:</strong></p>
+<p>A matriz revela imediatamente como o algoritmo “molda” a vocação do aluno filtrando as respostas do questionário:</p>
+<ul>
+<li><strong>A Concentração Analítica (P01):</strong> O Perfil 1 tem metade de todo o seu peso (50%) concentrado em apenas duas variáveis puramente exatas: Análise de Fenômenos (C02) e Projetos de Sistemas (C03). Competências interpessoais como Liderança (C06) e Comunicação (C05) somam míseros 5%, provando matematicamente o foco no “Cérebro” da operação.</li>
+<li><strong>O Deslocamento do Chão de Fábrica (P02):</strong> No Perfil de Operações, o peso sai da ideação e migra para a execução. A competência “Implantar, supervisionar e controlar” (C04) salta de 5% no P01 para expressivos 30% no P02.</li>
+<li><strong>A Oposição Ortogonal (P04 - O Comunicador):</strong> Este é o teste definitivo da calibragem. O Perfil 4 é a antítese técnica do Perfil 1; sua entrega central é a empatia e a articulação. Note que a competência de Comunicação (C05) suga quase metade da pontuação do perfil (40%), enquanto as competências de física e química (C02) desabam para apenas 2%.</li>
+</ul>
+<p>Essa mecânica de distribuição anula definitivamente o “Viés de Consistência” (o aluno que responde nota máxima em tudo). Ao multiplicar a resposta linear do avaliado por uma matriz altamente assimétrica, a engenharia de dados “puxa o tapete” das variáveis que não interessam àquele perfil específico, forçando o afloramento isolado da verdadeira vocação do avaliado.</p>
+</section>
+</section>
+<section id="sec-dinamica-perfis" class="level3" data-number="7.1.6">
+<h3 data-number="7.1.6" class="anchored" data-anchor-id="sec-dinamica-perfis"><span class="header-section-number">7.1.6</span> A Dinâmica de Triangulação e a Formação de Equipes</h3>
+<p>O objetivo central desta modelagem não é apenas rotular o aluno, mas utilizar o algoritmo para a formação estratégica de equipes.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="⚙️ Tech Note: Engenharia de Equipes e People Analytics">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>⚙️ Tech Note: Engenharia de Equipes e People Analytics
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Afinal, como o algoritmo deve formar os grupos?</strong> Na engenharia de produção e nas práticas modernas de <em>People Analytics</em>, a regra de ouro para a inovação e a resolução de problemas complexos é a <strong>complementaridade</strong>. O modelo não deve agrupar indivíduos com perfis idênticos, mas sim distribuir a diversidade. O objetivo estatístico é formar <strong>Esquadrões Multidisciplinares</strong> (<em>Cross-Functional Teams</em>), uma arquitetura organizacional onde o ponto cego de um arquétipo é blindado pela força natural do outro.</p>
+</div>
+</div>
+<p>Se um grupo for formado apenas por perfis Analíticos (P01), o projeto terá excelente fundamentação matemática, mas falhará na apresentação (falta o P04 - Comunicador). Se for formado apenas por Líderes (P05), haverá disputas de comando e falha na execução operacional (falta o P02). Portanto, o motor do <span class="math inline">\(ARM\)</span> é utilizado para distribuir e balancear os perfis, garantindo que cada equipe possua uma mescla complementar (O Cérebro, O Motor, A Visão, A Voz e A Consciência).</p>
+<p>Para que o mapeamento seja preciso e colete dados robustos para calibração de turmas e semestres futuros, a dinâmica abandona a avaliação estática e aplica um ciclo de triangulação em três rodadas (<em>Time-Boxed</em>).</p>
+<section id="rodada-1-autopercepção-e-o-score-inicial-individual" class="level4" data-number="7.1.6.1">
+<h4 data-number="7.1.6.1" class="anchored" data-anchor-id="rodada-1-autopercepção-e-o-score-inicial-individual"><span class="header-section-number">7.1.6.1</span> ⏱️ Rodada 1: Autopercepção e o Score Inicial (Individual)</h4>
+<ul>
+<li><strong>O que acontece:</strong> O aluno responde individualmente ao questionário baseado na sua própria percepção de competência.</li>
+<li><strong>O Processamento:</strong> Imediatamente após o preenchimento, o script em <code>R</code> processa as respostas contra a matriz de pesos (<span class="math inline">\(W_i\)</span>) e gera o <strong>Score Inicial</strong>.</li>
+<li><strong>Ação Gerencial:</strong> Com os perfis dominantes calculados, o professor (ou o algoritmo) distribui os alunos fisicamente na sala, formando os Esquadrões Multidisciplinares. A partir deste momento, o aluno senta-se com colegas que possuem visões de mundo (e matrizes de pontuação) diferentes da sua.</li>
+<li><strong>🔗 Link de Acesso:</strong> <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UMk8zNThSUjFJTTVBN09KR0k1VVBFNVhSUC4u">FORMULÁRIO 1 — Autopercepção de Desempenho</a></li>
+</ul>
+</section>
+<section id="rodada-2-exigência-na-prática-profissional-em-grupo" class="level4" data-number="7.1.6.2">
+<h4 data-number="7.1.6.2" class="anchored" data-anchor-id="rodada-2-exigência-na-prática-profissional-em-grupo"><span class="header-section-number">7.1.6.2</span> ⏱️ Rodada 2: Exigência na Prática Profissional (Em Grupo)</h4>
+<ul>
+<li><strong>O que acontece:</strong> Agora em suas novas equipes complementares, os alunos debatem qual é a exigência do mercado para cada uma das 51 variáveis. O grupo deve enviar <strong>apenas uma resposta em consenso</strong>.</li>
+<li><strong>O Efeito Psicológico:</strong> Ocorre um choque de realidade. Como o grupo é heterogêneo, o Perfil Analítico defenderá que “Estatística” é nota 5, mas o Perfil Comunicador argumentará que é nota 3. Esse atrito força a calibragem da percepção individual, ancorando o aluno na realidade plural do mercado.</li>
+<li><strong>🔗 Link de Acesso:</strong> <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UNTI5UFU2RzVMQjhRWTZIWTJPN0o4QzJUSC4u">FORMULÁRIO 2 — Exigência das Competências</a></li>
+</ul>
+</section>
+<section id="rodada-3-atribuição-de-pares-individual" class="level4" data-number="7.1.6.3">
+<h4 data-number="7.1.6.3" class="anchored" data-anchor-id="rodada-3-atribuição-de-pares-individual"><span class="header-section-number">7.1.6.3</span> ⏱️ Rodada 3: Atribuição de Pares (Individual)</h4>
+<ul>
+<li><strong>O que acontece:</strong> Após a intensa interação da Rodada 2, os alunos voltam ao escopo individual para avaliar a média de desempenho <strong>dos seus colegas de grupo</strong>.</li>
+<li><strong>O Efeito Matemático:</strong> Estatisticamente, espera-se uma queda nos <em>Scores</em> nesta etapa. Como os alunos não decoram as respostas da Rodada 1 e acabaram de vivenciar a exigência real do grupo, a avaliação de pares corrige o excesso de otimismo da autopercepção inicial.</li>
+<li><strong>🔗 Link de Acesso:</strong> <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1URjBXUVU2TTlRVlNTMzNKVE9PTVcxMjhMTi4u">FORMULÁRIO 3 — Atribuição de Desempenho dos Colegas</a></li>
+</ul>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled" title="💡 Insight Analítico (A Calibragem em Malha Fechada)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>💡 Insight Analítico (A Calibragem em Malha Fechada)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A mágica dessa dinâmica ocorre quando o ciclo se fecha. A cada formulário, o perfil do aluno sofre uma atualização paramétrica. O sistema atua como uma malha fechada de controle: a Rodada 1 revela como o aluno se vê; a Rodada 2 expõe o que o mundo exige; e a Rodada 3 revela como o mundo vê o aluno.</p>
+<p>Ao sobrepor matematicamente essas três camadas via <span class="math inline">\(ARM\)</span>, o <em>Dashboard</em> revela imediatamente os <strong>Gaps de Formação</strong> (quando a exigência do mercado é 5, mas a avaliação dos pares atribui 2) e a <strong>Miopia de Competência</strong> (quando a autopercepção é 5, mas os pares atribuem 2). Isso transcende a pedagogia tradicional, entregando um raio-X exato e rastreável para o Plano de Desenvolvimento Individual (PDI) de futuros engenheiros.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-escalabilidade-disciplinas" class="level3" data-number="7.1.7">
+<h3 data-number="7.1.7" class="anchored" data-anchor-id="sec-escalabilidade-disciplinas"><span class="header-section-number">7.1.7</span> A Escalabilidade Pedagógica: Aplicação Multidisciplinar</h3>
+<p>A robustez do motor matemático multivariado (<span class="math inline">\(ARM\)</span>) permite que a sua aplicação seja dosada de acordo com a maturidade técnica da turma e os objetivos da disciplina. A arquitetura de dados não precisa ser utilizada em sua totalidade a todo momento; ela pode ser escalada em três níveis de complexidade acadêmica:</p>
+<p><strong>1. Nível Básico: Introdução à Engenharia de Produção</strong> Nesta disciplina de calouros, o foco é o alinhamento de expectativas. Aplica-se apenas o <strong>Formulário 1 (Autopercepção)</strong>. O objetivo não é formar grupos complexos, mas apresentar o Projeto Pedagógico do Curso (PPC) de forma interativa. O aluno preenche o formulário e o algoritmo revela a distância entre o seu perfil atual e o perfil esperado do egresso, servindo como uma bússola inicial de carreira.</p>
+<p><strong>2. Nível Intermediário: Gestão da Qualidade</strong> Aqui, o foco é a auditoria de processos e a mitigação de vieses. Aplica-se a dinâmica de triangulação completa vista anteriormente <strong>(Formulários 1, 2 e 3)</strong>. O aluno aprende, na prática, como a avaliação de um sistema (neste caso, o próprio comportamento humano) varia dependendo do ponto de vista do avaliador (Autopercepção vs.&nbsp;Mercado vs.&nbsp;Pares).</p>
+<p><strong>3. Nível Avançado: Sistemas de Gestão Integrados (SGI)</strong> Na disciplina de SGI (que envolve as normas ISO 9001, 14001 e 45001), o aluno já possui bagagem técnica. Portanto, a escala de concordância (<em>Likert</em>) é substituída pelos <strong>Testes de Julgamento Situacional (SJT)</strong>. O aluno não avalia mais “o quanto ele acha que sabe”, mas sim “como ele decide sob pressão”. Para isso, introduzimos os <strong>Formulários 4 e 5</strong>, focados em dilemas contextuais.</p>
+<hr>
+</section>
+<section id="a-dinâmica-avançada-sgi-testes-de-julgamento-situacional-sjt" class="level3" data-number="7.1.8">
+<h3 data-number="7.1.8" class="anchored" data-anchor-id="a-dinâmica-avançada-sgi-testes-de-julgamento-situacional-sjt"><span class="header-section-number">7.1.8</span> A Dinâmica Avançada SGI: Testes de Julgamento Situacional (SJT)</h3>
+<p>A aplicação dos formulários de SGI testa a capacidade do aluno de integrar Qualidade, Meio Ambiente, Saúde e Segurança. Para operacionalizar essa etapa, a engenharia pedagógica requer um design de formulário completamente diferente da autopercepção inicial. O aluno não avalia “o quanto acha que sabe”, mas é jogado virtualmente no centro de uma crise operacional.</p>
+<p>Para garantir a lisura da coleta de dados e evitar o viés de desejabilidade social, o instrumento é configurado no Microsoft Forms (Forms 365) como um <strong>teste cego</strong>. O aluno visualiza apenas o cenário e as opções de ação, sem nenhuma indicação ou pontuação visível. As respostas não possuem “certo ou errado” absoluto, mas cada opção carrega um peso matemático direcionado a perfis específicos do modelo hexadimensional.</p>
+<section id="rodada-4-a-decisão-sob-pressão-individual---formulário-4" class="level4" data-number="7.1.8.1">
+<h4 data-number="7.1.8.1" class="anchored" data-anchor-id="rodada-4-a-decisão-sob-pressão-individual---formulário-4"><span class="header-section-number">7.1.8.1</span> ⏱️ Rodada 4: A Decisão Sob Pressão (Individual) - Formulário 4</h4>
+<p>Nesta etapa, o aluno responde individualmente a dilemas operacionais. O objetivo é recalibrar o perfil original do aluno com base nas suas reais prioridades de gestão (Risco vs.&nbsp;Custo vs.&nbsp;Compliance).</p>
+<p><strong>Instruções de Preenchimento projetadas aos alunos:</strong> &gt; <em>Bem-vindo(a) à simulação de Gestão de Crises. A partir de agora, você assume a cadeira de Gerente de Operações de uma instalação industrial complexa. Você tem exatos 10 minutos para concluir. Escolha apenas uma alternativa por cenário.</em></p>
+<p><strong>Dilema 1 — Qualidade vs.&nbsp;Produção (Conflito ISO 9001)</strong> * <strong>Contexto:</strong> Durante o carregamento de um navio no porto, o laboratório identifica que o lote de minério de ferro está com sílica 0,5% acima do limite de um cliente europeu <em>premium</em>. O navio está 40% carregado. Paralisar gerará <em>demurrage</em> de US$ 100.000/dia e comprometerá a meta trimestral de produção. * <strong>Opção A (Foco em Compliance):</strong> Interrompo o embarque imediatamente. Assumo o prejuízo, reporto a NC e corrijo o lote. * <strong>Opção B (Foco em Negociação):</strong> Continuo o carregamento para não gerar multas e aciono o comercial para oferecer desconto agressivo (15%) ao cliente. * <strong>Opção C (Foco em Risco Operacional):</strong> Suspendo apenas para contraprova. Se der o mesmo resultado, libero o navio para bater a meta e lido com a reclamação depois.</p>
+<p><strong>Dilema 2 — Saúde e Segurança vs.&nbsp;Cultura (Conflito ISO 45001)</strong> * <strong>Contexto:</strong> A planta está a 1 dia de bater 1 ano sem acidentes, o que garante 2 salários de bônus para 500 operadores. No turno da noite, um operador torce o tornozelo gravemente. O supervisor sugere registrar como ‘acidente de trajeto doméstico’ para salvar o bônus. * <strong>Opção A (Ética Inflexível):</strong> Registro o acidente industrial imediatamente. Fraude é inegociável. * <strong>Opção B (Paternalismo):</strong> Aceito a sugestão. Protejo o bônus e a motivação de 500 famílias. * <strong>Opção C (Estratégia Corporativa):</strong> Isolo a área para investigação da causa-raiz. Após neutralizar o risco, negocio exceção contratual com o RH para pagar o bônus legalmente, apesar do acidente.</p>
+<p><strong>Dilema 3 — Meio Ambiente vs.&nbsp;Orçamento (Conflito ISO 14001)</strong> * <strong>Contexto:</strong> Um filtro crítico na chaminé da usina de pelotização apresenta falhas intermitentes. Substituí-lo imediatamente paralisará a produção por 2 dias e custará US$ 50.000, estourando o seu orçamento de manutenção do trimestre. * <strong>O Conflito:</strong> Se o filtro falhar de vez, as emissões de particulados ultrapassarão os limites legais do CONAMA, gerando multas pesadas e paralisação pelo órgão ambiental. Porém, a produção já está atrasada. * <strong>Opção A (Foco Ambiental/Técnico):</strong> Paro a usina e troco o filtro imediatamente. Estouro o orçamento, mas garanto o compliance ambiental e elimino o risco de interdição técnica. * <strong>Opção B (Foco Operacional/Risco):</strong> Mantenho a usina rodando, mas coloco um técnico monitorando a chaminé a cada hora. Preparamos um plano de contingência para desligamento emergencial apenas se o limite legal for atingido. * <strong>Opção C (Foco em Negociação/Criatividade):</strong> Reduzo a carga da usina para 50%, diminuindo a pressão no filtro para que ele não quebre, enquanto negocio emergencialmente com a diretoria um orçamento extra para a troca no fim de semana.</p>
+<p><strong>Dilema 4 — Auditoria vs.&nbsp;Ética Interna (Conflito ISO 19011)</strong> * <strong>Contexto:</strong> Durante uma auditoria interna do SGI, você descobre que a certificação do principal fornecedor de EPIs está vencida. O Gerente de Compras (um veterano influente e amigo do CEO) falsificou a data no sistema para evitar o bloqueio, pois este fornecedor é o mais barato. * <strong>O Conflito:</strong> Reportar a falsificação causará a demissão do gerente e uma crise de suprimentos. Ignorar o fato coloca a empresa em risco de perder a certificação na auditoria externa no mês que vem. * <strong>Opção A (Foco em Compliance/Auditoria):</strong> Registro a Não Conformidade formalmente no relatório de auditoria e bloqueio o fornecedor no sistema de imediato, assumindo o desgaste político com o CEO. * <strong>Opção B (Foco em Liderança/Relacionamento):</strong> Chamo o Gerente de Compras para uma conversa a portas fechadas. Dou a ele 48 horas para regularizar o fornecedor ou achar um substituto antes de fechar o meu relatório, resolvendo o problema sem exposição. * <strong>Opção C (Foco em Processos/Contorno):</strong> Reclassifico o fornecedor no sistema como “Experimental Temporário”, status que isenta a certificação imediata, enquanto oriento a equipe a procurar novos orçamentos discretamente.</p>
+<p><strong>Dilema 5 — Responsabilidade Social vs.&nbsp;Lucro (Conflito NBR 16001 / ISO 26000)</strong> * <strong>Contexto:</strong> A empresa fará uma expansão lucrativa na mina. O caminho mais barato exige desapropriar uma pequena comunidade local. A equipe jurídica encontrou uma brecha legal que permite forçar a desapropriação pagando indenizações irrisórias. * <strong>O Conflito:</strong> Usar a brecha economiza US$ 2 milhões e 6 meses de projeto. Conduzir o processo de forma ética e colaborativa custará o valor de mercado e atrasará o cronograma. * <strong>Opção A (Foco Social/Transparência):</strong> Recuso a brecha legal. Inicio um processo transparente com a comunidade e pago o valor justo de mercado, protegendo a imagem e a licença social de operação da empresa. * <strong>Opção B (Foco em Compensação Cruzada):</strong> Uso a brecha para garantir o terreno rápido, mas pego parte dos US$ 2 milhões economizados para construir uma escola e um posto de saúde na nova vila deles, apaziguando os ânimos. * <strong>Opção C (Foco em Eficiência Financeira):</strong> Analiso friamente o risco legal. Se a brecha for sólida, executo a desapropriação pelo menor custo possível. Trato o impacto social estritamente como uma métrica de custo operacional.</p>
+<p><strong>Dilema 6 — Crise do Indicador de Desempenho (Conflito ISO 9001 / Liderança)</strong> * <strong>Contexto:</strong> A diretoria exige que o índice de satisfação do cliente suba para 95% neste mês para garantir o bônus de todos os gerentes. O índice está em 88%. A equipe comercial sugere disparar as pesquisas apenas para a lista de clientes que já deram notas positivas no passado, garantindo a meta. * <strong>O Conflito:</strong> Fraudar a amostragem garante o bônus de dezenas de gestores, mas mascara um problema real de qualidade perante a norma. * <strong>Opção A (Foco em Serviço/Comunicação):</strong> Recusa o filtro viciado, mas cria uma campanha de engajamento oferecendo novos serviços agregados aos clientes insatisfeitos para reverter a percepção deles de forma amigável. * <strong>Opção B (Foco em Postura/Liderança):</strong> Veta a fraude por violar a ética corporativa. Assume a liderança da crise e vai até a diretoria apresentar o risco de imagem que essa maquiagem traria a longo prazo. * <strong>Opção C (Foco em Estatística/Causa-raiz):</strong> Nega a manipulação. Puxa a base de dados completa do semestre para analisar estatisticamente a causa-raiz da insatisfação e atua para otimizar o processo.</p>
+<section id="a-engenharia-de-dados-do-sjt-a-matriz-de-injeção-de-pesos-w_sjt" class="level5" data-number="7.1.8.1.1">
+<h5 data-number="7.1.8.1.1" class="anchored" data-anchor-id="a-engenharia-de-dados-do-sjt-a-matriz-de-injeção-de-pesos-w_sjt"><span class="header-section-number">7.1.8.1.1</span> A Engenharia de Dados do SJT: A Matriz de Injeção de Pesos (<span class="math inline">\(W_{SJT}\)</span>)</h5>
+<p>Com a expansão para 6 dilemas, o espaço amostral do julgamento situacional atinge o volume necessário para a estabilidade algorítmica. O sistema injeta um vetor de pontos (+5 ou +0) nos perfis correspondentes a cada decisão exclusiva.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dilema</th>
+<th style="text-align: left;">Opção Escolhida</th>
+<th style="text-align: center;">P01 (Analítico)</th>
+<th style="text-align: center;">P02 (Operações)</th>
+<th style="text-align: center;">P03 (Criativo)</th>
+<th style="text-align: center;">P04 (Comunicador)</th>
+<th style="text-align: center;">P05 (Líder)</th>
+<th style="text-align: center;">P06 (Sustentável)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>1. Quali/Prod</strong></td>
+<td style="text-align: left;"><strong>A</strong> (Compliance/Cliente)</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>(ISO 9001)</em></td>
+<td style="text-align: left;"><strong>B</strong> (Negociação/Crise)</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>C</strong> (Burlar/Meta)</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>2. SST/Cultura</strong></td>
+<td style="text-align: left;"><strong>A</strong> (Ética/Risco 0)</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><em>(ISO 45001)</em></td>
+<td style="text-align: left;"><strong>B</strong> (Clima/Equipe)</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>C</strong> (Investigação/RH)</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>3. Amb/Orçam</strong></td>
+<td style="text-align: left;"><strong>A</strong> (Parar/Trocar)</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>(ISO 14001)</em></td>
+<td style="text-align: left;"><strong>B</strong> (Monitorar/Risco)</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>C</strong> (Reduzir/Negociar)</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>4. Auditoria</strong></td>
+<td style="text-align: left;"><strong>A</strong> (Reportar/NC)</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><em>(ISO 19011)</em></td>
+<td style="text-align: left;"><strong>B</strong> (Barganhar/Prazo)</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>C</strong> (Manobra/Sistema)</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>5. Social/Lucro</strong></td>
+<td style="text-align: left;"><strong>A</strong> (Transparência)</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>(NBR 16001)</em></td>
+<td style="text-align: left;"><strong>B</strong> (Compensação Cruz)</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>C</strong> (Eficiência Legal)</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>6. Indicador</strong></td>
+<td style="text-align: left;"><strong>A</strong> (Serviço/Redação)</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><em>(ISO 9001)</em></td>
+<td style="text-align: left;"><strong>B</strong> (Vetar/Postura)</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>C</strong> (Estatística/Causa)</td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: center;">+ 0.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>A Lógica de Backend (Motor R):</strong> Todo o mapeamento ocorre de forma invisível no <em>backend</em>. Quando o tempo acaba, o professor exporta o <code>.csv</code> e o script em <strong>R</strong> executa um cruzamento relacional (<code>left_join</code>) entre as escolhas dos 6 dilemas e a Matriz <span class="math inline">\(W_{SJT}\)</span>. O resultado é um perfil recalibrado em 360 graus.</p>
+</section>
+</section>
+<section id="a-mecânica-de-reorganização-pós-formulário-4" class="level4" data-number="7.1.8.2">
+<h4 data-number="7.1.8.2" class="anchored" data-anchor-id="a-mecânica-de-reorganização-pós-formulário-4"><span class="header-section-number">7.1.8.2</span> A Mecânica de Reorganização Pós-Formulário 4</h4>
+<p>Com os novos perfis revelados, a coordenação <strong>desfaz os grupos antigos e forma novas equipes multidisciplinares</strong>. O terreno está preparado para a aplicação do <strong>Formulário 5</strong>, onde esses perfis remapeados terão que debater e negociar a sobrevivência operacional em conjunto.</p>
+</section>
+<section id="rodada-5-a-engenharia-de-equipes-e-validação-dinâmica-presencial" class="level4" data-number="7.1.8.3">
+<h4 data-number="7.1.8.3" class="anchored" data-anchor-id="rodada-5-a-engenharia-de-equipes-e-validação-dinâmica-presencial"><span class="header-section-number">7.1.8.3</span> ⏱️ Rodada 5: A Engenharia de Equipes e Validação (Dinâmica Presencial)</h4>
+<p>Com os perfis individuais recalibrados de forma objetiva pelo algoritmo, a dinâmica abandona o uso de formulários. O objetivo desta etapa presencial é garantir que as “Consultorias” (os grupos definitivos) possuam a resiliência multidisciplinar necessária para iniciar e concluir a disciplina com sucesso.</p>
+<p><strong>Passo 1: A Formação Algorítmica (Os 10 Grupos)</strong> O professor projeta o resultado do <em>Dashboard</em>, distribuindo os 48 alunos matriculados em <strong>10 equipes definitivas</strong> (oito grupos de 5 membros e dois grupos de 4 membros). A alocação obedece a uma regra estrita de complementaridade: nenhuma equipe pode ser homogênea. Para que o grupo seja validado, o sistema garante o cruzamento das matrizes, misturando o núcleo operacional (Perfis 1 e 2), o núcleo de articulação (Perfis 4 e 5) e o núcleo de visão sistêmica (Perfis 3 e 6).</p>
+<p><strong>Passo 2: O Teste de Viabilidade da Equipe</strong> Já reunidos fisicamente em suas novas formações, os alunos executam o rito de validação do grupo: 1. <strong>Análise do Radar da Equipe:</strong> O grupo analisa o seu próprio gráfico de competências cruzadas gerado pelo script em R. Eles devem identificar imediatamente os “pontos cegos” da equipe (ex: “Temos alta capacidade analítica, mas nossa habilidade de comunicação está baixa”). 2. <strong>Distribuição Estratégica de Papéis:</strong> Baseado nas forças individuais reveladas pelo SJT, os membros distribuem as responsabilidades reais para o semestre. Quem será o gestor do cronograma? Quem estruturará as análises de risco do projeto? Quem fará a ponte nas apresentações dos seminários? 3. <strong>Pactuação de Regras Internas:</strong> A equipe formaliza como lidará com faltas, atrasos nas entregas das 8 tarefas práticas e nivelamento de qualidade dos trabalhos.</p>
+<p>A partir deste momento de alinhamento e transparência, o grupo está oficialmente homologado como uma equipe multidisciplinar, pronta para conduzir o desenvolvimento do Sistema de Gestão Integrado da empresa fictícia ao longo das semanas seguintes.</p>
+</section>
+</section>
+<section id="sec-estruturacao-tri" class="level3" data-number="7.1.9">
+<h3 data-number="7.1.9" class="anchored" data-anchor-id="sec-estruturacao-tri"><span class="header-section-number">7.1.9</span> A Auditoria do Instrumento: Introdução à Teoria da Resposta ao Item (TRI)</h3>
+<p>Uma vez que o modelo multivariado (ARM) fornece a arquitetura de cálculo para os perfis e a dinâmica de triangulação garante a coleta de dados (Exigência, Atribuição e Desempenho), surge um novo desafio para a engenharia de dados: <strong>como auditar a qualidade, a dificuldade e a confiabilidade das perguntas que compõem o próprio questionário?</strong> Para superar as limitações da Teoria Clássica da Medida — que apenas soma as notas, como vimos anteriormente —, a modelagem evolui para a <strong>Teoria da Resposta ao Item (TRI)</strong>. Para demonstrar essa estruturação, utilizaremos um recorte de um questionário focado em egressos e graduandos, especificamente na área de Gestão e Administração.</p>
+<p>O instrumento de medida definitivo contém <span class="math inline">\(I=25\)</span> itens (C01 a C25), medidos de forma independente por uma escala do tipo <em>Likert</em> de <span class="math inline">\(k=5\)</span> pontos. O diferencial analítico deste modelo é que, para cada variável, o indivíduo emite três percepções distintas na dinâmica de triangulação: <strong>Exigência (<span class="math inline">\(P_e\)</span>)</strong>, <strong>Atribuição (<span class="math inline">\(P_a\)</span>)</strong> e <strong>Desempenho (<span class="math inline">\(P_d\)</span>)</strong>.</p>
+<p>Abaixo, apresentamos a matriz do instrumento definitivo para este recorte:</p>
+<div id="tbl-instrumento-gestao" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-instrumento-gestao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;7.5: Instrumento de medida para Avaliação de Competências em Gestão
+</figcaption>
+<div aria-describedby="tbl-instrumento-gestao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Item</th>
+<th style="text-align: left;">Competência Avaliada</th>
+<th style="text-align: center;">Exigência</th>
+<th style="text-align: center;">Atribuição</th>
+<th style="text-align: center;">Desempenho</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>C01</strong></td>
+<td style="text-align: left;">Adaptar-se às novas situações e/ou pressões de trabalho</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C01}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C01}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C01}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C02</strong></td>
+<td style="text-align: left;">Agir com responsabilidade, respondendo às demandas críticas</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C02}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C02}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C02}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C03</strong></td>
+<td style="text-align: left;">Buscar o aperfeiçoamento contínuo da qualidade dos trabalhos</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C03}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C03}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C03}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C04</strong></td>
+<td style="text-align: left;">Buscar soluções originais e criativas, de forma inovadora</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C04}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C04}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C04}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C05</strong></td>
+<td style="text-align: left;">Comunicar-me na forma escrita e verbal de forma clara</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C05}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C05}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C05}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C06</strong></td>
+<td style="text-align: left;">Elaborar e implementar projetos em organizações</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C06}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C06}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C06}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C07</strong></td>
+<td style="text-align: left;">Identificar problemas, definir características e elaborar soluções</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C07}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C07}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C07}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C08</strong></td>
+<td style="text-align: left;">Permanecer produtivo diante das pressões naturais do trabalho</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C08}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C08}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C08}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C09</strong></td>
+<td style="text-align: left;">Buscar e adquirir conhecimentos para atualização contínua</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C09}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C09}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C09}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C10</strong></td>
+<td style="text-align: left;">Raciocinar de forma lógica com embasamento matemático</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C10}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C10}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C10}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C11</strong></td>
+<td style="text-align: left;">Realizar consultoria em gestão e administração</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C11}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C11}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C11}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C12</strong></td>
+<td style="text-align: left;">Tomar decisões a partir da análise dos aspectos do trabalho</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C12}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C12}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C12}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C13</strong></td>
+<td style="text-align: left;">Ter autocrítica</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C13}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C13}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C13}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C14</strong></td>
+<td style="text-align: left;">Compartilhar e aplicar conhecimentos técnicos para resolver problemas</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C14}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C14}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C14}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C15</strong></td>
+<td style="text-align: left;">Administrar e formular estratégias de vendas e marketing</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C15}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C15}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C15}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C16</strong></td>
+<td style="text-align: left;">Tomar decisões de investimento e financiamento</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C16}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C16}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C16}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C17</strong></td>
+<td style="text-align: left;">Gerir e utilizar tecnologias da informação nos processos</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C17}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C17}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C17}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C18</strong></td>
+<td style="text-align: left;">Liderar equipes de forma inspiradora e eficaz</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C18}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C18}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C18}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C19</strong></td>
+<td style="text-align: left;">Assumir o processo decisório (planejamento, direção e controle)</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C19}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C19}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C19}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C20</strong></td>
+<td style="text-align: left;">Domínio de língua estrangeira</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C20}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C20}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C20}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C21</strong></td>
+<td style="text-align: left;">Considerar os valores éticos da profissão</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C21}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C21}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C21}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C22</strong></td>
+<td style="text-align: left;">Gerenciar de forma completa um sistema logístico</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C22}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C22}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C22}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C23</strong></td>
+<td style="text-align: left;">Interpretar a informação contábil para a tomada de decisão</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C23}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C23}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C23}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C24</strong></td>
+<td style="text-align: left;">Conhecimentos jurídicos aplicados à gestão empresarial</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C24}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C24}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C24}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>C25</strong></td>
+<td style="text-align: left;">Promover esforços de negociação para obtenção de resultados</td>
+<td style="text-align: center;"><span class="math inline">\(Pe_{C25}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pa_{C25}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Pd_{C25}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<section id="estruturação-algébrica-do-modelo" class="level4" data-number="7.1.9.1">
+<h4 data-number="7.1.9.1" class="anchored" data-anchor-id="estruturação-algébrica-do-modelo"><span class="header-section-number">7.1.9.1</span> Estruturação Algébrica do Modelo</h4>
+<p>Para viabilizar a análise estatística dos dados em lote (preparando o terreno computacional para a linguagem <strong>R</strong> e a modelagem da TRI), introduzimos a seguinte notação matemática rigorosa para o instrumento de medida:</p>
+<ul>
+<li><span class="math inline">\(\{I_i\}_{(i \ge 1)}\)</span>: Conjunto de itens mensurados no formulário (<span class="math inline">\(i = 1, 2, \dots, I\)</span>).</li>
+<li><span class="math inline">\(\{m_k\}_{(k \ge 1)}\)</span>: Os escores numéricos das categorias de resposta. Especificamente, <span class="math inline">\(\{m_1 = 1, m_2 = 2, \dots, m_k = k\}\)</span> representam as alternativas da escala <em>Likert</em> (neste caso, de 1 a 5), considerando a obrigatoriedade de respostas em todos os itens.</li>
+<li><span class="math inline">\(\{N_j\}_{(j \ge 1)}\)</span>: Conjunto de indivíduos (<span class="math inline">\(j = 1, 2, \dots, n\)</span>) de uma população avaliada.</li>
+<li><span class="math inline">\(\{y_j\}\)</span>: Vetor com as respostas capturadas do indivíduo para os itens avaliados.</li>
+</ul>
+<p>Ao considerar um instrumento de medida para uma determinada percepção <span class="math inline">\(p \in \{P_e, P_a, P_d\}\)</span>, este será composto por um conjunto <span class="math inline">\(\{I_i\}\)</span> de itens, medidos de forma independente por <span class="math inline">\(\{m_k\}\)</span> categorias de respostas, sendo <span class="math inline">\(\{N_j\}\)</span> a amostra da população de interesse. Logo, se cada indivíduo (<span class="math inline">\(j\)</span>) tiver uma percepção única de um item (<span class="math inline">\(i\)</span>), gerando um possível padrão de resposta <span class="math inline">\(y_{i,j}^p\)</span>, o espaço amostral <span class="math inline">\(\Omega\)</span> será o conjunto de todas as combinações matemáticas possíveis (<span class="math inline">\(k^I\)</span>).</p>
+<p>Essa fundação algébrica permite desdobrar a análise em quatro níveis de profundidade:</p>
+<p><strong>1. O Espaço Amostral Global</strong> Como exemplo, para a avaliação da percepção de Exigência do Mercado (<span class="math inline">\(P_e\)</span>), os <span class="math inline">\(I=25\)</span> itens (<span class="math inline">\(Pe_{C01}\)</span> a <span class="math inline">\(Pe_{C25}\)</span>) são medidos de forma independente por sua respectiva escala de resposta de <span class="math inline">\(k=5\)</span> pontos. O espaço amostral <span class="math inline">\(\Omega\)</span> desta matriz atinge <span class="math inline">\(5^{25}\)</span> combinações possíveis de respostas, evidenciando a complexidade combinatória que o algoritmo precisará tratar.</p>
+<p><strong>2. O Score do Indivíduo</strong> Cada indivíduo produzirá um <em>Score Total</em> (<span class="math inline">\(T_j\)</span>), que matematicamente é limitado pela multiplicação do número de itens e os limites extremos da escala de resposta. Para este instrumento de 25 itens com nota máxima 5: <span class="math display">\[T_j = \sum_{i=1}^{25} y_{i,j}^{P_e} \in [25, 125]\]</span></p>
+<p><strong>3. O Score da Variável (Item)</strong> Para auditar e ranquear quais itens específicos são mais exigidos pelo mercado de forma isolada, o sistema calcula o Somatório do Item (<span class="math inline">\(S_i\)</span>) e sua respectiva Média (<span class="math inline">\(M_i\)</span>) em relação ao número total de respondentes (<span class="math inline">\(n\)</span>): <span class="math display">\[S_i^{P_e} = \sum_{j=1}^n y_{i,j}^{P_e} \in [n, 5n]\]</span> <span class="math display">\[M_i^{P_e} = \frac{S_i^{P_e}}{n}\]</span></p>
+<p><strong>4. O Score por Agrupamentos (Clusters)</strong> Quando há necessidade de separar a amostra em subgrupos demográficos (ex: ingressantes vs.&nbsp;formandos vs.&nbsp;egressos), denotados por <span class="math inline">\(g \in \{G_1, \dots, G_q\}\)</span> com intersecção nula (<span class="math inline">\(\bigcap_1^q G. = \emptyset\)</span>), onde <span class="math inline">\(q\)</span> é o número de repartições. Todo respondente deve pertencer a apenas um grupo. O Somatório do Grupo (<span class="math inline">\(T_{G.}^p\)</span>) e a sua Média (<span class="math inline">\(M_{G.}^p\)</span>) são definidos de forma vetorizada como: <span class="math display">\[T_{G.}^p = \sum_{j \in G.} T_j^p\]</span> <span class="math display">\[M_{G.}^p = \frac{T_{G.}^p}{n_{G.}}\]</span> —</p>
+</section>
+</section>
+</section>
+<section id="sec-caso-iqpl" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="sec-caso-iqpl"><span class="header-section-number">7.2</span> O Índice de Qualidade de Plano de Manutenção (IQPL)</h2>
+<p>No segundo estudo de caso, a modelagem ARM é aplicada diretamente à gestão de ativos físicos. Um plano de manutenção mal estruturado gera paradas não programadas e destrói o fluxo de caixa. Para auditar a robustez desses planos, cria-se o <strong>Índice de Qualidade de Plano de Manutenção (IQPL)</strong>.</p>
+<p>O IQPL é a consolidação da nossa equação de qualidade em uma nota cuja pontuação máxima atinge 100 pontos. Para garantir o rigor técnico, o modelo foi desdobrado em um total de <strong>35 variáveis (<span class="math inline">\(V_i\)</span>)</strong>, metodicamente agrupadas em <strong>5 áreas de interesse (<span class="math inline">\(D_j\)</span>)</strong>:</p>
+<p><span id="eq-iqpl"><span class="math display">\[IQPL = \sum_{j=1}^{5} \left[ W_{D_j} \times \left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right) \right] \leq 100 \tag{7.1}\]</span></span></p>
+<p>Com o intuito de impulsionar a melhoria contínua, as variáveis do IQPL foram divididas entre <em>Parâmetros Existentes</em> (a base histórica) e <em>Parâmetros Novos</em> (agregados para elevar o nível de gestão):</p>
+<p><strong>1. Programáveis (<span class="math inline">\(D_1\)</span> - 7 variáveis):</strong> * <em>Existentes:</em> Tolerância Positiva (+), Tolerância Negativa (-), Horizonte de abertura, Intervalo de solicitação, Local de instalação, Plano automático, Plano não iniciado.</p>
+<p><strong>2. Processuais (<span class="math inline">\(D_2\)</span> - 6 variáveis):</strong> * <em>Novos:</em> Materiais, HH - Qualidade, ACF (Apontamento de Classe Falha). * <em>Existentes:</em> Reinício dos planos, Ciclos vencidos, RT e Validação de Planos.</p>
+<p><strong>3. Ativos (<span class="math inline">\(D_3\)</span> - 6 variáveis):</strong> * <em>Novos:</em> Taxonomia - Padronização, Taxonomia – 6º Nível, Perfil de catálogo, Tipo de Ativo, Fabricante, Data de Aquisição e Operação.</p>
+<p><strong>4. Lista de Tarefas (<span class="math inline">\(D_4\)</span> - 15 variáveis):</strong> * <em>Novo:</em> PTS. * <em>Existentes:</em> Chave de cálculo, Campo de Duração, Campo percentual, Responsável técnico LT, Última modificação LT, Duração irrisória, Duração Máxima, Unidade CT (H), Segurança, Validade da LT, 5S, Título da Lista, Tempo Máx. operação, Chave de controle.</p>
+<p><strong>5. Desempenho (<span class="math inline">\(D_5\)</span> - 1 variável):</strong> * <em>Novo:</em> RMC.</p>
+<hr>
+</section>
+<section id="sec-caso-ari-irt" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="sec-caso-ari-irt"><span class="header-section-number">7.3</span> 6.3 Avaliação de Sistemas de Gestão Integrados e o Ambiente de Relacionamento Interno (ARI)</h2>
+<p>O terceiro estudo de caso explora a dinâmica comportamental e os gargalos de comunicação dentro de um <strong>Ambiente de Relacionamento Interno (ARI)</strong>. Em grandes operações minerais, a qualidade não depende apenas da máquina, mas do fluxo de informações entre a equipe que planeja (Apoio) e a equipe que executa (Operação).</p>
+<p>O objetivo deste caso é instrumentalizar a Modelagem Analítica de Requisitos (ARM) para medir o efeito das <strong>diferenças de percepção</strong> de qualidade entre os clientes internos. Historicamente, a literatura foca muito na formulação de sistemas de gestão ou em fatores de mercado externo, havendo uma lacuna em quantificar como a percepção distorcida entre departamentos impacta o desempenho organizacional.</p>
+<p>Para transpor essa barreira, o desenvolvimento do instrumento de medição seguirá um rigoroso fluxo metodológico: 1. <strong>Modelagem Conceitual:</strong> Mapeamento do ARI, caracterização das partes envolvidas (Apoio vs.&nbsp;Operação) e definição dos fatores críticos que impactam esse ecossistema. 2. <strong>Coleta e Refinamento:</strong> Utilização de dados informacionais da empresa, <em>focus groups</em> exploratórios e confirmatórios, aliados à análise temática de conteúdo. 3. <strong>Instrumentalização Matemática:</strong> Para modelar e codificar essas percepções, a modelagem se apoiará na <strong>Teoria da Resposta ao Item (TRI)</strong> <em>(Item Response Theory - IRT)</em>, técnica estatística avançada que permitirá validar as variáveis qualitativas do sistema de gestão.</p>
+<p><em>(Nota: O desenvolvimento do código, das equações da Teoria da Resposta ao Item e das funções matemáticas em R para este estudo de caso serão detalhados nas seções seguintes).</em></p>
+</section>
+<section id="resumo-do-capítulo" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="resumo-do-capítulo"><span class="header-section-number">7.4</span> 📝 Resumo do Capítulo</h2>
+<ul>
+<li><strong>A Modelagem Multidimensional do Capital Humano:</strong> O modelo ARM expande-se para avaliar competências, habilidades e atitudes de profissionais. Desdobrando 51 variáveis operacionais em 3 dimensões (Competências, Habilidades, Atitudes), a abordagem permite diagnósticos específicos superiores a simples “notas globais”.</li>
+<li><strong>Vieses em Autopercepção:</strong> Questionários de autoavaliação sofrem distorções sistemáticas (desejabilidade social, viés de consistência, ancoragem, etc.). A engenharia de dados deve mitigar essas distorções através de técnicas de tratamento rigoroso.</li>
+<li><strong>O IQPL (Índice de Qualidade de Plano de Manutenção):</strong> Aplicação prática do ARM para auditoria de sistemas de manutenção. Com 35 variáveis agrupadas em 5 dimensões (Programáveis, Processuais, Ativos, Lista de Tarefas, Desempenho), o IQPL fornece uma nota única (máximo 100 pontos) para guiar a melhoria de planos de manutenção.</li>
+<li><strong>Ambientes de Relacionamento Interno (ARI):</strong> A terceira camada de aplicação examina como a comunicação e a percepção entre departamentos (Apoio vs.&nbsp;Operação) impactam o desempenho. Introduz-se a <strong>Teoria da Resposta ao Item (TRI/IRT)</strong> para modelar variáveis qualitativas complexas com rigor estatístico.</li>
+<li><strong>Escalabilidade da Arquitetura:</strong> Os estudos de caso demonstram que a mesma equação base (ARM) é universal: funciona para avaliar minério, britadores, humanos ou sistemas abstratos (como comunicação interna). A mudança está apenas na granularidade das variáveis (<span class="math inline">\(V_i\)</span>) e na estrutura dimensional (<span class="math inline">\(D_j\)</span>).</li>
+</ul>
+<hr>
+</section>
+<section id="sec-exercicios-cap7" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="sec-exercicios-cap7"><span class="header-section-number">7.5</span> Exercícios de Fixação</h2>
+<p>Para consolidar os conceitos deste capítulo, consulte a seção <a href="cap8-exercicios-parte1.qmd#sec-cap8-cap7"><strong>Capítulo 7 — Estudos de Casos</strong></a> no <a href="cap8-exercicios-parte1.qmd#sec-cap8-exercicios"><strong>Capítulo 8: Exercícios Integrados da Parte I</strong></a>. b) 5 Habilidades operacionais associadas a cada competência. c) 5 Atitudes comportamentais que você esperaria de um profissional de excelência. d) Um modelo simplificado ARM (com pesos) que avaliasse este profissional em escala 0-100. :::</p>
+<div id="exr-cap7-vieses-percepcao" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercício 7.1</strong></span> <strong>Análise de Vieses em Autopercepção</strong> Em um questionário de autoavaliação de profissionais de manutenção, você observa que 80% dos respondentes são classificados como “Forte” (nota 5 em uma escala 1-5) em “Habilidades Técnicas”, enquanto apenas 10% se classificam como “Forte” em “Liderança”. Qual viés está presente? Como reformularia o instrumento para mitigar essa distorção?</p>
+</div>
+<div id="exr-cap7-ndimensional" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercício 7.2</strong></span> <strong>Modelo N-Dimensional de Competência</strong> Construa um modelo ARM bidimensional (2 dimensões principais) avaliando um “Técnico de Manutenção Sênior” em Mineração, com: - Dimensão 1: Competência Técnica (5 variáveis, pesos dados) - Dimensão 2: Competência Comportamental (5 variáveis, pesos dados) - Calcule um score global (escala 0-100) para um respondente fictício.</p>
+</div>
+<section id="seção-2-iqpl-e-auditoria-de-planos-de-manutenção" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="seção-2-iqpl-e-auditoria-de-planos-de-manutenção"><span class="header-section-number">7.5.1</span> Seção 2: IQPL e Auditoria de Planos de Manutenção</h3>
+<div id="exr-cap7-iqpl-simplificado" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercício 7.3</strong></span> <strong>Cálculo Simplificado do IQPL</strong> Usando a fórmula do IQPL apresentada no capítulo, construa versão simplificada com apenas 10 variáveis (em vez de 35), agrupadas em 3 dimensões. Atribua pesos aos variáveis e dimensões, e calcule um score IQPL fictício para um plano de manutenção de um britador primário.</p>
+</div>
+<div id="exr-cap7-auditoria-manutencao" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercício 7.4</strong></span> <strong>Auditoria de Plano de Manutenção Usando ARM</strong> Para um Caminhão Fora de Estrada em operação, audite o seu plano de manutenção respondendo às seguintes questões:</p>
+<ol type="a">
+<li>Quais são as 3 variáveis mais críticas que devem estar no plano para maximizar a DF (Disponibilidade Física)?</li>
+<li>Como você estruturaria as dimensões (Programáveis, Processuais, Ativos, Listas)?</li>
+<li>Qual seria uma meta de IQPL realista para este equipamento (0-100)?</li>
+</ol>
+</div>
+<div id="exr-cap7-iqpl-comparacao" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercício 7.5</strong></span> <strong>Comparação de Dois Planos (IQPL Relativo)</strong> Dois britadores (A e B) foram auditados com os seguintes resultados: - Britador A: IQPL = 78/100 - Britador B: IQPL = 65/100</p>
+<p>Qual equipamento merecia priorização imediata? Como você desdobraria o diagnóstico para identificar as fraquezas específicas do Britador B?</p>
+</div>
+</section>
+<section id="seção-3-ambientes-de-relacionamento-interno-ari" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="seção-3-ambientes-de-relacionamento-interno-ari"><span class="header-section-number">7.5.2</span> Seção 3: Ambientes de Relacionamento Interno (ARI)</h3>
+<div id="exr-cap7-ari-diagnostico" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercício 7.6</strong></span> <strong>Diagnóstico de Cultura entre Apoio e Operação</strong> Em uma mineradora, a equipe de Planejamento (Apoio) diz que os planos são bem estruturados, mas a equipe de Chão de Fábrica (Operação) reclama que “os planos nunca funcionam na prática”. Estruture um modelo ARI para diagnosticar essa discrepância de percepção:</p>
+<ol type="a">
+<li>Defina as partes (clientes internos) em interação.</li>
+<li>Proponga 3 fatores críticos que poderiam estar gerando essa desconexão.</li>
+<li>Como você mediria o “grau de desalinhamento” entre as percepções?</li>
+</ol>
+</div>
+<div id="exr-cap7-comunicacao-integral" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercício 7.7</strong></span> <strong>Modelo ARM para Efetividade de Comunicação</strong> Construa um modelo ARM para avaliar a qualidade da comunicação interna entre o departamento de Confiabilidade e o de Operações (variáveis: Clareza de Mensagens, Frequência, Responsividade, Acesso a Dados, Confiança). Calcule um score global que indique o “nível de sintonia” entre os departamentos.</p>
+</div>
+</section>
+<section id="seção-4-estudo-de-caso-integrado-transformação-completa" class="level3" data-number="7.5.3">
+<h3 data-number="7.5.3" class="anchored" data-anchor-id="seção-4-estudo-de-caso-integrado-transformação-completa"><span class="header-section-number">7.5.3</span> Seção 4: Estudo de Caso Integrado — Transformação Completa</h3>
+<div id="exr-cap7-case-transformacao-integral" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercício 7.8</strong></span> <strong>Transformação da Gestão de Manutenção via ARM Multidimensional</strong> Uma mineradora de ouro enfrenta os seguintes problemas interconectados:</p>
+<p><strong>Problema 1 (Gestão de Ativos):</strong> - Plano de Manutenção (IQPL) baixo (58/100), faltam dados sobre ativos. - OEE dos britadores caiu de 78% para 62%. - Equipe de manutenção sente-se “executora” e não “dona” dos resultados.</p>
+<p><strong>Problema 2 (Comunicação Interna):</strong> - Operação reclama: “Planejamento não entende a realidade de campo”. - Apoio responde: “Operação não manda avisos antecipados, reclama de tudo depois”. - Resultado: Ordens de Manutenção (OMs) com falha em 25% dos casos.</p>
+<p><strong>Problema 3 (Competência Humana):</strong> - Técnicos de manutenção com alta competência técnica, mas baixa liderança. - Coordenadores com visão estratégica, mas desconectados da operação.</p>
+<p><strong>Sua Tarefa:</strong></p>
+<ol type="1">
+<li><strong>Dimensão 1 — Diagnóstico Integrado:</strong>
+<ul>
+<li>Construa um modelo ARM consolidado que una as 3 problemáticas em uma única “Nota de Saúde Organizacional” (0-100).</li>
+<li>Defina as 3 grandes dimensões (Gestão de Ativos, Relacionamento Interno, Competências).</li>
+<li>Cada dimensão terá 3-4 variáveis, com pesos.</li>
+</ul></li>
+<li><strong>Dimensão 2 — Cause-to-Effect:</strong>
+<ul>
+<li>Mostre a cadeia causal: como baixa competência em “Liderança” causa problemas de “Comunicação Interna”, que por sua vez impacta a “Qualidade do IQPL”.</li>
+</ul></li>
+<li><strong>Dimensão 3 — Roadmap de Melhoria:</strong>
+<ul>
+<li>Priorize as 3 ações mais impactantes (usando GUT ou Pareto).</li>
+<li>Para cada ação, construa um 5W2H detalhado.</li>
+<li>Defina as metas intermediárias (mês 1, 3, 6) para cada dimensão.</li>
+</ul></li>
+<li><strong>Dimensão 4 — Governança de Sustentabilidade:</strong>
+<ul>
+<li>Como medir se as melhorias estão sustentadas após 1 ano?</li>
+<li>Que métricas você monitoraria semanalmente?</li>
+</ul></li>
+</ol>
+</div>
+<div id="case-sabor-frio" class="estudo-caso">
+<section id="estudo-de-caso-o-renascimento-da-sabor-frio-indústria-de-sorvetes" class="level4" data-number="7.5.3.1">
+<h4 data-number="7.5.3.1" class="anchored" data-anchor-id="estudo-de-caso-o-renascimento-da-sabor-frio-indústria-de-sorvetes"><span class="header-section-number">7.5.3.1</span> Estudo de Caso: O Renascimento da “Sabor &amp; Frio” (Indústria de Sorvetes)</h4>
+<p><strong>1. O Contexto</strong> A Sabor &amp; Frio é uma fábrica regional de sorvetes que vive um momento de crise. Recentemente, a empresa perdeu 15% de sua participação de mercado. O Diretor de Operações contratou sua equipe de engenharia para diagnosticar e salvar o negócio.</p>
+<p><strong>2. O Cenário Atual (Os Problemas)</strong> Ao auditar a fábrica, sua equipe encontrou os seguintes dados operacionais: * <strong>Variabilidade na Produção:</strong> Por falta de manutenção nos <em>freezers</em> de batida, alguns lotes de sorvete de chocolate saem com “cristais de gelo” (textura arenosa), enquanto outros saem perfeitos. * <strong>Falhas Externas:</strong> No último mês, 2.000 potes foram devolvidos pelos supermercados porque o lacre de alumínio estava mal colado, causando vazamento no transporte. O custo do frete reverso e a multa contratual somaram R$ 40.000,00. * <strong>Superqualidade Oculta:</strong> A engenharia decidiu usar baunilha em fava orgânica importada de Madagascar no sorvete da “Linha Econômica” (vendido em potes de 2 litros). O custo do ingrediente subiu 400%, mas o preço de venda continuou o mesmo, pois o consumidor dessa linha não possui paladar para distinguir a fava da baunilha sintética. * <strong>Conflito Interno:</strong> O setor de Compras (fornecedor interno) comprou leite de baixa qualidade para economizar na meta do departamento, mas o setor de Produção (cliente interno) não consegue atingir a cremosidade padrão com esse insumo.</p>
+<p><strong>3. Desafios para a Equipe de Engenharia (Trabalho Prático)</strong> Reúna-se com seu grupo e resolva as tarefas abaixo aplicando a teoria de excelência operacional. (Respostas no <a href="appendix/gabarito-parte1.html#sec-gabarito-case-sabor-frio" class="quarto-xref"><span>Seção G.1.12</span></a>).</p>
+<p><strong>Tarefa 1: Diagnóstico pelos Gurus</strong> Se você chamasse os “Gurus da Qualidade” para uma reunião na fábrica, o que cada um diria sobre os problemas acima? a) O que Crosby diria sobre os 2.000 potes com lacre defeituoso? b) Como Juran analisaria a baunilha de Madagascar na linha econômica? c) Qual seria o conselho de Feigenbaum para resolver o conflito entre Compras e Produção?</p>
+<p><strong>Tarefa 2: Análise das Eras</strong> Atualmente, a fábrica só descobre o sorvete arenoso quando o pote já está pronto e o inspetor experimenta um de cada lote (Era da Inspeção). Proponha uma mudança para a Era do Controle Estatístico e outra para a Era da Garantia Estratégica (TQM).</p>
+<p><strong>Tarefa 3: Modelagem Econômica</strong> Considere os seguintes dados financeiros do mês: * Preço de Venda (<span class="math inline">\(P\)</span>): R$ 20,00 por pote. * Volume de Vendas (<span class="math inline">\(Q\)</span>): 50.000 potes/mês. * Faturamento Total: R$ 1.000.000,00. * Custo de Produção Atual (<span class="math inline">\(C\)</span>): R$ 800.000,00 (já incluindo as perdas e a baunilha cara).</p>
+<ol type="a">
+<li>Calcule a Produtividade Financeira atual (<span class="math inline">\(Produtividade = \frac{Faturamento}{Custo}\)</span>).</li>
+<li>Se a empresa substituir a baunilha importada por uma nacional de boa qualidade (eliminando a Superqualidade), o custo (<span class="math inline">\(C\)</span>) cai para R$ 700.000,00. Qual a nova produtividade?</li>
+<li>Se, além disso, a empresa decidir investir R$ 20.000,00 em Custos de Prevenção (manutenção das seladoras), ela consegue zerar a multa de R$ 40.000,00 de Falhas Externas. Vale a pena o investimento? Justifique matematicamente.</li>
+</ol>
+<p><strong>Tarefa 4: Vertentes da Qualidade</strong> Explique como o “sorvete com cristais de gelo” falha em duas vertentes simultâneas: a) Adequação ao Uso (na visão do consumidor). b) Conformidade com o Projeto (na visão da engenharia de processos).</p>
+</section>
+</div>
+<div id="case-express-mineral" class="estudo-caso">
+<section id="estudo-de-caso-o-descarrilamento-da-express-mineral-logística-ferroviária" class="level4" data-number="7.5.3.2">
+<h4 data-number="7.5.3.2" class="anchored" data-anchor-id="estudo-de-caso-o-descarrilamento-da-express-mineral-logística-ferroviária"><span class="header-section-number">7.5.3.2</span> Estudo de Caso: O Descarrilamento da “Express Mineral” (Logística Ferroviária)</h4>
+<p><strong>O Contexto</strong> A Express Mineral é uma operadora logística ferroviária que transporta minério de ferro das minas até o porto. Pressionada pelo mercado de ações para apresentar lucros imediatos, a Alta Gestão decidiu focar exclusivamente na Perspectiva Financeira de curto prazo.</p>
+<p><strong>As Decisões da Gestão (O Plano “Lucro Agora”)</strong> Para bater a meta de EBITDA (Lucro Operacional) no trimestre, a diretoria implementou as seguintes medidas: * <strong>Corte de Custos em Pessoas (Perspectiva Aprendizado):</strong> Cancelou todos os treinamentos técnicos de maquinistas e reduziu a equipe de manutenção de via permanente em 30%. * <strong>Aumento da Carga (Perspectiva Processos):</strong> Forçou o aumento da velocidade dos trens e o peso por vagão acima do limite técnico recomendado pela engenharia e pelo fabricante. * <strong>Economia em Insumos (Perspectiva Processos):</strong> Substituiu os trilhos de aço especial por uma liga mais barata e de menor durabilidade.</p>
+<p><strong>O Resultado após 12 Meses (O Cenário de Crise)</strong> Os números do final do ano chegaram e o cenário sistêmico é catastrófico: * <strong>Financeira:</strong> O lucro subiu nos primeiros 3 meses (ilusão de curto prazo), mas despencou nos 9 meses seguintes devido ao pagamento de multas ambientais pesadas e custos altíssimos de recuperação de descarrilamentos e perda de ativos. * <strong>Clientes:</strong> O principal cliente (uma grande mineradora) rescindiu o contrato, alegando que a ferrovia tornou-se “não confiável”. O índice de Pontualidade (<em>On-Time Delivery</em>) caiu de 92% para 60%. * <strong>Processos Internos:</strong> O número de quebras de trilhos aumentou 400%. O tempo de ciclo (viagem) aumentou porque os trens agora precisam andar devagar em trechos críticos para não descarrilar. * <strong>Aprendizado e Crescimento:</strong> O clima organizacional é de medo e desmotivação. Os maquinistas mais experientes pediram demissão, e os novos cometem erros básicos de condução por total falta de treinamento.</p>
+<p><strong>Desafio para os Alunos (Dinâmica de Grupo)</strong> Reúnam-se em equipes e, utilizando os conceitos do Balanced Scorecard (BSC) e do TQM, respondam às questões abaixo (Gabarito no <a href="appendix/gabarito-parte1.html" class="quarto-xref"><span>Apêndice G</span></a>):</p>
+<p><strong>Mapeamento de Causa e Efeito:</strong> Desenhe o Mapa Estratégico “negativo” deste caso. Explique como o corte na base (Aprendizado) gerou a falha no topo (Financeiro) seguindo as setas de interdependência do BSC. <strong>Onde a Qualidade “Quebrou”?</strong> Identifique em qual perspectiva a Gestão da Qualidade deveria ter atuado com poder de veto para impedir o descarrilamento (Ex: Manutenção preventiva e conformidade técnica). <strong>Plano de Recuperação:</strong> Se você assumisse hoje como o novo Diretor de Excelência Operacional, quais seriam suas 2 primeiras iniciativas em cada uma das 4 perspectivas para salvar a empresa no próximo ano? <strong>Conexão com o TQM:</strong> Como o conceito de “Perdas à Sociedade” (a quarta vertente da qualidade) se aplica diretamente a este caso de descarrilamento?</p>
+</section>
+</div>
+</section>
+<section id="seção-5-questões-de-reflexão" class="level3" data-number="7.5.4">
+<h3 data-number="7.5.4" class="anchored" data-anchor-id="seção-5-questões-de-reflexão"><span class="header-section-number">7.5.4</span> Seção 5: Questões de Reflexão</h3>
+<div id="exr-cap7-ref-q1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercício 7.9</strong></span> <strong>Universalidade do ARM</strong> O capítulo argumenta que o ARM é “universal” — aplicável a minério, máquinas, humanos e relacionamentos. Cite exemplos de contextos onde essa universalidade seria quebrada (onde o ARM NÃO seria adequado)?</p>
+</div>
+<div id="exr-cap7-ref-q2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercício 7.10</strong></span> <strong>Vieses Sistêmicos</strong> Se todo instrumento de medida sofre vieses (como discutido no caso de competências), como uma organização pode confiar nos dados gerados para tomar decisões estratégicas?</p>
+</div>
+<div id="exr-cap7-ref-q3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercício 7.11</strong></span> <strong>Complexidade e Simplicidade</strong> O IQPL tem 35 variáveis. O modelo de Competências tem 51 variáveis. Por que não simplificar para 5-10 variáveis? Qual é a vantagem de manter tanta granularidade?</p>
+</div>
+<div id="exr-cap7-ref-q4" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercício 7.12</strong></span> <strong>Integração de Três Mundos</strong> O capítulo integra a avaliação de (1) Pessoas, (2) Máquinas/Processos, (3) Comunicação. Como esses três “mundos” interagem em uma operação real de mineração? Qual é a ordem de prioridade de melhoria?</p>
+</div>
+</section>
+</section>
+<section id="sec-exercicios-adicionais-cap7" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="sec-exercicios-adicionais-cap7"><span class="header-section-number">7.6</span> Exercícios Adicionais</h2>
+<div id="exr-cap7-4-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercício 7.13</strong></span> <strong>Sistema de Qualidade para Operação de Carregamento</strong></p>
+<p><strong>Contexto Geral:</strong></p>
+<p>Uma operação de carregamento e transporte de minério possui: - <strong>3 escavadeiras hidráulicas</strong> (principal fonte de produção) - <strong>8 caminhões fora-de-estrada</strong> - <strong>Meta de produção:</strong> 500 toneladas/dia - <strong>Problema:</strong> Disponibilidade das escavadeiras cai para 65% nos períodos de chuva</p>
+<p><strong>Situação Específica:</strong></p>
+<p>Na última semana chuvosa: - Escavadeira A: 2 paradas (correntes entupidas de barro) - Escavadeira B: 3 paradas (sensor de inclinação desativa em umidade alta) - Escavadeira C: 1 parada (operador mal treinado em terreno molhado)</p>
+<p><strong>Perguntas:</strong></p>
+<ol type="1">
+<li><p><strong>Filosofia da Qualidade:</strong> O que isso significa em termos ISO 9000? Estamos com problema de “Produto” (equipamento) ou “Processo” (operação)?</p></li>
+<li><p><strong>Modelagem Estratégica:</strong> Construa um <strong>Hoshin Kanri</strong> para aumentar disponibilidade em época chuvosa.</p></li>
+<li><p><strong>Quantificação:</strong> Defina <strong>3 KPIs operacionais</strong> que você monitoraria semanalmente para validar as ações.</p></li>
+<li><p><strong>Ferramentas:</strong> Se você tivesse 1 mês para resolver, qual seria sua <strong>sequência de ferramentas</strong> (ex: FMEA → Pareto → PDCA)?</p></li>
+<li><p><strong>Governança:</strong> Como você estruturaria o <strong>PDCA mensal</strong> para acompanhar os progressos?</p></li>
+</ol>
+</div>
+<p><strong>Resposta:</strong> Consulte o <a href="../chapters/appendix/gabarito-parte1.html#sec-gabarito-4-1" target="_blank">Gabarito da Parte I</a> para a resolução detalhada.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script src="scripts/set-toc-expanded.js"></script>
+
+<script src="scripts/caption-format.js"></script>
+
+<script src="scripts/toc-expand-on-click.js"></script>
+
+<script src="scripts/set-toc-expanded.js"></script>
+
+<script src="scripts/caption-format.js"></script>
+
+<script src="scripts/toc-expand-on-click.js"></script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/cap6-caixa-ferramentas.html" class="pagination-link" aria-label="A Caixa de Ferramentas do Engenheiro">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">A Caixa de Ferramentas do Engenheiro</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/part2-intro.html" class="pagination-link" aria-label="Parte II: Metrologia, Gestão de Ativos e Confiabilidade">
+        <span class="nav-page-text">Parte II: Metrologia, Gestão de Ativos e Confiabilidade</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

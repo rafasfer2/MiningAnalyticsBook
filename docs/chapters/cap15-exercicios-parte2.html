@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>15&nbsp; Exercícios — Parte II: Metrologia, Gestão de Ativos e Confiabilidade – Sistema de Gestão e Excelência Operacional na Mineração</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/part3-intro.html" rel="next">
+<link href="../chapters/cap14-manut-imperfeita.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-eb767fe655e6f8c8224c258eed8bcfd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part2-intro.html">Parte II: Metrologia, Gestão de Ativos e Confiabilidade</a></li><li class="breadcrumb-item"><a href="../chapters/cap15-exercicios-parte2.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Exercícios — Parte II: Metrologia, Gestão de Ativos e Confiabilidade</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Sistema de Gestão e Excelência Operacional na Mineração</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introdução</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../chapters/part1-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parte I: Introdução à Engenharia da Qualidade</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap1-fundamentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos e Conceitos da Qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap2-modelos-gestao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Modelos de Gestão e Excelência Operacional</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap3-motor-matematico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">O Motor Matemático: Quantificação e Modelagem (ARM)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap4-alma-estrategia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">A Alma do Negócio: Sistemas de Gestão e Estratégia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap5-cerebro-operacao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">O Cérebro da Operação: Método, Rotina e Controle</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap6-caixa-ferramentas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">A Caixa de Ferramentas do Engenheiro</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap7-estudos-casos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estudos de Caso na Prática Mineral</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../chapters/part2-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parte II: Metrologia, Gestão de Ativos e Confiabilidade</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap8-metrologia-kpi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Excelência Operacional e Metrologia de Performance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap9-gestao-ativos-pco.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Capítulo 8: Gestão de Ativos e Planejamento e Controle Operacional</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap10-plan-crtl-manut.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Planejamento e Controle da Manutenção (PCM)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap11-iqpl-aprofundamento.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Índice de Qualidade de Plano de Manutenção (IQPL)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap12-indicadores-manut.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Indicadores de Manutenção (MTBF, MTTR, ISAC, ATSP, IDF)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap13-confiabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Análise de Confiabilidade de Ativos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap14-manut-imperfeita.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Indicadores Chave de Desempenho (KPI)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/cap15-exercicios-parte2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Exercícios — Parte II: Metrologia, Gestão de Ativos e Confiabilidade</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../chapters/part3-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parte III: Análise e Processos de Mina</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ciclo1-perfuracao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Ciclo de Perfuração e Desmonte de Rocha (Drilling and Blasting Cycle)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ciclo2-carregamento.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">A Identidade Fundamental do Carregamento</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ciclo3-transporte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">A Jornada de 7 Eventos e o Ciclo de Transporte</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ciclo4-exercicios-parte3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Exercícios — Parte III: Aplicação Operacional na Mineração</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apêndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/a-dicionario-dados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Dicionário de Dados</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/b-dicionario-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Dicionário de Indicadores (KPIs)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/c-notacoes-abreviacoes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Notações, Símbolos e Abreviações</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/d-lista-exemplos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Lista de Exemplos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/e-lista-figuras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Lista de Figuras</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/f-lista-tabelas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Lista de Tabelas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/gabarito-parte1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Gabarito — Parte I: Engenharia da Qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix/g-perspectivas-qualidade-ensino.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Perspectivas de Qualidade no Ensino Superior Brasileiro</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#seção-1-metrologia-operacional-e-kpis-capítulo-8" id="toc-seção-1-metrologia-operacional-e-kpis-capítulo-8" class="nav-link active" data-scroll-target="#seção-1-metrologia-operacional-e-kpis-capítulo-8"><span class="header-section-number">15.1</span> Seção 1: Metrologia Operacional e KPIs (Capítulo 8)</a>
+  <ul class="collapse">
+  <li><a href="#exercício-1.1-cálculo-de-df-uf-ro-e-oee" id="toc-exercício-1.1-cálculo-de-df-uf-ro-e-oee" class="nav-link" data-scroll-target="#exercício-1.1-cálculo-de-df-uf-ro-e-oee"><span class="header-section-number">15.1.1</span> Exercício 1.1 — Cálculo de DF, UF, RO e OEE</a></li>
+  <li><a href="#exercício-1.2-análise-de-utilização-vs.-disponibilidade" id="toc-exercício-1.2-análise-de-utilização-vs.-disponibilidade" class="nav-link" data-scroll-target="#exercício-1.2-análise-de-utilização-vs.-disponibilidade"><span class="header-section-number">15.1.2</span> Exercício 1.2 — Análise de Utilização vs.&nbsp;Disponibilidade</a></li>
+  </ul></li>
+  <li><a href="#seção-2-gestão-de-ativos-e-pco-capítulo-9" id="toc-seção-2-gestão-de-ativos-e-pco-capítulo-9" class="nav-link" data-scroll-target="#seção-2-gestão-de-ativos-e-pco-capítulo-9"><span class="header-section-number">15.2</span> Seção 2: Gestão de Ativos e PCO (Capítulo 9)</a>
+  <ul class="collapse">
+  <li><a href="#exercício-2.1-alinhamento-pco-com-plano-de-britagem" id="toc-exercício-2.1-alinhamento-pco-com-plano-de-britagem" class="nav-link" data-scroll-target="#exercício-2.1-alinhamento-pco-com-plano-de-britagem"><span class="header-section-number">15.2.1</span> Exercício 2.1 — Alinhamento PCO com Plano de Britagem</a></li>
+  </ul></li>
+  <li><a href="#seção-3-pcm-macrofluxo-e-qualidade-capítulos-10-11" id="toc-seção-3-pcm-macrofluxo-e-qualidade-capítulos-10-11" class="nav-link" data-scroll-target="#seção-3-pcm-macrofluxo-e-qualidade-capítulos-10-11"><span class="header-section-number">15.3</span> Seção 3: PCM — Macrofluxo e Qualidade (Capítulos 10-11)</a>
+  <ul class="collapse">
+  <li><a href="#exercício-3.1-construção-de-ordem-de-manutenção-om-completa" id="toc-exercício-3.1-construção-de-ordem-de-manutenção-om-completa" class="nav-link" data-scroll-target="#exercício-3.1-construção-de-ordem-de-manutenção-om-completa"><span class="header-section-number">15.3.1</span> Exercício 3.1 — Construção de Ordem de Manutenção (OM) Completa</a></li>
+  <li><a href="#exercício-3.2-auditoria-iqpl-simplificada" id="toc-exercício-3.2-auditoria-iqpl-simplificada" class="nav-link" data-scroll-target="#exercício-3.2-auditoria-iqpl-simplificada"><span class="header-section-number">15.3.2</span> Exercício 3.2 — Auditoria IQPL Simplificada</a></li>
+  </ul></li>
+  <li><a href="#seção-4-indicadores-de-manutenção-capítulo-12" id="toc-seção-4-indicadores-de-manutenção-capítulo-12" class="nav-link" data-scroll-target="#seção-4-indicadores-de-manutenção-capítulo-12"><span class="header-section-number">15.4</span> Seção 4: Indicadores de Manutenção (Capítulo 12)</a>
+  <ul class="collapse">
+  <li><a href="#exercício-4.1-cálculo-de-mtbf-e-mttr" id="toc-exercício-4.1-cálculo-de-mtbf-e-mttr" class="nav-link" data-scroll-target="#exercício-4.1-cálculo-de-mtbf-e-mttr"><span class="header-section-number">15.4.1</span> Exercício 4.1 — Cálculo de MTBF e MTTR</a></li>
+  <li><a href="#exercício-4.2-análise-de-tendência-de-disponibilidade" id="toc-exercício-4.2-análise-de-tendência-de-disponibilidade" class="nav-link" data-scroll-target="#exercício-4.2-análise-de-tendência-de-disponibilidade"><span class="header-section-number">15.4.2</span> Exercício 4.2 — Análise de Tendência de Disponibilidade</a></li>
+  </ul></li>
+  <li><a href="#seção-5-engenharia-de-confiabilidade-capítulo-13" id="toc-seção-5-engenharia-de-confiabilidade-capítulo-13" class="nav-link" data-scroll-target="#seção-5-engenharia-de-confiabilidade-capítulo-13"><span class="header-section-number">15.5</span> Seção 5: Engenharia de Confiabilidade (Capítulo 13)</a>
+  <ul class="collapse">
+  <li><a href="#exercício-5.1-distribuição-de-weibull" id="toc-exercício-5.1-distribuição-de-weibull" class="nav-link" data-scroll-target="#exercício-5.1-distribuição-de-weibull"><span class="header-section-number">15.5.1</span> Exercício 5.1 — Distribuição de Weibull</a></li>
+  <li><a href="#exercício-5.2-manutenção-preventiva-vs.-corretiva" id="toc-exercício-5.2-manutenção-preventiva-vs.-corretiva" class="nav-link" data-scroll-target="#exercício-5.2-manutenção-preventiva-vs.-corretiva"><span class="header-section-number">15.5.2</span> Exercício 5.2 — Manutenção Preventiva vs.&nbsp;Corretiva</a></li>
+  </ul></li>
+  <li><a href="#seção-6-estudo-de-caso-integrado" id="toc-seção-6-estudo-de-caso-integrado" class="nav-link" data-scroll-target="#seção-6-estudo-de-caso-integrado"><span class="header-section-number">15.6</span> Seção 6: Estudo de Caso Integrado</a>
+  <ul class="collapse">
+  <li><a href="#estudo-de-caso-6.1-auditoria-de-saúde-da-frota-de-caminhões" id="toc-estudo-de-caso-6.1-auditoria-de-saúde-da-frota-de-caminhões" class="nav-link" data-scroll-target="#estudo-de-caso-6.1-auditoria-de-saúde-da-frota-de-caminhões"><span class="header-section-number">15.6.1</span> Estudo de Caso 6.1 — Auditoria de Saúde da Frota de Caminhões</a></li>
+  </ul></li>
+  <li><a href="#seção-7-questões-de-reflexão" id="toc-seção-7-questões-de-reflexão" class="nav-link" data-scroll-target="#seção-7-questões-de-reflexão"><span class="header-section-number">15.7</span> Seção 7: Questões de Reflexão</a>
+  <ul class="collapse">
+  <li><a href="#q1-qual-é-a-diferença-entre-disponibilidade-e-confiabilidade-por-que-ambas-importam" id="toc-q1-qual-é-a-diferença-entre-disponibilidade-e-confiabilidade-por-que-ambas-importam" class="nav-link" data-scroll-target="#q1-qual-é-a-diferença-entre-disponibilidade-e-confiabilidade-por-que-ambas-importam"><span class="header-section-number">15.7.1</span> Q1: Qual é a diferença entre “Disponibilidade” e “Confiabilidade”? Por que ambas importam?</a></li>
+  <li><a href="#q2-um-equipamento-pode-ter-oee-95-mas-produzir-produto-não-conforme.-como-isso-é-possível" id="toc-q2-um-equipamento-pode-ter-oee-95-mas-produzir-produto-não-conforme.-como-isso-é-possível" class="nav-link" data-scroll-target="#q2-um-equipamento-pode-ter-oee-95-mas-produzir-produto-não-conforme.-como-isso-é-possível"><span class="header-section-number">15.7.2</span> Q2: Um equipamento pode ter OEE = 95% mas produzir produto não-conforme. Como isso é possível?</a></li>
+  <li><a href="#q3-quando-você-deveria-priorizar-mtbf-sobre-mttr" id="toc-q3-quando-você-deveria-priorizar-mtbf-sobre-mttr" class="nav-link" data-scroll-target="#q3-quando-você-deveria-priorizar-mtbf-sobre-mttr"><span class="header-section-number">15.7.3</span> Q3: Quando você deveria priorizar MTBF sobre MTTR?</a></li>
+  <li><a href="#q4-um-plano-de-manutenção-está-100-conforme-com-as-especificações-técnicas-mas-tem-iqpl-45100.-qual-é-o-problema" id="toc-q4-um-plano-de-manutenção-está-100-conforme-com-as-especificações-técnicas-mas-tem-iqpl-45100.-qual-é-o-problema" class="nav-link" data-scroll-target="#q4-um-plano-de-manutenção-está-100-conforme-com-as-especificações-técnicas-mas-tem-iqpl-45100.-qual-é-o-problema"><span class="header-section-number">15.7.4</span> Q4: Um plano de manutenção está 100% conforme com as especificações técnicas, mas tem IQPL = 45/100. Qual é o problema?</a></li>
+  <li><a href="#q5-como-a-distribuição-de-weibull-ajuda-a-escolher-entre-manutenção-por-tempo-vs.-por-condição" id="toc-q5-como-a-distribuição-de-weibull-ajuda-a-escolher-entre-manutenção-por-tempo-vs.-por-condição" class="nav-link" data-scroll-target="#q5-como-a-distribuição-de-weibull-ajuda-a-escolher-entre-manutenção-por-tempo-vs.-por-condição"><span class="header-section-number">15.7.5</span> Q5: Como a Distribuição de Weibull ajuda a escolher entre manutenção por tempo vs.&nbsp;por condição?</a></li>
+  </ul></li>
+  <li><a href="#encerramento-da-parte-ii" id="toc-encerramento-da-parte-ii" class="nav-link" data-scroll-target="#encerramento-da-parte-ii"><span class="header-section-number">15.8</span> Encerramento da Parte II</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/part2-intro.html">Parte II: Metrologia, Gestão de Ativos e Confiabilidade</a></li><li class="breadcrumb-item"><a href="../chapters/cap15-exercicios-parte2.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Exercícios — Parte II: Metrologia, Gestão de Ativos e Confiabilidade</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-cap15-exercicios" class="quarto-section-identifier"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Exercícios — Parte II: Metrologia, Gestão de Ativos e Confiabilidade</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-tip callout-titled" title="🎯 Propósito deste Capítulo">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>🎯 Propósito deste Capítulo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Este capítulo consolida os aprendizados da <strong>Parte II</strong> através de exercícios práticos envolvendo <strong>metrologia</strong>, <strong>gestão de ativos</strong>, <strong>macrofluxo de manutenção</strong>, <strong>auditoria IQPL</strong> e <strong>engenharia de confiabilidade</strong>. O objetivo é transformar dados operacionais em decisões informadas, quantificando disponibilidade, confiabilidade e eficiência, bem como auditando a qualidade estrutural dos planos de manutenção.</p>
+</div>
+</div>
+<hr>
+<section id="seção-1-metrologia-operacional-e-kpis-capítulo-8" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="seção-1-metrologia-operacional-e-kpis-capítulo-8"><span class="header-section-number">15.1</span> Seção 1: Metrologia Operacional e KPIs (Capítulo 8)</h2>
+<section id="exercício-1.1-cálculo-de-df-uf-ro-e-oee" class="level3" data-number="15.1.1">
+<h3 data-number="15.1.1" class="anchored" data-anchor-id="exercício-1.1-cálculo-de-df-uf-ro-e-oee"><span class="header-section-number">15.1.1</span> Exercício 1.1 — Cálculo de DF, UF, RO e OEE</h3>
+<p><strong>Contexto:</strong> Um britador primário operou durante uma semana com os seguintes dados:</p>
+<ul>
+<li><strong>Tempo Calendário:</strong> 168 horas</li>
+<li><strong>Tempo Disponível Físico (sem falhas):</strong> 150 horas</li>
+<li><strong>Tempo Utilizado (em operação):</strong> 120 horas</li>
+<li><strong>Tempo de Produção Real (em velocidade nominal):</strong> 100 horas</li>
+<li><strong>Produção Esperada:</strong> 500 t/h</li>
+<li><strong>Produção Real:</strong> 450 t/h</li>
+</ul>
+<p><strong>Pergunta:</strong></p>
+<ol type="a">
+<li><p>Calcule <strong>DF (Disponibilidade Física)</strong>, <strong>UF (Utilização Física)</strong> e <strong>RO (Rendimento Operacional)</strong>.</p></li>
+<li><p>Calcule <strong>OEE (Overall Equipment Effectiveness)</strong>.</p></li>
+<li><p>Interprete cada métrica: o que ela sinaliza?</p></li>
+<li><p>Qual é o principal “dreno” de eficiência? (Disponibilidade, Utilização, ou Rendimento?)</p></li>
+</ol>
+<p><strong>Resposta esperada:</strong></p>
+<ul>
+<li>DF = 150/168 = 89.3%</li>
+<li>UF = 120/150 = 80%</li>
+<li>RO = 100/120 = 83.3%</li>
+<li>OEE = DF × UF × RO = 89.3% × 80% × 83.3% = 59.4%</li>
+</ul>
+<p>Interpretação: O equipamento está disponível quando solicitado (89.3%), mas tem problemas de utilização (20% de downtime não planejado) e rendimento (16.7% de perda por redução de velocidade).</p>
+<hr>
+</section>
+<section id="exercício-1.2-análise-de-utilização-vs.-disponibilidade" class="level3" data-number="15.1.2">
+<h3 data-number="15.1.2" class="anchored" data-anchor-id="exercício-1.2-análise-de-utilização-vs.-disponibilidade"><span class="header-section-number">15.1.2</span> Exercício 1.2 — Análise de Utilização vs.&nbsp;Disponibilidade</h3>
+<p><strong>Contexto:</strong> Dois equipamentos idênticos em duas minas diferentes:</p>
+<p><strong>Mina A (Britador 1):</strong> - Disponibilidade: 95% - Utilização: 40%</p>
+<p><strong>Mina B (Britador 2):</strong> - Disponibilidade: 75% - Utilização: 85%</p>
+<p><strong>Pergunta:</strong></p>
+<ol type="a">
+<li><p>Qual equipamento tem melhor gestão de ativos? Por quê?</p></li>
+<li><p>Qual equipamento deveria receber investimento em confiabilidade (manutenção preventiva)?</p></li>
+<li><p>Qual equipamento deveria receber investimento em planejamento/programação?</p></li>
+</ol>
+<p><strong>Resposta esperada:</strong></p>
+<p>Mina A tem problema <strong>de demanda/capacidade</strong> (subutilizado apesar de disponível); Mina B tem problema <strong>de confiabilidade</strong> (sobrecarregado, com falhas frequentes). Investimento em Mina A deve ser em comercial/planejamento produtivo; em Mina B, em confiabilidade e manutenção preventiva.</p>
+<hr>
+</section>
+</section>
+<section id="seção-2-gestão-de-ativos-e-pco-capítulo-9" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="seção-2-gestão-de-ativos-e-pco-capítulo-9"><span class="header-section-number">15.2</span> Seção 2: Gestão de Ativos e PCO (Capítulo 9)</h2>
+<section id="exercício-2.1-alinhamento-pco-com-plano-de-britagem" class="level3" data-number="15.2.1">
+<h3 data-number="15.2.1" class="anchored" data-anchor-id="exercício-2.1-alinhamento-pco-com-plano-de-britagem"><span class="header-section-number">15.2.1</span> Exercício 2.1 — Alinhamento PCO com Plano de Britagem</h3>
+<p><strong>Contexto:</strong> O plano de lavra da mina exige: - <strong>Semana 1:</strong> 1.500 toneladas ROM (Run of Mine) - <strong>Semana 2:</strong> 2.000 toneladas ROM - <strong>Semana 3:</strong> 1.200 toneladas ROM (manutenção em parada planejada)</p>
+<p>Sua operação de britagem dispõe de: - <strong>Britador A:</strong> Capacidade 800 t/dia, 5 dias de operação - <strong>Britador B:</strong> Capacidade 700 t/dia, 6 dias de operação (reserva)</p>
+<p><strong>Pergunta:</strong></p>
+<ol type="a">
+<li><p>É possível atender o plano com apenas o Britador A durante as 3 semanas? Justifique com cálculos.</p></li>
+<li><p>Em que semana o Britador B precisaria estar em operação?</p></li>
+<li><p>Como você planejaria <strong>uma parada de manutenção preventiva</strong> de 40 horas no Britador A sem afetar a produção?</p></li>
+</ol>
+<p><strong>Resposta esperada:</strong></p>
+<p>Semana 1: 1.500 ÷ 800 = 1.875 dias → Precisa de Britador B parcialmente. Semana 2: 2.000 ÷ 800 = 2.5 dias → Britador A opera 2.5 dias, Britador B 1.5 dias. Semana 3: Parada planejada no Britador A, Britador B fornece 240 t/dia (&lt; necessário se houvesse demanda).</p>
+<p>Conclusão: Ambos britadores são necessários. Parada preventiva deve ser <strong>fora do pico de demanda</strong> ou com <strong>Britador B em capacidade máxima</strong>.</p>
+<hr>
+</section>
+</section>
+<section id="seção-3-pcm-macrofluxo-e-qualidade-capítulos-10-11" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="seção-3-pcm-macrofluxo-e-qualidade-capítulos-10-11"><span class="header-section-number">15.3</span> Seção 3: PCM — Macrofluxo e Qualidade (Capítulos 10-11)</h2>
+<section id="exercício-3.1-construção-de-ordem-de-manutenção-om-completa" class="level3" data-number="15.3.1">
+<h3 data-number="15.3.1" class="anchored" data-anchor-id="exercício-3.1-construção-de-ordem-de-manutenção-om-completa"><span class="header-section-number">15.3.1</span> Exercício 3.1 — Construção de Ordem de Manutenção (OM) Completa</h3>
+<p><strong>Contexto:</strong> Uma inspeção de rotina identifica desgaste nos mancais do motor elétrico de uma moega.</p>
+<p><strong>Pergunta:</strong></p>
+<p>Preencha uma <strong>Ordem de Manutenção</strong> estruturada com todos os campos:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Sua Resposta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>ID da OM</strong></td>
+<td>OM-2024-XXX</td>
+</tr>
+<tr class="even">
+<td><strong>Ativo (equipamento)</strong></td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td><strong>Tipo (Preventiva/Corretiva)</strong></td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td><strong>Descrição do Problema</strong></td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td><strong>Local de Instalação</strong></td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td><strong>Criticidade</strong></td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td><strong>Data Ideal de Execução</strong></td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td><strong>Duração Estimada (HH)</strong></td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td><strong>Materiais Necessários</strong></td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td><strong>Mão de Obra Necessária</strong></td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td><strong>Custo Estimado</strong></td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td><strong>Prioridade</strong></td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td><strong>Data Real de Execução</strong></td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td><strong>Horas Reais</strong></td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td><strong>Custo Real</strong></td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td><strong>Responsável Técnico</strong></td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td><strong>Observações de Encerramento</strong></td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resposta esperada:</strong></p>
+<p>Uma OM bem estruturada inclui todos esses campos, preenchidos de forma clara e técnica, servindo como <strong>instrumento de comunicação</strong> entre planejamento, programação, execução e controle.</p>
+<hr>
+</section>
+<section id="exercício-3.2-auditoria-iqpl-simplificada" class="level3" data-number="15.3.2">
+<h3 data-number="15.3.2" class="anchored" data-anchor-id="exercício-3.2-auditoria-iqpl-simplificada"><span class="header-section-number">15.3.2</span> Exercício 3.2 — Auditoria IQPL Simplificada</h3>
+<p><strong>Contexto:</strong> Você audita um plano de manutenção para uma escavadeira. Avalie os seguintes parâmetros (escala 1-5):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Parâmetro</th>
+<th>Sua Avaliação</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tolerância Positiva (dias de antecipação)</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td>Horizonte de Abertura</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td>Intervalo de Solicitação</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td>Durações estimadas (Campo)</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td>Chave de Controle (ID)</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td>Materiais listados</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td>Validação de Plano (RT)</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr class="even">
+<td>Histórico de Ciclos Vencidos</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr class="odd">
+<td>RMC (taxa de corretivas)</td>
+<td>?</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pergunta:</strong></p>
+<ol type="a">
+<li><p>Após preencher a tabela, calcule uma <strong>nota agregada</strong> (0-100) usando a matriz IQPL.</p></li>
+<li><p>Identifique os <strong>3 parâmetros com pior desempenho</strong>.</p></li>
+<li><p>Para cada um, proponha uma <strong>ação corretiva</strong> concreta.</p></li>
+</ol>
+<p><strong>Resposta esperada:</strong></p>
+<p>Uma avaliação estruturada que quantifica a qualidade do plano e orienta prioridades de melhoria.</p>
+<hr>
+</section>
+</section>
+<section id="seção-4-indicadores-de-manutenção-capítulo-12" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="seção-4-indicadores-de-manutenção-capítulo-12"><span class="header-section-number">15.4</span> Seção 4: Indicadores de Manutenção (Capítulo 12)</h2>
+<section id="exercício-4.1-cálculo-de-mtbf-e-mttr" class="level3" data-number="15.4.1">
+<h3 data-number="15.4.1" class="anchored" data-anchor-id="exercício-4.1-cálculo-de-mtbf-e-mttr"><span class="header-section-number">15.4.1</span> Exercício 4.1 — Cálculo de MTBF e MTTR</h3>
+<p><strong>Contexto:</strong> Uma bomba hidráulica apresentou as seguintes falhas em 1.000 horas de operação:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Falha #</th>
+<th>Hora da Falha</th>
+<th>Tempo para Reparo (horas)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>120</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>350</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>580</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>920</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pergunta:</strong></p>
+<ol type="a">
+<li><p>Calcule <strong>MTBF (Mean Time Between Failures)</strong>.</p></li>
+<li><p>Calcule <strong>MTTR (Mean Time To Repair)</strong>.</p></li>
+<li><p>Qual é o <strong>MTBM (Mean Time Between Maintenance)</strong> se houve uma manutenção preventiva de 8 horas na hora 750?</p></li>
+<li><p>O equipamento está com confiabilidade boa ou precisa de mudança de estratégia? Por quê?</p></li>
+</ol>
+<p><strong>Resposta esperada:</strong></p>
+<ul>
+<li>Intervalos entre falhas: 120, 230, 230, 340 horas</li>
+<li>MTBF = (120+230+230+340)/4 = 230 horas</li>
+<li>MTTR = (4+6+3+5)/4 = 4.5 horas</li>
+<li>MTBM = (1000 - 8) / 5 eventos = ~199 horas</li>
+</ul>
+<p>Interpretação: MTBF de 230 horas é baixo. Recomenda-se <strong>investigação de causa raiz</strong> para aumentar confiabilidade ou <strong>mudança para manutenção baseada em condição</strong> em vez de tempo.</p>
+<hr>
+</section>
+<section id="exercício-4.2-análise-de-tendência-de-disponibilidade" class="level3" data-number="15.4.2">
+<h3 data-number="15.4.2" class="anchored" data-anchor-id="exercício-4.2-análise-de-tendência-de-disponibilidade"><span class="header-section-number">15.4.2</span> Exercício 4.2 — Análise de Tendência de Disponibilidade</h3>
+<p><strong>Contexto:</strong> Um britador apresentou as seguintes disponibilidades mensais:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Mês</th>
+<th>DF (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Janeiro</td>
+<td>88</td>
+</tr>
+<tr class="even">
+<td>Fevereiro</td>
+<td>86</td>
+</tr>
+<tr class="odd">
+<td>Março</td>
+<td>84</td>
+</tr>
+<tr class="even">
+<td>Abril</td>
+<td>82</td>
+</tr>
+<tr class="odd">
+<td>Maio</td>
+<td>80</td>
+</tr>
+<tr class="even">
+<td>Junho</td>
+<td>78</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pergunta:</strong></p>
+<ol type="a">
+<li><p>Descreva a <strong>tendência</strong>.</p></li>
+<li><p>Se essa taxa continuar, qual será a disponibilidade em <strong>Dezembro</strong>?</p></li>
+<li><p>Que ações você tomaria para <strong>reverter a tendência</strong>? (Listar pelo menos 3)</p></li>
+</ol>
+<p><strong>Resposta esperada:</strong></p>
+<p>Tendência descendente linear. Se continuar: ~66% em dezembro. Ações: 1) Aumentar frequência de preventiva, 2) Investigar padrão de falhas, 3) Revisar plano de manutenção, 4) Treinar operadores.</p>
+<hr>
+</section>
+</section>
+<section id="seção-5-engenharia-de-confiabilidade-capítulo-13" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="seção-5-engenharia-de-confiabilidade-capítulo-13"><span class="header-section-number">15.5</span> Seção 5: Engenharia de Confiabilidade (Capítulo 13)</h2>
+<section id="exercício-5.1-distribuição-de-weibull" class="level3" data-number="15.5.1">
+<h3 data-number="15.5.1" class="anchored" data-anchor-id="exercício-5.1-distribuição-de-weibull"><span class="header-section-number">15.5.1</span> Exercício 5.1 — Distribuição de Weibull</h3>
+<p><strong>Contexto:</strong> Uma corrente de transmissão em uma correia transportadora apresentou os seguintes <strong>tempos até falha</strong> (em milhares de ciclos):</p>
+<p>42, 48, 55, 61, 68, 72, 80, 88, 92, 100</p>
+<p><strong>Pergunta:</strong></p>
+<ol type="a">
+<li><p>Calcule a <strong>taxa de falha acumulada</strong> (F(t)) para os tempos observados.</p></li>
+<li><p>Se você plotar F(t) em um <strong>papel de Weibull</strong>, qual será a <strong>forma da distribuição</strong>? (degenerativa, aleatória ou por desgaste?)</p></li>
+<li><p>Isso significa que a corrente falha por mortalidade infantil, operação aleatória, ou desgaste?</p></li>
+<li><p>Qual seria a <strong>estratégia de manutenção apropriada</strong>? (por tempo fixo, por condição, ou mista?)</p></li>
+</ol>
+<p><strong>Resposta esperada:</strong></p>
+<p>A taxa de falha acumulada cresce progressivamente (≈ 10%, 20%, 30%, …), sugerindo <strong>padrão de desgaste</strong> (β &gt; 1 em Weibull). Isso indica que <strong>manutenção preventiva por tempo</strong> é efetiva; você deveria trocar a corrente antes de atingir 80 mil ciclos.</p>
+<hr>
+</section>
+<section id="exercício-5.2-manutenção-preventiva-vs.-corretiva" class="level3" data-number="15.5.2">
+<h3 data-number="15.5.2" class="anchored" data-anchor-id="exercício-5.2-manutenção-preventiva-vs.-corretiva"><span class="header-section-number">15.5.2</span> Exercício 5.2 — Manutenção Preventiva vs.&nbsp;Corretiva</h3>
+<p><strong>Contexto:</strong></p>
+<ul>
+<li><strong>Custo de falha corretiva:</strong> R$ 15.000 (peça + mão de obra + parada)</li>
+<li><strong>Custo de manutenção preventiva:</strong> R$ 3.000 (peça + mão de obra, sem parada)</li>
+<li><strong>Frequência observada de falhas:</strong> 1 falha a cada 12 meses (se nenhuma preventiva for feita)</li>
+<li><strong>Frequência de preventiva proposta:</strong> a cada 6 meses</li>
+</ul>
+<p><strong>Pergunta:</strong></p>
+<ol type="a">
+<li><p>Qual é o <strong>custo anual total</strong> da estratégia reativa (sem preventiva)?</p></li>
+<li><p>Qual é o <strong>custo anual total</strong> da estratégia preventiva (a cada 6 meses)?</p></li>
+<li><p>Qual estratégia é economicamente superior?</p></li>
+<li><p>A decisão muda se o custo de falha for apenas R$ 5.000? Por quê?</p></li>
+</ol>
+<p><strong>Resposta esperada:</strong></p>
+<ul>
+<li>Reativo: 1 falha × R$ 15.000 = R$ 15.000/ano</li>
+<li>Preventivo: 2 preventivas × R$ 3.000 = R$ 6.000/ano</li>
+<li><strong>Preventivo é superior</strong> (economiza R$ 9.000/ano)</li>
+<li>Se falha custar R$ 5.000: Reativo = R$ 5.000 vs.&nbsp;Preventivo = R$ 6.000 → Reativo passa a ser preferível</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="seção-6-estudo-de-caso-integrado" class="level2" data-number="15.6">
+<h2 data-number="15.6" class="anchored" data-anchor-id="seção-6-estudo-de-caso-integrado"><span class="header-section-number">15.6</span> Seção 6: Estudo de Caso Integrado</h2>
+<section id="estudo-de-caso-6.1-auditoria-de-saúde-da-frota-de-caminhões" class="level3" data-number="15.6.1">
+<h3 data-number="15.6.1" class="anchored" data-anchor-id="estudo-de-caso-6.1-auditoria-de-saúde-da-frota-de-caminhões"><span class="header-section-number">15.6.1</span> Estudo de Caso 6.1 — Auditoria de Saúde da Frota de Caminhões</h3>
+<p><strong>Contexto Geral:</strong></p>
+<p>Você é gestor de manutenção de uma frota de <strong>12 caminhões fora-de-estrada</strong> (CAT 794F) em uma mina de ouro. A frota opera 24/7 com 3 turnos.</p>
+<p><strong>Dados Mensais (último mês):</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Métrica</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Horas calendário</td>
+<td>720</td>
+</tr>
+<tr class="even">
+<td>Horas disponíveis</td>
+<td>650</td>
+</tr>
+<tr class="odd">
+<td>Horas operacionais</td>
+<td>600</td>
+</tr>
+<tr class="even">
+<td>Falhas não planejadas</td>
+<td>18</td>
+</tr>
+<tr class="odd">
+<td>Custo de reparo (falhas)</td>
+<td>R$ 180.000</td>
+</tr>
+<tr class="even">
+<td>Custo de preventiva</td>
+<td>R$ 45.000</td>
+</tr>
+<tr class="odd">
+<td>Custo de peças em estoque</td>
+<td>R$ 120.000</td>
+</tr>
+<tr class="even">
+<td>OMs planejadas executadas</td>
+<td>45 de 50 (90%)</td>
+</tr>
+<tr class="odd">
+<td>OMs emergenciais</td>
+<td>18</td>
+</tr>
+<tr class="even">
+<td>MTBF médio</td>
+<td>240 horas</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Perguntas:</strong></p>
+<ol type="1">
+<li><strong>Metrologia:</strong>
+<ul>
+<li>Calcule DF (disponibilidade física), UF (utilização física) e OEE da frota.</li>
+<li>Qual é o principal “dreno” de eficiência?</li>
+</ul></li>
+<li><strong>Confiabilidade:</strong>
+<ul>
+<li>MTBF de 240 horas é bom para caminhões dessa classe? (Considere que caminhões novos têm MTBF ~1.200 horas)</li>
+<li>Que conclusões você tira?</li>
+</ul></li>
+<li><strong>Gestão de Ativos (PCO):</strong>
+<ul>
+<li>A frota está sendo subutilizada ou sobre-exigida?</li>
+<li>Há capacidade para aumentar operações sem degradar confiabilidade?</li>
+</ul></li>
+<li><strong>Macrofluxo PCM:</strong>
+<ul>
+<li>Você tem problema de qualidade no planejamento ou execução?</li>
+<li>90% de OM planejadas é bom ou ruim? Justifique.</li>
+</ul></li>
+<li><strong>Economia:</strong>
+<ul>
+<li>Qual é o custo unitário de transporte (R$/tonelada-km)?</li>
+<li>Vale a pena investir em manutenção preventiva ou renovar frota?</li>
+</ul></li>
+<li><strong>Ação Estruturada:</strong>
+<ul>
+<li>Construa um <strong>Plano de Ação de 3 meses</strong> para melhorar MTBF para 600 horas.</li>
+<li>Liste responsabilidades, métricas de monitoramento e benefícios esperados.</li>
+</ul></li>
+</ol>
+<p><strong>Resposta Esperada:</strong></p>
+<p>Uma análise integrada mostrando: - DF = 650/720 = 90.3%, UF = 600/650 = 92.3%, <strong>OEE = ~83%</strong> (razoável) - MTBF degradado → Necessário aumento de preventiva - 90% de planejamento executado é <strong>baixo</strong> (meta: ≥95%) - Plano de ação deve focar em confiabilidade + qualidade de planejamento</p>
+<hr>
+</section>
+</section>
+<section id="seção-7-questões-de-reflexão" class="level2" data-number="15.7">
+<h2 data-number="15.7" class="anchored" data-anchor-id="seção-7-questões-de-reflexão"><span class="header-section-number">15.7</span> Seção 7: Questões de Reflexão</h2>
+<section id="q1-qual-é-a-diferença-entre-disponibilidade-e-confiabilidade-por-que-ambas-importam" class="level3" data-number="15.7.1">
+<h3 data-number="15.7.1" class="anchored" data-anchor-id="q1-qual-é-a-diferença-entre-disponibilidade-e-confiabilidade-por-que-ambas-importam"><span class="header-section-number">15.7.1</span> Q1: Qual é a diferença entre “Disponibilidade” e “Confiabilidade”? Por que ambas importam?</h3>
+</section>
+<section id="q2-um-equipamento-pode-ter-oee-95-mas-produzir-produto-não-conforme.-como-isso-é-possível" class="level3" data-number="15.7.2">
+<h3 data-number="15.7.2" class="anchored" data-anchor-id="q2-um-equipamento-pode-ter-oee-95-mas-produzir-produto-não-conforme.-como-isso-é-possível"><span class="header-section-number">15.7.2</span> Q2: Um equipamento pode ter OEE = 95% mas produzir produto não-conforme. Como isso é possível?</h3>
+</section>
+<section id="q3-quando-você-deveria-priorizar-mtbf-sobre-mttr" class="level3" data-number="15.7.3">
+<h3 data-number="15.7.3" class="anchored" data-anchor-id="q3-quando-você-deveria-priorizar-mtbf-sobre-mttr"><span class="header-section-number">15.7.3</span> Q3: Quando você deveria priorizar MTBF sobre MTTR?</h3>
+</section>
+<section id="q4-um-plano-de-manutenção-está-100-conforme-com-as-especificações-técnicas-mas-tem-iqpl-45100.-qual-é-o-problema" class="level3" data-number="15.7.4">
+<h3 data-number="15.7.4" class="anchored" data-anchor-id="q4-um-plano-de-manutenção-está-100-conforme-com-as-especificações-técnicas-mas-tem-iqpl-45100.-qual-é-o-problema"><span class="header-section-number">15.7.4</span> Q4: Um plano de manutenção está 100% conforme com as especificações técnicas, mas tem IQPL = 45/100. Qual é o problema?</h3>
+</section>
+<section id="q5-como-a-distribuição-de-weibull-ajuda-a-escolher-entre-manutenção-por-tempo-vs.-por-condição" class="level3" data-number="15.7.5">
+<h3 data-number="15.7.5" class="anchored" data-anchor-id="q5-como-a-distribuição-de-weibull-ajuda-a-escolher-entre-manutenção-por-tempo-vs.-por-condição"><span class="header-section-number">15.7.5</span> Q5: Como a Distribuição de Weibull ajuda a escolher entre manutenção por tempo vs.&nbsp;por condição?</h3>
+<hr>
+</section>
+</section>
+<section id="encerramento-da-parte-ii" class="level2" data-number="15.8">
+<h2 data-number="15.8" class="anchored" data-anchor-id="encerramento-da-parte-ii"><span class="header-section-number">15.8</span> Encerramento da Parte II</h2>
+<p>Este conjunto de exercícios consolida os conhecimentos de <strong>Metrologia, Gestão de Ativos e Confiabilidade</strong>. Ao completá-los, você deverá estar apto a:</p>
+<p>✅ Quantificar disponibilidade e eficiência de equipamentos. ✅ Alinhar operação com planejamento produtivo (PCO). ✅ Estruturar e auditar planos de manutenção (IQPL). ✅ Calcular e interpretar indicadores de confiabilidade (MTBF, MTTR). ✅ Aplicar estatística à previsão de falhas. ✅ Decidir entre estratégias de manutenção com base em dados.</p>
+<p><strong>Próximo passo:</strong> Prossiga para a <strong>Parte III</strong> com capacidade de auditar e optimizar operações reais em mineração.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script src="scripts/set-toc-expanded.js"></script>
+
+<script src="scripts/caption-format.js"></script>
+
+<script src="scripts/toc-expand-on-click.js"></script>
+
+<script src="scripts/set-toc-expanded.js"></script>
+
+<script src="scripts/caption-format.js"></script>
+
+<script src="scripts/toc-expand-on-click.js"></script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/cap14-manut-imperfeita.html" class="pagination-link" aria-label="Indicadores Chave de Desempenho (KPI)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Indicadores Chave de Desempenho (KPI)</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/part3-intro.html" class="pagination-link" aria-label="Parte III: Análise e Processos de Mina">
+        <span class="nav-page-text">Parte III: Análise e Processos de Mina</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

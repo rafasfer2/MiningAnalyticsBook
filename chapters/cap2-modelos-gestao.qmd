@@ -316,25 +316,45 @@ O *Lean* industrial prega que o sistema deve ser **Enxuto, mas nunca Raquítico*
 
 ```{mermaid}
 %%| label: fig-casa-toyota
-%%| fig-cap: "A Casa da Toyota - 14 Princípios e Blocos"
-graph TD
-   T[Teto: Qualidade Máxima, Menor Custo e Menor Lead Time]
-   P1[Pilar 1: Just-in-Time<br/>Fluxo Contínuo, Puxado, Heijunka]
-   P2[Pilar 2: Jidoka<br/>Parar e Resolver, Poka-Yoke]
-   C[Centro: Pessoas, Parceiros e Melhoria Contínua Kaizen]
-   B[Base: Filosofia de Longo Prazo e Processos Padronizados]
+%%| fig-cap: "A Casa da Toyota (TPS) - 14 Princípios e Blocos"
+flowchart TD
 
-   T --- P1
-   T --- P2
-   P1 --- C
-   P2 --- C
-   C --- B
+    %% --- CONFIGURAÇÃO DE ESTILOS (Garantindo letras grandes e cores sólidas) ---
+    classDef teto fill:#c0392b,stroke:#922b21,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
+    classDef pilar fill:#2980b9,stroke:#1f618d,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+    classDef centro fill:#f39c12,stroke:#d68910,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+    classDef base fill:#7f8c8d,stroke:#2c3e50,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
 
-   style T fill:#2ecc71,stroke:#333,color:#fff
-   style P1 fill:#3498db,stroke:#333,color:#fff
-   style P2 fill:#3498db,stroke:#333,color:#fff
-   style C fill:#f1c40f,stroke:#333
-   style B fill:#95a5a6,stroke:#333,color:#fff
+    %% --- ESTRUTURA DA CASA (Formas Especiais) ---
+
+    %% TETO: Usando Trapézio [/ \]
+    T[/"🏠 TETO: Qualidade Máxima, Menor Custo e Menor Lead Time"\]
+
+    %% PILARES E CENTRO: Retângulos e Bordas Arredondadas
+    P1["⚙️ PILAR 1: Just-in-Time<br>Fluxo Contínuo, Puxado, Heijunka"]
+    C("👥 CENTRO<br>Pessoas, Parceiros e<br>Melhoria Contínua (Kaizen)")
+    P2["🛑 PILAR 2: Jidoka<br>Parar e Resolver, Poka-Yoke"]
+
+    %% BASE: Usando Trapézio Invertido [\ /]
+    B[\"🧱 BASE: Filosofia de Longo Prazo e Processos Padronizados"/]
+
+    %% --- CONEXÕES (As Vigas da Casa) ---
+    T --- P1
+    T --- C
+    T --- P2
+
+    P1 --- B
+    C --- B
+    P2 --- B
+
+    %% Engrossando as linhas para parecerem estrutura física
+    linkStyle default stroke:#34495e,stroke-width:4px
+
+    %% --- APLICAÇÃO DOS ESTILOS ---
+    class T teto;
+    class P1,P2 pilar;
+    class C centro;
+    class B base;
 ```
 
 O Modelo Toyota estrutura a filosofia Lean em 14 princípios organizados em 4 blocos conceituais:
@@ -390,20 +410,42 @@ A seleção de um projeto Seis Sigma exige responder a perguntas vitais:
 
 ```{mermaid}
 %%| label: fig-piramide-belts
-%%| fig-cap: "Pirâmide de Belts - Hierarquia do Seis Sigma"
-graph BT
-   W[White Belt<br/>Executores] --> Y[Yellow Belt<br/>Participantes Ativos]
-   Y --> G[Green Belt<br/>Líderes Parciais]
-   G --> B[Black Belt<br/>Especialistas Full-time]
-   B --> M[Master Black Belt<br/>Mentores]
-   M --> C[Champion / Executivos<br/>Direcionamento Estratégico]
+%%| fig-cap: "Estrutura Organizacional - Hierarquia de Belts no Seis Sigma"
+flowchart BT
 
-   style C fill:#2c3e50,stroke:#333,color:#fff
-   style M fill:#8e44ad,stroke:#333,color:#fff
-   style B fill:#000000,stroke:#333,color:#fff
-   style G fill:#27ae60,stroke:#333,color:#fff
-   style Y fill:#f1c40f,stroke:#333
-   style W fill:#ffffff,stroke:#333
+    %% --- CONFIGURAÇÃO DE ESTILOS (Cores reais e letras grandes) ---
+    classDef white fill:#ffffff,stroke:#bdc3c7,stroke-width:3px,color:#2c3e50,font-size:15px,font-weight:bold
+    classDef yellow fill:#f1c40f,stroke:#d4ac0d,stroke-width:3px,color:#2c3e50,font-size:15px,font-weight:bold
+    classDef green fill:#27ae60,stroke:#1e8449,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+    classDef black fill:#212f3d,stroke:#17202a,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+    classDef master fill:#8e44ad,stroke:#6c3483,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+    classDef champion fill:#2980b9,stroke:#1f618d,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
+
+    %% --- ESTRUTURA DOS NÓS (Base para o Topo) ---
+    W[\"⬜ WHITE BELT<br>Executores da Base Operacional"/]
+    Y[\"🟨 YELLOW BELT<br>Participantes Ativos de Projetos"/]
+    G[\"🟩 GREEN BELT<br>Líderes Parciais (Conciliam com rotina)"/]
+    B[\"⬛ BLACK BELT<br>Especialistas Dedicados (Full-time)"/]
+    M[\"🟪 MASTER BLACK BELT<br>Mentores e Gestores do Programa"/]
+    C("👑 CHAMPION / SPONSOR<br>Alta Liderança e Direcionamento Estratégico")
+
+    %% --- CONEXÕES (Ascensão) ---
+    W ==> Y
+    Y ==> G
+    G ==> B
+    B ==> M
+    M ==> C
+
+    %% Engrossando as linhas de promoção
+    linkStyle default stroke:#7f8c8d,stroke-width:4px
+
+    %% --- APLICAÇÃO DOS ESTILOS ---
+    class W white;
+    class Y yellow;
+    class G green;
+    class B black;
+    class M master;
+    class C champion;
 ```
 
 Para conduzir esses projetos sem perder o foco corporativo, o Seis Sigma cria uma estrutura hierárquica paralela baseada em capacitação técnica:
@@ -420,18 +462,35 @@ Para conduzir esses projetos sem perder o foco corporativo, o Seis Sigma cria um
 
 ```{mermaid}
 %%| label: fig-dmaic-fluxo-seis-sigma
-%%| fig-cap: "O Fluxo DMAIC do Seis Sigma"
-graph LR
-   D(Define<br/>Definir) --> M(Measure<br/>Medir)
-   M --> A(Analyze<br/>Analisar)
-   A --> I(Improve<br/>Melhorar)
-   I --> C(Control<br/>Controlar)
+%%| fig-cap: "O Roteiro DMAIC: Metodologia de Solução de Problemas do Seis Sigma"
+flowchart LR
 
-   style D fill:#e74c3c,stroke:#333,color:#fff
-   style M fill:#e67e22,stroke:#333,color:#fff
-   style A fill:#f1c40f,stroke:#333
-   style I fill:#2ecc71,stroke:#333,color:#fff
-   style C fill:#3498db,stroke:#333,color:#fff
+    %% --- CONFIGURAÇÃO DE ESTILOS (Letras grandes e contraste ajustado) ---
+    classDef defStyle fill:#e74c3c,stroke:#c0392b,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+    classDef meaStyle fill:#e67e22,stroke:#d35400,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+    classDef anaStyle fill:#f1c40f,stroke:#f39c12,stroke-width:3px,color:#000000,font-size:15px,font-weight:bold
+    classDef impStyle fill:#2ecc71,stroke:#27ae60,stroke-width:3px,color:#000000,font-size:15px,font-weight:bold
+    classDef ctrStyle fill:#3498db,stroke:#2980b9,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+
+    %% --- ESTRUTURA DOS NÓS (Com a função de cada etapa) ---
+    D("🎯 D - DEFINE<br>Definir o Problema")
+    M("📏 M - MEASURE<br>Medir o Processo")
+    A("🔍 A - ANALYZE<br>Analisar a Causa")
+    I("🚀 I - IMPROVE<br>Melhorar o Fluxo")
+    C("🔒 C - CONTROL<br>Controlar e Manter")
+
+    %% --- CONEXÕES (Fluxo do Roteiro) ---
+    D ==> M ==> A ==> I ==> C
+
+    %% Engrossando a linha de avanço
+    linkStyle default stroke:#7f8c8d,stroke-width:4px
+
+    %% --- APLICAÇÃO DOS ESTILOS ---
+    class D defStyle;
+    class M meaStyle;
+    class A anaStyle;
+    class I impStyle;
+    class C ctrStyle;
 ```
 
 O método Seis Sigma segue um roteiro rigoroso de 5 fases:
@@ -506,31 +565,51 @@ A aplicação prática do MEG orienta a empresa a sair da teoria e chegar na ope
 ```{mermaid}
 %%| label: fig-estrutura-meg
 %%| fig-cap: "Estrutura Conceitual de Desdobramento do MEG"
-graph TD
-   F[FUNDAMENTO] -->|desdobrado em| T[TEMAS]
-   T -->|concretizados por meio de| P[PROCESSOS]
-   P -->|explicados por| D[DETALHAMENTO]
-   D -->|com sugestão de| M[FERRAMENTAS / METODOLOGIAS]
+flowchart TD
 
-   style F fill:#2c3e50,stroke:#333,color:#fff
-   style T fill:#34495e,stroke:#333,color:#fff
-   style P fill:#7f8c8d,stroke:#333,color:#fff
-   style D fill:#bdc3c7,stroke:#333
-   style M fill:#ecf0f1,stroke:#333
+    %% --- CONFIGURAÇÃO DE ESTILOS (Cascata do Abstrato para o Prático) ---
+    classDef fund fill:#154360,stroke:#0d2b3e,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
+    classDef tema fill:#2980b9,stroke:#1a5276,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+    classDef proc fill:#1abc9c,stroke:#117864,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+    classDef deta fill:#f1c40f,stroke:#b7950b,stroke-width:3px,color:#000000,font-size:15px,font-weight:bold
+    classDef tool fill:#e67e22,stroke:#a04000,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+
+    %% --- ESTRUTURA DOS NÓS (Diferenciando Conceito de Ferramenta) ---
+    F{{"🏛️ FUNDAMENTO"}}
+    T("📚 TEMAS")
+    P["⚙️ PROCESSOS"]
+    D["📋 DETALHAMENTO"]
+    M[("🛠️ FERRAMENTAS E METODOLOGIAS")]
+
+    %% --- CONEXÕES (Com texto explicativo nas setas) ---
+    F == "desdobrado em" ==> T
+    T == "concretizados por meio de" ==> P
+    P == "explicados por" ==> D
+    D == "com sugestão de" ==> M
+
+    %% Engrossando a linha direcional principal
+    linkStyle default stroke:#7f8c8d,stroke-width:4px,color:#2c3e50,font-weight:bold
+
+    %% --- APLICAÇÃO DOS ESTILOS ---
+    class F fund;
+    class T tema;
+    class P proc;
+    class D deta;
+    class M tool;
 ```
 
 #### Os 8 Fundamentos da Excelência
 
 A versão moderna do modelo baseia-se em 8 fundamentos interdependentes que sustentam o pensamento organizacional:
 
-* **Pensamento Sistêmico:** O entendimento do negócio como um sistema integrado. As atividades não podem ser tratadas de forma isolada, exigindo uma visão macro das interdependências internas e externas.
-* **Aprendizado Organizacional e Inovação:** A busca permanente por novos patamares de competência, ciclos contínuos de melhoria e inovação.
-* **Liderança Transformadora:** Liderança ética e inspiradora, atenta a cenários e tendências, capaz de mobilizar as pessoas em torno de valores.
-* **Compromisso com as Partes Interessadas:** Entendimento das necessidades e pactuação de interesses com foco em clientes, unindo a visão de curto e longo prazo à estratégia.
-* **Adaptabilidade:** A busca pelo sucesso através da flexibilidade, agilidade, rapidez nos ciclos de aprendizagem e uso de métodos ágeis.
-* **Desenvolvimento Sustentável:** O compromisso ético e transparente com os impactos sociais e ambientais gerados pela operação.
-* **Orientação por Processos:** Foco em processos bem gerenciados, embasados em dados e informações, visando eficiência e eficácia.
-* **Geração de Valor:** Todos os esforços devem culminar em valor tangível (econômico, social e ambiental) para todas as partes interessadas.
+1. **Pensamento Sistêmico:** O entendimento do negócio como um sistema integrado. As atividades não podem ser tratadas de forma isolada, exigindo uma visão macro das interdependências internas e externas.
+2. **Aprendizado Organizacional e Inovação:** A busca permanente por novos patamares de competência, ciclos contínuos de melhoria e inovação.
+3. **Liderança Transformadora:** Liderança ética e inspiradora, atenta a cenários e tendências, capaz de mobilizar as pessoas em torno de valores.
+4. **Compromisso com as Partes Interessadas:** Entendimento das necessidades e pactuação de interesses com foco em clientes, unindo a visão de curto e longo prazo à estratégia.
+5. **Adaptabilidade:** A busca pelo sucesso através da flexibilidade, agilidade, rapidez nos ciclos de aprendizagem e uso de métodos ágeis.
+6. **Desenvolvimento Sustentável:** O compromisso ético e transparente com os impactos sociais e ambientais gerados pela operação.
+7. **Orientação por Processos:** Foco em processos bem gerenciados, embasados em dados e informações, visando eficiência e eficácia.
+8. **Geração de Valor:** Todos os esforços devem culminar em valor tangível (econômico, social e ambiental) para todas as partes interessadas.
 
 ::: {.callout-note title="🔍 ZOOM: Dissecando o Pensamento Sistêmico na Prática"}
 
@@ -541,12 +620,15 @@ O MEG orienta a estruturação de *Processos* principais dentro desses temas, qu
 **TEMA A: Tomada de Decisão** (Foco em entender o negócio e situar-se no mercado)
 
 * **Processo 1: Identificação das Informações:** a) Definição das informações estratégicas; b) Seleção das mais críticas; c) Inteligência competitiva; d) Benchmarking.
+
 * **Processo 2: Utilização das Informações:** a) Integração dos dados; b) Reuniões de análise crítica; c) Definição de decisões; d) Envolvimento de pessoas; e) Acompanhamento das ações; f) Comunicação às partes.
 
 **TEMA B: Alinhamento** (Foco em disseminar as informações para que todos entendam o que, como e para que fazem)
 
 * **Processo 1: Estruturação do Modelo de Gestão:** a) Correlação entre requisitos e cadeia de valor; b) Inter-relacionamento de processos; c) Definição de elementos de suporte; d) Representação diagramática; e) Comunicação do modelo.
+
 * **Processo 2: Estruturação do Sistema de Medição:** a) Definição de atributos; b) Desdobramento de indicadores estratégicos em processos; c) Definição de relações de causa e efeito; d) Equilíbrio no atendimento de necessidades.
+
 * **Processo 3: Atuação em Rede:** a) Mapeamento de redes de cooperação internas e externas; b) Cooperação visando influenciar o êxito das estratégias.
 
 É através desta "escada de desdobramento" que um conceito puramente filosófico se transforma em um sistema integrado com indicadores de causa e efeito na rotina da operação mineral.
@@ -593,8 +675,11 @@ Para exemplificar como grandes corporações consolidam metodologias isoladas (T
 ### A Integração dos Pilares (O Efeito Cascata)
 Imagine que o objetivo estratégico da diretoria é aumentar o volume de minério transportado. O VPS desdobra essa meta da seguinte forma:
 * **Segurança (*Zero Harm*):** Antes de qualquer reparo, o mecânico realiza a "Análise de Risco" e o bloqueio físico de energias perigosas. No VPS, a premissa é absoluta: se não for seguro, não há produção.
+
 * **Disponibilidade de Ativos:** O foco é garantir que a locomotiva passe o menor tempo possível na oficina e o maior tempo tracionando vagões nos trilhos (*Uptime*).
+
 * **Qualidade:** O motor deve ser regulado para emitir o mínimo de fumaça e consumir o mínimo de diesel, atendendo às rígidas especificações ambientais e técnicas de torque.
+
 * **Custos:** Ao evitar que um motor "funda" por falta de acompanhamento do óleo, a empresa economiza milhões em trocas corretivas (motor de tração), gerando eficiência financeira real.
 
 ### Ferramentas do VPS na Prática Operacional
@@ -625,17 +710,34 @@ Tanto o MEG quanto o VPS operam sob a lógica de **maturidade evolutiva**, simil
 ```{mermaid}
 %%| label: fig-maturidade-excelencia
 %%| fig-cap: "Curva de Maturidade em Gestão da Excelência"
-graph LR
-    A[Estágio 0<br/>Inexistente] --> B[Estágio 1<br/>Reativo]
-    B --> C[Estágio 2<br/>Estruturado]
-    C --> D[Estágio 3<br/>Proativo]
-    D --> E[Estágio 4<br/>Classe Mundial]
+flowchart LR
 
-    style A fill:#e74c3c,stroke:#333,color:#fff
-    style B fill:#e67e22,stroke:#333,color:#fff
-    style C fill:#f1c40f,stroke:#333
-    style D fill:#2ecc71,stroke:#333,color:#fff
-    style E fill:#27ae60,stroke:#333,color:#fff
+    %% --- CONFIGURAÇÃO DE ESTILOS (Escala Semafórica de Maturidade) ---
+    classDef st0 fill:#c0392b,stroke:#7b241c,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+    classDef st1 fill:#d35400,stroke:#873600,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+    classDef st2 fill:#f39c12,stroke:#b9770e,stroke-width:3px,color:#000000,font-size:15px,font-weight:bold
+    classDef st3 fill:#27ae60,stroke:#196f3d,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+    classDef st4 fill:#145a32,stroke:#0b5345,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+
+    %% --- ESTRUTURA DOS NÓS (Formato de "Pílula" para Marcos de Jornada) ---
+    A(["❌ Estágio 0<br>Inexistente"])
+    B(["⚠️ Estágio 1<br>Reativo"])
+    C(["🏗️ Estágio 2<br>Estruturado"])
+    D(["🚀 Estágio 3<br>Proativo"])
+    E(["🏆 Estágio 4<br>Classe Mundial"])
+
+    %% --- CONEXÕES (Linha do Tempo Evolutiva) ---
+    A ==> B ==> C ==> D ==> E
+
+    %% Engrossando a linha direcional para dar peso à jornada
+    linkStyle default stroke:#7f8c8d,stroke-width:4px
+
+    %% --- APLICAÇÃO DOS ESTILOS ---
+    class A st0;
+    class B st1;
+    class C st2;
+    class D st3;
+    class E st4;
 ```
 
 Para visualizar a transição entre o caos reativo e a excelência estratégica, é necessário compreender que a qualidade não é implementada do dia para a noite; ela segue uma curva evolutiva de maturidade. O gráfico abaixo compara o foco dos indicadores de desempenho (KPIs) nos extremos dessa jornada.
@@ -644,7 +746,9 @@ Para visualizar a transição entre o caos reativo e a excelência estratégica,
 
 **Análise dos Pontos de Interesse (POIs) no Gráfico:**
 * **Gestão de Crises (Estágio 1 - Reativo):** O indicador dominante é a *Falha*. A empresa gasta quase 100% do seu tempo reagindo a problemas. Não há medição de prevenção porque não sobra tempo para planejar.
+
 * **Ponto de Virada (Estágio 3 - Proativo):** É aqui que a *Qualidade Proativa* vence a reatividade. O investimento em Prevenção (treinamento, manutenção preditiva, sensores) supera o custo e a frequência das falhas. O "incêndio" parou de ser a rotina.
+
 * **Benchmarking Global (Estágio 4 - Classe Mundial):** As falhas tornam-se residuais (próximas ao nível Seis Sigma). O foco total da organização é em *Inovação* e na manutenção da liderança. A empresa não apenas segue o padrão; ela *cria o novo padrão* do mercado.
 
 ::: {.example #exm-maturidade-borracharia name="Os Estágios na Prática: Oficina de Pneus de Carga"}
@@ -666,16 +770,17 @@ Ao gerenciar equipes, lembre-se da premissa da Curva de Bradley (muito utilizada
 ::: {.callout-important title="🎯 Dinâmica de Classe: Onde Estamos?"}
 
 Avaliem a **Biblioteca da Faculdade** ou a **Cantina/Restaurante Universitário** utilizando a Curva de Maturidade:
+
 1. **Diagnóstico:** Se a comida acaba todo dia no meio do turno e a fila é gigante e desorganizada, em qual estágio a cantina se encontra? *(Resposta: Estágio 1 - Reativo).*
+
 2. **Evolução:** O que a Engenharia de Produção implementaria para elevar esse serviço ao Estágio 3 (Proativo)? *(Exemplo de Resposta: Previsão de demanda baseada em dados históricos de alunos matriculados, sistema de pagamento ágil pré-pago e coleta contínua de feedback via QR Code).*
 :::
-
 
 ## Metodologias de Suporte Estratégico e Analítico {#sec-metodologias-suporte}
 
 Para que filosofias como TQM, Seis Sigma e Lean não atuem de forma isolada, as organizações utilizam metodologias de suporte para alinhar a estratégia e organizar a solução de problemas na rotina.
 
-## O Desdobramento Estratégico: Balanced Scorecard (BSC) {#sec-bsc}
+### O Desdobramento Estratégico: Balanced Scorecard (BSC) {#sec-bsc}
 
 Se a Qualidade e a Maturidade definem *como* o trabalho deve ser feito, o **Balanced Scorecard (BSC)** é a ferramenta gerencial que garante que esse esforço diário esteja apontado para a direção correta. O BSC traduz a estratégia abstrata da diretoria em ações operacionais através de uma forte lógica de **Causa e Efeito** dividida em quatro perspectivas.
 
@@ -717,8 +822,6 @@ A tabela abaixo demonstra a estrutura de desdobramento típica para uma **Fábri
 
 : Estrutura de Desdobramento do Balanced Scorecard {#tbl-desdobramento-bsc}
 
-
-
 #### Mapa Estratégico: Relações de Causa e Efeito
 
 O poder do BSC está no **Mapa Estratégico**, que visualiza as relações de causa e efeito entre as 4 perspectivas:
@@ -729,28 +832,57 @@ O poder do BSC está no **Mapa Estratégico**, que visualiza as relações de ca
 
 ```{mermaid}
 %%| label: fig-estrutura-masp
-%%| fig-cap: "A Estrutura do MASP alinhada ao PDCA"
-graph LR
-   subgraph P[PLAN - Planejar]
-      1[1. Problema] --> 2[2. Observação]
-      2 --> 3[3. Análise]
-      3 --> 4[4. Plano de Ação]
-   end
-   subgraph D[DO - Executar]
-      4 --> 5[5. Execução]
-   end
-   subgraph C[CHECK - Verificar]
-      5 --> 6[6. Verificação]
-   end
-   subgraph A[ACT - Agir/Padronizar]
-      6 --> 7[7. Padronização]
-      7 --> 8[8. Conclusão]
-   end
+%%| fig-cap: "A Estrutura das 8 Etapas do MASP alinhadas ao Ciclo PDCA"
+flowchart LR
 
-   style P fill:#ebf5fb,stroke:#2980b9
-   style D fill:#fef9e7,stroke:#f39c12
-   style C fill:#fdedec,stroke:#e74c3c
-   style A fill:#e9f7ef,stroke:#27ae60
+    %% --- CONFIGURAÇÃO DE ESTILOS DOS NÓS (Cores baseadas na fase do PDCA) ---
+    classDef planNode fill:#2980b9,stroke:#154360,stroke-width:2px,color:#ffffff,font-size:15px,font-weight:bold
+    classDef doNode fill:#f39c12,stroke:#a04000,stroke-width:2px,color:#000000,font-size:15px,font-weight:bold
+    classDef checkNode fill:#e74c3c,stroke:#7b241c,stroke-width:2px,color:#ffffff,font-size:15px,font-weight:bold
+    classDef actNode fill:#27ae60,stroke:#145a32,stroke-width:2px,color:#ffffff,font-size:15px,font-weight:bold
+
+    %% --- CONFIGURAÇÃO DE ESTILOS DOS SUBGRAFOS (Fundo suave, borda forte) ---
+    style P fill:#ebf5fb,stroke:#2980b9,stroke-width:3px,color:#2980b9,font-weight:bold,font-size:16px
+    style D fill:#fef9e7,stroke:#f39c12,stroke-width:3px,color:#d68910,font-weight:bold,font-size:16px
+    style C fill:#fdedec,stroke:#e74c3c,stroke-width:3px,color:#c0392b,font-weight:bold,font-size:16px
+    style A fill:#e9f7ef,stroke:#27ae60,stroke-width:3px,color:#27ae60,font-weight:bold,font-size:16px
+
+    %% --- ESTRUTURA DO MASP POR FASE ---
+    subgraph P ["📘 PLAN (Planejar)"]
+        direction LR
+        S1("🎯 1 - Problema") ==> S2("🔎 2 - Observação")
+        S2 ==> S3("🔬 3 - Análise")
+        S3 ==> S4("📝 4 - Plano de Ação")
+    end
+
+    subgraph D ["🟨 DO (Executar)"]
+        direction LR
+        S5("🚀 5 - Execução")
+    end
+
+    subgraph C ["🟥 CHECK (Verificar)"]
+        direction LR
+        S6("📊 6 - Verificação")
+    end
+
+    subgraph A ["🟩 ACT (Agir / Padronizar)"]
+        direction LR
+        S7("🔒 7 - Padronização") ==> S8("🏆 8 - Conclusão")
+    end
+
+    %% --- CONEXÕES ENTRE AS FASES (O fluxo contínuo) ---
+    S4 ==> S5
+    S5 ==> S6
+    S6 ==> S7
+
+    %% Engrossando as linhas de ligação externa
+    linkStyle default stroke:#7f8c8d,stroke-width:4px
+
+    %% --- APLICAÇÃO DOS ESTILOS ---
+    class S1,S2,S3,S4 planNode;
+    class S5 doNode;
+    class S6 checkNode;
+    class S7,S8 actNode;
 ```
 
 Criada pela União dos Cientistas e Engenheiros Japoneses (JUSE), a MASP tem o objetivo de prevenir e corrigir falhas de processos de forma altamente estruturada. A metodologia auxilia na identificação da causa raiz, propõe ações corretivas e sugere o uso de ferramentas específicas (como Brainstorming, 5W2H e 5S) para convergir ideias.
@@ -823,13 +955,18 @@ Explique que trocar o trilho quebrado (Etapa 5) é apenas uma **correção** ime
 
 ::: {.example #exm-5-porques name="A Busca pela Causa Raiz: Os 5 Porquês"}
 
-
 A técnica dos "5 Porquês" (utilizada na Etapa 3 do MASP) impede que a equipe trate apenas os sintomas. Veja como aplicá-la ao descarrilamento:
+
 1. **Por que o trem descarrilou?** Porque o trilho quebrou durante a passagem da composição.
+
 2. **Por que o trilho quebrou?** Porque sofreu fadiga excessiva de material.
+
 3. **Por que sofreu fadiga?** Porque o peso por vagão estava acima do limite de resistência daquela liga metálica.
+
 4. **Por que o peso estava acima do limite?** Porque a diretoria ordenou o aumento do volume transportado por viagem.
+
 5. **Por que a diretoria fez isso?** Porque focou apenas no lucro de curto prazo (Perspectiva Financeira do BSC) sem ouvir os limites da engenharia.
+
 * **Causa Raiz Real:** Falha estratégica da Alta Liderança no desdobramento das metas e falta de governança técnica.
 :::
 
@@ -943,18 +1080,38 @@ Para exemplificar a fusão entre a Gestão da Qualidade e a Manutenção, vamos 
 
 ```{mermaid}
 %%| label: fig-ciclo-vida-ativo
-%%| fig-cap: "Ciclo de Vida do Ativo - 7 Etapas"
-graph LR
-   1(1. Decisão) --> 2(2. Especificação)
-   2 --> 3(3. Aquisição)
-   3 --> 4(4. Instalação)
-   4 --> 5(5. Manutenção)
-   5 --> 6(6. Reforma)
-   6 --> 7(7. Descarte)
+%%| fig-cap: "O Ciclo de Vida do Ativo em 7 Etapas (Destaque para a Manutenção)"
+flowchart LR
 
-   style 5 fill:#f39c12,stroke:#333,color:#fff,stroke-width:2px
-   style 1 fill:#bdc3c7,stroke:#333
-   style 7 fill:#bdc3c7,stroke:#333
+    %% --- CONFIGURAÇÃO DE ESTILOS ---
+    %% Estilo para o Início e Fim (Limites do Ciclo)
+    classDef boundary fill:#bdc3c7,stroke:#7f8c8d,stroke-width:2px,color:#2c3e50,font-size:15px,font-weight:bold
+
+    %% Estilo Padrão para etapas de Engenharia/Suprimentos
+    classDef standard fill:#3498db,stroke:#21618c,stroke-width:2px,color:#ffffff,font-size:15px,font-weight:bold
+
+    %% Estilo de Destaque para a Manutenção (A fase mais longa e crítica)
+    classDef highlight fill:#f39c12,stroke:#b9770e,stroke-width:3px,color:#000000,font-size:16px,font-weight:bold
+
+    %% --- ESTRUTURA DOS NÓS (Formato de Jornada) ---
+    S1(["💡 1 - Decisão"])
+    S2(["📋 2 - Especificação"])
+    S3(["🛒 3 - Aquisição"])
+    S4(["⚙️ 4 - Instalação"])
+    S5(["🛠️ 5 - Manutenção"])
+    S6(["🔄 6 - Reforma"])
+    S7(["🗑️ 7 - Descarte"])
+
+    %% --- CONEXÕES (A linha do tempo) ---
+    S1 ==> S2 ==> S3 ==> S4 ==> S5 ==> S6 ==> S7
+
+    %% Engrossando a linha direcional para dar peso ao ciclo
+    linkStyle default stroke:#7f8c8d,stroke-width:4px
+
+    %% --- APLICAÇÃO DOS ESTILOS ---
+    class S1,S7 boundary;
+    class S2,S3,S4,S6 standard;
+    class S5 highlight;
 ```
 
 A gestão da qualidade sistêmica acompanha o equipamento do "nascimento ao túmulo". Veja como isso se aplica à gestão de um Britador Primário:
@@ -1005,43 +1162,40 @@ Na prática organizacional, a implantação de um Modelo de Excelência (MEG) ou
 
 ```{mermaid}
 %%| label: fig-integracao-sgq
-%%| fig-cap: "Integração entre SGQ, Filosofias de Excelência e Sistemas Corporativos"
-graph TD
-    A[ISO 9001<br/>SGQ - Base Normativa] --> B[TQM + Lean + Seis Sigma<br/>Filosofias de Excelência]
-    B --> C[VPS / MEG<br/>Sistema Corporativo Integrado]
-    C --> D[Resultados Operacionais<br/>Segurança, Produção, Qualidade, Custos]
+%%| fig-cap: "Integração Sistêmica: Do SGQ aos Resultados Operacionais"
+flowchart TD
 
-    style A fill:#3498db,stroke:#333,color:#fff
-    style B fill:#9b59b6,stroke:#333,color:#fff
-    style C fill:#e67e22,stroke:#333,color:#fff
-    style D fill:#2ecc71,stroke:#333,color:#fff
+    %% --- CONFIGURAÇÃO DE ESTILOS (Paleta Profissional e Contraste) ---
+    classDef isoStyle fill:#2980b9,stroke:#154360,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
+    classDef philoStyle fill:#8e44ad,stroke:#512e5f,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
+    classDef corpStyle fill:#d35400,stroke:#78281f,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
+    classDef resultStyle fill:#27ae60,stroke:#145a32,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
+
+    %% --- ESTRUTURA DOS NÓS (Com Emojis de Contexto) ---
+    A("📘 ISO 9001<br>SGQ - Base Normativa e Padronização")
+    B("🧠 TQM + Lean + Seis Sigma<br>Filosofias e Ferramentas de Excelência")
+    C("🏢 Sistemas Corporativos (Ex: VPS / MEG)<br>Modelo de Gestão Integrada")
+    D{{"🏆 Resultados Operacionais<br>Segurança, Produção, Qualidade e Custos"}}
+
+    %% --- CONEXÕES (Com verbos de transição) ---
+    A == "Sustenta e Padroniza" ==> B
+    B == "Estrutura e Impulsiona" ==> C
+    C == "Gera e Garante" ==> D
+
+    %% Engrossando e estilizando as linhas e textos das setas
+    linkStyle default stroke:#7f8c8d,stroke-width:4px,color:#2c3e50,font-weight:bold,font-size:14px
+
+    %% --- APLICAÇÃO DOS ESTILOS ---
+    class A isoStyle;
+    class B philoStyle;
+    class C corpStyle;
+    class D resultStyle;
 ```
 
 * **Camada 1 (ISO 9001 / SGQ):** Garante a conformidade legal, a padronização de processos e a rastreabilidade.
 * **Camada 2 (TQM, Lean, Seis Sigma):** Fornece as ferramentas e métodos para melhoria contínua e eficiência.
 * **Camada 3 (VPS, MEG):** Integra tudo em um sistema coeso alinhado à estratégia corporativa.
 * **Camada 4 (Resultados):** Entrega os KPIs de desempenho esperados pela operação.
-
-### O Mapeamento Sistêmico: ISO 9001 e a Engenharia de Dados {#sec-mapeamento-iso-qualidade}
-
-Para que a transição da filosofia normativa para a engenharia de dados seja executável, precisamos mapear exatamente onde cada conceito abstrato de qualidade "encosta" na norma ISO 9001. O diagrama abaixo ilustra o fluxo dessa operacionalização: a norma dita as regras do sistema, e o conceito de qualidade define os atributos vitais que precisarão ser controlados na rotina operacional.
-
-Para sistematizar essa integração na rotina da engenharia de produção, a @tbl-mapeamento-iso cruza as concepções de qualidade com as cláusulas normativas:
-
-| Conceito da Qualidade | Cláusulas ISO 9001 Relacionadas | Tradução Operacional |
-| :--- | :--- | :--- |
-| **Atributo e essência** | **8 (Operação); 8.5.1** (Controle da produção) | Os atributos vitais do produto tornam-se os indicadores críticos de controle. |
-| **Dimensão objetiva e subjetiva** | **9 (Avaliação); 4.2** (Partes interessadas) | A medição real representa o objetivo; a expectativa do cliente dita a importância (subjetivo). |
-| **Qualidade como intencional** | **6 (Planejamento); 8.5.1; 8.6** (Liberação) | Requisitos contratuais e de projeto tornam-se os alvos de aceitação. |
-| **Qualidade como excepcional** | **6 (Planejamento); 9 (Avaliação); 10 (Melhoria)** | Desempenho superior só é válido se o mercado reconhecer valor estratégico nisso. |
-| **Qualidade como transformadora** | **4 (Contexto); 9 (Avaliação); 10 (Melhoria)** | O impacto reflete-se no ganho de eficiência global do cliente. |
-| **Qualidade como responsável** | **6.1 (Riscos); 8.7** (Saídas não conformes) | Desperdícios, passivos e riscos são classificados como não qualidade. |
-| **Valor e competitividade** | **4.2 (Partes interessadas); 6.2** (Objetivos) | O valor percebido separa os requisitos qualificadores dos diferenciais competitivos. |
-| **Sistema de gestão** | **4.4 (SGQ); 5 (Liderança); 7 (Suporte)** | A governança corporativa garante a manutenção e melhoria do ciclo (PDCA). |
-
-: Mapeamento Integrado — Qualidade × ISO 9001 {#tbl-mapeamento-iso}
-
-> *Independentemente do setor — siderurgia, indústria automotiva ou logística portuária —, é a tradução rigorosa destes conceitos para a engenharia de dados que ditará o sucesso das operações. No @sec-cap3, aprofundaremos essa necessidade de quantificação através do modelo matemático ARM.*
 
 ## Escolhendo a Abordagem Certa {#sec-escolha-abordagem}
 
@@ -1059,171 +1213,64 @@ No próximo capítulo (@sec-cap3), daremos o salto definitivo da filosofia para 
 
 ---
 
-## 📝 Resumo do Capítulo
-
-* **TQM (Gestão da Qualidade Total):** Filosofia cultural de engajamento de todos os colaboradores na busca pela qualidade. Ferramentas: PDCA, CCQ, 7 Ferramentas da Qualidade.
-* **Lean Manufacturing:** Foco na eliminação dos 8 desperdícios (mudas) e otimização do fluxo de valor. Ferramentas: 5S, VSM, Kanban, TPM.
-* **Seis Sigma:** Metodologia estatística rigorosa para redução de variabilidade, estruturada em *belts* (White, Yellow, Green, Black, Master Black) e seguindo o roteiro DMAIC.
-* **MEG (Modelo de Excelência da Gestão):** Referencial brasileiro da FNQ baseado em 8 fundamentos e no ciclo PDCL (Plan-Do-Check-Learn).
-* **VPS (Sistema de Produção Vale):** Sistema proprietário que integra TQM, Lean e Seis Sigma em 7 pilares estratégicos (Segurança, Disponibilidade, Estabilidade, Utilização, Custos, Qualidade, Sustentabilidade).
-* **Integração Sistêmica:** As filosofias de excelência não substituem o SGQ (ISO 9001), mas o potencializam, criando uma arquitetura de gestão robusta e orientada a resultados.
-
----
-
-## Exercícios de Fixação {#sec-exercicios-cap2}
-
-### Seção 1: Filosofias e Ferramentas
-
-::: {#exr-cap2-tqm-vs-lean}
-
-**TQM vs. Lean**
-Explique a principal diferença entre a Gestão da Qualidade Total (TQM) e a Manufatura Enxuta (Lean Manufacturing). Em que contexto organizacional cada uma é mais adequada?
-:::
-
-::: {#exr-cap2-8mudas}
-
-**Os 8 Desperdícios do Lean**
-Cite os 8 desperdícios (mudas) identificados pelo Lean Manufacturing e demonstre como cada um se manifesta em uma operação de mineração (perfuração, carregamento ou transporte).
-:::
-
-::: {#exr-cap2-6sigma-dmaic}
-
-**Metodologia Seis Sigma: DMAIC**
-Descreva as 5 fases da metodologia Seis Sigma (DMAIC) e cite pelo menos 1 ferramenta estatística utilizada em cada etapa.
-:::
-
-::: {#exr-cap2-9pilares}
-
-**Os 9 Pilares do TQM**
-Dos 9 Fatores Críticos de Sucesso do TQM mencionados no capítulo, cite 3 e explique brevemente como cada um impacta a execução de uma Ordem de Manutenção em uma escavadeira.
-:::
-
-::: {#exr-tqm-semeadoras}
-
-**Desafio do Engenheiro: Falha Sistêmica no TQM**
-
-Um lote de 50 semeadoras saiu de uma fábrica de implementos agrícolas com a cor do chassi errada (pintadas de verde limão em vez de verde escuro). Tecnicamente a máquina funciona com perfeição e a qualidade da tinta é excelente, mas a estética exigida pelo projeto falhou e os equipamentos estão bloqueados no pátio.
-
-Analise este evento sob a ótica dos Fatores Críticos de Sucesso do TQM e identifique pelo menos 3 (três) fatores que podem ter falhado simultaneamente para permitir que esse erro acontecesse.
-:::
-
-### Seção 2: Integração de Sistemas
-
-::: {#exr-cap2-sgq-iso}
-
-**Norma ISO vs. Filosofia**
-Por que a implementação de um SGQ (Sistema de Gestão da Qualidade) baseado em ISO 9001 não é suficiente, por si só, para garantir excelência operacional? O que mais é necessário?
-:::
-
-::: {#exr-cap2-meg-vps}
-
-**Diferença entre MEG e VPS**
-Qual é a principal diferença entre o Modelo de Excelência da Gestão (MEG) brasileiro e o Sistema de Produção Vale (VPS)? Ambos são aplicáveis em uma mineradora que não pertence ao grupo Vale?
-:::
-
-::: {#exr-cap2-hierarquia}
-
-**Hierarquia de Integração**
-A figura de integração mostra 4 camadas. Por que a ISO 9001 está na base e não no topo? Justifique a sequência proposta.
-:::
-
-### Seção 3: Escolha e Aplicação
-
-::: {#exr-cap2-britador-problem}
-
-**Seleção de Metodologia: Britador Primário**
-Um britador primário apresenta o seguinte panorama: quebra de mandíbula a cada 3 meses; desperdício de 2 horas/semana aguardando peças; falhas de comunicação entre operadores e técnicos de manutenção. Qual(is) abordagem(ns) você recomendaria? Por quê?
-:::
-
-::: {#exr-cap2-transporte-eficiencia}
-
-**Aplicação de Lean em Transporte**
-Uma frota de caminhões fora de estrada apresenta tempo médio de ciclo (ida + descarga + volta) de 2 horas, mas apenas 50 minutos são dedicados ao transporte propriamente dito. Que tipo de desperdício Lean está presente? Como mapearia o fluxo de valor?
-:::
-
-::: {#exr-cap2-variabilidade-ore}
-
-**Aplicação de Seis Sigma em Qualidade de Minério**
-O teor de ferro (Fe) em um produto britado especifica 65 ± 2%. Medições semanais mostram valores oscilando entre 63% e 68%. Qual é o problema: conformidade ou variabilidade? Que abordagem resolveria melhor?
-:::
-
-### Seção 4: Estudo de Caso Integrado
-
-::: {#exr-cap2-case-operacao}
-
-**Implantação de Modelo de Excelência em Operação Completa**
-Uma mineradora de cobre necessita melhorar sua rentabilidade. Os problemas diagnosticados são: (1) Engajamento baixo dos colaboradores; (2) Excesso de movimentação de materiais nas operações; (3) Oscilação grande na recuperação metalúrgica.
-
-1. Qual modelo ou combinação de modelos você recomendaria?
-2. Qual seria a sequência de implementação (qual filosofia primeiro)?
-3. Defina 3 KPIs para monitoramento no primeiro trimestre.
-4. Como estruturar a governança para garantir sustentabilidade?
-:::
-
-### Seção 5: Questões de Reflexão
-
-::: {#exr-cap2-ref-q1}
-
-**Responsabilidade pela Qualidade**
-No TQM, afirma-se que "todos são responsáveis pela qualidade". Como essa responsabilidade se distribui entre o CEO, o gerente de britagem, o operador e o técnico de laboratório?
-:::
-
-::: {#exr-cap2-ref-q2}
-
-**Lean vs. Escala**
-O Lean foi desenvolvido em ambientes de produção em massa (Toyota). Como adaptar seus princípios em uma operação de mineração que é sazonalmente dinâmica?
-:::
-
-::: {#exr-cap2-ref-q3}
-
-**Seis Sigma em Processos Naturais**
-Seis Sigma funciona bem em manufatura repetitiva. Qual seria o maior desafio em aplicar Seis Sigma a um minério cujas características naturalmente variam por geologia (teor heterogêneo)?
-:::
-
-::: {#exr-masp-5w2h}
-
-**Desafio Prático do Módulo: Estruturando um 5W2H**
-
-
-Considere o seguinte cenário crítico: *"Um lote de minério de ferro chegou ao porto para embarque em um navio apresentando 12% de umidade (quando o limite contratual máximo era de 8%). O cliente internacional rejeitou a carga, gerando risco de *demurrage* (multa portuária)."*
-
-**Tarefa:** Monte um plano de ação rápido utilizando a ferramenta **5W2H** (correspondente à Etapa 4 do MASP) para propor uma solução de bloqueio e correção para este problema de umidade antes que o navio parta.
-:::
-
----
-
 ## Consolidação do Módulo: A Qualidade como Sistema Integrado {#sec-consolidacao-modulo}
 
 Para consolidar todo o conhecimento construído nesta jornada — desde os conceitos fundamentais de Qualidade até os sistemas complexos de Manutenção e Gestão de Ativos — o mapa mental a seguir estrutura essas interações. Este material serve como o **"Guia de Sobrevivência"** do Engenheiro de Produção no chão de fábrica.
 
-```
-                                  [ EXCELÊNCIA OPERACIONAL ]
-                                             |
-       ______________________________________|______________________________________
-      |                                      |                                      |
- [ FILOSOFIAS ]                        [ METODOLOGIAS ]                       [ FERRAMENTAS ]
-      |                                      |                                      |
-      |-- TQM: Cultura e Pessoas             |-- ISO 9001: Gestão de Riscos         |-- PDCA / MASP: Solução
-      |-- LEAN: Fluxo e Valor (Mudas)        |-- MEG: Maturidade e Aprendizado      |-- 5S: Base e Organização
-      |-- 6 SIGMA: Redução de Variação       |-- VPS/BSC: Estratégia e Pilares      |-- ISHIKAWA: Causa Raiz
-      |-- 5S: Base da Estabilidade           |-- SGQ: Processos e Requisitos        |-- 5W2H: Plano de Ação
-      |______________________________________|______________________________________|
-                                             |
-                                   [ O CICLO DE ENTREGA ]
-                                             |
-                       ______________________|______________________
-                      |                      |                      |
-                [ ENGENHARIA ]          [ MANUTENÇÃO ]          [ OPERAÇÃO ]
-               (Projeto/Padrão)       (Ativo/Confiabilidade)   (Uso/Produtividade)
-                      |                      |                      |
-                O QUE fazer?            COMO manter?           QUANTO produzir?
-                      |______________________|______________________|
-                                             |
-                                  [ RESULTADO SISTÊMICO ]
-                                             |
-                       ______________________|______________________
-                      |                      |                      |
-               VALOR AO CLIENTE       EFICIÊNCIA DE CUSTO      ZERO DANOS (HSE)
+```{mermaid}
+%%| label: fig-mapa-excelencia
+%%| fig-cap: "Mapa Mental: O Caminho da Excelência Operacional até o Resultado Sistêmico"
+flowchart TD
+
+    %% --- CONFIGURAÇÃO DE ESTILOS (Design em Camadas) ---
+    classDef topo fill:#154360,stroke:#0d2b3e,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
+    classDef pilares fill:#f8f9fa,stroke:#2980b9,stroke-width:2px,color:#2c3e50,font-size:14px
+    classDef ciclo fill:#d35400,stroke:#873600,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
+    classDef entrega fill:#fef5e7,stroke:#d35400,stroke-width:2px,color:#2c3e50,font-size:14px
+    classDef result fill:#1e8449,stroke:#145a32,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
+    classDef base fill:#e9f7ef,stroke:#1e8449,stroke-width:2px,color:#145a32,font-size:15px,font-weight:bold
+
+    %% --- NÍVEL 1: O ALICERCE ESTRATÉGICO ---
+    EXC{{"🌟 EXCELÊNCIA OPERACIONAL"}}
+
+    F["<b>🧠 FILOSOFIAS</b><hr>• TQM: Cultura e Pessoas<br>• LEAN: Fluxo e Valor (Mudas)<br>• 6 SIGMA: Redução de Variação<br>• 5S: Base da Estabilidade"]
+    M["<b>📚 METODOLOGIAS</b><hr>• ISO 9001: Gestão de Riscos<br>• MEG: Maturidade e Aprendizado<br>• VPS/BSC: Estratégia e Pilares<br>• SGQ: Processos e Requisitos"]
+    T["<b>🛠️ FERRAMENTAS</b><hr>• PDCA / MASP: Solução<br>• 5S: Base e Organização<br>• ISHIKAWA: Causa Raiz<br>• 5W2H: Plano de Ação"]
+
+    EXC ==> F & M & T
+
+    %% --- NÍVEL 2: A TRANSIÇÃO PARA A PRÁTICA ---
+    CICLO(["🔄 O CICLO DE ENTREGA"])
+
+    F & M & T ==> CICLO
+
+    ENG["<b>📐 ENGENHARIA</b><br>(Projeto / Padrão)<hr><i>O QUE fazer?</i>"]
+    MAN["<b>🔧 MANUTENÇÃO</b><br>(Ativo / Confiabilidade)<hr><i>COMO manter?</i>"]
+    OPE["<b>🏭 OPERAÇÃO</b><br>(Uso / Produtividade)<hr><i>QUANTO produzir?</i>"]
+
+    CICLO ==> ENG & MAN & OPE
+
+    %% --- NÍVEL 3: O IMPACTO NO NEGÓCIO ---
+    RES{{"🎯 RESULTADO SISTÊMICO"}}
+
+    ENG & MAN & OPE ==> RES
+
+    V["💎 VALOR AO<br>CLIENTE"]
+    C["📉 EFICIÊNCIA DE<br>CUSTO"]
+    Z["🛡️ ZERO DANOS<br>(HSE)"]
+
+    RES ==> V & C & Z
+
+    %% --- ESTILIZAÇÃO DAS LINHAS ---
+    linkStyle default stroke:#7f8c8d,stroke-width:3px
+
+    %% --- APLICAÇÃO DAS CLASSES ---
+    class EXC topo;
+    class F,M,T pilares;
+    class CICLO ciclo;
+    class ENG,MAN,OPE entrega;
+    class RES result;
+    class V,C,Z base;
 ```
 
 ::: {.callout-tip title="🚀 Manual de Boas Práticas: Qualidade + Manutenção (Para o Aluno)"}
@@ -1278,21 +1325,6 @@ Como o Engenheiro de Produção escolhe a "arma" certa para cada tipo de problem
 Tentar aplicar **Seis Sigma** (complexo e altamente estatístico) em uma empresa que não possui sequer a ISO 9001 implantada (padronização básica e organização) é como tentar instalar um motor de Ferrari em um carro sem rodas. A **hierarquia de qualidade** serve exatamente para garantir que a empresa tenha **maturidade processual** antes de avançar e desperdiçar dinheiro com ferramentas sofisticadas.
 :::
 
-::: {#exr-diagnostico-padaria}
-
-**Diagnóstico de Consultoria: A Padaria Industrial**
-
-Você foi recém-contratado por uma padaria industrial para salvar a operação. A sua auditoria inicial revela três problemas crônicos: a linha de produção descarta muitos pães queimados (defeito), há muita gente ociosa e parada na cozinha (espera) e os novos funcionários não seguem nenhuma receita fixa (falta de padrão de qualidade).
-
-Responda justificando suas escolhas:
-
-1. Por qual **Camada da Hierarquia de Integração** você começaria a atuar?
-
-2. Qual abordagem metodológica do **Guia de Decisão** você utilizaria primariamente para resolver a questão das "pessoas paradas" na cozinha?
-:::
-
----
-
 ## Quadro Resumo: Da Teoria à Excelência Operacional {#sec-quadro-resumo}
 
 Este **Quadro Resumo** foi desenhado para ser o "mapa de bolso" de revisão do aluno, conectando diretamente toda a teoria fundacional e filosófica do Capítulo 1 com a prática de gestão de processos e melhoria contínua do Capítulo 2.
@@ -1303,7 +1335,7 @@ Este **Quadro Resumo** foi desenhado para ser o "mapa de bolso" de revisão do a
 | **Evolução** | As Eras da Qualidade: Da Inspeção (foco no Produto) ao TQM (foco no Sistema). | ISO 9001:2015: Gestão contemporânea baseada em processos e riscos operacionais. | A indústria evoluiu de "achar o erro pronto" para "garantir que o erro não nasça". |
 | **Gurus** | Juran (Adequação ao Uso), Deming (Variação), Crosby (Zero Defeitos). | 9 Fatores do TQM: Comprometimento da Alta Gestão e Foco no Cliente. | A qualidade é uma responsabilidade integral de todos, não só do setor de inspeção. |
 | **Economia** | Produtividade da Qualidade = (Faturamento Total) / (Custos de Produção). | Custos da Qualidade: Prevenção, Avaliação, Falhas Internas/Externas e Superqualidade. | O capital gasto em Prevenção e Avaliação é sempre mais barato que o prejuízo financeiro da Falha. |
-| **Filosofia** | A Abordagem de Processos: Input (Entrada) $\rightarrow$ Transformação $\rightarrow$ Output (Saída). | Lean Manufacturing: A busca implacável por eliminar os 8 desperdícios (Mudas). | O valor econômico só é gerado naquilo que o cliente está disposto a pagar. O resto é custo. |
+| **Filosofia** | A Abordagem de Processos: Input (Entrada) ➔ Transformação ➔ Output (Saída). | Lean Manufacturing: A busca implacável por eliminar os 8 desperdícios (Mudas). | O valor econômico só é gerado naquilo que o cliente está disposto a pagar. O resto é custo. |
 | **Estatística** | Redução de Variabilidade: A Qualidade de um processo é inversamente proporcional à sua variação. | Seis Sigma: O roteiro (DMAIC) e a meta técnica de atingir 3,4 defeitos por milhão (DPMO). | Se o seu processo oscila sem controle, você perde o controle do custo de fabricação e da satisfação. |
 | **Estratégia** | ARI: O fluxo de informações no Ambiente de Relacionamento Interno (A Cadeia de Valor). | BSC / MEG / VPS: Os mapas estratégicos e as medições de maturidade da gestão de topo. | O Balanced Scorecard (BSC) é utilizado para garantir que a qualidade implementada chegue à meta de Lucro. |
 | **Prática** | A base lógica e o rigor: Requisitos, conformidades e tolerâncias dimensionais. | MASP e CCQ: O ciclo de 8 etapas (MASP) para solução de problemas e o Kaizen de rotina. | O conhecimento empírico e vivencial do operador do chão de fábrica é o maior ativo intelectual da empresa. |
@@ -1317,78 +1349,175 @@ Este **Quadro Resumo** foi desenhado para ser o "mapa de bolso" de revisão do a
 
 ---
 
+## 📝 Resumo do Capítulo
+
+* **TQM (Gestão da Qualidade Total):** Filosofia cultural de engajamento de todos os colaboradores na busca pela qualidade. Ferramentas: PDCA, CCQ, 7 Ferramentas da Qualidade.
+* **Lean Manufacturing:** Foco na eliminação dos 8 desperdícios (mudas) e otimização do fluxo de valor. Ferramentas: 5S, VSM, Kanban, TPM.
+* **Seis Sigma:** Metodologia estatística rigorosa para redução de variabilidade, estruturada em *belts* (White, Yellow, Green, Black, Master Black) e seguindo o roteiro DMAIC.
+* **MEG (Modelo de Excelência da Gestão):** Referencial brasileiro da FNQ baseado em 8 fundamentos e no ciclo PDCL (Plan-Do-Check-Learn).
+* **VPS (Sistema de Produção Vale):** Sistema proprietário que integra TQM, Lean e Seis Sigma em 7 pilares estratégicos (Segurança, Disponibilidade, Estabilidade, Utilização, Custos, Qualidade, Sustentabilidade).
+* **Integração Sistêmica:** As filosofias de excelência não substituem o SGQ (ISO 9001), mas o potencializam, criando uma arquitetura de gestão robusta e orientada a resultados.
+
+---
+
+## Exercícios de Fixação {#sec-exercicios-cap2}
+
+#### Bloco 1: Diagnóstico Introdutório (Aquecimento)
+
+::: {#exr-diagnostico-padaria name="Diagnóstico de Consultoria: A Padaria Industrial"}
+Você foi recém-contratado por uma padaria industrial para salvar a operação. A sua auditoria inicial revela três problemas crônicos: a linha de produção descarta muitos pães queimados (defeito), há muita gente ociosa e parada na cozinha (espera) e os novos funcionários não seguem nenhuma receita fixa (falta de padrão de qualidade).
+
+Responda justificando suas escolhas:
+
+1. Por qual **Camada da Hierarquia de Integração** você começaria a atuar?
+2. Qual abordagem metodológica do **Guia de Decisão** você utilizaria primariamente para resolver a questão das "pessoas paradas" na cozinha?
+:::
+
+#### Bloco 2: Filosofias e Ferramentas
+
+::: {#exr-cap2-tqm-vs-lean name="TQM vs. Lean"}
+Explique a principal diferença entre a Gestão da Qualidade Total (TQM) e a Manufatura Enxuta (Lean Manufacturing). Em que contexto organizacional cada uma é mais adequada?
+:::
+
+::: {#exr-cap2-8mudas name="Os 8 Desperdícios do Lean"}
+Cite os 8 desperdícios (mudas) identificados pelo Lean Manufacturing e demonstre como cada um se manifesta em uma operação de mineração (perfuração, carregamento ou transporte).
+:::
+
+::: {#exr-cap2-6sigma-dmaic name="Metodologia Seis Sigma: DMAIC"}
+Descreva as 5 fases da metodologia Seis Sigma (DMAIC) e cite pelo menos 1 ferramenta estatística utilizada em cada etapa.
+:::
+
+::: {#exr-cap2-9pilares name="Os 9 Pilares do TQM"}
+Dos 9 Fatores Críticos de Sucesso do TQM mencionados no capítulo, cite 3 e explique brevemente como cada um impacta a execução de uma Ordem de Manutenção em uma escavadeira.
+:::
+
+::: {#exr-tqm-semeadoras name="Desafio do Engenheiro: Falha Sistêmica no TQM"}
+Um lote de 50 semeadoras saiu de uma fábrica de implementos agrícolas com a cor do chassi errada (pintadas de verde limão em vez de verde escuro). Tecnicamente a máquina funciona com perfeição e a qualidade da tinta é excelente, mas a estética exigida pelo projeto falhou e os equipamentos estão bloqueados no pátio.
+
+Analise este evento sob a ótica dos Fatores Críticos de Sucesso do TQM e identifique pelo menos 3 (três) fatores que podem ter falhado simultaneamente para permitir que esse erro acontecesse.
+:::
+
+#### Bloco 3: Integração de Sistemas
+
+::: {#exr-cap2-sgq-iso name="Norma ISO vs. Filosofia"}
+Por que a implementação de um SGQ (Sistema de Gestão da Qualidade) baseado em ISO 9001 não é suficiente, por si só, para garantir excelência operacional? O que mais é necessário?
+:::
+
+::: {#exr-cap2-meg-vps name="Diferença entre MEG e VPS"}
+Qual é a principal diferença entre o Modelo de Excelência da Gestão (MEG) brasileiro e o Sistema de Produção Vale (VPS)? Ambos são aplicáveis em uma mineradora que não pertence ao grupo Vale?
+:::
+
+::: {#exr-cap2-hierarquia name="Hierarquia de Integração"}
+A figura de integração mostra 4 camadas. Por que a ISO 9001 está na base e não no topo? Justifique a sequência proposta.
+:::
+
+#### Bloco 4: Escolha e Aplicação Prática
+
+::: {#exr-cap2-britador-problem name="Seleção de Metodologia: Britador Primário"}
+Um britador primário apresenta o seguinte panorama: quebra de mandíbula a cada 3 meses; desperdício de 2 horas/semana aguardando peças; falhas de comunicação entre operadores e técnicos de manutenção. Qual(is) abordagem(ns) você recomendaria? Por quê?
+:::
+
+::: {#exr-cap2-transporte-eficiencia name="Aplicação de Lean em Transporte"}
+Uma frota de caminhões fora de estrada apresenta tempo médio de ciclo (ida + descarga + volta) de 2 horas, mas apenas 50 minutos são dedicados ao transporte propriamente dito. Que tipo de desperdício Lean está presente? Como mapearia o fluxo de valor?
+:::
+
+::: {#exr-cap2-variabilidade-ore name="Aplicação de Seis Sigma em Qualidade de Minério"}
+O teor de ferro (Fe) em um produto britado especifica 65 ± 2%. Medições semanais mostram valores oscilando entre 63% e 68%. Qual é o problema: conformidade ou variabilidade? Que abordagem resolveria melhor?
+:::
+
+::: {#exr-masp-5w2h name="Desafio Prático do Módulo: Estruturando um 5W2H"}
+Considere o seguinte cenário crítico: *"Um lote de minério de ferro chegou ao porto para embarque em um navio apresentando 12% de umidade (quando o limite contratual máximo era de 8%). O cliente internacional rejeitou a carga, gerando risco de demurrage (multa portuária)."*
+
+**Tarefa:** Monte um plano de ação rápido utilizando a ferramenta **5W2H** (correspondente à Etapa 4 do MASP) para propor uma solução de bloqueio e correção para este problema de umidade antes que o navio parta.
+:::
+
+#### Bloco 5: Estudo de Caso Integrado
+
+::: {#exr-cap2-case-operacao name="Implantação de Modelo de Excelência em Operação Completa"}
+Uma mineradora de cobre necessita melhorar sua rentabilidade. Os problemas diagnosticados são: (1) Engajamento baixo dos colaboradores; (2) Excesso de movimentação de materiais nas operações; (3) Oscilação grande na recuperação metalúrgica.
+
+1. Qual modelo ou combinação de modelos você recomendaria?
+2. Qual seria a sequência de implementação (qual filosofia primeiro)?
+3. Defina 3 KPIs para monitoramento no primeiro trimestre.
+4. Como estruturar a governança para garantir sustentabilidade?
+:::
+
+#### Bloco 6: Questões de Reflexão (Debate em Sala)
+
+::: {#exr-cap2-ref-q1 name="Responsabilidade pela Qualidade"}
+No TQM, afirma-se que "todos são responsáveis pela qualidade". Como essa responsabilidade se distribui entre o CEO, o gerente de britagem, o operador e o técnico de laboratório?
+:::
+
+::: {#exr-cap2-ref-q2 name="Lean vs. Escala"}
+O Lean foi desenvolvido em ambientes de produção em massa (Toyota). Como adaptar seus princípios em uma operação de mineração que é sazonalmente dinâmica?
+:::
+
+::: {#exr-cap2-ref-q3 name="Seis Sigma em Processos Naturais"}
+Seis Sigma funciona bem em manufatura repetitiva. Qual seria o maior desafio em aplicar Seis Sigma a um minério cujas características naturalmente variam por geologia (teor heterogêneo)?
+:::
+
+---
+
 ## Simulado Final Integrado {#sec-simulado-final}
 
 Para consolidar o aprendizado de toda esta primeira etapa do livro (que cobre desde os fundamentos filosóficos e Gurus da Qualidade até o MEG, Lean e VPS), resolva as 10 questões abaixo. (Gabarito comentado no @sec-gabarito-parte1).
 
 **1. Qual "Guru da Qualidade" define o conceito essencialmente como "Adequação ao Uso"?**
-
-(A) W. Edwards Deming
-(B) Joseph Juran
-(C) Philip Crosby
-(D) Armand Feigenbaum
+A) W. Edwards Deming
+B) Joseph Juran
+C) Philip Crosby
+D) Armand Feigenbaum
 
 **2. Na curva matemática de Custos da Qualidade, o custo de "Retrabalho antes da peça sair da fábrica" é classificado como uma:**
-
-(A) Falha Interna
-(B) Falha Externa
-(C) Prevenção
-(D) Avaliação
+A) Falha Interna
+B) Falha Externa
+C) Prevenção
+D) Avaliação
 
 **3. O Ciclo PDCL, muito utilizado no Modelo de Excelência da Gestão (MEG), substitui a etapa "Agir/Padronizar" (Act) do PDCA tradicional por qual conceito estratégico?**
-
-(A) Liderança
-(B) Logística
-(C) Aprendizado (*Learn*)
-(D) Lucro
+A) Liderança
+B) Logística
+C) Aprendizado (*Learn*)
+D) Lucro
 
 **4. Na filosofia *Lean Manufacturing*, produzir mais itens do que o cliente (ou processo seguinte) solicitou é o letal desperdício de:**
-
-(A) Superproducão
-(B) Movimentação
-(C) Defeito
-(D) Espera
+A) Superprodução
+B) Movimentação
+C) Defeito
+D) Espera
 
 **5. A metodologia estruturada do Seis Sigma utiliza qual roteiro prático para a condução de projetos de melhoria de processos?**
-
-(A) PDCA
-(B) DMAIC
-(C) 5S
-(D) SDCA
+A) PDCA
+B) DMAIC
+C) 5S
+D) SDCA
 
 **6. Qual a principal diferença de abordagem entre as certificações ISO 9001:1994 e a ISO 9001:2015?**
-
-(A) A versão 2015 é focada puramente em aumento de documentação.
-(B) A versão 2015 foca no Pensamento Baseado em Riscos e na Liderança.
-(C) A versão 1994 focava no desenvolvimento de *softwares*.
-(D) Não houve mudança filosófica estrutural entre elas.
+A) A versão 2015 é focada puramente em aumento de documentação.
+B) A versão 2015 foca no Pensamento Baseado em Riscos e na Liderança.
+C) A versão 1994 focava no desenvolvimento de *softwares*.
+D) Não houve mudança filosófica estrutural entre elas.
 
 **7. Em sistemas de excelência como o VPS, qual ferramenta/ciclo é usada especificamente para *manter* e estabilizar os padrões já conquistados?**
-
-(A) *Kaizen*
-(B) DMAIC
-(C) SDCA
-(D) *Brainstorming*
+A) *Kaizen*
+B) DMAIC
+C) SDCA
+D) *Brainstorming*
 
 **8. Na engenharia de requisitos, o que caracteriza a perigosa "Superqualidade" (*Over-quality*)?**
-
-(A) Atingir a meta de "Zero Defeitos".
-(B) Atender com rigor laboratorial ao requisito do cliente.
-(C) Entregar atributos de alto grau que o mercado não pediu, não valoriza e não paga para ter.
-(D) Utilizar alta tecnologia no chão de fábrica.
+A) Atingir a meta de "Zero Defeitos".
+B) Atender com rigor laboratorial ao requisito do cliente.
+C) Entregar atributos de alto grau que o mercado não pediu, não valoriza e não paga para ter.
+D) Utilizar alta tecnologia no chão de fábrica.
 
 **9. No conceito de Ambiente de Relacionamento Interno (ARI), quem desempenha o papel de "Cliente Interno" em relação à Equipe de Apoio (Engenharia/Planejamento)?**
-
-(A) Fornecedor Externo de insumos.
-(B) Alta Gestão / Diretoria.
-(C) Equipe de Operação (os executores na linha de frente).
-(D) Acionistas e Investidores.
+A) Fornecedor Externo de insumos.
+B) Alta Gestão / Diretoria.
+C) Equipe de Operação (os executores na linha de frente).
+D) Acionistas e Investidores.
 
 **10. Qual é a "Equação fundamental da Produtividade" atrelada à Gestão da Qualidade?**
-
-(A) $Produtividade = \frac{Preço \times Quantidade}{Custo}$
-(B) $Produtividade = \frac{Custo}{Preço}$
-(C) $Produtividade = Qualidade + Lucro$
-(D) $Produtividade = Vendas - Impostos$
-
-
+A) $Produtividade = \frac{Preço \times Quantidade}{Custo}$
+B) $Produtividade = \frac{Custo}{Preço}$
+C) $Produtividade = Qualidade + Lucro$
+D) $Produtividade = Vendas - Impostos$
