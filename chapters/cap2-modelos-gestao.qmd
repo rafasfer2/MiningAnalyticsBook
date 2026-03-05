@@ -92,7 +92,7 @@ flowchart TD
     classDef itemStyle fill:#f8f9fa,stroke:#bdc3c7,stroke-width:2px,color:#2c3e50,font-size:15px,font-weight:bold
 
     %% --- ESTRUTURA DOS NÓS ---
-    TQM{{"Gestão da<br/>Qualidade Total (TQM)"}}
+    TQM{{"Gestão da\nQualidade Total (TQM)"}}
 
     L("Liderança e Estratégia")
     P("Pessoas e Cultura")
@@ -331,9 +331,9 @@ flowchart TD
     T[/"🏠 TETO: Qualidade Máxima, Menor Custo e Menor Lead Time"\]
 
     %% PILARES E CENTRO: Retângulos e Bordas Arredondadas
-    P1["⚙️ PILAR 1: Just-in-Time<br>Fluxo Contínuo, Puxado, Heijunka"]
-    C("👥 CENTRO<br>Pessoas, Parceiros e<br>Melhoria Contínua (Kaizen)")
-    P2["🛑 PILAR 2: Jidoka<br>Parar e Resolver, Poka-Yoke"]
+    P1["⚙️ PILAR 1: Just-in-Time\nFluxo Contínuo, Puxado, Heijunka"]
+    C("👥 CENTRO\nPessoas, Parceiros e\nMelhoria Contínua (Kaizen)")
+    P2["🛑 PILAR 2: Jidoka\nParar e Resolver, Poka-Yoke"]
 
     %% BASE: Usando Trapézio Invertido [\ /]
     B[\"🧱 BASE: Filosofia de Longo Prazo e Processos Padronizados"/]
@@ -422,12 +422,12 @@ flowchart BT
     classDef champion fill:#2980b9,stroke:#1f618d,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
 
     %% --- ESTRUTURA DOS NÓS (Base para o Topo) ---
-    W[\"⬜ WHITE BELT<br>Executores da Base Operacional"/]
-    Y[\"🟨 YELLOW BELT<br>Participantes Ativos de Projetos"/]
-    G[\"🟩 GREEN BELT<br>Líderes Parciais (Conciliam com rotina)"/]
-    B[\"⬛ BLACK BELT<br>Especialistas Dedicados (Full-time)"/]
-    M[\"🟪 MASTER BLACK BELT<br>Mentores e Gestores do Programa"/]
-    C("👑 CHAMPION / SPONSOR<br>Alta Liderança e Direcionamento Estratégico")
+    W["⬜ WHITE BELT\nExecutores da Base Operacional"/]
+    Y["🟨 YELLOW BELT\nParticipantes Ativos de Projetos"/]
+    G["🟩 GREEN BELT\nLíderes Parciais (Conciliam com rotina)"/]
+    B["⬛ BLACK BELT\nEspecialistas Dedicados (Full-time)"/]
+    M["🟪 MASTER BLACK BELT\nMentores e Gestores do Programa"/]
+    C("👑 CHAMPION / SPONSOR\nAlta Liderança e Direcionamento Estratégico")
 
     %% --- CONEXÕES (Ascensão) ---
     W ==> Y
@@ -473,11 +473,11 @@ flowchart LR
     classDef ctrStyle fill:#3498db,stroke:#2980b9,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
 
     %% --- ESTRUTURA DOS NÓS (Com a função de cada etapa) ---
-    D("🎯 D - DEFINE<br>Definir o Problema")
-    M("📏 M - MEASURE<br>Medir o Processo")
-    A("🔍 A - ANALYZE<br>Analisar a Causa")
-    I("🚀 I - IMPROVE<br>Melhorar o Fluxo")
-    C("🔒 C - CONTROL<br>Controlar e Manter")
+    D("🎯 D - DEFINE\nDefinir o Problema")
+    M("📏 M - MEASURE\nMedir o Processo")
+    A("🔍 A - ANALYZE\nAnalisar a Causa")
+    I("🚀 I - IMPROVE\nMelhorar o Fluxo")
+    C("🔒 C - CONTROL\nControlar e Manter")
 
     %% --- CONEXÕES (Fluxo do Roteiro) ---
     D ==> M ==> A ==> I ==> C
@@ -720,11 +720,11 @@ flowchart LR
     classDef st4 fill:#145a32,stroke:#0b5345,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
 
     %% --- ESTRUTURA DOS NÓS (Formato de "Pílula" para Marcos de Jornada) ---
-    A(["❌ Estágio 0<br>Inexistente"])
-    B(["⚠️ Estágio 1<br>Reativo"])
-    C(["🏗️ Estágio 2<br>Estruturado"])
-    D(["🚀 Estágio 3<br>Proativo"])
-    E(["🏆 Estágio 4<br>Classe Mundial"])
+    A(["❌ Estágio 0\nInexistente"])
+    B(["⚠️ Estágio 1\nReativo"])
+    C(["🏗️ Estágio 2\nEstruturado"])
+    D(["🚀 Estágio 3\nProativo"])
+    E(["🏆 Estágio 4\nClasse Mundial"])
 
     %% --- CONEXÕES (Linha do Tempo Evolutiva) ---
     A ==> B ==> C ==> D ==> E
@@ -1172,10 +1172,10 @@ flowchart TD
     classDef resultStyle fill:#27ae60,stroke:#145a32,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
 
     %% --- ESTRUTURA DOS NÓS (Com Emojis de Contexto) ---
-    A("📘 ISO 9001<br>SGQ - Base Normativa e Padronização")
-    B("🧠 TQM + Lean + Seis Sigma<br>Filosofias e Ferramentas de Excelência")
-    C("🏢 Sistemas Corporativos (Ex: VPS / MEG)<br>Modelo de Gestão Integrada")
-    D{{"🏆 Resultados Operacionais<br>Segurança, Produção, Qualidade e Custos"}}
+    A("📘 ISO 9001\nSGQ - Base Normativa e Padronização")
+    B("🧠 TQM + Lean + Seis Sigma\nFilosofias e Ferramentas de Excelência")
+    C("🏢 Sistemas Corporativos (Ex: VPS / MEG)\nModelo de Gestão Integrada")
+    D{{"🏆 Resultados Operacionais\nSegurança, Produção, Qualidade e Custos"}}
 
     %% --- CONEXÕES (Com verbos de transição) ---
     A == "Sustenta e Padroniza" ==> B
@@ -1233,9 +1233,9 @@ flowchart TD
     %% --- NÍVEL 1: O ALICERCE ESTRATÉGICO ---
     EXC{{"🌟 EXCELÊNCIA OPERACIONAL"}}
 
-    F["<b>🧠 FILOSOFIAS</b><hr>• TQM: Cultura e Pessoas<br>• LEAN: Fluxo e Valor (Mudas)<br>• 6 SIGMA: Redução de Variação<br>• 5S: Base da Estabilidade"]
-    M["<b>📚 METODOLOGIAS</b><hr>• ISO 9001: Gestão de Riscos<br>• MEG: Maturidade e Aprendizado<br>• VPS/BSC: Estratégia e Pilares<br>• SGQ: Processos e Requisitos"]
-    T["<b>🛠️ FERRAMENTAS</b><hr>• PDCA / MASP: Solução<br>• 5S: Base e Organização<br>• ISHIKAWA: Causa Raiz<br>• 5W2H: Plano de Ação"]
+    F["<b>🧠 FILOSOFIAS</b><hr>• TQM: Cultura e Pessoas\n• LEAN: Fluxo e Valor (Mudas)\n• 6 SIGMA: Redução de Variação\n• 5S: Base da Estabilidade"]
+    M["<b>📚 METODOLOGIAS</b><hr>• ISO 9001: Gestão de Riscos\n• MEG: Maturidade e Aprendizado\n• VPS/BSC: Estratégia e Pilares\n• SGQ: Processos e Requisitos"]
+    T["<b>🛠️ FERRAMENTAS</b><hr>• PDCA / MASP: Solução\n• 5S: Base e Organização\n• ISHIKAWA: Causa Raiz\n• 5W2H: Plano de Ação"]
 
     EXC ==> F & M & T
 
@@ -1244,9 +1244,9 @@ flowchart TD
 
     F & M & T ==> CICLO
 
-    ENG["<b>📐 ENGENHARIA</b><br>(Projeto / Padrão)<hr><i>O QUE fazer?</i>"]
-    MAN["<b>🔧 MANUTENÇÃO</b><br>(Ativo / Confiabilidade)<hr><i>COMO manter?</i>"]
-    OPE["<b>🏭 OPERAÇÃO</b><br>(Uso / Produtividade)<hr><i>QUANTO produzir?</i>"]
+    ENG["<b>📐 ENGENHARIA</b>\n(Projeto / Padrão)<hr><i>O QUE fazer?</i>"]
+    MAN["<b>🔧 MANUTENÇÃO</b>\n(Ativo / Confiabilidade)<hr><i>COMO manter?</i>"]
+    OPE["<b>🏭 OPERAÇÃO</b>\n(Uso / Produtividade)<hr><i>QUANTO produzir?</i>"]
 
     CICLO ==> ENG & MAN & OPE
 
@@ -1255,9 +1255,9 @@ flowchart TD
 
     ENG & MAN & OPE ==> RES
 
-    V["💎 VALOR AO<br>CLIENTE"]
-    C["📉 EFICIÊNCIA DE<br>CUSTO"]
-    Z["🛡️ ZERO DANOS<br>(HSE)"]
+    V["💎 VALOR AO\nCLIENTE"]
+    C["📉 EFICIÊNCIA DE\nCUSTO"]
+    Z["🛡️ ZERO DANOS\n(HSE)"]
 
     RES ==> V & C & Z
 
