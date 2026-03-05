@@ -49,8 +49,6 @@ Para consolidar o aprendizado estrutural, a tabela abaixo apresenta a evolução
 
 : Evolução de Paradigma: Da Era da Inspeção ao TQM {#tbl-evolucao-paradigma}
 
-
-
 ::: {.example #exm-tqm-hospital name="TQM em Ambientes Críticos: Hospital de Alta Complexidade"}
 
 Em cenários de alto risco, o TQM garante que a vida do usuário seja o centro do sistema:
@@ -86,29 +84,41 @@ Na mineração, o TQM se manifesta através da integração rigorosa entre Opera
 ```{mermaid}
 %%| label: fig-9pilares-tqm
 %%| fig-cap: "Os 9 Fatores Críticos de Sucesso do TQM"
-graph TD
-   TQM{Gestao da<br/>Qualidade Total}
+flowchart TD
 
-   TQM --> L[Lideranca e Estrategia]
-   TQM --> P[Pessoas e Cultura]
-   TQM --> O[Processos e Operacao]
+    %% --- CONFIGURAÇÃO DE ESTILOS (Garantindo letras grandes e legibilidade) ---
+    classDef mainStyle fill:#2c3e50,stroke:#2c3e50,stroke-width:2px,color:#ffffff,font-size:18px,font-weight:bold
+    classDef catStyle fill:#34495e,stroke:#2c3e50,stroke-width:2px,color:#ffffff,font-size:16px,font-weight:bold
+    classDef itemStyle fill:#f8f9fa,stroke:#bdc3c7,stroke-width:2px,color:#2c3e50,font-size:15px,font-weight:bold
 
-   L --> 1[1. Comprometimento da Alta Administracao]
-   L --> 2[2. Foco no Consumidor]
-   L --> 8[8. Benchmarking]
+    %% --- ESTRUTURA DOS NÓS ---
+    TQM{{"Gestão da<br/>Qualidade Total (TQM)"}}
 
-   P --> 4[4. Envolvimento dos Funcionarios]
-   P --> 5[5. Treinamento]
-   P --> 9[9. Empowerment]
+    L("Liderança e Estratégia")
+    P("Pessoas e Cultura")
+    O("Processos e Operação")
 
-   O --> 3[3. Parceria com o Fornecedor]
-   O --> 6[6. Mensuracao da Qualidade]
-   O --> 7[7. Melhoria Continua]
+    TQM --> L
+    TQM --> P
+    TQM --> O
 
-   style TQM fill:#2c3e50,stroke:#333,color:#fff,stroke-width:2px
-   style L fill:#ecf0f1,stroke:#333
-   style P fill:#ecf0f1,stroke:#333
-   style O fill:#ecf0f1,stroke:#333
+    %% Usando o traço " - " em vez de ponto " . " para evitar o erro de Markdown List
+    L --> F1["1 - Comprometimento da Alta Administração"]
+    L --> F2["2 - Foco no Consumidor"]
+    L --> F8["8 - Benchmarking"]
+
+    P --> F4["4 - Envolvimento dos Funcionários"]
+    P --> F5["5 - Treinamento"]
+    P --> F9["9 - Empowerment"]
+
+    O --> F3["3 - Parceria com o Fornecedor"]
+    O --> F6["6 - Mensuração da Qualidade"]
+    O --> F7["7 - Melhoria Contínua"]
+
+    %% --- APLICAÇÃO DOS ESTILOS ---
+    class TQM mainStyle;
+    class L,P,O catStyle;
+    class F1,F2,F3,F4,F5,F6,F7,F8,F9 itemStyle;
 ```
 
 Para que o TQM seja efetivamente implantado e mensurado, a literatura consolida **9 Fatores Críticos de Sucesso (FCS)**. Estes pilares permitem auditar o grau de maturidade organizacional e identificar as práticas gerenciais que precisam ser fortalecidas:
@@ -117,112 +127,117 @@ Para que o TQM seja efetivamente implantado e mensurado, a literatura consolida 
 
 A qualidade deve começar no topo da hierarquia. A liderança não deve apenas apoiar, mas patrocinar ativamente o sistema.
 
-* Avaliação periódica da qualidade executada pela alta gestão.
-* Discussão constante da importância da qualidade nos fóruns executivos.
-* Alocação de verbas e recursos específicos para a qualidade definidos em orçamento.
-* Definição, identificação e documentação clara das metas.
-* Inserção das metas da qualidade diretamente no planejamento estratégico da empresa.
-* Comunicação ativa e visível do compromisso da direção para com toda a empresa.
+  * Avaliação periódica da qualidade executada pela alta gestão.
+  * Discussão constante da importância da qualidade nos fóruns executivos.
+  * Alocação de verbas e recursos específicos para a qualidade definidos em orçamento.
+  * Definição, identificação e documentação clara das metas.
+  * Inserção das metas da qualidade diretamente no planejamento estratégico da empresa.
+  * Comunicação ativa e visível do compromisso da direção para com toda a empresa.
 
 **2. Foco no Consumidor**
 
 O mercado dita o que é valor. O TQM exige ouvir e reagir às necessidades do cliente.
 
-* Comparação da satisfação do cliente com indicadores internos e de concorrentes.
-* Fornecimento e transparência das reclamações dos consumidores a todos os departamentos (não apenas ao SAC).
-* Utilização das reclamações como base estrutural para a melhoria de processos.
-* Manutenção de um serviço ágil e resolutivo de atendimento ao consumidor.
-* Realização periódica de pesquisas de satisfação e expectativas.
+  * Comparação da satisfação do cliente com indicadores internos e de concorrentes.
+  * Fornecimento e transparência das reclamações dos consumidores a todos os departamentos (não apenas ao SAC).
+  * Utilização das reclamações como base estrutural para a melhoria de processos.
+  * Manutenção de um serviço ágil e resolutivo de atendimento ao consumidor.
+  * Realização periódica de pesquisas de satisfação e expectativas.
 
 **3. Parceria com o Fornecedor**
 
 A qualidade do produto final depende intrinsecamente da qualidade dos insumos recebidos.
 
-* Utilização da qualidade (e não apenas do preço) como critério de peso para a seleção de fornecedores.
-* Estabelecimento de contratos de longo prazo, gerando estabilidade.
-* Fornecimento de assistência técnica da contratante para desenvolver o fornecedor.
-* Participação do fornecedor desde o processo de desenvolvimento e projeto do produto.
+  * Utilização da qualidade (e não apenas do preço) como critério de peso para a seleção de fornecedores.
+  * Estabelecimento de contratos de longo prazo, gerando estabilidade.
+  * Fornecimento de assistência técnica da contratante para desenvolver o fornecedor.
+  * Participação do fornecedor desde o processo de desenvolvimento e projeto do produto.
 
 **4. Envolvimento dos Funcionários**
 
 A qualidade é construída pelas pessoas que operam o processo diariamente.
 
-* Realização periódica de reuniões em cada área específica para discussão sobre qualidade.
-* Criação de equipes interfuncionais (multidisciplinares) para tratar de problemas sistêmicos.
-* Avaliação rigorosa de todas as sugestões emitidas pelos funcionários.
-* Implantação efetiva das sugestões aprovadas.
-* Concessão de prêmios e recompensas não financeiras pelo engajamento e boas ideias.
+  * Realização periódica de reuniões em cada área específica para discussão sobre qualidade.
+  * Criação de equipes interfuncionais (multidisciplinares) para tratar de problemas sistêmicos.
+  * Avaliação rigorosa de todas as sugestões emitidas pelos funcionários.
+  * Implantação efetiva das sugestões aprovadas.
+  * Concessão de prêmios e recompensas não financeiras pelo engajamento e boas ideias.
 
 **5. Treinamento**
 
 A capacitação é o motor da estabilidade do processo.
 
-* Alocação de recursos financeiros e de tempo necessários para o treinamento.
-* Envolvimento de todos os escalões da empresa (da diretoria ao chão de fábrica) nos treinamentos de qualidade.
-* Capacitação de uma grande base de funcionários em técnicas metódicas de solução de problemas.
-* Treinamento técnico em ferramentas e controle estatístico.
+  * Alocação de recursos financeiros e de tempo necessários para o treinamento.
+  * Envolvimento de todos os escalões da empresa (da diretoria ao chão de fábrica) nos treinamentos de qualidade.
+  * Capacitação de uma grande base de funcionários em técnicas metódicas de solução de problemas.
+  * Treinamento técnico em ferramentas e controle estatístico.
 
 **6. Mensuração da Qualidade**
 
 O que não se mede, não se gerencia. A coleta de dados deve ser confiável e contínua.
 
-* Execução de inspeções por amostragem durante o processo de produção (preventivo).
-* Avaliação da qualidade em múltiplas etapas, não se limitando apenas à inspeção final do produto pronto.
-* Medição periódica dos índices de desperdícios, retrabalho e falhas de produtos não-conformes.
-* Manutenção rigorosa de registros e históricos das avaliações.
-* Transparência no fornecimento dos resultados das avaliações a todos os funcionários.
-* Utilização real dos resultados como suporte primário para a melhoria.
+  * Execução de inspeções por amostragem durante o processo de produção (preventivo).
+  * Avaliação da qualidade em múltiplas etapas, não se limitando apenas à inspeção final do produto pronto.
+  * Medição periódica dos índices de desperdícios, retrabalho e falhas de produtos não-conformes.
+  * Manutenção rigorosa de registros e históricos das avaliações.
+  * Transparência no fornecimento dos resultados das avaliações a todos os funcionários.
+  * Utilização real dos resultados como suporte primário para a melhoria.
 
 **7. Melhoria Contínua**
 
 A busca incessante por estabelecer novos e melhores padrões de desempenho.
 
-* Manutenção de uma estrutura organizacional específica dedicada a apoiar a qualidade.
-* Existência de programas formais para a redução de tempo e custo nos processos internos.
-* Execução de avaliações profundas nos processos-chave (gargalos) de produção.
-* Programas formais para a redução do Lead Time (tempo de entrega do produto ao cliente).
-* Programas formais para a redução do tempo de ciclo de fabricação.
+  * Manutenção de uma estrutura organizacional específica dedicada a apoiar a qualidade.
+  * Existência de programas formais para a redução de tempo e custo nos processos internos.
+  * Execução de avaliações profundas nos processos-chave (gargalos) de produção.
+  * Programas formais para a redução do Lead Time (tempo de entrega do produto ao cliente).
+  * Programas formais para a redução do tempo de ciclo de fabricação.
 
 **8. Benchmarking**
 
 Olhar para o mercado e aprender com os melhores, independentemente do setor.
 
-* Realização de visitas técnicas a outras organizações reconhecidamente líderes.
-* Procedimento efetivo de benchmarking para monitorar os competidores diretos mais fortes.
-* Procedimento de benchmarking com empresas líderes de outros setores (não competidores) para importar inovações.
-* Manutenção do benchmarking não como uma ação isolada, mas como uma política contínua da empresa.
+  * Realização de visitas técnicas a outras organizações reconhecidamente líderes.
+  * Procedimento efetivo de benchmarking para monitorar os competidores diretos mais fortes.
+  * Procedimento de benchmarking com empresas líderes de outros setores (não competidores) para importar inovações.
+  * Manutenção do benchmarking não como uma ação isolada, mas como uma política contínua da empresa.
 
 **9. Empowerment (Delegação de Poderes)**
 
 Dar autonomia à operação para agir rapidamente sobre os desvios.
 
-* Delegação de autoridade aos funcionários da linha de frente para a solução imediata de problemas operacionais.
-* Fornecimento de apoio gerencial e técnico para que os funcionários tomem essas decisões.
-* Transferência da execução da inspeção da qualidade para os próprios operadores (autocontrole), reduzindo a dependência de inspetores externos.
-* Divulgação e celebração interna das experiências de sucesso na solução de problemas.
+  * Delegação de autoridade aos funcionários da linha de frente para a solução imediata de problemas operacionais.
+  * Fornecimento de apoio gerencial e técnico para que os funcionários tomem essas decisões.
+  * Transferência da execução da inspeção da qualidade para os próprios operadores (autocontrole), reduzindo a dependência de inspetores externos.
+  * Divulgação e celebração interna das experiências de sucesso na solução de problemas.
 
 ::: {.example #exm-tqm-implementos name="Os 9 Fatores na Prática: Fabricação de Implementos Agrícolas"}
 
 Para exemplificar os Fatores Críticos de Sucesso operando em conjunto, vamos utilizar o caso de uma Indústria de Fabricação de Implementos Agrícolas (Arados e Semeadoras), onde a durabilidade no campo é o diferencial competitivo:
 
-* **Comprometimento da Alta Administração:** A diretoria não apenas cobra metas, mas participa mensalmente do "Comitê de Qualidade". Eles aprovaram uma verba específica para a compra de um robô de solda de alta precisão, demonstrando que a qualidade é uma prioridade orçamentária e estratégica, não apenas um discurso.
-* **Foco no Consumidor:** A empresa envia engenheiros para as fazendas para ouvir os produtores rurais. Ao descobrir que os parafusos de fixação sofriam corrosão precoce em solos ácidos, a fábrica mudou o material. As reclamações do SAC são expostas em telas na lanchonete da fábrica para que todos saibam onde o cliente está sofrendo.
-* **Parceria com o Fornecedor:** Em vez de comprar o aço mais barato, a fábrica mantém o mesmo fornecedor há 10 anos. Quando o fornecedor teve problemas na laminação, a equipe de metalurgia da fábrica foi até a usina dele para ajudar a ajustar o processo. O fornecedor participa do desenho dos novos modelos de semeadoras desde o início.
-* **Envolvimento dos Funcionários:** A empresa possui Círculos de Controle da Qualidade (CCQ). Um grupo de montadores sugeriu uma mudança no suporte de ferramentas que reduziu o risco de arranhões na pintura. A sugestão foi implementada e os funcionários receberam um jantar comemorativo e uma placa de "Inovadores do Mês".
-* **Treinamento:** Todo novo funcionário passa por 40 horas de treinamento antes de tocar em uma máquina. O treinamento inclui desde a operação técnica até o uso de Diagramas de Ishikawa para que saibam investigar a causa raiz de qualquer peça que saia fora da medida.
-* **Mensuração da Qualidade:** A fábrica não aceita o "eu acho que a pintura está boa". O engenheiro utiliza um medidor de espessura de camada digital em amostras de cada lote. Os dados são plotados em Cartas de Controle; se a espessura da tinta cai 2 mícrons, o sistema emite um alerta antes mesmo de a peça apresentar falha visual.
-* **Gestão de Processos (Prevenção):** Em vez de apenas olhar o arado pronto no final da linha, a fábrica foca nas condições controladas de cada etapa. A máquina de corte a laser possui sensores que travam a operação se o bico estiver sujo. A qualidade é garantida pela estabilidade do processo.
-* **Melhoria Contínua (Kaizen):** A empresa adota a filosofia de que "hoje deve ser melhor que ontem". Após cada safra, a equipe de engenharia se reúne com os mecânicos de campo para um Ciclo PDCA. Eles analisam pequenos desgastes e decidem mudar o torque de aperto em 5%.
-* **Cultura da Qualidade:** A qualidade deixou de ser uma regra e virou um valor pessoal. Se um faxineiro percebe uma poça de óleo perto de uma sementeira pronta, ele avisa imediatamente a manutenção, pois entende que aquele óleo pode contaminar o solo do cliente ou indicar falha mecânica. Há orgulho em entregar o melhor.
+1. **Comprometimento da Alta Administração:** A diretoria não apenas cobra metas, mas participa mensalmente do "Comitê de Qualidade". Eles aprovaram uma verba específica para a compra de um robô de solda de alta precisão, demonstrando que a qualidade é uma prioridade orçamentária e estratégica, não apenas um discurso.
+2. **Foco no Consumidor:** A empresa envia engenheiros para as fazendas para ouvir os produtores rurais. Ao descobrir que os parafusos de fixação sofriam corrosão precoce em solos ácidos, a fábrica mudou o material. As reclamações do SAC são expostas em telas na lanchonete da fábrica para que todos saibam onde o cliente está sofrendo.
+3. **Parceria com o Fornecedor:** Em vez de comprar o aço mais barato, a fábrica mantém o mesmo fornecedor há 10 anos. Quando o fornecedor teve problemas na laminação, a equipe de metalurgia da fábrica foi até a usina dele para ajudar a ajustar o processo. O fornecedor participa do desenho dos novos modelos de semeadoras desde o início.
+4. **Envolvimento dos Funcionários:** A empresa possui Círculos de Controle da Qualidade (CCQ). Um grupo de montadores sugeriu uma mudança no suporte de ferramentas que reduziu o risco de arranhões na pintura. A sugestão foi implementada e os funcionários receberam um jantar comemorativo e uma placa de "Inovadores do Mês".
+5. **Treinamento:** Todo novo funcionário passa por 40 horas de treinamento antes de tocar em uma máquina. O treinamento inclui desde a operação técnica até o uso de Diagramas de Ishikawa para que saibam investigar a causa raiz de qualquer peça que saia fora da medida.
+6. **Mensuração da Qualidade:** A fábrica não aceita o "eu acho que a pintura está boa". O engenheiro utiliza um medidor de espessura de camada digital em amostras de cada lote. Os dados são plotados em Cartas de Controle; se a espessura da tinta cai 2 mícrons, o sistema emite um alerta antes mesmo de a peça apresentar falha visual.
+7. **Gestão de Processos (Prevenção):** Em vez de apenas olhar o arado pronto no final da linha, a fábrica foca nas condições controladas de cada etapa. A máquina de corte a laser possui sensores que travam a operação se o bico estiver sujo. A qualidade é garantida pela estabilidade do processo.
+8. **Melhoria Contínua (Kaizen):** A empresa adota a filosofia de que "hoje deve ser melhor que ontem". Após cada safra, a equipe de engenharia se reúne com os mecânicos de campo para um Ciclo PDCA. Eles analisam pequenos desgastes e decidem mudar o torque de aperto em 5%.
+9. **Cultura da Qualidade:** A qualidade deixou de ser uma regra e virou um valor pessoal. Se um faxineiro percebe uma poça de óleo perto de uma sementeira pronta, ele avisa imediatamente a manutenção, pois entende que aquele óleo pode contaminar o solo do cliente ou indicar falha mecânica. Há orgulho em entregar o melhor.
 :::
 
 ::: {.callout-tip title="💡 Dica Pedagógica: O TQM como Cadeia de Valor"}
 
 Para visualizar a dependência sistêmica, imagine o TQM como um prédio sustentado por colunas, onde todos os fatores precisam estar "vivos" simultaneamente:
+
 * A **Liderança** dá o orçamento e a meta;
+
 * O **Consumidor** dita o que quer e o **Fornecedor** entrega o insumo;
+
 * Os **Funcionários** recebem **Treinamento**;
+
 * Eles operam o **Processo**, fazendo a **Mensuração** constante;
+
 * Isso gera **Melhoria Contínua** e solidifica a **Cultura**.
 
 Se a Alta Administração não dá dinheiro para o Treinamento, o Funcionário não tem competência para ouvir o Consumidor, e o produto falhará porque o Fornecedor entregou um material ruim. Onde uma coluna racha, o prédio inteiro desaba.
