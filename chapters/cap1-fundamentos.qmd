@@ -1406,14 +1406,18 @@ Com essa mudança, a engenharia de qualidade da Rolls-Royce teve que dominar dua
 Para completar a visão técnica da ISO 9000 e da Engenharia de Produção, precisamos separar o que pertence à "alma" do objeto do que é apenas uma "etiqueta" colocada nele. No contexto normativo, uma característica (3.10.1) é a propriedade diferenciadora de um objeto. Como a gestão exige medição, dividimos essas propriedades em duas naturezas:
 
 **Características Inerentes (A Essência)**
+
 São aquelas que existem no próprio objeto de forma permanente. Elas nascem com o produto durante o processo de transformação e não podem ser alteradas sem mudar o produto em si.
+
   * *Foco da Qualidade:* A norma ISO 9000 deixa claro que a qualidade é o grau em que as características **inerentes** satisfazem requisitos.
   * *Exemplos na Engenharia:* Teor de ferro em um minério, granulometria da brita, velocidade de processamento de um chip, resistência à tração de um cabo de aço.
 
 **Características Atribuídas (A Convenção)**
+
 São propriedades conferidas ao objeto de forma externa e mutável. Elas não definem a capacidade técnica ou funcional do item.
-* *Fatores de Mercado:* Preço de venda, prazo de entrega, o nome do proprietário ou a cor da embalagem de transporte.
-* *Aviso do Engenheiro:* Embora o Preço seja fundamental para a decisão de compra, ele não é uma característica de qualidade do produto sob a ótica normativa. Se um motor de R$ 1.000 passar a custar R$ 10.000 devido à inflação, sua qualidade técnica (inerente) permanece rigorosamente a mesma.
+
+  * *Fatores de Mercado:* Preço de venda, prazo de entrega, o nome do proprietário ou a cor da embalagem de transporte.
+  * *Aviso do Engenheiro:* Embora o Preço seja fundamental para a decisão de compra, ele não é uma característica de qualidade do produto sob a ótica normativa. Se um motor de R$ 1.000 passar a custar R$ 10.000 devido à inflação, sua qualidade técnica (inerente) permanece rigorosamente a mesma.
 
 | Dimensão | Característica Inerente (Qualidade) | Característica Atribuída (Gestão/Mercado) |
 | :--- | :--- | :--- |
@@ -1441,19 +1445,22 @@ Para operacionalizar essa teoria, os quadros de auditoria a seguir traduzem as c
 Neste exemplo, demonstramos como a Engenharia de Produção separa as camadas de valor para garantir o *Produto Ampliado* na fabricação de elevadores:
 
 **1. O Objeto e suas Camadas**
-* *Produto Tangível:* A cabine de aço inox, o motor de tração e o painel de botões.
-* *Produto Genérico (Essencial):* O benefício de transportar pessoas entre andares com segurança e sem esforço físico.
-* *Produto Ampliado (Total):* O elevador instalado + plano de manutenção mensal + resgate 24h em caso de parada + garantia de 5 anos.
+
+  * *Produto Tangível:* A cabine de aço inox, o motor de tração e o painel de botões.
+  * *Produto Genérico (Essencial):* O benefício de transportar pessoas entre andares com segurança e sem esforço físico.
+  * *Produto Ampliado (Total):* O elevador instalado + plano de manutenção mensal + resgate 24h em caso de parada + garantia de 5 anos.
 
 **2. Características Inerentes vs. Atribuídas**
-* *Inerente (Qualidade):* A velocidade de subida (ex: 1 m/s) e a capacidade de carga (ex: 450 kg). Se o motor quebrar, a qualidade inerente falhou.
-* *Atribuída (Não é Qualidade):* O valor do condomínio cobrado pela manutenção ou o fato de o elevador ter o nome do edifício gravado na porta. Isso não altera a performance técnica do equipamento.
+
+  * *Inerente (Qualidade):* A velocidade de subida (ex: 1 m/s) e a capacidade de carga (ex: 450 kg). Se o motor quebrar, a qualidade inerente falhou.
+  * *Atribuída (Não é Qualidade):* O valor do condomínio cobrado pela manutenção ou o fato de o elevador ter o nome do edifício gravado na porta. Isso não altera a performance técnica do equipamento.
 
 **3. Auditoria de Características (Classes)**
-* *Desempenho:* O elevador para exatamente no nível do piso (sem formar degrau)?
-* *Ergonomia (Interface):* Os botões estão em altura acessível para cadeirantes?
-* *Disponibilidade:* Qual o tempo médio que o elevador fica parado para manutenção por ano?
-* *Serviços Associados:* O técnico foi educado e deixou a casa limpa? (Qualidade do Serviço).
+
+  * *Desempenho:* O elevador para exatamente no nível do piso (sem formar degrau)?
+  * *Ergonomia (Interface):* Os botões estão em altura acessível para cadeirantes?
+  * *Disponibilidade:* Qual o tempo médio que o elevador fica parado para manutenção por ano?
+  * *Serviços Associados:* O técnico foi educado e deixou a casa limpa? (Qualidade do Serviço).
 :::
 
 ::: {.example #exm-auditoria-elearning name="Auditoria aplicada a um Serviço Puro: Plataforma de E-learning"}
@@ -1618,7 +1625,6 @@ Este esquema visual traduz a Engenharia de Processos aplicada ao fluxo de inform
 
 ::: {.example #exm-ari-onibus name="Aplicação do Esquema: Manutenção de Frota de Ônibus"}
 
-
 * **Entrada (Alta Gestão):** A diretoria define que o custo de manutenção por quilômetro deve cair 10% sem aumentar as quebras na rua.
 * **Processamento Técnico (Equipe de Apoio):** A engenharia recebe essa meta, cria um novo plano de lubrificação e treina os mecânicos em uma nova ferramenta de diagnóstico. Transformam a "meta numérica" em "conhecimento prático".
 * **Saída e Execução (Operação):** Os mecânicos (clientes internos) recebem o plano e a ferramenta, realizando a troca de óleo conforme o novo padrão.
@@ -1627,6 +1633,7 @@ Este esquema visual traduz a Engenharia de Processos aplicada ao fluxo de inform
 
 ::: {.callout-warning title="⚠️ A 'Morte' do Processo"}
 O processo gerencial geralmente "morre" em dois momentos críticos no ARI:
+
 1. **Silêncio na Execução:** Quando a Operação tem dificuldade, mas não avisa o Apoio (Falha no Feedback).
 2. **Torre de Marfim:** Quando o Apoio cria um plano que não serve na realidade da Operação e não aceita críticas (Falha no Transformador).
 :::
@@ -1707,19 +1714,28 @@ Para fechar este módulo com clareza, vamos aplicar a distinção entre Grau e Q
 ::: {.example #exm-grau-hotelaria name="Grau vs. Qualidade: Setor de Hospedagem"}
 
 Imagine dois hotéis que possuem o mesmo uso funcional (dormir e tomar banho):
+
 * **Hotel A (Baixo Grau - 2 Estrelas):** O projeto prevê um quarto pequeno, ventilador e café da manhã simples.
-  * **Qualidade:** O quarto está impecável, o ventilador é silencioso e o pão é fresco. **Resultado:** Alta Qualidade (atende 100% dos requisitos do seu grau).
+  * **Qualidade:** O quarto está impecável, o ventilador é silencioso e o pão é fresco.
+  * **Resultado:** Alta Qualidade (atende 100% dos requisitos do seu grau).
+
 * **Hotel B (Alto Grau - 5 Estrelas):** O projeto prevê lençóis de 600 fios, ar-condicionado central e banheira de hidromassagem.
-  * **Qualidade:** O ar-condicionado vaza água, a banheira está com o motor queimado e o lençol tem uma mancha. **Resultado:** Péssima Qualidade (falhou em atender aos requisitos de luxo prometidos pelo seu projeto/grau).
+  * **Qualidade:** O ar-condicionado vaza água, a banheira está com o motor queimado e o lençol tem uma mancha.
+  * **Resultado:** Péssima Qualidade (falhou em atender aos requisitos de luxo prometidos pelo seu projeto/grau).
 :::
 
 ::: {.example #exm-grau-mineracao name="Tradução da Norma: Transporte de Carga na Mineração"}
 
 Aplicando a estratégia de nomenclatura para o ambiente de uma mina:
+
 * **Objeto:** Caminhão Basculante.
+
 * **Grau (Nota):** Categoria de 30 toneladas (uso urbano) vs. Categoria de 240 toneladas (uso fora-de-estrada).
+
 * **Característica (Variável):** Consumo de combustível e capacidade de subida em rampa.
+
 * **Requisito (Peso):** O cliente da mina de ferro dá *peso 10* para a capacidade de carga e *peso 2* para o conforto da cabine.
+
 * **Qualidade (A Equação):** É o cálculo final de aderência. Se o caminhão de 30 toneladas (baixo grau) entrega a carga sem quebrar e no tempo previsto, sua nota de qualidade é superior ao do gigante de 240 toneladas (alto grau) que vive quebrado e parado na oficina.
 :::
 
@@ -1737,52 +1753,70 @@ Para sistematizar essa integração na rotina da engenharia de produção, a @tb
 
 | Conceito da Qualidade | Cláusulas ISO 9001 Relacionadas | Tradução Operacional |
 | :--- | :--- | :--- |
-| **Atributo e essência** | **8 (Operação); 8.5.1** (Controle da produção) | Os atributos vitais do produto tornam-se os indicadores críticos de controle. |
-| **Dimensão objetiva e subjetiva** | **9 (Avaliação); 4.2** (Partes interessadas) | A medição real representa o objetivo; a expectativa do cliente dita a importância (subjetivo). |
-| **Qualidade como intencional** | **6 (Planejamento); 8.5.1; 8.6** (Liberação) | Requisitos contratuais e de projeto tornam-se os alvos de aceitação. |
-| **Qualidade como excepcional** | **6 (Planejamento); 9 (Avaliação); 10 (Melhoria)** | Desempenho superior só é válido se o mercado reconhecer valor estratégico nisso. |
-| **Qualidade como transformadora** | **4 (Contexto); 9 (Avaliação); 10 (Melhoria)** | O impacto reflete-se no ganho de eficiência global do cliente. |
-| **Qualidade como responsável** | **6.1 (Riscos); 8.7** (Saídas não conformes) | Desperdícios, passivos e riscos são classificados como não qualidade. |
-| **Valor e competitividade** | **4.2 (Partes interessadas); 6.2** (Objetivos) | O valor percebido separa os requisitos qualificadores dos diferenciais competitivos. |
-| **Sistema de gestão** | **4.4 (SGQ); 5 (Liderança); 7 (Suporte)** | A governança corporativa garante a manutenção e melhoria do ciclo (PDCA). |
+| **Atributo e essência** | **8**(Operação)<br>**8.5.1**(Controle da produção) | Os atributos vitais do produto tornam-se os indicadores críticos de controle. |
+| **Dimensão objetiva e subjetiva** | **9**(Avaliação)<br>**4.2**(Partes interessadas) | A medição real representa o objetivo; a expectativa do cliente dita a importância (subjetivo). |
+| **Qualidade como intencional** | **6**(Planejamento)<br>**8.5.1**(Controle da produção)<br>**8.6**(Liberação) | Requisitos contratuais e de projeto tornam-se os alvos de aceitação. |
+| **Qualidade como excepcional** | **6**(Planejamento)<br>**9**(Avaliação)<br>**10**(Melhoria) | Desempenho superior só é válido se o mercado reconhecer valor estratégico nisso. |
+| **Qualidade como transformadora** | **4**(Contexto)<br>**9**(Avaliação)<br>**10**(Melhoria) | O impacto reflete-se no ganho de eficiência global do cliente. |
+| **Qualidade como responsável** | **6.1**(Riscos)<br>**8.7**(Saídas não conformes) | Desperdícios, passivos e riscos são classificados como não qualidade. |
+| **Valor e competitividade** | **4.2**(Partes interessadas)<br>**6.2**(Objetivos) | O valor percebido separa os requisitos qualificadores dos diferenciais competitivos. |
+| **Sistema de gestão** | **4.4**(SGQ)<br>**5**(Liderança)<br>**7**(Suporte) | A governança corporativa garante a manutenção e melhoria do ciclo (PDCA). |
 
 : Mapeamento Integrado — Qualidade × ISO 9001 {#tbl-mapeamento-iso}
 
 ```{mermaid}
 %%| label: fig-fluxo-iso-qualidade
 %%| fig-cap: "Diagrama de Operacionalização: Da ISO 9001 à Engenharia de Dados"
-flowchart TB
-    subgraph ISO [ISO 9001 - SGQ]
-        direction TB
-        Ctx[4 Contexto / Partes interessadas]
-        Lead[5 Liderança]
-        Plan[6 Planejamento]
-        Sup[7 Suporte]
-        Oper[8 Operação]
-        Perf[9 Avaliação]
-        Imp[10 Melhoria]
+flowchart TD
+
+    %% --- CONFIGURAÇÃO DE ESTILOS (Garantindo contraste e letras grandes) ---
+    classDef isoStyle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#000,font-size:15px,font-weight:bold
+    classDef qualStyle fill:#fff8e1,stroke:#ef6c00,stroke-width:2px,color:#000,font-size:15px,font-weight:bold
+    classDef engStyle fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000,font-size:15px,font-weight:bold
+
+    %% Fundo claro para os subgrafos (Evita o problema da tela escura no Quarto)
+    style Fase1 fill:#f8f9fa,stroke:#1565c0,stroke-width:2px,color:#1565c0,font-weight:bold,font-size:16px
+    style Fase2 fill:#f8f9fa,stroke:#ef6c00,stroke-width:2px,color:#ef6c00,font-weight:bold,font-size:16px
+    style Fase3 fill:#f8f9fa,stroke:#7b1fa2,stroke-width:2px,color:#7b1fa2,font-weight:bold,font-size:16px
+
+    %% --- ESTRUTURA DO DIAGRAMA ---
+
+    subgraph Fase1 ["📘 1. SISTEMA DE GESTÃO (ISO 9001)"]
+        direction LR
+        %% Removido o "." após o número para eliminar o erro de "Unsupported markdown list"
+        C4("Cap. 4<br>Contexto") --> C5("Cap. 5<br>Liderança") --> C6("Cap. 6<br>Planejamento")
+        C6 --> C7("Cap. 7<br>Suporte")
+        C6 --> C8("Cap. 8<br>Operação")
+        C7 & C8 --> C9("Cap. 9<br>Avaliação")
+        C9 --> C10("Cap. 10<br>Melhoria")
     end
 
-    ISO --> |Traduz o que importa em requisitos| Qualidade
-
-    subgraph Qualidade [QUALIDADE - Conceito Integrador]
-        direction TB
-        A1[Atributos essenciais / Essência]
-        A2[Conformidade / Intencional]
-        A3[Excelência / Excepcional]
-        A4[Impacto / Transformadora]
-        A5[Risco e Externalidades / Responsável]
+    subgraph Fase2 ["💡 2. QUALIDADE (Conceito Integrador)"]
+        direction LR
+        Q1{{"Essência e<br>Atributos"}} --> Q2{{"Intencional<br>(Conformidade)"}}
+        Q2 --> Q3{{"Excepcional<br>(Excelência)"}}
+        Q3 --> Q4{{"Transformadora<br>(Impacto)"}}
+        Q4 --> Q5{{"Responsável<br>(Externalidades)"}}
     end
 
-    Qualidade --> |Base para modelagem quantitativa| Engenharia
-
-    subgraph Engenharia [Engenharia de Dados]
-        direction TB
-        V1[Métricas e Variáveis] --- P1[Níveis de Importância]
-        N1[Desempenho Medido] --> I1[Tomada de Decisão]
+    subgraph Fase3 ["⚙️ 3. ENGENHARIA DE DADOS"]
+        direction LR
+        D1[("Métricas e<br>Variáveis")] --> D3["Desempenho<br>Medido"]
+        D2[("Níveis de<br>Importância")] --> D3
+        D3 == Algoritmo ==> D4{{"Tomada de<br>Decisão"}}
     end
 
-    Engenharia --> |Retroalimenta o Sistema| ISO
+    %% --- CONEXÕES SISTÊMICAS ---
+    Fase1 ===>|Traduz as expectativas do mercado em requisitos| Fase2
+    Fase2 ===>|Fornece a base teórica para os algoritmos| Fase3
+
+    %% O retorno é feito de nó para nó (D4 para C4) para evitar a inversão do layout
+    D4 -.->|Fatos e Dados reais retroalimentam o sistema| C4
+
+    %% --- APLICAÇÃO DOS ESTILOS ---
+    class C4,C5,C6,C7,C8,C9,C10 isoStyle;
+    class Q1,Q2,Q3,Q4,Q5 qualStyle;
+    class D1,D2,D3,D4 engStyle;
 ```
 
 #### A Universalidade do Modelo: Aplicações Setoriais {#sec-exemplos-setoriais-iso}
@@ -1799,6 +1833,7 @@ Para provar que essa lógica de mapeamento não é restrita a um único nicho, o
 :::
 
 ::: {.example #exm-montadora-iso name="Montadora de Automóveis: Produção em Linha de Montagem"}
+
 * **Qualidade como atributo e essência:** A essência do veículo envolve segurança, funcionalidade, confiabilidade e conformidade dimensional. Um carro que falha em segurança deixa de cumprir sua função básica.
 * **Dimensão objetiva e subjetiva:** Objetivamente, o veículo atende aos testes de fábrica. Subjetivamente, o cliente percebe ruídos (NVH), acabamento e a experiência de condução.
 * **Qualidade como intencional:** A montadora planeja o veículo para cumprir rigorosamente normas de trânsito, projeto e requisitos legais.
@@ -1808,6 +1843,7 @@ Para provar que essa lógica de mapeamento não é restrita a um único nicho, o
 :::
 
 ::: {.example #exm-porto-iso name="Logística Portuária: Operação de Embarque e Desembarque"}
+
 * **Qualidade como atributo e essência:** A essência do serviço portuário é movimentar cargas com segurança, no prazo estabelecido e com integridade. Se a carga não chega no tempo e nas condições acordadas, o serviço perde seu valor.
 * **Dimensão objetiva e subjetiva:** Objetivamente, o navio atraca e a carga é movimentada. Subjetivamente, os armadores e clientes avaliam a previsibilidade, a fluidez e a ausência de burocracia na operação.
 * **Qualidade como intencional:** O porto planeja suas operações conforme janelas de atracação, contratos e normas marítimas internacionais.
@@ -1832,8 +1868,6 @@ Para provar que essa lógica de mapeamento não é restrita a um único nicho, o
 > **Mensagem Final:** A qualidade moderna não é sobre preencher formulários para auditoria. É sobre usar a Gestão por Processos para blindar a empresa contra crises, identificar falhas antes que elas virem prejuízo e garantir que o cliente receba exatamente o que ele valoriza. O engenheiro de produção contemporâneo não gerencia papéis; ele gerencia evidências e melhoria contínua.
 
 ---
-
-Para consolidar os conceitos deste capítulo, consulte a seção [**Capítulo 1 — Fundamentos e Conceitos da Qualidade**](cap8-exercicios-parte1.qmd#sec-cap8-cap1) no [**Capítulo 8: Exercícios Integrados da Parte I**](cap8-exercicios-parte1.qmd#sec-cap8-exercicios).
 
 Para consolidar o entendimento sobre a Evolução do Conceito de Qualidade, resolva as questões teóricas e os estudos de caso propostos abaixo. As respostas detalhadas encontram-se no @sec-gabarito-parte1.
 
@@ -1960,13 +1994,19 @@ c) O preço (uma característica atribuída) define se a caneta tem qualidade ou
 A excelência de um modelo de gestão exige a integração de quatro dimensões fundamentais. Utilizando como cenário um Hospital, relacione cada elemento abaixo com a sua respectiva dimensão de qualidade:
 
 1. Qualidade dos Transformadores.
+
 2. Qualidade Percebida dos Serviços.
+
 3. Qualidade Operacional.
+
 4. Qualidade do Ambiente.
 
 ( ) A lavanderia entregando lençóis esterilizados no horário correto para a equipe de enfermagem.
+
 ( ) A agilidade na troca de informações críticas entre a recepção e o centro cirúrgico sobre a chegada de um paciente acidentado.
+
 ( ) Os protocolos de triagem médica e a calibração dos equipamentos de Raio-X.
+
 ( ) A equipe médica realizando as cirurgias no tempo previsto e com taxa zero de infecções hospitalares.
 :::
 
@@ -1974,30 +2014,47 @@ A excelência de um modelo de gestão exige a integração de quatro dimensões 
 Este simulado confronta a visão tradicional de engenharia (binária) com a lógica de Taguchi (gradual e social), forçando a reflexão sobre o custo invisível do desvio.
 
 **Questão 1: O "Aceitável" vs. o "Excelente"**
+
 Uma fábrica de eixos para motores elétricos trabalha com um alvo de $10,0\text{ mm}$. O limite inferior de especificação (LIE) é $9,9\text{ mm}$ e o superior (LSE) é $10,1\text{ mm}$. Um lote de eixos é produzido com média de $10,09\text{ mm}$. Sob a ótica da visão tradicional e da Função Perda de Taguchi, como esse lote é classificado?
+
 A) Tradicional: Rejeitado | Taguchi: Perda Zero.
+
 B) Tradicional: Aprovado | Taguchi: Perda Zero.
+
 C) Tradicional: Aprovado | Taguchi: Perda incremental (Afasta-se do alvo).
+
 D) Tradicional: Rejeitado | Taguchi: Perda máxima.
 
 **Questão 2: Identificando a Natureza da Perda**
+
 Um fabricante de condicionadores de ar utiliza um compressor que, embora resfrie o ambiente conforme o projeto, gera uma vibração excessiva que causa ruído incômodo para os vizinhos e aumenta o consumo de energia elétrica em 15% acima do esperado. Essas falhas são classificadas, respectivamente, como:
+
 A) Ambas são Impactos Colaterais.
+
 B) Ambas são Desvios na Função Principal.
+
 C) Ruído: Desvio na Função Principal | Consumo de Energia: Impacto Colateral.
+
 D) Ruído: Impacto Colateral | Consumo de Energia: Desvio na Função Principal.
 
 **Questão 3: A Lógica Matemática da Perda**
+
 Considerando a fórmula da Função Perda de Taguchi $L = k(x - t)^2$, se um engenheiro consegue reduzir o desvio de uma peça em relação ao alvo pela metade, o que acontece com a perda financeira gerada para a sociedade?
+
 A) A perda é reduzida pela metade.
+
 B) A perda é reduzida a um quarto (redução de 75%).
+
 C) A perda permanece constante se estiver dentro da tolerância.
+
 D) A perda dobra, pois o custo de precisão aumenta.
 :::
 
 ::: {#exr-taguchi-servicos name="Exercício de Fechamento: O Custo do Minuto"}
 Um engenheiro de produção em um hospital reduz o tempo médio de espera de 45 para 20 minutos, mantendo a mesma equipe.
+
 a) Calcule a redução da Perda Social usando a lógica de Taguchi (Dica: Lembre-se de que a perda cai ao *quadrado* da redução do desvio).
+
 b) Como essa melhoria nos Processos Internos (BSC) impacta a Perspectiva Financeira do hospital no longo prazo? (Pense em redução de complicações clínicas e processos judiciais).
 :::
 
@@ -2011,13 +2068,17 @@ Uma fábrica de rolamentos possui uma função de Custo de Falhas de $C_{falha}(
 
 ::: {#exr-retrabalho-fabrica name="A Matemática da Fábrica Oculta (Retrabalho)"}
 Uma linha de montagem produz 2.000 unidades/dia com um custo unitário de R$ 100,00. O rendimento de primeira passagem (RTY) é de apenas 85%. Os 15% restantes sofrem falha interna e precisam de retrabalho, o que custa R$ 60,00 adicionais por peça.
+
 A) Qual o custo total financeiro do retrabalho por dia?
+
 B) Se um investimento em Prevenção de R$ 5.000,00/dia for aprovado e elevar o RTY para 95%, qual será o ganho financeiro líquido diário da empresa com essa ação?
 :::
 
 ::: {#exr-falha-externa-caso name="Análise de Falha Externa (Estudo de Caso)"}
 Uma mineradora decidiu economizar R$ 50.000,00 cancelando a inspeção ultrassônica (Avaliação) nas correias transportadoras de um porto. Três meses depois, uma correia rompeu carregada, parando o embarque de um navio por 48 horas.
+
 * Custo do reparo de emergência: R$ 120.000,00.
+
 * Multa por atraso do navio (*Demurrage*): US$ 40.000,00 por dia (Considere a cotação US$ 1,00 = R$ 5,00).
 
 Calcule o prejuízo financeiro total desta falha externa e explique, com base no conceito de "Custo de Oportunidade", por que essa economia inicial foi tecnicamente um erro gerencial amador.
