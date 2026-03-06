@@ -22,7 +22,7 @@ O egresso de engenharia de produção deve integrar saberes que permitam a sua i
 
 ### A Modelagem Sistêmica do Ensino (Input-Process-Output)
 
-Para parametrizar o modelo CHAE na equação do ARM, a engenharia pedagógica (neste caso, inspirada nas diretrizes curriculares do MEC/CNE e no PPC de Engenharia de Produção) enxerga a sala de aula como um sistema integrado de produção.
+Para parametrizar o modelo CHAE na equação do ARM (@eq-arm-intensidade), a engenharia pedagógica (neste caso, inspirada nas diretrizes curriculares do MEC/CNE e no PPC de Engenharia de Produção) enxerga a sala de aula como um sistema integrado de produção.
 
 Essa estrutura conceitual foi operacionalizada em uma matriz que integra os recursos, os conhecimentos, as competências, as habilidades e as atitudes do egresso. A formação compreende conhecimentos básicos, que sustentam as competências técnicas e de gestão na Engenharia de Produção.
 
@@ -90,8 +90,8 @@ Para complementar a fundação técnica, definiram-se as Habilidades (capacidade
 
 Após mapear as **51 variáveis operacionais** ($x_i$) nas matrizes acima, o desafio da engenharia é transformá-las em um diagnóstico algorítmico. Para entender como a ponderação destas características ocorre na prática, precisamos contrastar a abordagem linear básica com a nossa solução avançada.
 
-**O Exemplo Univariável (*Flat Model*) e a Teoria Clássica da Medida:**
-Se fôssemos aplicar o modelo de forma univariada, apoiados na Teoria Clássica da Medida (TCM), o nosso objetivo seria calcular um único Construto Latente ($\theta$) global para definir o "Engenheiro Perfeito". Neste cenário, a nota final seria a simples soma das respostas. Como temos 51 itens pontuados em uma escala *Likert* de 1 a 5, o total variaria matematicamente entre 51 e 255. O problema desta abordagem é duplo. Primeiro, o mercado de trabalho não busca um único tipo de engenheiro; uma mineradora precisa tanto do estatístico brilhante quanto do líder de campo carismático. Segundo, a avaliação humana linear sofre um impacto massivo de distorções de percepção.
+**O Exemplo Univariável (*Flat Model* - @sec-arm-uni) e a Teoria Clássica da Medida:**
+Se fôssemos aplicar o modelo de forma univariada (@eq-arm-uni), apoiados na Teoria Clássica da Medida (TCM), o nosso objetivo seria calcular um único Construto Latente ($\theta$) global para definir o "Engenheiro Perfeito". Neste cenário, a nota final seria a simples soma das respostas. Como temos 51 itens pontuados em uma escala *Likert* de 1 a 5, o total variaria matematicamente entre 51 e 255. O problema desta abordagem é duplo. Primeiro, o mercado de trabalho não busca um único tipo de engenheiro; uma mineradora precisa tanto do estatístico brilhante quanto do líder de campo carismático. Segundo, a avaliação humana linear sofre um impacto massivo de distorções de percepção.
 
 ::: {.callout-warning title="⚠️ GARGALO ANALÍTICO: Vieses gerados no processo de resposta"}
 
@@ -111,8 +111,8 @@ Ao aplicar questionários de autopercepção, a abordagem linear é frequentemen
 
 A soma desses vieses resulta em uma **baixa variabilidade das respostas**, invalidando o uso cru da Teoria Clássica da Medida.
 
-**A Extensão Multivariada (*Simultaneous Scores*):**
-Para resolver o esmagamento da diversidade e mitigar esses vieses, estendemos o modelo. Em vez de uma equação, construímos várias rodando em paralelo. O valor de entrada (a nota $x_i$ que o aluno dá a si mesmo) é o mesmo, mas a matriz de pesos ($w_{i,p}$) muda dinamicamente dependendo do *Cluster* ($p$) calculado, gerando construtos latentes simultâneos ($\theta_p$).
+**A Extensão Multivariada (*Simultaneous Scores* - @sec-arm-multivariavel):**
+Para resolver o esmagamento da diversidade e mitigar esses vieses, estendemos o modelo (@eq-arm-multi). Em vez de uma equação, construímos várias rodando em paralelo. O valor de entrada (a nota $x_i$ que o aluno dá a si mesmo) é o mesmo, mas a matriz de pesos ($w_{i,p}$) muda dinamicamente dependendo do *Cluster* ($p$) calculado, gerando construtos latentes simultâneos ($\theta_p$).
 
 ### A Racionalidade dos 6 Perfis: Por que não mais ou menos? {#sec-porquê-6-perfis}
 
@@ -502,7 +502,7 @@ $$M_{G.}^p = \frac{T_{G.}^p}{n_{G.}}$$
 
 No segundo estudo de caso, a modelagem ARM é aplicada diretamente à gestão de ativos físicos. Um plano de manutenção mal estruturado gera paradas não programadas e destrói o fluxo de caixa. Para auditar a robustez desses planos, cria-se o **Índice de Qualidade de Plano de Manutenção (IQPL)**.
 
-O IQPL é a consolidação da nossa equação de qualidade em uma nota cuja pontuação máxima atinge 100 pontos. Para garantir o rigor técnico, o modelo foi desdobrado em um total de **35 variáveis ($x_i$)**, metodicamente agrupadas em **5 áreas de interesse ($D_j$)**:
+O IQPL é a consolidação da nossa equação de qualidade multidimensional (@eq-arm-multi) em uma nota cuja pontuação máxima atinge 100 pontos. Para garantir o rigor técnico, o modelo foi desdobrado em um total de **35 variáveis ($x_i$)**, metodicamente agrupadas em **5 áreas de interesse ($D_j$)**:
 
 $$\theta_{IQPL} = \sum_{j=1}^{5} \left[ w_{D_j} \times \left( \sum_{i=1}^{n_j} w_{x_i} \times x^*_i \right) \right] \leq 100$$ {#eq-iqpl}
 
