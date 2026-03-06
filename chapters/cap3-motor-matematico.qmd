@@ -65,7 +65,9 @@ $$\theta = \sum_{i=1}^{n} (w_i \times x_i)$$ {#eq-arm-uni}
 Onde:
 
 * **$n$:** Número total de variáveis avaliadas.
+
 * **$w_i$ (*Weight*):** Peso de importância da variável $i$ ($\sum w_i = 1,0$).
+
 * **$x_i$:** Valor observado (nota de desempenho) na variável $i$.
 
 ### O Modelo Multidimensional e Hierárquico {#sec-arm-multi}
@@ -77,7 +79,9 @@ $$\theta = \sum_{j=1}^{m} \left[ w_{D_j} \times \underbrace{\left( \sum_{i=1}^{n
 Onde:
 
 * **$m$:** Número de macrodimensões ($D_j$).
+
 * **$w_{D_j}$:** Peso da dimensão no contexto global.
+
 * **$w_i$ e $x_i$:** Peso e valor observado da variável específica dentro de sua dimensão.
 
 ### O Modelo Multivariável e a Dinâmica de Calibragem {#sec-arm-multivariavel}
@@ -109,9 +113,13 @@ $$\theta_p = \sum_{i=1}^{n} (w_{i,p} \times I_{i,p} \times x_i)$$ {#eq-arm-inten
 Onde:
 
 * **$p$:** O construto latente específico ou perfil analisado (ex: Perfil Analítico).
+
 * **$\theta_p$:** O valor final calculado para o construto $p$.
+
 * **$w_{i,p}$:** O peso estrutural base da variável $i$ no perfil $p$.
+
 * **$I_{i,p}$:** O escalar de intensidade (2.0, 1.0 ou 0.2) da variável $i$ para o construto $p$.
+
 * **$x_i$:** O valor observado bruto (nota) obtido na avaliação.
 
 #### Justificativa: Quando há necessidade desta alteração?
@@ -273,6 +281,7 @@ flowchart TD
 Para garantir que a matemática reflita a realidade fabril, o fluxo de execução obedece à seguinte estrutura de proteção:
 
 **Passos Iniciais (A Parametrização)**
+
 * **Definir objeto e contexto:** Delimita o que será avaliado e evita modelagem indevida (ISO 4).
 
 * **Definir variáveis ($x_i$):** Seleção das características mensuráveis que definem a essência (ISO 8).
@@ -284,7 +293,9 @@ Para garantir que a matemática reflita a realidade fabril, o fluxo de execuçã
 * **Coletar medições ($x_i$):** Execução do processo sob condições controladas.
 
 **GATE 0: Qualidade de Dados**
+
 Antes de qualquer cálculo, o algoritmo não assume que os dados são perfeitos. Este *gate* verifica completude (todas as variáveis foram medidas?), validade (faixa plausível), rastreabilidade (lote/equipamento) e incerteza de medição.
+
 * **Decisão:** Se a incerteza for alta ou faltar dado, o sistema entra em estado de **HOLD** (recolher dados). Não há decisão de qualidade baseada em dados não confiáveis.
 
 **GATE 1: O Filtro da Inegociabilidade (1A, 1B e 1C)**
@@ -297,7 +308,9 @@ Nem tudo pode ser compensado por uma média ponderada. Se o produto falhar em as
 * **Gate 1C (Contrato/CTQ):** Atende ao *Critical-To-Quality* inegociável do cliente? (Nota: Pode incluir um ramo de concessão excepcional mediante aprovação formal do cliente).
 
 **O Processamento Matemático**
+
 Se o produto sobreviveu ao Gate 1, o sistema avalia seu desempenho contínuo:
+
 * **Calcular Notas Normalizadas ($x^*_i$):** Avaliação individual do quão perto o $x_i$ está do alvo $r_i$.
 
 * **Calcular Índice Global ($\theta$):** Síntese da qualidade sistêmica.
@@ -305,7 +318,9 @@ Se o produto sobreviveu ao Gate 1, o sistema avalia seu desempenho contínuo:
 * **Penalidades ($P$):** Incorporação de riscos e perdas, gerando o Índice Ajustado ($\theta^*$).
 
 **GATE 2: O Ponto de Liberação da Qualidade**
+
 Verifica estritamente se o resultado matemático atende à estratégia:
+
 * **Decisão:** $\theta^* \ge \theta_{\min}$? Se **Não**, bloqueia-se o lote para análise de causa. Se **Sim**, o produto é tecnicamente bom. Mas será eficiente? A resposta vai para o último *gate*.
 
 **GATE 3: Eficiência do Sistema e Superqualidade**
@@ -320,13 +335,19 @@ Não basta ser conforme; precisa ser rentável. Este portão avalia o Custo da Q
 Para demonstrar a mecânica de cada etapa, utilizaremos como contexto de acompanhamento o **fornecimento de minério de ferro para uma usina siderúrgica**.
 
 **Passo 0: Delimitação do Objeto (Pré-ARM)**
+
 Antes de qualquer cálculo, a ARM exige clareza absoluta sobre o que está sendo avaliado.
+
 * **Objeto:** Lote mensal de minério de ferro.
+
 * **Uso final:** Alimentação do alto-forno.
+
 * **Critério de sucesso:** Operar o alto-forno com estabilidade, sem perdas metalúrgicas.
+
 * *Regra:* Este passo garante que o algoritmo não modele o produto errado.
 
 **Passo 1: Identificação das Variáveis ($x_i$)**
+
 A partir do contrato e do processo produtivo, identificam-se as características inerentes:
 
 * $x_1$: Teor de ferro (%)
@@ -338,9 +359,11 @@ A partir do contrato e do processo produtivo, identificam-se as características
 * $x_4$: Variabilidade granulométrica
 
 * $x_5$: Umidade (%)
+
 * *Regra ARM:* Se uma característica não pode ser medida ou não afeta o uso final, ela não deve ser uma variável.
 
 **Passo 2: Definição dos Requisitos/Alvos ($r_i$)**
+
 Para cada variável, define-se o valor requerido. É a qualidade como intenção.
 
 * $x_1 \rightarrow r_1 = 64,0\%$ (Teor mínimo para eficiência)
@@ -350,6 +373,7 @@ Para cada variável, define-se o valor requerido. É a qualidade como intenção
 * $x_3 \rightarrow r_3 = 12\text{ mm}$ (Granulometria ideal)
 
 **Passo 3: Definição das Tolerâncias ($\Delta_i$)**
+
 Define o quanto o sistema aceita se afastar do alvo antes de perder a qualidade.
 
 * $x_1 \rightarrow \Delta_1 = \pm 1,0\%$
@@ -357,9 +381,11 @@ Define o quanto o sistema aceita se afastar do alvo antes de perder a qualidade.
 * $x_2 \rightarrow \Delta_2 = 0,5\%$
 
 * $x_3 \rightarrow \Delta_3 = \pm 3\text{ mm}$
+
 * *Regra ARM:* A tolerância não é "o que o processo aguenta", mas o que o cliente tolera.
 
 **Passo 4: Definição dos Pesos ($w_i$)**
+
 Os pesos refletem o impacto financeiro/operacional no cliente. Aqui ocorre a tradução do subjetivo para o matemático.
 
 * $w_1 = 0,30$ (Impacto direto no rendimento)
@@ -368,7 +394,7 @@ Os pesos refletem o impacto financeiro/operacional no cliente. Aqui ocorre a tra
 
 * $w_3 = 0,20$ (Controla fluxo de gases no alto-forno)
 
-**Passo 5: Escolha da Função de Nota ($x^*_i$)**
+**Passo 5: Escolha da Função de Nota Normalizada ($x^*_i$)**
 Define como o afastamento do alvo será penalizado. Em funções lineares normalizadas, a nota varia de 0 a 1:
 $$x^*_i = 1 - \min\left(1, \frac{|x_i - r_i|}{\Delta_i}\right)$$
 
@@ -396,14 +422,20 @@ A engenharia definiu cinco variáveis de controle, combinando requisitos de alvo
 O laboratório analisou o lote e obteve o vetor de resultados $\mathbf{x} = [0.085, 0.014, 285, 2.01, 9]$. Aplicam-se as funções matemáticas:
 
 * Para tipo **Alvo Nominal**: $x^*_i = 1 - \min\left(1, \frac{|x_i - r_i|}{\Delta_i}\right)$
+
 * Para tipo **Limite Superior**:
 $$x^*_i = \begin{cases} 1, & x_i \le r_i \\ 1 - \min\left(1, \frac{x_i - r_i}{\Delta_i}\right), & x_i > r_i \end{cases}$$
 
-O processamento gera as seguintes notas ($x^*_i$):
+O processamento gera as seguintes notas normalizadas ($x^*_i$):
+
 * $x^*_1 (C): 1 - (|0,085 - 0,080| / 0,020) = \mathbf{0,75}$
+
 * $x^*_2 (P): 0,014 \le 0,015 \rightarrow \mathbf{1,00}$ (Perfeito)
+
 * $x^*_3 (Re): 1 - (|285 - 280| / 20) = \mathbf{0,75}$
+
 * $x^*_4 (\text{Espessura}): 1 - (|2,01 - 2,00| / 0,05) = \mathbf{0,80}$
+
 * $x^*_5 (\text{Planicidade}): 9 \le 10 \rightarrow \mathbf{1,00}$ (Perfeito)
 
 **3. Índice Global e Ajuste de Risco (Passos 7 e 8)**
@@ -428,178 +460,40 @@ Para a melhoria contínua, o algoritmo orienta a equipe calculando a perda ponde
 **Conclusão:** O sistema indica que a engenharia de processo deve ajustar prioritariamente os fornos para reduzir a variabilidade do Escoamento ($Re$) e do Carbono, pois a combinação de alto peso com nota abaixo de 1 é o que mais drena o valor financeiro do produto.
 :::
 
----
-
-### Fase 1: A Construção do Modelo (5 Passos de Design) {#sec-passos-modelagem}
-
-A implementação do sistema ARM é dividida em duas grandes fases. A primeira é a Fase de Construção (Design), onde a engenharia trabalha junto aos clientes para mapear a realidade e "programar" o modelo. Para construir a arquitetura da equação, o analista percorre cinco passos fundamentais:
-
-1. **Identificação das Variáveis ($x_i$):** Levantar características observáveis e mensuráveis do objeto.
-2. **Consolidação em Dimensões ($D_j$) ou Perfis ($p$):** Agrupar as variáveis em blocos lógicos.
-3. **Calibragem de Relevância ($w_i$):** Definir matematicamente os pesos para o sistema.
-4. **Parametrização de Desempenho ($x^*_i$):** Estabelecer alvos ($r_i$) e tolerâncias ($\Delta_i$) para padronizar a extração das notas normalizadas.
-5. **Consolidação Matemática:** Validar as equações ($\theta$) em um cenário simulado.
-
-Para ilustrar estes cinco passos na prática, tomemos como exemplo o projeto de um **Dispositivo Automático de Senhas (Totem)**.
-
-#### Contextualização e Escopo do Projeto
-
-Uma empresa de tecnologia já comercializa um totem padrão e possui sua carteira consolidada de consumidores. No entanto, ela precisa adaptar seu equipamento para um novo grande cliente corporativo. A **Declaração do Escopo do Produto** estabelece as seguintes premissas para o projeto:
-
-* **Novos Aspectos:** O novo cliente exige que aspectos *funcionais, estéticos e simbólicos* sejam profundamente repensados.
-* **Estratégia de Mercado:** Estes novos aspectos são de alto interesse da empresa fabricante, que irá incluir este novo modelo ao seu portfólio definitivo, visando a expansão tanto no *mercado interno quanto no externo*.
-* **Restrição Principal:** Há uma necessidade explícita e inegociável de *redução de custos*, com a meta imposta pela diretoria de aproveitar a própria cadeia de fornecedores já existente da fábrica.
-
-Para que a engenharia consiga atender a todas essas premissas sem gerar conflitos, o primeiro passo do planejamento é a **Definição dos Clientes**. Eles foram divididos em dois grandes grupos com interesses distintos:
-
-1. **Clientes Internos:** São os representantes da própria empresa fabricante (engenharia de processos, manufatura, suprimentos). Eles levam em consideração as necessidades de quem vai fabricar, montar e estocar o produto (focando no escopo de "redução de custos").
-2. **Clientes Externos:** São os representantes do novo cliente corporativo e o usuário final do totem. Eles levam em consideração as necessidades práticas de uso, interação e durabilidade da máquina (focando nos aspectos "funcionais e estéticos").
-
-Com este escopo claro e os atores definidos, o trabalho da engenharia para construir o algoritmo do $ARM$ inicia-se através da execução rigorosa dos nossos cinco passos metodológicos:
-
-#### Passo 1: Identificação das Variáveis ($x_i$)
-
-A primeira ação é obter os "valores" desejados. Uma ferramenta qualitativa fundamental para isso é o Grupo Focal (*Focus Group*). O cliente externo diz que o totem "tem que ser confortável e bonito", enquanto a fábrica (cliente interno) diz que ele deve ter "montagem fácil e estrutura simples".
-
-A engenharia utiliza **Mapas Mentais (Cadeia de Meios e Fins)** para desdobrar essa subjetividade. A necessidade de "ser confortável" é desdobrada na variável $x_1$: "Especificar a altura do painel", e $x_2$: "Especificar a inclinação do pedestal".
-
-#### Passo 2: Consolidação em Dimensões ($D_j$)
-Para o modelo não se tornar caótico, as dezenas de demandas do totem são agrupadas em categorias maiores (Dimensões) como: Ergonomia, Normas e Desempenho. O resultado visual deste agrupamento é a **Árvore de Valor**.
-
-#### Passo 3: Calibragem de Relevância / Pesos ($w_i$)
-Qual dimensão é mais importante? Para evitar o "chute", a engenharia calcula os pesos ($w_i$) utilizando o **Diagrama de Mudge**. Nesta matriz, os objetivos são comparados aos pares respondendo a duas perguntas: *Qual requisito é mais importante?* e *O quão mais importante ele é?*.
-
-Ao comparar "Resistência" com "Estética", a matriz gera uma pontuação técnica, convertendo-a em taxas percentuais (ex: Ergonomia = 31%; Desempenho = 25%). Estes percentuais são rigorosamente os nossos **Pesos ($w_i$)** na equação.
-
-#### Passo 4: Parametrização de Desempenho ($x^*_i$)
-O quarto passo é definir como extrair a nota normalizada. O engenheiro cria uma **Função de Valor ($FV$)**, que converte as preferências técnicas em uma escala numérica. Tomemos a variável $x_3$ ("Material da Carcaça"). A engenharia cria a regra:
-
-* Se usar **Chapa de aço e Polipropileno** $\rightarrow$ $x^*_3 = 1.0$ (Nota máxima).
-* Se usar **Perfis de aço e Poliestireno** $\rightarrow$ $x^*_3 = 0.33$ (Nota baixa, aceitável, mas frágil).
-* Se usar **Perfis de aço e fibra** $\rightarrow$ $x^*_3 = 0$ (Inaceitável para este projeto).
-
-#### Passo 5: Consolidação Matemática do ARM
-Com os Pesos ($w_i$) extraídos do Diagrama de Mudge e as notas normalizadas ($x^*_i$) extraídas das Funções de Valor, a equipe simula diferentes combinações de materiais e visualiza imediatamente o impacto no Índice final ($\theta$), permitindo análises precisas de *trade-off* (Ex: "Vale a pena reduzir o custo se isso derrubar a Qualidade em 15%?").
-
-### O Experimento Resolvido: Quantificando a Genialidade Militar {#sec-experimento-generais}
-
-Agora que compreendemos como as variáveis, pesos e notas são extraídos do mundo real (como visto no projeto do Totem), vamos demonstrar a aplicação matemática da fórmula.
-
-Para demonstrar a força da equação, vamos transformar o texto histórico dos 6 maiores generais em uma matriz quantitativa rigorosa (Abordagem Unidimensional).
-
-**1. Definição das Variáveis ($x_i$) e Pesos ($w_i$)**
-A partir da análise histórica, nossa diretoria definiu quatro variáveis independentes e seus respectivos pesos (gerados por um Diagrama de Mudge):
-
-* **$x_1$: Estratégia e Adaptabilidade** $\rightarrow$ $w_1 = 0,40$ (40%)
-
-* **$x_2$: Logística e Suprimentos** $\rightarrow$ $w_2 = 0,25$ (25%)
-
-* **$x_3$: Liderança Multidisciplinar** $\rightarrow$ $w_3 = 0,20$ (20%)
-
-* **$x_4$: Visão Sistêmica e Política** $\rightarrow$ $w_4 = 0,15$ (15%)
-
-**2. Atribuição de Desempenho ($x_i$)**
-Avaliamos o histórico de cada general frente a essas variáveis, utilizando uma Função de Valor (escala de 0 a 10). Por exemplo, *Napoleão* obteve excelência absoluta em Logística ($x_2=10$), enquanto *MacArthur* sofreu penalidade grave em Visão Política por insubordinação ($x_4=2$).
-
-**3. Consolidação Matemática (O Cálculo)**
-Aplicamos a equação linear unidimensional $$\theta = \sum_{i=1}^{n} (w_i \times x_i)$$ para consolidar o índice final de cada líder. A @tbl-calculo-generais apresenta a matriz de dados processada:
-
-| General | $x_1$ (Estratégia) | $x_2$ (Logística) | $x_3$ (Liderança) | $x_4$ (Política) | Score Final ($\theta$) |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| **Pesos ($w_i$)** | **0,40** | **0,25** | **0,20** | **0,15** | **1,00 (100%)** |
-| Napoleão Bonaparte | 9,0 | 10,0 | 9,0 | 10,0 | **9,40** |
-| Alexandre, o Grande | 10,0 | 8,0 | 9,0 | 9,0 | **9,15** |
-| Vo Nguyen Giap | 10,0 | 8,0 | 9,0 | 8,0 | **9,00** |
-| Aníbal Barca | 10,0 | 7,0 | 10,0 | 6,0 | **8,65** |
-| Subutai | 9,0 | 9,0 | 8,0 | 5,0 | **8,20** |
-| Douglas MacArthur | 8,0 | 9,0 | 8,0 | 2,0 | **7,35** |
-
-: Matriz Analítica de Requisitos (ARM) aplicada à genialidade militar. {#tbl-calculo-generais}
-
-::: {.callout-note title="📊 Diagnóstico do Modelo"}
-A matemática comprova que a qualidade exige equilíbrio. **MacArthur** possuía notas excelentes no campo de batalha, mas sua "não-conformidade" no requisito político puxou seu indicador global para a última posição (7,35). **Napoleão**, por sua vez, garantiu o topo (9,40) não apenas por vencer batalhas, mas por maximizar as variáveis de Logística e Política, provando que a excelência total é sistêmica.
-:::
-
-Exatamente esta mesma lógica será utilizada no *Mining Analytics* para avaliar desde o teor de ferro de um produto até o desempenho de uma frota de caminhões, como veremos nas aplicações industriais a seguir.
-
-## Aplicações Práticas no Setor Mineral {#sec-modelagem-mineral}
-
-Abaixo, demonstramos a aplicação direta da equação da modelagem ARM em diferentes cenários operacionais da mineração, traduzindo a antiga nomenclatura de "Função Qualidade" para os padrões de análise de dados.
-
-**Nota metodológica:** Você notará que os primeiros estudos de caso estão fortemente focados na modelagem do **Produto** (avaliando variáveis de saída tangíveis, como especificações químicas e físicas). Essa abordagem é intencional, pois é pedagogicamente mais simples compreender a atribuição de notas observadas ($x_i$) e pesos ($w_i$) em um objeto físico que será entregue ao cliente. Posteriormente, no final deste capítulo, expandiremos essa mesma lógica matemática para a avaliação de **Processos**.
-
-::: {.example #exm-sinter name="Minério de Ferro tipo Sinter Feed"}
-
-Neste cenário, a siderúrgica (usuário) avalia a qualidade do minério baseada em três parâmetros principais: o Teor de Ferro ($x_1$), o Teor de Sílica ($x_2$) e a Granulometria ($x_3$).
-
-**1. Atribuição de Pesos ($w_i$)**
-O cliente define o que é mais importante para o processo dele. A soma da importância deve totalizar 100% (ou 1,0).
-
-* **$w_1=0,6$ (60%):**
-  O teor de ferro é o mais importante para a produtividade do alto-forno.
-* **$w_2=0,3$ (30%):**
-  A sílica é um contaminante que gera custo de remoção (escorificação).
-* **$w_3=0,1$ (10%):**
-  A granulometria afeta a permeabilidade, mas é o item de menor peso neste contrato.
-
-**2. Avaliação de Desempenho ($x_i$)**
-Durante a entrega, o laboratório mede o desempenho de cada característica em uma escala normalizada de 0 a 10 (onde 10 é a perfeição em relação ao requisito):
-
-* **$x_1=9,0$:**
-  O teor de ferro veio excelente (ex: 65% de Fe).
-* **$x_2=5,0$:**
-  A sílica veio acima do esperado, prejudicando este parâmetro.
-* **$x_3=8,0$:**
-  A granulometria está dentro da faixa aceitável.
-
-**3. Cálculo da Função ARM**
-Aplicamos a fórmula unidimensional:
-$$\theta = (w_1 \times x_1) + (w_2 \times x_2) + (w_3 \times x_3)$$
-$$\theta = (0,6 \times 9,0) + (0,3 \times 5,0) + (0,1 \times 8,0)$$
-$$\theta = 5,4 + 1,5 + 0,8 = \mathbf{7,7}$$
-
-**4. Análise do Resultado**
-Neste exemplo, o Índice de Qualidade foi **7,7**.
-* **Interpretação Didática:**
-  Embora o minério tenha um teor de ferro excelente ($x_1=9$), o resultado final foi "puxado para baixo" pelo desempenho ruim da sílica ($x_2=5$), que possui um peso significativo (30%) na percepção de valor do cliente.
-* **Conclusão:**
-  Este cálculo permite que o gestor identifique exatamente onde investir em Melhoria da Qualidade: neste caso, focar no controle da sílica trará um ganho maior na percepção do cliente do que melhorar a granulometria, que tem peso baixo.
-:::
-
 ::: {.example #exm-ferrovia name="Serviço de Escoamento Ferroviário"}
 
-Neste cenário, o usuário (o terminal portuário) avalia a qualidade do serviço prestado pela ferrovia através de três parâmetros: Pontualidade ($V_1$), Integridade da Carga ($V_2$) e Disponibilidade de Vagões ($V_3$).
+Neste cenário, o usuário (o terminal portuário) avalia a qualidade do serviço prestado pela ferrovia através de três parâmetros: Pontualidade ($x_1$), Integridade da Carga ($x_2$) e Disponibilidade de Vagões ($x_3$).
 
-**1. Atribuição de Pesos ($W_i$)**
+**1. Atribuição de Pesos ($w_i$)**
 O porto define os pesos com base no impacto no custo de operação (*demurrage* de navios):
 
-* **$W_1=0,5$ (50%):**
+* **$w_1=0,5$ (50%):**
   A pontualidade é crítica para não perder a janela de atracação.
 
-* **$W_2=0,3$ (30%):**
+* **$w_2=0,3$ (30%):**
   A integridade (não haver contaminação de minérios no trajeto) é essencial.
 
-* **$W_3=0,2$ (20%):**
+* **$w_3=0,2$ (20%):**
   A quantidade de vagões disponíveis conforme o plano nominal.
 
-**2. Avaliação da Qualidade ($S_i$)**
+**2. Avaliação da Qualidade ($x^*_i$)**
 Avaliação do desempenho do serviço no último mês (escala de 0 a 10):
 
-* **$S_1=6,0$:**
+* **$x^*_1=6,0$:**
   Ocorreram atrasos frequentes nas descargas (nota baixa).
 
-* **$S_2=10,0$:**
+* **$x^*_2=10,0$:**
   Nenhuma contaminação ou perda de carga foi registrada.
 
-* **$S_3=9,0$:**
+* **$x^*_3=9,0$:**
   A ferrovia entregou quase a totalidade da frota prometida.
 
-**3. Cálculo da Função ARM**
-$$ARM = (0,5 \times 6,0) + (0,3 \times 10,0) + (0,2 \times 9,0)$$
-$$ARM = 3,0 + 3,0 + 1,8 = \mathbf{7,8}$$
+**3. Cálculo da Função Global**
+$$\theta = (0,5 \times 6,0) + (0,3 \times 10,0) + (0,2 \times 9,0)$$
+$$\theta = 3,0 + 3,0 + 1,8 = \mathbf{7,8}$$
 
 **4. Análise do Resultado**
-Embora a ferrovia tenha sido perfeita na integridade ($S_2=10$) e muito boa na oferta de vagões ($S_3=9$), a Qualidade Total do Serviço foi **7,8**.
+Embora a ferrovia tenha sido perfeita na integridade ($x^*_2=10$) e muito boa na oferta de vagões ($x^*_3=9$), a Qualidade Total do Serviço foi **7,8**.
 * **Interpretação Didática:**
   O parâmetro de maior peso para o cliente era a Pontualidade (50%). Como o desempenho nesse item foi baixo (6,0), ele comprometeu severamente a nota final.
 * **Conclusão:**
@@ -610,38 +504,38 @@ Embora a ferrovia tenha sido perfeita na integridade ($S_2=10$) e muito boa na o
 
 Para finalizar a aplicação conceitual, utilizaremos como objeto a própria Organização e sua eficácia no cumprimento do plano estratégico.
 
-**1. Atribuição de Pesos ($W_i$)**
+**1. Atribuição de Pesos ($w_i$)**
 A Alta Direção define o que é prioritário para o sucesso do negócio no trimestre:
 
-* **$W_1=0,4$ (40%):**
+* **$w_1=0,4$ (40%):**
   Aderência ao Plano de Produção (Volume).
 
-* **$W_2=0,4$ (40%):**
+* **$w_2=0,4$ (40%):**
   Custo Operacional Unitário (Eficiência financeira).
 
-* **$W_3=0,2$ (20%):**
+* **$w_3=0,2$ (20%):**
   Índice de Treinamento e Capacitação (Desenvolvimento de pessoas).
 
-**2. Avaliação da Qualidade ($S_i$)**
+**2. Avaliação da Qualidade ($x^*_i$)**
 Desempenho apurado no fechamento do período:
 
-* **$S_1=10,0$:**
+* **$x^*_1=10,0$:**
   O volume produzido superou a meta estabelecida.
 
-* **$S_2=4,0$:**
+* **$x^*_2=4,0$:**
   O custo foi muito superior ao orçado devido a gastos imprevistos.
 
-* **$S_3=8,5$:**
+* **$x^*_3=8,5$:**
   A maioria das horas de treinamento previstas foi executada.
 
-**3. Cálculo da Função ARM**
-$$ARM = (0,4 \times 10,0) + (0,4 \times 4,0) + (0,2 \times 8,5)$$
-$$ARM = 4,0 + 1,6 + 1,7 = \mathbf{7,3}$$
+**3. Cálculo da Função Global**
+$$\theta = (0,4 \times 10,0) + (0,4 \times 4,0) + (0,2 \times 8,5)$$
+$$\theta = 4,0 + 1,6 + 1,7 = \mathbf{7,3}$$
 
 **4. Análise do Resultado**
 A Qualidade Total da Organização foi **7,3**.
 * **Interpretação Didática:**
-  O sucesso operacional em volume ($S_1=10$) não foi suficiente para garantir excelência, pois a gestão financeira ($S_2$) falhou e possuía o mesmo peso estratégico.
+  O sucesso operacional em volume ($x^*_1=10$) não foi suficiente para garantir excelência, pois a gestão financeira ($x^*_2$) falhou e possuía o mesmo peso estratégico.
 * **Conclusão:**
   A Melhoria da Qualidade deve focar urgentemente no controle de custos, sob pena de o volume produzido não se traduzir em valor real (lucro) para o sistema.
 :::
@@ -650,145 +544,152 @@ A Qualidade Total da Organização foi **7,3**.
 
 Neste estudo, o objeto é o "Produto B", um minério de ferro com alta sílica processado em uma usina na região Norte. O desafio reside no fato de este material ser altamente abrasivo e não possuir dados históricos, exigindo monitoramento rigoroso via KPIs.
 
-**Passo 1: Definição dos Parâmetros ($V_i$)**
+**Passo 1: Definição dos Parâmetros ($x_i$)**
 Com base no problema de pesquisa e nos ofensores identificados, selecionamos cinco parâmetros fundamentais:
 
-* **$V_1$ (Teor de Ferro - Fe):**
+* **$x_1$ (Teor de Ferro - Fe):**
   Indicador de qualidade química e valor de mercado.
 
-* **$V_2$ (Teor de Sílica - SiO2):**
+* **$x_2$ (Teor de Sílica - SiO2):**
   Parâmetro crítico devido à abrasividade e impacto nos equipamentos.
 
-* **$V_3$ (Volume de Produção):**
+* **$x_3$ (Volume de Produção):**
   Capacidade de entrega frente ao plano replanejado.
 
-* **$V_4$ (Eficiência do Processo - Carga Circulante):**
+* **$x_4$ (Eficiência do Processo - Carga Circulante):**
   Saúde do sistema de britagem e peneiramento.
 
-* **$V_5$ (Qualidade Física - Fração +19 mm):**
+* **$x_5$ (Qualidade Física - Fração +19 mm):**
   Conformidade granulométrica necessária.
 
-**Passo 2: Ponderação Estratégica ($W_i$)**
-A organização atribui pesos conforme a prioridade do teste ($\sum W_i = 1,0$):
+**Passo 2: Ponderação Estratégica ($w_i$)**
+A organização atribui pesos conforme a prioridade do teste ($\sum w_i = 1,0$):
 
-* **$W_1=0,30$ (30%):**
+* **$w_1=0,30$ (30%):**
   O ferro é a missão básica do produto.
 
-* **$W_2=0,25$ (25%):**
+* **$w_2=0,25$ (25%):**
   A sílica é o maior risco operacional deste teste.
 
-* **$W_3=0,20$ (20%):**
+* **$w_3=0,20$ (20%):**
   O cumprimento do volume é requisito contratual.
 
-* **$W_4=0,15$ (15%):**
+* **$w_4=0,15$ (15%):**
   A carga circulante indica a estabilidade da usina.
 
-* **$W_5=0,10$ (10%):**
+* **$w_5=0,10$ (10%):**
   A granulometria teve menor peso estratégico nesta campanha.
 
-**Passo 3: Atribuição de Notas de Desempenho ($S_i$)**
+**Passo 3: Atribuição de Notas de Desempenho ($x^*_i$)**
 Notas comparando o realizado com o requisito estabelecido:
 
-* **$S_1=9,0$:**
+* **$x^*_1=9,0$:**
   Desempenho excelente; a média de 49,42% superou as expectativas.
 
-* **$S_2=7,0$:**
+* **$x^*_2=7,0$:**
   Satisfatório; sílica próxima do limite inferior esperado.
 
-* **$S_3=9,9$:**
+* **$x^*_3=9,9$:**
   Aderência quase total ao plano (338.910 t vs 339 kt).
 
-* **$S_4=4,0$:**
+* **$x^*_4=4,0$:**
   Desempenho crítico; carga circulante atingiu 204% (muito acima do padrão de 145%).
 
-* **$S_5=1,0$:**
+* **$x^*_5=1,0$:**
   Falha no requisito físico; 0,27% de fração retida para meta de 4,0%.
 
 **Passo 4: Processamento Matemático**
-$$ARM = (0,30 \times 9,0) + (0,25 \times 7,0) + (0,20 \times 9,9) + (0,15 \times 4,0) + (0,10 \times 1,0)$$
-$$ARM = 2,7 + 1,75 + 1,98 + 0,6 + 0,1 = \mathbf{7,13}$$
+$$\theta = (0,30 \times 9,0) + (0,25 \times 7,0) + (0,20 \times 9,9) + (0,15 \times 4,0) + (0,10 \times 1,0)$$
+$$\theta = 2,7 + 1,75 + 1,98 + 0,6 + 0,1 = \mathbf{7,13}$$
 
 **Passo 5: Diagnóstico Gerencial**
 O resultado de **7,13** indica que, embora o teste tenha sido um sucesso sob a ótica química e comercial, ele apresentou falhas graves sob a ótica de processo e física.
 * **Eficácia vs. Eficiência:**
-  A organização foi eficaz em entregar o produto ($S_1$ e $S_3$), mas ineficiente no processo ($S_4$). O alto nível de recirculado gerou restrições na alimentação.
+  A organização foi eficaz em entregar o produto ($x^*_1$ e $x^*_3$), mas ineficiente no processo ($x^*_4$). O alto nível de recirculado gerou restrições na alimentação.
 * **Oportunidade de Melhoria:**
-  O baixo valor em $S_5$ e $S_4$ aponta que o foco do próximo planejamento deve ser o ajuste das telas de peneiramento e setpoints dos britadores.
+  O baixo valor em $x^*_5$ e $x^*_4$ aponta que o foco do próximo planejamento deve ser o ajuste das telas de peneiramento e setpoints dos britadores.
 :::
 
 ::: {.example #exm-ppcj name="Estudo de Caso II: Acurácia de Estoque e Medição (PPCJ)"}
 
 Neste cenário, o objeto é o processo de produção e estocagem do produto PPCJ. O principal desafio é a divergência entre o estoque contábil (balanças) e o estoque físico (topografia), que frequentemente supera o limite aceitável de ±2%.
 
-**Passo 1: Definição dos Parâmetros ($V_i$)**
+**Passo 1: Definição dos Parâmetros ($x_i$)**
 Selecionamos cinco parâmetros fundamentais para a confiabilidade:
 
-* **$V_1$ (Teor de Ferro):**
+* **$x_1$ (Teor de Ferro):**
   Requisito básico do produto.
-* **$V_2$ (Conformidade de Estoque):**
+
+* **$x_2$ (Conformidade de Estoque):**
   Acurácia entre físico e contábil (limite ±2%).
-* **$V_3$ (Aderência à Produção):**
+
+* **$x_3$ (Aderência à Produção):**
   Cumprimento do volume planejado.
-* **$V_4$ (Confiabilidade de Medição):**
+
+* **$x_4$ (Confiabilidade de Medição):**
   Desempenho das balanças e periodicidade de calibração.
-* **$V_5$ (Controle de Umidade):**
+
+* **$x_5$ (Controle de Umidade):**
   Essencial para densidade e pesagem correta.
 
-**Passo 2: Ponderação Estratégica ($W_i$)**
+**Passo 2: Ponderação Estratégica ($w_i$)**
 
-* **$W_1=0,20$ (20%):**
+* **$w_1=0,20$ (20%):**
   Importância padrão para o teor metálico.
 
-* **$W_2=0,35$ (35%):**
+* **$w_2=0,35$ (35%):**
   Peso maior devido ao impacto em auditorias e bolsas de valores.
 
-* **$W_3=0,15$ (15%):**
+* **$w_3=0,15$ (15%):**
   Aderência ao plano diário.
 
-* **$W_4=0,20$ (20%):**
+* **$w_4=0,20$ (20%):**
   Reflete o "Poder de Atuação" identificado na Matriz GUT.
 
-* **$W_5=0,10$ (10%):**
+* **$w_5=0,10$ (10%):**
   Parâmetro técnico de suporte.
 
-**Passo 3: Atribuição de Notas ($S_i$)**
+**Passo 3: Atribuição de Notas ($x^*_i$)**
 
-* **$S_1=9,5$:**
+* **$x^*_1=9,5$:**
   Excelente desempenho químico (49,17% Fe).
 
-* **$S_2=3,0$:**
+* **$x^*_2=3,0$:**
   Nota baixa; desvios de estoque muito além dos ±2%.
 
-* **$S_3=8,0$:**
+* **$x^*_3=8,0$:**
   Boa aderência ao volume planejado.
 
-* **$S_4=4,0$:**
+* **$x^*_4=4,0$:**
   Crítico; Matriz GUT aponta periodicidade inadequada de calibração.
 
-* **$S_5=6,0$:**
+* **$x^*_5=6,0$:**
   Regular; umidade impactando a densidade calculada.
 
 **Passo 4: Processamento Matemático**
-$$ARM = (0,20 \times 9,5) + (0,35 \times 3,0) + (0,15 \times 8,0) + (0,20 \times 4,0) + (0,10 \times 6,0)$$
-$$ARM = 1,9 + 1,05 + 1,2 + 0,8 + 0,6 = \mathbf{5,55}$$
+$$\theta = (0,20 \times 9,5) + (0,35 \times 3,0) + (0,15 \times 8,0) + (0,20 \times 4,0) + (0,10 \times 6,0)$$
+$$\theta = 1,9 + 1,05 + 1,2 + 0,8 + 0,6 = \mathbf{5,55}$$
 
 **Passo 5: Diagnóstico Gerencial**
 O resultado de **5,55** revela um sistema de gestão sob estresse.
 * **O "Paradoxo da Qualidade":**
-  A organização produz um minério de excelente teor químico ($S_1=9,5$), mas falha na garantia da qualidade da informação.
+  A organização produz um minério de excelente teor químico ($x^*_1=9,5$), mas falha na garantia da qualidade da informação.
 * **Causa Raiz:**
-  A baixa nota global é puxada pela falta de acurácia no estoque ($S_2$) e falhas de calibração ($S_4$).
+  A baixa nota global é puxada pela falta de acurácia no estoque ($x^*_2$) e falhas de calibração ($x^*_4$).
 * **Ação de Melhoria:**
   O foco imediato deve ser a revisão da periodicidade de calibração e a atualização da densidade das pilhas. Sem isso, a "qualidade" percebida pelos auditores continuará baixa, independente da excelência do produto físico.
 
 ::: {.callout-tip title="Critérios de Robustez: Quantas características utilizar?"}
 Por que selecionamos 5 características nos exemplos? O número 5 equilibra **Granularidade** (detalhe) e **Simplicidade** (decisão).
 Para decidir adicionar ou remover variáveis, utilize a lógica:
+
 1.  **Requisito Obrigatório:** Se é exigência legal/contratual, deve entrar.
+
 2.  **Poder de Atuação:** Se a equipe não pode atuar sobre a variável (ex: chuva), ela pode ser removida do cálculo de desempenho da equipe, embora deva ser monitorada.
+
 3.  **Variabilidade:** Características sempre estáveis podem ser removidas para dar foco às críticas.
 
-No entanto, a função é expansível. Poderíamos adicionar **$V_6$ (Pluviosidade)** para explicar a variação da umidade, criando uma análise ainda mais sistêmica.
+No entanto, a função é expansível. Poderíamos adicionar **$x_6$ (Pluviosidade)** para explicar a variação da umidade, criando uma análise ainda mais sistêmica.
 :::
 :::
 
@@ -796,64 +697,64 @@ No entanto, a função é expansível. Poderíamos adicionar **$V_6$ (Pluviosida
 
 Até este ponto, nossa modelagem esteve ancorada na avaliação do **Produto** final. Garantir a conformidade do minério é vital para satisfazer o cliente. No entanto, na engenharia de produção, o produto físico é apenas a consequência; o verdadeiro campo de batalha gerencial é o controle do **Processo**.
 
-Como podemos aplicar a equação $ARM$ para medir a "qualidade" de uma operação industrial antes mesmo de o produto ficar pronto?
+Como podemos aplicar a equação do modelo ARM para medir a "qualidade" de uma operação industrial antes mesmo de o produto ficar pronto?
 
-A resposta é deslocar o objeto de estudo. Em vez de avaliar a rocha, avaliamos o maquinário e o fluxo de trabalho. As variáveis ($V_i$) deixam de ser propriedades químicas e passam a ser **Métricas de Desempenho Operacional (KPIs)**.
+A resposta é deslocar o objeto de estudo. Em vez de avaliar a rocha, avaliamos o maquinário e o fluxo de trabalho. As variáveis ($x_i$) deixam de ser propriedades químicas e passam a ser **Métricas de Desempenho Operacional (KPIs)**.
 
 ::: {.example #exm-britagem name="Estudo de Caso III: Qualidade do Processo de Britagem Primária"}
 
 A gerência precisa avaliar a "saúde" e a eficiência operacional da planta de britagem primária em uma determinada semana, não pelo tamanho da pedra que sai, mas por *como* a máquina está sendo operada.
 
-**1. Definição dos Parâmetros do Processo ($V_i$) e Pesos ($W_i$)**
+**1. Definição dos Parâmetros do Processo ($x_i$) e Pesos ($w_i$)**
 A engenharia selecionou quatro variáveis operacionais de impacto direto no custo e na produtividade:
 
-* **$V_1$ (Disponibilidade Física - DF):**
-  O equipamento está pronto e liberado para operar? (Peso $W_1 = 0,30$).
+* **$x_1$ (Disponibilidade Física - DF):**
+  O equipamento está pronto e liberado para operar? (Peso $w_1 = 0,30$).
 
-* **$V_2$ (Taxa de Alimentação - t/h):**
-  O processo atinge a produtividade nominal de projeto? (Peso $W_2 = 0,30$).
+* **$x_2$ (Taxa de Alimentação - t/h):**
+  O processo atinge a produtividade nominal de projeto? (Peso $w_2 = 0,30$).
 
-* **$V_3$ (Consumo Específico de Energia - kWh/t):**
-  O processo é eficiente no uso de recursos elétricos? (Peso $W_3 = 0,20$).
+* **$x_3$ (Consumo Específico de Energia - kWh/t):**
+  O processo é eficiente no uso de recursos elétricos? (Peso $w_3 = 0,20$).
 
-* **$V_4$ (MTBF - Tempo Médio Entre Falhas):**
-  O processo é confiável ao longo do turno, sem paradas intermitentes? (Peso $W_4 = 0,20$).
+* **$x_4$ (MTBF - Tempo Médio Entre Falhas):**
+  O processo é confiável ao longo do turno, sem paradas intermitentes? (Peso $w_4 = 0,20$).
 
-**2. Atribuição de Notas de Desempenho ($S_i$)**
+**2. Atribuição de Notas de Desempenho ($x^*_i$)**
 Comparamos o resultado realizado pelo processo na semana contra a meta (budget) estabelecida (escala de 0 a 10):
 
-* **$S_1 = 9,0$:**
+* **$x^*_1 = 9,0$:**
   DF excelente (atingiu 92% da disponibilidade programada).
 
-* **$S_2 = 8,0$:**
+* **$x^*_2 = 8,0$:**
   Taxa de alimentação boa, mas com leves tempos de espera por caminhões na praça.
 
-* **$S_3 = 4,0$:**
+* **$x^*_3 = 4,0$:**
   Consumo de energia péssimo (consumiu muito mais kWh por tonelada que a linha de base, indicando que a máquina está fazendo "força" desnecessária).
 
-* **$S_4 = 6,0$:**
+* **$x^*_4 = 6,0$:**
   MTBF regular (ocorreram alarmes de lubrificação que geraram pequenas interrupções no fluxo).
 
 **3. Processamento Matemático do Processo**
-Aplicamos a função unidimensional $ARM$:
-$$ARM = (0,30 \times 9,0) + (0,30 \times 8,0) + (0,20 \times 4,0) + (0,20 \times 6,0)$$
-$$ARM = 2,7 + 2,4 + 0,8 + 1,2 = \mathbf{7,1}$$
+Aplicamos a função unidimensional:
+$$\theta = (0,30 \times 9,0) + (0,30 \times 8,0) + (0,20 \times 4,0) + (0,20 \times 6,0)$$
+$$\theta = 2,7 + 2,4 + 0,8 + 1,2 = \mathbf{7,1}$$
 
 **4. Diagnóstico e o Gancho para a Solução de Problemas**
-O Índice Global de Qualidade do Processo de Britagem foi de **7,1**. O gestor que analisa essa equação percebe imediatamente o comportamento sistêmico: a planta está disponível ($S_1=9$) e está processando bastante minério ($S_2=8$), mas está fazendo isso de forma **extremamente ineficiente e custosa** para a empresa ($S_3=4$).
+O Índice Global de Qualidade ($\theta$) do Processo de Britagem foi de **7,1**. O gestor que analisa essa equação percebe imediatamente o comportamento sistêmico: a planta está disponível ($x^*_1=9$) e está processando bastante minério ($x^*_2=8$), mas está fazendo isso de forma **extremamente ineficiente e custosa** para a empresa ($x^*_3=4$).
 
 O desgaste prematuro de peças ou o entupimento severo da câmara de britagem são as possíveis razões para o processo estar consumindo tanta energia, o que logo se converterá em uma quebra catastrófica.
 
-É exatamente neste ponto que a quantificação termina e a engenharia de ação começa. Quando a nota ($S_i$) de um **processo** cai de forma anormal, a organização não deve tentar adivinhar o motivo ou trocar peças cegamente. Ela deve isolar a anomalia e iniciar uma investigação científica.
+É exatamente neste ponto que a quantificação termina e a engenharia de ação começa. Quando a nota ($x^*_i$) de um **processo** cai de forma anormal, a organização não deve tentar adivinhar o motivo ou trocar peças cegamente. Ela deve isolar a anomalia e iniciar uma investigação científica.
 
 Como estruturar essa investigação para descobrir a causa raiz de um problema de processo e evitar o desperdício de recursos? Esse é o domínio absoluto do **Método de Análise e Solução de Problemas (MASP)** e do **Ciclo PDCA**, que formam o núcleo do nosso próximo capítulo.
 :::
 
 ## 📝 Resumo do Capítulo
 
-* **Da Filosofia à Matemática:** A qualidade industrial não pode ser um adjetivo vago. Ela precisa ser traduzida em um único indicador numérico (o *score* global) que permita análises de *trade-off* e sirva de base para futuros algoritmos de *Machine Learning*.
+* **Da Filosofia à Matemática:** A qualidade industrial não pode ser um adjetivo vago. Ela precisa ser traduzida em um único indicador numérico (o *score* global, $\theta$) que permita análises de *trade-off* e sirva de base para futuros algoritmos de *Machine Learning*.
 
-* **A Equação ARM (Modelagem Analítica de Requisitos):** É o coração da quantificação. Ela consolida o desempenho de um produto ou processo multiplicando a nota de Desempenho ($S_i$) pelo Peso estratégico ($W_i$) de cada Variável ($V_i$).
+* **A Equação ARM (Modelagem Analítica de Requisitos):** É o coração da quantificação. Ela consolida o desempenho de um produto ou processo multiplicando a nota de Desempenho normalizada ($x^*_i$) pelo Peso estratégico ($w_i$) de cada Variável ($x_i$).
 
 * **Níveis de Hierarquia:** O modelo pode ser **Unidimensional** (soma ponderada direta de variáveis isoladas) ou **Multidimensional** (variáveis agrupadas em Dimensões maiores para evitar ruído na tomada de decisão).
 
@@ -861,7 +762,7 @@ Como estruturar essa investigação para descobrir a causa raiz de um problema d
 
 * **Produto vs. Processo:** O modelo ARM é universal. Ele quantifica desde a excelência de um General histórico ou do teor de ferro de um minério (Produto), até a disponibilidade física e o consumo de energia de um britador primário (Processo).
 
-* **O Gatilho para a Ação:** Quando a nota global de um processo cai de forma anormal, a quantificação cumpriu seu papel de alerta. A partir desse ponto, cessa a medição e inicia-se a investigação de causa raiz através do **MASP** e do ciclo **PDCA**.
+* **O Gatilho para a Ação:** Quando a nota global ($\theta$) de um processo cai de forma anormal, a quantificação cumpriu seu papel de alerta. A partir desse ponto, cessa a medição e inicia-se a investigação de causa raiz através do **MASP** e do ciclo **PDCA**.
 
 ---
 
@@ -870,7 +771,7 @@ Como estruturar essa investigação para descobrir a causa raiz de um problema d
 ::: {#exr-cap3-arm-mineral}
 
 **Construção de Score Global**
-Defina um modelo ARM unidimensional para avaliar a qualidade de um **Minério de Ferro Britado**, identificando pelo menos 5 variáveis (ex: teor de Fe, umidade, granulometria, impurezas, viscosidade). Atribua pesos e notas fictícias, calculando o score global resultante.
+Defina um modelo ARM unidimensional ($\theta$) para avaliar a qualidade de um **Minério de Ferro Britado**, identificando pelo menos 5 variáveis (ex: teor de Fe, umidade, granulometria, impurezas, viscosidade). Atribua pesos ($w_i$) e notas fictícias ($x^*_i$), calculando o score global resultante.
 :::
 
 ::: {#exr-cap3-arvore-valor}
@@ -882,13 +783,13 @@ Construa uma Árvore de Valor para avaliar a **Qualidade de Operação de uma Es
 ::: {#exr-cap3-diagrama-mudge}
 
 **Diagrama de Mudge: Ponderação de Pesos**
-Considerando 4 variáveis críticas de um britador (Disponibilidade, Estabilidade, Eficiência, Segurança), utilize a matriz de Mudge para estabelecer seus pesos relativos de forma sistematizada.
+Considerando 4 variáveis críticas de um britador (Disponibilidade, Estabilidade, Eficiência, Segurança), utilize a matriz de Mudge para estabelecer seus pesos relativos ($w_i$) de forma sistematizada.
 :::
 
 ::: {#exr-cap3-kpi-transporte}
 
 **Modelo Multidimensional para Transporte**
-Desenvolva um modelo ARM multidimensional para **Desempenho de Transporte (caminhões fora de estrada)** com as seguintes dimensões: (a) Confiabilidade; (b) Eficiência; (c) Segurança. Em cada dimensão, defina 2 variáveis, atribua notas e calcule uma nota final por dimensão e um score global.
+Desenvolva um modelo ARM multidimensional para **Desempenho de Transporte (caminhões fora de estrada)** com as seguintes dimensões: (a) Confiabilidade; (b) Eficiência; (c) Segurança. Em cada dimensão, defina 2 variáveis, atribua notas e calcule uma nota final por dimensão e um score global ($\theta$).
 :::
 
 ::: {#exr-cap3-unidimensional-vs-multi}
@@ -900,13 +801,13 @@ Por que um modelo multidimensional pode ser mais robusto que um unidimensional n
 ::: {#exr-cap3-ajuste-pesos}
 
 **Reajuste de Pesos Conforme Estratégia**
-Um britador primário possui um modelo ARM com as seguintes variáveis: Disponibilidade (peso 0.3), Consumo de Energia (peso 0.2), Qualidade de Fragmentação (peso 0.5). Se a estratégia da mineradora muda de "Máxima Produção" para "Máxima Eficiência Energética", como você ajustaria os pesos?
+Um britador primário possui um modelo ARM com as seguintes variáveis: Disponibilidade (peso 0.30), Consumo de Energia (peso 0.20), Qualidade de Fragmentação (peso 0.50). Se a estratégia da mineradora muda de "Máxima Produção" para "Máxima Eficiência Energética", como você ajustaria os pesos ($w_i$)?
 :::
 
 ::: {#exr-cap3-trade-off}
 
 **Análise de Trade-off**
-Uma escavadeira apresenta: Produtividade = 8/10, Confiabilidade = 6/10, Custo Operacional = 9/10. Como usar a equação ARM para decidir entre: (a) Substituir o equipamento; (b) Investir em manutenção para aumentar confiabilidade?
+Uma escavadeira apresenta: Produtividade = 8/10, Confiabilidade = 6/10, Custo Operacional = 9/10. Como usar a equação global ($\theta$) para decidir entre: (a) Substituir o equipamento; (b) Investir em manutenção para aumentar confiabilidade?
 :::
 
 ::: {#exr-cap3-case-qualidade-completa}
@@ -917,7 +818,7 @@ Um sistema de britagem (primário + secundário + terciário) necessita de um mo
 2. Pelo menos 2 Variáveis em cada Dimensão.
 3. Desenhe a Árvore de Valor correspondente.
 4. Estabeleça os pesos usando o Diagrama de Mudge.
-5. Calcule um score global fictício apresentando a interpretação.
+5. Calcule um score global ($\theta$) fictício apresentando a interpretação.
 :::
 
 ::: {#exr-cap3-ref-q1}
@@ -929,7 +830,7 @@ Se os pesos em um modelo ARM são definidos subjetivamente (por painéis de espe
 ::: {#exr-cap3-ref-q2}
 
 **Gatilho para Ação**
-Por que o capítulo enfatiza que o score ARM é um "gatilho para a ação" e não a ação em si? O que vem após a identificação de uma anomalia?
+Por que o capítulo enfatiza que o score global ($\theta$) é um "gatilho para a ação" e não a ação em si? O que vem após a identificação de uma anomalia?
 :::
 
 ::: {#exr-cap3-ref-q3}
