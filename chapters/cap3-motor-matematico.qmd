@@ -55,8 +55,11 @@ No ARM Univariável, não há agrupamento intermediário. Todas as variáveis op
 $$Q = \sum_{i=1}^{n} (w_i \times s_i)$$ {#eq-arm-uni}
 
 Onde:
+
 * **$n$:** Número total de variáveis avaliadas.
+
 * **$w_i$ (*Weight*):** Peso de importância da variável $i$ ($\sum w_i = 1,0$).
+
 * **$s_i$ (*Score*):** Nota de desempenho obtida pela variável $i$.
 
 ### O Modelo Multidimensional e Hierárquico {#sec-arm-multi}
@@ -72,8 +75,11 @@ A evolução máxima avalia como as mesmas notas de entrada ($s_i$) reagem sob d
 $$Q_p = \sum_{i=1}^{n} (w_{i,p} \times I_{i,p} \times s_i)$$ {#eq-arm-intensidade}
 
 Onde:
+
 * **$p$:** O construto latente ou perfil analisado (ex: Perfil Analítico).
+
 * **$w_{i,p}$:** O peso estrutural base da variável $i$ no perfil $p$.
+
 * **$I_{i,p}$:** O escalar de intensidade da variável $i$ para o construto $p$.
 
 ---
@@ -89,7 +95,9 @@ Para corrigir essa distorção e garantir o poder discriminatório do algoritmo,
 O fator $I_{i,p}$ atua como um escalar matemático (um multiplicador) que amplifica ou restringe o impacto da nota ($S_i$) de acordo com a relevância daquela variável para um construto específico ($p$). Em vez de uma distribuição linear, aplicamos uma escala assimétrica para simular o *cross-loading* das habilidades:
 
 * **Forte ($I = 2.0$):** A variável é uma característica inegociável e central (o "núcleo") do perfil. O multiplicador dobra o peso base, premiando exponencialmente o alto desempenho.
+
 * **Moderado ($I = 1.0$):** A variável atua como suporte. Ela é útil e complementar, mas não define a exclusividade do perfil. O peso base é mantido em sua forma neutra.
+
 * **Fraco ($I = 0.2$):** A variável é periférica ou oposta ao núcleo do perfil. O multiplicador esmaga o peso matemático em 80%, penalizando a alocação de notas em itens que fogem ao escopo do construto.
 
 #### A Equação ARM Alterada (Com Fator de Intensidade)
@@ -99,9 +107,13 @@ Ao acoplar o escalar de intensidade à Estrutura Multidimensional, a Equação d
 $$Q_p = \sum_{i=1}^{n} (w_{i,p} \times I_{i,p} \times s_i)$$ {#eq-arm-intensidade}
 
 Onde:
+
 * **$p$:** O construto latente ou perfil analisado (ex: $P01$, $P02$).
+
 * **$w_{i,p}$:** O peso estrutural base da variável $i$ no perfil $p$.
+
 * **$I_{i,p}$:** O escalar de intensidade (2.0, 1.0 ou 0.2) da variável $i$ para o construto $p$.
+
 * **$s_i$:** O Score bruto (nota) de desempenho obtido na avaliação.
 
 #### Justificativa: Quando há necessidade desta alteração?
@@ -109,7 +121,9 @@ Onde:
 A introdução do Fator de Intensidade ($I_{i,p}$) não é recomendada em medições físicas exatas (ex: teor de sílica em um minério, onde o sensor do laboratório não sofre de viés psicológico). No entanto, ela torna-se **estritamente obrigatória** nos seguintes cenários de gestão:
 
 1. **Mitigação de Vieses de Resposta (Efeito de Consistência):** Quando o instrumento depende de percepção humana (escalas *Likert*). Se um aluno possui o viés de consistência e marca "5" em todas as 51 competências do questionário, a equação clássica (sem intensidade) geraria um empate global, inutilizando o teste. O fator $I_{i,p}$ destrói esse empate matematicamente ao multiplicar as variáveis "Fracas" por 0.2, forçando o afloramento do verdadeiro Perfil Dominante.
+
 2. **Necessidade de Explosão de Variância:** Em amostras altamente homogêneas (ex: uma turma onde todos os engenheiros possuem notas parecidas), a média simples gera uma nuvem de dados sobreposta e indistinguível. A injeção dos escalares extremos ($2.0$ e $0.2$) atua como um "zoom" estatístico, esticando a distância entre os resultados e permitindo a separação clara em *clusters*.
+
 3. **Mecânica de Exclusão Mútua (Ortogonalidade):** Quando os construtos avaliados possuem naturezas opostas. Por exemplo, a precisão rigorosa e isolada de um "Perfil Analítico" concorre cognitivamente com a expansividade sociável de um "Perfil Comunicador". O fator de intensidade garante que a excelência em uma ponta não infle artificialmente a nota na outra, mantendo a independência matemática das dimensões.
 
 ### A Ponte Normativa: Associando o ARM à ISO 9000 {#sec-ponte-normativa}
@@ -445,8 +459,11 @@ Para demonstrar a força da equação, vamos transformar o texto histórico dos 
 A partir da análise histórica, nossa diretoria definiu quatro variáveis independentes e seus respectivos pesos (gerados por um Diagrama de Mudge):
 
 * **$V_1$: Estratégia e Adaptabilidade** $\rightarrow$ $W_1 = 0,40$ (40%)
+
 * **$V_2$: Logística e Suprimentos** $\rightarrow$ $W_2 = 0,25$ (25%)
+
 * **$V_3$: Liderança Multidisciplinar** $\rightarrow$ $W_3 = 0,20$ (20%)
+
 * **$V_4$: Visão Sistêmica e Política** $\rightarrow$ $W_4 = 0,15$ (15%)
 
 **2. Atribuição de Desempenho ($S_i$)**
