@@ -197,14 +197,21 @@ Vamos analisar como as Variáveis reagem contra a lente do **Perfil 1**:
 Para que você entenda o "motor" dessa equação, vamos isolar três variáveis e assumir, para fins didáticos, que elas possuíam o mesmo peso base inicial (33,3%). Veja como a injeção do Fator de Intensidade ($I_{i,p}$) atua para o Perfil Analítico (P01):
 
 **1. Cálculo do Peso Efetivo (Peso Base $\times$ Intensidade):**
+
 * **C02 (Analisar Fenômenos):** Peso Base (33,3) $\times$ Forte (2.0) = **66,6**
+
 * **C04 (Implantar Soluções):** Peso Base (33,3) $\times$ Moderada (1.0) = **33,3**
+
 * **C06 (Liderar Equipes):** Peso Base (33,3) $\times$ Fraca (0.2) = **6,6**
 
 **2. A Normalização a 100%:**
+
 O algoritmo não pode trabalhar com uma soma que passe de 100%. Portanto, ele soma os pesos efetivos calculados ($66,6 + 33,3 + 6,6 = 106,5$) e divide cada valor por esse total para encontrar a nova participação percentual final do Perfil:
+
 * Peso final de **C02**: $66,6 \div 106,5 = \mathbf{62,5\%}$ *(O núcleo é exponencialmente amplificado).*
+
 * Peso final de **C04**: $33,3 \div 106,5 = \mathbf{31,3\%}$ *(A variável de suporte sofre leve ajuste, mantendo-se neutra).*
+
 * Peso final de **C06**: $6,6 \div 106,5 = \mathbf{6,2\%}$ *(A variável oposta ao perfil é matematicamente esmagada).*
 
 #### A Prova do Contraste: A Distribuição Final dos Pesos ($w_i$)
