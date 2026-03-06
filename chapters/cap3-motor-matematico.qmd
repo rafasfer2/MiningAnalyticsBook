@@ -7,12 +7,11 @@ format: html
 Neste capítulo, operamos a transição definitiva da filosofia normativa para a exatidão da engenharia. Transformamos conceitos abstratos e subjetivos em modelos matemáticos capazes de nortear decisões operacionais e financeiras no setor mineral e na gestão de competências.
 
 ::: {.callout-tip title="🎯 Objetivos deste Capítulo"}
-
 Neste capítulo, faremos a transição definitiva da qualidade filosófica para a engenharia quantitativa. Ao final da leitura, você será capaz de:
 
 * **Transpor** a barreira da subjetividade, transformando opiniões sobre qualidade em indicadores matemáticos auditáveis e gerenciáveis.
 * **Compreender e Estruturar** a Modelagem Analítica de Requisitos (ARM) alinhada à teoria dos construtos latentes da psicometria.
-* **Executar** os cinco passos práticos de modelagem: identificação de variáveis ($V_i$), agrupamento em dimensões ($D_j$), calibragem de pesos ($W_i$), parametrização de desempenho ($S_i$) e consolidação matemática.
+* **Executar** os cinco passos práticos de modelagem: identificação de variáveis ($x_i$), agrupamento em dimensões ($D_j$), calibragem de pesos ($w_i$), parametrização de desempenho e consolidação matemática ($\theta$).
 * **Aplicar** o algoritmo ARM em cenários reais, avaliando quantitativamente tanto a conformidade de **Produtos** (ex: minério de ferro) quanto a eficiência de **Processos** e o perfil de **Pessoas** (capital humano).
 :::
 
@@ -28,9 +27,9 @@ Antes de avançarmos para as fórmulas e para os algoritmos de cálculo, é fund
 
 **Para onde queremos chegar (O Destino Final):**
 
-* **A um Indicador Gerenciável:** Queremos um número (o *Score*) que consolide todo o desempenho do objeto, indicando se geramos ou destruímos valor.
+* **A um Indicador Gerenciável:** Queremos um número final (o Construto Latente, $\theta$) que consolide todo o desempenho do objeto, indicando se geramos ou destruímos valor.
 * **À Capacidade de Trade-off (Equilíbrio):** Queremos uma ferramenta que calcule perdas e ganhos de forma integrada.
-* **À Preparação para a Ciência de Dados:** Algoritmos preditivos no software R não entendem a "voz do cliente" em texto livre. Eles precisam de *Features* quantificadas, Pesos matemáticos e Notas padronizadas.
+* **À Preparação para a Ciência de Dados:** Algoritmos preditivos no software R não entendem a "voz do cliente" em texto livre. Eles precisam de variáveis quantificadas ($x_i$) e pesos matemáticos ($w_i$).
 
 ---
 
@@ -42,79 +41,69 @@ A Modelagem Analítica de Requisitos — do inglês *Analytical Requirements Mod
 Em literaturas clássicas de gestão, formulações semelhantes costumam ser referenciadas como Função Qualidade Total do Produto (QTP) ou Índice de Atendimento dos Requisitos (IAR). Adotaremos a estrutura e a sigla **ARM** por seu alinhamento direto com as metodologias internacionais de *Data Science* e Engenharia de Atributos (*Feature Engineering*).
 :::
 
-Para que o ARM seja estatisticamente válido, especialmente ao avaliar comportamentos e competências humanas, a arquitetura do modelo de dados deve respeitar a teoria psicométrica dos **Construtos Latentes** ($\theta$). Um construto latente é uma habilidade ou traço que não pode ser medido diretamente (como "inteligência" ou "liderança"), mas que é inferido através de variáveis observáveis ($X, Y$).
+Para que o ARM seja estatisticamente válido, especialmente ao avaliar comportamentos e competências humanas, a arquitetura do modelo de dados deve respeitar a teoria psicométrica dos **Construtos Latentes** ($\theta$). Um construto latente é uma habilidade ou traço que não pode ser medido diretamente (como "inteligência", "liderança" ou "qualidade global"), mas que é inferido através de variáveis observáveis ($x_i$).
 
 A complexidade do modelo depende de como esses construtos latentes interagem com os itens avaliados. A modelagem evolui estruturalmente nos seguintes níveis de sofisticação:
 
+
+
 ### O Modelo Univariável (Flat Model) {#sec-arm-uni}
 
-Este modelo baseia-se no conceito de **Estruturas Unidimensionais**. É o modelo mais simples e assume que um único fator geral ou construto latente ($\theta_g$) determina o comportamento de todos os itens observáveis.
+Este modelo baseia-se no conceito de **Estruturas Unidimensionais**. É o modelo mais simples e assume que um único fator geral ou construto latente ($\theta$) determina o comportamento de todos os itens observáveis.
 
-No ARM Univariável, não há agrupamento intermediário. Todas as variáveis operacionais ($x_i$) são tratadas no mesmo nível hierárquico e colapsadas diretamente em um único Índice Global ($Q$).
+No ARM Univariável, não há agrupamento intermediário. Todas as variáveis operacionais observadas ($x_i$) são tratadas no mesmo nível hierárquico e colapsadas diretamente para calcular a estimativa do construto latente global ($\theta$).
 
-$$Q = \sum_{i=1}^{n} (w_i \times s_i)$$ {#eq-arm-uni}
+$$\theta = \sum_{i=1}^{n} (w_i \times x_i)$$ {#eq-arm-uni}
 
 Onde:
 
 * **$n$:** Número total de variáveis avaliadas.
-
 * **$w_i$ (*Weight*):** Peso de importância da variável $i$ ($\sum w_i = 1,0$).
-
-* **$s_i$ (*Score*):** Nota de desempenho obtida pela variável $i$.
+* **$x_i$:** Valor observado (nota de desempenho) na variável $i$.
 
 ### O Modelo Multidimensional e Hierárquico {#sec-arm-multi}
 
-Na prática industrial e educacional, a realidade exige construtos mais elaborados. O modelo hierárquico introduz camadas em formato de "árvore" estrutural para evitar ruído analítico. Operacionalizamos essa teoria colapsando as variáveis ($x_i$) dentro de suas Dimensões ($D_j$), e depois colapsando as Dimensões para formar o índice global:
+Na prática industrial e educacional, a realidade exige construtos mais elaborados. O modelo hierárquico introduz camadas em formato de "árvore" estrutural para evitar ruído analítico. Operacionalizamos essa teoria colapsando as variáveis observadas ($x_i$) dentro de suas Dimensões ($D_j$), e depois colapsando as Dimensões para formar o construto global ($\theta$):
 
-$$Q = \sum_{j=1}^{m} \left[ w_{D_j} \times \underbrace{\left( \sum_{i=1}^{n_j} w_{x_i} \times s_{x_i} \right)}_{\text{Score da Dimensão } D_j} \right]$$ {#eq-arm-multi}
-
-### O Modelo Multivariável e o Fator de Intensidade {#sec-arm-multivariavel}
-
-A evolução máxima avalia como as mesmas notas de entrada ($s_i$) reagem sob diferentes perspectivas (Perfis). Para garantir o poder discriminatório (evitar o achatamento das notas), introduzimos o **Fator de Intensidade ($I_{i,p}$)**, que atua como um escalar matemático (2.0 Forte, 1.0 Moderado, 0.2 Fraco). A matriz de pesos muda dinamicamente:
-
-$$Q_p = \sum_{i=1}^{n} (w_{i,p} \times I_{i,p} \times s_i)$$ {#eq-arm-intensidade}
+$$\theta = \sum_{j=1}^{m} \left[ w_{D_j} \times \underbrace{\left( \sum_{i=1}^{n_j} w_i \times x_i \right)}_{\text{Score da Dimensão } D_j} \right]$$ {#eq-arm-multi}
 
 Onde:
 
-* **$p$:** O construto latente ou perfil analisado (ex: Perfil Analítico).
+* **$m$:** Número de macrodimensões ($D_j$).
+* **$w_{D_j}$:** Peso da dimensão no contexto global.
+* **$w_i$ e $x_i$:** Peso e valor observado da variável específica dentro de sua dimensão.
 
-* **$w_{i,p}$:** O peso estrutural base da variável $i$ no perfil $p$.
+### O Modelo Multivariável e a Dinâmica de Calibragem {#sec-arm-multivariavel}
 
-* **$I_{i,p}$:** O escalar de intensidade da variável $i$ para o construto $p$.
+A evolução máxima do algoritmo ocorre quando o modelo precisa avaliar como as mesmas variáveis de entrada ($x_i$) reagem sob diferentes perspectivas ou exigências (Perfis).
 
----
+Na teoria psicométrica e na modelagem de sistemas, assumir que o peso base de uma variável ($w_i$) é suficiente para diferenciar construtos ou perfis é um erro metodológico comum. Na prática, especialmente na avaliação humana, os dados brutos sofrem de "achatamento" devido aos vieses de resposta.
 
-### A Dinâmica de Calibragem: O Fator de Intensidade ($I_{i,p}$) {#sec-fator-intensidade}
-
-Na teoria psicométrica e na modelagem de sistemas, assumir que o peso base de uma variável ($W_i$) é suficiente para diferenciar construtos ou perfis é um erro metodológico comum. Na prática, especialmente na avaliação humana, os dados brutos sofrem de "achatamento" devido aos vieses de resposta.
-
-Para corrigir essa distorção e garantir o poder discriminatório do algoritmo, a arquitetura do ARM exige a introdução de uma nova variável ao modelo multivariado: o **Fator de Intensidade ($I_{i,p}$)**.
+Para corrigir essa distorção e garantir o poder discriminatório (evitar o empate das notas), a arquitetura do ARM Multivariável exige a introdução de uma nova variável: o **Fator de Intensidade ($I_{i,p}$)**.
 
 #### A Parametrização da Intensidade
 
-O fator $I_{i,p}$ atua como um escalar matemático (um multiplicador) que amplifica ou restringe o impacto da nota ($S_i$) de acordo com a relevância daquela variável para um construto específico ($p$). Em vez de uma distribuição linear, aplicamos uma escala assimétrica para simular o *cross-loading* das habilidades:
+O fator $I_{i,p}$ atua como um escalar matemático (um multiplicador) que amplifica ou restringe o impacto do valor observado ($x_i$) de acordo com a relevância daquela variável para um construto latente específico ($\theta_p$). Em vez de uma distribuição linear, aplicamos uma escala assimétrica para simular o *cross-loading* das habilidades:
+
+
 
 * **Forte ($I = 2.0$):** A variável é uma característica inegociável e central (o "núcleo") do perfil. O multiplicador dobra o peso base, premiando exponencialmente o alto desempenho.
-
 * **Moderado ($I = 1.0$):** A variável atua como suporte. Ela é útil e complementar, mas não define a exclusividade do perfil. O peso base é mantido em sua forma neutra.
-
 * **Fraco ($I = 0.2$):** A variável é periférica ou oposta ao núcleo do perfil. O multiplicador esmaga o peso matemático em 80%, penalizando a alocação de notas em itens que fogem ao escopo do construto.
 
-#### A Equação ARM Alterada (Com Fator de Intensidade)
+#### A Equação ARM Alterada
 
-Ao acoplar o escalar de intensidade à Estrutura Multidimensional, a Equação do ARM deixa de ser uma simples soma ponderada linear e passa a ser uma função de calibragem forçada. O peso efetivo do item passa a ser o produto do seu peso base pela sua intensidade.
+Ao acoplar o escalar de intensidade à Estrutura Multidimensional, a Equação do ARM deixa de ser uma simples soma ponderada linear e passa a ser uma função de calibragem forçada, onde a matriz de pesos muda dinamicamente. O peso efetivo do item passa a ser o produto do seu peso base pela sua intensidade.
 
-$$Q_p = \sum_{i=1}^{n} (w_{i,p} \times I_{i,p} \times s_i)$$ {#eq-arm-intensidade}
+$$\theta_p = \sum_{i=1}^{n} (w_{i,p} \times I_{i,p} \times x_i)$$ {#eq-arm-intensidade}
 
 Onde:
 
-* **$p$:** O construto latente ou perfil analisado (ex: $P01$, $P02$).
-
+* **$p$:** O construto latente específico ou perfil analisado (ex: Perfil Analítico).
+* **$\theta_p$:** O valor final calculado para o construto $p$.
 * **$w_{i,p}$:** O peso estrutural base da variável $i$ no perfil $p$.
-
 * **$I_{i,p}$:** O escalar de intensidade (2.0, 1.0 ou 0.2) da variável $i$ para o construto $p$.
-
-* **$s_i$:** O Score bruto (nota) de desempenho obtido na avaliação.
+* **$x_i$:** O valor observado bruto (nota) obtido na avaliação.
 
 #### Justificativa: Quando há necessidade desta alteração?
 
@@ -126,16 +115,18 @@ A introdução do Fator de Intensidade ($I_{i,p}$) não é recomendada em mediç
 
 3. **Mecânica de Exclusão Mútua (Ortogonalidade):** Quando os construtos avaliados possuem naturezas opostas. Por exemplo, a precisão rigorosa e isolada de um "Perfil Analítico" concorre cognitivamente com a expansividade sociável de um "Perfil Comunicador". O fator de intensidade garante que a excelência em uma ponta não infle artificialmente a nota na outra, mantendo a independência matemática das dimensões.
 
+---
+
 ### A Ponte Normativa: Associando o ARM à ISO 9000 {#sec-ponte-normativa}
 
 Para que esse modelo seja metodologicamente robusto e aceito em auditorias, ancoramos cada elemento da equação nas definições oficiais do vocabulário da Qualidade (ISO 9000):
 
 | Definição Inicial (Senso Comum) | Sistema de Gestão (ISO 9000) | Modelagem Analítica (ARM) |
 | :--- | :--- | :--- |
-| "Das coisas ou das pessoas" | **Objeto** (3.6.1) | **$ARM$** (Score Global / Perfil) |
-| "Atributos ou propriedades" | **Características** (3.10.1) | **$V_i$** (*Variables* / *Features*) |
-| "Essência ou natureza exigida" | **Requisito** (3.6.4) | **$W_i$** (*Weight* / Relevância) |
-| "Capacidade de distinção" | **Grau** (3.6.3) | **$S_i$** (*Score* / Desempenho) |
+| "Das coisas ou das pessoas" | **Objeto** (3.6.1) | **$\theta$** (Construto Latente / Score Global) |
+| "Atributos ou propriedades" | **Características** (3.10.1) | **$x_i$** (*Variables* / *Features*) |
+| "Essência ou natureza exigida" | **Requisito** (3.6.4) | **$w_i$** (*Weight* / Relevância) |
+| "Capacidade de distinção" | **Grau** (3.6.3) | **$x_i$ normalizado** (Desempenho Observado) |
 
 : Evolução do Conceito de Qualidade: Da Filosofia à Matemática {#tbl-evolucao-arm}
 
@@ -143,24 +134,26 @@ Para que esse modelo seja metodologicamente robusto e aceito em auditorias, anco
 
 Para manter a objetividade analítica e amarrar os requisitos da ISO 9001 à linguagem de máquina, a engenharia de dados estrutura o problema através de matrizes e vetores.
 
-Considere um conjunto de requisitos $j = 1, \dots, m$:
 
-* **Variáveis medidas (características):** $\mathbf{x} = [x_1, x_2, \dots, x_m]$
-* **Alvos/requisitos (especificação):** $\mathbf{r} = [r_1, r_2, \dots, r_m]$
-* **Tolerâncias/limites:** $\boldsymbol{\Delta} = [\Delta_1, \Delta_2, \dots, \Delta_m]$ (pode representar faixa, limites superior/inferior, etc.)
-* **Pesos (importância):** $\mathbf{w} = [w_1, w_2, \dots, w_m]$, com $w_j \ge 0$
-* **Função de nota por requisito:** $s_j = S(x_j; r_j, \Delta_j)$, tipicamente normalizada no intervalo $[0, 1]$.
-  * *Exemplo genérico:* $s_j = 1 - \min\{1, |x_j - r_j| / \Delta_j\}$ (quanto mais perto do alvo, maior a nota).
 
-O **Índice Global de Qualidade (ARM)** é processado pela ponderação vetorial:
+Considere um conjunto de requisitos operacionais $i = 1, \dots, n$:
 
-$$ARM_Q = \frac{\sum_{j=1}^{m} w_j s_j}{\sum_{j=1}^{m} w_j}$$ {#eq-arm-vetorial}
+* **Variáveis medidas (características):** $\mathbf{x} = [x_1, x_2, \dots, x_n]$
+* **Alvos/requisitos (especificação):** $\mathbf{r} = [r_1, r_2, \dots, r_n]$
+* **Tolerâncias/limites:** $\boldsymbol{\Delta} = [\Delta_1, \Delta_2, \dots, \Delta_n]$ (pode representar faixa, limites superior/inferior, etc.)
+* **Pesos (importância):** $\mathbf{w} = [w_1, w_2, \dots, w_n]$, com $w_i \ge 0$
+* **Função de normalização de desempenho:** $x^*_i = f(x_i; r_i, \Delta_i)$, tipicamente convertendo o valor bruto em uma escala padronizada no intervalo $[0, 1]$.
+  * *Exemplo genérico:* $x^*_i = 1 - \min\{1, |x_i - r_i| / \Delta_i\}$ (quanto mais perto do alvo, maior a nota normalizada).
 
-Caso o processo apresente falhas ou externalidades, aplica-se uma **Penalidade de risco/impacto ($P$)**:
+O **Índice Global de Qualidade ($\theta$)** é processado pela ponderação vetorial:
+
+$$\theta = \frac{\sum_{i=1}^{n} w_i x^*_i}{\sum_{i=1}^{n} w_i}$$ {#eq-arm-vetorial}
+
+Caso o processo apresente falhas ou externalidades graves, aplica-se uma **Penalidade de risco/impacto ($P$)**:
 $$P = \sum_k \rho_k g_k$$
-Resultando na **Qualidade Ajustada por Risco ($Q^*$):** $Q^* = ARM_Q - P$.
+Resultando na **Qualidade Ajustada por Risco ($\theta^*$):** $\theta^* = \theta - P$.
 
-> *Síntese Operacional: Na ARM, as cláusulas 4–6 da ISO 9001 definem o que medir ($\mathbf{x}$), o que é requerido ($\mathbf{r}, \boldsymbol{\Delta}$) e o que importa mais ($\mathbf{w}$); as cláusulas 7–8 garantem a confiabilidade da medição e o controle que gera $\mathbf{x}$; as cláusulas 9–10 fecham o ciclo ao avaliar o $Q(t)$ e ajustar os parâmetros do modelo.*
+> *Síntese Operacional: Na ARM, as cláusulas 4–6 da ISO 9001 definem o que medir ($\mathbf{x}$), o que é requerido ($\mathbf{r}, \boldsymbol{\Delta}$) e o que importa mais ($\mathbf{w}$); as cláusulas 7–8 garantem a confiabilidade da medição e o controle que gera $\mathbf{x}$; as cláusulas 9–10 fecham o ciclo ao avaliar o construto final ($\theta$) e ajustar os parâmetros do modelo preventivamente.*
 
 Para visualizar a universalidade desta álgebra, acompanhe o desdobramento da norma em vetores para três setores industriais distintos:
 
@@ -170,12 +163,12 @@ A tabela abaixo demonstra o que cada cláusula normativa "produz" matematicament
 
 | Cláusula ISO 9001 | Tradução direta para parâmetros da ARM (Matemática) |
 | :--- | :--- |
-| **4. Contexto** | Define o conjunto de requisitos $j$ e o escopo do modelo: seleciona as variáveis $\mathbf{x}$ e identifica as partes interessadas como base para $\mathbf{w}$. |
-| **5. Liderança** | Metas corporativas viram restrições do modelo (ex: $Q \ge Q_{\min}$). Ajusta a política de pesos $\mathbf{w}$ e os patamares de aceitação. |
+| **4. Contexto** | Define o conjunto de requisitos $i$ e o escopo do modelo: seleciona as variáveis $\mathbf{x}$ e identifica as partes interessadas como base para $\mathbf{w}$. |
+| **5. Liderança** | Metas corporativas viram restrições do modelo (ex: $\theta \ge \theta_{\min}$). Ajusta a política de pesos $\mathbf{w}$ e os patamares de aceitação. |
 | **6. Planejamento** | Converte requisitos em alvos $\mathbf{r}$ e tolerâncias $\boldsymbol{\Delta}$ (faixas químicas e mecânicas). Planeja riscos criando termos de penalidade $P$ (ex: sucata). |
-| **7. Suporte** | Afeta a confiabilidade da medição de $x_j$ (incerteza $\sigma_j$, calibração). Na ARM, pode entrar como ajuste, penalizando notas $s_j$ de alta incerteza. |
-| **8. Operação** | Gera o valor real $\mathbf{x}$ sob controle. A liberação do lote segue a regra: “libera se $s_j \ge s_{\min}$ para todo $j$”. |
-| **9. Avaliação** | Consolida o desempenho em série temporal $Q(t)$, gerando insumos para revisar $\mathbf{w}$ e validar o modelo. |
+| **7. Suporte** | Afeta a confiabilidade da medição de $x_i$ (incerteza $\sigma_i$, calibração). Na ARM, pode entrar como ajuste, penalizando notas normalizadas $x^*_i$ de alta incerteza. |
+| **8. Operação** | Gera o valor real $\mathbf{x}$ sob controle. A liberação do lote segue a regra: “libera se $x^*_i \ge x^*_{\min}$ para todo $i$”. |
+| **9. Avaliação** | Consolida o desempenho em série temporal $\theta(t)$, gerando insumos para revisar $\mathbf{w}$ e validar o modelo. |
 | **10. Melhoria** | Ações alteram o sistema, reduzindo a variabilidade $\boldsymbol{\Delta}$, redefinindo os alvos $\mathbf{r}$ ou ajustando os pesos $\mathbf{w}$. |
 
 * **Exemplo de vetor gerado ($\mathbf{x}$):** $[\%C, \%P, \%S, Re, Rm, \text{espessura}, \text{planicidade}]$
@@ -190,8 +183,8 @@ A estrutura normativa permanece a mesma, mas o vetor de medição e a matriz de 
 | **4. Contexto** | Seleciona requisitos críticos (legais/mercado) que definem $\mathbf{x}$. Estrutura os pesos $\mathbf{w}$ exigindo que a segurança tenha o peso máximo. |
 | **5. Liderança** | Restrições corporativas de "zero defeito crítico" determinam critérios de bloqueio imediato por severidade. |
 | **6. Planejamento** | Define $\mathbf{r}$ e $\boldsymbol{\Delta}$ por modelo do veículo. Incorpora riscos de *recall* com alta penalidade $P$. |
-| **7. Suporte** | Garante a calibração da medição, aumentando a estabilidade de $x_j$ nas estações robóticas. |
-| **8. Operação** | Checkpoints em tempo real. Se $s_j < s_{\min}$, o algoritmo acusa não conformidade e bloqueia o chassi para retrabalho. |
+| **7. Suporte** | Garante a calibração da medição, aumentando a estabilidade de $x_i$ nas estações robóticas. |
+| **8. Operação** | Checkpoints em tempo real. Se $x^*_i < x^*_{\min}$, o algoritmo acusa não conformidade e bloqueia o chassi para retrabalho. |
 | **9. Avaliação** | Mede o PPM (Partes Por Milhão) e falhas de campo. Recalibra a severidade para garantir que $\mathbf{w}$ reflita a voz do cliente. |
 | **10. Melhoria** | Altera o projeto de montagem (mudando $\mathbf{x}$), reduz a tolerância de projeto $\boldsymbol{\Delta}$ para garantir maior robustez. |
 
@@ -205,24 +198,25 @@ Neste cenário, o produto físico dá lugar a um processo de serviço. A regra d
 | Cláusula ISO 9001 | Tradução direta para parâmetros da ARM (Matemática) |
 | :--- | :--- |
 | **4. Contexto** | Define partes interessadas (armador/autoridade). Seleciona $\mathbf{x}$ e estrutura $\mathbf{w}$ conforme impacto financeiro contratual. |
-| **5. Liderança** | Prioridades operacionais impõem $Q \ge Q_{\min}$ para viabilizar as janelas de atracação. |
+| **5. Liderança** | Prioridades operacionais impõem $\theta \ge \theta_{\min}$ para viabilizar as janelas de atracação. |
 | **6. Planejamento** | Estabelece os limites de Service Level Agreement (SLA) para $\boldsymbol{\Delta}$ e o termo de risco operacional $P$ (congestionamento). |
-| **7. Suporte** | Telemetria nos guindastes e sistemas otimizam a captura de dados, aumentando a fidelidade da nota de desempenho $s_j$. |
-| **8. Operação** | Execução controlada gerando $\mathbf{x}$ por navio. O embarque prossegue se $Q$ estiver no alvo e a nota de segurança $s_j \ge s_{\min}$. |
-| **9. Avaliação** | Cruza a métrica $Q(t)$ com os custos de fila e penalidades (*demurrage*), revisando os pesos $\mathbf{w}$. |
+| **7. Suporte** | Telemetria nos guindastes e sistemas otimizam a captura de dados, aumentando a fidelidade da nota de desempenho $x^*_i$. |
+| **8. Operação** | Execução controlada gerando $\mathbf{x}$ por navio. O embarque prossegue se $\theta$ estiver no alvo e a nota de segurança $x^*_i \ge x^*_{\min}$. |
+| **9. Avaliação** | Cruza a métrica $\theta(t)$ com os custos de fila e penalidades (*demurrage*), revisando os pesos $\mathbf{w}$. |
 | **10. Melhoria** | Otimização do pátio reduz as oscilações de tempo $\boldsymbol{\Delta}$, elevando a previsibilidade estatística da operação. |
 
 * **Exemplo de vetor gerado ($\mathbf{x}$):** $[\text{tempo de espera}, \text{tempo de atracação}, \text{produtividade}, \text{\% avarias}, \text{incidentes}]$
 :::
+
 ---
 
 ### Fase 2: O Algoritmo de Execução (10 Passos e Portões de Decisão) {#sec-algoritmo-arm}
 
 Uma vez que o modelo foi estruturado (através dos 5 passos de Design detalhados anteriormente), ele é acoplado ao software de gestão da fábrica (MES/ERP). A partir desse momento, inicia-se a Fase de Operação.
 
-O sistema não "pensa" mais no design; ele passa a executar um algoritmo rotineiro de 10 passos: lendo os valores do processo ($\mathbf{x}$), comparando com os alvos ($\mathbf{r}$), ponderando pelos pesos ($\mathbf{w}$) e gerando o Índice Global ($Q$).
+O sistema não "pensa" mais no design; ele passa a executar um algoritmo rotineiro de 10 passos: lendo os valores do processo ($\mathbf{x}$), comparando com os alvos ($\mathbf{r}$), ponderando pelos pesos ($\mathbf{w}$) e gerando o Índice Global ($\theta$).
 
-No entanto, em ambientes industriais de alta complexidade (como mineração e siderurgia), a equação não deve ser processada "cegamente". Um produto pode atingir um score global $Q$ altíssimo, mas violar uma norma de segurança ou gerar custos astronômicos de superqualidade.
+No entanto, em ambientes industriais de alta complexidade (como mineração e siderurgia), a equação não deve ser processada "cegamente". Um produto pode atingir um score global $\theta$ altíssimo, mas violar uma norma de segurança ou gerar custos astronômicos de superqualidade.
 
 Para evitar falhas catastróficas, o algoritmo ARM de 10 passos é protegido por Portões de Decisão (Gates). O fluxograma abaixo explicita o caminho de aprovação, desde a medição do dado até a liberação final.
 
@@ -232,29 +226,29 @@ Para evitar falhas catastróficas, o algoritmo ARM de 10 passos é protegido por
 flowchart TD
     A["Passos 1 a 4: Setup de x, r, Δ, w"] --> E["Passo 5: Coletar Medições"]
 
-    E --> G0{GATE 0:<br/>Dados OK?<br/>rastreabilidade,<br/>incerteza}
-    G0 -->|Não| H0["HOLD:<br/>Recolher dados<br/>sem decisão"]
+    E --> G0{GATE 0:\nDados OK?\nrastreabilidade,\nincerteza}
+    G0 -->|Não| H0["HOLD:\nRecolher dados\nsem decisão"]
     G0 -->|Sim| F["Passo 6: Calcular Notas (s)"]
 
-    F --> G1A{GATE 1A:<br/>Legal e Regulatório<br/>Conforme?}
-    G1A -->|Não| X1["BLOQUEAR:<br/>NC crítica"]
-    G1A -->|Sim| G1B{GATE 1B:<br/>Segurança OK?}
+    F --> G1A{GATE 1A:\nLegal e Regulatório\nConforme?}
+    G1A -->|Não| X1["BLOQUEAR:\nNC crítica"]
+    G1A -->|Sim| G1B{GATE 1B:\nSegurança OK?}
 
     G1B -->|Não| X1
-    G1B -->|Sim| G1C{GATE 1C:<br/>CTQ do Cliente OK?}
+    G1B -->|Sim| G1C{GATE 1C:\nCTQ do Cliente OK?}
 
     G1C -->|Não| X1
     G1C -->|Sim| Q["Passo 7: Calcular Q"]
-    Q --> P["Passo 8: Penalidades<br/>Q* = max(0, Q-P)"]
+    Q --> P["Passo 8: Penalidades\nQ* = max(0, Q-P)"]
 
-    P --> G2{GATE 2:<br/>Q* ≥ Qmin?}
-    G2 -->|Não| X2["BLOQUEAR:<br/>Análise de causa"]
-    G2 -->|Sim| G3{GATE 3:<br/>Eficiência OK?<br/>Sem superqualidade}
+    P --> G2{GATE 2:\nQ* ≥ Qmin?}
+    G2 -->|Não| X2["BLOQUEAR:\nAnálise de causa"]
+    G2 -->|Sim| G3{GATE 3:\nEficiência OK?\nSem superqualidade}
 
-    G3 -->|Sim| OK["Passo 9: APROVAR<br/>Registrar evidências"]
-    G3 -->|Não| OPT["LIBERAR COM PLANO<br/>Otimizar custos"]
+    G3 -->|Sim| OK["Passo 9: APROVAR\nRegistrar evidências"]
+    G3 -->|Não| OPT["LIBERAR COM PLANO\nOtimizar custos"]
 
-    H0 --> PDCA["Passo 10: PDCA<br/>Priorizar ações"]
+    H0 --> PDCA["Passo 10: PDCA\nPriorizar ações"]
     X1 --> PDCA
     X2 --> PDCA
     OK --> PDCA
