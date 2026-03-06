@@ -13,8 +13,11 @@ Para demonstrar a verdadeira escalabilidade matemática do ARM, aplicaremos a mo
 O egresso de engenharia de produção deve integrar saberes que permitam a sua inserção decisiva no contexto social e profissional. Avaliá-lo de forma puramente subjetiva ("é um bom aluno") destrói a capacidade de melhoria contínua do sistema de ensino. Precisamos de métricas exatas. Para isso, estruturamos o perfil do profissional moderno através do **Modelo CHAE** (Conhecimento, Habilidades, Atitudes e Entregas):
 
 * **Conhecimento (Saber o quê e porquê):** O acúmulo de saberes técnicos e científicos (ex: cálculo, física, pesquisa operacional).
+
 * **Habilidade (Saber como fazer):** A técnica e a capacidade de aplicar o conhecimento na prática.
+
 * **Atitude (Querer fazer):** A determinação, a identidade e os aspectos socioafetivos (ex: liderança, ética, empatia).
+
 * **Entrega (Geração de Valor):** A aplicação do tripé CHA durante os processos de trabalho, resultando em valor agregado real para a sociedade e para a organização.
 
 ### A Modelagem Sistêmica do Ensino (Input-Process-Output)
@@ -47,7 +50,7 @@ O grande desafio analítico é traduzir as diretrizes abstratas do Ministério d
 
 **Dimensão 1: A Matriz de Competências Macros**
 
-| Competência Macro (Diretriz Curricular) | Comportamentos Observáveis e Práticos ($V_i$) |
+| Competência Macro (Diretriz Curricular) | Comportamentos Observáveis e Práticos ($x_i$) |
 | :--- | :--- |
 | **C01 -** **Formular e conceber soluções desejáveis de Engenharia**, analisando necessidades dos usuários e seu contexto. | Contribuir com ideias; manter a calma diante de problemas inesperados; transformar ideias em ações; propor soluções criativas; enxergar o problema como um todo. |
 | **C02 -** **Analisar e compreender fenômenos físicos e químicos** por meio de modelos simbólicos, físicos e experimentais. | Interpretar gráficos e tabelas; analisar informações antes de decidir; compreender fundamentos técnicos; identificar causas de problemas; reconhecer padrões em dados. |
@@ -64,7 +67,7 @@ O grande desafio analítico é traduzir as diretrizes abstratas do Ministério d
 
 Para complementar a fundação técnica, definiram-se as Habilidades (capacidade de fazer) e as Atitudes (comportamento diante do saber fazer), agrupadas em dimensões intermediárias e codificadas para a auditoria no sistema:
 
-| Grupo Intermediário | Habilidade Profissional ($V_i$) |
+| Grupo Intermediário | Habilidade Profissional ($x_i$) |
 | :--- | :--- |
 | **Cognitivas e Analíticas** | **H01** Conhecer e reconhecer situações e contextos <br> **H02** Compreender fenômenos e processos <br> **H03** Analisar e avaliar dados e cenários <br> **H04** Formular e modelar problemas <br> **H05** Diferenciar causas e impactos <br> **H06** Exercitar pensamento crítico <br> **H07** Lidar com a complexidade sociotécnica |
 | **Técnicas e Operacionais** | **H08** Aplicar e implementar métodos <br> **H09** Utilizar tecnologias e ferramentas computacionais <br> **H10** Desenvolver melhorias de processos <br> **H11** Planejar atividades e projetos <br> **H12** Pesquisar informações relevantes <br> **H13** Aplicar conhecimentos em situações reais |
@@ -74,7 +77,7 @@ Para complementar a fundação técnica, definiram-se as Habilidades (capacidade
 
 : Matriz Consolidada de Habilidades do Egresso {#tbl-habilidades-egresso}
 
-| Grupo Intermediário | Atitude Comportamental ($V_i$) | Descrição Prática do Comportamento |
+| Grupo Intermediário | Atitude Comportamental ($x_i$) | Descrição Prática do Comportamento |
 | :--- | :--- | :--- |
 | **Cognitivas e Reflexivas** | **A01** Visão sistêmica <br> **A02** Visão holística <br> **A03** Reflexão <br> **A04** Pensamento crítico <br> **A05** Curiosidade intelectual | Enxergar o todo, conexões e impactos. <br> Integrar múltiplas perspectivas. <br> Avaliar o próprio desempenho. <br> Questionar e não aceitar respostas prontas. <br> Buscar entender mais do que o mínimo. |
 | **Éticas e Humanistas** | **A06** Ética <br> **A07** Consciência social e ambiental <br> **A08** Visão humanista <br> **A09** Empatia <br> **A10** Respeito às diferenças | Agir com integridade e responsabilidade. <br> Perceber impactos socioambientais. <br> Considerar contextos e consequências. <br> Compreender o ponto de vista alheio. <br> Lidar com diferenças e diversidade. |
@@ -85,10 +88,10 @@ Para complementar a fundação técnica, definiram-se as Habilidades (capacidade
 
 ### Do Modelo Univariável à Extensão Multivariada {#sec-uni-para-multi}
 
-Após mapear as **51 variáveis operacionais** ($V_i$) nas matrizes acima, o desafio da engenharia é transformá-las em um diagnóstico algorítmico. Para entender como a ponderação destas características ocorre na prática, precisamos contrastar a abordagem linear básica com a nossa solução avançada.
+Após mapear as **51 variáveis operacionais** ($x_i$) nas matrizes acima, o desafio da engenharia é transformá-las em um diagnóstico algorítmico. Para entender como a ponderação destas características ocorre na prática, precisamos contrastar a abordagem linear básica com a nossa solução avançada.
 
 **O Exemplo Univariável (*Flat Model*) e a Teoria Clássica da Medida:**
-Se fôssemos aplicar o modelo de forma univariada, apoiados na Teoria Clássica da Medida (TCM), o nosso objetivo seria calcular um único *Score* global para definir o "Engenheiro Perfeito". Neste cenário, a nota final seria a simples soma das respostas. Como temos 51 itens pontuados em uma escala *Likert* de 1 a 5, o total variaria matematicamente entre 51 e 255. O problema desta abordagem é duplo. Primeiro, o mercado de trabalho não busca um único tipo de engenheiro; uma mineradora precisa tanto do estatístico brilhante quanto do líder de campo carismático. Segundo, a avaliação humana linear sofre um impacto massivo de distorções de percepção.
+Se fôssemos aplicar o modelo de forma univariada, apoiados na Teoria Clássica da Medida (TCM), o nosso objetivo seria calcular um único Construto Latente ($\theta$) global para definir o "Engenheiro Perfeito". Neste cenário, a nota final seria a simples soma das respostas. Como temos 51 itens pontuados em uma escala *Likert* de 1 a 5, o total variaria matematicamente entre 51 e 255. O problema desta abordagem é duplo. Primeiro, o mercado de trabalho não busca um único tipo de engenheiro; uma mineradora precisa tanto do estatístico brilhante quanto do líder de campo carismático. Segundo, a avaliação humana linear sofre um impacto massivo de distorções de percepção.
 
 ::: {.callout-warning title="⚠️ GARGALO ANALÍTICO: Vieses gerados no processo de resposta"}
 
@@ -109,7 +112,7 @@ Ao aplicar questionários de autopercepção, a abordagem linear é frequentemen
 A soma desses vieses resulta em uma **baixa variabilidade das respostas**, invalidando o uso cru da Teoria Clássica da Medida.
 
 **A Extensão Multivariada (*Simultaneous Scores*):**
-Para resolver o esmagamento da diversidade e mitigar esses vieses, estendemos o modelo. Em vez de uma equação, construímos várias rodando em paralelo. O valor de entrada (a nota $S_i$ que o aluno dá a si mesmo) é o mesmo, mas a matriz de pesos ($W_{i,p}$) muda dinamicamente dependendo do *Cluster* ($p$) calculado, gerando *Outputs* simultâneos.
+Para resolver o esmagamento da diversidade e mitigar esses vieses, estendemos o modelo. Em vez de uma equação, construímos várias rodando em paralelo. O valor de entrada (a nota $x_i$ que o aluno dá a si mesmo) é o mesmo, mas a matriz de pesos ($w_{i,p}$) muda dinamicamente dependendo do *Cluster* ($p$) calculado, gerando construtos latentes simultâneos ($\theta_p$).
 
 ### A Racionalidade dos 6 Perfis: Por que não mais ou menos? {#sec-porquê-6-perfis}
 
@@ -124,38 +127,46 @@ A definição de 6 perfis cobre o espaço vetorial completo da atuação do Enge
 
 ### A Lógica das Intensidades: O Paradoxo da Variabilidade {#sec-logica-intensidades}
 
-Para que o motor do $ARM$ consiga alocar o aluno no *cluster* correto sem o uso demorado do Diagrama de Mudge, adotamos pesos predefinidos. Para forçar a explosão de variância contra o "Viés de Consistência", a modelagem adotou uma escala agressiva:
+Para que o motor do $ARM$ consiga alocar o aluno no *cluster* correto sem o uso demorado do Diagrama de Mudge, adotamos pesos predefinidos. Para forçar a explosão de variância contra o "Viés de Consistência", a modelagem adotou uma escala de intensidade ($I_{i,p}$) agressiva:
 
-* **Forte (2.0) $\rightarrow$ Define o perfil:** Características inegociáveis.
-* **Moderado (1.0) $\rightarrow$ Contribui:** Características de suporte.
-* **Fraco (0.2) $\rightarrow$ Não representa:** Características periféricas.
+* **Forte ($I = 2.0$) $\rightarrow$ Define o perfil:** Características inegociáveis.
+
+* **Moderado ($I = 1.0$) $\rightarrow$ Contribui:** Características de suporte.
+
+* **Fraco ($I = 0.2$) $\rightarrow$ Não representa:** Características periféricas.
 
 #### Abrindo a Caixa-Preta: A Construção do Perfil 1 (Analítico-Técnico)
 
-Vamos analisar como as *Features* reagem contra a lente do **Perfil 1**:
+Vamos analisar como as Variáveis reagem contra a lente do **Perfil 1**:
 
 1. **Competências Macros (C): O Foco no Método**
-   - **FORTE (2.0):** (C01) Análise de dados; (C02) Modelagem de processos; (C03) Raciocínio lógico; (C08) Criatividade técnica. (O núcleo matemático).
-   - **MODERADA (1.0):** (C04) Comunicação; (C05) Trabalho em equipe. (Habilidades úteis, mas não centrais).
-   - **FRACA (0.2):** (C06) Sustentabilidade; (C07) Liderança. (Entregas delegadas a outros perfis).
+
+   - **FORTE (2.0):** (C01) Análise de dados; (C02) Modelagem de processos; (C03) Raciocínio lógico; (C08) Criatividade técnica. (O núcleo matemático).
+
+   - **MODERADA (1.0):** (C04) Comunicação; (C05) Trabalho em equipe. (Habilidades úteis, mas não centrais).
+
 
 2. **Habilidades Profissionais (H): O Domínio das Ferramentas**
-   - **FORTE (2.0):** (H01, H02, H03, H04, H06, H07, H11, H16). Uso de softwares (R, Python) e solução estruturada.
-   - **MODERADA (1.0):** (H08, H09, H20). Leitura técnica e avaliação.
-   - **FRACA (0.2):** (H05, H10, H12 a H15, H17 a H19, H21 a H23). Mediar conflitos de RH desvia o foco estocástico do analista.
+
+   - **FORTE (2.0):** (H01, H02, H03, H04, H06, H07, H11, H16). Uso de softwares (R, Python) e solução estruturada.
+
+   - **MODERADA (1.0):** (H08, H09, H20). Leitura técnica e avaliação.
+
 
 3. **Atitudes Comportamentais (A): A Postura do Cientista**
-   - **FORTE (2.0):** (A01 a A05). Questionar dados, evitar respostas prontas e buscar a causa-raiz.
-   - **MODERADA (1.0):** (A06, A07, A20). Ética e consciência, funcionando como *guardrails*.
-   - **FRACA (0.2):** (A08 a A19). Gestão subjetiva de emoções e mediação psicológica.
 
-#### A Prova do Contraste: A Distribuição Final dos Pesos ($W_i$)
+   - **FORTE (2.0):** (A01 a A05). Questionar dados, evitar respostas prontas e buscar a causa-raiz.
+
+   - **MODERADA (1.0):** (A06, A07, A20). Ética e consciência, funcionando como *guardrails*.
+
+
+#### A Prova do Contraste: A Distribuição Final dos Pesos ($w_i$)
 
 A verdadeira inteligência do motor multivariado do $ARM$ não está apenas em exaltar o que um perfil tem de melhor, mas em penalizar ativamente as variáveis que não pertencem ao seu escopo central. Essa mecânica de exclusão mútua é o que garante a independência matemática dos arquétipos.
 
 Para visualizar esse efeito na prática, precisamos olhar para o resultado final da nossa calibragem. Quando aplicamos os multiplicadores de intensidade (2.0, 1.0 e 0.2) e normalizamos os valores para que a dimensão "Competências Macros" some 100% em cada perfil, obtemos a Matriz de Pesos Definitiva.
 
-A Tabela abaixo demonstra a distribuição exata dos pesos percentuais ($W_i$) das 8 competências curriculares ao longo do cálculo simultâneo dos 6 perfis:
+A Tabela abaixo demonstra a distribuição exata dos pesos percentuais ($w_i$) das 8 competências curriculares ao longo do cálculo simultâneo dos 6 perfis:
 
 | Cód | Descrição da Competência Macro | P01 (Analítico) | P02 (Operações) | P03 (Criativo) | P04 (Comunicador) | P05 (Líder) | P06 (Sustentável) |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -169,18 +180,19 @@ A Tabela abaixo demonstra a distribuição exata dos pesos percentuais ($W_i$) d
 | **C08** | Aprender de forma autônoma e lidar com complexidade | 15,00 | 10,00 | 20,00 | 10,00 | 3,00 | 10,00 |
 | | **TOTAL DA DIMENSÃO (100%)** | **100,00** | **100,00** | **100,00** | **100,00** | **100,00** | **100,00** |
 
-: Matriz de Pesos Percentuais ($W_i$) das Competências por Perfil {#tbl-pesos-competencias}
+: Matriz de Pesos Percentuais ($w_i$) das Competências por Perfil {#tbl-pesos-competencias}
 
 **Analisando o Contraste Matemático:**
 
 A matriz revela imediatamente como o algoritmo "molda" a vocação do aluno filtrando as respostas do questionário:
 
 * **A Concentração Analítica (P01):** O Perfil 1 tem metade de todo o seu peso (50%) concentrado em apenas duas variáveis puramente exatas: Análise de Fenômenos (C02) e Projetos de Sistemas (C03). Competências interpessoais como Liderança (C06) e Comunicação (C05) somam míseros 5%, provando matematicamente o foco no "Cérebro" da operação.
+
 * **O Deslocamento do Chão de Fábrica (P02):** No Perfil de Operações, o peso sai da ideação e migra para a execução. A competência "Implantar, supervisionar e controlar" (C04) salta de 5% no P01 para expressivos 30% no P02.
+
 * **A Oposição Ortogonal (P04 - O Comunicador):** Este é o teste definitivo da calibragem. O Perfil 4 é a antítese técnica do Perfil 1; sua entrega central é a empatia e a articulação. Note que a competência de Comunicação (C05) suga quase metade da pontuação do perfil (40%), enquanto as competências de física e química (C02) desabam para apenas 2%.
 
-Essa mecânica de distribuição anula definitivamente o "Viés de Consistência" (o aluno que responde nota máxima em tudo). Ao multiplicar a resposta linear do avaliado por uma matriz altamente assimétrica, a engenharia de dados "puxa o tapete" das variáveis que não interessam àquele perfil específico, forçando o afloramento isolado da verdadeira vocação do avaliado.
-
+Essa mecânica de distribuição anula definitivamente o "Viés de Consistência" (o aluno que responde nota máxima em tudo). Ao multiplicar a resposta linear do avaliado ($x_i$) por uma matriz altamente assimétrica, a engenharia de dados "puxa o tapete" das variáveis que não interessam àquele perfil específico, forçando o afloramento isolado da verdadeira vocação do avaliado.
 ### A Dinâmica de Triangulação e a Formação de Equipes {#sec-dinamica-perfis}
 
 O objetivo central desta modelagem não é apenas rotular o aluno, mas utilizar o algoritmo para a formação estratégica de equipes.
@@ -191,27 +203,34 @@ O objetivo central desta modelagem não é apenas rotular o aluno, mas utilizar 
 Na engenharia de produção e nas práticas modernas de *People Analytics*, a regra de ouro para a inovação e a resolução de problemas complexos é a **complementaridade**. O modelo não deve agrupar indivíduos com perfis idênticos, mas sim distribuir a diversidade. O objetivo estatístico é formar **Esquadrões Multidisciplinares** (*Cross-Functional Teams*), uma arquitetura organizacional onde o ponto cego de um arquétipo é blindado pela força natural do outro.
 :::
 
-Se um grupo for formado apenas por perfis Analíticos (P01), o projeto terá excelente fundamentação matemática, mas falhará na apresentação (falta o P04 - Comunicador). Se for formado apenas por Líderes (P05), haverá disputas de comando e falha na execução operacional (falta o P02). Portanto, o motor do $ARM$ é utilizado para distribuir e balancear os perfis, garantindo que cada equipe possua uma mescla complementar (O Cérebro, O Motor, A Visão, A Voz e A Consciência).
+Se um grupo for formado apenas por perfis Analíticos (P01), o projeto terá excelente fundamentação matemática, mas falhará na apresentação (falta o P04 - Comunicador). Se for formado apenas por Líderes (P05), haverá disputas de comando e falha na execução operacional (falta o P02). Portanto, o motor do modelo ARM é utilizado para distribuir e balancear os perfis, garantindo que cada equipe possua uma mescla complementar (O Cérebro, O Motor, A Visão, A Voz e A Consciência).
 
 Para que o mapeamento seja preciso e colete dados robustos para calibração de turmas e semestres futuros, a dinâmica abandona a avaliação estática e aplica um ciclo de triangulação em três rodadas (*Time-Boxed*).
 
 #### ⏱️ Rodada 1: Autopercepção e o Score Inicial (Individual)
 
 * **O que acontece:** O aluno responde individualmente ao questionário baseado na sua própria percepção de competência.
-* **O Processamento:** Imediatamente após o preenchimento, o script em `R` processa as respostas contra a matriz de pesos ($W_i$) e gera o **Score Inicial**.
+
+* **O Processamento:** Imediatamente após o preenchimento, o script em `R` processa as respostas contra a matriz de pesos ($w_i$) e gera o **Score Inicial ($\theta$)**.
+
 * **Ação Gerencial:** Com os perfis dominantes calculados, o professor (ou o algoritmo) distribui os alunos fisicamente na sala, formando os Esquadrões Multidisciplinares. A partir deste momento, o aluno senta-se com colegas que possuem visões de mundo (e matrizes de pontuação) diferentes da sua.
+
 * **🔗 Link de Acesso:** [FORMULÁRIO 1 — Autopercepção de Desempenho](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UMk8zNThSUjFJTTVBN09KR0k1VVBFNVhSUC4u)
 
 #### ⏱️ Rodada 2: Exigência na Prática Profissional (Em Grupo)
 
 * **O que acontece:** Agora em suas novas equipes complementares, os alunos debatem qual é a exigência do mercado para cada uma das 51 variáveis. O grupo deve enviar **apenas uma resposta em consenso**.
-* **O Efeito Psicológico:** Ocorre um choque de realidade. Como o grupo é heterogêneo, o Perfil Analítico defenderá que "Estatística" é nota 5, mas o Perfil Comunicador argumentará que é nota 3. Esse atrito força a calibragem da percepção individual, ancorando o aluno na realidade plural do mercado.
+
+* **O Efeito Psicológico:** Ocorre um choque de realidade. Como o grupo é heterogêneo, o Perfil Analítico defenderá que a variável "Estatística" exige nota 5, mas o Perfil Comunicador argumentará que a exigência é nota 3. Esse atrito força a calibragem da percepção individual, ancorando o aluno na realidade plural do mercado.
+
 * **🔗 Link de Acesso:** [FORMULÁRIO 2 — Exigência das Competências](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UNTI5UFU2RzVMQjhRWTZIWTJPN0o4QzJUSC4u)
 
 #### ⏱️ Rodada 3: Atribuição de Pares (Individual)
 
 * **O que acontece:** Após a intensa interação da Rodada 2, os alunos voltam ao escopo individual para avaliar a média de desempenho **dos seus colegas de grupo**.
-* **O Efeito Matemático:** Estatisticamente, espera-se uma queda nos *Scores* nesta etapa. Como os alunos não decoram as respostas da Rodada 1 e acabaram de vivenciar a exigência real do grupo, a avaliação de pares corrige o excesso de otimismo da autopercepção inicial.
+
+* **O Efeito Matemático:** Estatisticamente, espera-se uma queda nos *Scores* globais ($\theta$) nesta etapa. Como os alunos não decoram as respostas da Rodada 1 e acabaram de vivenciar a exigência real do grupo, a avaliação de pares corrige o excesso de otimismo da autopercepção inicial.
+
 * **🔗 Link de Acesso:** [FORMULÁRIO 3 — Atribuição de Desempenho dos Colegas](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1URjBXUVU2TTlRVlNTMzNKVE9PTVcxMjhMTi4u)
 
 ---
@@ -220,15 +239,15 @@ Para que o mapeamento seja preciso e colete dados robustos para calibração de 
 
 A mágica dessa dinâmica ocorre quando o ciclo se fecha. A cada formulário, o perfil do aluno sofre uma atualização paramétrica. O sistema atua como uma malha fechada de controle: a Rodada 1 revela como o aluno se vê; a Rodada 2 expõe o que o mundo exige; e a Rodada 3 revela como o mundo vê o aluno.
 
-Ao sobrepor matematicamente essas três camadas via $ARM$, o *Dashboard* revela imediatamente os **Gaps de Formação** (quando a exigência do mercado é 5, mas a avaliação dos pares atribui 2) e a **Miopia de Competência** (quando a autopercepção é 5, mas os pares atribuem 2). Isso transcende a pedagogia tradicional, entregando um raio-X exato e rastreável para o Plano de Desenvolvimento Individual (PDI) de futuros engenheiros.
+Ao sobrepor matematicamente essas três camadas via algoritmo ARM, o *Dashboard* revela imediatamente os **Gaps de Formação** (quando a exigência do mercado é 5, mas a avaliação dos pares atribui 2) e a **Miopia de Competência** (quando a autopercepção é 5, mas os pares atribuem 2). Isso transcende a pedagogia tradicional, entregando um raio-X exato e rastreável para o Plano de Desenvolvimento Individual (PDI) de futuros engenheiros.
 :::
 
 ### A Escalabilidade Pedagógica: Aplicação Multidisciplinar {#sec-escalabilidade-disciplinas}
 
-A robustez do motor matemático multivariado ($ARM$) permite que a sua aplicação seja dosada de acordo com a maturidade técnica da turma e os objetivos da disciplina. A arquitetura de dados não precisa ser utilizada em sua totalidade a todo momento; ela pode ser escalada em três níveis de complexidade acadêmica:
+A robustez do motor matemático multivariado (ARM) permite que a sua aplicação seja dosada de acordo com a maturidade técnica da turma e os objetivos da disciplina. A arquitetura de dados não precisa ser utilizada em sua totalidade a todo momento; ela pode ser escalada em três níveis de complexidade acadêmica:
 
 **1. Nível Básico: Introdução à Engenharia de Produção**
-Nesta disciplina de calouros, o foco é o alinhamento de expectativas. Aplica-se apenas o **Formulário 1 (Autopercepção)**. O objetivo não é formar grupos complexos, mas apresentar o Projeto Pedagógico do Curso (PPC) de forma interativa. O aluno preenche o formulário e o algoritmo revela a distância entre o seu perfil atual e o perfil esperado do egresso, servindo como uma bússola inicial de carreira.
+Nesta disciplina de calouros, o foco é o alinhamento de expectativas. Aplica-se apenas o **Formulário 1 (Autopercepção)**. O objetivo não é formar grupos complexos, mas apresentar o Projeto Pedagógico do Curso (PPC) de forma interativa. O aluno preenche o formulário e o algoritmo revela a distância entre o seu perfil atual ($\theta$) e o perfil esperado do egresso, servindo como uma bússola inicial de carreira.
 
 **2. Nível Intermediário: Gestão da Qualidade**
 Aqui, o foco é a auditoria de processos e a mitigação de vieses. Aplica-se a dinâmica de triangulação completa vista anteriormente **(Formulários 1, 2 e 3)**. O aluno aprende, na prática, como a avaliação de um sistema (neste caso, o próprio comportamento humano) varia dependendo do ponto de vista do avaliador (Autopercepção vs. Mercado vs. Pares).
@@ -254,50 +273,54 @@ Nesta etapa, o aluno responde individualmente a dilemas operacionais. O objetivo
 **Dilema 1 — Qualidade vs. Produção (Conflito ISO 9001)**
 
 * **Contexto:** Durante o carregamento de um navio no porto, o laboratório identifica que o lote de minério de ferro está com sílica 0,5% acima do limite de um cliente europeu *premium*. O navio está 40% carregado. Paralisar gerará *demurrage* de US$ 100.000/dia e comprometerá a meta trimestral de produção.
-   - **Opção A (Foco em Compliance):** Interrompo o embarque imediatamente. Assumo o prejuízo, reporto a NC e corrijo o lote.
-   - **Opção B (Foco em Negociação):** Continuo o carregamento para não gerar multas e aciono o comercial para oferecer desconto agressivo (15%) ao cliente.
-   - **Opção C (Foco em Risco Operacional):** Suspendo apenas para contraprova. Se der o mesmo resultado, libero o navio para bater a meta e lido com a reclamação depois.
+   - **Opção A (Foco em Compliance):** Interrompo o embarque imediatamente. Assumo o prejuízo, reporto a NC e corrijo o lote.
+   - **Opção B (Foco em Negociação):** Continuo o carregamento para não gerar multas e aciono o comercial para oferecer desconto agressivo (15%) ao cliente.
+   - **Opção C (Foco em Risco Operacional):** Suspendo apenas para contraprova. Se der o mesmo resultado, libero o navio para bater a meta e lido com a reclamação depois.
 
 **Dilema 2 — Saúde e Segurança vs. Cultura (Conflito ISO 45001)**
 
 * **Contexto:** A planta está a 1 dia de bater 1 ano sem acidentes, o que garante 2 salários de bônus para 500 operadores. No turno da noite, um operador torce o tornozelo gravemente. O supervisor sugere registrar como 'acidente de trajeto doméstico' para salvar o bônus.
-   - **Opção A (Ética Inflexível):** Registro o acidente industrial imediatamente. Fraude é inegociável.
-   - **Opção B (Paternalismo):** Aceito a sugestão. Protejo o bônus e a motivação de 500 famílias.
-   - **Opção C (Estratégia Corporativa):** Isolo a área para investigação da causa-raiz. Após neutralizar o risco, negocio exceção contratual com o RH para pagar o bônus legalmente, apesar do acidente.
+   - **Opção A (Ética Inflexível):** Registro o acidente industrial imediatamente. Fraude é inegociável.
+   - **Opção B (Paternalismo):** Aceito a sugestão. Protejo o bônus e a motivação de 500 famílias.
+   - **Opção C (Estratégia Corporativa):** Isolo a área para investigação da causa-raiz. Após neutralizar o risco, negocio exceção contratual com o RH para pagar o bônus legalmente, apesar do acidente.
 
 **Dilema 3 — Meio Ambiente vs. Orçamento (Conflito ISO 14001)**
 
 * **Contexto:** Um filtro crítico na chaminé da usina de pelotização apresenta falhas intermitentes. Substituí-lo imediatamente paralisará a produção por 2 dias e custará US$ 50.000, estourando o seu orçamento de manutenção do trimestre.
+
 * **O Conflito:** Se o filtro falhar de vez, as emissões de particulados ultrapassarão os limites legais do CONAMA, gerando multas pesadas e paralisação pelo órgão ambiental. Porém, a produção já está atrasada.
-   - **Opção A (Foco Ambiental/Técnico):** Paro a usina e troco o filtro imediatamente. Estouro o orçamento, mas garanto o compliance ambiental e elimino o risco de interdição técnica.
-   - **Opção B (Foco Operacional/Risco):** Mantenho a usina rodando, mas coloco um técnico monitorando a chaminé a cada hora. Preparamos um plano de contingência para desligamento emergencial apenas se o limite legal for atingido.
-   - **Opção C (Foco em Negociação/Criatividade):** Reduzo a carga da usina para 50%, diminuindo a pressão no filtro para que ele não quebre, enquanto negocio emergencialmente com a diretoria um orçamento extra para a troca no fim de semana.
+   - **Opção A (Foco Ambiental/Técnico):** Paro a usina e troco o filtro imediatamente. Estouro o orçamento, mas garanto o compliance ambiental e elimino o risco de interdição técnica.
+   - **Opção B (Foco Operacional/Risco):** Mantenho a usina rodando, mas coloco um técnico monitorando a chaminé a cada hora. Preparamos um plano de contingência para desligamento emergencial apenas se o limite legal for atingido.
+   - **Opção C (Foco em Negociação/Criatividade):** Reduzo a carga da usina para 50%, diminuindo a pressão no filtro para que ele não quebre, enquanto negocio emergencialmente com a diretoria um orçamento extra para a troca no fim de semana.
 
 **Dilema 4 — Auditoria vs. Ética Interna (Conflito ISO 19011)**
 
 * **Contexto:** Durante uma auditoria interna do SGI, você descobre que a certificação do principal fornecedor de EPIs está vencida. O Gerente de Compras (um veterano influente e amigo do CEO) falsificou a data no sistema para evitar o bloqueio, pois este fornecedor é o mais barato.
+
 * **O Conflito:** Reportar a falsificação causará a demissão do gerente e uma crise de suprimentos. Ignorar o fato coloca a empresa em risco de perder a certificação na auditoria externa no mês que vem.
-   - **Opção A (Foco em Compliance/Auditoria):** Registro a Não Conformidade formalmente no relatório de auditoria e bloqueio o fornecedor no sistema de imediato, assumindo o desgaste político com o CEO.
-   - **Opção B (Foco em Liderança/Relacionamento):** Chamo o Gerente de Compras para uma conversa a portas fechadas. Dou a ele 48 horas para regularizar o fornecedor ou achar um substituto antes de fechar o meu relatório, resolvendo o problema sem exposição.
-   - **Opção C (Foco em Processos/Contorno):** Reclassifico o fornecedor no sistema como "Experimental Temporário", status que isenta a certificação imediata, enquanto oriento a equipe a procurar novos orçamentos discretamente.
+   - **Opção A (Foco em Compliance/Auditoria):** Registro a Não Conformidade formalmente no relatório de auditoria e bloqueio o fornecedor no sistema de imediato, assumindo o desgaste político com o CEO.
+   - **Opção B (Foco em Liderança/Relacionamento):** Chamo o Gerente de Compras para uma conversa a portas fechadas. Dou a ele 48 horas para regularizar o fornecedor ou achar um substituto antes de fechar o meu relatório, resolvendo o problema sem exposição.
+   - **Opção C (Foco em Processos/Contorno):** Reclassifico o fornecedor no sistema como "Experimental Temporário", status que isenta a certificação imediata, enquanto oriento a equipe a procurar novos orçamentos discretamente.
 
 **Dilema 5 — Responsabilidade Social vs. Lucro (Conflito NBR 16001 / ISO 26000)**
 
 * **Contexto:** A empresa fará uma expansão lucrativa na mina. O caminho mais barato exige desapropriar uma pequena comunidade local. A equipe jurídica encontrou uma brecha legal que permite forçar a desapropriação pagando indenizações irrisórias.
+
 * **O Conflito:** Usar a brecha economiza US$ 2 milhões e 6 meses de projeto. Conduzir o processo de forma ética e colaborativa custará o valor de mercado e atrasará o cronograma.
-   - **Opção A (Foco Social/Transparência):** Recuso a brecha legal. Inicio um processo transparente com a comunidade e pago o valor justo de mercado, protegendo a imagem e a licença social de operação da empresa.
-   - **Opção B (Foco em Compensação Cruzada):** Uso a brecha para garantir o terreno rápido, mas pego parte dos US$ 2 milhões economizados para construir uma escola e um posto de saúde na nova vila deles, apaziguando os ânimos.
-   - **Opção C (Foco em Eficiência Financeira):** Analiso friamente o risco legal. Se a brecha for sólida, executo a desapropriação pelo menor custo possível. Trato o impacto social estritamente como uma métrica de custo operacional.
+   - **Opção A (Foco Social/Transparência):** Recuso a brecha legal. Inicio um processo transparente com a comunidade e pago o valor justo de mercado, protegendo a imagem e a licença social de operação da empresa.
+   - **Opção B (Foco em Compensação Cruzada):** Uso a brecha para garantir o terreno rápido, mas pego parte dos US$ 2 milhões economizados para construir uma escola e um posto de saúde na nova vila deles, apaziguando os ânimos.
+   - **Opção C (Foco em Eficiência Financeira):** Analiso friamente o risco legal. Se a brecha for sólida, executo a desapropriação pelo menor custo possível. Trato o impacto social estritamente como uma métrica de custo operacional.
 
 **Dilema 6 — Crise do Indicador de Desempenho (Conflito ISO 9001 / Liderança)**
 
 * **Contexto:** A diretoria exige que o índice de satisfação do cliente suba para 95% neste mês para garantir o bônus de todos os gerentes. O índice está em 88%. A equipe comercial sugere disparar as pesquisas apenas para a lista de clientes que já deram notas positivas no passado, garantindo a meta.
-* **O Conflito:** Fraudar a amostragem garante o bônus de dezenas de gestores, mas mascara um problema real de qualidade perante a norma.
-   - **Opção A (Foco em Serviço/Comunicação):** Recusa o filtro viciado, mas cria uma campanha de engajamento oferecendo novos serviços agregados aos clientes insatisfeitos para reverter a percepção deles de forma amigável.
-   - **Opção B (Foco em Postura/Liderança):** Veta a fraude por violar a ética corporativa. Assume a liderança da crise e vai até a diretoria apresentar o risco de imagem que essa maquiagem traria a longo prazo.
-   - **Opção C (Foco em Estatística/Causa-raiz):** Nega a manipulação. Puxa a base de dados completa do semestre para analisar estatisticamente a causa-raiz da insatisfação e atua para otimizar o processo.
 
-##### A Engenharia de Dados do SJT: A Matriz de Injeção de Pesos ($W_{SJT}$)
+* **O Conflito:** Fraudar a amostragem garante o bônus de dezenas de gestores, mas mascara um problema real de qualidade perante a norma.
+   - **Opção A (Foco em Serviço/Comunicação):** Recusa o filtro viciado, mas cria uma campanha de engajamento oferecendo novos serviços agregados aos clientes insatisfeitos para reverter a percepção deles de forma amigável.
+   - **Opção B (Foco em Postura/Liderança):** Veta a fraude por violar a ética corporativa. Assume a liderança da crise e vai até a diretoria apresentar o risco de imagem que essa maquiagem traria a longo prazo.
+   - **Opção C (Foco em Estatística/Causa-raiz):** Nega a manipulação. Puxa a base de dados completa do semestre para analisar estatisticamente a causa-raiz da insatisfação e atua para otimizar o processo.
+
+##### A Engenharia de Dados do SJT: A Matriz de Injeção de Pesos ($w_{SJT}$)
 
 Com a expansão para 6 dilemas, o espaço amostral do julgamento situacional atinge o volume necessário para a estabilidade algorítmica. O sistema injeta um vetor de pontos (+5 ou +0) nos perfis correspondentes a cada decisão exclusiva.
 
@@ -322,10 +345,10 @@ Com a expansão para 6 dilemas, o espaço amostral do julgamento situacional ati
 | | **B** (Vetar/Postura) | + 0.0 | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** | **+ 5.0** |
 | | **C** (Estatística/Causa)| **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | + 0.0 |
 
-: Matriz de Injeção de Pesos ($W_{SJT}$) por Perfil e Dilema {#tbl-pesos-sjt}
+: Matriz de Injeção de Pesos ($w_{SJT}$) por Perfil e Dilema {#tbl-pesos-sjt}
 
 **A Lógica de Backend (Motor R):**
-Todo o mapeamento ocorre de forma invisível no *backend*. Quando o tempo acaba, o professor exporta o `.csv` e o script em **R** executa um cruzamento relacional (`left_join`) entre as escolhas dos 6 dilemas e a Matriz $W_{SJT}$. O resultado é um perfil recalibrado em 360 graus.
+Todo o mapeamento ocorre de forma invisível no *backend*. Quando o tempo acaba, o professor exporta o `.csv` e o script em **R** executa um cruzamento relacional (`left_join`) entre as escolhas dos 6 dilemas e a Matriz $w_{SJT}$. O resultado é um perfil recalibrado em 360 graus.
 
 #### A Mecânica de Reorganização Pós-Formulário 4
 
@@ -412,9 +435,9 @@ Cada indivíduo produzirá um *Score Total* ($T_j$), que matematicamente é limi
 $$T_j = \sum_{i=1}^{25} y_{i,j}^{P_e} \in [25, 125]$$
 
 **3. O Score da Variável (Item)**
-Para auditar e ranquear quais itens específicos são mais exigidos pelo mercado de forma isolada, o sistema calcula o Somatório do Item ($S_i$) e sua respectiva Média ($M_i$) em relação ao número total de respondentes ($n$):
-$$S_i^{P_e} = \sum_{j=1}^n y_{i,j}^{P_e} \in [n, 5n]$$
-$$M_i^{P_e} = \frac{S_i^{P_e}}{n}$$
+Para auditar e ranquear quais itens específicos são mais exigidos pelo mercado de forma isolada, o sistema calcula o Total do Item ($Y_i$) e sua respectiva Média ($M_i$) em relação ao número total de respondentes ($n$):
+$$Y_i^{P_e} = \sum_{j=1}^n y_{i,j}^{P_e} \in [n, 5n]$$
+$$M_i^{P_e} = \frac{Y_i^{P_e}}{n}$$
 
 **4. O Score por Agrupamentos (Clusters)**
 Quando há necessidade de separar a amostra em subgrupos demográficos (ex: ingressantes vs. formandos vs. egressos), denotados por $g \in \{G_1, \dots, G_q\}$ com intersecção nula ($\bigcap_1^q G. = \emptyset$), onde $q$ é o número de repartições. Todo respondente deve pertencer a apenas um grupo. O Somatório do Grupo ($T_{G.}^p$) e a sua Média ($M_{G.}^p$) são definidos de forma vetorizada como:
@@ -425,11 +448,11 @@ $$M_{G.}^p = \frac{T_{G.}^p}{n_{G.}}$$
 
 No segundo estudo de caso, a modelagem ARM é aplicada diretamente à gestão de ativos físicos. Um plano de manutenção mal estruturado gera paradas não programadas e destrói o fluxo de caixa. Para auditar a robustez desses planos, cria-se o **Índice de Qualidade de Plano de Manutenção (IQPL)**.
 
-O IQPL é a consolidação da nossa equação de qualidade em uma nota cuja pontuação máxima atinge 100 pontos. Para garantir o rigor técnico, o modelo foi desdobrado em um total de **35 variáveis ($V_i$)**, metodicamente agrupadas em **5 áreas de interesse ($D_j$)**:
+O IQPL é a consolidação da nossa equação de qualidade em uma nota cuja pontuação máxima atinge 100 pontos. Para garantir o rigor técnico, o modelo foi desdobrado em um total de **35 variáveis ($x_i$)**, metodicamente agrupadas em **5 áreas de interesse ($D_j$)**:
 
-$$IQPL = \sum_{j=1}^{5} \left[ W_{D_j} \times \left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right) \right] \leq 100$$ {#eq-iqpl}
+$$\theta_{IQPL} = \sum_{j=1}^{5} \left[ w_{D_j} \times \left( \sum_{i=1}^{n_j} w_{x_i} \times x^*_i \right) \right] \leq 100$$ {#eq-iqpl}
 
-Com o intuito de impulsionar a melhoria contínua, as variáveis do IQPL foram divididas entre *Parâmetros Existentes* (a base histórica) e *Parâmetros Novos* (agregados para elevar o nível de gestão):
+Com o intuito de impulsionar a melhoria contínua, as variáveis ($x_i$) do IQPL foram divididas entre *Parâmetros Existentes* (a base histórica) e *Parâmetros Novos* (agregados para elevar o nível de gestão):
 
 **1. Programáveis ($D_1$ - 7 variáveis):**
 * *Existentes:* Tolerância Positiva (+), Tolerância Negativa (-), Horizonte de abertura, Intervalo de solicitação, Local de instalação, Plano automático, Plano não iniciado.
