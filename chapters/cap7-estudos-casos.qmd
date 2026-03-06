@@ -145,6 +145,7 @@ Vamos analisar como as Variáveis reagem contra a lente do **Perfil 1**:
 
    - **MODERADA (1.0):** (C04) Comunicação; (C05) Trabalho em equipe. (Habilidades úteis, mas não centrais).
 
+   - **FRACA (0.2):** (C06) Sustentabilidade; (C07) Liderança. (Entregas delegadas a outros perfis).
 
 2. **Habilidades Profissionais (H): O Domínio das Ferramentas**
 
@@ -152,6 +153,7 @@ Vamos analisar como as Variáveis reagem contra a lente do **Perfil 1**:
 
    - **MODERADA (1.0):** (H08, H09, H20). Leitura técnica e avaliação.
 
+   - **FRACA (0.2):** (H05, H10, H12 a H15, H17 a H19, H21 a H23). Mediar conflitos de RH desvia o foco estocástico do analista.
 
 3. **Atitudes Comportamentais (A): A Postura do Cientista**
 
@@ -159,12 +161,28 @@ Vamos analisar como as Variáveis reagem contra a lente do **Perfil 1**:
 
    - **MODERADA (1.0):** (A06, A07, A20). Ética e consciência, funcionando como *guardrails*.
 
+   - **FRACA (0.2):** (A08 a A19). Gestão subjetiva de emoções e mediação psicológica.
+
+#### A Demonstração Matemática: Como o algoritmo calcula os pesos?
+
+Para que você entenda o "motor" dessa equação, vamos isolar três variáveis e assumir, para fins didáticos, que elas possuíam o mesmo peso base inicial (33,3%). Veja como a injeção do Fator de Intensidade ($I_{i,p}$) atua para o Perfil Analítico (P01):
+
+**1. Cálculo do Peso Efetivo (Peso Base $\times$ Intensidade):**
+* **C02 (Analisar Fenômenos):** Peso Base (33,3) $\times$ Forte (2.0) = **66,6**
+* **C04 (Implantar Soluções):** Peso Base (33,3) $\times$ Moderada (1.0) = **33,3**
+* **C06 (Liderar Equipes):** Peso Base (33,3) $\times$ Fraca (0.2) = **6,6**
+
+**2. A Normalização a 100%:**
+O algoritmo não pode trabalhar com uma soma que passe de 100%. Portanto, ele soma os pesos efetivos calculados ($66,6 + 33,3 + 6,6 = 106,5$) e divide cada valor por esse total para encontrar a nova participação percentual final do Perfil:
+* Peso final de **C02**: $66,6 \div 106,5 = \mathbf{62,5\%}$ *(O núcleo é exponencialmente amplificado).*
+* Peso final de **C04**: $33,3 \div 106,5 = \mathbf{31,3\%}$ *(A variável de suporte sofre leve ajuste, mantendo-se neutra).*
+* Peso final de **C06**: $6,6 \div 106,5 = \mathbf{6,2\%}$ *(A variável oposta ao perfil é matematicamente esmagada).*
 
 #### A Prova do Contraste: A Distribuição Final dos Pesos ($w_i$)
 
-A verdadeira inteligência do motor multivariado do $ARM$ não está apenas em exaltar o que um perfil tem de melhor, mas em penalizar ativamente as variáveis que não pertencem ao seu escopo central. Essa mecânica de exclusão mútua é o que garante a independência matemática dos arquétipos.
+A verdadeira inteligência do motor multivariado da modelagem ARM não está apenas em exaltar o que um perfil tem de melhor, mas em penalizar ativamente as variáveis que não pertencem ao seu escopo central. Essa mecânica de exclusão mútua vista no cálculo acima é o que garante a independência matemática dos arquétipos.
 
-Para visualizar esse efeito na prática, precisamos olhar para o resultado final da nossa calibragem. Quando aplicamos os multiplicadores de intensidade (2.0, 1.0 e 0.2) e normalizamos os valores para que a dimensão "Competências Macros" some 100% em cada perfil, obtemos a Matriz de Pesos Definitiva.
+Para visualizar esse efeito na prática, precisamos olhar para o resultado final da nossa calibragem sistêmica. Quando aplicamos esses multiplicadores de intensidade (2.0, 1.0 e 0.2) em **todas** as variáveis — lembrando que as características já possuíam Pesos Base diferentes, extraídos originalmente de um Diagrama de Mudge —, o algoritmo normaliza as dimensões e gera a Matriz de Pesos Definitiva.
 
 A Tabela abaixo demonstra a distribuição exata dos pesos percentuais ($w_i$) das 8 competências curriculares ao longo do cálculo simultâneo dos 6 perfis:
 
