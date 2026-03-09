@@ -858,11 +858,10 @@ Figura&nbsp;1.3: Comparativo de Qualidade entre Copos - Adequação ao Uso
 <p>Para visualizar como a conformidade se comporta ao longo do tempo, o gráfico de Controle de Tendência mostra que um processo pode estar “conforme” hoje, mas caminhando para o erro amanhã.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
-<div id="fig-deriva-processo" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-deriva-processo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-deriva-processo">flowchart LR
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
     A["08:00h&lt;br&gt;Medida: 10,00 mm&lt;br&gt;No ALVO"] --&gt; B["10:00h&lt;br&gt;Medida: 10,02 mm&lt;br&gt;Aceitável"]
     B --&gt;|Início da Deriva| C["12:00h&lt;br&gt;Medida: 10,05 mm&lt;br&gt;Atenção"]
     C --&gt;|Subindo| D["14:00h&lt;br&gt;Medida: 10,08 mm&lt;br&gt;Risco Crítico"]
@@ -875,11 +874,7 @@ Figura&nbsp;1.3: Comparativo de Qualidade entre Copos - Adequação ao Uso
     style E fill:#e74c3c,stroke:#333,color:#fff
 </pre>
 </div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-deriva-processo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.4: Evolução temporal da Deriva de um Processo rumo à Não Conformidade
-</figcaption>
-</figure>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -1035,11 +1030,10 @@ Tabela&nbsp;1.1: O Custo Oculto do Retrabalho
 <p>Para que o aluno visualize a diferença entre a visão tradicional (binária: dentro ou fora) e a visão de Taguchi (gradual), observe o gráfico abaixo:</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
-<div id="fig-taguchi-comparativo" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-taguchi-comparativo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-taguchi-comparativo">flowchart TD
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
     subgraph TRADICIONAL ["Visão Tradicional: O Degrau de Tolerância"]
         direction LR
         T1["No Alvo&lt;br&gt;10,00 mm"] --&gt;|Aceito| T_OK["Zero Perda&lt;br&gt;Financeira"]
@@ -1061,11 +1055,7 @@ Tabela&nbsp;1.1: O Custo Oculto do Retrabalho
     style G_CRIT fill:#e67e22,color:#fff,stroke:#333
 </pre>
 </div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-taguchi-comparativo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.5: Comparativo Lógico: Visão Tradicional (Degrau) vs.&nbsp;Função Perda de Taguchi
-</figcaption>
-</figure>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -1749,7 +1739,7 @@ Tabela&nbsp;1.6: Definições de Qualidade — Fonte: Adaptado de Lopes (2014)
 <p>Para compreender o impacto da qualidade na base de negócios, é necessário analisar como ela se relaciona com as principais variáveis microeconômicas de uma organização: o Preço (<span class="math inline">\(P\)</span>), a Quantidade Vendida (<span class="math inline">\(Q\)</span>), o Custo de Produção (<span class="math inline">\(C\)</span>) e o Lucro resultante (<span class="math inline">\(L\)</span>).</p>
 <section id="relação-qualidade-vs.-preço" class="level4" data-number="1.5.2.1">
 <h4 data-number="1.5.2.1" class="anchored" data-anchor-id="relação-qualidade-vs.-preço"><span class="header-section-number">1.5.2.1</span> Relação Qualidade vs.&nbsp;Preço</h4>
-<p>É considerada uma relação fraca e sem direção clara. Existe uma força negativa ditada pela Lei da Demanda (maiores preços tendem a reduzir a quantidade demandada) e uma força positiva, onde o preço mais alto atua como um “símbolo” de qualidade extra percebida pelo consumidor. A <a href="#fig-relacao-qualidade-preco" class="quarto-xref">Figura&nbsp;<span>1.6</span></a> ilustra o perigo de manipular preços sem embasamento de valor:</p>
+<p>É considerada uma relação fraca e sem direção clara. Existe uma força negativa ditada pela Lei da Demanda (maiores preços tendem a reduzir a quantidade demandada) e uma força positiva, onde o preço mais alto atua como um “símbolo” de qualidade extra percebida pelo consumidor. A <a href="#fig-relacao-qualidade-preco" class="quarto-xref">Figura&nbsp;<span>1.4</span></a> ilustra o perigo de manipular preços sem embasamento de valor:</p>
 <ul>
 <li><strong>O Cenário de Risco (Gráfico da Esquerda):</strong> A empresa decide aumentar seu preço (<span class="math inline">\(P \uparrow\)</span>) de forma artificial, sem melhorar o produto. Como não há percepção de valor, a curva de Demanda (linha azul) permanece inalterada. O mercado reage negativamente, a quantidade vendida despenca (<span class="math inline">\(Q \downarrow\)</span>) e, mesmo com o custo constante (<span class="math inline">\(C \leftrightarrow\)</span>), a área total de faturamento encolhe, resultando em queda no lucro (<span class="math inline">\(L \downarrow\)</span>).</li>
 <li><strong>A Estratégia de Valor (Gráfico da Direita):</strong> A empresa investe em atributos que o cliente valoriza. Isso desloca toda a curva de Demanda para a direita/cima (linha verde). Agora, a empresa consegue cobrar um preço superior (<span class="math inline">\(P \uparrow\)</span>) e, como o cliente percebe o benefício, o volume de vendas se mantém estável (<span class="math inline">\(Q \leftrightarrow\)</span>). O resultado é uma expansão maciça da margem e o aumento real do lucro (<span class="math inline">\(L \uparrow\)</span>).</li>
@@ -1760,14 +1750,14 @@ Tabela&nbsp;1.6: Definições de Qualidade — Fonte: Adaptado de Lopes (2014)
 <img src="../images/fig-relacao-qualidade-preco.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-relacao-qualidade-preco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.6: Relação Qualidade x Preço
+Figura&nbsp;1.4: Relação Qualidade x Preço
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="relação-qualidade-vs.-propaganda" class="level4" data-number="1.5.2.2">
 <h4 data-number="1.5.2.2" class="anchored" data-anchor-id="relação-qualidade-vs.-propaganda"><span class="header-section-number">1.5.2.2</span> Relação Qualidade vs.&nbsp;Propaganda</h4>
-<p>Também apresenta uma relação de alto risco. O investimento em publicidade é útil para sinalizar menor risco e criar contraste frente à concorrência, mas ele introduz uma penalidade imediata na equação: a elevação direta dos custos operacionais (<span class="math inline">\(C \uparrow\)</span>). A <a href="#fig-relacao-qualidade-propaganda" class="quarto-xref">Figura&nbsp;<span>1.7</span></a> demonstra essa dinâmica:</p>
+<p>Também apresenta uma relação de alto risco. O investimento em publicidade é útil para sinalizar menor risco e criar contraste frente à concorrência, mas ele introduz uma penalidade imediata na equação: a elevação direta dos custos operacionais (<span class="math inline">\(C \uparrow\)</span>). A <a href="#fig-relacao-qualidade-propaganda" class="quarto-xref">Figura&nbsp;<span>1.5</span></a> demonstra essa dinâmica:</p>
 <ul>
 <li><strong>A Ilusão do Volume (Gráfico da Esquerda):</strong> A empresa gasta com propaganda (<span class="math inline">\(C \uparrow\)</span>) mantendo o preço estável (<span class="math inline">\(P \leftrightarrow\)</span>). A demanda até sofre um leve deslocamento positivo, aumentando timidamente as vendas (<span class="math inline">\(Q \uparrow\)</span>). Contudo, o ganho de receita não é suficiente para cobrir o rombo deixado pelo custo da publicidade, fazendo o lucro total cair (<span class="math inline">\(L \downarrow\)</span>).</li>
 <li><strong>A Propaganda Efetiva (Gráfico da Direita):</strong> A propaganda comunica de forma tão eficaz a qualidade do produto que o mercado aceita pagar mais caro (<span class="math inline">\(P \uparrow\)</span>) e comprar em maior volume (<span class="math inline">\(Q \uparrow\)</span>). Somente com esse deslocamento agressivo da demanda é que o aumento do faturamento supera o gasto publicitário (<span class="math inline">\(C \uparrow\)</span>), gerando um lucro sustentável (<span class="math inline">\(L \uparrow\)</span>).</li>
@@ -1778,14 +1768,14 @@ Figura&nbsp;1.6: Relação Qualidade x Preço
 <img src="../images/fig-relacao-qualidade-propaganda.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-relacao-qualidade-propaganda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.7: Relação Qualidade x Propaganda
+Figura&nbsp;1.5: Relação Qualidade x Propaganda
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="relação-qualidade-vs.-participação-no-mercado" class="level4" data-number="1.5.2.3">
 <h4 data-number="1.5.2.3" class="anchored" data-anchor-id="relação-qualidade-vs.-participação-no-mercado"><span class="header-section-number">1.5.2.3</span> Relação Qualidade vs.&nbsp;Participação no Mercado</h4>
-<p>Apresenta uma relação com direção mais clara, dependendo da dimensão da qualidade explorada. Se a qualidade for focada estritamente em “desempenho tecnológico superior”, o produto fatalmente custará mais e venderá menos volume. Porém, se o foco for melhoria de conformidade (redução de defeitos) e usabilidade, a lógica se inverte, como mostrado na <a href="#fig-relacao-qualidade-participacao" class="quarto-xref">Figura&nbsp;<span>1.8</span></a>:</p>
+<p>Apresenta uma relação com direção mais clara, dependendo da dimensão da qualidade explorada. Se a qualidade for focada estritamente em “desempenho tecnológico superior”, o produto fatalmente custará mais e venderá menos volume. Porém, se o foco for melhoria de conformidade (redução de defeitos) e usabilidade, a lógica se inverte, como mostrado na <a href="#fig-relacao-qualidade-participacao" class="quarto-xref">Figura&nbsp;<span>1.6</span></a>:</p>
 <ul>
 <li><strong>O Custo da “Falsa” Qualidade (Gráfico da Esquerda):</strong> A empresa tenta empurrar um produto com características complexas que o cliente não pediu. Isso encarece a produção (<span class="math inline">\(C \uparrow\)</span>) e força um aumento de preço (<span class="math inline">\(P \uparrow\)</span>), resultando em rejeição do mercado, queda nas vendas (<span class="math inline">\(Q \downarrow\)</span>) e prejuízo na margem (<span class="math inline">\(L \downarrow\)</span>).</li>
 <li><strong>Ganho de Escala pela Conformidade (Gráfico da Direita):</strong> A empresa foca em reduzir a variabilidade de seus processos. O custo de produção se mantém estável ou até cai (<span class="math inline">\(C \leftrightarrow\)</span>). Ela não aumenta o preço final (<span class="math inline">\(P \leftrightarrow\)</span>), mas a altíssima confiabilidade e reputação do produto atraem os clientes da concorrência, deslocando a demanda. O volume de vendas dispara (<span class="math inline">\(Q \uparrow\)</span>), dominando a participação no mercado e alavancando a rentabilidade de forma orgânica (<span class="math inline">\(L \uparrow\)</span>).</li>
@@ -1796,7 +1786,7 @@ Figura&nbsp;1.7: Relação Qualidade x Propaganda
 <img src="../images/fig-relacao-qualidade-participacao.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-relacao-qualidade-participacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.8: Relação Qualidade x Participação no Mercado
+Figura&nbsp;1.6: Relação Qualidade x Participação no Mercado
 </figcaption>
 </figure>
 </div>
@@ -1991,7 +1981,7 @@ Figura&nbsp;1.8: Relação Qualidade x Participação no Mercado
 <img src="cap1-fundamentos_files/figure-html/fig-modelagem-custos-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-modelagem-custos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.9: Curvas de Custos da Qualidade e Ponto Ótimo de Precisão
+Figura&nbsp;1.7: Curvas de Custos da Qualidade e Ponto Ótimo de Precisão
 </figcaption>
 </figure>
 </div>
@@ -2753,14 +2743,14 @@ Tabela&nbsp;1.10: Contraste: Característica Inerente vs.&nbsp;Atribuída
 <h3 data-number="1.6.4" class="anchored" data-anchor-id="sec-multiplas-dimensoes"><span class="header-section-number">1.6.4</span> As Múltiplas Dimensões da Qualidade em Modelos de Gestão</h3>
 <p>Embora as dimensões inerentes listadas anteriormente permitam uma análise técnica detalhada do objeto físico, a avaliação total da qualidade em sistemas complexos exige uma visão sistêmica das interações operacionais. Quando o alvo da análise deixa de ser apenas o minério e passa a ser o próprio <strong>Modelo de Gestão</strong> da organização, a literatura demonstra que a qualidade percebida deve ser subdividida em várias dimensões para refletir os diferentes contextos, aplicações e sujeitos envolvidos.</p>
 <p>A principal motivação para estruturar essa avaliação gerencial decorre dos desafios práticos relatados nas indústrias: a dificuldade de alinhar a equipe de apoio (engenharia, planejamento, RH) com a equipe de operação (mina, usina, ferrovia) durante a implementação de diretrizes e metas.</p>
-<p>Para materializar essa visão sistêmica, é fundamental definir a unidade básica da gestão. Conforme ilustrado na estrutura da <a href="#fig-dimensoes-modelo" class="quarto-xref">Figura&nbsp;<span>1.10</span></a>, <strong>Processo</strong> é um conjunto de atividades ou funções estruturadas em uma sequência lógica-temporal, com objetivo definido, realizadas por pessoas e/ou máquinas, que visam transformar recursos (entradas), agregando valores, através de recursos transformadores e de uma lógica preestabelecida (metodologia de processamento), resultando em bens e serviços (produtos) para a sociedade e/ou clientes.</p>
+<p>Para materializar essa visão sistêmica, é fundamental definir a unidade básica da gestão. Conforme ilustrado na estrutura da <a href="#fig-dimensoes-modelo" class="quarto-xref">Figura&nbsp;<span>1.8</span></a>, <strong>Processo</strong> é um conjunto de atividades ou funções estruturadas em uma sequência lógica-temporal, com objetivo definido, realizadas por pessoas e/ou máquinas, que visam transformar recursos (entradas), agregando valores, através de recursos transformadores e de uma lógica preestabelecida (metodologia de processamento), resultando em bens e serviços (produtos) para a sociedade e/ou clientes.</p>
 <div id="fig-dimensoes-modelo" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dimensoes-modelo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/fig-dimensoes-modelo.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dimensoes-modelo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.10: Dimensões da Qualidade no Modelo de Gestão
+Figura&nbsp;1.8: Dimensões da Qualidade no Modelo de Gestão
 </figcaption>
 </figure>
 </div>
@@ -3203,11 +3193,10 @@ Tabela&nbsp;1.12: Mapeamento Integrado — Qualidade × ISO 9001
 </div>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
-<div id="fig-fluxo-iso-qualidade" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fluxo-iso-qualidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-fluxo-iso-qualidade">flowchart TD
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
 
     %% --- CONFIGURAÇÃO DE ESTILOS (Garantindo contraste e letras grandes) ---
     classDef isoStyle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#000,font-size:15px,font-weight:bold
@@ -3259,11 +3248,7 @@ Tabela&nbsp;1.12: Mapeamento Integrado — Qualidade × ISO 9001
     class D1,D2,D3,D4 engStyle;
 </pre>
 </div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fluxo-iso-qualidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.11: Diagrama de Operacionalização: Da ISO 9001 à Engenharia de Dados
-</figcaption>
-</figure>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>

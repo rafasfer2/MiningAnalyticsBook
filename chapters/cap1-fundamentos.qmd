@@ -316,8 +316,6 @@ Das 5 peças, 3 estão conformes.
 Para visualizar como a conformidade se comporta ao longo do tempo, o gráfico de Controle de Tendência mostra que um processo pode estar "conforme" hoje, mas caminhando para o erro amanhã.
 
 ```{mermaid}
-%%| label: fig-deriva-processo
-%%| fig-cap: "Evolução temporal da Deriva de um Processo rumo à Não Conformidade"
 flowchart LR
     A["08:00h<br>Medida: 10,00 mm<br>No ALVO"] --> B["10:00h<br>Medida: 10,02 mm<br>Aceitável"]
     B -->|Início da Deriva| C["12:00h<br>Medida: 10,05 mm<br>Atenção"]
@@ -415,8 +413,6 @@ O termo $(x - t)^2$ faz com que a perda dispare rapidamente conforme o desvio au
 Para que o aluno visualize a diferença entre a visão tradicional (binária: dentro ou fora) e a visão de Taguchi (gradual), observe o gráfico abaixo:
 
 ```{mermaid}
-%%| label: fig-taguchi-comparativo
-%%| fig-cap: "Comparativo Lógico: Visão Tradicional (Degrau) vs. Função Perda de Taguchi"
 flowchart TD
     subgraph TRADICIONAL ["Visão Tradicional: O Degrau de Tolerância"]
         direction LR
@@ -1765,8 +1761,6 @@ Para sistematizar essa integração na rotina da engenharia de produção, a @tb
 : Mapeamento Integrado — Qualidade × ISO 9001 {#tbl-mapeamento-iso}
 
 ```{mermaid}
-%%| label: fig-fluxo-iso-qualidade
-%%| fig-cap: "Diagrama de Operacionalização: Da ISO 9001 à Engenharia de Dados"
 flowchart TD
 
     %% --- CONFIGURAÇÃO DE ESTILOS (Garantindo contraste e letras grandes) ---

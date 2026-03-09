@@ -26,38 +26,11 @@ Como define Vicente Falconi, um dos maiores especialistas no tema:
 
 A @fig-alinhamento-gpd ilustra visualmente a principal vantagem do GPD. Sem diretrizes claras, os esforços e talentos da equipe apontam para direções difusas, anulando a força resultante. Com o GPD implantado, todos os vetores de força da empresa alinham-se em uma única direção, impulsionando os resultados de forma avassaladora.
 
-```{mermaid}
-%%| label: fig-alinhamento-gpd
-%%| fig-cap: "Alinhamento de esforços com e sem o GPD"
-graph LR
-	subgraph Sem GPD [Sem GPD: Esforços Difusos]
-		A1((Equipe)) -->|Prioridade A| B1(Direção 1)
-		A1 -->|Prioridade B| C1(Direção 2)
-		A1 -->|Prioridade C| D1(Direção 3)
-	end
+![Alinhamento de esforços operacionais com e sem a aplicação do GPD.](images/fig-alinhamento-gpd.png){#fig-alinhamento-gpd fig-align="center"}
 
-	subgraph Com GPD [Com GPD: Esforços Alinhados]
-		A2((Equipe)) -->|Foco Total| B2(Meta Estratégica Única)
-	end
+A arquitetura dessa integração divide a atuação corporativa em três horizontes, conforme ilustrado na @fig-modelo-gestao:
 
-	style B2 fill:#2ecc71,stroke:#333,color:#fff
-	style Sem GPD fill:#f9f9f9,stroke:#e74c3c
-	style Com GPD fill:#f9f9f9,stroke:#2ecc71
-```
-
-A arquitetura dessa integração divide a atuação corporativa em três horizontes, conforme ilustrado na @fig-horizontes-gestao:
-
-```{mermaid}
-%%| label: fig-horizontes-gestao
-%%| fig-cap: "Horizontes do Modelo de Gestão (3 a 5 anos, 1 ano e 1 dia)"
-graph TD
-	A[Horizonte 3 a 5 anos<br>ESTRATÉGICO] -->|Diretrizes e Políticas| B[Horizonte de 1 ano<br>TÁTICO / MELHORIAS]
-	B -->|Metas e Projetos| C[Horizonte de 1 dia<br>OPERACIONAL / ROTINA]
-
-	style A fill:#1A73E8,stroke:#333,color:#fff
-	style B fill:#FBBC05,stroke:#333,color:#000
-	style C fill:#34A853,stroke:#333,color:#fff
-```
+![Horizontes do Modelo de Gestão (3 a 5 anos, 1 ano e 1 dia).](images/fig-modelo-gestao.png){#fig-modelo-gestao fig-align="center"}
 
 1. **Horizonte de 3 a 5 anos (Formulação Estratégica):** Nível da Alta Direção, focado na identidade da empresa (Visão, Missão e Valores), Políticas e Objetivos de longo prazo.
 2. **Horizonte de 1 ano (Melhoria da Operação):** Nível gerencial, onde ocorre o desdobramento do GPD através de Metas Anuais de Melhoria (via Projetos *Six Sigma*, DMAIC ou MASP) e Inovação.
@@ -65,37 +38,9 @@ graph TD
 
 ### Hoshin Kanri: O Desdobramento em 13 Passos
 
-Para que a visão de futuro (horizonte de 5 anos) se torne uma ação no chão de fábrica (horizonte de 1 dia), utilizamos a sistemática japonesa do **Hoshin Kanri** (que pode ser traduzida como "Direção e Gerenciamento"). Trata-se de um ciclo rigoroso de 13 passos, detalhado na @fig-hoshin-passos, que garante que a estratégia não se perca no meio do caminho:
+Para que a visão de futuro (horizonte de 5 anos) se torne uma ação no chão de fábrica (horizonte de 1 dia), utilizamos a sistemática japonesa do **Hoshin Kanri** (que pode ser traduzida como "Direção e Gerenciamento"). Trata-se de um ciclo rigoroso de 13 passos que garante que a estratégia não se perca no meio do caminho:
 
-```{mermaid}
-%%| label: fig-hoshin-passos
-%%| fig-cap: "Os 13 passos do Hoshin Kanri"
-graph TD
-	subgraph Fase 1: Planejamento
-	1(1. Situação Atual) --> 2(2. Objetivos Longo Prazo)
-	2 --> 3(3. Priorizar Objetivos Anuais)
-	3 --> 4(4. Iniciativas Estratégicas)
-	end
-
-	subgraph Fase 2: Desdobramento
-	4 --> 5(5. Metas Táticas)
-	5 --> 6(6. Especificar Metas - SMART)
-	6 --> 7(7. Elaborar Matriz X)
-	7 --> 8(8. Definir Responsabilidades)
-	end
-
-	subgraph Fase 3: Execução e Revisão
-	8 --> 9(9. Estruturar Plano A3)
-	9 --> 10(10. Implantar Plano A3)
-	10 --> 11(11. Revisar Plano Curto Prazo)
-	11 --> 12(12. Revisar Anualmente)
-	12 --> 13(13. Revisar Longo Prazo)
-	end
-
-	13 -.->|Novo Ciclo| 1
-	style 13 fill:#e74c3c,color:#fff
-	style 1 fill:#2ecc71,color:#fff
-```
+![Os 13 passos da metodologia Hoshin Kanri para o desdobramento da estratégia.](../images/fig-hoshin-passos.png){#fig-hoshin-passos fig-align="center"}
 
 1. Determinar a situação atual.
 2. Determinar objetivos de longo prazo.
@@ -117,32 +62,7 @@ Uma meta estratégica bem construída não pode ser subjetiva. Ela deve obrigato
 
 Para garantir que as metas não foquem apenas no lucro imediato — o que poderia destruir a sustentabilidade a longo prazo —, as organizações utilizam o **Balanced Scorecard (BSC)** na fase de determinação da situação atual e dos objetivos.
 
-```{mermaid}
-%%| label: fig-bsc-mapa
-%%| fig-cap: "Mapa Estratégico do Balanced Scorecard (BSC)"
-graph BT
-	subgraph Aprendizado e Inovação
-		A[Capacitação, Clima e Tecnologia]
-	end
-	subgraph Processos Internos
-		B[Excelência Operacional e Produtividade]
-	end
-	subgraph Clientes e Mercado
-		C[Satisfação e Proposta de Valor]
-	end
-	subgraph Perspectiva Financeira
-		D[Maximização do Lucro / Redução de Custos]
-	end
-
-	A ==>|Habilita a melhoria dos| B
-	B ==>|Garante a entrega para| C
-	C ==>|Gera o resultado na| D
-
-	style D fill:#27ae60,stroke:#333,color:#fff
-	style C fill:#2980b9,stroke:#333,color:#fff
-	style B fill:#f39c12,stroke:#333,color:#fff
-	style A fill:#8e44ad,stroke:#333,color:#fff
-```
+![Mapa Estratégico do Balanced Scorecard (BSC) e suas quatro perspectivas.](../images/fig-bsc-mapa.png){#fig-bsc-mapa fig-align="center"}
 
 O BSC divide as metas em quatro perspectivas interdependentes para evitar a armadilha de focar apenas em volume (Eficácia) e destruir o orçamento (Eficiência), cuja prova matemática demonstramos através da Função ARM no @exm-gestao:
 
@@ -164,25 +84,17 @@ A @tbl-bsc-exemplo demonstra a aplicação prática do desdobramento destas quat
 
 ### A Ferramenta de Amarração: A Matriz X
 
-Quando uma empresa possui dezenas de metas no BSC e centenas de ações táticas, o acompanhamento torna-se caótico. Para resolver isso, o *Hoshin Kanri* utiliza a **Matriz X** (@fig-matriz-x).
+Quando uma organização possui dezenas de objetivos estratégicos e centenas de iniciativas táticas, o controle torna-se complexo. O *Hoshin Kanri* resolve essa dispersão através de uma ferramenta visual unificada: a **Matriz X**, apresentada na @fig-matriz-x.
 
-```{mermaid}
-%%| label: fig-matriz-x
-%%| fig-cap: "Estrutura da Matriz X no Hoshin Kanri"
-graph TD
-	A[Estratégias de Longo Prazo<br>EIXO SUL] <--> C((MATRIZ X<br>Correlaciona<br>os 4 eixos))
-	B[Objetivos Anuais<br>EIXO OESTE] <--> C
-	D[Ações Táticas e Projetos<br>EIXO NORTE] <--> C
-	E[Indicadores e Responsáveis<br>EIXO LESTE] <--> C
+![Template visual da Matriz X Hoshin Kanri para consolidação estratégica.](../images/fig-matriz-x.png){#fig-matriz-x fig-align="center"}
 
-	style C fill:#e74c3c,stroke:#333,color:#fff
-	style A fill:#ecf0f1,stroke:#333
-	style B fill:#ecf0f1,stroke:#333
-	style D fill:#ecf0f1,stroke:#333
-	style E fill:#ecf0f1,stroke:#333
-```
+A força da Matriz X reside na sua capacidade de correlacionar, em uma única folha A3, os quatro eixos da estratégia:
+1.  **Norte (Sul na imagem, adequando):** Estratégias de Longo Prazo (Norte Verdadeiro).
+2.  **Oeste:** Objetivos Anuais (o que atingir).
+3.  **Norte:** Iniciativas Táticas e Projetos (como atingir).
+4.  **Leste:** Métricas de Melhoria e Responsáveis (quem).
 
-Esta matriz visual de correlação cruza, num único diagrama de uma página: as prioridades de nível superior, os objetivos anuais, as metas de longo prazo, as métricas de acompanhamento e os responsáveis diretos pela execução. A Matriz X força a diretoria a enxergar imediatamente se existe alguma "meta órfã" (sem responsável) ou um recurso alocado em ações que não impactam a estratégia.
+O uso da matriz força a diretoria a verificar visualmente se existe correlação forte entre o "Como" e o "O que". Se um objetivo anual não possui iniciativas táticas conectadas (vazio na matriz de correlação), ele é uma "meta órfã", destinada ao fracasso por falta de recursos.
 
 ## OKR vs. KPI: O Equilíbrio entre Foco e Controle {#sec-okr-kpi}
 
@@ -204,7 +116,7 @@ O KPI é o painel de instrumentos, voltado para o que a organização precisa **
 
 ## A Anatomia de uma Meta Inteligente {#sec-anatomia-meta}
 
-Para que a arquitetura de gestão funcione, o "cérebro" (diretoria) precisa enviar ordens claras aos "braços" (operação). Uma meta mal redigida gera ruído no sistema e desperdício de capital. Na engenharia da qualidade, toda meta deve seguir rigorosamente a seguinte estrutura matemática e verbal:
+Para que a arquitetura de gestão funcione, o "cérebro" (diretoria) precisa enviar ordens claras aos "braços" (operação). Uma meta mal redigida gera ruído no sistema e desperício de capital. Na engenharia da qualidade, toda meta deve seguir rigorosamente a seguinte estrutura matemática e verbal:
 
 **Meta = Verbo de Ação + Objeto + Valor (Gap) + Prazo**
 
@@ -323,12 +235,10 @@ df_pdca %>%
     row_spec(0, background = "#35978f", color = "white", bold = TRUE) %>%
     collapse_rows(columns = 1:2, valign = "middle")
 ```
-
 ### O Paralelo: O Mapa de Juran e a Modelagem Analítica
-
 Embora a Trilogia de Juran tenha sido formulada no século XX, seu roteiro original de "Planejamento da Qualidade" (composto por 9 passos) continua sendo o alicerce da engenharia de processos. A grande diferença contemporânea é a capacidade de quantificar matematicamente etapas que antes eram apenas conceituais.
 
-No Capítulo 2 desta obra, detalhamos a **Modelagem Analítica de Requisitos (ARM)**. Aquela estrutura matemática é, na prática, a execução rigorosa e moderna dos passos clássicos de Juran.
+No Capítulo 2 desta obra, detalhamos a Modelagem Analítica de Requisitos (ARM). Aquela estrutura matemática é, na prática, a execução rigorosa e moderna dos passos clássicos de Juran.
 
 A @tbl-paralelo-juran demonstra como a teoria de Juran se conecta com as ferramentas de modelagem que construímos anteriormente:
 
@@ -379,42 +289,85 @@ Essa correlação evidencia que o "Planejamento" termina quando o Passo 9 é ati
 
 ### Análise do Fluxo Metodológico
 
-Conforme observado na tabela executiva, o ciclo inicia-se na **Identificação do Problema**, onde a definição das prioridades e a meta global servem de base para as atividades seguintes. Na **Análise do Fenômeno**, ocorre a estratificação dos dados e o estudo das variações, permitindo que a pesquisa tome forma sobre os principais KPIs a serem utilizados.
+Conforme observado na tabela executiva, o ciclo inicia-se na Identificação do Problema, onde a definição das prioridades e a meta global servem de base para as atividades seguintes. Na Análise do Fenômeno, ocorre a estratificação dos dados e o estudo das variações, permitindo que a pesquisa tome forma sobre os principais KPIs a serem utilizados.
 
 ::: {.callout-important title="🛠️ LABORATÓRIO DE ENGENHARIA: Fase 1 (Identificação do Problema)"}
 **Mão na massa:** Chegou a hora de iniciar o seu projeto aplicado.
 Para esta etapa, crie um documento contendo:
-
 1. **Termo de Abertura (TAP):** Nome do projeto, justificativa (por que este problema afeta a operação?), objetivos SMART e restrições.
 2. **Matriz de Responsabilidades (RACI):** Quem executa, aprova, é consultado e informado.
-3. **Definição do *Gap*:** Construa um comparativo gráfico entre o Indicador Real x Planejado. O "problema" do seu projeto será a diferença métrica entre esses dois valores.
+3. **Definição do Gap:** Construa um comparativo gráfico entre o Indicador Real x Planejado. O "problema" do seu projeto será a diferença métrica entre esses dois valores.
+:::
+
+::: {.callout-note title="💻 TECH NOTE: R & Data Science - Construindo o Gráfico de Lacuna (Waterfall)"}
+Para materializar o **Passo 3 (Definição do Gap)** do Laboratório acima, a engenharia de dados utiliza gráficos de cascata (*Waterfall*). Eles demonstram exatamente como o indicador saiu do "Programado" e chegou ao "Realizado", isolando o impacto de cada ofensor (Disponibilidade, Utilização e Produtividade).
+
+![Aplicação do Método da Lacuna para definição estatística da Meta SMART.](../images/fig-matriz-captura-lacuna.png){#fig-buildup-producao fig-align="center"}
+
+O processamento e a plotagem desse *Build-up* em R exigem a consolidação dos dados do plano contra o realizado:
+
+```{r}
+# ==============================================================================
+# BLOCO 2: FASE 1 - CÁLCULOS GERAIS (IDENTIFICAÇÃO DO PROBLEMA)
+# ==============================================================================
+print(">>> [FASE 1] Iniciando Cálculos Gerais...")
+
+# ------------------------------------------------------------------------------
+# 2.1. Figura 01: Build-up de Produção (Waterfall)
+# ------------------------------------------------------------------------------
+# 1. Realizado
+fig01_buildup_calculate_kpi <- calculate_kpi_fleet(
+    data = data_drill_events_full, production_data = data_raw_requipam,
+    map_fleet = equipamentos, keys = NULL, by = "year"
+) %>% filter(Ano == 2025)
+
+# 2. Meta (Programado)
+fig01_buildup_process_meta <- process_integrated_inputs(data_raw_requipam, "TAG", "Data") %>%
+    mutate(Ano = year(Dia)) %>% filter(Ano == 2025)
+
+# 3. Delta e Plotagem
+fig01_buildup_calculate_production <- calculate_production_buildup(fig01_buildup_calculate_kpi, fig01_buildup_process_meta)
+fig01_buildup_process_data <- process_data_waterfall(fig01_buildup_calculate_production$Valor)
+fig01_buildup <- plot_waterfall_tdm(fig01_buildup_process_data)
+print(fig01_buildup)
+
+# Saída de Dados (Tibble):
+# A tibble: 5 × 7
+#   desc              amount    id type     start      end      pos
+#   <fct>              <dbl> <int> <chr>    <dbl>    <dbl>    <dbl>
+# 1 Programado      1297282.     1 net         0  1297282. 1297282.
+# 2 Disponibilidade   -2926.     2 out   1297282. 1294356. 1297282.
+# 3 Utilização       -19907.     3 out   1294356. 1274449. 1294356.
+# 4 Produtividade    182172.     4 in    1274449. 1456621  1456621.
+# 5 Realizado       1456621      5 per         0  1456621  1456621.
+```
 :::
 
 ### O Mapeamento de Fronteiras: O Sistema de Produção e a Matriz SIPOC {#sec-sipoc}
 
 Antes de mergulhar nas causas de um problema usando o Pareto ou o Ishikawa, a equipe de engenharia precisa garantir que todos compreendam o fluxo macro do processo e as suas fronteiras. O maior erro de um projeto de melhoria é a equipe não saber onde o processo começa e onde ele termina, correndo o risco de tentar "abraçar o mundo".
 
-Para delimitar esse escopo, utilizamos a visão clássica do **Sistema de Produção**. Conforme ilustrado na @fig-sistema-producao, todo processo é um conjunto de atividades estruturadas que recebem entradas, aplicam uma metodologia de transformação utilizando recursos (pessoas, instalações, tecnologia) e geram saídas (produtos ou serviços), interagindo o tempo todo com variáveis ambientais e de segurança.
+Para delimitar esse escopo, utilizamos a visão clássica do Sistema de Produção. Conforme ilustrado na @fig-sistema-producao, todo processo é um conjunto de atividades estruturadas que recebem entradas, aplicam uma metodologia de transformação utilizando recursos (pessoas, instalações, tecnologia) e geram saídas (produtos ou serviços), interagindo o tempo todo com variáveis ambientais e de segurança.
 
 ![Visão Estrutural do Sistema de Produção](../images/image_88aa45.png){#fig-sistema-producao fig-align="center"}
 
-No método MASP, essa visão estrutural é operacionalizada pela ferramenta **SIPOC**, um acrônimo que padroniza o mapeamento de qualquer processo na operação mineral:
+No método MASP, essa visão estrutural é operacionalizada pela ferramenta SIPOC, um acrônimo que padroniza o mapeamento de qualquer processo na operação mineral:
 
-* **S (*Supplier* / Fornecedor):** Quem fornece os insumos ou informações para o processo iniciar? *(Ex: Equipe de Topografia e Planejamento de Mina).*
-* **I (*Input* / Entrada):** Quais são os "Recursos a serem transformados" fornecidos? *(Ex: Malha de perfuração e plano de fogo).*
-* **P (*Process* / Processo):** Quais são as macroatividades da "Metodologia de Processamento" (limitado a 5 ou 6 passos)? *(Ex: Posicionar perfuratriz $\rightarrow$ Furar $\rightarrow$ Carregar explosivo $\rightarrow$ Detonar).*
-* **O (*Output* / Saída):** O que o processo efetivamente gera na "Saída"? *(Ex: Minério desmontado com granulometria específica).*
-* **C (*Customer* / Cliente):** Quem recebe essa saída? *(Ex: Equipe de Carregamento / Operadores de Escavadeira).*
+* **S (Supplier / Fornecedor):** Quem fornece os insumos ou informações para o processo iniciar? (Ex: Equipe de Topografia e Planejamento de Mina).
+* **I (Input / Entrada):** Quais são os "Recursos a serem transformados" fornecidos? (Ex: Malha de perfuração e plano de fogo).
+* **P (Process / Processo):** Quais são as macroatividades da "Metodologia de Processamento" (limitado a 5 ou 6 passos)? (Ex: Posicionar perfuratriz $\rightarrow$ Furar $\rightarrow$ Carregar explosivo $\rightarrow$ Detonar).
+* **O (Output / Saída):** O que o processo efetivamente gera na "Saída"? (Ex: Minério desmontado com granulometria específica).
+* **C (Customer / Cliente):** Quem recebe essa saída? (Ex: Equipe de Carregamento / Operadores de Escavadeira).
 
 ::: {.callout-note title="💡 INSIGHT OPERACIONAL"}
-Na mineração, construir o SIPOC resolve 50% dos conflitos entre departamentos durante a fase de planejamento de um projeto. Ele deixa claro visualmente que se a Topografia (*Supplier*) entregar uma malha inadequada (*Input*), a detonação (*Process*) vai gerar matacões (*Output*), prejudicando a produtividade da escavadeira (*Customer*). O SIPOC define a responsabilidade de ponta a ponta e blinda as fronteiras do seu Termo de Abertura (TAP).
+Na mineração, construir o SIPOC resolve 50% dos conflitos entre departamentos durante a fase de planejamento de um projeto. Ele deixa claro visualmente que se a Topografia (Supplier) entregar uma malha inadequada (Input), a detonação (Process) vai gerar matacões (Output), prejudicando a produtividade da escavadeira (Customer). O SIPOC define a responsabilidade de ponta a ponta e blinda as fronteiras do seu Termo de Abertura (TAP).
 :::
 
 ### Análise do Processo: Ishikawa, 5 Porquês e Matriz GUT
 
-Uma vez que o Gráfico de Pareto indicou *onde* o problema está concentrado, a fase passa para a **Análise do Processo**, que visa responder *por que* o problema ocorre.
+Uma vez que o Gráfico de Pareto indicou onde o problema está concentrado, a fase passa para a Análise do Processo, que visa responder por que o problema ocorre.
 
-A ferramenta primária é o **Diagrama de Ishikawa** (também conhecido como Diagrama de Espinha de Peixe ou Causa e Efeito). Ele organiza o *Brainstorming* da equipe classificando as possíveis origens do problema em seis categorias clássicas (os 6M):
+A ferramenta primária é o Diagrama de Ishikawa (também conhecido como Diagrama de Espinha de Peixe ou Causa e Efeito). Ele organiza o Brainstorming da equipe classificando as possíveis origens do problema em seis categorias clássicas (os 6M):
 
 1. **Máquina:** Falhas no equipamento ou manutenção inadequada.
 2. **Material:** Insumos fora de especificação ou peças de má qualidade.
@@ -427,30 +380,30 @@ A ferramenta primária é o **Diagrama de Ishikawa** (também conhecido como Dia
 Um erro comum é preencher o Ishikawa com "Falta de..." (ex: falta de treinamento, falta de peça). A falta de algo é uma solução ausente, não uma causa. A equipe deve descrever a anomalia real (ex: "Treinamento desatualizado para o modelo 793D" ou "Peça sofreu desgaste abrasivo prematuro").
 :::
 
-Com o diagrama preenchido, a equipe utiliza a **Matriz GUT** (Gravidade, Urgência e Tendência) para pontuar as causas e priorizar qual braço do diagrama será atacado primeiro.
+Com o diagrama preenchido, a equipe utiliza a Matriz GUT (Gravidade, Urgência e Tendência) para pontuar as causas e priorizar qual braço do diagrama será atacado primeiro.
 
-Finalmente, para a causa vencedora da matriz GUT, aplica-se a técnica dos **5 Porquês**. A equipe deve perguntar o motivo do problema sucessivas vezes até ultrapassar os sintomas superficiais e atingir a verdadeira causa raiz (a anomalia sistêmica que, se removida, impede que o problema volte a acontecer).
+Finalmente, para a causa vencedora da matriz GUT, aplica-se a técnica dos 5 Porquês. A equipe deve perguntar o motivo do problema sucessivas vezes até ultrapassar os sintomas superficiais e atingir a verdadeira causa raiz (a anomalia sistêmica que, se removida, impede que o problema volte a acontecer).
 
 ::: {.callout-important title="🛠️ LABORATÓRIO DE ENGENHARIA: Fase 3 (Análise do Processo)"}
 **Mão na massa: (Tarefa 06)**
-1. **Ishikawa (6M):** Reúna sua equipe e faça um *Brainstorming* para mapear as possíveis causas do problema que venceu no seu Gráfico de Pareto.
+1. **Ishikawa (6M):** Reúna sua equipe e faça um Brainstorming para mapear as possíveis causas do problema que venceu no seu Gráfico de Pareto.
 2. **Priorização (GUT):** Utilize a Matriz GUT para decidir, de forma técnica e fria, quais causas mapeadas no Ishikawa serão efetivamente atacadas.
 3. **Os 5 Porquês:** Aplique a técnica para a causa prioritária. Garanta que o plano de ação não foque em sintomas, mas sim na origem do problema.
 :::
 
 ## O Chão de Fábrica e Ativos {#sec-chao-de-fabrica}
 
-Nenhuma equação de qualidade ou modelagem estatística se sustenta na prática sem os dois pilares físicos e fundamentais da operação industrial: **as pessoas e as máquinas**. O Passo 10 da nossa trilha de excelência garante que, uma vez que o método de solução de problemas (MASP) tenha sido desenhado na engenharia, ele seja executado com precisão e sustentado pelas engrenagens de campo.
+Nenhuma equação de qualidade ou modelagem estatística se sustenta na prática sem os dois pilares físicos e fundamentais da operação industrial: as pessoas e as máquinas. O Passo 10 da nossa trilha de excelência garante que, uma vez que o método de solução de problemas (MASP) tenha sido desenhado na engenharia, ele seja executado com precisão e sustentado pelas engrenagens de campo.
 
 ### O Engajamento Humano: Círculos de Controle da Qualidade (CCQ)
 
-Historicamente, a mineração possuía uma gestão rigidamente vertical (comando e controle), onde a engenharia pensava e a operação apenas executava. O moderno *Mining Analytics* prova que essa barreira é disfuncional. Quem conhece a verdadeira "dor" do processo e os pequenos desvios não reportados não é o analista sentado no escritório, mas o operador dentro da cabine da escavadeira.
+Historicamente, a mineração possuía uma gestão rigidamente vertical (comando e controle), onde a engenharia pensava e a operação apenas executava. O moderno Mining Analytics prova que essa barreira é disfuncional. Quem conhece a verdadeira "dor" do processo e os pequenos desvios não reportados não é o analista sentado no escritório, mas o operador dentro da cabine da escavadeira.
 
-Para transformar essa experiência empírica em dados técnicos, a Gestão da Qualidade utiliza os **Círculos de Controle da Qualidade (CCQ)**.
+Para transformar essa experiência empírica em dados técnicos, a Gestão da Qualidade utiliza os Círculos de Controle da Qualidade (CCQ).
 
-O CCQ é um grupo voluntário de trabalhadores da mesma área que se reúne regularmente para identificar, analisar e solucionar problemas que afetam seus processos ou a qualidade do produto. A grande força dessa ferramenta é a inversão da abordagem hierárquica: a melhoria nasce de baixo para cima (*Bottom-up*).
+O CCQ é um grupo voluntário de trabalhadores da mesma área que se reúne regularmente para identificar, analisar e solucionar problemas que afetam seus processos ou a qualidade do produto. A grande força dessa ferramenta é a inversão da abordagem hierárquica: a melhoria nasce de baixo para cima (Bottom-up).
 
-#### Benefícios Diretos do CCQ na Mineração:
+**Benefícios Diretos do CCQ na Mineração:**
 * **Detecção Precoce:** Os operadores costumam perceber mudanças sutis de som, vibração ou temperatura nos equipamentos semanas antes de um sensor emitir um alarme catastrófico.
 * **Soluções de Baixo Custo:** Por estarem na linha de frente, as soluções propostas pelos círculos tendem a ser adaptações mecânicas criativas e baratas, em oposição às reestruturações milionárias propostas pelas diretorias.
 * **Mudança de Cultura:** O colaborador deixa de ser um "apertador de botão" e passa a ser o dono do seu processo (sentimento de pertencimento e valorização).
@@ -466,15 +419,15 @@ O CCQ é um grupo voluntário de trabalhadores da mesma área que se reúne regu
 
 Se o ser humano engajado é a inteligência do chão de fábrica, o equipamento é a força bruta que garante o resultado quantitativo do MASP. A mineração é a indústria do maquinário pesado. Caminhões fora de estrada, perfuratrizes gigantescas e moinhos industriais operam em regimes de trabalho extenuantes (24 horas por dia, sujeitos a poeira, umidade e altíssimo torque).
 
-A melhoria da qualidade na mineração é indissociável da **Gestão de Manutenção**. Um indicador de qualidade cai imediatamente quando a máquina entra em falha. A evolução da confiabilidade na gestão divide a manutenção em quatro grandes estratégias:
+A melhoria da qualidade na mineração é indissociável da Gestão de Manutenção. Um indicador de qualidade cai imediatamente quando a máquina entra em falha. A evolução da confiabilidade na gestão divide a manutenção em quatro grandes estratégias:
 
 1. **Manutenção Corretiva (Reativa):** É o modelo mais caro e perigoso. Ocorre apenas quando o equipamento quebra. Gera lucro zero, para a produção de forma não programada e oferece grandes riscos à segurança dos operadores.
 2. **Manutenção Preventiva (Baseada no Tempo):** É a manutenção estipulada pelo manual do fabricante (ex: trocar o óleo a cada 500 horas de motor). Melhora a segurança, mas muitas vezes troca-se uma peça que ainda possuía vida útil, encarecendo a operação.
 3. **Manutenção Preditiva (Baseada na Condição):** Aqui a ciência de dados e a engenharia da qualidade começam a brilhar. Ao invés de trocar a peça por tempo, a engenharia monitora os sinais vitais do equipamento (ex: termografia de painéis elétricos, análise química do óleo, sensores de vibração de rolamentos). A peça só é trocada quando o sensor prevê a falha iminente.
-4. **Manutenção Prescritiva (Analytics/Machine Learning):** O estado da arte. Utiliza Inteligência Artificial e modelos matemáticos para cruzar dados históricos de operação e desgaste. O algoritmo prescreve não apenas *quando* a máquina vai falhar, mas ajusta os parâmetros de operação autonomamente para esticar a vida útil (Ex: "Abaixe o limite de RPM na subida de rampa para o caminhão não fundir o motor até a próxima parada de oficina programada").
+4. **Manutenção Prescritiva (Analytics/Machine Learning):** O estado da arte. Utiliza Inteligência Artificial e modelos matemáticos para cruzar dados históricos de operação e desgaste. O algoritmo prescreve não apenas quando a máquina vai falhar, mas ajusta os parâmetros de operação autonomamente para esticar a vida útil (Ex: "Abaixe o limite de RPM na subida de rampa para o caminhão não fundir o motor até a próxima parada de oficina programada").
 
 ::: {.callout-note title="💡 INSIGHT OPERACIONAL: A Guerra entre Produção e Manutenção"}
-Um dos maiores gargalos organizacionais da mineração é o conflito de interesses entre a área de **Operação** (que é cobrada para bater a meta de volume de toneladas) e a área de **Manutenção** (que é cobrada para parar a máquina e realizar preventivas). Sem a aplicação da Metodologia ARM para equilibrar os pesos ($W_i$) dessas áreas, a Operação "passa por cima" do plano de manutenção, gerando faturamento de curto prazo e destruição do equipamento a longo prazo.
+Um dos maiores gargalos organizacionais da mineração é o conflito de interesses entre a área de Operação (que é cobrada para bater a meta de volume de toneladas) e a área de Manutenção (que é cobrada para parar a máquina e realizar preventivas). Sem a aplicação da Metodologia ARM para equilibrar os pesos ($W_i$) dessas áreas, a Operação "passa por cima" do plano de manutenção, gerando faturamento de curto prazo e destruição do equipamento a longo prazo.
 :::
 
 ## O Roteiro de Execução: O Ciclo PDCA na Prática {#sec-roteiro-pdca}
@@ -484,14 +437,167 @@ Quando o Painel de Controle mostra que um KPI está fora da meta, o engenheiro n
 ### FASE P (PLAN) - O Diagnóstico Cirúrgico
 A fase de planejamento deve consumir 70% do tempo do projeto. Se planejar mal, executará a solução errada.
 
-* **Passo 1: Baseline, Benchmarking e a Captura da Lacuna (*Gap*)** Definir o problema exige conhecer a diferença entre a base de desempenho atual do processo e a referência de excelência desejada.
-  * **Cálculo do Baseline (A Base):** Para calcular o desempenho atual sem ser traído por anomalias estatísticas, a engenharia utiliza a técnica da **Média Aparada**. Apare os dados extremos (*outliers*) utilizando a Amplitude Interquartílica (ex: cortando P05-P95). A praxe é aparar entre 5% e 25% da informação para manter apenas os dados representativos da rotina estabilizada.
-  * **Benchmarking (A Referência):** Defina onde o indicador deveria estar buscando a Referência do Setor (melhor média móvel), a Referência Técnica (capacidade de placa do equipamento) ou a Referência Externa (*Best in Class* global).
-  * **Matriz de Captura da Lacuna:** Identificada a diferença total entre o Baseline e o Benchmark, quanto buscar no próximo ciclo? A decisão depende da maturidade da equipe:
+* **Passo 1: Baseline, Benchmarking e a Captura da Lacuna (Gap)** Definir o problema exige conhecer a diferença entre a base de desempenho atual do processo e a referência de excelência desejada.
+    * **Cálculo do Baseline (A Base):** Para calcular o desempenho atual sem ser traído por anomalias estatísticas, a engenharia utiliza a técnica da **Média Aparada**. Apare os dados extremos (*outliers*) utilizando a Amplitude Interquartílica (ex: cortando P05-P95). A praxe é aparar entre 5% e 25% da informação para manter apenas os dados representativos da rotina estabilizada.
+    * **Benchmarking (A Referência):** Defina onde o indicador deveria estar buscando a Referência do Setor (melhor média móvel), a Referência Técnica (capacidade de placa do equipamento) ou a Referência Externa (*Best in Class* global).
 
-```{mermaid}
-%%| label: fig-matriz-captura-lacuna
-%%| fig-cap: "Matriz de Decisão para Captura da Lacuna (Gap)"
+::: {.callout-note title="💻 TECH NOTE: R & Data Science - O Método da Lacuna"}
+A definição de uma meta SMART não nasce de um desejo subjetivo da diretoria, mas de uma análise estatística rigorosa. A @fig-metodo-lacuna ilustra o "Método da Lacuna". O processo segue quatro passos matemáticos que extraem o quanto de melhoria a operação pode "comprar" no ciclo atual.
+
+![Aplicação do Método da Lacuna (Baseline vs. Meta) utilizando gráfico *Waterfall*.](../images/image_a69f77.png){#fig-metodo-lacuna fig-align="center"}
+
+Para processar o cálculo da @fig-metodo-lacuna e gerar sua respectiva visualização no R, o engenheiro de dados define a linha de base e a compara com o 10º quantil da série histórica:
+:::
+
+```r
+# ==============================================================================
+# BLOCO DE CÓDIGO R: Método da Lacuna
+# ==============================================================================
+
+# 1. Definir a Referência (Benchmark) utilizando o Quantil 10
+ref_q10_val <- quantile(fig19_nic_calculate_kpi$NIC, probs = 0.10)
+
+# 2. Calcular a Lacuna (Gap total) entre a Média e a Referência
+lacuna_val  <- mean(fig19_nic_calculate_kpi$NIC) - ref_q10_val
+
+# 3. Definir a agressividade da meta (Agressividade de Captura = 60%)
+captura_val <- lacuna_val * 0.60
+
+# 4. Calcular o valor final da Meta SMART
+meta_val    <- mean(fig19_nic_calculate_kpi$NIC) - captura_val
+
+# ------------------------------------------------------------------------------
+# Preparação de Dados e Plotagem do Gráfico
+# ------------------------------------------------------------------------------
+fig20_gap_process_data <- data.frame(
+    item  = factor(c("Baseline", "Referência", "Lacuna", "Captura", "Meta"),
+                                 levels = c("Baseline", "Referência", "Lacuna", "Captura", "Meta")),
+    valor = c(fig19_nic_process_pars$baseline_nic[1], ref_q10_val, lacuna_val, captura_val, meta_val)
+) %>% mutate(
+    xmin = as.numeric(item) - 0.4,
+    xmax = as.numeric(item) + 0.4,
+    ymin = c(0, 0, ref_q10_val, meta_val, 0),
+    ymax = c(fig19_nic_process_pars$baseline_nic[1], ref_q10_val, fig19_nic_process_pars$baseline_nic[1], fig19_nic_process_pars$baseline_nic[1], meta_val)
+)
+
+fig20_gap <- ggplot(fig20_gap_process_data) +
+    geom_rect(aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = item), colour = "white") +
+    geom_text(aes(x = (xmin + xmax)/2, y = ymax + 10, label = round(abs(valor), 1)), fontface = "bold", size = 5) +
+    scale_fill_manual(values = cores_gap) +
+    scale_x_continuous(breaks = 1:5, labels = fig20_gap_process_data$item) +
+    theme_default + theme(legend.position = "none")
+
+print(fig20_gap)
+```
+
+A saída de terminal gerada pelo código comprova o avanço de um *Baseline* de 201.1 para uma nova *Meta* arrojada de 121.8:
+
+```text
+> data_tat_gap
+                item xmin xmax     ymin     ymax      valor
+1   Baseline  0.6  1.4   0.0000 201.1162  201.11618
+2 Referência  1.6  2.4   0.0000  69.0000   69.00000
+3     Lacuna  2.6  3.4  69.0000 201.1162 -132.11618
+4    Captura  3.6  4.4 121.8465 201.1162  -79.26971
+5       Meta  4.6  5.4   0.0000 121.8465  121.84647
+```
+
+::: {.callout-note title="💻 TECH NOTE: R & Data Science - Análise Financeira e de Produtividade"}
+Apenas definir a meta não justifica o investimento do projeto de melhoria. A engenharia deve converter o Gap de processo (em dias, toneladas ou horas) em impacto no Ebitda. O código abaixo utiliza a base do Turn Around Time (TAT) e a cruza com margem de vendas, lucro e juros SELIC para demonstrar como o atingimento da meta converte-se em caixa para a companhia.
+:::
+
+```r
+# ==============================================================================
+# BLOCO DE CÓDIGO R: Análise Financeira do TAT
+# ==============================================================================
+
+# 1. Função Auxiliar de Data
+converter_data_pt <- function(x) {
+    mapa <- c("Jan"="01", "Fev"="02", "Mar"="03", "Abr"="04", "Mai"="05", "Jun"="06", "Jul"="07", "Ago"="08", "Set"="09", "Out"="10", "Nov"="11", "Dez"="12")
+    as.Date(paste0("20", str_extract(x, "[0-9]{2}$"), "-", mapa[str_to_title(str_sub(x, 1, 3))], "-01"))
+}
+
+# 2. Dados Financeiros
+data_tat_financeiros <- read_excel(path_ebitda, sheet = "Faturamento") %>%
+    filter(Estrutura == "Realizado") %>%
+    mutate(Data = map_vec(Mensal, converter_data_pt), Mês = yearmonth(Data),
+                 Receita_Liquida = as.numeric(`RECEITA LÍQUIDA`), Margem_Venda = as.numeric(`Margem de Venda`)) %>%
+    select(Mês, Receita_Liquida, Margem_Venda)
+
+# 3. Dados Selic
+data_tat_selic_mensal <- tibble(
+    Mês = yearmonth(seq(as.Date("2024-01-01"), as.Date("2025-12-01"), by = "month")),
+    Selic = c(0.0097, 0.0080, 0.0083, 0.0089, 0.0083, 0.0079, 0.0091, 0.0087, 0.0084, 0.0093, 0.0079, 0.0093,
+                        0.0101, 0.0099, 0.0096, 0.0106, 0.0114, 0.0110, 0.0128, 0.0116, 0.0122, 0.0128, 0.0105, 0.0122)
+)
+
+# 4. Cálculo de Ganhos e Setup Base
+media_24 <- data_tat_financeiros %>% filter(year(Mês)==2024) %>% summarise(RL=mean(Receita_Liquida, na.rm=T), MV=mean(Margem_Venda, na.rm=T))
+
+data_tat_calculo_ganhos <- data_tat_pivot_etapa %>%
+    filter(Filial == "Carajás", Período == "Durante") %>%
+    group_by(Mês = yearmonth(Início)) %>%
+    summarise(NOS = n(), TAT_Real = mean(TAT), n_concluidas = sum(status == "Concluida")) %>%
+    left_join(data_tat_financeiros, by = "Mês") %>% left_join(data_tat_selic_mensal, by = "Mês") %>%
+    mutate(
+        Receita_Liquida = replace_na(Receita_Liquida, media_24$RL),
+        Margem_Venda    = replace_na(Margem_Venda, media_24$MV),
+        TM = Receita_Liquida / ifelse(n_concluidas>0, n_concluidas, NOS),
+        LU = TM * (Margem_Venda / Receita_Liquida),
+        dif_dias = pars$baseline - TAT_Real,
+        GC = dif_dias * NOS * (LU / pars$meta),
+        GS = (dif_dias * (TM/30)) * Selic,
+        IT = (GC + GS) / Receita_Liquida * 100,
+        Data_Plot = as.Date(Mês)
+    )
+
+# 5. Projeção de Ganhos Futuros
+data_tat_projecao <- tibble(Data_Plot = seq(pars$xP_in, pars$fim_proj, by = "month")) %>%
+    mutate(IT_Previsto = seq(from=last(data_tat_calculo_ganhos$IT), to=5.0, length.out=n()))
+
+# 6. Plot Financeiro (Linha do Tempo)
+ggplot() +
+    geom_hline(yintercept = 0, colour = "grey50") +
+    geom_line(data = data_tat_projecao, aes(x = Data_Plot, y = IT_Previsto, linetype = "Previsto"), colour = "grey60") +
+    geom_line(data = data_tat_calculo_ganhos, aes(x = Data_Plot, y = IT, colour = "Real"), linewidth = 0.8) +
+    geom_point(data = data_tat_calculo_ganhos, aes(x = Data_Plot, y = IT, fill = IT > 0), size = 3, shape = 21) +
+    geom_vline(xintercept = as.numeric(pars$xP_in), colour = "#1D5185", linetype = 4) +
+    scale_fill_manual(values = c("TRUE"="#24A379", "FALSE"="#C40E0E"), guide="none") +
+    theme_default + labs(title = "Impacto Financeiro na Operação")
+```
+
+**Monitoramento de Saída do Terminal:**
+Ao cruzar a redução do TAT com a Receita Líquida e a Selic, a modelagem extrai o Ganho Comercial (GC), o Ganho de Selic (GS) e o Impacto Total (IT) ao longo da linha do tempo.
+
+```text
+> data_tat_projecao
+# A tibble: 8 × 2
+    Data_Plot  IT_Previsto
+    <date>           <dbl>
+1 2025-05-01       19.0
+2 2025-06-01       17.0
+3 2025-07-01       15.0
+4 2025-08-01       13.0
+5 2025-09-01       11.0
+6 2025-10-01        8.99
+7 2025-11-01        6.99
+8 2025-12-01        5
+
+> data_tat_calculo_ganhos
+# A tibble: 16 × 14
+                Mês   NOS TAT_Real n_concluidas Receita_Liquida Margem_Venda  Selic      TM      LU dif_dias        GC      GS      IT Data_Plot
+            <mth> <int>    <dbl>        <int>           <dbl>        <dbl>  <dbl>   <dbl>   <dbl>    <dbl>     <dbl>   <dbl>   <dbl> <date>
+ 1 2024 jan    56     195.           56       19627029      5478107. 0.0097 350483.  97823.    6.13    275781.   695.    1.41  2024-01-01
+ 2 2024 fev    46     192.           46       11241341.     3202001. 0.008  244377.  69609.    9.09    238993.   593.    2.13  2024-02-01
+ 3 2024 mar    40     187.           40       17697325.     5893096. 0.0083 442433. 147327.   14.0     679101.  1719.    3.85  2024-03-01
+ 4 2024 abr   103     257.          103       13449194.     3975587. 0.0089 130575.  38598.  -55.8   -1821784. -2163.  -13.6   2024-04-01
+...
+16 2025 abr    26     139.           26       19987272.     7395976. 0.0106 768741. 284461.   62.2    3772733. 16883.   19.0   2025-04-01
+```
+
+* **Matriz de Captura da Lacuna:** Identificada a diferença total entre o Baseline e o Benchmark, e validado o seu impacto financeiro na modelagem, o gestor define quanto buscar no próximo ciclo dependendo da maturidade da equipe:
+
+```mermaid
 graph LR
     A[Tamanho Total da Lacuna<br>Baseline vs Benchmark] --> B{Maturidade e<br>Recursos da Equipe}
     B -->|Alta Maturidade<br>Dados Confiáveis + Orçamento| C(Capturar $\ge 50\%$ da Lacuna)
@@ -502,6 +608,8 @@ graph LR
     style D fill:#f1c40f,stroke:#333
     style E fill:#e74c3c,stroke:#333,color:#fff
 ```
+
+: Matriz de Decisão para Captura da Lacuna (Gap) {#fig-matriz-captura-lacuna}
 
 * **Passo 2: Mapeamento de Fronteiras (SIPOC):** Não tente "abraçar o mundo". Defina visualmente onde o processo começa (Fornecedor/Entrada) e onde termina (Saída/Cliente). Se o problema é no britador primário, não perca tempo analisando a expedição do porto.
 * **Passo 3: Descoberta da Causa Raiz:** Esqueça o "achismo". Utilize dados.
@@ -570,39 +678,63 @@ Para que os objetivos do PDCA sejam alcançados sem sobressaltos, as propostas d
 ## 📝 Resumo do Capítulo
 
 * **O Desdobramento da Estratégia:** O alinhamento de uma organização exige método. Utilizando o **GPD (Gerenciamento pelas Diretrizes)** e os passos do *Hoshin Kanri*, a estratégia é desdobrada em três horizontes temporais críticos: longo prazo (3 a 5 anos), tático (1 ano) e rotina (1 dia).
-* **O Equilíbrio das Metas:** O *Balanced Scorecard* (BSC) evita que o foco exclusivo no volume de produção destrua o orçamento ou a segurança. A **Matriz X** atua consolidando essas perspectivas, amarrando ações, metas e responsáveis em uma única visão sistêmica.
+* **O Equilíbrio das Metas:** O *Balanced Scorecard* (BSC) evita que o foco exclusivo no volume de produção destrua o orçamento ou a segurança.
+
+```mermaid
+graph LR
+    A(Aprendizado) -->|Suporta| P(Processos)
+    P -->|Garante| C(Clientes)
+    C -->|Gera Resultado| F(Financeira)
+
+    style F fill:#27ae60,stroke:#333,color:#fff
+    style C fill:#2980b9,stroke:#333,color:#fff
+    style P fill:#f39c12,stroke:#333,color:#fff
+    style A fill:#8e44ad,stroke:#333,color:#fff
+```
+
+: As 4 perspectivas integradas do BSC {#fig-resumo-bsc}
 * **OKR vs. KPI:** O "sistema nervoso" da empresa divide-se em dois: os **OKRs** atuam como o motor da mudança e da inovação (os aceleradores), enquanto os **KPIs** medem a saúde e a estabilidade da rotina operacional (os termômetros).
+
 * **A Engenharia da Meta:** Na gestão da rotina, não se aceitam "meios" como "fins". Toda meta deve focar no resultado final e seguir uma anatomia rigorosa: **Verbo + Objeto + Valor (Gap) + Prazo**. Ruídos estatísticos da linha de base (*Baseline*) devem ser purgados utilizando técnicas como a Média Aparada.
+
 * **O Roteiro Prático de Solução (PDCA/MASP):** Quando a fase de Controle da rotina falha, a engenharia aciona o método. O roteiro se divide em: **Plan** (medir o Gap, delimitar o sistema com SIPOC, mapear a causa raiz com Ishikawa/GUT e planejar via 5W2H); **Do** (treinar e executar); **Check** (validar estatisticamente); e **Act** (padronizar).
+
+```mermaid
+graph LR
+    M1(Máquina) -.-> Efeito
+    M2(Material) -.-> Efeito
+    M3(Mão de Obra) -.-> Efeito
+    M4(Método) -.-> Efeito
+    M5(Medida) -.-> Efeito
+    M6(Meio Ambiente) -.-> Efeito
+    Efeito{Causa Raiz<br>Identificada} --> Ação[Plano de Ação<br>5W2H]
+
+    style Efeito fill:#e74c3c,stroke:#333,color:#fff
+    style Ação fill:#2ecc71,stroke:#333,color:#fff
+```
+
+: Conceito do Diagrama de Ishikawa (Causa e Efeito) {#fig-resumo-ishikawa}
+
 * **Os Motores Físicos e Humanos:** O método não roda no vácuo. Ele depende das pessoas (mobilizadas *bottom-up* através dos Círculos de Controle da Qualidade - CCQ) e da saúde das máquinas (integrando a Qualidade à Manutenção de Ativos).
 * **A Trava do Sistema:** O Procedimento Operacional Padrão (POP) e as Auditorias funcionam como a "cunha" estrutural do PDCA. São eles que impedem a entropia do processo, garantindo que a operação não regrida aos padrões antigos de falha.
+
+---
 
 ## Exercícios de Fixação {#sec-exercicios-cap5}
 
 ::: {#exr-cap5-3-1}
 **PDCA Aplicado a Redução de Downtime**
-
 **Contexto:** Seu britador primário teve **3 paradas emergenciais** em um mês, totalizando **18 horas de indisponibilidade**, quando a meta era máximo 4 horas.
-
 **Pergunta:**
-
 a) **PLAN:** Descreva qual problema você investigaria primeiro e que dados coletaria.
-
 b) **DO:** Que ação corretiva você implementaria? (ex: troca de peça, preventiva, redesenho)
-
 c) **CHECK:** Como você verificaria se a ação funcionou?
-
 d) **ACT:** Se a ação funcionou, como você a padronizaria para futuros problemas similares?
 :::
 
-**Resposta:** Consulte o [Gabarito da Parte I](appendix/gabarito-parte1.qmd#sec-gabarito-3-1){target="_blank"} para a resolução detalhada.
-
-
----
-
-## Exercícios Adicionais {#sec-exercicios-adicionais-cap5}
+::: {#exr-cap5-estruturacao-pdca}
 **Estruturação Completa do Ciclo PDCA**
-Um processo de carregamento em mina apresenta tempo de ciclo oscilante entre 45 e 60 minutos, quando deveria ser estável em 50 minutos (meta ±3%). Estruture o ciclo PDCA completo, detal hando:
+Um processo de carregamento em mina apresenta tempo de ciclo oscilante entre 45 e 60 minutos, quando deveria ser estável em 50 minutos (meta ±3%). Estruture o ciclo PDCA completo, detalhando:
 a) **Plan:** Como você delimitaria o problema? Quais dados colecionaria?
 b) **Do:** Como executaria os testes de solução?
 c) **Check:** Como validaria se a solução funcionou?
@@ -664,7 +796,7 @@ Se você fosse implantar um CCQ em um setor de manutenção de frota de caminhõ
 
 ::: {#exr-cap5-case-pdca-completo}
 **Do Diagnóstico à Padronização: Caso Completo**
-Uma mina de ouro enfrenta o seguinte cenário: **Problema:** Taxa de falha inesperada em Ordens de Manutenção subiu de 5% para 18% nos últimos 3 meses. **Consequência:** Aumento de retrabalhos (custo +15%), piora  na DF (87% → 76%) e risco de perda de clientes.
+Uma mina de ouro enfrenta o seguinte cenário: **Problema:** Taxa de falha inesperada em Ordens de Manutenção subiu de 5% para 18% nos últimos 3 meses. **Consequência:** Aumento de retrabalhos (custo +15%), piora da DF (87% → 76%) e risco de perda de clientes.
 
 Desenvolva:
 1. Um SIPOC para delimitar o processo de Execução de Ordens de Manutenção.
@@ -690,43 +822,23 @@ Se o POP padroniza um processo, como evitar que a padronização mate a inovaç�
 
 ::: {#exr-cap5-ref-q3}
 **Auditoria como Ferramenta**
-Por que auditoria é descrita como uma "cunha estrutural"? O que aconteceria se a auditoria fosse removida após 6 meses de implantação do POP?
+Por que a auditoria é descrita como uma "cunha estrutural"? O que aconteceria se a auditoria fosse removida após 6 meses de implantação do POP?
 :::
 
+---
 
-```{mermaid}
-%%| label: fig-resumo-bsc
-%%| fig-cap: "As 4 perspectivas integradas do BSC"
-graph LR
-    A(Aprendizado) -->|Suporta| P(Processos)
-    P -->|Garante| C(Clientes)
-    C -->|Gera Resultado| F(Financeira)
+## Exercícios Adicionais {#sec-exercicios-adicionais-cap5}
 
-    style F fill:#27ae60,stroke:#333,color:#fff
-    style C fill:#2980b9,stroke:#333,color:#fff
-    style P fill:#f39c12,stroke:#333,color:#fff
-    style A fill:#8e44ad,stroke:#333,color:#fff
-```
+::: {#exr-cap5-2-2}
+**Análise de Modo de Falha (FMEA Simplificado)**
 
-* **OKR vs. KPI:** O "sistema nervoso" da empresa divide-se em dois: os **OKRs** atuam como o motor da mudança e da inovação (os aceleradores), enquanto os **KPIs** medem a saúde e a estabilidade da rotina operacional (os termômetros).
-* **A Engenharia da Meta:** Na gestão da rotina, não se aceitam "meios" como "fins". Toda meta deve focar no resultado final e seguir uma anatomia rigorosa: **Verbo + Objeto + Valor (Gap) + Prazo**. Ruídos estatísticos da linha de base (*Baseline*) devem ser purgados utilizando técnicas como a Média Aparada.
-* **O Roteiro Prático de Solução (PDCA/MASP):** Quando a fase de Controle da rotina falha, a engenharia aciona o método. O roteiro se divide em: **Plan** (medir o Gap, delimitar o sistema com SIPOC, mapear a causa raiz com Ishikawa/GUT e planejar via 5W2H); **Do** (treinar e executar); **Check** (validar estatisticamente); e **Act** (padronizar).
+**Contexto:** Um sistema de correias em uma moega apresenta falhas crônicas de desalinhamento.
 
-```{mermaid}
-%%| label: fig-resumo-ishikawa
-%%| fig-cap: "Conceito do Diagrama de Ishikawa (Causa e Efeito)"
-graph LR
-    M1(Máquina) -.-> Efeito
-    M2(Material) -.-> Efeito
-    M3(Mão de Obra) -.-> Efeito
-    M4(Método) -.-> Efeito
-    M5(Medida) -.-> Efeito
-    M6(Meio Ambiente) -.-> Efeito
-    Efeito{Causa Raiz<br>Identificada} --> Ação[Plano de Ação<br>5W2H]
+**Pergunta:**
+a) Identifique pelo menos 3 **modos de falha** possíveis (ex: desgaste de rolamento, desalinhamento axial, fadiga de estrutura).
+b) Para cada modo, estime a **Severidade (S)**, **Ocorrência (O)** e **Detecção (D)** em escala 1-10.
+c) Calcule o **RPN (Risco de Priorização)** para cada modo.
+d) Qual modo deveria receber prioridade máxima de correção?
+:::
 
-    style Efeito fill:#e74c3c,stroke:#333,color:#fff
-    style Ação fill:#2ecc71,stroke:#333,color:#fff
-```
-
-* **Os Motores Físicos e Humanos:** O método não roda no vácuo. Ele depende das pessoas (mobilizadas *bottom-up* através dos Círculos de Controle da Qualidade - CCQ) e da saúde das máquinas (integrando a Qualidade à Manutenção de Ativos).
-* **A Trava do Sistema:** O Procedimento Operacional Padrão (POP) e as Auditorias funcionam como a "cunha" estrutural do PDCA. São eles que impedem a entropia do processo, garantindo que a operação não regrida aos padrões antigos de falha.
+**Resposta:** Consulte o [Gabarito da Parte I](appendix/gabarito-parte1.qmd#sec-gabarito-2-2){target="_blank"} para a resolução detalhada.

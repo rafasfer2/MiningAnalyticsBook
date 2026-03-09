@@ -269,3 +269,109 @@ A meta não deve ser 500 t/h (é inatingível devido a perdas normais do process
 * **@exr-cap4-ref-q1:** O *Top-Down* define o "O Quê" (ex: Diretor manda baixar custo em 10%). O *Bottom-Up* responde ao "Como" (O supervisor da mina devolve um plano de ação, provando como a equipe dele fará isso inovando nas trocas de turno). Esse diálogo é o *Catchball* no Hoshin Kanri.
 * **@exr-cap4-ref-q2:** Porque sem Controle (SDCA), o processo degringola para a entropia natural e as regras são esquecidas. Sem Melhoria (PDCA), a empresa será engolida por concorrentes que inovam. Planejar é só o desenho; gerir é garantir o ciclo completo.
 * **@exr-cap4-ref-q3:** Meta fácil gera a zona de conforto (o funcionário "puxa o freio de mão" quando atinge o número e para de inovar). Meta impossível (inatingível) gera desmotivação crônica ou fraude de dados (maquiar indicadores para evitar punição), destruindo a governança da empresa.
+
+## Capítulo 5: O Cérebro da Operação - Método e Controle {#sec-gabarito-cap5}
+
+### Resolução do @exr-cap5-3-1 {#sec-gab-cap5-3-1}
+**a) PLAN:** Investigar a Causa Raiz. Coletaria dados de telemetria (temperatura, vibração) e histórico das Ordens de Manutenção (OMs) para aplicar o Gráfico de Pareto (separar se a falha foi elétrica, mecânica ou operacional) e Ishikawa para entender o motivo da quebra.
+**b) DO:** Substituir o componente com falha crônica e realizar o treinamento da equipe de operação para evitar "embuchamento" (se a causa foi operacional) ou ajustar os sensores de lubrificação (se foi desgaste).
+**c) CHECK:** Monitorar o indicador de indisponibilidade no mês seguinte à ação. Se o indicador ficar abaixo ou igual a 4 horas, a solução foi eficaz.
+**d) ACT:** Transformar a inspeção sensitiva que evitou a quebra em um Procedimento Operacional Padrão (POP) e alterar o plano sistêmico de manutenção no ERP (SAP/Maximo) para inspecionar esse componente quinzenalmente.
+
+### Resolução do @exr-cap5-estruturacao-pdca {#sec-gab-cap5-estruturacao-pdca}
+**a) Plan:** Delimitar o sistema (SIPOC) da praça de carga até a britagem. Coletar tempos via sistema de despacho (cronometragem de fila, tempo de manobra, tempo de basculamento). Fazer Pareto para descobrir onde a variação é maior.
+**b) Do:** Rodar um teste de 1 semana mudando a regra de despacho de caminhões (ex: travar o limite de caminhões na praça para evitar oclusão de fila).
+**c) Check:** Validar os dados da semana de teste. A média ficou em 50 minutos com variação entre 48,5 e 51,5 (±3%)? Se sim, avança.
+**d) Act:** Padronizar a nova regra no algoritmo do sistema de despacho e treinar todos os operadores de sala de controle na nova norma.
+
+### Resolução do @exr-cap5-ishikawa-britador {#sec-gab-cap5-ishikawa-britador}
+* **Máquina:** Desgaste severo do manto e revestimento (câmara de britagem cega).
+* **Método:** Abertura (CSS) ajustada de forma inadequada pelo operador.
+* **Material:** Minério recebido com muita umidade/lama (causando embuchamento).
+* **Mão-de-Obra:** Operador inexperiente operando a máquina abaixo da taxa nominal por medo de desarmar.
+* **Medida:** Balança integradora da correia de saída descalibrada (marcando 280, mas processando 400).
+* **Meio Ambiente:** Chuvas intensas que alteraram as propriedades físicas do ROM.
+
+### Resolução do @exr-cap5-5w2h-acao {#sec-gab-cap5-5w2h-acao}
+* **What (O que):** Reduzir a frequência de lubrificação dos mancais de 1.000h para 500h.
+* **Why (Por que):** Evitar o superaquecimento que gera desarme e perda de capacidade do britador.
+* **Who (Quem):** Planejador de PCM (Planejamento e Controle da Manutenção).
+* **Where (Onde):** Sistema ERP de Manutenção e planta de britagem.
+* **When (Quando):** Implementar no sistema até sexta-feira; execução inicial na próxima segunda.
+* **How (Como):** Alterando a matriz de manutenção preventiva no software, criando uma nova Lista de Tarefas e emitindo as OMs.
+* **How much (Quanto):** Aumento no custo de graxa em R$ X/mês (investimento que se paga rapidamente com a recuperação da capacidade de britagem).
+
+### Resolução do @exr-cap5-masp-problema {#sec-gab-cap5-masp-problema}
+*(Exemplo genérico validado)*
+1. **Problema:** Pneus da frota durando 2.000h (meta 4.000h).
+2. **Observação:** O desgaste maior ocorre nos eixos traseiros durante o turno da noite.
+3. **Análise:** Ishikawa aponta "Condição da Pista" e "Pressão a frio". GUT elege "Pressão" como crítica. 5 Porquês revelam que o calibrador da oficina está avariado.
+4. **Plano (5W2H):** Trocar manômetros e instalar telemetria de pressão.
+5. **Execução:** Compra e instalação nos 10 primeiros caminhões.
+6. **Verificação:** Após 3 meses, telemetria mostra pressão cravada e vida útil projetada sobe para 4.100h.
+7. **Padronização:** Criar POP de aferição da calibração a cada 15 dias.
+8. **Reflexão:** Expandir projeto para toda a frota e fechar relatório.
+
+### Resolução do @exr-cap5-bsc-mineracao {#sec-gab-cap5-bsc-mineracao}
+* **Financeira:** (1) Reduzir Custo Unitário ($/ton) em 5%. (2) Aumentar Ebitda em 10%.
+* **Clientes:** (1) 100% de Conformidade (Qualidade do embarque). (2) Zero atrasos em contratos de fornecimento (*OTIF*).
+* **Processos:** (1) Aumentar DF Geral para 90%. (2) Aumentar Recuperação Metalúrgica para 85%.
+* **Aprendizado:** (1) 100% de aderência ao plano de treinamento de segurança. (2) Implantação de 5 projetos de inovação pelo CCQ.
+
+### Resolução do @exr-cap5-okr-vs-kpi {#sec-gab-cap5-okr-vs-kpi}
+* **"Aumentar a DF para 95% em 12 meses":** É um **OKR** (Key Result). Reflete um projeto de mudança e superação de um patamar atual. Puxa a empresa para cima.
+* **"Executar auditoria toda segunda-feira":** É um **KPI** (ou Indicador de Processo). Serve para controlar a rotina (*Health Metric*). Não inova, apenas garante que a regra estabelecida não morra (Controle/SDCA).
+
+### Resolução do @exr-cap5-meta-realista {#sec-gab-cap5-meta-realista}
+Uma média de 82% com desvio padrão de 5% mostra que um salto direto para 90% (8 pontos acima, quase dois desvios padrões inteiros) é matematicamente agressivo demais e tem alto risco de frustrar a equipe.
+**Aplicação da técnica:** Se o Benchmark técnico da máquina for 92%, a lacuna é de 10%. Considerando uma captura realista de 40% dessa lacuna para o primeiro ano, a meta estatisticamente embasada e justificada seria de **86%**.
+
+### Resolução do @exr-cap5-pop-construction {#sec-gab-cap5-pop-construction}
+**POP: Troca de Óleo do Britador Primário**
+1. **Objetivos:** Padronizar a drenagem e enchimento do reservatório para evitar contaminação.
+2. **Responsáveis:** Mecânico Lubrificador Nível 2.
+3. **Materiais:** Óleo ISO VG 220 (200L), contentor de descarte, trapos, EPIs.
+4. **Etapas:** (a) Solicitar bloqueio elétrico; (b) Drenar a quente; (c) Trocar filtros; (d) Inserir óleo novo verificando visor de nível; (e) Desbloquear equipamento.
+5. **Tempo:** 45 minutos.
+6. **Segurança:** Uso obrigatório de Luva Térmica e LOTO (Bloqueio).
+7. **Frequência:** A cada 500 horas operacionais.
+
+### Resolução do @exr-cap5-auditoria-checklist {#sec-gab-cap5-auditoria-checklist}
+**Checklist de Auditoria (Amostra):**
+1. [ ] O bloqueio elétrico (LOTO) foi realizado antes do início?
+2. [ ] O mecânico estava utilizando luvas térmicas?
+3. [ ] O tipo de óleo utilizado (ISO VG 220) confere com a especificação?
+4. [ ] Houve vazamento no piso durante a drenagem?
+5. [ ] O filtro de sucção foi substituído conforme etapa 'c'?
+6. [ ] O nível do visor ficou no centro da marcação?
+*(Espaço para comentários do auditor: "Operador não sabia onde descartar o filtro sujo - Necessita reciclagem").*
+
+### Resolução do @exr-cap5-ccq-estrutura {#sec-gab-cap5-ccq-estrutura}
+1. **Frequência:** 1 hora semanal, às terças-feiras de manhã (antes da fadiga da semana).
+2. **Temas:** Desperdício de tempo no almoxarifado; Melhoria em ferramentas manuais; Redução de sujeira na oficina.
+3. **Mecanismo:** Cada ideia passa pela Matriz GUT da equipe. A que tiver maior pontuação é transformada em projeto.
+4. **Alinhamento:** Apresentação mensal de 15 minutos para o Gerente de Mina mostrando as melhorias aprovadas pelo grupo.
+
+### Resolução do @exr-cap5-case-pdca-completo {#sec-gab-cap5-case-pdca-completo}
+1. **SIPOC:** S (Planejador) -> I (OM impressa, peças) -> P (Deslocamento, Isolar, Executar, Testar) -> O (Equipamento liberado) -> C (Operação de Mina).
+2. **Ishikawa:** Foco nas falhas de OMs. Máquina (Ferramentas ruins); Método (POP desatualizado); Material (Peças paralelas); Mão-de-Obra (Falta de leitura do manual).
+3. **GUT:** "Peças paralelas estourando prematuramente" ganha maior pontuação por impacto (18%).
+4. **5W2H:** Quem: Suprimentos. O que: Bloquear compra de marca paralela X. Como: Alterar cadastro de Fornecedor Homologado no SAP.
+5. **Verificação:** Cruzar os custos de sobressalentes com a taxa de falha após 30 dias.
+6. **POP:** Revisar o Procedimento de Cadastro de Itens Exclusivos.
+7. **Auditoria:** Planejador auditar 10 ordens por semana para garantir que nenhuma peça paralela passou pelo sistema.
+
+### Resoluções Rápidas: Reflexão {#sec-gab-debate-cap5}
+* **@exr-cap5-ref-q1:** É um ciclo porque a qualidade é mutável. Após o *Act* e a estabilização da empresa em um novo patamar, o concorrente evolui e o mercado exige mais. A empresa deve voltar ao *Plan* (girar o ciclo novamente) para não ficar obsoleta.
+* **@exr-cap5-ref-q2:** O POP não engessa a inovação, ele engessa o retrocesso. Para inovar, a equipe deve questionar abertamente o POP existente, testar a inovação (no PDCA) e, se funcionar, reescrever o POP. O padrão é a base, não a prisão.
+* **@exr-cap5-ref-q3:** A auditoria força a mudança de cultura por meio da repetição. Sem auditoria nos primeiros meses, o cérebro humano tende a retornar à "lei do menor esforço" (o jeito antigo e errado de trabalhar). A auditoria garante a sobrevivência da regra até que ela vire hábito automático.
+
+### Resolução do @exr-cap5-2-2 {#sec-gab-cap5-2-2}
+**a) Modos de Falha:** 1. Sobrecarga de material; 2. Roletes travados (falta de lubrificação); 3. Estrutura desalinhada por impacto mecânico.
+**b) Classificação (Exemplo):**
+* Roletes Travados: S=8 (pára a correia), O=7 (ocorre muito por poeira), D=4 (fácil detecção visual/sonora).
+* Sobrecarga: S=6 (reduz velocidade), O=8 (operador empurrando a taxa), D=2 (sensores detectam na hora).
+**c) RPN (S x O x D):**
+* Roletes Travados: 8 x 7 x 4 = **224**
+* Sobrecarga: 6 x 8 x 2 = **96**
+**d) Prioridade:** "Roletes Travados" tem a maior pontuação de risco (RPN = 224) e deve receber prioridade absoluta da engenharia de manutenção.

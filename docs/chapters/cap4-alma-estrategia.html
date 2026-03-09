@@ -70,6 +70,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Procurar"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -644,9 +647,12 @@ Figura&nbsp;4.1: Arcabouço Estratégico de Propósito, Valores e Ambições da 
 </ul>
 <p>Para garantir essa dupla qualidade (do produto e do processo), a execução exige uma forte integração horizontal. Na indústria mineral, a Produção não é um departamento isolado, mas a soma sinérgica e inseparável de três forças:</p>
 <p><strong>Produção = Operação + Manutenção + Engenharia</strong></p>
-<pre class="mermaid"><code>%%| label: fig-producao
-%%| fig-cap: "Interseção entre Operação, Manutenção e Engenharia formando a Produção."
-graph TD
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
     A[Operação / PCO] --&gt; D((PRODUÇÃO))
     B[Manutenção / PCM] --&gt; D
     C[Engenharia / Ativos] --&gt; D
@@ -654,7 +660,13 @@ graph TD
     style D fill:#e67e22,stroke:#333,stroke-width:4px,color:#fff
     style A fill:#3498db,stroke:#333,color:#fff
     style B fill:#3498db,stroke:#333,color:#fff
-    style C fill:#3498db,stroke:#333,color:#fff</code></pre>
+    style C fill:#3498db,stroke:#333,color:#fff
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <p>Traduzindo essa equação para a arquitetura de gestão, o Planejamento e Controle da Produção (PCP) atua como o grande guarda-chuva integrador que consolida:</p>
 <ol type="1">
 <li><p>O <strong>Planejamento e Controle da Operação (PCO):</strong> Focado no cumprimento das metas de volume, taxa de alimentação e qualidade do produto final.</p></li>
@@ -732,7 +744,28 @@ graph TD
 <p>É aqui que a teoria normativa se funde com o <strong>Gerenciamento pelas Diretrizes (GPD)</strong>. Como a <em>Nota 1</em> deixa claro, um objetivo precisa ser desdobrado: o Diretor foca no lucro anual (Estratégico), o Gerente foca na disponibilidade física da frota (Tático), e o Supervisor atua na redução do tempo de fila de caminhões (Operacional). O GPD garante que todos estejam trabalhando para o mesmo resultado.</p>
 <p>Para ilustrar a importância de compreender corretamente esse desdobramento e evitar a miopia gerencial, considere o seguinte diálogo hipotético entre um engenheiro e um gerente:</p>
 <blockquote class="blockquote">
-<p><strong>Engenheiro:</strong> “Nosso maior problema hoje é a quebra frequente das correias.” <strong>Gerente:</strong> “A sua missão é ter muitas correias rodando?” <strong>Engenheiro:</strong> “Não, meu objetivo é alimentar a planta com minério britado.” <strong>Gerente:</strong> “Qual é a taxa exigida?” <strong>Engenheiro:</strong> “4.500 toneladas por hora.” <strong>Gerente:</strong> “E qual é o nosso volume atual?” <strong>Engenheiro:</strong> “3.800 toneladas por hora.” <strong>Gerente:</strong> “Entende a diferença? Seu problema não é a correia. Seu problema é um déficit de 700 t/h. A correia rasgada é apenas uma causa. Foque no resultado e resolva o gap.”</p>
+<p><strong>Engenheiro:</strong> “Nosso maior problema hoje é a quebra frequente das correias.”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Gerente:</strong> “A sua missão é ter muitas correias rodando?”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Engenheiro:</strong> “Não, meu objetivo é alimentar a planta com minério britado.”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Gerente:</strong> “Qual é a taxa exigida?”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Engenheiro:</strong> “4.500 toneladas por hora.”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Gerente:</strong> “E qual é o nosso volume atual?”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Engenheiro:</strong> “3.800 toneladas por hora.”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Gerente:</strong> “Entende a diferença? Seu problema não é a correia. Seu problema é um déficit de 700 t/h. A correia rasgada é apenas uma causa. Foque no resultado e resolva o gap.”</p>
 </blockquote>
 <div class="callout callout-style-default callout-important callout-titled" title="🎯 A REGRA DE OURO DA GESTÃO">
 <div class="callout-header d-flex align-content-center">
@@ -880,7 +913,12 @@ Tabela&nbsp;4.1: Exemplo de Painel de Gestão de Objetivos da Qualidade na Miner
 <p>A projeção não é apenas um exercício interno de planejamento — ela é uma <strong>promessa pública</strong> que impacta diretamente o valor das ações da empresa. Formulários de referência corporativos (como os exigidos pela CVM no Brasil ou SEC nos EUA) demonstram que antes de se cobrar um resultado, é necessário realizar e divulgar a projeção dos volumes de produção estimados.</p>
 <div id="exm-projecao-vale" class="example theorem">
 <p><span class="theorem-title"><strong>Exemplo 4.3 (Projeção de Produção - Vale)</strong></span> Uma mineradora global de grande porte pode publicar em seu formulário de referência anual:</p>
-<p><strong>“Guidance de Produção 2024:</strong> * Minério de Ferro: 310-320 Mtpa * Níquel: 170-180 kt * Cobre: 320-355 kt”</p>
+<p><strong>“Guidance de Produção 2024:</strong></p>
+<ul>
+<li><p>Minério de Ferro: 310-320 Mtpa</p></li>
+<li><p>Níquel: 170-180 kt</p></li>
+<li><p>Cobre: 320-355 kt”</p></li>
+</ul>
 <p>Essa é a projeção oficial. O mercado ajusta suas expectativas com base nessa informação. Se a empresa entregar 307,8 Mt de minério (como no exemplo real), ela ficou abaixo da faixa inferior, gerando impacto no valor de mercado e gatilhos de análise crítica.</p>
 </div>
 </section>
@@ -1092,9 +1130,12 @@ Tabela&nbsp;4.2: Planejamento Programado vs.&nbsp;Disponível de Frota (2020-202
 <h3 data-number="4.5.8" class="anchored" data-anchor-id="o-desdobramento-da-medição-princípios-requisitos-e-critérios"><span class="header-section-number">4.5.8</span> O Desdobramento da Medição: Princípios, Requisitos e Critérios</h3>
 <p>Para que a Gestão de Ativos e os Indicadores (KPIs) funcionem em sintonia com a estratégia da diretoria, o Sistema de Gestão Integrado (SGI) precisa traduzir as intenções macro em elementos matemáticos e auditáveis. Esse processo ocorre através de um “funil” de desdobramento lógico.</p>
 <p>A <span class="quarto-unresolved-ref">?fig-desdobramento-sgi</span> ilustra exatamente essa cascata de desdobramento estrutural do SGI, demonstrando como uma diretriz ampla e abstrata se afunila até se transformar na expressão matemática do desempenho da operação.</p>
-<pre class="mermaid"><code>%%| label: fig-desdobramento-sgi
-%%| fig-cap: "Desdobramento lógico das estratégias no SGI: dos Princípios ao Desempenho Operacional"
-graph TD
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
     A[Objetivos da Qualidade&lt;br&gt;Alta Direção] --&gt; B(Princípios&lt;br&gt;Diretriz Estratégica)
     B --&gt; C(Requisitos&lt;br&gt;Indicador do SGI)
     C --&gt; D(Critérios&lt;br&gt;Avaliação Prática&lt;br&gt;Características + Limites)
@@ -1104,7 +1145,13 @@ graph TD
     style B fill:#3498db,stroke:#333,color:#fff
     style C fill:#2ecc71,stroke:#333,color:#fff
     style D fill:#f39c12,stroke:#333
-    style E fill:#e74c3c,stroke:#333,color:#fff</code></pre>
+    style E fill:#e74c3c,stroke:#333,color:#fff
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <p>A lógica de conversão desse fluxo gerencial é dividida em três camadas sequenciais:</p>
 <ul>
 <li><p><strong>Princípios (A Diretriz Estratégica):</strong> Representam os próprios objetivos de qualidade da organização estabelecidos pela Alta Direção. Quando alcançados, atestam o compromisso da empresa com a excelência.</p></li>
@@ -1148,9 +1195,12 @@ graph TD
 <section id="sec-trilogia-juran" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="sec-trilogia-juran"><span class="header-section-number">4.6</span> O Motor Executivo: A Trilogia de Juran</h2>
 <p>Essa divisão não é uma coincidência. Ela é a consagração internacional da mais famosa estrutura de gestão da história da engenharia de produção, desenvolvida por Joseph Juran. Conhecida como a <strong>Trilogia de Juran</strong>, essa metodologia trata a gestão como um fluxo contínuo de três processos vitais e sequenciais.</p>
-<pre class="mermaid"><code>%%| label: fig-trilogia-juran
-%%| fig-cap: "Diagrama da Trilogia de Juran: Planejamento, Controle e Melhoria."
-graph LR
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph LR
     A[1. Planejamento&lt;br&gt;da Qualidade] --&gt;|Cria o Processo| B[2. Controle&lt;br&gt;da Qualidade]
     B --&gt;|Mantém o Padrão&lt;br&gt;SDCA| B
     B --&gt;|Quebra o Status Quo| C[3. Melhoria&lt;br&gt;da Qualidade]
@@ -1158,7 +1208,13 @@ graph LR
 
     style A fill:#2ecc71,stroke:#333,color:#fff
     style B fill:#f1c40f,stroke:#333
-    style C fill:#e74c3c,stroke:#333,color:#fff</code></pre>
+    style C fill:#e74c3c,stroke:#333,color:#fff
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <section id="planejamento-da-qualidade-quality-planning" class="level3" data-number="4.6.1">
 <h3 data-number="4.6.1" class="anchored" data-anchor-id="planejamento-da-qualidade-quality-planning"><span class="header-section-number">4.6.1</span> Planejamento da Qualidade (Quality Planning)</h3>
 <p>O Planejamento da Qualidade é a atividade de desenvolver os produtos e processos necessários para atender às necessidades dos clientes e às metas do SGI. Na mineração, o objetivo do planejamento é entregar à equipe de operação um processo que seja intrinsecamente capaz de bater a meta (ex: processar 4.500 t/h) sob as condições reais.</p>
@@ -1245,9 +1301,12 @@ graph LR
 <section id="o-ciclo-sdca-a-rotina-de-manutenção" class="level4" data-number="4.6.2.1">
 <h4 data-number="4.6.2.1" class="anchored" data-anchor-id="o-ciclo-sdca-a-rotina-de-manutenção"><span class="header-section-number">4.6.2.1</span> O Ciclo SDCA: A Rotina de Manutenção</h4>
 <p>Para garantir estabilidade, utiliza-se o <strong>Ciclo SDCA</strong> (<em>Standardize, Do, Check, Act</em>). Enquanto o PDCA resolve “picos esporádicos” e inova, o SDCA garante o cumprimento rigoroso dos Procedimentos Operacionais Padrões (POPs), fechando a malha de sustentação.</p>
-<pre class="mermaid"><code>%%| label: fig-sdca
-%%| fig-cap: "Ciclo SDCA para padronização e manutenção da rotina."
-graph TD
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
     S(Standardize&lt;br&gt;Padronizar Meta e POP) --&gt; D(Do&lt;br&gt;Executar e Coletar Dados)
     D --&gt; C(Check&lt;br&gt;Verificar Indicadores)
     C --&gt; A(Act&lt;br&gt;Agir na Causa do Desvio)
@@ -1256,7 +1315,13 @@ graph TD
     style S fill:#9b59b6,stroke:#333,color:#fff
     style D fill:#9b59b6,stroke:#333,color:#fff
     style C fill:#9b59b6,stroke:#333,color:#fff
-    style A fill:#9b59b6,stroke:#333,color:#fff</code></pre>
+    style A fill:#9b59b6,stroke:#333,color:#fff
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="a-hierarquia-e-interligação-das-metas" class="level4" data-number="4.6.2.2">
 <h4 data-number="4.6.2.2" class="anchored" data-anchor-id="a-hierarquia-e-interligação-das-metas"><span class="header-section-number">4.6.2.2</span> A Hierarquia e Interligação das Metas</h4>

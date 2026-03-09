@@ -15,8 +15,6 @@ Esta estrutura introduz o conceito fundamental da avaliação de atributos: a un
 * **Fatores Independentes (Lado Direito):** Temos ainda um modelo unidimensional, mas aplicado a duas dimensões independentes. Existem dois requisitos latentes distintos ($\theta_1$ e $\theta_2$), e cada um afeta de forma autônoma o seu próprio grupo exclusivo de variáveis de inspeção (respectivamente os itens $X$ e os itens $Y$). Note que não há ligação (covariância) entre $\theta_1$ e $\theta_2$.
 
 ```{mermaid}
-%%| label: fig-estruturas-unidimensionais
-%%| fig-cap: "Estruturas Unidimensionais: Fator Único vs Fatores Independentes"
 graph TD
     subgraph Fator Unico
         theta_g((θg)) --> X1[X1]
@@ -49,8 +47,6 @@ Neste modelo, a realidade operacional é percebida de forma mais complexa, onde 
 * **Multidimensionalidade dentro de cada item (Fundo - *Cross-loading*):** Este é um modelo mais complexo. As duas dimensões latentes ($\theta_1$ e $\theta_2$) continuam correlacionadas, mas a exigência para o atendimento de determinados itens é múltipla. Observe como os itens $X_3$, $Y_1$ e $Y_2$ recebem setas tanto de $\theta_1$ quanto de $\theta_2$. Isto significa que o produto ou sistema precisa de uma combinação de ambos os requisitos latentes para satisfazer aquele item de inspeção específico.
 
 ```{mermaid}
-%%| label: fig-estruturas-multidimensionais
-%%| fig-cap: "Estruturas Multidimensionais: Correlação entre Fatores e Cross-loading"
 graph TD
     subgraph Entre Itens
         theta1_A((θ1)) <-->|Correlacao| theta2_A((θ2))
@@ -92,8 +88,6 @@ Este modelo foca num desdobramento causal em formato de "árvore" estrutural dir
 A estrutura mostra um requisito latente principal ou Fator Geral ("General Factor", $\theta_g$) que influencia diretamente todas as variáveis no centro. No entanto, existem subfatores (ou dimensões de primeira ordem) que capturam variâncias adicionais, mas que influenciam apenas blocos específicos destas mesmas variáveis. É um modelo clássico usado na medição da "Qualidade Total", onde o Fator Geral afeta todos os testes, mas fatores locais (como acabamento superficial ou pureza) afetam apenas conjuntos de itens locais.
 
 ```{mermaid}
-%%| label: fig-modelos-hierarquicos
-%%| fig-cap: "Modelos Hierárquicos: Fator Geral com Subfatores Locais"
 graph TD
     theta_g((θg Geral))
     theta_s1((θs1 Local))
@@ -124,8 +118,6 @@ Trata-se de uma variação complexa do modelo multidimensional.
 Existe um requisito de qualidade geral ($\theta_0$) e dois requisitos específicos correlacionados ($\theta_1$ e $\theta_2$). A particularidade deste modelo é a sua matemática aditiva. O comportamento observado de uma variável de teste não é causado exclusivamente pela exigência geral ($\theta_0$) nem só pela exigência específica ($\theta_1$ ou $\theta_2$), mas sim pela soma da influência de ambos. Note também que as exigências específicas ($\theta_1$ e $\theta_2$) estão correlacionadas entre si.
 
 ```{mermaid}
-%%| label: fig-modelo-aditivo
-%%| fig-cap: "Modelo Aditivo: Fator Geral com Requisitos Específicos Correlacionados"
 graph TD
     theta_0((θ0 Geral))
     theta_1((θ1 Específico))
@@ -158,8 +150,6 @@ Ao contrário do modelo Hierárquico e Aditivo (onde o traço principal afeta as
 * **Segunda Ordem:** O grande requisito construto ou fator geral ($\theta_0$) atua apenas sobre as dimensões ou subfatores ($\theta_1$ e $\theta_2$), e não sobre as variáveis finais de inspeção. Neste modelo, $\theta_0$ explica a correlação que existe entre $\theta_1$ e $\theta_2$. É o modelo comumente utilizado em avaliações de sistemas de gestão complexos (ex: ISO 9001).
 
 ```{mermaid}
-%%| label: fig-modelo-segunda-ordem
-%%| fig-cap: "Modelo de Segunda Ordem: Fator Geral Influenciando Dimensões"
 graph TD
     theta_0((θ0 Qualidade Total))
     theta_1((θ1 Dimensao A))

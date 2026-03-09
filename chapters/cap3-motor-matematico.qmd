@@ -255,8 +255,6 @@ No entanto, em ambientes industriais de alta complexidade (como mineração e si
 Para evitar falhas catastróficas, o algoritmo ARM de 10 passos é protegido por Portões de Decisão (Gates). O fluxograma abaixo explicita o caminho de aprovação, desde a medição do dado até a liberação final.
 
 ```{mermaid}
-%%| label: fig-fluxograma-arm-gates
-%%| fig-cap: "Algoritmo ARM de Execução com Portões de Decisão (Gates)"
 flowchart TD
     A["Passos 1 a 4: Setup de x_i, r_i, Δ_i, w_i"] --> E["Passo 5: Coletar Medições"]
 

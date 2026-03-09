@@ -72,7 +72,7 @@ Para transformar a Política da Qualidade em prática operacional, a engenharia 
 
 Para materializar essa arquitetura teórica, podemos analisar o direcionamento estratégico de uma das maiores produtoras globais de minério de ferro, a Vale[^1]. A empresa estrutura sua identidade corporativa substituindo os termos clássicos por nomenclaturas orientadas à ação:
 
-![Arcabouço Estratégico de Propósito, Valores e Ambições da Vale](image_248c77.jpg){#fig-estrategia-vale fig-align="center"}
+![Arcabouço Estratégico de Propósito, Valores e Ambições da Vale.](../images/fig-estrategia-vale.png){#fig-estrategia-vale fig-align="center"}
 
 * **Propósito (A Missão):** "Existimos para melhorar a vida e transformar o futuro. Juntos."
 
@@ -153,9 +153,7 @@ Para garantir essa dupla qualidade (do produto e do processo), a execução exig
 
 **Produção = Operação + Manutenção + Engenharia**
 
-```mermaid
-%%| label: fig-producao
-%%| fig-cap: "Interseção entre Operação, Manutenção e Engenharia formando a Produção."
+```{mermaid}
 graph TD
     A[Operação / PCO] --> D((PRODUÇÃO))
     B[Manutenção / PCM] --> D
@@ -211,48 +209,23 @@ Para compreender essa evolução, alinhamos os diferentes "guarda-chuvas" gerenc
 
 Com a Política definida, os Processos mapeados e o modelo de maturidade estabelecido, chegamos ao terceiro elemento puxado pela definição normativa: os **Objetivos**. Para que a excelência não seja apenas um quadro na parede, a estratégia precisa virar um alvo inquestionável.
 
-::: {.callout-note title="📌 DEFINIÇÃO NORMATIVA"}
-**Objetivos da Qualidade (3.7.2):** Objetivos (3.7.1) com relação à qualidade (3.6.2).
-* *NOTA 1:* Um objetivo pode ser estratégico, tático ou operacional.
-* *NOTA 2:* Objetivos podem se relacionar a diferentes disciplinas (como finanças, saúde e segurança e metas ambientais) e podem se referir a diferentes níveis (como estratégico, da organização, projeto, produto e processos).
-* *NOTA 3:* Um objetivo pode ser expresso de outras formas, como resultado pretendido, propósito, critério operacional, finalidade, meta ou alvo.
-* *NOTA 4:* No contexto da Gestão da Qualidade, objetivos da qualidade são estabelecidos pela organização, coerentemente com a política da qualidade, para alcançar resultados específicos.
-:::
-
 Os objetivos são a tradução tangível da Política. Se a Política diz "focar na satisfação do cliente", o Objetivo diz "Reduzir o número de reclamações em 20% até dezembro". Para que um objetivo de engenharia seja válido, ele deve obrigatoriamente seguir a metodologia **SMART**:
 
+![Critérios da metodologia SMART para a definição de objetivos válidos.](../images/fig-criterios-meta-smart.png){#fig-smart fig-align="center"}
+
 * **Específico (Specific):** Claro e sem ambiguidade.
-
 * **Mensurável (Measurable):** Quantificável através de KPIs.
-
 * **Alcançável (Achievable):** Realista dentro da capacidade técnica instalada.
-
 * **Relevante (Relevant):** Alinhado com a estratégia do negócio.
-
 * **Temporal (Time-bound):** Com prazo definido.
 
-### A Medição dos Objetivos
+### A Medição dos Objetivos e o GPD
 
-Definir a meta não é suficiente; é fundamental mensurá-la para avaliar o desempenho. Na mineração, essa medição ocorre através de:
+Definir a meta não é suficiente; é fundamental mensurá-la para avaliar o desempenho. Na mineração, essa medição ocorre através de KPIs (ex: disponibilidade física, taxa de alimentação), auditorias e verificações de campo.
 
-1. **KPIs (Indicadores Chave de Desempenho):** Monitoramento contínuo de variáveis críticas (ex: taxa de produtos defeituosos, disponibilidade física, teor de contaminantes).
+É aqui que a teoria se funde com o **Gerenciamento pelas Diretrizes (GPD)**. Um objetivo estratégico precisa ser desdobrado em cascata: o Diretor foca no OEE anual (Estratégico), o Gerente foca na Disponibilidade Física da frota (Tático), e o Supervisor atua na redução do tempo de manutenção corretiva (Operacional). O GPD garante que todos estejam trabalhando para o mesmo resultado, conforme ilustrado na @fig-desdobramento-metas.
 
-2. **Auditorias:** Revisões periódicas para validar se os processos estão alinhados aos objetivos.
-
-3. **Checklists e Verificações:** Ferramentas de campo para coleta de dados padronizada, garantindo que a informação que chega à gestão seja confiável.
-
-É aqui que a teoria normativa se funde com o **Gerenciamento pelas Diretrizes (GPD)**. Como a *Nota 1* deixa claro, um objetivo precisa ser desdobrado: o Diretor foca no lucro anual (Estratégico), o Gerente foca na disponibilidade física da frota (Tático), e o Supervisor atua na redução do tempo de fila de caminhões (Operacional). O GPD garante que todos estejam trabalhando para o mesmo resultado.
-
-Para ilustrar a importância de compreender corretamente esse desdobramento e evitar a miopia gerencial, considere o seguinte diálogo hipotético entre um engenheiro e um gerente:
-
-> **Engenheiro:** "Nosso maior problema hoje é a quebra frequente das correias."
-> **Gerente:** "A sua missão é ter muitas correias rodando?"
-> **Engenheiro:** "Não, meu objetivo é alimentar a planta com minério britado."
-> **Gerente:** "Qual é a taxa exigida?"
-> **Engenheiro:** "4.500 toneladas por hora."
-> **Gerente:** "E qual é o nosso volume atual?"
-> **Engenheiro:** "3.800 toneladas por hora."
-> **Gerente:** "Entende a diferença? Seu problema não é a correia. Seu problema é um déficit de 700 t/h. A correia rasgada é apenas uma causa. Foque no resultado e resolva o gap."
+![Exemplo prático de desdobramento de metas da Alta Direção ao Operacional na Mineração.](../images/fig-desdobramento-metas.png){#fig-desdobramento-metas fig-align="center"}
 
 ::: {.callout-important title="🎯 A REGRA DE OURO DA GESTÃO"}
 Os problemas (desvios nos Objetivos da Qualidade) residem sempre nos **FINS** (nos resultados não alcançados) e nunca nos **MEIOS** (processos, máquinas ou recursos). A falha da máquina é a causa; o problema corporativo é o *gap* entre o desempenho atual e a meta.
@@ -346,14 +319,11 @@ Constitui-se de informações que uma empresa de capital aberto oferece ao merca
 A projeção não é apenas um exercício interno de planejamento — ela é uma **promessa pública** que impacta diretamente o valor das ações da empresa. Formulários de referência corporativos (como os exigidos pela CVM no Brasil ou SEC nos EUA) demonstram que antes de se cobrar um resultado, é necessário realizar e divulgar a projeção dos volumes de produção estimados.
 
 ::: {.example #exm-projecao-vale name="Projeção de Produção - Vale"}
-Uma mineradora global de grande porte pode publicar em seu formulário de referência anual:
+Uma mineradora global de grande porte pode publicar em seu formulário de referência anual o seu *Guidance* de Produção.
 
-**"Guidance de Produção 2024:**
-* Minério de Ferro: 310-320 Mtpa
-* Níquel: 170-180 kt
-* Cobre: 320-355 kt"
+![Acompanhamento das projeções (Guidance) de produção da Vale.](../images/fig-acompanha-projecoes-vale.png){#fig-acompanha-projecoes-vale fig-align="center"}
 
-Essa é a projeção oficial. O mercado ajusta suas expectativas com base nessa informação. Se a empresa entregar 307,8 Mt de minério (como no exemplo real), ela ficou abaixo da faixa inferior, gerando impacto no valor de mercado e gatilhos de análise crítica.
+Essa é a projeção oficial. O mercado ajusta suas expectativas com base nessa informação. Se a empresa entregar um volume de minério abaixo da faixa inferior (como pode ocorrer em anos de instabilidade), isso gera impacto imediato no valor de mercado e aciona gatilhos de análise crítica na diretoria.
 :::
 
 ### Meta: O Que Você Gostaria Que Acontecesse {#sec-meta}
@@ -530,7 +500,7 @@ Para que a Gestão de Ativos e os Indicadores (KPIs) funcionem em sintonia com a
 
 A @fig-desdobramento-sgi ilustra exatamente essa cascata de desdobramento estrutural do SGI, demonstrando como uma diretriz ampla e abstrata se afunila até se transformar na expressão matemática do desempenho da operação.
 
-```mermaid
+```{mermaid}
 %%| label: fig-desdobramento-sgi
 %%| fig-cap: "Desdobramento lógico das estratégias no SGI: dos Princípios ao Desempenho Operacional"
 graph TD
@@ -591,19 +561,7 @@ Enquanto a *Garantia da Qualidade* atua como a blindagem corporativa, as outras 
 
 Essa divisão não é uma coincidência. Ela é a consagração internacional da mais famosa estrutura de gestão da história da engenharia de produção, desenvolvida por Joseph Juran. Conhecida como a **Trilogia de Juran**, essa metodologia trata a gestão como um fluxo contínuo de três processos vitais e sequenciais.
 
-```mermaid
-%%| label: fig-trilogia-juran
-%%| fig-cap: "Diagrama da Trilogia de Juran: Planejamento, Controle e Melhoria."
-graph LR
-    A[1. Planejamento<br>da Qualidade] -->|Cria o Processo| B[2. Controle<br>da Qualidade]
-    B -->|Mantém o Padrão<br>SDCA| B
-    B -->|Quebra o Status Quo| C[3. Melhoria<br>da Qualidade]
-    C -->|Novo Patamar<br>PDCA| B
-
-    style A fill:#2ecc71,stroke:#333,color:#fff
-    style B fill:#f1c40f,stroke:#333
-    style C fill:#e74c3c,stroke:#333,color:#fff
-```
+![Diagrama da Trilogia de Juran: Integração entre Planejamento, Controle e Melhoria ao longo do tempo.](../images/trilogia-juran.png){#fig-trilogia-juran fig-align="center"}
 
 ### Planejamento da Qualidade (Quality Planning)
 
@@ -611,7 +569,6 @@ O Planejamento da Qualidade é a atividade de desenvolver os produtos e processo
 
 #### O Roteiro de Juran
 
-O pla
 
 nejamento segue um fluxo lógico de 6 passos para converter necessidades abstratas em operação física:
 
@@ -683,9 +640,7 @@ A inspeção (verificar apenas o produto no fim da linha) é um método fraco de
 
 Para garantir estabilidade, utiliza-se o **Ciclo SDCA** (*Standardize, Do, Check, Act*). Enquanto o PDCA resolve "picos esporádicos" e inova, o SDCA garante o cumprimento rigoroso dos Procedimentos Operacionais Padrões (POPs), fechando a malha de sustentação.
 
-```mermaid
-%%| label: fig-sdca
-%%| fig-cap: "Ciclo SDCA para padronização e manutenção da rotina."
+```{mermaid}
 graph TD
     S(Standardize<br>Padronizar Meta e POP) --> D(Do<br>Executar e Coletar Dados)
     D --> C(Check<br>Verificar Indicadores)
@@ -885,6 +840,69 @@ Por que uma organização que implementa apenas Planejamento (sem Controle e Mel
 **Meta e Realidade**
 Se a meta definida for muito fácil de atingir, qual é o risco à cultura de melhoria contínua? E se for impossível?
 :::
+
+### 💻 TECH NOTE: Laboratório de R - Definição de Metas pelo Método da Lacuna
+
+Definir um Objetivo da Qualidade SMART exige conhecer a **Lacuna (Gap)** existente. Na engenharia aplicada, a meta não nasce de um desejo subjetivo da diretoria, mas de uma análise estatística rigorosa comparando o desempenho atual (Baseline) com a referência desejada (Benchmark).
+
+A @fig-metodo-lacuna ilustra o "Método da Lacuna". O processo segue quatro passos matemáticos:
+1.  **Baseline:** O desempenho médio atual purgado de outliers (ex: 12.96).
+2.  **Referência (Benchmark):** O alvo de excelência, muitas vezes definido pelo Q10 (o 10º melhor resultado da série) (ex: 7.0).
+3.  **Lacuna:** A diferença total entre o Baseline e a Referência (5.96).
+4.  **Meta Final:** Define-se quanto da lacuna será "capturado" neste ciclo (ex: 60% de captura), resultando na nova meta SMART calculada (9.38).
+
+![Aplicação do Método da Lacuna para definição estatística da Meta SMART.](../images/fig-matriz-captura-lacuna.png){#fig-metodo-lacuna fig-align="center"}
+
+O código a seguir demonstra como realizar esse cálculo em R, utilizando bibliotecas de manipulação de dados (`dplyr`) e visualização (`ggplot2`), partindo de dados históricos calculados (`fig19_nic_calculate_kpi`). Observe como cada variável teórica (Lacuna, Captura, Meta) é traduzida em expressão matemática:
+
+```{r}
+#| label: lab-r-metodo-lacuna
+#| echo: true
+#| message: false
+#| warning: false
+#| eval: false
+
+# ------------------------------------------------------------------------------
+# Cálculo Matemático das Metas
+# ------------------------------------------------------------------------------
+
+# 1. Definir a Referência (Benchmark) utilizando o Quantil 10
+ref_q10_val <- quantile(fig19_nic_calculate_kpi$NIC, probs = 0.10)
+
+# 2. Calcular a Lacuna (Gap total) entre a Média e a Referência
+lacuna_val  <- mean(fig19_nic_calculate_kpi$NIC) - ref_q10_val
+
+# 3. Definir a agressividade da meta (Agressividade de Captura = 60%)
+captura_val <- lacuna_val * 0.60
+
+# 4. Calcular o valor final da Meta SMART
+meta_val    <- mean(fig19_nic_calculate_kpi$NIC) - captura_val
+
+# ------------------------------------------------------------------------------
+# Geração da Visualização (Gráfico da Lacuna)
+# ------------------------------------------------------------------------------
+
+# Preparar dados para o gráfico de barras (formato rect para efeito waterfall)
+fig20_gap_process_data <- data.frame(
+  item  = factor(c("Baseline", "Referência", "Lacuna", "Captura", "Meta"), levels = c("Baseline", "Referência", "Lacuna", "Captura", "Meta")),
+  valor = c(fig19_nic_process_pars$baseline_nic[1], ref_q10_val, lacuna_val, captura_val, meta_val)
+) %>% mutate(
+  xmin = as.numeric(item)-0.4, xmax = as.numeric(item)+0.4,
+  ymin = c(0, 0, ref_q10_val, meta_val, 0),
+  ymax = c(fig19_nic_process_pars$baseline_nic[1], ref_q10_val, fig19_nic_process_pars$baseline_nic[1], fig19_nic_process_pars$baseline_nic[1], meta_val)
+)
+
+# Plotar o gráfico utilizando ggplot2
+fig20_gap <- ggplot(fig20_gap_process_data) +
+  geom_rect(aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = item), colour = "white") +
+  geom_text(aes(x = (xmin+xmax)/2, y = ymax + 0.5, label = round(abs(valor), 2)), fontface = "bold") +
+  scale_fill_manual(values = cores_projeto[c(1, 2, 3, 4, 10)]) +
+  scale_x_continuous(breaks = 1:5, labels = fig20_gap_process_data$item) +
+  labs(title = "Método da Lacuna", x = "Etapa de Cálculo", y = "Valor Indicador") +
+  theme_default + theme(legend.position = "none")
+
+print(fig20_gap)
+```
 
 ## Exercícios Adicionais {#sec-exercicios-adicionais-cap4}
 
