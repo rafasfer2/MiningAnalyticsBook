@@ -134,40 +134,74 @@ O problema não é o processo não atingir a média (ele atinge), o problema é 
 * **@exr-cap2-ref-q2:** O Lean na mineração não foca em "peça a peça" como em carros, mas sim em "fluxo contínuo" (evitar que a britagem pare por falta de caminhão) e na manutenção extrema (TPM) para que gargalos não quebrem.
 * **@exr-cap2-ref-q3:** O desafio do Seis Sigma em bens naturais é separar a "causa especial" (erro humano ou de máquina) da "causa comum" (a heterogeneidade natural da geologia da mina), exigindo *Design of Experiments* (DOE) complexos de *blendagem*.
 
-## Capítulo 3: Sistemas de Qualidade (TQM e ISO) {#sec-gabarito-cap3}
+## Capítulo 3: O Motor Matemático - Modelagem ARM {#sec-gabarito-cap3}
 
-### Resolução do @exr-cap2-tqm-semeadoras {#sec-gab-tqm-semeadoras}
-O lote de semeadoras com cor errada evidencia uma **falha sistêmica profunda** no TQM:
-* Almoxarifado falhou (Mensuração/Recebimento).
-* Compras falhou (Parceria com Fornecedor).
-* Operador falhou (Falta de Treinamento e Empowerment para frear a linha).
-* Gestão falhou (Falta de travas Poka-Yoke no processo).
-Nenhuma camada de defesa atuou. A qualidade exige redundância preventiva.
+### Resolução do @exr-cap3-arm-mineral {#sec-gab-cap3-arm-mineral}
+**Modelo ARM Unidimensional para Minério de Ferro Britado:**
+* **Variáveis ($x_i$) e Pesos ($w_i$):** $x_1$: Teor de Fe ($w_1 = 0,40$)
+  $x_2$: Teor de Sílica ($w_2 = 0,25$)
+  $x_3$: Granulometria ($w_3 = 0,15$)
+  $x_4$: Umidade ($w_4 = 0,10$)
+  $x_5$: Alumina ($w_5 = 0,10$)
+  *(Soma dos pesos = 1,00)*
+* **Notas de Desempenho Normalizadas ($x^*_i$) de um lote fictício:**
+  $x^*_1 = 0,90$ (Fe excelente); $x^*_2 = 0,60$ (Sílica alta); $x^*_3 = 0,80$; $x^*_4 = 1,00$; $x^*_5 = 0,90$.
+* **Cálculo Global ($\theta$):**
+  $\theta = (0,40 \times 0,90) + (0,25 \times 0,60) + (0,15 \times 0,80) + (0,10 \times 1,00) + (0,10 \times 0,90)$
+  $\theta = 0,36 + 0,15 + 0,12 + 0,10 + 0,09 = \mathbf{0,82}$ (Score Global de 82%).
 
-### Resolução do @case-sabor-frio {#sec-gabarito-case-sabor-frio}
-* **Visão dos Gurus:** Crosby implementaria Poka-Yoke contra lacres soltos. Juran cortaria a baunilha importada (superqualidade). Feigenbaum uniria Compras e Produção.
-* **Eras da Qualidade:** O salto da Era 1 para a Era 3 trocaria a prova manual de sorvete por sensores automatizados (*overrun* e temperatura) e manutenção autônoma preventiva.
-* **Produtividade Econômica:** A produtividade atual é 1,25. Cortar a superqualidade (baunilha) eleva para 1,43. Investir na preventiva da seladora rende R$ 40k de economia, levando o indicador para 1,47 (ROI indiscutível).
+### Resolução do @exr-cap3-arvore-valor {#sec-gab-cap3-arvore-valor}
+**Árvore de Valor: Escavadeira Hidráulica**
+* **Nó Raiz ($\theta$):** Qualidade de Operação da Escavadeira
+  * **Dimensão 1 ($D_1$): Disponibilidade e Manutenção**
+    * $x_{1.1}$: MTBF (Tempo Médio Entre Falhas)
+    * $x_{1.2}$: Tempo Médio de Reparo (MTTR)
+  * **Dimensão 2 ($D_2$): Desempenho de Produção**
+    * $x_{2.1}$: Produtividade (Toneladas/hora)
+    * $x_{2.2}$: Eficiência de Combustível (Litros/tonelada)
+  * **Dimensão 3 ($D_3$): Segurança e Ergonomia**
+    * $x_{3.1}$: Número de alarmes de colisão/fadiga
+    * $x_{3.2}$: Condição de cabine (Ruído/Ar-condicionado)
 
-### Resolução do @case-express-mineral {#sec-gabarito-case-express-mineral}
-O corte de custos afetou o **Aprendizado** (treinamento) e os **Processos Internos** (manutenção dos trilhos), culminando em descarrilamento. A falha refletiu no **Cliente** (atrasos) e afundou a área **Financeira** (multas). A perspectiva financeira é um *lagging indicator* (resultado do passado).
+### Resolução do @exr-cap3-diagrama-mudge {#sec-gab-cap3-diagrama-mudge}
+O Diagrama de Mudge compara as 4 variáveis (Disponibilidade, Estabilidade, Eficiência, Segurança) em pares (A x B, A x C, etc.), atribuindo uma nota de intensidade para a vencedora (ex: 1=leve, 3=médio, 5=forte).
+* Em uma operação mineral, "Segurança" vence todos os confrontos com intensidade máxima (5), somando a maior pontuação bruta.
+* "Disponibilidade" vence "Eficiência", pois a máquina precisa funcionar antes de ser eficiente.
+* Ao final, soma-se a pontuação de cada variável e divide-se pelo total de pontos da matriz, extraindo o percentual exato ($w_i$) de cada uma, eliminando o achismo gerencial.
 
-### Resolução do @exr-dimensoes-hospital {#sec-gab-dimensoes-hospital}
-A sequência do mapeamento é: **2 (Serviços), 4 (Ambiente), 1 (Transformadores), 3 (Operacional)**.
-A lavanderia é Serviço de Apoio. A comunicação entre setores é o Ambiente interno. Protocolos são Transformadores. A cirurgia bem-sucedida é a Execução Operacional crítica.
+### Resolução do @exr-cap3-kpi-transporte {#sec-gab-cap3-kpi-transporte}
+* **$D_1$ (Confiabilidade - Peso 0,40):** $x_{1.1}$ (DF = 0,90), $x_{1.2}$ (MTBF = 0,80). Score $D_1 = 0,85$.
+* **$D_2$ (Eficiência - Peso 0,30):** $x_{2.1}$ (Ciclo = 0,70), $x_{2.2}$ (Consumo = 0,60). Score $D_2 = 0,65$.
+* **$D_3$ (Segurança - Peso 0,30):** $x_{3.1}$ (Velocidade = 0,90), $x_{3.2}$ (Fadiga = 1,00). Score $D_3 = 0,95$.
+* **Score Global ($\theta$):** $\theta = (0,40 \times 0,85) + (0,30 \times 0,65) + (0,30 \times 0,95) = 0,34 + 0,195 + 0,285 = \mathbf{0,82}$.
 
-### Resolução do @sec-simulado-integrado {#sec-gab-simulado-integrado}
-1. (B) **Joseph Juran:** Adequação ao Uso e Trilogia da Qualidade.
-2. (A) **Falha Interna:** Retrabalho antes de o produto chegar ao mercado.
-3. (C) **Aprendizado (*Learn*):** MEG e PDCL focam no Conhecimento Organizacional.
-4. (A) **Superprodução:** O pior desperdício do *Lean*, pois esconde problemas e consome caixa.
-5. (B) **DMAIC:** Roteiro Seis Sigma para reduzir variabilidade.
-6. (B) **A versão 2015 foca em Riscos e Liderança.**
-7. (C) **SDCA:** O padrão (Standard) garante que a melhoria não retroceda.
-8. (C) **Entregar atributos não valorizados:** Superqualidade destrói margem por aumento isolado de custo.
-9. (C) **Equipe de Operação:** Cliente interno primário no fluxo de ARI.
-10. (A) **Produtividade Financeira:** Elevada pelo aumento do Valor Percebido e corte de Custo.
+### Resolução do @exr-cap3-unidimensional-vs-multi {#sec-gab-cap3-unidimensional-vs-multi}
+O modelo multidimensional é mais robusto porque cria "bolsões de isolamento" (Dimensões) que impedem que o excesso de desempenho em uma área mascare o fracasso crítico em outra.
+* **Uso Univariável:** Ideal para objetos simples e físicos (ex: avaliar a composição química de uma pelota de minério), onde as variáveis interagem no mesmo nível físico.
+* **Uso Multidimensional:** Essencial para sistemas complexos ou humanos (ex: auditoria de usina, onde o alto volume de produção não pode compensar matematicamente a destruição ambiental ou os acidentes de trabalho).
 
+### Resolução do @exr-cap3-ajuste-pesos {#sec-gab-cap3-ajuste-pesos}
+Se a estratégia mudou, a matemática do modelo deve mudar para refletir o que a diretoria valoriza agora. Os pesos ($w_i$) seriam invertidos: o "Consumo de Energia" subiria de $0,20$ para $0,50$ (tornando-se a prioridade do algoritmo), enquanto a "Qualidade de Fragmentação" cairia de $0,50$ para $0,20$ ou $0,30$. O algoritmo ARM garante que a base operacional seja cobrada exatamente pelo que a liderança definiu como meta.
+
+### Resolução do @exr-cap3-trade-off {#sec-gab-cap3-trade-off}
+A equação do ARM permite simular cenários antes de gastar dinheiro.
+* **Cenário Atual:** $\theta = 0,76$ (assumindo pesos iguais de 0,33).
+* **Cenário A (Substituir):** A Confiabilidade sobe para 0,9, mas o Custo cai para 0,4 (devido à depreciação da compra). O novo cálculo derruba o $\theta$ para 0,70.
+* **Cenário B (Manutenção):** A Confiabilidade sobe para 0,8, com leve impacto no Custo (0,8). O novo cálculo eleva o $\theta$ para 0,80.
+* **Conclusão:** O algoritmo prova numericamente que o *trade-off* favorável é investir em manutenção, não em substituição.
+
+### Resolução do @exr-cap3-case-qualidade-completa {#sec-gab-cap3-case-qualidade-completa}
+1. **Dimensões:** $D_1$ (Qualidade do Produto), $D_2$ (Estabilidade Operacional), $D_3$ (Custos).
+2. **Variáveis:** $D_1$ (Granulometria P80, Carga Circulante); $D_2$ (Disponibilidade Física, Horas de Parada de Correia); $D_3$ (Consumo de energia/ton, Desgaste de revestimentos).
+3. *(Árvore de Valor reflete a hierarquia do item 1 e 2)*.
+4. **Mudge:** Define pesos (ex: $D_2$ recebe 50%, pois a usina não pode parar; $D_1$ recebe 30%; $D_3$ recebe 20%).
+5. **Cálculo Fictício:** Se a usina atinge notas máximas em Produto e Custo, mas nota 0,40 em Estabilidade (muitas quebras), o peso de 50% em $D_2$ puxará o score global $\theta$ para baixo, alertando a diretoria de que a planta é insustentável.
+
+### Resoluções Rápidas: Debate (Bloco 6) {#sec-gab-debate-cap3}
+* **@exr-cap3-ref-q1:** A objetividade não está na origem do peso, mas na *estabilidade da regra*. Uma vez que a regra (peso) é pactuada via diagrama, o processamento dos dados medidos ($x_i$) torna-se estritamente cego e matemático, blindado contra "opiniões" da operação de campo.
+* **@exr-cap3-ref-q2:** O $\theta$ é um diagnóstico, não o remédio. Ele funciona como o termômetro do paciente (ex: "Sua qualidade caiu de 0,90 para 0,60 por causa de $x_2$"). A ação só acontece quando a engenharia utiliza o MASP e o PDCA para investigar *por que* $x_2$ falhou e consertar o processo.
+* **@exr-cap3-ref-q3:** Algoritmos de IA precisam de dados estruturados. O modelo ARM limpa o "lixo", entregando aos modelos preditivos variáveis padronizadas ($x_i$) e uma variável alvo bem definida ($\theta$), permitindo que a IA preveja quedas de qualidade antes da falha ocorrer.
+*
 ## Capítulo 4: Ferramentas da Qualidade e MASP {#sec-gabarito-cap4}
 
 ### Resolução do @exr-construcao-hoshin {#sec-gab-construcao-hoshin}

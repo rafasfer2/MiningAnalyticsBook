@@ -86,34 +86,37 @@ Na mineração, o TQM se manifesta através da integração rigorosa entre Opera
 %%| fig-cap: "Os 9 Fatores Críticos de Sucesso do TQM"
 flowchart TD
 
-    %% --- CONFIGURAÇÃO DE ESTILOS (Garantindo letras grandes e legibilidade) ---
+    %% --- CONFIGURAÇÃO DE ESTILOS ---
     classDef mainStyle fill:#2c3e50,stroke:#2c3e50,stroke-width:2px,color:#ffffff,font-size:18px,font-weight:bold
     classDef catStyle fill:#34495e,stroke:#2c3e50,stroke-width:2px,color:#ffffff,font-size:16px,font-weight:bold
     classDef itemStyle fill:#f8f9fa,stroke:#bdc3c7,stroke-width:2px,color:#2c3e50,font-size:15px,font-weight:bold
 
-    %% --- ESTRUTURA DOS NÓS ---
-    TQM{{"Gestão da\nQualidade Total (TQM)"}}
+    %% --- NÓ CENTRAL ---
+    TQM{{"Gestão da<br/>Qualidade Total (TQM)"}}
 
+    %% --- CATEGORIAS (PILARES) ---
     L("Liderança e Estratégia")
     P("Pessoas e Cultura")
     O("Processos e Operação")
 
-    TQM --> L
-    TQM --> P
-    TQM --> O
+    TQM ==> L
+    TQM ==> P
+    TQM ==> O
 
-    %% Usando o traço " - " em vez de ponto " . " para evitar o erro de Markdown List
+    %% --- FATORES DA LIDERANÇA ---
     L --> F1["1 - Comprometimento da Alta Administração"]
-    L --> F2["2 - Foco no Consumidor"]
-    L --> F8["8 - Benchmarking"]
+    F1 --> F2["2 - Foco no Consumidor"]
+    F2 --> F8["8 - Benchmarking"]
 
+    %% --- FATORES DE PESSOAS ---
     P --> F4["4 - Envolvimento dos Funcionários"]
-    P --> F5["5 - Treinamento"]
-    P --> F9["9 - Empowerment"]
+    F4 --> F5["5 - Treinamento"]
+    F5 --> F9["9 - Empowerment"]
 
+    %% --- FATORES DE PROCESSOS ---
     O --> F3["3 - Parceria com o Fornecedor"]
-    O --> F6["6 - Mensuração da Qualidade"]
-    O --> F7["7 - Melhoria Contínua"]
+    F3 --> F6["6 - Mensuração da Qualidade"]
+    F6 --> F7["7 - Melhoria Contínua"]
 
     %% --- APLICAÇÃO DOS ESTILOS ---
     class TQM mainStyle;

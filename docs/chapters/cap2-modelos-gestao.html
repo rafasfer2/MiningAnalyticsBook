@@ -600,34 +600,37 @@ Tabela&nbsp;2.1: Evolução de Paradigma: Da Era da Inspeção ao TQM
 <div>
 <pre class="mermaid mermaid-js" data-label="fig-9pilares-tqm">flowchart TD
 
-    %% --- CONFIGURAÇÃO DE ESTILOS (Garantindo letras grandes e legibilidade) ---
+    %% --- CONFIGURAÇÃO DE ESTILOS ---
     classDef mainStyle fill:#2c3e50,stroke:#2c3e50,stroke-width:2px,color:#ffffff,font-size:18px,font-weight:bold
     classDef catStyle fill:#34495e,stroke:#2c3e50,stroke-width:2px,color:#ffffff,font-size:16px,font-weight:bold
     classDef itemStyle fill:#f8f9fa,stroke:#bdc3c7,stroke-width:2px,color:#2c3e50,font-size:15px,font-weight:bold
 
-    %% --- ESTRUTURA DOS NÓS ---
-    TQM{{"Gestão da\nQualidade Total (TQM)"}}
+    %% --- NÓ CENTRAL ---
+    TQM{{"Gestão da&lt;br/&gt;Qualidade Total (TQM)"}}
 
+    %% --- CATEGORIAS (PILARES) ---
     L("Liderança e Estratégia")
     P("Pessoas e Cultura")
     O("Processos e Operação")
 
-    TQM --&gt; L
-    TQM --&gt; P
-    TQM --&gt; O
+    TQM ==&gt; L
+    TQM ==&gt; P
+    TQM ==&gt; O
 
-    %% Usando o traço " - " em vez de ponto " . " para evitar o erro de Markdown List
+    %% --- FATORES DA LIDERANÇA ---
     L --&gt; F1["1 - Comprometimento da Alta Administração"]
-    L --&gt; F2["2 - Foco no Consumidor"]
-    L --&gt; F8["8 - Benchmarking"]
+    F1 --&gt; F2["2 - Foco no Consumidor"]
+    F2 --&gt; F8["8 - Benchmarking"]
 
+    %% --- FATORES DE PESSOAS ---
     P --&gt; F4["4 - Envolvimento dos Funcionários"]
-    P --&gt; F5["5 - Treinamento"]
-    P --&gt; F9["9 - Empowerment"]
+    F4 --&gt; F5["5 - Treinamento"]
+    F5 --&gt; F9["9 - Empowerment"]
 
+    %% --- FATORES DE PROCESSOS ---
     O --&gt; F3["3 - Parceria com o Fornecedor"]
-    O --&gt; F6["6 - Mensuração da Qualidade"]
-    O --&gt; F7["7 - Melhoria Contínua"]
+    F3 --&gt; F6["6 - Mensuração da Qualidade"]
+    F6 --&gt; F7["7 - Melhoria Contínua"]
 
     %% --- APLICAÇÃO DOS ESTILOS ---
     class TQM mainStyle;
@@ -646,83 +649,65 @@ Figura&nbsp;2.1: Os 9 Fatores Críticos de Sucesso do TQM
 <p>Para que o TQM seja efetivamente implantado e mensurado, a literatura consolida <strong>9 Fatores Críticos de Sucesso (FCS)</strong>. Estes pilares permitem auditar o grau de maturidade organizacional e identificar as práticas gerenciais que precisam ser fortalecidas:</p>
 <p><strong>1. Comprometimento da Alta Administração</strong></p>
 <p>A qualidade deve começar no topo da hierarquia. A liderança não deve apenas apoiar, mas patrocinar ativamente o sistema.</p>
-<ul>
-<li>Avaliação periódica da qualidade executada pela alta gestão.</li>
-<li>Discussão constante da importância da qualidade nos fóruns executivos.</li>
-<li>Alocação de verbas e recursos específicos para a qualidade definidos em orçamento.</li>
-<li>Definição, identificação e documentação clara das metas.</li>
-<li>Inserção das metas da qualidade diretamente no planejamento estratégico da empresa.</li>
-<li>Comunicação ativa e visível do compromisso da direção para com toda a empresa.</li>
-</ul>
+<p>1.1. Avaliação periódica da qualidade executada pela alta gestão.</p>
+<p>1.2. Discussão constante da importância da qualidade nos fóruns executivos.</p>
+<p>1.3. Alocação de verbas e recursos específicos para a qualidade definidos em orçamento.</p>
+<p>1.4. Definição, identificação e documentação clara das metas.</p>
+<p>1.5. Inserção das metas da qualidade diretamente no planejamento estratégico da empresa.</p>
+<p>1.6. Comunicação ativa e visível do compromisso da direção para com toda a empresa.</p>
 <p><strong>2. Foco no Consumidor</strong></p>
 <p>O mercado dita o que é valor. O TQM exige ouvir e reagir às necessidades do cliente.</p>
-<ul>
-<li>Comparação da satisfação do cliente com indicadores internos e de concorrentes.</li>
-<li>Fornecimento e transparência das reclamações dos consumidores a todos os departamentos (não apenas ao SAC).</li>
-<li>Utilização das reclamações como base estrutural para a melhoria de processos.</li>
-<li>Manutenção de um serviço ágil e resolutivo de atendimento ao consumidor.</li>
-<li>Realização periódica de pesquisas de satisfação e expectativas.</li>
-</ul>
+<p>2.1. Comparação da satisfação do cliente com indicadores internos e de concorrentes.</p>
+<p>2.2. Fornecimento e transparência das reclamações dos consumidores a todos os departamentos (não apenas ao SAC).</p>
+<p>2.3. Utilização das reclamações como base estrutural para a melhoria de processos.</p>
+<p>2.4. Manutenção de um serviço ágil e resolutivo de atendimento ao consumidor.</p>
+<p>2.5. Realização periódica de pesquisas de satisfação e expectativas.</p>
 <p><strong>3. Parceria com o Fornecedor</strong></p>
 <p>A qualidade do produto final depende intrinsecamente da qualidade dos insumos recebidos.</p>
-<ul>
-<li>Utilização da qualidade (e não apenas do preço) como critério de peso para a seleção de fornecedores.</li>
-<li>Estabelecimento de contratos de longo prazo, gerando estabilidade.</li>
-<li>Fornecimento de assistência técnica da contratante para desenvolver o fornecedor.</li>
-<li>Participação do fornecedor desde o processo de desenvolvimento e projeto do produto.</li>
-</ul>
+<p>3.1. Utilização da qualidade (e não apenas do preço) como critério de peso para a seleção de fornecedores.</p>
+<p>3.2. Estabelecimento de contratos de longo prazo, gerando estabilidade.</p>
+<p>3.3. Fornecimento de assistência técnica da contratante para desenvolver o fornecedor.</p>
+<p>3.4. Participação do fornecedor desde o processo de desenvolvimento e projeto do produto.</p>
 <p><strong>4. Envolvimento dos Funcionários</strong></p>
 <p>A qualidade é construída pelas pessoas que operam o processo diariamente.</p>
-<ul>
-<li>Realização periódica de reuniões em cada área específica para discussão sobre qualidade.</li>
-<li>Criação de equipes interfuncionais (multidisciplinares) para tratar de problemas sistêmicos.</li>
-<li>Avaliação rigorosa de todas as sugestões emitidas pelos funcionários.</li>
-<li>Implantação efetiva das sugestões aprovadas.</li>
-<li>Concessão de prêmios e recompensas não financeiras pelo engajamento e boas ideias.</li>
-</ul>
+<p>4.1. Realização periódica de reuniões em cada área específica para discussão sobre qualidade.</p>
+<p>4.2. Criação de equipes interfuncionais (multidisciplinares) para tratar de problemas sistêmicos.</p>
+<p>4.3. Avaliação rigorosa de todas as sugestões emitidas pelos funcionários.</p>
+<p>4.4. Implantação efetiva das sugestões aprovadas.</p>
+<p>4.5. Concessão de prêmios e recompensas não financeiras pelo engajamento e boas ideias.</p>
 <p><strong>5. Treinamento</strong></p>
 <p>A capacitação é o motor da estabilidade do processo.</p>
-<ul>
-<li>Alocação de recursos financeiros e de tempo necessários para o treinamento.</li>
-<li>Envolvimento de todos os escalões da empresa (da diretoria ao chão de fábrica) nos treinamentos de qualidade.</li>
-<li>Capacitação de uma grande base de funcionários em técnicas metódicas de solução de problemas.</li>
-<li>Treinamento técnico em ferramentas e controle estatístico.</li>
-</ul>
+<p>5.1. Alocação de recursos financeiros e de tempo necessários para o treinamento.</p>
+<p>5.2. Envolvimento de todos os escalões da empresa (da diretoria ao chão de fábrica) nos treinamentos de qualidade.</p>
+<p>5.3. Capacitação de uma grande base de funcionários em técnicas metódicas de solução de problemas.</p>
+<p>5.4. Treinamento técnico em ferramentas e controle estatístico.</p>
 <p><strong>6. Mensuração da Qualidade</strong></p>
 <p>O que não se mede, não se gerencia. A coleta de dados deve ser confiável e contínua.</p>
-<ul>
-<li>Execução de inspeções por amostragem durante o processo de produção (preventivo).</li>
-<li>Avaliação da qualidade em múltiplas etapas, não se limitando apenas à inspeção final do produto pronto.</li>
-<li>Medição periódica dos índices de desperdícios, retrabalho e falhas de produtos não-conformes.</li>
-<li>Manutenção rigorosa de registros e históricos das avaliações.</li>
-<li>Transparência no fornecimento dos resultados das avaliações a todos os funcionários.</li>
-<li>Utilização real dos resultados como suporte primário para a melhoria.</li>
-</ul>
+<p>6.1. Execução de inspeções por amostragem durante o processo de produção (preventivo).</p>
+<p>6.2. Avaliação da qualidade em múltiplas etapas, não se limitando apenas à inspeção final do produto pronto.</p>
+<p>6.3. Medição periódica dos índices de desperdícios, retrabalho e falhas de produtos não-conformes.</p>
+<p>6.4. Manutenção rigorosa de registros e históricos das avaliações.</p>
+<p>6.5. Transparência no fornecimento dos resultados das avaliações a todos os funcionários.</p>
+<p>6.6. Utilização real dos resultados como suporte primário para a melhoria.</p>
 <p><strong>7. Melhoria Contínua</strong></p>
 <p>A busca incessante por estabelecer novos e melhores padrões de desempenho.</p>
-<ul>
-<li>Manutenção de uma estrutura organizacional específica dedicada a apoiar a qualidade.</li>
-<li>Existência de programas formais para a redução de tempo e custo nos processos internos.</li>
-<li>Execução de avaliações profundas nos processos-chave (gargalos) de produção.</li>
-<li>Programas formais para a redução do Lead Time (tempo de entrega do produto ao cliente).</li>
-<li>Programas formais para a redução do tempo de ciclo de fabricação.</li>
-</ul>
+<p>7.1. Manutenção de uma estrutura organizacional específica dedicada a apoiar a qualidade.</p>
+<p>7.2. Existência de programas formais para a redução de tempo e custo nos processos internos.</p>
+<p>7.3. Execução de avaliações profundas nos processos-chave (gargalos) de produção.</p>
+<p>7.4. Programas formais para a redução do Lead Time (tempo de entrega do produto ao cliente).</p>
+<p>7.5. Programas formais para a redução do tempo de ciclo de fabricação.</p>
 <p><strong>8. Benchmarking</strong></p>
 <p>Olhar para o mercado e aprender com os melhores, independentemente do setor.</p>
-<ul>
-<li>Realização de visitas técnicas a outras organizações reconhecidamente líderes.</li>
-<li>Procedimento efetivo de benchmarking para monitorar os competidores diretos mais fortes.</li>
-<li>Procedimento de benchmarking com empresas líderes de outros setores (não competidores) para importar inovações.</li>
-<li>Manutenção do benchmarking não como uma ação isolada, mas como uma política contínua da empresa.</li>
-</ul>
+<p>8.1. Realização de visitas técnicas a outras organizações reconhecidamente líderes.</p>
+<p>8.2. Procedimento efetivo de benchmarking para monitorar os competidores diretos mais fortes.</p>
+<p>8.3. Procedimento de benchmarking com empresas líderes de outros setores (não competidores) para importar inovações.</p>
+<p>8.4. Manutenção do benchmarking não como uma ação isolada, mas como uma política contínua da empresa.</p>
 <p><strong>9. Empowerment (Delegação de Poderes)</strong></p>
 <p>Dar autonomia à operação para agir rapidamente sobre os desvios.</p>
-<ul>
-<li>Delegação de autoridade aos funcionários da linha de frente para a solução imediata de problemas operacionais.</li>
-<li>Fornecimento de apoio gerencial e técnico para que os funcionários tomem essas decisões.</li>
-<li>Transferência da execução da inspeção da qualidade para os próprios operadores (autocontrole), reduzindo a dependência de inspetores externos.</li>
-<li>Divulgação e celebração interna das experiências de sucesso na solução de problemas.</li>
-</ul>
+<p>9.1. Delegação de autoridade aos funcionários da linha de frente para a solução imediata de problemas operacionais.</p>
+<p>9.2. Fornecimento de apoio gerencial e técnico para que os funcionários tomem essas decisões.</p>
+<p>9.3. Transferência da execução da inspeção da qualidade para os próprios operadores (autocontrole), reduzindo a dependência de inspetores externos.</p>
+<p>9.4. Divulgação e celebração interna das experiências de sucesso na solução de problemas.</p>
 <div id="exm-tqm-implementos" class="example theorem">
 <p><span class="theorem-title"><strong>Exemplo 2.3 (Os 9 Fatores na Prática: Fabricação de Implementos Agrícolas)</strong></span> Para exemplificar os Fatores Críticos de Sucesso operando em conjunto, vamos utilizar o caso de uma Indústria de Fabricação de Implementos Agrícolas (Arados e Semeadoras), onde a durabilidade no campo é o diferencial competitivo:</p>
 <ol type="1">
@@ -732,8 +717,8 @@ Figura&nbsp;2.1: Os 9 Fatores Críticos de Sucesso do TQM
 <li><strong>Envolvimento dos Funcionários:</strong> A empresa possui Círculos de Controle da Qualidade (CCQ). Um grupo de montadores sugeriu uma mudança no suporte de ferramentas que reduziu o risco de arranhões na pintura. A sugestão foi implementada e os funcionários receberam um jantar comemorativo e uma placa de “Inovadores do Mês”.</li>
 <li><strong>Treinamento:</strong> Todo novo funcionário passa por 40 horas de treinamento antes de tocar em uma máquina. O treinamento inclui desde a operação técnica até o uso de Diagramas de Ishikawa para que saibam investigar a causa raiz de qualquer peça que saia fora da medida.</li>
 <li><strong>Mensuração da Qualidade:</strong> A fábrica não aceita o “eu acho que a pintura está boa”. O engenheiro utiliza um medidor de espessura de camada digital em amostras de cada lote. Os dados são plotados em Cartas de Controle; se a espessura da tinta cai 2 mícrons, o sistema emite um alerta antes mesmo de a peça apresentar falha visual.</li>
-<li><strong>Gestão de Processos (Prevenção):</strong> Em vez de apenas olhar o arado pronto no final da linha, a fábrica foca nas condições controladas de cada etapa. A máquina de corte a laser possui sensores que travam a operação se o bico estiver sujo. A qualidade é garantida pela estabilidade do processo.</li>
 <li><strong>Melhoria Contínua (Kaizen):</strong> A empresa adota a filosofia de que “hoje deve ser melhor que ontem”. Após cada safra, a equipe de engenharia se reúne com os mecânicos de campo para um Ciclo PDCA. Eles analisam pequenos desgastes e decidem mudar o torque de aperto em 5%.</li>
+<li><strong>Gestão de Processos (Prevenção):</strong> Em vez de apenas olhar o arado pronto no final da linha, a fábrica foca nas condições controladas de cada etapa. A máquina de corte a laser possui sensores que travam a operação se o bico estiver sujo. A qualidade é garantida pela estabilidade do processo.</li>
 <li><strong>Cultura da Qualidade:</strong> A qualidade deixou de ser uma regra e virou um valor pessoal. Se um faxineiro percebe uma poça de óleo perto de uma sementeira pronta, ele avisa imediatamente a manutenção, pois entende que aquele óleo pode contaminar o solo do cliente ou indicar falha mecânica. Há orgulho em entregar o melhor.</li>
 </ol>
 </div>

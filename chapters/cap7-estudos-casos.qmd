@@ -145,53 +145,73 @@ Vamos analisar como as Variáveis reagem contra a lente do **Perfil 1**:
 
    - **FORTE (2.0):** *(O núcleo matemático)*
      - (C01) Análise de dados
+
      - (C02) Modelagem de processos
+
      - (C03) Raciocínio lógico
+
      - (C08) Criatividade técnica
 
    - **MODERADA (1.0):** *(Habilidades úteis, mas não centrais)*
      - (C04) Comunicação
+
      - (C05) Trabalho em equipe
 
    - **FRACA (0.2):** *(Entregas delegadas a outros perfis)*
      - (C06) Sustentabilidade
+
      - (C07) Liderança
 
 2. **Habilidades Profissionais (H): O Domínio das Ferramentas**
 
    - **FORTE (2.0):** *(Uso de softwares e solução estruturada)*
      - H01, H02, H03, H04: Reconhecer contextos, compreender fenômenos, analisar dados, formular problemas
+
      - H06, H07: Pensamento crítico e complexidade sociotécnica
+
      - H11: Planejar atividades e projetos
+
      - H16: Organizar informações
 
    - **MODERADA (1.0):** *(Leitura técnica e avaliação)*
      - H08, H09: Aplicar métodos e utilizar ferramentas computacionais
+
      - H20: Mediar conflitos e alinhar expectativas
 
    - **FRACA (0.2):** *(Funções periféricas ao foco analítico)*
      - H05, H10: Diferenciar causas e desenvolver melhorias
+
      - H12 a H15: Pesquisa, aplicação prática e comunicação
+
      - H17 a H19: Trabalho em equipe e facilitação
+
      - H21 a H23: Criatividade e integração de perspectivas
 
 3. **Atitudes Comportamentais (A): A Postura do Cientista**
 
    - **FORTE (2.0):** *(Questionar dados e buscar causa-raiz)*
      - A01: Visão sistêmica
+
      - A02: Visão holística
+
      - A03: Reflexão
+
      - A04: Pensamento crítico
+
      - A05: Curiosidade intelectual
 
    - **MODERADA (1.0):** *(Ética e consciência como guardrails)*
      - A06: Ética
+
      - A07: Consciência social e ambiental
+
      - A20: Responsabilidade coletiva
 
    - **FRACA (0.2):** *(Gestão subjetiva de emoções)*
      - A08 a A10: Visão humanista, empatia, respeito às diferenças
+
      - A11 a A15: Autonomia, persistência, iniciativa, criatividade, empreendedorismo
+
      - A16 a A19: Colaboração, cooperação, liderança, comunicação empática
 
 #### A Demonstração Matemática: Como o algoritmo calcula os pesos?
@@ -240,9 +260,8 @@ A Tabela abaixo demonstra a distribuição exata dos pesos percentuais ($w_{i,p}
 | **C08** | Aprender de forma autônoma e lidar com complexidade | 15,00 | 10,00 | 20,00 | 10,00 | 3,00 | 10,00 |
 | | **TOTAL DA DIMENSÃO (100%)** | **100,00** | **100,00** | **100,00** | **100,00** | **100,00** | **100,00** |
 
-: Matriz de Pesos Percentuais ($w_{i,p}$) das Competências por Perfil {#tbl-pesos-competencias}
-
-: Matriz de Pesos Percentuais ($w_i$) das Competências por Perfil {#tbl-pesos-competencias}
+: Matriz d
+e Pesos Percentuais ($w_{i,p}$) das Competências por Perfil {#tbl-pesos-competencias}
 
 **Analisando o Contraste Matemático:**
 
@@ -255,6 +274,7 @@ A matriz revela imediatamente como o algoritmo "molda" a vocação do aluno filt
 * **A Oposição Ortogonal (P04 - O Comunicador):** Este é o teste definitivo da calibragem. O Perfil 4 é a antítese técnica do Perfil 1; sua entrega central é a empatia e a articulação. Note que a competência de Comunicação (C05) suga quase metade da pontuação do perfil (40%), enquanto as competências de física e química (C02) desabam para apenas 2%.
 
 Essa mecânica de distribuição anula definitivamente o "Viés de Consistência" (o aluno que responde nota máxima em tudo). Ao multiplicar a resposta linear do avaliado ($x_i$) por uma matriz altamente assimétrica, a engenharia de dados "puxa o tapete" das variáveis que não interessam àquele perfil específico, forçando o afloramento isolado da verdadeira vocação do avaliado.
+
 ### A Dinâmica de Triangulação e a Formação de Equipes {#sec-dinamica-perfis}
 
 O objetivo central desta modelagem não é apenas rotular o aluno, mas utilizar o algoritmo para a formação estratégica de equipes.
