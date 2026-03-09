@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -960,18 +995,80 @@ Tabela&nbsp;5.4: Paralelo entre o Mapa de Planejamento de Juran e a Modelagem An
 <p><strong>Mão na massa:</strong> Chegou a hora de iniciar o seu projeto aplicado. Para esta etapa, crie um documento contendo: 1. <strong>Termo de Abertura (TAP):</strong> Nome do projeto, justificativa (por que este problema afeta a operação?), objetivos SMART e restrições. 2. <strong>Matriz de Responsabilidades (RACI):</strong> Quem executa, aprova, é consultado e informado. 3. <strong>Definição do Gap:</strong> Construa um comparativo gráfico entre o Indicador Real x Planejado. O “problema” do seu projeto será a diferença métrica entre esses dois valores.</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled" title="💻 TECH NOTE: R &amp; Data Science - Construindo o Gráfico de Lacuna (Waterfall)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>💻 TECH NOTE: R &amp; Data Science - Construindo o Gráfico de Lacuna (Waterfall)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para materializar o <strong>Passo 3 (Definição do Gap)</strong> do Laboratório acima, a engenharia de dados utiliza gráficos de cascata (<em>Waterfall</em>). Eles demonstram exatamente como o indicador saiu do “Programado” e chegou ao “Realizado”, isolando o impacto de cada ofensor (Disponibilidade, Utilização e Produtividade).</p>
+<div id="fig-buildup-producao" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-buildup-producao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/fig-matriz-captura-lacuna.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-buildup-producao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;5.7: Aplicação do Método da Lacuna para definição estatística da Meta SMART.
+</figcaption>
+</figure>
+</div>
+<p>O processamento e a plotagem desse <em>Build-up</em> em R exigem a consolidação dos dados do plano contra o realizado:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># BLOCO 2: FASE 1 - CÁLCULOS GERAIS (IDENTIFICAÇÃO DO PROBLEMA)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"&gt;&gt;&gt; [FASE 1] Iniciando Cálculos Gerais..."</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2.1. Figura 01: Build-up de Produção (Waterfall)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Realizado</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>fig01_buildup_calculate_kpi <span class="ot">&lt;-</span> <span class="fu">calculate_kpi_fleet</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> data_drill_events_full, <span class="at">production_data =</span> data_raw_requipam,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">map_fleet =</span> equipamentos, <span class="at">keys =</span> <span class="cn">NULL</span>, <span class="at">by =</span> <span class="st">"year"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Ano <span class="sc">==</span> <span class="dv">2025</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Meta (Programado)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>fig01_buildup_process_meta <span class="ot">&lt;-</span> <span class="fu">process_integrated_inputs</span>(data_raw_requipam, <span class="st">"TAG"</span>, <span class="st">"Data"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Ano =</span> <span class="fu">year</span>(Dia)) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Ano <span class="sc">==</span> <span class="dv">2025</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Delta e Plotagem</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>fig01_buildup_calculate_production <span class="ot">&lt;-</span> <span class="fu">calculate_production_buildup</span>(fig01_buildup_calculate_kpi, fig01_buildup_process_meta)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>fig01_buildup_process_data <span class="ot">&lt;-</span> <span class="fu">process_data_waterfall</span>(fig01_buildup_calculate_production<span class="sc">$</span>Valor)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>fig01_buildup <span class="ot">&lt;-</span> <span class="fu">plot_waterfall_tdm</span>(fig01_buildup_process_data)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fig01_buildup)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Saída de Dados (Tibble):</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 5 × 7</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">#   desc              amount    id type     start      end      pos</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;fct&gt;              &lt;dbl&gt; &lt;int&gt; &lt;chr&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 Programado      1297282.     1 net         0  1297282. 1297282.</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 Disponibilidade   -2926.     2 out   1297282. 1294356. 1297282.</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 Utilização       -19907.     3 out   1294356. 1274449. 1294356.</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 4 Produtividade    182172.     4 in    1274449. 1456621  1456621.</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 Realizado       1456621      5 per         0  1456621  1456621.</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
 </section>
 <section id="sec-sipoc" class="level3" data-number="5.5.3">
 <h3 data-number="5.5.3" class="anchored" data-anchor-id="sec-sipoc"><span class="header-section-number">5.5.3</span> O Mapeamento de Fronteiras: O Sistema de Produção e a Matriz SIPOC</h3>
 <p>Antes de mergulhar nas causas de um problema usando o Pareto ou o Ishikawa, a equipe de engenharia precisa garantir que todos compreendam o fluxo macro do processo e as suas fronteiras. O maior erro de um projeto de melhoria é a equipe não saber onde o processo começa e onde ele termina, correndo o risco de tentar “abraçar o mundo”.</p>
-<p>Para delimitar esse escopo, utilizamos a visão clássica do Sistema de Produção. Conforme ilustrado na <a href="#fig-sistema-producao" class="quarto-xref">Figura&nbsp;<span>5.7</span></a>, todo processo é um conjunto de atividades estruturadas que recebem entradas, aplicam uma metodologia de transformação utilizando recursos (pessoas, instalações, tecnologia) e geram saídas (produtos ou serviços), interagindo o tempo todo com variáveis ambientais e de segurança.</p>
+<p>Para delimitar esse escopo, utilizamos a visão clássica do Sistema de Produção. Conforme ilustrado na <a href="#fig-sistema-producao" class="quarto-xref">Figura&nbsp;<span>5.8</span></a>, todo processo é um conjunto de atividades estruturadas que recebem entradas, aplicam uma metodologia de transformação utilizando recursos (pessoas, instalações, tecnologia) e geram saídas (produtos ou serviços), interagindo o tempo todo com variáveis ambientais e de segurança.</p>
 <div id="fig-sistema-producao" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sistema-producao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/image_88aa45.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sistema-producao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;5.7: Visão Estrutural do Sistema de Produção
+Figura&nbsp;5.8: Visão Estrutural do Sistema de Produção
 </figcaption>
 </figure>
 </div>
@@ -1096,10 +1193,176 @@ Figura&nbsp;5.7: Visão Estrutural do Sistema de Produção
 <ul>
 <li><strong>Passo 1: Baseline, Benchmarking e a Captura da Lacuna (Gap)</strong> Definir o problema exige conhecer a diferença entre a base de desempenho atual do processo e a referência de excelência desejada.
 <ul>
-<li><strong>Cálculo do Baseline (A Base):</strong> Para calcular o desempenho atual sem ser traído por anomalias estatísticas, a engenharia utiliza a técnica da Média Aparada. Apare os dados extremos (outliers) utilizando a Amplitude Interquartílica (ex: cortando P05-P95). A praxe é aparar entre 5% e 25% da informação para manter apenas os dados representativos da rotina estabilizada.</li>
-<li><strong>Benchmarking (A Referência):</strong> Defina onde o indicador deveria estar buscando a Referência do Setor (melhor média móvel), a Referência Técnica (capacidade de placa do equipamento) ou a Referência Externa (Best in Class global).</li>
-<li><strong>Matriz de Captura da Lacuna:</strong> Identificada a diferença total entre o Baseline e o Benchmark, quanto buscar no próximo ciclo? A decisão depende da maturidade da equipe:</li>
+<li><strong>Cálculo do Baseline (A Base):</strong> Para calcular o desempenho atual sem ser traído por anomalias estatísticas, a engenharia utiliza a técnica da <strong>Média Aparada</strong>. Apare os dados extremos (<em>outliers</em>) utilizando a Amplitude Interquartílica (ex: cortando P05-P95). A praxe é aparar entre 5% e 25% da informação para manter apenas os dados representativos da rotina estabilizada.</li>
+<li><strong>Benchmarking (A Referência):</strong> Defina onde o indicador deveria estar buscando a Referência do Setor (melhor média móvel), a Referência Técnica (capacidade de placa do equipamento) ou a Referência Externa (<em>Best in Class</em> global).</li>
 </ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="💻 TECH NOTE: R &amp; Data Science - O Método da Lacuna">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>💻 TECH NOTE: R &amp; Data Science - O Método da Lacuna
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A definição de uma meta SMART não nasce de um desejo subjetivo da diretoria, mas de uma análise estatística rigorosa. A <a href="#fig-metodo-lacuna" class="quarto-xref">Figura&nbsp;<span>5.9</span></a> ilustra o “Método da Lacuna”. O processo segue quatro passos matemáticos que extraem o quanto de melhoria a operação pode “comprar” no ciclo atual.</p>
+<div id="fig-metodo-lacuna" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-metodo-lacuna-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/image_a69f77.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-metodo-lacuna-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;5.9: Aplicação do Método da Lacuna (Baseline vs.&nbsp;Meta) utilizando gráfico <em>Waterfall</em>.
+</figcaption>
+</figure>
+</div>
+<p>Para processar o cálculo da <a href="#fig-metodo-lacuna" class="quarto-xref">Figura&nbsp;<span>5.9</span></a> e gerar sua respectiva visualização no R, o engenheiro de dados define a linha de base e a compara com o 10º quantil da série histórica:</p>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># BLOCO DE CÓDIGO R: Método da Lacuna</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Definir a Referência (Benchmark) utilizando o Quantil 10</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>ref_q10_val <span class="ot">&lt;-</span> <span class="fu">quantile</span>(fig19_nic_calculate_kpi<span class="sc">$</span>NIC, <span class="at">probs =</span> <span class="fl">0.10</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Calcular a Lacuna (Gap total) entre a Média e a Referência</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>lacuna_val  <span class="ot">&lt;-</span> <span class="fu">mean</span>(fig19_nic_calculate_kpi<span class="sc">$</span>NIC) <span class="sc">-</span> ref_q10_val</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Definir a agressividade da meta (Agressividade de Captura = 60%)</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>captura_val <span class="ot">&lt;-</span> lacuna_val <span class="sc">*</span> <span class="fl">0.60</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Calcular o valor final da Meta SMART</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>meta_val    <span class="ot">&lt;-</span> <span class="fu">mean</span>(fig19_nic_calculate_kpi<span class="sc">$</span>NIC) <span class="sc">-</span> captura_val</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparação de Dados e Plotagem do Gráfico</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>fig20_gap_process_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">item  =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Baseline"</span>, <span class="st">"Referência"</span>, <span class="st">"Lacuna"</span>, <span class="st">"Captura"</span>, <span class="st">"Meta"</span>),</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Baseline"</span>, <span class="st">"Referência"</span>, <span class="st">"Lacuna"</span>, <span class="st">"Captura"</span>, <span class="st">"Meta"</span>)),</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">valor =</span> <span class="fu">c</span>(fig19_nic_process_pars<span class="sc">$</span>baseline_nic[<span class="dv">1</span>], ref_q10_val, lacuna_val, captura_val, meta_val)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">xmin =</span> <span class="fu">as.numeric</span>(item) <span class="sc">-</span> <span class="fl">0.4</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">xmax =</span> <span class="fu">as.numeric</span>(item) <span class="sc">+</span> <span class="fl">0.4</span>,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">ymin =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, ref_q10_val, meta_val, <span class="dv">0</span>),</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">ymax =</span> <span class="fu">c</span>(fig19_nic_process_pars<span class="sc">$</span>baseline_nic[<span class="dv">1</span>], ref_q10_val, fig19_nic_process_pars<span class="sc">$</span>baseline_nic[<span class="dv">1</span>], fig19_nic_process_pars<span class="sc">$</span>baseline_nic[<span class="dv">1</span>], meta_val)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>fig20_gap <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(fig20_gap_process_data) <span class="sc">+</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> xmin, <span class="at">xmax =</span> xmax, <span class="at">ymin =</span> ymin, <span class="at">ymax =</span> ymax, <span class="at">fill =</span> item), <span class="at">colour =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> (xmin <span class="sc">+</span> xmax)<span class="sc">/</span><span class="dv">2</span>, <span class="at">y =</span> ymax <span class="sc">+</span> <span class="dv">10</span>, <span class="at">label =</span> <span class="fu">round</span>(<span class="fu">abs</span>(valor), <span class="dv">1</span>)), <span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> cores_gap) <span class="sc">+</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">labels =</span> fig20_gap_process_data<span class="sc">$</span>item) <span class="sc">+</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    theme_default <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fig20_gap)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A saída de terminal gerada pelo código comprova o avanço de um <em>Baseline</em> de 201.1 para uma nova <em>Meta</em> arrojada de 121.8:</p>
+<pre class="text"><code>&gt; data_tat_gap
+                item xmin xmax     ymin     ymax      valor
+1   Baseline  0.6  1.4   0.0000 201.1162  201.11618
+2 Referência  1.6  2.4   0.0000  69.0000   69.00000
+3     Lacuna  2.6  3.4  69.0000 201.1162 -132.11618
+4    Captura  3.6  4.4 121.8465 201.1162  -79.26971
+5       Meta  4.6  5.4   0.0000 121.8465  121.84647</code></pre>
+<div class="callout callout-style-default callout-note callout-titled" title="💻 TECH NOTE: R &amp; Data Science - Análise Financeira e de Produtividade">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>💻 TECH NOTE: R &amp; Data Science - Análise Financeira e de Produtividade
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Apenas definir a meta não justifica o investimento do projeto de melhoria. A engenharia deve converter o Gap de processo (em dias, toneladas ou horas) em impacto no Ebitda. O código abaixo utiliza a base do Turn Around Time (TAT) e a cruza com margem de vendas, lucro e juros SELIC para demonstrar como o atingimento da meta converte-se em caixa para a companhia.</p>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># BLOCO DE CÓDIGO R: Análise Financeira do TAT</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Função Auxiliar de Data</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>converter_data_pt <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    mapa <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Jan"</span><span class="ot">=</span><span class="st">"01"</span>, <span class="st">"Fev"</span><span class="ot">=</span><span class="st">"02"</span>, <span class="st">"Mar"</span><span class="ot">=</span><span class="st">"03"</span>, <span class="st">"Abr"</span><span class="ot">=</span><span class="st">"04"</span>, <span class="st">"Mai"</span><span class="ot">=</span><span class="st">"05"</span>, <span class="st">"Jun"</span><span class="ot">=</span><span class="st">"06"</span>, <span class="st">"Jul"</span><span class="ot">=</span><span class="st">"07"</span>, <span class="st">"Ago"</span><span class="ot">=</span><span class="st">"08"</span>, <span class="st">"Set"</span><span class="ot">=</span><span class="st">"09"</span>, <span class="st">"Out"</span><span class="ot">=</span><span class="st">"10"</span>, <span class="st">"Nov"</span><span class="ot">=</span><span class="st">"11"</span>, <span class="st">"Dez"</span><span class="ot">=</span><span class="st">"12"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.Date</span>(<span class="fu">paste0</span>(<span class="st">"20"</span>, <span class="fu">str_extract</span>(x, <span class="st">"[0-9]{2}$"</span>), <span class="st">"-"</span>, mapa[<span class="fu">str_to_title</span>(<span class="fu">str_sub</span>(x, <span class="dv">1</span>, <span class="dv">3</span>))], <span class="st">"-01"</span>))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Dados Financeiros</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>data_tat_financeiros <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(path_ebitda, <span class="at">sheet =</span> <span class="st">"Faturamento"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Estrutura <span class="sc">==</span> <span class="st">"Realizado"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Data =</span> <span class="fu">map_vec</span>(Mensal, converter_data_pt), Mês <span class="ot">=</span> <span class="fu">yearmonth</span>(Data),</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Receita_Liquida =</span> <span class="fu">as.numeric</span>(<span class="st">`</span><span class="at">RECEITA LÍQUIDA</span><span class="st">`</span>), <span class="at">Margem_Venda =</span> <span class="fu">as.numeric</span>(<span class="st">`</span><span class="at">Margem de Venda</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Mês, Receita_Liquida, Margem_Venda)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Dados Selic</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>data_tat_selic_mensal <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    Mês <span class="ot">=</span> <span class="fu">yearmonth</span>(<span class="fu">seq</span>(<span class="fu">as.Date</span>(<span class="st">"2024-01-01"</span>), <span class="fu">as.Date</span>(<span class="st">"2025-12-01"</span>), <span class="at">by =</span> <span class="st">"month"</span>)),</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">Selic =</span> <span class="fu">c</span>(<span class="fl">0.0097</span>, <span class="fl">0.0080</span>, <span class="fl">0.0083</span>, <span class="fl">0.0089</span>, <span class="fl">0.0083</span>, <span class="fl">0.0079</span>, <span class="fl">0.0091</span>, <span class="fl">0.0087</span>, <span class="fl">0.0084</span>, <span class="fl">0.0093</span>, <span class="fl">0.0079</span>, <span class="fl">0.0093</span>,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                        <span class="fl">0.0101</span>, <span class="fl">0.0099</span>, <span class="fl">0.0096</span>, <span class="fl">0.0106</span>, <span class="fl">0.0114</span>, <span class="fl">0.0110</span>, <span class="fl">0.0128</span>, <span class="fl">0.0116</span>, <span class="fl">0.0122</span>, <span class="fl">0.0128</span>, <span class="fl">0.0105</span>, <span class="fl">0.0122</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Cálculo de Ganhos e Setup Base</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>media_24 <span class="ot">&lt;-</span> data_tat_financeiros <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">year</span>(Mês)<span class="sc">==</span><span class="dv">2024</span>) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">RL=</span><span class="fu">mean</span>(Receita_Liquida, <span class="at">na.rm=</span>T), <span class="at">MV=</span><span class="fu">mean</span>(Margem_Venda, <span class="at">na.rm=</span>T))</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>data_tat_calculo_ganhos <span class="ot">&lt;-</span> data_tat_pivot_etapa <span class="sc">%&gt;%</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Filial <span class="sc">==</span> <span class="st">"Carajás"</span>, Período <span class="sc">==</span> <span class="st">"Durante"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Mês <span class="ot">=</span> <span class="fu">yearmonth</span>(Início)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">NOS =</span> <span class="fu">n</span>(), <span class="at">TAT_Real =</span> <span class="fu">mean</span>(TAT), <span class="at">n_concluidas =</span> <span class="fu">sum</span>(status <span class="sc">==</span> <span class="st">"Concluida"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">left_join</span>(data_tat_financeiros, <span class="at">by =</span> <span class="st">"Mês"</span>) <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(data_tat_selic_mensal, <span class="at">by =</span> <span class="st">"Mês"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>        <span class="at">Receita_Liquida =</span> <span class="fu">replace_na</span>(Receita_Liquida, media_24<span class="sc">$</span>RL),</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">Margem_Venda    =</span> <span class="fu">replace_na</span>(Margem_Venda, media_24<span class="sc">$</span>MV),</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">TM =</span> Receita_Liquida <span class="sc">/</span> <span class="fu">ifelse</span>(n_concluidas<span class="sc">&gt;</span><span class="dv">0</span>, n_concluidas, NOS),</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">LU =</span> TM <span class="sc">*</span> (Margem_Venda <span class="sc">/</span> Receita_Liquida),</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">dif_dias =</span> pars<span class="sc">$</span>baseline <span class="sc">-</span> TAT_Real,</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">GC =</span> dif_dias <span class="sc">*</span> NOS <span class="sc">*</span> (LU <span class="sc">/</span> pars<span class="sc">$</span>meta),</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">GS =</span> (dif_dias <span class="sc">*</span> (TM<span class="sc">/</span><span class="dv">30</span>)) <span class="sc">*</span> Selic,</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">IT =</span> (GC <span class="sc">+</span> GS) <span class="sc">/</span> Receita_Liquida <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">Data_Plot =</span> <span class="fu">as.Date</span>(Mês)</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Projeção de Ganhos Futuros</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>data_tat_projecao <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Data_Plot =</span> <span class="fu">seq</span>(pars<span class="sc">$</span>xP_in, pars<span class="sc">$</span>fim_proj, <span class="at">by =</span> <span class="st">"month"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">IT_Previsto =</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="fu">last</span>(data_tat_calculo_ganhos<span class="sc">$</span>IT), <span class="at">to=</span><span class="fl">5.0</span>, <span class="at">length.out=</span><span class="fu">n</span>()))</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Plot Financeiro (Linha do Tempo)</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">data =</span> data_tat_projecao, <span class="fu">aes</span>(<span class="at">x =</span> Data_Plot, <span class="at">y =</span> IT_Previsto, <span class="at">linetype =</span> <span class="st">"Previsto"</span>), <span class="at">colour =</span> <span class="st">"grey60"</span>) <span class="sc">+</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">data =</span> data_tat_calculo_ganhos, <span class="fu">aes</span>(<span class="at">x =</span> Data_Plot, <span class="at">y =</span> IT, <span class="at">colour =</span> <span class="st">"Real"</span>), <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> data_tat_calculo_ganhos, <span class="fu">aes</span>(<span class="at">x =</span> Data_Plot, <span class="at">y =</span> IT, <span class="at">fill =</span> IT <span class="sc">&gt;</span> <span class="dv">0</span>), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>) <span class="sc">+</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">as.numeric</span>(pars<span class="sc">$</span>xP_in), <span class="at">colour =</span> <span class="st">"#1D5185"</span>, <span class="at">linetype =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"TRUE"</span><span class="ot">=</span><span class="st">"#24A379"</span>, <span class="st">"FALSE"</span><span class="ot">=</span><span class="st">"#C40E0E"</span>), <span class="at">guide=</span><span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    theme_default <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Impacto Financeiro na Operação"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Monitoramento de Saída do Terminal:</strong> Ao cruzar a redução do TAT com a Receita Líquida e a Selic, a modelagem extrai o Ganho Comercial (GC), o Ganho de Selic (GS) e o Impacto Total (IT) ao longo da linha do tempo.</p>
+<pre class="text"><code>&gt; data_tat_projecao
+# A tibble: 8 × 2
+    Data_Plot  IT_Previsto
+    &lt;date&gt;           &lt;dbl&gt;
+1 2025-05-01       19.0
+2 2025-06-01       17.0
+3 2025-07-01       15.0
+4 2025-08-01       13.0
+5 2025-09-01       11.0
+6 2025-10-01        8.99
+7 2025-11-01        6.99
+8 2025-12-01        5
+
+&gt; data_tat_calculo_ganhos
+# A tibble: 16 × 14
+                Mês   NOS TAT_Real n_concluidas Receita_Liquida Margem_Venda  Selic      TM      LU dif_dias        GC      GS      IT Data_Plot
+            &lt;mth&gt; &lt;int&gt;    &lt;dbl&gt;        &lt;int&gt;           &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;date&gt;
+ 1 2024 jan    56     195.           56       19627029      5478107. 0.0097 350483.  97823.    6.13    275781.   695.    1.41  2024-01-01
+ 2 2024 fev    46     192.           46       11241341.     3202001. 0.008  244377.  69609.    9.09    238993.   593.    2.13  2024-02-01
+ 3 2024 mar    40     187.           40       17697325.     5893096. 0.0083 442433. 147327.   14.0     679101.  1719.    3.85  2024-03-01
+ 4 2024 abr   103     257.          103       13449194.     3975587. 0.0089 130575.  38598.  -55.8   -1821784. -2163.  -13.6   2024-04-01
+...
+16 2025 abr    26     139.           26       19987272.     7395976. 0.0106 768741. 284461.   62.2    3772733. 16883.   19.0   2025-04-01</code></pre>
+<ul>
+<li><strong>Matriz de Captura da Lacuna:</strong> Identificada a diferença total entre o Baseline e o Benchmark, e validado o seu impacto financeiro na modelagem, o gestor define quanto buscar no próximo ciclo dependendo da maturidade da equipe:</li>
 </ul>
 <pre class="mermaid"><code>graph LR
     A[Tamanho Total da Lacuna&lt;br&gt;Baseline vs Benchmark] --&gt; B{Maturidade e&lt;br&gt;Recursos da Equipe}
@@ -1110,6 +1373,7 @@ Figura&nbsp;5.7: Visão Estrutural do Sistema de Produção
     style C fill:#2ecc71,stroke:#333,color:#fff
     style D fill:#f1c40f,stroke:#333
     style E fill:#e74c3c,stroke:#333,color:#fff</code></pre>
+<p>: Matriz de Decisão para Captura da Lacuna (Gap) {#fig-matriz-captura-lacuna}</p>
 <ul>
 <li><strong>Passo 2: Mapeamento de Fronteiras (SIPOC):</strong> Não tente “abraçar o mundo”. Defina visualmente onde o processo começa (Fornecedor/Entrada) e onde termina (Saída/Cliente). Se o problema é no britador primário, não perca tempo analisando a expedição do porto.</li>
 <li><strong>Passo 3: Descoberta da Causa Raiz:</strong> Esqueça o “achismo”. Utilize dados.
@@ -1215,8 +1479,8 @@ Figura&nbsp;5.7: Visão Estrutural do Sistema de Produção
     style C fill:#2980b9,stroke:#333,color:#fff
     style P fill:#f39c12,stroke:#333,color:#fff
     style A fill:#8e44ad,stroke:#333,color:#fff</code></pre>
+<p>: As 4 perspectivas integradas do BSC {#fig-resumo-bsc} * <strong>OKR vs.&nbsp;KPI:</strong> O “sistema nervoso” da empresa divide-se em dois: os <strong>OKRs</strong> atuam como o motor da mudança e da inovação (os aceleradores), enquanto os <strong>KPIs</strong> medem a saúde e a estabilidade da rotina operacional (os termômetros).</p>
 <ul>
-<li><p><strong>OKR vs.&nbsp;KPI:</strong> O “sistema nervoso” da empresa divide-se em dois: os <strong>OKRs</strong> atuam como o motor da mudança e da inovação (os aceleradores), enquanto os <strong>KPIs</strong> medem a saúde e a estabilidade da rotina operacional (os termômetros).</p></li>
 <li><p><strong>A Engenharia da Meta:</strong> Na gestão da rotina, não se aceitam “meios” como “fins”. Toda meta deve focar no resultado final e seguir uma anatomia rigorosa: <strong>Verbo + Objeto + Valor (Gap) + Prazo</strong>. Ruídos estatísticos da linha de base (<em>Baseline</em>) devem ser purgados utilizando técnicas como a Média Aparada.</p></li>
 <li><p><strong>O Roteiro Prático de Solução (PDCA/MASP):</strong> Quando a fase de Controle da rotina falha, a engenharia aciona o método. O roteiro se divide em: <strong>Plan</strong> (medir o Gap, delimitar o sistema com SIPOC, mapear a causa raiz com Ishikawa/GUT e planejar via 5W2H); <strong>Do</strong> (treinar e executar); <strong>Check</strong> (validar estatisticamente); e <strong>Act</strong> (padronizar).</p></li>
 </ul>
@@ -1231,6 +1495,7 @@ Figura&nbsp;5.7: Visão Estrutural do Sistema de Produção
 
     style Efeito fill:#e74c3c,stroke:#333,color:#fff
     style Ação fill:#2ecc71,stroke:#333,color:#fff</code></pre>
+<p>: Conceito do Diagrama de Ishikawa (Causa e Efeito) {#fig-resumo-ishikawa}</p>
 <ul>
 <li><strong>Os Motores Físicos e Humanos:</strong> O método não roda no vácuo. Ele depende das pessoas (mobilizadas <em>bottom-up</em> através dos Círculos de Controle da Qualidade - CCQ) e da saúde das máquinas (integrando a Qualidade à Manutenção de Ativos).</li>
 <li><strong>A Trava do Sistema:</strong> O Procedimento Operacional Padrão (POP) e as Auditorias funcionam como a “cunha” estrutural do PDCA. São eles que impedem a entropia do processo, garantindo que a operação não regrida aos padrões antigos de falha.</li>
