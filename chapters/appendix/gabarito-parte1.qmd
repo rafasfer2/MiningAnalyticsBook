@@ -202,46 +202,70 @@ A equação do ARM permite simular cenários antes de gastar dinheiro.
 * **@exr-cap3-ref-q2:** O $\theta$ é um diagnóstico, não o remédio. Ele funciona como o termômetro do paciente (ex: "Sua qualidade caiu de 0,90 para 0,60 por causa de $x_2$"). A ação só acontece quando a engenharia utiliza o MASP e o PDCA para investigar *por que* $x_2$ falhou e consertar o processo.
 * **@exr-cap3-ref-q3:** Algoritmos de IA precisam de dados estruturados. O modelo ARM limpa o "lixo", entregando aos modelos preditivos variáveis padronizadas ($x_i$) e uma variável alvo bem definida ($\theta$), permitindo que a IA preveja quedas de qualidade antes da falha ocorrer.
 *
-## Capítulo 4: Ferramentas da Qualidade e MASP {#sec-gabarito-cap4}
+## Capítulo 4: Sistemas de Gestão e Estratégia {#sec-gabarito-cap4}
 
-### Resolução do @exr-construcao-hoshin {#sec-gab-construcao-hoshin}
-* **Desdobramento Estratégico:** Reduzir custo em 15%.
-* **Desdobramento Tático (Engenharia):** Aumentar MTBF em 20% e garantir 85% de Preventiva no mês.
-* **Desdobramento Operacional (Campo):** Executar >8 OMs preventivas e sofrer <2 paradas emergenciais/semana.
-A matriz de causa-efeito prova que mais preventivas elevam o MTBF, que reduz as quebras de campo, encolhendo os custos de emergência e batendo a meta da diretoria.
+### Resolução do @exr-cap4-desdobramento-metas {#sec-gab-cap4-desdobramento-metas}
+**a) 3 Objetivos Táticos (Trimestral):**
+1. *Tático (Manutenção):* Aumentar o MTBF (Tempo Médio Entre Falhas) da frota de transporte em 15%.
+2. *Tático (Operação):* Reduzir o consumo específico de diesel (litros/ton) em 10%.
+3. *Tático (Suprimentos):* Reduzir o nível de estoque de peças sobressalentes sem giro em 25%.
+**b) Objetivos Operacionais associados (Mensal):**
+1. *Operacional (para o Tático 1):* Garantir 95% de aderência ao plano de manutenção preventiva mensal.
+2. *Operacional (para o Tático 2):* Reduzir o tempo de motor ocioso (*idling*) dos caminhões em 30 minutos por turno.
+3. *Operacional (para o Tático 3):* Revisar e cancelar 100% dos pedidos automáticos de peças classe "C" obsoletas.
+**c) Equipe responsável:** Tático com Gerentes de Área (Manutenção, Mina, Suprimentos). Operacional com Supervisores de Turno e Planejadores.
 
-### Resolução do @exr-analise-fmea {#sec-gab-analise-fmea}
-O sistema de correias possui falhas como "Desgaste de Rolamento" e "Desalinhamento Axial". Calculando o RPN (Severidade $\times$ Ocorrência $\times$ Detecção):
-* Desalinhamento (7 $\times$ 8 $\times$ 7 = **392**).
-* Desgaste de Rolamento (8 $\times$ 7 $\times$ 6 = **336**).
-A prioridade de ação preventiva vai estritamente para o RPN mais alto (Desalinhamento), aplicando-se rotina de verificação a laser no plano semanal.
+### Resolução do @exr-cap4-cadeia-causalidade {#sec-gab-cap4-cadeia-causalidade}
+**Efeito (Fim):** Aumento de 5% na recuperação metalúrgica.
+**Cadeia (Meios):** 1. *Perfuração e Desmonte:* Se a malha de perfuração e o explosivo forem otimizados (causa), a granulometria do minério ROM será mais fina e uniforme (efeito).
+2. *Britagem:* Com o ROM mais fino (causa), a carga circulante nos britadores diminui e a liberação do mineral de interesse é maior (efeito).
+3. *Lixiviação/Flotação:* Com o mineral mais liberado (causa), a superfície de contato aumenta, resultando na extração de 5% a mais de metal na mesma quantidade de rocha (Efeito Final).
 
-### Resolução do @exr-pdca-downtime {#sec-gab-pdca-downtime}
-* **PLAN:** Investigar qual componente (correia, sensor, combustível) causou a maioria das 18h de parada.
-* **DO:** Executar a melhoria prioritária (ex: blindar o sensor contra umidade).
-* **CHECK:** Mensurar no próximo mês se as horas de indisponibilidade caíram para a meta de <4h.
-* **ACT:** Se validado, padronizar o checklist no manual e replicar para os outros equipamentos do pátio.
+### Resolução do @exr-cap4-x-matrix {#sec-gab-cap4-x-matrix}
+A Matriz X deve conectar o Norte (Estratégia) com o Sul (Projetos).
+* **Diretriz Estratégica (Sul):** Reduzir custo de ciclo de vida de ativos.
+* **Objetivo Anual (Oeste):** Aumentar DF (Disponibilidade Física) da frota de carregamento em 15%.
+* **Projetos/Melhorias (Norte):** Implementar plano de lubrificação autônoma; Treinar operadores em condução econômica.
+* **Métricas (Leste):** Índice de DF diária; Número de paradas por superaquecimento.
+*(A interseção com um 'X' marca a relação forte entre Treinar operadores e Reduzir superaquecimento, impactando a DF).*
 
-### Resolução do @exr-selecao-ferramenta {#sec-gab-selecao-ferramenta}
-A ferramenta correta é o **Gráfico de Pareto**. Ele revelará que "Falta de Peças" (40%) e "Equipe Indisponível" (25%) somam 65% do problema. O gestor **NÃO deve distribuir** recursos igualmente. O foco absoluto deve estar em criar estoque estratégico e escalas de <i>backup</i> para essas duas causas, garantindo o maior ROI analítico possível.
+### Resolução do @exr-cap4-planejamento-controle-melhoria {#sec-gab-cap4-planejamento-controle-melhoria}
+* **Planejamento:** É o "design". Ex: A engenharia define que a bomba de polpa deve operar a 300 m³/h para não desgastar o rotor (criação do processo).
+* **Controle:** É a "manutenção". Ex: O operador na sala de controle usa o CEP (Controle Estatístico) para garantir que a bomba não passe de 310 nem caia de 290 m³/h todos os dias.
+* **Melhoria:** É a "quebra". A empresa compra um novo rotor de poliuretano que permite a bomba operar a 400 m³/h com a mesma vida útil.
+* *Por que sequencial?* Você não pode melhorar (3) algo que não está sob controle (2), pois os dados serão falsos. Você não pode controlar (2) algo que não foi planejado (1), pois não saberá qual é a meta.
 
-### Resolução do @exr-masp-5w2h {#sec-gab-masp-5w2h}
-* **What:** Blendagem emergencial da carga de minério.
-* **Why:** Rebaixar umidade de 12% para o limite de 8%.
-* **Where:** Pátio do terminal portuário.
-* **When:** Nas próximas 24 horas antes do limite do navio.
-* **Who:** Supervisor do Pátio de estocagem.
-* **How:** Via pás carregadeiras e lonamento cruzado.
-* **How Much:** R$ 15.000,00 (horas da equipe e diesel), custo preventivo para evitar multa milionária de *demurrage*.
+### Resolução do @exr-cap4-sdca-britador {#sec-gab-cap4-sdca-britador}
+**Ciclo SDCA (92% DF):**
+* **S (Standardize - Padronizar):** Criar o Procedimento Operacional Padrão (POP) detalhando como alimentar a máquina sem causar embuchamento e o plano de inspeção preventiva.
+* **D (Do - Executar):** Treinar os operadores na norma e realizar a operação conforme o POP.
+* **C (Check - Verificar):** Acompanhar diariamente o painel de DF. Se hoje fechou em 92,5%, está OK.
+* **A (Act - Agir):** Se o turno entregou 90% (desvio), atuar imediatamente para identificar quem não cumpriu a norma ou se faltou peça e corrigir o desvio voltando a DF para 92%.
 
-### Resolução do @exr-manutencao-retrabalho {#sec-gab-manutencao-retrabalho}
-* A falha por não usar torquímetro gerou: perda do rolamento, 16h-homem de retrabalho e um **letar Lucro Cessante** por ter um caminhão CAT 797 parado sem transportar minério (impacto cascata).
-* É uma falha da Etapa 5 (Manutenção de Ativos).
-* Aplica-se **Poka-Yoke:** Bloqueio no software de Ordem de Serviço, impedindo o encerramento do serviço se o mecânico não escanear o QR Code da retirada do torquímetro no paiol de ferramentas.
+### Resolução do @exr-cap4-pdca-melhoria {#sec-gab-cap4-pdca-melhoria}
+**Ciclo PDCA (Pular de 92% para 96% DF):**
+* **P (Plan - Planejar):** Analisar o Pareto de falhas. Descobrir que 4% do tempo é perdido trocando telas da peneira. Meta: Trocar telas na metade do tempo.
+* **D (Do - Executar):** Testar em um final de semana um novo sistema de fixação rápida de telas (*setup* rápido).
+* **C (Check - Verificar):** Medir o tempo de troca após um mês. A DF subiu para 95,5%.
+* **A (Act - Agir/Padronizar):** A melhoria funcionou. Aja para transformar essa inovação no novo padrão oficial. O PDCA encerra e a usina entra em um novo ciclo SDCA com a base estabelecida em 96%.
 
-### Resolução do @exr-case-operacao-carregamento {#sec-gab-case-operacao-carregamento}
-1. **Filosofia:** O problema é de **Processo**. Em chuva, a operação perde controle.
-2. **Hoshin:** Meta estratégica = 85% de disponibilidade em chuva. Meta tática = zerar parada de sensor.
-3. **KPIs:** Disponibilidade Física (%), MTBF e Taxa de Preventiva/Emergencial.
-4. **Trilha de Ferramentas:** Ishikawa (Mapear) $\rightarrow$ Pareto (Priorizar) $\rightarrow$ PDCA (Executar blindagem) $\rightarrow$ Padronização de Método.
-5. **Governança:** Reunião mensal de fechamento (*CHECK*), analisando as quedas e atualizando as rotinas preventivas sazonais de pré-chuva.
+### Resolução do @exr-cap4-meta-realizavel {#sec-gab-cap4-meta-realizavel}
+Uma meta realista precisa calcular a lacuna (Gap) entre o histórico (Baseline de 75%) e o Benchmark. Se o manual do fabricante exige 90% (Referência Técnica), a lacuna é de 15 pontos.
+Utilizando a "Matriz de Captura da Lacuna", se a equipe for madura e tiver orçamento (60% de força), estipulamos capturar um terço desse gap no ano 1 (5 pontos). A meta SMART seria: *"Atingir 80% de DF até dezembro"*.
+Para validar, utilizam-se técnicas de *Média Aparada* do histórico recente e orçamento disponível de CAPEX para peças.
+
+### Resolução do @exr-cap4-gp-design {#sec-gab-cap4-gp-design}
+O *Growth Potential* (GP) é a diferença entre a perfeição teórica (500 t/h) e a realidade sob controle atual (380 t/h). O GP é de **120 t/h**.
+A meta não deve ser 500 t/h (é inatingível devido a perdas normais do processo termodinâmico/mecânico). A meta de melhoria deve focar na eliminação das *Perdas Crônicas* de velocidade e ociosidade dentro dessas 120 t/h, estabelecendo, por exemplo, o alcance de 420 t/h após o PDCA.
+
+### Resolução do @exr-cap4-case-hoshin-completo {#sec-gab-cap4-case-hoshin-completo}
+1. **Meta Estratégica:** "Ser a mina de menor custo no quartil inferior (*C1 cash cost*), operando a 15 USD/tonelada produzida de cobre."
+2. **Matriz Hoshin (Táticos):** (A) Aumentar horas trabalhadas úteis na Geologia; (B) Reduzir detonações falhas em 30%; (C) Otimizar carregamento em 10%.
+3. **Cadeia de Causalidade:** Geologia define o modelo de bloco (Causa). Perfuração e desmonte atuam de forma exata sobre a dureza da rocha mapeada (Causa). O desmonte excelente reduz os matacões (Efeito), permitindo que a Escavadeira encha o Caminhão com a caçamba cheia em 3 passes em vez de 5, economizando diesel no Transporte (Efeito Final).
+4. **KPIs:** Custo unitário (USD/ton); Toneladas transportadas/hora; Taxa de diluição de minério; OEE da frota principal; P80 do material desmontado.
+5. **Governança:** Reuniões Diárias (DDS) para segurança e paradas; Semanais para PCP (Programação); Mensais com Diretoria para o *Check* do Hoshin.
+
+### Resoluções Rápidas: Reflexão {#sec-gab-debate-cap4}
+* **@exr-cap4-ref-q1:** O *Top-Down* define o "O Quê" (ex: Diretor manda baixar custo em 10%). O *Bottom-Up* responde ao "Como" (O supervisor da mina devolve um plano de ação, provando como a equipe dele fará isso inovando nas trocas de turno). Esse diálogo é o *Catchball* no Hoshin Kanri.
+* **@exr-cap4-ref-q2:** Porque sem Controle (SDCA), o processo degringola para a entropia natural e as regras são esquecidas. Sem Melhoria (PDCA), a empresa será engolida por concorrentes que inovam. Planejar é só o desenho; gerir é garantir o ciclo completo.
+* **@exr-cap4-ref-q3:** Meta fácil gera a zona de conforto (o funcionário "puxa o freio de mão" quando atinge o número e para de inovar). Meta impossível (inatingível) gera desmotivação crônica ou fraude de dados (maquiar indicadores para evitar punição), destruindo a governança da empresa.

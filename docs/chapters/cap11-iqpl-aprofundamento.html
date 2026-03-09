@@ -472,30 +472,29 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Neste cap</p>
-<p>ítulo, faremos a transição da gestão de processos operacionais para a auditoria de engenharia e confiabilidade. O engenheiro ou gestor deve se importar com este conteúdo porque planos de manutenção mal dimensionados geram falsas sensações de segurança, paradas não programadas e destroem o fluxo de caixa. Ao final da leitura, você será capaz de:</p>
+<p>Neste capítulo, faremos a transição da gestão de processos operacionais para a auditoria de engenharia e confiabilidade. O engenheiro ou gestor deve se importar com este conteúdo porque planos de manutenção mal dimensionados geram falsas sensações de segurança, paradas não programadas e destroem o fluxo de caixa. Ao final da leitura, você será capaz de:</p>
 <ul>
-<li><strong>Dominar</strong> a arquitetura do Índice de Qualidade de Plano de Manutenção (IQPL) e suas 5 dimensões de auditoria técnica.</li>
-<li><strong>Correlacionar</strong> as variáveis de avaliação do IQPL com as etapas do macrofluxo do PCM (estudadas no capítulo anterior), entendendo onde a qualidade nasce e onde ela é controlada.</li>
-<li><strong>Aplicar</strong> o cálculo multicritério do IQPL para auditar, diagnosticar e otimizar planos de manutenção, separando requisitos históricos de controle de novos gatilhos de inovação.</li>
-<li><strong>Mapear</strong> <em>gaps</em> de maturidade da gestão de ativos utilizando o diagnóstico gerado pelo índice, criando <em>roadmaps</em> de melhoria acionáveis.</li>
-<li><strong>Correlacionar</strong> as variáveis do IQPL com os requisitos normativos de maturidade (8.1 a 8.12), estabelecendo uma régua de conformidade entre o processo e a governança corporativa.</li>
+<li><p><strong>Dominar</strong> a arquitetura do Índice de Qualidade de Plano de Manutenção (IQPL) e suas 5 dimensões de auditoria técnica.</p></li>
+<li><p><strong>Correlacionar</strong> as variáveis de avaliação do IQPL com as etapas do macrofluxo do PCM (estudadas no capítulo anterior), entendendo onde a qualidade nasce e onde ela é controlada.</p></li>
+<li><p><strong>Aplicar</strong> o cálculo multicritério do IQPL para auditar, diagnosticar e otimizar planos de manutenção, separando requisitos históricos de controle de novos gatilhos de inovação.</p></li>
+<li><p><strong>Mapear</strong> <em>gaps</em> de maturidade da gestão de ativos utilizando o diagnóstico gerado pelo índice, criando <em>roadmaps</em> de melhoria acionáveis.</p></li>
+<li><p><strong>Correlacionar</strong> as variáveis do IQPL com os requisitos normativos de maturidade (8.1 a 8.12), estabelecendo uma régua de conformidade entre o processo e a governança corporativa.</p></li>
 </ul>
 </div>
 </div>
 <section id="contexto-operacional-e-motivação" class="level2" data-number="11.1">
 <h2 data-number="11.1" class="anchored" data-anchor-id="contexto-operacional-e-motivação"><span class="header-section-number">11.1</span> Contexto Operacional e Motivação</h2>
 <p>A modelagem de ativos físicos exige mais do que a simples existência de rotinas em um sistema. Um plano de manutenção mal estruturado atua como um ofensor silencioso da confiabilidade. Para auditar a robustez e a viabilidade técnica desses planos, cria-se o <strong>Índice de Qualidade de Plano de Manutenção (IQPL)</strong>.</p>
-<p>O IQPL é a consolidação da avaliação da qualidade do planejamento em uma nota cuja pontuação máxima atinge 100 pontos. Para garantir o rigor técnico, o modelo é desdobrado em um total de <strong>35 variáveis (<span class="math inline">\(V_i\)</span>)</strong>, metodicamente agrupadas em <strong>5 áreas de interesse ou dimensões (<span class="math inline">\(D_j\)</span>)</strong>:</p>
-<p><span id="eq-iqpl"><span class="math display">\[IQPL = \sum_{j=1}^{5} \left[ W_{D_j} \times \left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right) \right] \leq 100 \tag{11.1}\]</span></span></p>
-<p>O IQPL é calculado a partir da soma de pontuações fixas por grupo temático e por parâmetro, previamente definidas no modelo corporativo, totalizando 100 pontos.</p>
-<p>A representação matemática apresentada neste capítulo deve ser entendida como uma <strong>abstração didática</strong>, utilizada para facilitar a compreensão conceitual do modelo multicritério, e não como a fórmula operacional implementada nos sistemas corporativos.</p>
+<p>O IQPL é a consolidação da avaliação da qualidade do planejamento em uma nota cuja pontuação máxima atinge 100 pontos. Para garantir o rigor técnico, o modelo é desdobrado em um total de <strong>35 variáveis (<span class="math inline">\(x_i\)</span>)</strong>, metodicamente agrupadas em <strong>5 dimensões ou áreas de interesse (<span class="math inline">\(D_j\)</span>)</strong>:</p>
+<p><span id="eq-iqpl"><span class="math display">\[\theta_{IQPL} = \sum_{j=1}^{5} \left[ w_{D_j} \times \left( \sum_{i=1}^{n_j} w_{x_i} \times x^*_i \right) \right] \tag{11.1}\]</span></span></p>
+<p>O Índice Global (<span class="math inline">\(\theta_{IQPL}\)</span>) é calculado a partir da soma ponderada por dimensão e por variável normalizada, totalizando 100 pontos no modelo corporativo.</p>
+<p>A representação matemática apresentada neste capítulo deve ser entendida como uma <strong>abstração didática</strong>, utilizada para facilitar a compreensão conceitual do modelo multicritério, e não como a fórmula limitante implementada nos sistemas corporativos.</p>
 <section id="dicotomia-paramétrica-parâmetros-existentes-vs.-novos" class="level3" data-number="11.1.1">
 <h3 data-number="11.1.1" class="anchored" data-anchor-id="dicotomia-paramétrica-parâmetros-existentes-vs.-novos"><span class="header-section-number">11.1.1</span> Dicotomia Paramétrica: Parâmetros Existentes vs.&nbsp;Novos</h3>
 <p>Com o intuito de impulsionar a melhoria contínua e rastrear a evolução da gestão, as variáveis do IQPL foram divididas entre dois tipos:</p>
 <ul>
-<li><strong>Parâmetros Existentes:</strong> Representam a base histórica de controle (o que já era medido tradicionalmente pela organização). Servem como o piso técnico mínimo.</li>
-<li><strong>Parâmetros Novos (Evolutivas):</strong> Representam uma elevação de padrão e melhores práticas de mercado (o que a organização deve desenvolver para ser competitiva). Servem como gatilhos de inovação.</li>
+<li><p><strong>Parâmetros Existentes:</strong> Representam a base histórica de controle (o que já era medido tradicionalmente pela organização). Servem como o piso técnico mínimo.</p></li>
+<li><p><strong>Parâmetros Novos (Evolutivas):</strong> Representam uma elevação de padrão e melhores práticas de mercado (o que a organização deve desenvolver para ser competitiva). Servem como gatilhos de inovação.</p></li>
 </ul>
 <p>Esta dicotomia permite que o gestor visualize não apenas o escore agregado, mas também a maturidade incremental, respondendo a duas perguntas fundamentais: “Onde a gestão está?” (existentes) e “Para onde a engenharia precisa ir?” (novos).</p>
 <hr>
@@ -773,11 +772,11 @@ Tabela&nbsp;11.2: Matriz de Evolução: IQPL × Nível de Maturidade do PCM
 <h3 data-number="11.9.1" class="anchored" data-anchor-id="correspondência-entre-requisitos-e-etapas-do-pcm"><span class="header-section-number">11.9.1</span> Correspondência entre Requisitos e Etapas do PCM</h3>
 <p>Os requisitos normativos mapeiam a saúde da gestão em blocos de maturidade:</p>
 <ul>
-<li><strong>Gestão de Ativos e Planos (8.1 a 8.2):</strong> Avaliam a qualidade da base de ativos, criticidade e o Gerenciamento de Mudanças (<em>MoC</em>). Estão diretamente ligados ao IQPL e ao Planejamento de Médio Prazo.</li>
-<li><strong>Planejamento e Orçamento (8.3 e 8.5):</strong> Focam no horizonte plurianual, orçamento técnico e Grandes Paradas. Conectam o PCM à estratégia financeira e ao COI.</li>
-<li><strong>Estrutura e Funções (8.4):</strong> Avalia a separação clara entre Inspeção, Planejamento, Programação, Execução e Confiabilidade — o princípio fundamental do macrofluxo.</li>
-<li><strong>Disciplina e Registro (8.6):</strong> É o núcleo do PCM. Avalia a aderência ao planejado, a qualidade do registro e indicadores como AMS, IAMO e Backlog.</li>
-<li><strong>Otimização e Confiabilidade (8.7 a 8.12):</strong> Representam os níveis mais altos de maturidade (3 e 4), onde o PCM influencia o custo do ciclo de vida (<em>LCC</em>) e a governança de dados (<em>DBM</em>).</li>
+<li><p><strong>Gestão de Ativos e Planos (8.1 a 8.2):</strong> Avaliam a qualidade da base de ativos, criticidade e o Gerenciamento de Mudanças (<em>MoC</em>). Estão diretamente ligados ao IQPL e ao Planejamento de Médio Prazo.</p></li>
+<li><p><strong>Planejamento e Orçamento (8.3 e 8.5):</strong> Focam no horizonte plurianual, orçamento técnico e Grandes Paradas. Conectam o PCM à estratégia financeira e ao COI.</p></li>
+<li><p><strong>Estrutura e Funções (8.4):</strong> Avalia a separação clara entre Inspeção, Planejamento, Programação, Execução e Confiabilidade — o princípio fundamental do macrofluxo.</p></li>
+<li><p><strong>Disciplina e Registro (8.6):</strong> É o núcleo do PCM. Avalia a aderência ao planejado, a qualidade do registro e indicadores como AMS, IAMO e Backlog.</p></li>
+<li><p><strong>Otimização e Confiabilidade (8.7 a 8.12):</strong> Representam os níveis mais altos de maturidade (3 e 4), onde o PCM influencia o custo do ciclo de vida (<em>LCC</em>) e a governança de dados (<em>DBM</em>).</p></li>
 </ul>
 <p>A <a href="#tbl-correspondencia-normativa" class="quarto-xref">Tabela&nbsp;<span>11.3</span></a> sintetiza essa relação, permitindo uma leitura rápida da maturidade típica exigida por requisito.</p>
 <div id="tbl-correspondencia-normativa" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -937,7 +936,7 @@ Tabela&nbsp;11.4: Distribuição Arquitetural e Pesos do IQPL
 </div>
 <section id="cenário-de-avaliação" class="level3" data-number="11.10.1">
 <h3 data-number="11.10.1" class="anchored" data-anchor-id="cenário-de-avaliação"><span class="header-section-number">11.10.1</span> Cenário de Avaliação</h3>
-<p>Um engenheiro de manutenção executa a auditoria do plano sistêmico de um Britador Primário. Cada variável (<span class="math inline">\(V_i\)</span>) recebe um <em>Score</em> de 1 (inadequado/inexistente) a 5 (excelente). A matemática do índice calcula primeiro a média ponderada interna de cada Dimensão e, em seguida, aplica o peso dimensional sobre o total.</p>
+<p>Um engenheiro de manutenção executa a auditoria do plano sistêmico de um Britador Primário. Cada variável (<span class="math inline">\(x_i\)</span>) recebe um <em>Score</em> (<span class="math inline">\(x^*_i\)</span>) de 1 (inadequado/inexistente) a 5 (excelente). A matemática do índice calcula primeiro a média ponderada interna de cada Dimensão e, em seguida, aplica o peso dimensional sobre o total.</p>
 <p>Suponha os seguintes resultados matemáticos agregados das etapas de campo: * <strong>Dimensão 1 (<span class="math inline">\(D_1\)</span>):</strong> Score Agregado Ponderado = 4.59 * <strong>Dimensão 2 (<span class="math inline">\(D_2\)</span>):</strong> Score Agregado Ponderado = 4.12 * <strong>Dimensão 3 (<span class="math inline">\(D_3\)</span>):</strong> Score Agregado Ponderado = 5.00 * <strong>Dimensão 4 (<span class="math inline">\(D_4\)</span>):</strong> Score Agregado Ponderado = 4.20 * <strong>Dimensão 5 (<span class="math inline">\(D_5\)</span>):</strong> Score Agregado Ponderado = 4.00</p>
 <p>Aplicando os pesos dimensionais corporativos, temos a formulação do Índice Bruto:</p>
 <p><span class="math display">\[IQPL_{Bruto} = (0.20 \times 4.59) + (0.25 \times 4.12) + (0.20 \times 5.00) + (0.25 \times 4.20) + (0.10 \times 4.00)\]</span></p>
@@ -962,25 +961,25 @@ Tabela&nbsp;11.4: Distribuição Arquitetural e Pesos do IQPL
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Carregando biblioteca para manipulação e estruturação de dados</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Matriz Corporativa de Pesos das Dimensões (W_Dj)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Matriz Corporativa de Pesos das Dimensões (w_Dj)</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>pesos_dimensoes <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">Dimensao =</span> <span class="fu">c</span>(<span class="st">"D1"</span>, <span class="st">"D2"</span>, <span class="st">"D3"</span>, <span class="st">"D4"</span>, <span class="st">"D5"</span>),</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">Peso_Dimensao =</span> <span class="fu">c</span>(<span class="fl">0.20</span>, <span class="fl">0.25</span>, <span class="fl">0.20</span>, <span class="fl">0.25</span>, <span class="fl">0.10</span>)</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Base de Dados da Auditoria Operacional (Variáveis, Scores Reais e Pesos Vi)</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Base de Dados da Auditoria Operacional (Variáveis, Scores Reais e Pesos)</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulação da avaliação do plano do Britador Primário</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>auditoria_britador <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">Dimensao =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"D1"</span>, <span class="dv">7</span>), <span class="fu">rep</span>(<span class="st">"D2"</span>, <span class="dv">6</span>), <span class="fu">rep</span>(<span class="st">"D3"</span>, <span class="dv">6</span>), <span class="st">"D5"</span>),</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">Variavel =</span> <span class="fu">c</span>(<span class="st">"V1"</span>, <span class="st">"V2"</span>, <span class="st">"V3"</span>, <span class="st">"V4"</span>, <span class="st">"V5"</span>, <span class="st">"V6"</span>, <span class="st">"V7"</span>,</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>               <span class="st">"V8"</span>, <span class="st">"V9"</span>, <span class="st">"V10"</span>, <span class="st">"V11"</span>, <span class="st">"V12"</span>, <span class="st">"V13"</span>,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>               <span class="st">"V14"</span>, <span class="st">"V15"</span>, <span class="st">"V16"</span>, <span class="st">"V17"</span>, <span class="st">"V18"</span>, <span class="st">"V19"</span>,</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>               <span class="st">"V35"</span>),</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">Score_Vi =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">4</span>,     <span class="co"># Scores Coletados D1</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">Variavel_xi =</span> <span class="fu">c</span>(<span class="st">"x1"</span>, <span class="st">"x2"</span>, <span class="st">"x3"</span>, <span class="st">"x4"</span>, <span class="st">"x5"</span>, <span class="st">"x6"</span>, <span class="st">"x7"</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"x8"</span>, <span class="st">"x9"</span>, <span class="st">"x10"</span>, <span class="st">"x11"</span>, <span class="st">"x12"</span>, <span class="st">"x13"</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"x14"</span>, <span class="st">"x15"</span>, <span class="st">"x16"</span>, <span class="st">"x17"</span>, <span class="st">"x18"</span>, <span class="st">"x19"</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"x35"</span>),</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">Score_xi =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">4</span>,     <span class="co"># Scores Coletados D1</span></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>               <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">5</span>,        <span class="co"># Scores Coletados D2</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>               <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>,        <span class="co"># Scores Coletados D3</span></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>               <span class="dv">4</span>),                      <span class="co"># Score Coletado D5</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">Peso_Vi =</span> <span class="fu">c</span>(<span class="fl">0.15</span>, <span class="fl">0.15</span>, <span class="fl">0.20</span>, <span class="fl">0.15</span>, <span class="fl">0.12</span>, <span class="fl">0.14</span>, <span class="fl">0.09</span>, <span class="co"># Carga Ponderada D1</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">Peso_xi =</span> <span class="fu">c</span>(<span class="fl">0.15</span>, <span class="fl">0.15</span>, <span class="fl">0.20</span>, <span class="fl">0.15</span>, <span class="fl">0.12</span>, <span class="fl">0.14</span>, <span class="fl">0.09</span>, <span class="co"># Carga Ponderada D1</span></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.18</span>, <span class="fl">0.16</span>, <span class="fl">0.20</span>, <span class="fl">0.15</span>, <span class="fl">0.18</span>, <span class="fl">0.13</span>,       <span class="co"># Carga Ponderada D2</span></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.18</span>, <span class="fl">0.16</span>, <span class="fl">0.20</span>, <span class="fl">0.15</span>, <span class="fl">0.17</span>, <span class="fl">0.14</span>,       <span class="co"># Carga Ponderada D3</span></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>              <span class="fl">1.00</span>)                                     <span class="co"># Carga Ponderada D5</span></span>
@@ -992,8 +991,8 @@ Tabela&nbsp;11.4: Distribuição Arquitetural e Pesos do IQPL
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Processamento do Motor Matemático</span></span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>calculo_iqpl <span class="ot">&lt;-</span> auditoria_britador <span class="sc">%&gt;%</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Passo A: Multiplicação do Escore Variável pelo Peso Especificado</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score_Ponderado =</span> Score_Vi <span class="sc">*</span> Peso_Vi) <span class="sc">%&gt;%</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Passo A: Multiplicação do Escore da Variável pelo Peso Especificado</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score_Ponderado =</span> Score_xi <span class="sc">*</span> Peso_xi) <span class="sc">%&gt;%</span></span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Passo B: Agrupamento Dimensional e soma dos scores base</span></span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Dimensao) <span class="sc">%&gt;%</span></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Score_Dimensao =</span> <span class="fu">sum</span>(Score_Ponderado)) <span class="sc">%&gt;%</span></span>
@@ -1004,7 +1003,7 @@ Tabela&nbsp;11.4: Distribuição Arquitetural e Pesos do IQPL
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Passo D: Cálculo de Contribuição Bruta de cada dimensão no Índice</span></span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Contribuicao_IQPL =</span> Score_Dimensao <span class="sc">*</span> Peso_Dimensao)</span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Cálculo do Resultado Final e Normalização de Escala (0 a 100)</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Cálculo do Resultado Final (Teta) e Normalização de Escala (0 a 100)</span></span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>IQPL_Bruto <span class="ot">&lt;-</span> <span class="fu">sum</span>(calculo_iqpl<span class="sc">$</span>Contribuicao_IQPL)</span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>IQPL_Normalizado <span class="ot">&lt;-</span> IQPL_Bruto <span class="sc">*</span> <span class="dv">20</span></span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>

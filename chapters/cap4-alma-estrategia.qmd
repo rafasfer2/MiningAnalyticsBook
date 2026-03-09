@@ -82,7 +82,7 @@ Essa estrutura filosófica é operacionalizada por meio de alavancas, como a Ino
 
 Uma política de qualidade só sobrevive se houver uma governança que force o seu cumprimento. Na Vale, para garantir que a "Obsessão por segurança" não seja atropelada pela pressão por volume de produção, a organização atrela 25% da remuneração variável de longo prazo de seus executivos diretamente a metas ESG. Além disso, as áreas de Saúde, Segurança, Geotecnia e *Compliance* não possuem indicadores de resultados financeiros ou de produção em seus painéis, garantindo dedicação integral à mitigação de riscos.
 
-[^1]: Dados e diretrizes estratégicas extraídos do portal oficial da Vale. Disponível em: <https://vale.com/pt>.
+[^1]: Dados e diretrizes estratégicas extraídos do portal oficial da Vale. Disponível em: [https://vale.com/pt](https://vale.com/pt).
 
 ### A Engenharia do Documento: Como Elaborar uma Política da Qualidade
 
@@ -138,7 +138,7 @@ Para garantir essa dupla qualidade (do produto e do processo), a execução exig
 
 **Produção = Operação + Manutenção + Engenharia**
 
-```{mermaid}
+```mermaid
 %%| label: fig-producao
 %%| fig-cap: "Interseção entre Operação, Manutenção e Engenharia formando a Produção."
 graph TD
@@ -151,7 +151,6 @@ graph TD
     style B fill:#3498db,stroke:#333,color:#fff
     style C fill:#3498db,stroke:#333,color:#fff
 ```
-
 Traduzindo essa equação para a arquitetura de gestão, o Planejamento e Controle da Produção (PCP) atua como o grande guarda-chuva integrador que consolida:
 1. O **Planejamento e Controle da Operação (PCO):** Focado no cumprimento das metas de volume, taxa de alimentação e qualidade do produto final.
 2. A **Programação e Controle da Manutenção (PCM):** Focada em garantir a confiabilidade operacional e a disponibilidade física imediata dos equipamentos.
@@ -264,8 +263,6 @@ Na indústria mineral, os indicadores de desempenho (KPIs) costumam ser dividido
 
 Para organizar essas frentes, a organização compila os indicadores em um **Painel de Gestão** (ou *Dashboard*).
 
-<!-- TODO: Inserir screenshot real do dashboard operacional da sala de controle -->
-
 A @tbl-painel-objetivos ilustra um recorte prático desse monitoramento:
 
 | Objetivo da Qualidade Estratégico | Indicador de Controle (KPI) | Meta de Desempenho | Frequência de Análise |
@@ -316,7 +313,7 @@ Constitui-se de informações que uma empresa de capital aberto oferece ao merca
 A projeção não é apenas um exercício interno de planejamento — ela é uma **promessa pública** que impacta diretamente o valor das ações da empresa. Formulários de referência corporativos (como os exigidos pela CVM no Brasil ou SEC nos EUA) demonstram que antes de se cobrar um resultado, é necessário realizar e divulgar a projeção dos volumes de produção estimados.
 
 ::: {.example #exm-projecao-vale name="Projeção de Produção - Vale"}
-Uma mineradora globalde grande porte pode publicar em seu formulário de referência anual:
+Uma mineradora global de grande porte pode publicar em seu formulário de referência anual:
 
 **"Guidance de Produção 2024:**
 * Minério de Ferro: 310-320 Mtpa
@@ -398,27 +395,19 @@ O benchmarking é um processo sistemático de avaliação comparativa (estudo de
 #### Tipos de Referências
 
 **1. Referência do Setor (Interna)**
-
 A melhor média móvel de três meses na série histórica do KPI dos últimos 12 meses.
-
 * *Exemplo:* Se a disponibilidade física da frota variou entre 82% e 91% no último ano, a referência do setor é a média dos 3 melhores meses consecutivos (ex: 89,2%).
 
 **2. Referência da Empresa (Inter-unidades)**
-
 O melhor resultado para esse KPI comparado entre todas as minas do mesmo grupo.
-
 * *Exemplo:* A Mina A tem disponibilidade de 85%, enquanto a Mina B (mesmo tipo de equipamento) tem 92%. O benchmark interno é 92%.
 
 **3. Referência Técnica (Padrão Ouro)**
-
 Baseada em documentos de engenharia (manuais de fabricante, EPS), considerando a capacidade nominal e vida útil do ativo.
-
 * *Exemplo:* O fabricante do caminhão especifica disponibilidade mecânica de 95% se a manutenção preventiva for rigorosamente seguida.
 
 **4. Referência Externa (Classe Mundial)**
-
 Consultorias e dados abertos de concorrentes de classe mundial.
-
 * *Exemplo:* Relatórios técnicos mostram que mineradoras líderes na Austrália operam com disponibilidade de frota acima de 93%.
 
 #### Definindo a Agressividade da Meta
@@ -434,7 +423,6 @@ A partir destas referências, o gestor escolhe a **agressividade da sua meta** p
 Identificada a lacuna entre o Baseline e o Benchmark, o gestor precisa responder: **Quanto desta lacuna nós vamos buscar no próximo ciclo?**
 
 A resposta dependerá do **nível de maturidade e capacidade da equipe**. A decisão baseia-se em cinco pilares:
-
 1. **Conhecimento histórico do processo**
 2. **Dados confiáveis e granulares**
 3. **Disponibilidade financeira/orçamento**
@@ -443,24 +431,17 @@ A resposta dependerá do **nível de maturidade e capacidade da equipe**. A deci
 
 #### Critérios de Captura
 
-* **Se a equipe possui TODAS as condições operacionais e analíticas:**
-  Assumir uma captura **≥50%** da lacuna como meta anual.
-
-* **Se a equipe possui PARTE das condições, mas suporta desafios de melhoria:**
-  Captura da lacuna gira em torno de **20% a 50%**.
-
-* **Se a equipe está em estágio reativo, limitando-se a gestão da rotina:**
-  Captura da lacuna deve ser conservadora, girando em torno de **10% a 20%** do gap disponível.
+* **Se a equipe possui TODAS as condições operacionais e analíticas:** Assumir uma captura **≥50%** da lacuna como meta anual.
+* **Se a equipe possui PARTE das condições, mas suporta desafios de melhoria:** Captura da lacuna gira em torno de **20% a 50%**.
+* **Se a equipe está em estágio reativo, limitando-se a gestão da rotina:** Captura da lacuna deve ser conservadora, girando em torno de **10% a 20%** do gap disponível.
 
 ::: {.example #exm-matriz-captura name="Aplicação da Matriz de Captura"}
 **Situação:**
-
 * Baseline atual: 82% de disponibilidade física
 * Benchmark (Referência Técnica): 95% de disponibilidade
 * Lacuna: 13 pontos percentuais
 
 **Análise da Capacidade:**
-
 * Conhecimento do processo: ✅ Temos 5 anos de dados históricos
 * Dados confiáveis: ✅ Sistema de telemetria instalado
 * Orçamento: ⚠️ Limitado (50% do ideal)
@@ -468,7 +449,6 @@ A resposta dependerá do **nível de maturidade e capacidade da equipe**. A deci
 * Maturidade: ⚠️ Estágio 2 (Estruturado, mas não proativo)
 
 **Decisão:** Equipe possui 60% das condições → Capturar 35% da lacuna
-
 **Meta 2024:** 82% + (13% × 0,35) = **86,5% de disponibilidade física**
 :::
 
@@ -484,7 +464,7 @@ Para que a Gestão de Ativos e os Indicadores (KPIs) funcionem em sintonia com a
 
 A @fig-desdobramento-sgi ilustra exatamente essa cascata de desdobramento estrutural do SGI, demonstrando como uma diretriz ampla e abstrata se afunila até se transformar na expressão matemática do desempenho da operação.
 
-```{mermaid}
+```mermaid
 %%| label: fig-desdobramento-sgi
 %%| fig-cap: "Desdobramento lógico das estratégias no SGI: dos Princípios ao Desempenho Operacional"
 graph TD
@@ -540,7 +520,7 @@ Enquanto a *Garantia da Qualidade* atua como a blindagem corporativa, as outras 
 
 Essa divisão não é uma coincidência. Ela é a consagração internacional da mais famosa estrutura de gestão da história da engenharia de produção, desenvolvida por Joseph Juran. Conhecida como a **Trilogia de Juran**, essa metodologia trata a gestão como um fluxo contínuo de três processos vitais e sequenciais.
 
-```{mermaid}
+```mermaid
 %%| label: fig-trilogia-juran
 %%| fig-cap: "Diagrama da Trilogia de Juran: Planejamento, Controle e Melhoria."
 graph LR
@@ -619,7 +599,7 @@ A inspeção (verificar apenas o produto no fim da linha) é um método fraco de
 
 Para garantir estabilidade, utiliza-se o **Ciclo SDCA** (*Standardize, Do, Check, Act*). Enquanto o PDCA resolve "picos esporádicos" e inova, o SDCA garante o cumprimento rigoroso dos Procedimentos Operacionais Padrões (POPs), fechando a malha de sustentação.
 
-```{mermaid}
+```mermaid
 %%| label: fig-sdca
 %%| fig-cap: "Ciclo SDCA para padronização e manutenção da rotina."
 graph TD
@@ -633,7 +613,6 @@ graph TD
     style C fill:#9b59b6,stroke:#333,color:#fff
     style A fill:#9b59b6,stroke:#333,color:#fff
 ```
-
 #### A Hierarquia e Interligação das Metas
 
 As metas devem estar interligadas em cascata:
@@ -727,6 +706,8 @@ O **Planejamento** cria o processo, o **Controle** opera o processo (garantindo 
 
 ## Exercícios de Fixação {#sec-exercicios-cap4}
 
+::: {#exr-cap4-desdobramento-metas}
+**Desdobramento de Metas (Hoshin Kanri)**
 Você é gestor de mineração e recebe a meta estratégica: *"Reduzir custos de operação em 20% no próximo ano, mantendo produção acima de 10.000 Kt/mês"*. Desdobre essa meta em:
 a) 3 objetivos táticos (trimestral);
 b) Pelo menos 1 objetivo operacional (mensal) associado a cada tático;
@@ -801,6 +782,7 @@ Por que uma organização que implementa apenas Planejamento (sem Controle e Mel
 **Meta e Realidade**
 Se a meta definida for muito fácil de atingir, qual é o risco à cultura de melhoria contínua? E se for impossível?
 :::
+
 ## Exercícios Adicionais {#sec-exercicios-adicionais-cap4}
 
 ::: {#exr-cap4-2-2}

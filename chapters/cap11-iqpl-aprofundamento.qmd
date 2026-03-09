@@ -5,14 +5,16 @@ format: html
 # Índice de Qualidade de Plano de Manutenção (IQPL) {#sec-iqpl}
 
 ::: {.callout-tip title="🎯 Objetivos deste Capítulo"}
-Neste cap
-
-ítulo, faremos a transição da gestão de processos operacionais para a auditoria de engenharia e confiabilidade. O engenheiro ou gestor deve se importar com este conteúdo porque planos de manutenção mal dimensionados geram falsas sensações de segurança, paradas não programadas e destroem o fluxo de caixa. Ao final da leitura, você será capaz de:
+Neste capítulo, faremos a transição da gestão de processos operacionais para a auditoria de engenharia e confiabilidade. O engenheiro ou gestor deve se importar com este conteúdo porque planos de manutenção mal dimensionados geram falsas sensações de segurança, paradas não programadas e destroem o fluxo de caixa. Ao final da leitura, você será capaz de:
 
 * **Dominar** a arquitetura do Índice de Qualidade de Plano de Manutenção (IQPL) e suas 5 dimensões de auditoria técnica.
+
 * **Correlacionar** as variáveis de avaliação do IQPL com as etapas do macrofluxo do PCM (estudadas no capítulo anterior), entendendo onde a qualidade nasce e onde ela é controlada.
+
 * **Aplicar** o cálculo multicritério do IQPL para auditar, diagnosticar e otimizar planos de manutenção, separando requisitos históricos de controle de novos gatilhos de inovação.
+
 * **Mapear** *gaps* de maturidade da gestão de ativos utilizando o diagnóstico gerado pelo índice, criando *roadmaps* de melhoria acionáveis.
+
 * **Correlacionar** as variáveis do IQPL com os requisitos normativos de maturidade (8.1 a 8.12), estabelecendo uma régua de conformidade entre o processo e a governança corporativa.
 :::
 
@@ -20,19 +22,20 @@ Neste cap
 
 A modelagem de ativos físicos exige mais do que a simples existência de rotinas em um sistema. Um plano de manutenção mal estruturado atua como um ofensor silencioso da confiabilidade. Para auditar a robustez e a viabilidade técnica desses planos, cria-se o **Índice de Qualidade de Plano de Manutenção (IQPL)**.
 
-O IQPL é a consolidação da avaliação da qualidade do planejamento em uma nota cuja pontuação máxima atinge 100 pontos. Para garantir o rigor técnico, o modelo é desdobrado em um total de **35 variáveis ($V_i$)**, metodicamente agrupadas em **5 áreas de interesse ou dimensões ($D_j$)**:
+O IQPL é a consolidação da avaliação da qualidade do planejamento em uma nota cuja pontuação máxima atinge 100 pontos. Para garantir o rigor técnico, o modelo é desdobrado em um total de **35 variáveis ($x_i$)**, metodicamente agrupadas em **5 dimensões ou áreas de interesse ($D_j$)**:
 
-$$IQPL = \sum_{j=1}^{5} \left[ W_{D_j} \times \left( \sum_{i=1}^{n_j} W_{V_i} \times S_{V_i} \right) \right] \leq 100$$ {#eq-iqpl}
+$$\theta_{IQPL} = \sum_{j=1}^{5} \left[ w_{D_j} \times \left( \sum_{i=1}^{n_j} w_{x_i} \times x^*_i \right) \right]$$ {#eq-iqpl}
 
-O IQPL é calculado a partir da soma de pontuações fixas por grupo temático e por parâmetro, previamente definidas no modelo corporativo, totalizando 100 pontos.
+O Índice Global ($\theta_{IQPL}$) é calculado a partir da soma ponderada por dimensão e por variável normalizada, totalizando 100 pontos no modelo corporativo.
 
-A representação matemática apresentada neste capítulo deve ser entendida como uma **abstração didática**, utilizada para facilitar a compreensão conceitual do modelo multicritério, e não como a fórmula operacional implementada nos sistemas corporativos.
+A representação matemática apresentada neste capítulo deve ser entendida como uma **abstração didática**, utilizada para facilitar a compreensão conceitual do modelo multicritério, e não como a fórmula limitante implementada nos sistemas corporativos.
 
 ### Dicotomia Paramétrica: Parâmetros Existentes vs. Novos
 
 Com o intuito de impulsionar a melhoria contínua e rastrear a evolução da gestão, as variáveis do IQPL foram divididas entre dois tipos:
 
 * **Parâmetros Existentes:** Representam a base histórica de controle (o que já era medido tradicionalmente pela organização). Servem como o piso técnico mínimo.
+
 * **Parâmetros Novos (Evolutivas):** Representam uma elevação de padrão e melhores práticas de mercado (o que a organização deve desenvolver para ser competitiva). Servem como gatilhos de inovação.
 
 Esta dicotomia permite que o gestor visualize não apenas o escore agregado, mas também a maturidade incremental, respondendo a duas perguntas fundamentais: "Onde a gestão está?" (existentes) e "Para onde a engenharia precisa ir?" (novos).
@@ -175,9 +178,13 @@ Ao relacionar esses requisitos com o macrofluxo de manutenção e o IQPL, observ
 Os requisitos normativos mapeiam a saúde da gestão em blocos de maturidade:
 
 * **Gestão de Ativos e Planos (8.1 a 8.2):** Avaliam a qualidade da base de ativos, criticidade e o Gerenciamento de Mudanças (*MoC*). Estão diretamente ligados ao IQPL e ao Planejamento de Médio Prazo.
+
 * **Planejamento e Orçamento (8.3 e 8.5):** Focam no horizonte plurianual, orçamento técnico e Grandes Paradas. Conectam o PCM à estratégia financeira e ao COI.
+
 * **Estrutura e Funções (8.4):** Avalia a separação clara entre Inspeção, Planejamento, Programação, Execução e Confiabilidade — o princípio fundamental do macrofluxo.
+
 * **Disciplina e Registro (8.6):** É o núcleo do PCM. Avalia a aderência ao planejado, a qualidade do registro e indicadores como AMS, IAMO e Backlog.
+
 * **Otimização e Confiabilidade (8.7 a 8.12):** Representam os níveis mais altos de maturidade (3 e 4), onde o PCM influencia o custo do ciclo de vida (*LCC*) e a governança de dados (*DBM*).
 
 A @tbl-correspondencia-normativa sintetiza essa relação, permitindo uma leitura rápida da maturidade típica exigida por requisito.
@@ -217,7 +224,7 @@ Para consolidar a teoria, a @tbl-pesos-iqpl demonstra a estrutura de pesos que a
 
 ### Cenário de Avaliação
 
-Um engenheiro de manutenção executa a auditoria do plano sistêmico de um Britador Primário. Cada variável ($V_i$) recebe um *Score* de 1 (inadequado/inexistente) a 5 (excelente). A matemática do índice calcula primeiro a média ponderada interna de cada Dimensão e, em seguida, aplica o peso dimensional sobre o total.
+Um engenheiro de manutenção executa a auditoria do plano sistêmico de um Britador Primário. Cada variável ($x_i$) recebe um *Score* ($x^*_i$) de 1 (inadequado/inexistente) a 5 (excelente). A matemática do índice calcula primeiro a média ponderada interna de cada Dimensão e, em seguida, aplica o peso dimensional sobre o total.
 
 Suponha os seguintes resultados matemáticos agregados das etapas de campo:
 * **Dimensão 1 ($D_1$):** Score Agregado Ponderado = 4.59
@@ -255,25 +262,25 @@ A execução dos cálculos pode ser automatizada para monitoramento contínuo de
 # Carregando biblioteca para manipulação e estruturação de dados
 library(dplyr)
 
-# 1. Matriz Corporativa de Pesos das Dimensões (W_Dj)
+# 1. Matriz Corporativa de Pesos das Dimensões (w_Dj)
 pesos_dimensoes <- data.frame(
   Dimensao = c("D1", "D2", "D3", "D4", "D5"),
   Peso_Dimensao = c(0.20, 0.25, 0.20, 0.25, 0.10)
 )
 
-# 2. Base de Dados da Auditoria Operacional (Variáveis, Scores Reais e Pesos Vi)
+# 2. Base de Dados da Auditoria Operacional (Variáveis, Scores Reais e Pesos)
 # Simulação da avaliação do plano do Britador Primário
 auditoria_britador <- data.frame(
   Dimensao = c(rep("D1", 7), rep("D2", 6), rep("D3", 6), "D5"),
-  Variavel = c("V1", "V2", "V3", "V4", "V5", "V6", "V7",
-               "V8", "V9", "V10", "V11", "V12", "V13",
-               "V14", "V15", "V16", "V17", "V18", "V19",
-               "V35"),
-  Score_Vi = c(5, 5, 4, 5, 4, 5, 4,     # Scores Coletados D1
+  Variavel_xi = c("x1", "x2", "x3", "x4", "x5", "x6", "x7",
+                 "x8", "x9", "x10", "x11", "x12", "x13",
+                 "x14", "x15", "x16", "x17", "x18", "x19",
+                 "x35"),
+  Score_xi = c(5, 5, 4, 5, 4, 5, 4,     # Scores Coletados D1
                4, 3, 4, 5, 4, 5,        # Scores Coletados D2
                5, 5, 5, 5, 5, 5,        # Scores Coletados D3
                4),                      # Score Coletado D5
-  Peso_Vi = c(0.15, 0.15, 0.20, 0.15, 0.12, 0.14, 0.09, # Carga Ponderada D1
+  Peso_xi = c(0.15, 0.15, 0.20, 0.15, 0.12, 0.14, 0.09, # Carga Ponderada D1
               0.18, 0.16, 0.20, 0.15, 0.18, 0.13,       # Carga Ponderada D2
               0.18, 0.16, 0.20, 0.15, 0.17, 0.14,       # Carga Ponderada D3
               1.00)                                     # Carga Ponderada D5
@@ -285,8 +292,8 @@ score_D4_agregado <- data.frame(Dimensao = "D4", Score_Dimensao = 4.20)
 
 # 3. Processamento do Motor Matemático
 calculo_iqpl <- auditoria_britador %>%
-  # Passo A: Multiplicação do Escore Variável pelo Peso Especificado
-  mutate(Score_Ponderado = Score_Vi * Peso_Vi) %>%
+  # Passo A: Multiplicação do Escore da Variável pelo Peso Especificado
+  mutate(Score_Ponderado = Score_xi * Peso_xi) %>%
   # Passo B: Agrupamento Dimensional e soma dos scores base
   group_by(Dimensao) %>%
   summarise(Score_Dimensao = sum(Score_Ponderado)) %>%
@@ -297,7 +304,7 @@ calculo_iqpl <- auditoria_britador %>%
   # Passo D: Cálculo de Contribuição Bruta de cada dimensão no Índice
   mutate(Contribuicao_IQPL = Score_Dimensao * Peso_Dimensao)
 
-# 4. Cálculo do Resultado Final e Normalização de Escala (0 a 100)
+# 4. Cálculo do Resultado Final (Teta) e Normalização de Escala (0 a 100)
 IQPL_Bruto <- sum(calculo_iqpl$Contribuicao_IQPL)
 IQPL_Normalizado <- IQPL_Bruto * 20
 

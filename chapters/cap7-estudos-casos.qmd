@@ -6,11 +6,21 @@ format: html
 
 Este capítulo consolida o poder analítico do método apresentado ao longo do livro. Até o momento, aplicamos a Modelagem Analítica de Requisitos (ARM) em avaliações de qualidade de produtos físicos e rotinas logísticas. Agora, elevaremos o nível de complexidade para demonstrar a escalabilidade do modelo em três frentes avançadas: a avaliação de perfis humanos (competências do engenheiro), a auditoria de sistemas técnicos (planos de manutenção) e a mensuração do relacionamento interno em sistemas de gestão.
 
-## A Expansão Multidimensional: O Perfil do Egresso na Engenharia {#sec-arm-multidimensional}
+## A Expansão Multidimensional: Avaliação de Competências Humanas {#sec-arm-competencias}
 
-Para demonstrar a verdadeira escalabilidade matemática do ARM, aplicaremos a modelagem em um cenário de alta complexidade intangível: a avaliação de competências humanas na formação universitária e na indústria.
+Para demonstrar a verdadeira escalabilidade matemática do modelo ARM, elevaremos a aplicação para um cenário de alta complexidade intangível: a avaliação de competências humanas e o *People Analytics*.
 
-O egresso de engenharia de produção deve integrar saberes que permitam a sua inserção decisiva no contexto social e profissional. Avaliá-lo de forma puramente subjetiva ("é um bom aluno") destrói a capacidade de melhoria contínua do sistema de ensino. Precisamos de métricas exatas. Para isso, estruturamos o perfil do profissional moderno através do **Modelo CHAE** (Conhecimento, Habilidades, Atitudes e Entregas):
+Avaliá-las de forma puramente subjetiva ("é um bom aluno" ou "é um bom profissional") destrói a capacidade de melhoria contínua dos sistemas de ensino e de gestão de RH. Precisamos de métricas exatas. Para demonstrar como a engenharia de dados resolve esse problema, dividiremos esta seção em duas frentes complementares de aplicação acadêmica e mercadológica:
+
+1. **Modelagem de Perfis (Estudo de Caso I - Engenharia):** Como usar o motor matemático multivariado para alocar alunos em arquétipos de atuação e formar equipes multidisciplinares.
+
+2. **Auditoria de Instrumentos e Gaps (Estudo de Caso II - Administração):** Como utilizar a Teoria da Resposta ao Item (TRI) e o cruzamento de percepções (Exigência vs. Desempenho) para validar estatisticamente um questionário e encontrar lacunas curriculares críticas.
+
+---
+
+### Estudo de Caso I: O Perfil do Egresso na Engenharia (Modelo CHAE) {#sec-arm-multidimensional}
+
+O egresso de engenharia de produção deve integrar saberes que permitam a sua inserção decisiva no contexto social e profissional. Para estruturar essa análise, o perfil do profissional moderno é parametrizado através do **Modelo CHAE** (Conhecimento, Habilidades, Atitudes e Entregas):
 
 * **Conhecimento (Saber o quê e porquê):** O acúmulo de saberes técnicos e científicos (ex: cálculo, física, pesquisa operacional).
 
@@ -406,29 +416,34 @@ Nesta etapa, o aluno responde individualmente a dilemas operacionais. O objetivo
 
 Com a expansão para 6 dilemas, o espaço amostral do julgamento situacional atinge o volume necessário para a estabilidade algorítmica. O sistema injeta um vetor de pontos (+5 ou +0) nos perfis correspondentes a cada decisão exclusiva.
 
-| Dilema | Opção Escolhida | P01 (Analítico) | P02 (Operações) | P03 (Criativo) | P04 (Comunicador) | P05 (Líder) | P06 (Sustentável) |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **1. Quali/Prod (ISO 9001)** | **A** (Compliance/Cliente) | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** |
-| | **B** (Negociação/Crise) | + 0.0 | **+ 5.0** | + 0.0 | **+ 5.0** | + 0.0 | + 0.0 |
-| | **C** (Burlar/Meta) | + 0.0 | + 0.0 | **+ 5.0** | + 0.0 | **+ 5.0** | + 0.0 |
-| **2. SST/Cultura (ISO 45001)** | **A** (Ética/Risco 0) | + 0.0 | + 0.0 | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** |
-| | **B** (Clima/Equipe) | + 0.0 | + 0.0 | **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 |
-| | **C** (Investigação/RH) | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** | + 0.0 |
-| **3. Amb/Orçam (ISO 14001)** | **A** (Parar/Trocar) | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** |
-| | **B** (Monitorar/Risco) | + 0.0 | **+ 5.0** | + 0.0 | + 0.0 | **+ 5.0** | + 0.0 |
-| | **C** (Reduzir/Negociar)| + 0.0 | + 0.0 | **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 |
-| **4. Auditoria (ISO 19011)** | **A** (Reportar/NC) | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** |
-| | **B** (Barganhar/Prazo) | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** | **+ 5.0** | + 0.0 |
-| | **C** (Manobra/Sistema) | + 0.0 | **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 |
-| **5. Social/Lucro (NBR 16001)** | **A** (Transparência) | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** | + 0.0 | **+ 5.0** |
-| | **B** (Compensação Cruz)| + 0.0 | + 0.0 | **+ 5.0** | + 0.0 | **+ 5.0** | + 0.0 |
-| | **C** (Eficiência Legal)| **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | + 0.0 |
-| **6. Indicador (ISO 9001)** | **A** (Serviço/Redação) | + 0.0 | + 0.0 | **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 |
-| | **B** (Vetar/Postura) | + 0.0 | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** | **+ 5.0** |
-| | **C** (Estatística/Causa)| **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | + 0.0 |
+| Dilema e Opções de Decisão | P01 (Analítico) | P02 (Operações) | P03 (Criativo) | P04 (Comunicador) | P05 (Líder) | P06 (Sustentável) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **1. Quali/Prod (ISO 9001)** | | | | | | |
+| ↳ **A.** Compliance/Cliente | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** |
+| ↳ **B.** Negociação/Crise | + 0.0 | **+ 5.0** | + 0.0 | **+ 5.0** | + 0.0 | + 0.0 |
+| ↳ **C.** Burlar/Meta | + 0.0 | + 0.0 | **+ 5.0** | + 0.0 | **+ 5.0** | + 0.0 |
+| **2. SST/Cultura (ISO 45001)** | | | | | | |
+| ↳ **A.** Ética/Risco 0 | + 0.0 | + 0.0 | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** |
+| ↳ **B.** Clima/Equipe | + 0.0 | + 0.0 | **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 |
+| ↳ **C.** Investigação/RH | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** | + 0.0 |
+| **3. Amb/Orçam (ISO 14001)** | | | | | | |
+| ↳ **A.** Parar/Trocar | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** |
+| ↳ **B.** Monitorar/Risco | + 0.0 | **+ 5.0** | + 0.0 | + 0.0 | **+ 5.0** | + 0.0 |
+| ↳ **C.** Reduzir/Negociar | + 0.0 | + 0.0 | **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 |
+| **4. Auditoria (ISO 19011)** | | | | | | |
+| ↳ **A.** Reportar/NC | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** |
+| ↳ **B.** Barganhar/Prazo | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** | **+ 5.0** | + 0.0 |
+| ↳ **C.** Manobra/Sistema | + 0.0 | **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 |
+| **5. Social/Lucro (NBR 16001)** | | | | | | |
+| ↳ **A.** Transparência | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** | + 0.0 | **+ 5.0** |
+| ↳ **B.** Compensação Cruzada | + 0.0 | + 0.0 | **+ 5.0** | + 0.0 | **+ 5.0** | + 0.0 |
+| ↳ **C.** Eficiência Legal | **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | + 0.0 |
+| **6. Indicador (ISO 9001)** | | | | | | |
+| ↳ **A.** Serviço/Redação | + 0.0 | + 0.0 | **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 |
+| ↳ **B.** Vetar/Postura | + 0.0 | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** | **+ 5.0** |
+| ↳ **C.** Estatística/Causa | **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | + 0.0 |
 
 : Matriz de Injeção de Pesos ($w_{SJT}$) por Perfil e Dilema {#tbl-pesos-sjt}
-
 **A Lógica de Backend (Motor R):**
 Todo o mapeamento ocorre de forma invisível no *backend*. Quando o tempo acaba, o professor exporta o `.csv` e o script em **R** executa um cruzamento relacional (`left_join`) entre as escolhas dos 6 dilemas e a Matriz $w_{SJT}$. O resultado é um perfil recalibrado em 360 graus.
 
@@ -455,44 +470,54 @@ Já reunidos fisicamente em suas novas formações, os alunos executam o rito de
 
 A partir deste momento de alinhamento e transparência, o grupo está oficialmente homologado como uma equipe multidisciplinar, pronta para conduzir o desenvolvimento do Sistema de Gestão Integrado da empresa fictícia ao longo das semanas seguintes.
 
+---
 
-### A Auditoria do Instrumento: Introdução à Teoria da Resposta ao Item (TRI) {#sec-estruturacao-tri}
+### Estudo de Caso II: Perspectivas em Administração e a Auditoria via TRI {#sec-caso-administracao}
 
-Uma vez que o modelo multivariado (ARM) fornece a arquitetura de cálculo para os perfis e a dinâmica de triangulação garante a coleta de dados (Exigência, Atribuição e Desempenho), surge um novo desafio para a engenharia de dados: **como auditar a qualidade, a dificuldade e a confiabilidade das perguntas que compõem o próprio questionário?** Para superar as limitações da Teoria Clássica da Medida — que apenas soma as notas, como vimos anteriormente —, a modelagem evolui para a **Teoria da Resposta ao Item (TRI)**. Para demonstrar essa estruturação, utilizaremos um recorte de um questionário focado em egressos e graduandos, especificamente na área de Gestão e Administração.
+Uma vez que o modelo multivariado (ARM) fornece a arquitetura de cálculo para os perfis (como vimos no caso da Engenharia), surge um novo desafio para a gestão de dados: **como auditar a qualidade, a dificuldade e a confiabilidade das perguntas que compõem o próprio questionário?** Para superar as limitações da Teoria Clássica da Medida — que apenas soma as notas de forma linear —, a modelagem evolui para a **Teoria da Resposta ao Item (TRI)**.
 
-O instrumento de medida definitivo contém $I=25$ itens (C01 a C25), medidos de forma independente por uma escala do tipo *Likert* de $k=5$ pontos. O diferencial analítico deste modelo é que, para cada variável, o indivíduo emite três percepções distintas na dinâmica de triangulação: **Exigência ($P_e$)**, **Atribuição ($P_a$)** e **Desempenho ($P_d$)**.
+::: {.callout-note title="📄 Ficha Técnica do Estudo de Caso"}
+**Título original:** Perspectivas dos graduandos e egressos sobre as competências desenvolvidas nos cursos de Administração (Trabalho de Conclusão de Curso).
 
-Abaixo, apresentamos a matriz do instrumento definitivo para este recorte:
+* **Objetivo:** Analisar as percepções de alunos e egressos quanto às competências relevantes para um administrador (desenvolvidas no curso vs. demandadas pelo mercado), sob as dimensões de Exigência, Importância e Desempenho.
+* **Metodologia:** Pesquisa descritiva quantitativa. O instrumento (escala Likert de 5 pontos) foi validado por grupo focal e aplicado a egressos e alunos.
+* **Resultados Principais:** O baixo desempenho geral reflete a necessidade de um melhor alinhamento entre a formação acadêmica e os requisitos profissionais, destacando o “domínio da língua estrangeira” como o item mais crítico.
+* **Contribuição:** Sugere revisões contínuas de métodos e conteúdos curriculares para formar profissionais alinhados às reais necessidades da gestão.
+:::
 
-| Item | Competência Avaliada | Exigência | Atribuição | Desempenho |
+Para demonstrar essa estruturação matemática, utilizaremos os dados reais desta pesquisa acadêmica. O instrumento de pesquisa definitivo contém $I=25$ itens (C01 a C25), medidos de forma independente por uma escala do tipo *Likert* de $k=5$ pontos. O diferencial analítico deste modelo é que, para cada variável de competência, o indivíduo emite três percepções distintas: a **Exigência ($P_e$)** do mercado, a **Importância ($P_i$)** dada pelo aluno e o **Desempenho real ($P_d$)** desenvolvido durante o curso.
+
+Abaixo, apresentamos a matriz do instrumento validado para este estudo:
+
+| Item | Competência Avaliada | Exigência | Importância | Desempenho |
 | :--- | :--- | :---: | :---: | :---: |
-| **C01** | Adaptar-se às novas situações e/ou pressões de trabalho | $Pe_{C01}$ | $Pa_{C01}$ | $Pd_{C01}$ |
-| **C02** | Agir com responsabilidade, respondendo às demandas críticas | $Pe_{C02}$ | $Pa_{C02}$ | $Pd_{C02}$ |
-| **C03** | Buscar o aperfeiçoamento contínuo da qualidade dos trabalhos | $Pe_{C03}$ | $Pa_{C03}$ | $Pd_{C03}$ |
-| **C04** | Buscar soluções originais e criativas, de forma inovadora | $Pe_{C04}$ | $Pa_{C04}$ | $Pd_{C04}$ |
-| **C05** | Comunicar-me na forma escrita e verbal de forma clara | $Pe_{C05}$ | $Pa_{C05}$ | $Pd_{C05}$ |
-| **C06** | Elaborar e implementar projetos em organizações | $Pe_{C06}$ | $Pa_{C06}$ | $Pd_{C06}$ |
-| **C07** | Identificar problemas, definir características e elaborar soluções | $Pe_{C07}$ | $Pa_{C07}$ | $Pd_{C07}$ |
-| **C08** | Permanecer produtivo diante das pressões naturais do trabalho | $Pe_{C08}$ | $Pa_{C08}$ | $Pd_{C08}$ |
-| **C09** | Buscar e adquirir conhecimentos para atualização contínua | $Pe_{C09}$ | $Pa_{C09}$ | $Pd_{C09}$ |
-| **C10** | Raciocinar de forma lógica com embasamento matemático | $Pe_{C10}$ | $Pa_{C10}$ | $Pd_{C10}$ |
-| **C11** | Realizar consultoria em gestão e administração | $Pe_{C11}$ | $Pa_{C11}$ | $Pd_{C11}$ |
-| **C12** | Tomar decisões a partir da análise dos aspectos do trabalho | $Pe_{C12}$ | $Pa_{C12}$ | $Pd_{C12}$ |
-| **C13** | Ter autocrítica | $Pe_{C13}$ | $Pa_{C13}$ | $Pd_{C13}$ |
-| **C14** | Compartilhar e aplicar conhecimentos técnicos para resolver problemas | $Pe_{C14}$ | $Pa_{C14}$ | $Pd_{C14}$ |
-| **C15** | Administrar e formular estratégias de vendas e marketing | $Pe_{C15}$ | $Pa_{C15}$ | $Pd_{C15}$ |
-| **C16** | Tomar decisões de investimento e financiamento | $Pe_{C16}$ | $Pa_{C16}$ | $Pd_{C16}$ |
-| **C17** | Gerir e utilizar tecnologias da informação nos processos | $Pe_{C17}$ | $Pa_{C17}$ | $Pd_{C17}$ |
-| **C18** | Liderar equipes de forma inspiradora e eficaz | $Pe_{C18}$ | $Pa_{C18}$ | $Pd_{C18}$ |
-| **C19** | Assumir o processo decisório (planejamento, direção e controle) | $Pe_{C19}$ | $Pa_{C19}$ | $Pd_{C19}$ |
-| **C20** | Domínio de língua estrangeira | $Pe_{C20}$ | $Pa_{C20}$ | $Pd_{C20}$ |
-| **C21** | Considerar os valores éticos da profissão | $Pe_{C21}$ | $Pa_{C21}$ | $Pd_{C21}$ |
-| **C22** | Gerenciar de forma completa um sistema logístico | $Pe_{C22}$ | $Pa_{C22}$ | $Pd_{C22}$ |
-| **C23** | Interpretar a informação contábil para a tomada de decisão | $Pe_{C23}$ | $Pa_{C23}$ | $Pd_{C23}$ |
-| **C24** | Conhecimentos jurídicos aplicados à gestão empresarial | $Pe_{C24}$ | $Pa_{C24}$ | $Pd_{C24}$ |
-| **C25** | Promover esforços de negociação para obtenção de resultados | $Pe_{C25}$ | $Pa_{C25}$ | $Pd_{C25}$ |
+| **C01** | Adaptar-se às novas situações e/ou pressões de trabalho | $Pe_{C01}$ | $Pi_{C01}$ | $Pd_{C01}$ |
+| **C02** | Agir com responsabilidade, respondendo às demandas críticas | $Pe_{C02}$ | $Pi_{C02}$ | $Pd_{C02}$ |
+| **C03** | Buscar o aperfeiçoamento contínuo da qualidade dos trabalhos | $Pe_{C03}$ | $Pi_{C03}$ | $Pd_{C03}$ |
+| **C04** | Buscar soluções originais e criativas, de forma inovadora | $Pe_{C04}$ | $Pi_{C04}$ | $Pd_{C04}$ |
+| **C05** | Comunicar-me na forma escrita e verbal de forma clara | $Pe_{C05}$ | $Pi_{C05}$ | $Pd_{C05}$ |
+| **C06** | Elaborar e implementar projetos em organizações | $Pe_{C06}$ | $Pi_{C06}$ | $Pd_{C06}$ |
+| **C07** | Identificar problemas, definir características e elaborar soluções | $Pe_{C07}$ | $Pi_{C07}$ | $Pd_{C07}$ |
+| **C08** | Permanecer produtivo diante das pressões naturais do trabalho | $Pe_{C08}$ | $Pi_{C08}$ | $Pd_{C08}$ |
+| **C09** | Buscar e adquirir conhecimentos para atualização contínua | $Pe_{C09}$ | $Pi_{C09}$ | $Pd_{C09}$ |
+| **C10** | Raciocinar de forma lógica com embasamento matemático | $Pe_{C10}$ | $Pi_{C10}$ | $Pd_{C10}$ |
+| **C11** | Realizar consultoria em gestão e administração | $Pe_{C11}$ | $Pi_{C11}$ | $Pd_{C11}$ |
+| **C12** | Tomar decisões a partir da análise dos aspectos do trabalho | $Pe_{C12}$ | $Pi_{C12}$ | $Pd_{C12}$ |
+| **C13** | Ter autocrítica | $Pe_{C13}$ | $Pi_{C13}$ | $Pd_{C13}$ |
+| **C14** | Compartilhar e aplicar conhecimentos técnicos para resolver problemas | $Pe_{C14}$ | $Pi_{C14}$ | $Pd_{C14}$ |
+| **C15** | Administrar e formular estratégias de vendas e marketing | $Pe_{C15}$ | $Pi_{C15}$ | $Pd_{C15}$ |
+| **C16** | Tomar decisões de investimento e financiamento | $Pe_{C16}$ | $Pi_{C16}$ | $Pd_{C16}$ |
+| **C17** | Gerir e utilizar tecnologias da informação nos processos | $Pe_{C17}$ | $Pi_{C17}$ | $Pd_{C17}$ |
+| **C18** | Liderar equipes de forma inspiradora e eficaz | $Pe_{C18}$ | $Pi_{C18}$ | $Pd_{C18}$ |
+| **C19** | Assumir o processo decisório (planejamento, direção e controle) | $Pe_{C19}$ | $Pi_{C19}$ | $Pd_{C19}$ |
+| **C20** | Domínio de língua estrangeira | $Pe_{C20}$ | $Pi_{C20}$ | $Pd_{C20}$ |
+| **C21** | Considerar os valores éticos da profissão | $Pe_{C21}$ | $Pi_{C21}$ | $Pd_{C21}$ |
+| **C22** | Gerenciar de forma completa um sistema logístico | $Pe_{C22}$ | $Pi_{C22}$ | $Pd_{C22}$ |
+| **C23** | Interpretar a informação contábil para a tomada de decisão | $Pe_{C23}$ | $Pi_{C23}$ | $Pd_{C23}$ |
+| **C24** | Conhecimentos jurídicos aplicados à gestão empresarial | $Pe_{C24}$ | $Pi_{C24}$ | $Pd_{C24}$ |
+| **C25** | Promover esforços de negociação para obtenção de resultados | $Pe_{C25}$ | $Pi_{C25}$ | $Pd_{C25}$ |
 
-: Instrumento de medida para Avaliação de Competências em Gestão {#tbl-instrumento-gestao}
+: Instrumento de medida para Avaliação de Competências em Gestão {#tbl-instrumento-gestao tbl-colwidths="[10, 60, 10, 10, 10]"}
 
 #### Estruturação Algébrica do Modelo
 
@@ -503,14 +528,12 @@ Para viabilizar a análise estatística dos dados em lote (preparando o terreno 
 * $\{N_j\}_{(j \ge 1)}$: Conjunto de indivíduos ($j = 1, 2, \dots, n$) de uma população avaliada.
 * $\{y_j\}$: Vetor com as respostas capturadas do indivíduo para os itens avaliados.
 
-
-
-Ao considerar um instrumento de medida para uma determinada percepção $p \in \{P_e, P_a, P_d\}$, este será composto por um conjunto $\{I_i\}$ de itens, medidos de forma independente por $\{m_k\}$ categorias de respostas, sendo $\{N_j\}$ a amostra da população de interesse. Logo, se cada indivíduo ($j$) tiver uma percepção única de um item ($i$), gerando um possível padrão de resposta $y_{i,j}^p$, o espaço amostral $\Omega$ será o conjunto de todas as combinações matemáticas possíveis ($k^I$).
+Ao considerar um instrumento de medida para uma determinada percepção $p \in \{P_e, P_i, P_d\}$, este será composto por um conjunto $\{I_i\}$ de itens, medidos de forma independente por $\{m_k\}$ categorias de respostas, sendo $\{N_j\}$ a amostra da população de interesse. Logo, se cada indivíduo ($j$) tiver uma percepção única de um item ($i$), gerando um possível padrão de resposta $y_{i,j}^p$, o espaço amostral $\Omega$ será o conjunto de todas as combinações matemáticas possíveis ($k^I$).
 
 Essa fundação algébrica permite desdobrar a análise em quatro níveis de profundidade:
 
 **1. O Espaço Amostral Global**
-Como exemplo, para a avaliação da percepção de Exigência do Mercado ($P_e$), os $I=25$ itens ($Pe_{C01}$ a $Pe_{C25}$) são medidos de forma independente por sua respectiva escala de resposta de $k=5$ pontos. O espaço amostral $\Omega$ desta matriz atinge $5^{25}$ combinações possíveis de respostas, evidenciando a complexidade combinatória que o algoritmo precisará tratar.
+Como exemplo, para a avaliação da percepção de Exigência do Mercado ($P_e$), os $I=25$ itens ($Pe_{C01}$ a $Pe_{C25}$) são medidos de forma independente por sua respectiva escala de resposta de $k=5$ pontos. O espaço amostral $\Omega$ desta matriz atinge $5^{25}$ combinações possíveis de respostas.
 
 **2. O Score do Indivíduo**
 Cada indivíduo produzirá um *Score Total* ($T_j$), que matematicamente é limitado pela multiplicação do número de itens e os limites extremos da escala de resposta. Para este instrumento de 25 itens com nota máxima 5:
@@ -522,36 +545,110 @@ $$Y_i^{P_e} = \sum_{j=1}^n y_{i,j}^{P_e} \in [n, 5n]$$
 $$M_i^{P_e} = \frac{Y_i^{P_e}}{n}$$
 
 **4. O Score por Agrupamentos (Clusters)**
-Quando há necessidade de separar a amostra em subgrupos demográficos (ex: ingressantes vs. formandos vs. egressos), denotados por $g \in \{G_1, \dots, G_q\}$ com intersecção nula ($\bigcap_1^q G. = \emptyset$), onde $q$ é o número de repartições. Todo respondente deve pertencer a apenas um grupo. O Somatório do Grupo ($T_{G.}^p$) e a sua Média ($M_{G.}^p$) são definidos de forma vetorizada como:
-$$T_{G.}^p = \sum_{j \in G.} T_j^p$$
-$$M_{G.}^p = \frac{T_{G.}^p}{n_{G.}}$$
+Quando há necessidade de separar a amostra em subgrupos demográficos (ex: alunos vs. egressos), denotados por $g \in \{G_1, \dots, G_q\}$ com intersecção nula ($\bigcap_1^q G. = \emptyset$), onde $q$ é o número de repartições. Todo respondente deve pertencer a apenas um grupo. O Somatório do Grupo ($T_{G.}^p$) e a sua Média ($M_{G.}^p$) são definidos de forma vetorizada como:
+$$T_{G.}^p = \sum_{j \in G.} T_j^p \quad \text{e} \quad M_{G.}^p = \frac{T_{G.}^p}{n_{G.}}$$
 
-## O Índice de Qualidade de Plano de Manutenção (IQPL) {#sec-caso-iqpl}
+> **A Aplicação Prática da Álgebra:** O rigor dessa estruturação matemática foi o que permitiu à pesquisa original isolar o *gap* de formação acadêmica. Ao calcular o Score Médio da Variável ($M_i$) cruzando as três percepções, o algoritmo identificou conclusivamente que o **Item C20 (Domínio de língua estrangeira)** apresentava a maior distância entre a Exigência e o Desempenho.
 
-No segundo estudo de caso, a modelagem ARM é aplicada diretamente à gestão de ativos físicos. Um plano de manutenção mal estruturado gera paradas não programadas e destrói o fluxo de caixa. Para auditar a robustez desses planos, cria-se o **Índice de Qualidade de Plano de Manutenção (IQPL)**.
+#### Procedimentos Teóricos e Elaboração do Instrumento
 
-O IQPL é a consolidação da nossa equação de qualidade multidimensional (@eq-arm-multi) em uma nota cuja pontuação máxima atinge 100 pontos. Para garantir o rigor técnico, o modelo foi desdobrado em um total de **35 variáveis ($x_i$)**, metodicamente agrupadas em **5 áreas de interesse ($D_j$)**:
+**Construção do Referencial Teórico e Escalas**
+A pesquisa bibliográfica focou nas competências do administrador baseadas nos trabalhos de Oliveira e Araújo (2014), Souza, Ferrugini e Zambalde (2017), Regio et al. (2014) e Rossoni (2013). Seguindo a recomendação de Collis e Hussey (2005), optou-se pela escala *Likert* de 5 pontos para quantificar a Exigência (1=Pouquíssima a 5=Muita), Importância (1=Pouquíssima a 5=Muita) e Desempenho (1=Muito ruim a 5=Muito bom).
 
-$$\theta_{IQPL} = \sum_{j=1}^{5} \left[ w_{D_j} \times \left( \sum_{i=1}^{n_j} w_{x_i} \times x^*_i \right) \right] \leq 100$$ {#eq-iqpl}
+**Validação de Conteúdo (Grupo Focal)**
+Diante das competências selecionadas, realizou-se um grupo focal (01/07/2024) formado por quatro discentes do curso de Administração da UFRA. Oito itens (C02, C07, C08, C09, C11, C12, C15 e C23) foram reformulados para maior clareza, e o antigo item C10 foi excluído por alto nível de imprecisão, consolidando os 25 itens definitivos da @tbl-instrumento-gestao.
 
-Com o intuito de impulsionar a melhoria contínua, as variáveis ($x_i$) do IQPL foram divididas entre *Parâmetros Existentes* (a base histórica) e *Parâmetros Novos* (agregados para elevar o nível de gestão):
+#### Caracterização e Coleta de Dados
 
-**1. Programáveis ($D_1$ - 7 variáveis):**
-* *Existentes:* Tolerância Positiva (+), Tolerância Negativa (-), Horizonte de abertura, Intervalo de solicitação, Local de instalação, Plano automático, Plano não iniciado.
+A plataforma Google Forms foi utilizada para a aplicação entre 12/09/2024 e 24/09/2024. O questionário foi respondido por 67 discentes. A @tbl-recorte-respostas apresenta um recorte didático da matriz: o indivíduo $j=2$ obteve score máximo ($T_j = 125$), significando que ele percebe todas as competências com nota máxima de importância, enquanto o respondente $j=66$ já apresenta variabilidade ($T_j = 94$).
 
-**2. Processuais ($D_2$ - 6 variáveis):**
-* *Novos:* Materiais, HH - Qualidade, ACF (Apontamento de Classe Falha).
-* *Existentes:* Reinício dos planos, Ciclos vencidos, RT e Validação de Planos.
+| Indivíduo ($j$) | $Pi_{C01}$ | $Pi_{C02}$ | $Pi_{C03}$ | $\dots$ | $Pi_{C25}$ | Score Total ($T_j$) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **1** | 5 | 5 | 5 | $\dots$ | 5 | **124** |
+| **2** | 5 | 5 | 5 | $\dots$ | 5 | **125** |
+| **3** | 5 | 4 | 5 | $\dots$ | 4 | **115** |
+| **$\dots$** | $\dots$ | $\dots$ | $\dots$ | $\dots$ | $\dots$ | $\dots$ |
+| **66** | 5 | 5 | 5 | $\dots$ | 4 | **94** |
+| **67** | 5 | 5 | 5 | $\dots$ | 5 | **115** |
+| **Média ($M_i^{P_i}$)** | **4,70** | **4,81** | **4,91** | $\dots$ | **4,43** | |
 
-**3. Ativos ($D_3$ - 6 variáveis):**
-* *Novos:* Taxonomia - Padronização, Taxonomia – 6º Nível, Perfil de catálogo, Tipo de Ativo, Fabricante, Data de Aquisição e Operação.
+: Recorte do conjunto de respostas para a dimensão de Importância {#tbl-recorte-respostas}
 
-**4. Lista de Tarefas ($D_4$ - 15 variáveis):**
-* *Novo:* PTS.
-* *Existentes:* Chave de cálculo, Campo de Duração, Campo percentual, Responsável técnico LT, Última modificação LT, Duração irrisória, Duração Máxima, Unidade CT (H), Segurança, Validade da LT, 5S, Título da Lista, Tempo Máx. operação, Chave de controle.
+#### Resultados e Gaps de Competência
 
-**5. Desempenho ($D_5$ - 1 variável):**
-* *Novo:* RMC.
+Os participantes apresentaram idade média de 28,23 anos, sendo 67,16% do sexo feminino. A maior pontuação média foi observada na dimensão de Exigência para a partição "Indecisão na carreira" ($M_{G_4^M}^{P_e} = 120,33$), e a mais baixa no Desempenho para "Falta de opção" ($M_{G_2^M}^{P_d} = 87,14$).
+
+| Categoria ($g^u$) | Partição ($G_.^u$) | Amostra ($n$) | % | Exigência ($M^{P_e}$) | Importância ($M^{P_i}$) | Desempenho ($M^{P_d}$) |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| | **Total Geral** | **67** | **100%** | **110,91** | **112,46** | **96,72** |
+| **Sexo** | Feminino | 45 | 67,16% | 109,22 | 112,53 | 95,20 |
+| | Masculino | 22 | 32,84% | 114,36 | 112,32 | 99,82 |
+| **Motivação** | Identificação/Interesse | 38 | 56,72% | 109,68 | 110,97 | 96,03 |
+| | Busca por ascensão | 17 | 25,37% | 109,12 | 113,94 | 100,94 |
+| **Status** | Discente ativo | 53 | 79,10% | 111,60 | 111,89 | 96,17 |
+| | Egresso (> 1 ano) | 8 | 11,94% | 103,00 | 112,38 | 101,75 |
+
+: Informações demográficas e médias por cluster analítico (Recorte) {#tbl-demografia-respondentes}
+
+A comparação entre as variáveis revela discrepâncias (*Gaps*) críticas. Valores negativos próximos de -1 representam defasagem de uma escala inteira. Por exemplo, na competência de vendas (C15), os respondentes percebem que são exigidos (4,34) e dão importância (4,39), mas reportam um desempenho acadêmico moderado/baixo (3,49).
+
+| Item | Exigência ($M_e$) | Importância ($M_i$) | Desempenho ($M_d$) | Gap (E-I) | Gap (D-I) | Gap (D-E) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **C01** | 4,70 | 4,57 | 3,94 | -0,13 | -0,63 | -0,76 |
+| **C02** | 4,51 | 4,81 | 4,37 | 0,30 | -0,43 | -0,13 |
+| **C03** | 4,76 | 4,91 | 4,25 | 0,15 | -0,66 | -0,51 |
+| **C15** | 4,34 | 4,39 | 3,49 | 0,04 | -0,90 | -0,85 |
+| **C20** | 4,28 | 3,84 | 2,69 | -0,45 | -1,15 | -1,60 |
+| **C21** | 4,54 | 4,84 | 4,46 | 0,30 | -0,37 | -0,07 |
+| **C25** | 4,54 | 4,43 | 3,87 | -0,10 | -0,57 | -0,67 |
+
+: Média e discrepância (*Gaps*) entre as competências (Recorte dos itens críticos) {#tbl-gaps-competencias}
+
+A dinâmica visual de interação comprova estatisticamente a tese central: as expectativas de Exigência e Importância são elevadas e homogêneas, enquanto o Desempenho real apresenta scores severamente menores e com alta variabilidade.
+
+* **O Maior Alinhamento:** A competência C21 (Valores éticos) apresentou o maior desempenho ($M_d = 4,46$), refletindo excelente alinhamento com a exigência ($M_e = 4,54$).
+* **A Maior Lacuna Curricular:** O extremo oposto reside no item C20 (Domínio de língua estrangeira). Ele despencou com o menor desempenho geral do estudo ($M_d = 2,69$), configurando a área de maior fragilidade frente a uma considerável exigência do mercado ($M_e = 4,28$).
+
+#### Diagnóstico Gerencial e Recomendações Estratégicas
+
+A extração dos dados através do modelo multidimensional permite transcender a mera constatação estatística e avançar para a engenharia pedagógica. A análise comparativa dos *clusters* revelou dinâmicas comportamentais profundas sobre como o profissional de Administração enxerga o seu próprio valor no mercado:
+
+**1. O Impacto da Motivação e do Status de Carreira**
+A análise não revelou diferenças significativas na percepção entre os sexos. Contudo, o fator **Motivação** provou ser um gatilho crucial de desempenho.
+* Indivíduos no grupo de "Indecisão na carreira" apresentaram a mais alta pontuação em Exigência, sugerindo que profissionais em busca de propósito sentem um peso maior do mercado.
+* Em contrapartida, o grupo cuja motivação era a "Falta de opção" apresentou o menor Desempenho geral. Fica provado matematicamente que profissionais com objetivos claros e motivação intrínseca entregam melhores resultados.
+* O status da carreira também distorce a percepção: recém-formados sentem maior pressão e menor confiança; discentes têm uma visão intermediária; e egressos veteranos demonstram alta adaptação e autoconfiança.
+
+**2. Os Ofensores de Empregabilidade (*Hard Skills* Críticas)**
+O algoritmo isolou as lacunas que cerceiam diretamente as chances de contratação e sucesso em grandes corporações:
+* **Idiomas (Item C20):** Como demonstrado, o "Domínio de língua estrangeira" é a principal falha do sistema. Multinacionais são severamente impactadas por esse déficit. Uma intervenção cirúrgica no currículo — como a inclusão de aulas de idiomas aplicadas aos negócios — teria baixo impacto na estrutura de custos da IES, mas um altíssimo Retorno sobre o Investimento (ROI) na empregabilidade do aluno.
+* **Finanças e Logística (Itens C16, C22 e C23):** Competências como "Interpretar informações contábeis" e "Gestão financeira e logística" apresentaram baixo desempenho. Como o objetivo primário das organizações é a geração de lucro, administradores sem esse domínio limitam o crescimento da empresa. A solução pedagógica requer a substituição de aulas puramente teóricas por **simulações empresariais e estudos de caso focados em resolução de problemas**.
+
+**3. As Fortalezas Culturais (*Soft Skills* e Ética)**
+Se o sistema falha em algumas habilidades técnicas, ele acerta de forma louvável na formação cultural:
+* **Ética Profissional (Item C21):** A competência de considerar os valores éticos obteve altíssimo desempenho ($M_d = 4,47$), provando que a base de confiança e relacionamento no ambiente de trabalho está consolidada.
+* **Aperfeiçoamento Contínuo (Item C03):** Os participantes reconhecem fortemente a necessidade de se manterem atualizados frente às mudanças do mercado. Curiosamente, a percepção de Importância atribuída pelo aluno ($P_i$) superou a própria Exigência do mercado ($P_e$). Isso gera um *insight* valioso para a gestão de RH: **quanto maior o valor intrínseco (Importância) que o indivíduo atribui a uma competência, maior será o seu comprometimento orgânico em desenvolvê-la**.
+
+**4. O Plano de Ação: Curricularização da Extensão**
+O diagnóstico final do motor ARM aponta que a melhor estratégia estrutural para nivelar esses *gaps* não é apenas adicionar carga horária em sala de aula, mas sim alavancar a **Curricularização da Extensão**.
+
+Ao criar projetos interdisciplinares que levam os alunos a campo e trazem as empresas para dentro da Instituição de Ensino Superior (IES) através de parcerias, a academia cria um "laboratório vivo". O aluno deixa de ser um receptor passivo e passa a aplicar conhecimentos de contabilidade, logística e idiomas em contextos reais e de impacto comunitário, fechando em definitivo a lacuna entre a sala de aula e o chão de fábrica corporativo.
+
+
+## O Índice de Qualidade de Plano de Manutenção (IQPL)
+
+No segundo estudo de caso corporativo, a modelagem ARM abandona a avaliação humana e é aplicada diretamente à gestão de ativos físicos e engenharia de confiabilidade.
+
+Um plano de manutenção mal estruturado gera paradas não programadas e destrói o fluxo de caixa. Para auditar a robustez desses planos, cria-se o **Índice de Qualidade de Plano de Manutenção (IQPL)**. O IQPL é a consolidação da nossa equação de qualidade multidimensional em uma nota cuja pontuação máxima atinge 100 pontos.
+
+Para garantir o rigor técnico, o modelo audita **35 variáveis operacionais ($x_i$)**, metodicamente agrupadas em **5 áreas de interesse ($D_j$)**:
+1. **Programáveis:** (Tolerâncias, horizontes de disparo, etc.)
+2. **Processuais:** (Disponibilidade de materiais, apontamento de falhas, etc.)
+3. **Ativos:** (Taxonomia, árvore de equipamentos, etc.)
+4. **Lista de Tarefas:** (Duração, segurança, bloqueios, etc.)
+5. **Desempenho:** (Relação de Manutenção Corretiva).
+
+> **Avançando para a Prática Operacional:** Como o IQPL exige uma compreensão profunda do Macrofluxo de Planejamento e Controle da Manutenção (PCM), o desdobramento completo de suas variáveis, o cálculo do construto global ($\theta_{IQPL}$) e o código do motor matemático em R foram isolados em um capítulo próprio. Para explorar esta modelagem a fundo, consulte o **Capítulo 11 (@sec-iqpl)**.
 
 ## Avaliação de Sistemas de Gestão Integrados e o Ambiente de Relacionamento Interno (ARI) {#sec-caso-ari-irt}
 
@@ -560,8 +657,11 @@ O terceiro estudo de caso explora a dinâmica comportamental e os gargalos de co
 O objetivo deste caso é instrumentalizar a Modelagem Analítica de Requisitos (ARM) para medir o efeito das **diferenças de percepção** de qualidade entre os clientes internos. Historicamente, a literatura foca muito na formulação de sistemas de gestão ou em fatores de mercado externo, havendo uma lacuna em quantificar como a percepção distorcida entre departamentos impacta o desempenho organizacional.
 
 Para transpor essa barreira, o desenvolvimento do instrumento de medição seguirá um rigoroso fluxo metodológico:
+
 1. **Modelagem Conceitual:** Mapeamento do ARI, caracterização das partes envolvidas (Apoio vs. Operação) e definição dos fatores críticos que impactam esse ecossistema.
+
 2. **Coleta e Refinamento:** Utilização de dados informacionais da empresa, *focus groups* exploratórios e confirmatórios, aliados à análise temática de conteúdo.
+
 3. **Instrumentalização Matemática:** Para modelar e codificar essas percepções, a modelagem se apoiará na **Teoria da Resposta ao Item (TRI)** *(Item Response Theory - IRT)*, técnica estatística avançada que permitirá validar as variáveis qualitativas do sistema de gestão.
 
 *(Nota: O desenvolvimento do código, das equações da Teoria da Resposta ao Item e das funções matemáticas em R para este estudo de caso serão detalhados nas seções seguintes).*
