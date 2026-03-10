@@ -194,15 +194,15 @@ h2 .header-section-number {
 /* h3: terciário */
 h3 {
   font-size: 1.25rem !important;
-  color: var(--color-brown) !important;
+  color: var(--color-teal) !important;
   font-weight: 600 !important;
   margin-top: 0.4rem !important;
   margin-bottom: 0.5rem !important;
   padding-bottom: 0.2rem !important;
-  border-bottom: 0.5pt solid var(--color-brown) !important; /* traço 1/2pt abaixo */
+  border-bottom: 0.5pt solid var(--color-teal) !important; /* traço 1/2pt abaixo */
 }
 h3 .header-section-number {
-  color: var(--color-brown) !important;
+  color: var(--color-teal) !important;
   display: inline-block !important;
   margin-right: 0.4rem !important;
 }
@@ -210,17 +210,19 @@ h3 .header-section-number {
 /* h4: sem numeração */
 h4 {
   font-size: 1.0rem !important;
-  color: var(--color-teal-dark) !important;
+  color: var(--color-blue-deep) !important;
   font-weight: 600 !important;
   margin-top: 0.35rem !important;
   margin-bottom: 0.45rem !important;
+  padding-bottom: 0.2rem !important;
+  border-bottom: 0.5pt solid var(--color-blue-deep) !important; /* traço 1/2pt abaixo */
 }
 h4 .header-section-number { display: none !important; }
 
 /* h5: mesmo tamanho do corpo do texto */
 h5 {
   font-size: 12pt !important; /* igual ao body */
-  color: var(--color-teal) !important;
+  color: var(--color-blue-bright) !important;
   font-weight: 600 !important;
   margin-top: 0.25rem !important;
   margin-bottom: 0.35rem !important;
