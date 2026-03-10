@@ -93,39 +93,8 @@ table.table td:first-child {
   color: var(--color-teal-dark);
 }
 /* ==============================================================================
-   ESTRUTURA FINAL DO LAYOUT (V10.8 - TOC FIXED & NÍVEL 3 FORÇADO)
+   ESTRUTURA FINAL DO LAYOUT (V11.0 - PALETA AZUL EXPANDIDA)
    ============================================================================== */
-
-/* --- 1. VARIÁVEIS E CORES GLOBAIS --- */
-:root {
-  /* 1.1. Paleta Customizada (Completa - BrBG) */
-  --color-brown-dark:   #543005;
-  --color-brown-med:    #8c510a;
-  --color-brown:        #bf812d;
-  --color-brown-light:  #dfc27d;
-  --color-cream:        #f6e8c3;
-  --color-cyan-light:   #c7eae5;
-  --color-cyan-mid:     #80cdc1;
-  --color-teal:         #35978f;
-  --color-teal-dark:    #01665e;
-  --color-teal-deep:    #003c30;
-
-  /* 1.2. ESCALAS DE DESTAQUE E SUPORTE */
-  --color-gold:         #d4af37;
-  --color-gold-base:    #ffd700;
-  --color-gold-darker:  #b39700;
-  --color-gray-soft:    #CCCCCC;
-  --color-hover-gray:   #e3e3e3;
-  --color-gray-med:     #aaaaaa;
-
-  /* 1.3. Layout Dimensions */
-  --sidebar-width:      320px;
-  --toc-width:          320px;
-  --header-height:      60px;
-
-  --content-gap:        -11rem;
-  --text-padding-left:  0.75rem;
-}
 
 /* === COMPONENTES ISOLADOS === */
 .exemplo-book {
@@ -501,20 +470,8 @@ span.citation sup.citation-superscript {
   padding-left: 0 !important;
 }
 /* =========================================
-   10. CORREÇÃO DE NUMERAÇÃO DUPLICADA (H4)
-   ========================================= */
-
-/* Oculta a numeração automática do Quarto apenas para o nível 4 */
-h4 .header-section-number {
-  display: none !important;
-}
-
-/* Ajuste opcional: remove o recuo que sobraria se a numeração fosse removida */
-h4 {
-  margin-top: 1.5rem !important;
-  color: var(--color-teal-dark) !important; /* Cor para destacar o tópico manual */
-  font-weight: bold !important;
-}
+   10. CORREÇÃO DE NUMERAÇÃO DUPLICADA (H4) - JÁ TRATADO NA SEÇÃO HEADERS
+   =========================================
 
 /* =========================================
    11. SOMBREAMENTO EM LEGENDAS (FIGURAS E TABELAS)
