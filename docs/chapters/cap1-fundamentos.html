@@ -795,7 +795,12 @@ Figura&nbsp;1.4: Comparativo de Qualidade entre Copos - Adequação ao Uso
 <p><strong>A Lógica da Conformidade Binária (O “Muro” da Qualidade)</strong> Amostra #03: Tem <span class="math inline">\(141,2\text{ mm}\)</span>. São apenas <span class="math inline">\(0,2\text{ mm}\)</span> acima do Limite Superior. A caneta ainda escreve? Sim. Mas é NÃO CONFORME. Ela pode travar a máquina de embalagem ou não caber na caixa padrão, gerando custo logístico imenso.</p>
 </div>
 <p><strong>A Deriva do Processo e Limites de Conformidade</strong> Para visualizar como a conformidade se comporta ao longo do tempo, o gráfico de Controle de Tendência mostra que um processo pode estar “conforme” hoje, mas caminhando para o erro amanhã.</p>
-<pre class="mermaid"><code>flowchart LR
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
     A["08:00h&lt;br&gt;Medida: 10,00 mm&lt;br&gt;No ALVO"] --&gt; B["10:00h&lt;br&gt;Medida: 10,02 mm&lt;br&gt;Aceitável"]
     B --&gt;|Início da Deriva| C["12:00h&lt;br&gt;Medida: 10,05 mm&lt;br&gt;Atenção"]
     C --&gt;|Subindo| D["14:00h&lt;br&gt;Medida: 10,08 mm&lt;br&gt;Risco Crítico"]
@@ -805,7 +810,13 @@ Figura&nbsp;1.4: Comparativo de Qualidade entre Copos - Adequação ao Uso
     style B fill:#27ae60,stroke:#333,color:#fff
     style C fill:#f1c40f,stroke:#333,color:#000
     style D fill:#e67e22,stroke:#333,color:#fff
-    style E fill:#e74c3c,stroke:#333,color:#fff</code></pre>
+    style E fill:#e74c3c,stroke:#333,color:#fff
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <ul>
 <li><strong>Conformidade Estática (O Passa/Não Passa):</strong> Às 08:00h, a peça mede 10,00 mm (No Alvo). Às 12:00h, mede 10,05 mm. O Inspetor diz: “Aprovada” (ainda abaixo do LSE). O Perigo: olhar apenas para o “Sim/Não” passa a falsa impressão de que está tudo bem.</li>
 <li><strong>Conformidade Dinâmica (Visão do Engenheiro):</strong> O gráfico revela uma Deriva. O processo está perdendo o ajuste. Às 16:00h, ultrapassa o LSE gerando Não Conformidade (Refugo).</li>
@@ -887,7 +898,12 @@ Tabela&nbsp;1.1: O Custo Oculto do Retrabalho
 <p><strong>A Função Perda de Taguchi (O Conceito Matemático)</strong> Tradicionalmente, se um produto está dentro do limite (ex: entre 9,9 mm e 10,1 mm), ele é considerado “bom”. Para Taguchi, se o alvo é 10,0 mm, qualquer valor diferente disso (mesmo 10,01 mm) já começa a gerar uma <strong>perda incremental</strong>. * <strong>A Lógica:</strong> Quanto mais longe do alvo, maior o custo de ajuste, maior o desgaste de peças e maior o consumo de energia. A perda cresce de forma quadrática conforme nos afastamos do centro do projeto.</p>
 <p>A fórmula simplificada de Taguchi é: <span id="eq-taguchi"><span class="math display">\[L = k(x - t)^2 \tag{1.1}\]</span></span> Onde: * <span class="math inline">\(L\)</span> = Perda financeira (em Reais). * <span class="math inline">\(x\)</span> = Valor medido da característica. * <span class="math inline">\(t\)</span> = Valor Alvo (<em>Target</em>). * <span class="math inline">\(k\)</span> = Constante de custo financeiro da falha.</p>
 <p>Para que o aluno visualize a diferença entre a visão tradicional (binária: dentro ou fora) e a visão de Taguchi (gradual), observe o gráfico abaixo:</p>
-<pre class="mermaid"><code>flowchart TD
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
     subgraph TRADICIONAL ["Visão Tradicional: O Degrau de Tolerância"]
         direction LR
         T1["No Alvo&lt;br&gt;10,00 mm"] --&gt;|Aceito| T_OK["Zero Perda&lt;br&gt;Financeira"]
@@ -906,7 +922,13 @@ Tabela&nbsp;1.1: O Custo Oculto do Retrabalho
     style T_NOK fill:#e74c3c,color:#fff,stroke:#333
     style G_OK fill:#2ecc71,color:#fff,stroke:#333
     style G_WARN fill:#f1c40f,color:#000,stroke:#333
-    style G_CRIT fill:#e67e22,color:#fff,stroke:#333</code></pre>
+    style G_CRIT fill:#e67e22,color:#fff,stroke:#333
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <div id="exm-taguchi-ventilador" class="example theorem">
 <p><span class="theorem-title"><strong>Exemplo 1.7 (A Visão de Taguchi: O Eixo do Ventilador)</strong></span> &nbsp;</p>
 <ul>
@@ -1532,69 +1554,69 @@ Figura&nbsp;1.7: Relação Qualidade x Participação no Mercado
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carregar bibliotecas necessárias</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Preparação dos Dados</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Definindo o intervalo de q (precisão de 40 a 100 para melhor visualização)</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>q_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">40</span>, <span class="dv">100</span>, <span class="at">by =</span> <span class="fl">0.5</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculando os custos com base nas funções modeladas</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>c_falha <span class="ot">&lt;-</span> <span class="dv">1024000</span> <span class="sc">/</span> q_vals</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>c_controle <span class="ot">&lt;-</span> q_vals<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>c_total <span class="ot">&lt;-</span> c_falha <span class="sc">+</span> c_controle</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando um DataFrame no formato longo para facilitar a plotagem no ggplot</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>df_custos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">q =</span> <span class="fu">rep</span>(q_vals, <span class="dv">3</span>),</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">Custo =</span> <span class="fu">c</span>(c_falha, c_controle, c_total),</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">Curva =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Custo de Falhas"</span>, <span class="st">"Custo de Controle"</span>, <span class="st">"Custo Total (CTQ)"</span>),</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                     <span class="at">each =</span> <span class="fu">length</span>(q_vals)),</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                 <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Custo de Controle"</span>, <span class="st">"Custo de Falhas"</span>, <span class="st">"Custo Total (CTQ)"</span>))</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Definição do Ponto Ótimo (calculado via derivada)</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>q_otimo <span class="ot">&lt;-</span> <span class="dv">80</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>custo_otimo <span class="ot">&lt;-</span> (q_otimo<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> (<span class="dv">1024000</span> <span class="sc">/</span> q_otimo) <span class="co"># Resultado = 19.200</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Construção do Gráfico</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_custos, <span class="fu">aes</span>(<span class="at">x =</span> q, <span class="at">y =</span> Custo, <span class="at">color =</span> Curva, <span class="at">linetype =</span> Curva)) <span class="sc">+</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Customizando cores (Azul para Controle, Vermelho para Falha, Verde para Total)</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Custo de Controle"</span> <span class="ot">=</span> <span class="st">"#2980b9"</span>,</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"Custo de Falhas"</span> <span class="ot">=</span> <span class="st">"#c0392b"</span>,</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"Custo Total (CTQ)"</span> <span class="ot">=</span> <span class="st">"#27ae60"</span>)) <span class="sc">+</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Diferenciando o traço da curva total para destacá-la</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linetype_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Custo de Controle"</span> <span class="ot">=</span> <span class="st">"solid"</span>,</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"Custo de Falhas"</span> <span class="ot">=</span> <span class="st">"solid"</span>,</span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"Custo Total (CTQ)"</span> <span class="ot">=</span> <span class="st">"dashed"</span>)) <span class="sc">+</span></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Destacando o eixo do Ponto Ótimo</span></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> q_otimo, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"#7f8c8d"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> q_otimo, <span class="at">y =</span> custo_otimo), <span class="at">color =</span> <span class="st">"#27ae60"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Anotação de texto no ponto ótimo</span></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> q_otimo, <span class="at">y =</span> custo_otimo <span class="sc">+</span> <span class="dv">2000</span>,</span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"Ponto Ótimo</span><span class="sc">\n</span><span class="st">(q = 80%, R$ 19.200)"</span>),</span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"#27ae60"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Formatação dos Eixos (Porcentagem em X e Moeda em Y)</span></span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) <span class="fu">paste0</span>(x, <span class="st">"%"</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">40</span>, <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">dollar_format</span>(<span class="at">prefix =</span> <span class="st">"R$ "</span>, <span class="at">big.mark =</span> <span class="st">"."</span>, <span class="at">decimal.mark =</span> <span class="st">","</span>)) <span class="sc">+</span></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Títulos e Tema</span></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Modelagem Matemática dos Custos da Qualidade"</span>,</span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Máquina de Envase: Investimento em Controle vs. Prejuízo de Falhas"</span>,</span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Nível de Precisão da Máquina (q)"</span>,</span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Custo Mensal"</span>,</span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">""</span>, <span class="at">linetype =</span> <span class="st">""</span>) <span class="sc">+</span></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carregar bibliotecas necessárias</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Preparação dos Dados</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Definindo o intervalo de q (precisão de 40 a 100 para melhor visualização)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>q_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">40</span>, <span class="dv">100</span>, <span class="at">by =</span> <span class="fl">0.5</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculando os custos com base nas funções modeladas</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>c_falha <span class="ot">&lt;-</span> <span class="dv">1024000</span> <span class="sc">/</span> q_vals</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>c_controle <span class="ot">&lt;-</span> q_vals<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>c_total <span class="ot">&lt;-</span> c_falha <span class="sc">+</span> c_controle</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando um DataFrame no formato longo para facilitar a plotagem no ggplot</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>df_custos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">q =</span> <span class="fu">rep</span>(q_vals, <span class="dv">3</span>),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">Custo =</span> <span class="fu">c</span>(c_falha, c_controle, c_total),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">Curva =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Custo de Falhas"</span>, <span class="st">"Custo de Controle"</span>, <span class="st">"Custo Total (CTQ)"</span>),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                     <span class="at">each =</span> <span class="fu">length</span>(q_vals)),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                 <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Custo de Controle"</span>, <span class="st">"Custo de Falhas"</span>, <span class="st">"Custo Total (CTQ)"</span>))</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Definição do Ponto Ótimo (calculado via derivada)</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>q_otimo <span class="ot">&lt;-</span> <span class="dv">80</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>custo_otimo <span class="ot">&lt;-</span> (q_otimo<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> (<span class="dv">1024000</span> <span class="sc">/</span> q_otimo) <span class="co"># Resultado = 19.200</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Construção do Gráfico</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_custos, <span class="fu">aes</span>(<span class="at">x =</span> q, <span class="at">y =</span> Custo, <span class="at">color =</span> Curva, <span class="at">linetype =</span> Curva)) <span class="sc">+</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Customizando cores (Azul para Controle, Vermelho para Falha, Verde para Total)</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Custo de Controle"</span> <span class="ot">=</span> <span class="st">"#2980b9"</span>,</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"Custo de Falhas"</span> <span class="ot">=</span> <span class="st">"#c0392b"</span>,</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"Custo Total (CTQ)"</span> <span class="ot">=</span> <span class="st">"#27ae60"</span>)) <span class="sc">+</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Diferenciando o traço da curva total para destacá-la</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linetype_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Custo de Controle"</span> <span class="ot">=</span> <span class="st">"solid"</span>,</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"Custo de Falhas"</span> <span class="ot">=</span> <span class="st">"solid"</span>,</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"Custo Total (CTQ)"</span> <span class="ot">=</span> <span class="st">"dashed"</span>)) <span class="sc">+</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Destacando o eixo do Ponto Ótimo</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> q_otimo, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"#7f8c8d"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> q_otimo, <span class="at">y =</span> custo_otimo), <span class="at">color =</span> <span class="st">"#27ae60"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Anotação de texto no ponto ótimo</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> q_otimo, <span class="at">y =</span> custo_otimo <span class="sc">+</span> <span class="dv">2000</span>,</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"Ponto Ótimo</span><span class="sc">\n</span><span class="st">(q = 80%, R$ 19.200)"</span>),</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"#27ae60"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Formatação dos Eixos (Porcentagem em X e Moeda em Y)</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) <span class="fu">paste0</span>(x, <span class="st">"%"</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">40</span>, <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">dollar_format</span>(<span class="at">prefix =</span> <span class="st">"R$ "</span>, <span class="at">big.mark =</span> <span class="st">"."</span>, <span class="at">decimal.mark =</span> <span class="st">","</span>)) <span class="sc">+</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Títulos e Tema</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Modelagem Matemática dos Custos da Qualidade"</span>,</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Máquina de Envase: Investimento em Controle vs. Prejuízo de Falhas"</span>,</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Nível de Precisão da Máquina (q)"</span>,</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Custo Mensal"</span>,</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">""</span>, <span class="at">linetype =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-modelagem-custos" class="quarto-float quarto-figure quarto-figure-center anchored">

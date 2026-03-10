@@ -262,7 +262,7 @@ Amostra #03: Tem $141,2\text{ mm}$. São apenas $0,2\text{ mm}$ acima do Limite 
 **A Deriva do Processo e Limites de Conformidade**
 Para visualizar como a conformidade se comporta ao longo do tempo, o gráfico de Controle de Tendência mostra que um processo pode estar "conforme" hoje, mas caminhando para o erro amanhã.
 
-```mermaid
+```{mermaid}
 flowchart LR
     A["08:00h<br>Medida: 10,00 mm<br>No ALVO"] --> B["10:00h<br>Medida: 10,02 mm<br>Aceitável"]
     B -->|Início da Deriva| C["12:00h<br>Medida: 10,05 mm<br>Atenção"]
@@ -334,7 +334,7 @@ Onde:
 
 Para que o aluno visualize a diferença entre a visão tradicional (binária: dentro ou fora) e a visão de Taguchi (gradual), observe o gráfico abaixo:
 
-```mermaid
+```{mermaid}
 flowchart TD
     subgraph TRADICIONAL ["Visão Tradicional: O Degrau de Tolerância"]
         direction LR
