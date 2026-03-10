@@ -119,7 +119,7 @@ Para que os quatro fatores de satisfação do consumidor sejam garantidos na pr�
 
 O processo produtivo e a formação da qualidade dividem-se em quatro etapas rigorosas:
 
-**Etapa 1: Desenvolvimento do Produto (A Vertente Mercadológica)**
+##### Etapa 1: Desenvolvimento do Produto (A Vertente Mercadológica)
 É a fase de **Qualidade de Projeto do Produto**. Ela é definida pela estratégia de mercado e compreende todas as atividades que traduzem as necessidades do consumidor e as oportunidades tecnológicas em informações utilizáveis pela fábrica. O desenvolvimento ocorre em quatro níveis de detalhamento:
 
 * **Qualidade da Pesquisa de Mercado:** A identificação exata do que o nicho de consumidores deseja.
@@ -127,20 +127,20 @@ O processo produtivo e a formação da qualidade dividem-se em quatro etapas rig
 * **Qualidade de Planejamento:** A definição das metas de desempenho, custo máximo viável e estilo.
 * **Qualidade de Especificação (Engenharia do Produto):** O detalhamento final dessas metas em especificações técnicas rígidas (dimensões, materiais e tolerâncias).
 
-**Etapa 2: Desenvolvimento do Processo (A Vertente Técnica)**
+##### Etapa 2: Desenvolvimento do Processo (A Vertente Técnica)
 Com o produto especificado, a engenharia foca na **Qualidade do Projeto do Processo**. O objetivo é traduzir as exigências da Etapa 1 em um sistema produtivo viável, definindo o fluxograma, o layout (arranjo físico), o projeto do trabalho e as ferramentas necessárias. O sucesso dessa etapa depende da base instalada:
 
 * Se for um **processo para uma planta nova**, os coeficientes técnicos e a capacidade produtiva são desenhados do zero, buscando o estado da arte.
 * Se for uma **adaptação em planta existente**, o processo é restrito pela tecnologia e maquinário já disponíveis na empresa. Um bom projeto de processo é o que viabiliza técnica e economicamente a próxima etapa.
 
-**Etapa 3: Produção Propriamente Dita e Qualidade de Conformação**
+##### Etapa 3: Produção Propriamente Dita e Qualidade de Conformação
 É o chão de fábrica em ação, englobando o suprimento de matérias-primas, a fabricação e o gerenciamento da produção (PCP, Manutenção e Controle de Qualidade). O objetivo absoluto desta etapa é a **Qualidade de Conformação (ou Ajustamento)**, que expressa o grau de fidelidade com que o produto real reproduz o projeto aprovado.
 
 * Se o processo consegue fabricar pelo menos uma unidade exatamente conforme o projeto, diz-se que o produto é *manufaturável*.
 * A Qualidade de Conformação exige alta capacidade gerencial e é avaliada sob duas perspectivas: a **conformidade do produto** (se o lote atende às tolerâncias dimensionais) e o **desempenho da produção** (a eficácia e eficiência dos recursos).
 * A meta da gerência de produção é tripla: atender às especificações, alcançar alta produtividade e operar com o mínimo custo.
 
-**Etapa 4: Comercialização e Pós-venda (Retorno à Vertente Mercadológica)**
+##### Etapa 4: Comercialização e Pós-venda (Retorno à Vertente Mercadológica)
 O produto deixa a fábrica e chega ao cliente. A percepção final de valor gravita em torno de duas frentes:
 
 * **Qualidade de Comercialização:** Não é um atributo físico do produto, mas da *gestão da empresa*. Envolve a **Logística** (capacidade de distribuir o produto fisicamente no prazo) e o **Marketing** (capacidade de comunicar e apresentar corretamente os atributos técnicos ao cliente).
@@ -220,8 +220,9 @@ A @fig-copos-descartaveis ilustra visualmente essa relatividade em um ambiente d
 
 Esta segunda abordagem argumenta que a gestão da qualidade só se torna viável na prática diária de uma operação se for balizada por métricas e especificações técnicas estabelecidas antes do início da fabricação. Nesse cenário, o nível de excelência é determinado rigorosamente pelo alinhamento exato entre o item entregue e o que foi parametrizado no projeto de engenharia. A qualidade não é uma opinião, mas uma **comparação estatística** entre o "Dever Ser" (Projeto) e o "É" (Produto Real).
 
-**A Ficha Técnica (O "DNA" da Qualidade)**
+##### A Ficha Técnica (O "DNA" da Qualidade)
 Na conformidade, o documento mestre é a Especificação Técnica. Ela transforma desejos abstratos em números auditáveis.
+
 * **Limites de Tolerância:** O projeto nunca define apenas um número fixo (ex: 10 mm), mas uma faixa aceitável (ex: $10 \pm 0,05$ mm).
 * **Conformidade Binária:** Se a peça mede 10,04 mm, ela é *Conforme*. Se mede 10,06 mm, ela é *Não Conforme* (defeito), mesmo que ainda funcione. Para a engenharia de conformidade, o erro é puramente o desvio do plano.
 
@@ -336,25 +337,30 @@ Para que o aluno visualize a diferença entre a visão tradicional (binária: de
 
 ```{mermaid}
 flowchart TD
+    %% Definição de estilos para alto contraste (fundo claro e letras escuras)
+    classDef nodePadrao fill:#ffffff,stroke:#555,stroke-width:2px,color:#000,font-weight:bold
+    classDef okNode fill:#2ecc71,stroke:#333,stroke-width:2px,color:#ffffff,font-weight:bold
+    classDef warnNode fill:#f1c40f,stroke:#333,stroke-width:2px,color:#000000,font-weight:bold
+    classDef critNode fill:#e67e22,stroke:#333,stroke-width:2px,color:#ffffff,font-weight:bold
+    classDef nokNode fill:#e74c3c,stroke:#333,stroke-width:2px,color:#ffffff,font-weight:bold
+
+    %% Estilo claro para o fundo dos subgrafos para não atrapalhar a leitura
+    style TRADICIONAL fill:#f8f9fa,stroke:#999,stroke-width:2px,color:#000
+    style TAGUCHI fill:#f8f9fa,stroke:#999,stroke-width:2px,color:#000
+
     subgraph TRADICIONAL ["Visão Tradicional: O Degrau de Tolerância"]
         direction LR
-        T1["No Alvo<br>10,00 mm"] -->|Aceito| T_OK["Zero Perda<br>Financeira"]
-        T2["No Limite<br>10,09 mm"] -->|Aceito| T_OK
-        T3["Fora do Limite<br>10,11 mm"] -->|Rejeitado| T_NOK["Perda Total<br>Refugo"]
+        T1["No Alvo<br>10,00 mm"]:::nodePadrao -->|Aceito| T_OK["Zero Perda<br>Financeira"]:::okNode
+        T2["No Limite<br>10,09 mm"]:::nodePadrao -->|Aceito| T_OK
+        T3["Fora do Limite<br>10,11 mm"]:::nodePadrao -->|Rejeitado| T_NOK["Perda Total<br>Refugo"]:::nokNode
     end
 
     subgraph TAGUCHI ["Visão de Taguchi: A Perda Incremental"]
         direction LR
-        G1["No Alvo<br>10,00 mm"] -->|Perfeição| G_OK["Zero Perda<br>Financeira"]
-        G2["Fora do Alvo<br>10,05 mm"] -->|Desgaste Ativo| G_WARN["Perda Financeira<br>Leve"]
-        G3["No Limite<br>10,09 mm"] -->|Quase Falhando| G_CRIT["Alta Perda<br>Financeira"]
+        G1["No Alvo<br>10,00 mm"]:::nodePadrao -->|Perfeição| G_OK["Zero Perda<br>Financeira"]:::okNode
+        G2["Fora do Alvo<br>10,05 mm"]:::nodePadrao -->|Desgaste Ativo| G_WARN["Perda Financeira<br>Leve"]:::warnNode
+        G3["No Limite<br>10,09 mm"]:::nodePadrao -->|Quase Falhando| G_CRIT["Alta Perda<br>Financeira"]:::critNode
     end
-
-    style T_OK fill:#2ecc71,color:#fff,stroke:#333
-    style T_NOK fill:#e74c3c,color:#fff,stroke:#333
-    style G_OK fill:#2ecc71,color:#fff,stroke:#333
-    style G_WARN fill:#f1c40f,color:#000,stroke:#333
-    style G_CRIT fill:#e67e22,color:#fff,stroke:#333
 ```
 
 ::: {.example #exm-taguchi-ventilador name="A Visão de Taguchi: O Eixo do Ventilador"}
@@ -722,7 +728,7 @@ Após 6 meses no mercado, 0,5% das baterias (500 unidades) começaram a superaqu
 *Análise Crítica:* O que parecia uma economia de R$ 50,00 na inspeção gerou um prejuízo de quase R$ 17 milhões. Na Falha Interna, o engenheiro luta pela Eficiência; na Falha Externa, ele luta pela Sobrevivência da marca.
 :::
 
-**3. A Armadilha da Superqualidade (Exceder Requerimentos)**
+**3. A Armadilha da Superqualidade - Exceder Requerimentos**
 
 Existe um custo sutil e perigoso: a **Superqualidade**. Ocorre quando a engenharia entrega atributos que o cliente não pediu, não valoriza e, consequentemente, não paga por eles. Na Superqualidade, o engenheiro luta contra o Desperdício.
 
@@ -1516,21 +1522,20 @@ Para sistematizar essa integração na rotina da engenharia de produção, a @tb
 ```{mermaid}
 flowchart TD
 
-    %% --- CONFIGURAÇÃO DE ESTILOS (Garantindo contraste e letras grandes) ---
-    classDef isoStyle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#000,font-size:15px,font-weight:bold
-    classDef qualStyle fill:#fff8e1,stroke:#ef6c00,stroke-width:2px,color:#000,font-size:15px,font-weight:bold
-    classDef engStyle fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000,font-size:15px,font-weight:bold
+    %% --- CONFIGURAÇÃO DE ESTILOS (Garantindo contraste e letras pretas fortes) ---
+    classDef isoStyle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#000000,font-size:15px,font-weight:bold
+    classDef qualStyle fill:#fff8e1,stroke:#ef6c00,stroke-width:2px,color:#000000,font-size:15px,font-weight:bold
+    classDef engStyle fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000000,font-size:15px,font-weight:bold
 
-    %% Fundo claro para os subgrafos (Evita o problema da tela escura no Quarto)
-    style Fase1 fill:#f8f9fa,stroke:#1565c0,stroke-width:2px,color:#1565c0,font-weight:bold,font-size:16px
-    style Fase2 fill:#f8f9fa,stroke:#ef6c00,stroke-width:2px,color:#ef6c00,font-weight:bold,font-size:16px
-    style Fase3 fill:#f8f9fa,stroke:#7b1fa2,stroke-width:2px,color:#7b1fa2,font-weight:bold,font-size:16px
+    %% Fundo BRANCO PURO para os subgrafos (Evita o problema da tela escura/cinza)
+    style Fase1 fill:#ffffff,stroke:#1565c0,stroke-width:2px,color:#1565c0,font-weight:bold,font-size:16px
+    style Fase2 fill:#ffffff,stroke:#ef6c00,stroke-width:2px,color:#ef6c00,font-weight:bold,font-size:16px
+    style Fase3 fill:#ffffff,stroke:#7b1fa2,stroke-width:2px,color:#7b1fa2,font-weight:bold,font-size:16px
 
     %% --- ESTRUTURA DO DIAGRAMA ---
 
     subgraph Fase1 ["📘 1. SISTEMA DE GESTÃO (ISO 9001)"]
         direction LR
-        %% Removido o "." após o número para eliminar o erro de "Unsupported markdown list"
         C4("Cap. 4<br>Contexto") --> C5("Cap. 5<br>Liderança") --> C6("Cap. 6<br>Planejamento")
         C6 --> C7("Cap. 7<br>Suporte")
         C6 --> C8("Cap. 8<br>Operação")
