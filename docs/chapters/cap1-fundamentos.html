@@ -973,10 +973,23 @@ Tabela&nbsp;1.1: O Custo Oculto do Retrabalho
 </section>
 <section id="sec-perdas-sociedade" class="level4" data-number="1.2.2.3">
 <h4 data-number="1.2.2.3" class="anchored" data-anchor-id="sec-perdas-sociedade"><span class="header-section-number">1.2.2.3</span> Qualidade Mensurada pelas Perdas à Sociedade</h4>
-<p>Ao contrário das visões tradicionais focadas no lucro da corporação, esta vertente analisa o problema sob a ótica da falha, ou da “não qualidade”, de forma macro. A avaliação fundamenta-se no impacto financeiro ou socioambiental que um produto gera para a comunidade após ser comercializado e entrar em uso. Essas perdas são categorizadas em duas frentes: * <strong>Perdas por desvios na função principal:</strong> Ocorrem quando a operação básica do produto apresenta ineficiência estrutural. Considere um motor elétrico que desperdiça energia sob a forma de vibração excessiva ou ruído ensurdecedor. * <strong>Perdas por impactos colaterais:</strong> Estão ligadas aos prejuízos externos gerados não pela falha, mas pelo próprio uso ou descarte do produto.</p>
+<p>Ao contrário das visões tradicionais focadas no lucro da corporação, esta vertente analisa o problema sob a ótica da falha, ou da “não qualidade”, de forma macro. A avaliação fundamenta-se no impacto financeiro ou socioambiental que um produto gera para a comunidade após ser comercializado e entrar em uso. Essas perdas são categorizadas em duas frentes:</p>
+<ul>
+<li><p><strong>Perdas por desvios na função principal:</strong> Ocorrem quando a operação básica do produto apresenta ineficiência estrutural. Considere um motor elétrico que desperdiça energia sob a forma de vibração excessiva ou ruído ensurdecedor.</p></li>
+<li><p><strong>Perdas por impactos colaterais:</strong> Estão ligadas aos prejuízos externos gerados não pela falha, mas pelo próprio uso ou descarte do produto.</p></li>
+</ul>
 <p>Para expandir esse conceito, devemos recorrer à lógica de <strong>Genichi Taguchi</strong>, que revolucionou a engenharia ao afirmar que a qualidade não é apenas “estar dentro da tolerância”, mas sim <em>minimizar a perda total para o sistema</em>.</p>
-<p><strong>A Função Perda de Taguchi (O Conceito Matemático)</strong> Tradicionalmente, se um produto está dentro do limite (ex: entre 9,9 mm e 10,1 mm), ele é considerado “bom”. Para Taguchi, se o alvo é 10,0 mm, qualquer valor diferente disso (mesmo 10,01 mm) já começa a gerar uma <strong>perda incremental</strong>. * <strong>A Lógica:</strong> Quanto mais longe do alvo, maior o custo de ajuste, maior o desgaste de peças e maior o consumo de energia. A perda cresce de forma quadrática conforme nos afastamos do centro do projeto.</p>
-<p>A fórmula simplificada de Taguchi é: <span id="eq-taguchi"><span class="math display">\[L = k(x - t)^2 \tag{1.1}\]</span></span> Onde: * <span class="math inline">\(L\)</span> = Perda financeira (em Reais). * <span class="math inline">\(x\)</span> = Valor medido da característica. * <span class="math inline">\(t\)</span> = Valor Alvo (<em>Target</em>). * <span class="math inline">\(k\)</span> = Constante de custo financeiro da falha.</p>
+<p><strong>A Função Perda de Taguchi (O Conceito Matemático)</strong> Tradicionalmente, se um produto está dentro do limite (ex: entre 9,9 mm e 10,1 mm), ele é considerado “bom”. Para Taguchi, se o alvo é 10,0 mm, qualquer valor diferente disso (mesmo 10,01 mm) já começa a gerar uma <strong>perda incremental</strong>.</p>
+<ul>
+<li><strong>A Lógica:</strong> Quanto mais longe do alvo, maior o custo de ajuste, maior o desgaste de peças e maior o consumo de energia. A perda cresce de forma quadrática conforme nos afastamos do centro do projeto.</li>
+</ul>
+<p>A fórmula simplificada de Taguchi é: <span id="eq-taguchi"><span class="math display">\[L = k(x - t)^2 \tag{1.1}\]</span></span> Onde:</p>
+<ul>
+<li><span class="math inline">\(L\)</span> = Perda financeira (em Reais).</li>
+<li><span class="math inline">\(x\)</span> = Valor medido da característica.</li>
+<li><span class="math inline">\(t\)</span> = Valor Alvo (<em>Target</em>).</li>
+<li><span class="math inline">\(k\)</span> = Constante de custo financeiro da falha.</li>
+</ul>
 <p>Para que o aluno visualize a diferença entre a visão tradicional (binária: dentro ou fora) e a visão de Taguchi (gradual), observe o gráfico abaixo:</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -1123,8 +1136,20 @@ Tabela&nbsp;1.2: Matriz de Análise de Impacto Social da Qualidade
 </ul>
 <p>Outro pilar revolucionário dessa vertente é a consciência de que <strong>toda pessoa dentro da organização possui um cliente</strong>. A equipe de britagem é “cliente” da equipe de perfuração de mina. Essa rede de “cliente-fornecedor interno” exige que todos os departamentos operem sob o mesmo padrão de excelência, onde desde o operador até a Alta Direção tornam-se responsáveis diretos pela garantia da excelência.</p>
 <p><strong>O Contraste Estratégico: Product-out vs.&nbsp;Market-in</strong> Para expandir o entendimento dessa transição estratégica, vamos contrastar as duas mentalidades:</p>
-<p><strong>1. Product-out: “Eu fabrico o que eu sei fazer”</strong> Nesta abordagem, a empresa olha primeiro para dentro (suas máquinas, sua tecnologia e seus processos) e depois “empurra” o resultado para o mercado. * <strong>Lógica:</strong> O departamento de engenharia projeta o que considera tecnicamente superior e o marketing tenta convencer o cliente de que ele precisa daquilo. * <strong>Risco:</strong> Gerar estoques de produtos que ninguém quer ou produzir algo com <em>Superqualidade</em> (excesso de funções caras que o cliente não valoriza).</p>
-<p><strong>2. Market-in: “Eu fabrico o que o cliente valoriza”</strong> Aqui, o fluxo é invertido: a empresa começa ouvindo o mercado (dores, desejos e necessidades latentes) e usa essas informações para configurar sua fábrica. * <strong>Lógica:</strong> O cliente é o “ponto de partida” do projeto. A qualidade é medida pela satisfação e pelo valor percebido, não apenas pela precisão do parafuso.</p>
+<section id="product-out-eu-fabrico-o-que-eu-sei-fazer" class="level5" data-number="1.2.2.4.1">
+<h5 data-number="1.2.2.4.1" class="anchored" data-anchor-id="product-out-eu-fabrico-o-que-eu-sei-fazer"><span class="header-section-number">1.2.2.4.1</span> 1. Product-out: “Eu fabrico o que eu sei fazer”</h5>
+<p>Nesta abordagem, a empresa olha primeiro para dentro (suas máquinas, sua tecnologia e seus processos) e depois “empurra” o resultado para o mercado.</p>
+<ul>
+<li><p><strong>Lógica:</strong> O departamento de engenharia projeta o que considera tecnicamente superior e o marketing tenta convencer o cliente de que ele precisa daquilo.</p></li>
+<li><p><strong>Risco:</strong> Gerar estoques de produtos que ninguém quer ou produzir algo com <em>Superqualidade</em> (excesso de funções caras que o cliente não valoriza).</p></li>
+</ul>
+</section>
+<section id="market-in-eu-fabrico-o-que-o-cliente-valoriza" class="level5" data-number="1.2.2.4.2">
+<h5 data-number="1.2.2.4.2" class="anchored" data-anchor-id="market-in-eu-fabrico-o-que-o-cliente-valoriza"><span class="header-section-number">1.2.2.4.2</span> 2. Market-in: “Eu fabrico o que o cliente valoriza”</h5>
+<p>Aqui, o fluxo é invertido: a empresa começa ouvindo o mercado (dores, desejos e necessidades latentes) e usa essas informações para configurar sua fábrica.</p>
+<ul>
+<li><strong>Lógica:</strong> O cliente é o “ponto de partida” do projeto. A qualidade é medida pela satisfação e pelo valor percebido, não apenas pela precisão do parafuso.</li>
+</ul>
 <div id="tbl-contraste-estrategico" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-contraste-estrategico-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1225,8 +1250,14 @@ Tabela&nbsp;1.4: Perfil Profissional: O Guardião vs.&nbsp;O Arquiteto
 </figure>
 </div>
 <div id="exm-vertentes-estadio" class="example theorem">
-<p><span class="theorem-title"><strong>Exemplo 1.9 (As Vertentes Trabalhando Juntas: O Copo no Estádio)</strong></span> Vamos analisar o fornecimento de copos descartáveis em um estádio para bebida fria (Água/Cerveja): * <strong>Conformidade:</strong> O copo deve atender rigorosamente à ficha técnica (0,5mm de espessura e diâmetro de 70mm). * <strong>Perdas à Sociedade:</strong> Se o copo racha, a bebida desperdiça e o plástico entope bueiros (impacto colateral). * <strong>Market-in (Satisfação Plena):</strong> A organização oferece um copo reutilizável com cordão (brinde sustentável e colecionável). Internamente, a logística garante fornecimento contínuo para evitar filas.</p>
+<p><span class="theorem-title"><strong>Exemplo 1.9 (As Vertentes Trabalhando Juntas: O Copo no Estádio)</strong></span> Vamos analisar o fornecimento de copos descartáveis em um estádio para bebida fria (Água/Cerveja):</p>
+<ul>
+<li><strong>Conformidade:</strong> O copo deve atender rigorosamente à ficha técnica (0,5mm de espessura e diâmetro de 70mm).</li>
+<li><strong>Perdas à Sociedade:</strong> Se o copo racha, a bebida desperdiça e o plástico entope bueiros (impacto colateral).</li>
+<li><strong>Market-in (Satisfação Plena):</strong> A organização oferece um copo reutilizável com cordão (brinde sustentável e colecionável). Internamente, a logística garante fornecimento contínuo para evitar filas.</li>
+</ul>
 </div>
+</section>
 </section>
 <section id="sec-sintese-vertentes" class="level4" data-number="1.2.2.5">
 <h4 data-number="1.2.2.5" class="anchored" data-anchor-id="sec-sintese-vertentes"><span class="header-section-number">1.2.2.5</span> Síntese das Vertentes da Qualidade</h4>
@@ -1287,10 +1318,21 @@ Tabela&nbsp;1.5: Quadro Comparativo: As 4 Vertentes da Qualidade
 <section id="sec-concepcoes-contemporaneas" class="level3" data-number="1.2.3">
 <h3 data-number="1.2.3" class="anchored" data-anchor-id="sec-concepcoes-contemporaneas"><span class="header-section-number">1.2.3</span> Concepções Contemporâneas de Qualidade</h3>
 <p>Enquanto as “Vertentes Clássicas” guiam o dia a dia da fábrica, a literatura contemporânea sistematiza a qualidade em quatro <strong>Concepções de Posicionamento</strong>. Elas ditam a forma como a empresa se posiciona no mercado, aloca seus recursos e elabora seus contratos. Elas representam a maturidade da visão corporativa:</p>
-<p><strong>1. Qualidade como Intencional (Conformidade Rigorosa)</strong> A qualidade intencional define excelência como o cumprimento fiel e irrestrito do que foi planejado no projeto ou estabelecido em contrato. Em uma linha de envase, por exemplo, a qualidade intencional é atingida quando cada garrafa contém o volume exato especificado e o rótulo está posicionado nas coordenadas milimétricas corretas. Não se trata de surpreender o cliente, mas de cumprir rigorosamente a promessa. Essa concepção é o núcleo de ambientes altamente regulados (como a indústria farmacêutica ou aeronáutica).</p>
-<p><strong>2. Qualidade como Excepcional (Superação Deliberada)</strong> Esta concepção está associada à superação de padrões mínimos e à busca constante por distinção. É a transição da “qualidade obrigatória” para a “qualidade atrativa”. Algumas empresas elevam deliberadamente o padrão do processo, oferecendo um desempenho superior ao mínimo exigido por norma. Um equipamento fora-de-estrada <em>premium</em>, por exemplo, pode apresentar sistemas redundantes e materiais de altíssima resistência que excedem em muito os requisitos básicos da mineração.</p>
-<p><strong>3. Qualidade como Transformadora (Impacto no Cliente)</strong> A concepção transformadora tira o foco do “objeto físico” e passa a avaliar a qualidade pelo impacto positivo gerado na operação e na vida do usuário. O valor do produto não reside apenas no que ele <em>é</em>, mas no que ele <em>permite que o cliente faça</em>. Considere um software de planejamento de produção (ERP): sua qualidade não é atestada apenas pela ausência de <em>bugs</em>, mas pela sua capacidade real de transformar a rotina de quem o utiliza. Se a ferramenta reduz o tempo de tomada de decisão e aumenta a previsibilidade, ela atinge a qualidade transformadora.</p>
-<p><strong>4. Qualidade como Responsável (Externalidades e Sociedade)</strong> A qualidade responsável é a visão mais madura e sistêmica, pois amplia o olhar para além do cliente imediato e do lucro de curto prazo (conectando-se diretamente à Função Perda de Taguchi). A empresa passa a avaliar os impactos externos (externalidades) de sua operação na sociedade, envolvendo controle rigoroso sobre o desperdício de matéria-prima, consumo energético e riscos de acidentes. Na engenharia contemporânea, alinhada aos pilares ESG (<em>Environmental, Social, and Governance</em>), a não qualidade manifesta-se sempre que os custos operacionais da fábrica são, de forma antiética, transferidos para a sociedade pagar.</p>
+<section id="qualidade-como-intencional-conformidade-rigorosa" class="level5" data-number="1.2.3.0.1">
+<h5 data-number="1.2.3.0.1" class="anchored" data-anchor-id="qualidade-como-intencional-conformidade-rigorosa"><span class="header-section-number">1.2.3.0.1</span> 1. Qualidade como Intencional (Conformidade Rigorosa)</h5>
+<p>A qualidade intencional define excelência como o cumprimento fiel e irrestrito do que foi planejado no projeto ou estabelecido em contrato. Em uma linha de envase, por exemplo, a qualidade intencional é atingida quando cada garrafa contém o volume exato especificado e o rótulo está posicionado nas coordenadas milimétricas corretas. Não se trata de surpreender o cliente, mas de cumprir rigorosamente a promessa. Essa concepção é o núcleo de ambientes altamente regulados (como a indústria farmacêutica ou aeronáutica).</p>
+</section>
+<section id="qualidade-como-excepcional-superação-deliberada" class="level5" data-number="1.2.3.0.2">
+<h5 data-number="1.2.3.0.2" class="anchored" data-anchor-id="qualidade-como-excepcional-superação-deliberada"><span class="header-section-number">1.2.3.0.2</span> 2. Qualidade como Excepcional (Superação Deliberada)</h5>
+<p>Esta concepção está associada à superação de padrões mínimos e à busca constante por distinção. É a transição da “qualidade obrigatória” para a “qualidade atrativa”. Algumas empresas elevam deliberadamente o padrão do processo, oferecendo um desempenho superior ao mínimo exigido por norma. Um equipamento fora-de-estrada <em>premium</em>, por exemplo, pode apresentar sistemas redundantes e materiais de altíssima resistência que excedem em muito os requisitos básicos da mineração.</p>
+</section>
+<section id="qualidade-como-transformadora-impacto-no-cliente" class="level5" data-number="1.2.3.0.3">
+<h5 data-number="1.2.3.0.3" class="anchored" data-anchor-id="qualidade-como-transformadora-impacto-no-cliente"><span class="header-section-number">1.2.3.0.3</span> 3. Qualidade como Transformadora (Impacto no Cliente)</h5>
+<p>A concepção transformadora tira o foco do “objeto físico” e passa a avaliar a qualidade pelo impacto positivo gerado na operação e na vida do usuário. O valor do produto não reside apenas no que ele <em>é</em>, mas no que ele <em>permite que o cliente faça</em>. Considere um software de planejamento de produção (ERP): sua qualidade não é atestada apenas pela ausência de <em>bugs</em>, mas pela sua capacidade real de transformar a rotina de quem o utiliza. Se a ferramenta reduz o tempo de tomada de decisão e aumenta a previsibilidade, ela atinge a qualidade transformadora.</p>
+</section>
+<section id="qualidade-como-responsável-externalidades-e-sociedade" class="level5" data-number="1.2.3.0.4">
+<h5 data-number="1.2.3.0.4" class="anchored" data-anchor-id="qualidade-como-responsável-externalidades-e-sociedade"><span class="header-section-number">1.2.3.0.4</span> 4. Qualidade como Responsável (Externalidades e Sociedade)</h5>
+<p>A qualidade responsável é a visão mais madura e sistêmica, pois amplia o olhar para além do cliente imediato e do lucro de curto prazo (conectando-se diretamente à Função Perda de Taguchi). A empresa passa a avaliar os impactos externos (externalidades) de sua operação na sociedade, envolvendo controle rigoroso sobre o desperdício de matéria-prima, consumo energético e riscos de acidentes. Na engenharia contemporânea, alinhada aos pilares ESG (<em>Environmental, Social, and Governance</em>), a não qualidade manifesta-se sempre que os custos operacionais da fábrica são, de forma antiética, transferidos para a sociedade pagar.</p>
 <div class="callout callout-style-default callout-important callout-titled" title="🚀 O Gancho para a Prática: Rumo à Modelagem">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1302,9 +1344,10 @@ Tabela&nbsp;1.5: Quadro Comparativo: As 4 Vertentes da Qualidade
 </div>
 <div class="callout-body-container callout-body">
 <p>Todas essas dimensões abstratas, vertentes de fábrica e concepções filosóficas convergem para um único objetivo na engenharia: a necessidade de quantificação. A Modelagem Analítica de Requisitos (ARM) transforma a qualidade de um conceito interpretativo em um sistema mensurável, no qual variáveis representam atributos, pesos traduzem o valor percebido e o índice final expressa, de forma objetiva, a capacidade do processo em atender e sustentar os requisitos do mercado.</p>
-<p><strong>Nota:</strong> No Capítulo 7 (Estudos de Caso Integrados), retomaremos estas quatro concepções (Intencional, Excepcional, Transformadora e Responsável) para demonstrar, na prática, como elas se alinham às diretrizes da ISO 9001 e às equações do ARM.</p>
+<p><strong>Nota:</strong> No <a href="cap7-estudos-casos.html" class="quarto-xref"><span>Capítulo 7</span></a>, retomaremos estas quatro concepções (Intencional, Excepcional, Transformadora e Responsável) para demonstrar, na prática, como elas se alinham às diretrizes da ISO 9001 e às equações do ARM.</p>
 </div>
 </div>
+</section>
 </section>
 </section>
 <section id="sec-gurus-qualidade" class="level2" data-number="1.3">
@@ -1360,19 +1403,19 @@ Tabela&nbsp;1.6: Definições de Qualidade — Fonte: Adaptado de Lopes (2014)
 <div id="exm-gurus-paineis" class="example theorem">
 <p><span class="theorem-title"><strong>Exemplo 1.10 (A Visão dos Gurus: Fabricação de Painéis Solares)</strong></span> &nbsp;</p>
 <ul>
-<li><strong>Deming (Uniformização e Custo):</strong> A qualidade é vista na linha de produção automatizada que garante que cada célula fotovoltaica seja idêntica à outra, reduzindo a variabilidade e o desperdício. O foco é produzir um painel fiável e barato, acessível ao mercado de massa.</li>
-<li><strong>Juran (Adequação ao Uso):</strong> O painel tem qualidade se ele realmente gera a energia prometida sob o sol forte e resiste a 20 anos de intempéries (chuva, granizo). Se ele cumpre a função prática de reduzir a conta de luz do cliente, ele tem qualidade.</li>
-<li><strong>Feigenbaum (Total das Características):</strong> A qualidade envolve desde o marketing (promessa clara de eficiência) até a manutenção (facilidade de limpar os painéis). É a integração sistêmica entre os departamentos para que o cliente não tenha dor de cabeça em nenhuma etapa.</li>
-<li><strong>Crosby (Zero Defeitos):</strong> A qualidade é a conformidade estrita com os requisitos de segurança elétrica. O objetivo é “fazer certo da primeira vez”: nenhum painel deve sair da fábrica com microfissuras, motivando os funcionários a serem inspetores de seu próprio trabalho.</li>
+<li><p><strong>Deming (Uniformização e Custo):</strong> A qualidade é vista na linha de produção automatizada que garante que cada célula fotovoltaica seja idêntica à outra, reduzindo a variabilidade e o desperdício. O foco é produzir um painel fiável e barato, acessível ao mercado de massa.</p></li>
+<li><p><strong>Juran (Adequação ao Uso):</strong> O painel tem qualidade se ele realmente gera a energia prometida sob o sol forte e resiste a 20 anos de intempéries (chuva, granizo). Se ele cumpre a função prática de reduzir a conta de luz do cliente, ele tem qualidade.</p></li>
+<li><p><strong>Feigenbaum (Total das Características):</strong> A qualidade envolve desde o marketing (promessa clara de eficiência) até a manutenção (facilidade de limpar os painéis). É a integração sistêmica entre os departamentos para que o cliente não tenha dor de cabeça em nenhuma etapa.</p></li>
+<li><p><strong>Crosby (Zero Defeitos):</strong> A qualidade é a conformidade estrita com os requisitos de segurança elétrica. O objetivo é “fazer certo da primeira vez”: nenhum painel deve sair da fábrica com microfissuras, motivando os funcionários a serem inspetores de seu próprio trabalho.</p></li>
 </ul>
 </div>
 <div id="exm-gurus-streaming" class="example theorem">
 <p><span class="theorem-title"><strong>Exemplo 1.11 (A Visão dos Gurus: Serviço de Streaming (Netflix/Spotify))</strong></span> &nbsp;</p>
 <ul>
-<li><strong>Deming (Especificações e Gestão):</strong> A qualidade está na estabilidade do servidor (<em>uptime</em>). A gestão de topo investe continuamente em tecnologia para que o vídeo não trave, mantendo a uniformidade da transmissão mesmo em conexões lentas.</li>
-<li><strong>Juran (Satisfação das Necessidades):</strong> O serviço tem qualidade porque permite que o usuário assista ao que quer, quando quer e em qualquer dispositivo. O foco é a conveniência e adequação de uso para o assinante.</li>
-<li><strong>Feigenbaum (Expectativas Globais):</strong> A qualidade une a engenharia (algoritmo de recomendação) ao atendimento (suporte rápido). O produto só é bom se a experiência total (escolha, carregamento e pagamento) atender ao que o cliente espera sistemicamente.</li>
-<li><strong>Crosby (Conformidade com Exigências):</strong> A qualidade é o cumprimento dos requisitos de contrato: se o plano é 4K, a imagem deve ser 4K. Não há espaço para erro no faturamento ou no catálogo; o sistema deve ser desenhado para ter zero falhas de acesso.</li>
+<li><p><strong>Deming (Especificações e Gestão):</strong> A qualidade está na estabilidade do servidor (<em>uptime</em>). A gestão de topo investe continuamente em tecnologia para que o vídeo não trave, mantendo a uniformidade da transmissão mesmo em conexões lentas.</p></li>
+<li><p><strong>Juran (Satisfação das Necessidades):</strong> O serviço tem qualidade porque permite que o usuário assista ao que quer, quando quer e em qualquer dispositivo. O foco é a conveniência e adequação de uso para o assinante.</p></li>
+<li><p><strong>Feigenbaum (Expectativas Globais):</strong> A qualidade une a engenharia (algoritmo de recomendação) ao atendimento (suporte rápido). O produto só é bom se a experiência total (escolha, carregamento e pagamento) atender ao que o cliente espera sistemicamente.</p></li>
+<li><p><strong>Crosby (Conformidade com Exigências):</strong> A qualidade é o cumprimento dos requisitos de contrato: se o plano é 4K, a imagem deve ser 4K. Não há espaço para erro no faturamento ou no catálogo; o sistema deve ser desenhado para ter zero falhas de acesso.</p></li>
 </ul>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="💡 Dica de Memorização: As Palavras-Chave dos Gurus">
@@ -1385,7 +1428,13 @@ Tabela&nbsp;1.6: Definições de Qualidade — Fonte: Adaptado de Lopes (2014)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Para diferenciar rapidamente a essência de cada autor na prática gerencial, associe-os às seguintes premissas: * <strong>Deming:</strong> Estatística, custos, uniformidade e papel da alta gestão. * <strong>Juran:</strong> Adequação ao uso, utilidade e missão do produto. * <strong>Feigenbaum:</strong> União dos departamentos, qualidade sistêmica (Total). * <strong>Crosby:</strong> Conformidade com requisitos, erro zero e motivação.</p>
+<p>Para diferenciar rapidamente a essência de cada autor na prática gerencial, associe-os às seguintes premissas:</p>
+<ul>
+<li><strong>Deming:</strong> Estatística, custos, uniformidade e papel da alta gestão.</li>
+<li><strong>Juran:</strong> Adequação ao uso, utilidade e missão do produto.</li>
+<li><strong>Feigenbaum:</strong> União dos departamentos, qualidade sistêmica (Total).</li>
+<li><strong>Crosby:</strong> Conformidade com requisitos, erro zero e motivação.</li>
+</ul>
 </div>
 </div>
 <p>Historicamente, a palavra deriva do latim <em>qualitate</em> e, sob uma perspectiva moderna, tornou-se sinônimo da busca ininterrupta por melhorias em todas as esferas organizacionais, desde o planejamento estratégico até os indicadores financeiros de rentabilidade.</p>
@@ -1544,13 +1593,16 @@ Figura&nbsp;1.9: Relação Qualidade x Participação no Mercado
 <section id="sec-custos-qualidade" class="level4" data-number="1.4.3.2">
 <h4 data-number="1.4.3.2" class="anchored" data-anchor-id="sec-custos-qualidade"><span class="header-section-number">1.4.3.2</span> Os Custos da Qualidade: A Tradução Financeira da Operação</h4>
 <p>Para otimizar essa fração, não basta que a empresa corte gastos de forma arbitrária; o engenheiro precisa gerenciar os <strong>Custos da Qualidade</strong>. Em vez de uma simples categorização contábil, esses custos representam a tradução financeira do descompasso entre a capacidade do processo e os requisitos do cliente. Esses custos são divididos em quatro categorias fundamentais, agrupadas em <strong>Custos de Controle</strong> e <strong>Custos de Falha</strong>.</p>
-<p><strong>1. Custos de Controle (O Investimento)</strong></p>
+<section id="custos-de-controle-o-investimento" class="level5" data-number="1.4.3.2.1">
+<h5 data-number="1.4.3.2.1" class="anchored" data-anchor-id="custos-de-controle-o-investimento"><span class="header-section-number">1.4.3.2.1</span> 1. Custos de Controle (O Investimento)</h5>
 <p>É o capital alocado ativamente para blindar o sistema contra a variabilidade e garantir que o produto “nasça” correto.</p>
 <ul>
 <li><strong>Custos de Prevenção:</strong> Gastos para evitar que o erro ocorra. Incluem o treinamento da equipe, a manutenção preditiva de máquinas, a homologação de fornecedores e o planejamento do SGQ. É o custo de “fazer certo da primeira vez”.</li>
 <li><strong>Custos de Avaliação:</strong> Gastos para descobrir erros antes que o produto saia da fábrica. Incluem inspeções de laboratório, testes de protótipos, auditorias de processo e calibração de instrumentos de medição.</li>
 </ul>
-<p><strong>2. Custos de Falha (O Prejuízo)</strong></p>
+</section>
+<section id="custos-de-falha-o-prejuízo" class="level5" data-number="1.4.3.2.2">
+<h5 data-number="1.4.3.2.2" class="anchored" data-anchor-id="custos-de-falha-o-prejuízo"><span class="header-section-number">1.4.3.2.2</span> 2. Custos de Falha (O Prejuízo)</h5>
 <p>Representam o “desperdício puro”, gerado quando o processo não atinge os requisitos estabelecidos.</p>
 <ul>
 <li><strong>Falhas Internas:</strong> O erro é detectado ainda dentro da empresa. Gera <strong>Refugo</strong> (perda total do material) ou <strong>Retrabalho</strong> (custo extra de mão de obra e energia para consertar a peça). É a “fábrica oculta” trabalhando para corrigir o que foi feito mal.</li>
@@ -1569,10 +1621,18 @@ Figura&nbsp;1.9: Relação Qualidade x Participação no Mercado
 <p><span class="theorem-title"><strong>Exemplo 1.16 (Estudo de Caso: O Custo Invisível da Imagem (Falha Externa))</strong></span> <strong>Cenário: A Crise das Baterias “Premium”</strong></p>
 <p>A empresa <em>EnergyTech</em> lançou um novo modelo de bateria para notebooks. Para economizar R$ 50,00 por unidade em custos de Avaliação (testes de estresse térmico), a diretoria decidiu lançar o produto baseada apenas em testes laboratoriais rápidos.</p>
 <p><strong>O Evento de Falha Externa:</strong> Após 6 meses no mercado, 0,5% das baterias (500 unidades) começaram a superaquecer e derreter a carcaça dos notebooks dos clientes.</p>
-<p><strong>O Levantamento dos Custos de Falha:</strong> * <strong>Logística Reversa e Troca:</strong> R$ 1.500,00 por unidade (R$ 750.000,00 total). * <strong>Indenizações Judiciais:</strong> R$ 2.000.000,00 em processos por danos materiais. * <strong>Custo de Imagem (Marketing de Recuperação):</strong> A empresa precisou gastar R$ 5.000.000,00 em publicidade para tentar reconstruir a confiança da marca. * <strong>Custo de Oportunidade (Vendas Perdidas):</strong> O principal varejista cancelou um contrato de R$ 10.000.000,00 ao saber dos incidentes.</p>
+<p><strong>O Levantamento dos Custos de Falha:</strong></p>
+<ul>
+<li><strong>Logística Reversa e Troca:</strong> R$ 1.500,00 por unidade (R$ 750.000,00 total).</li>
+<li><strong>Indenizações Judiciais:</strong> R$ 2.000.000,00 em processos por danos materiais.</li>
+<li><strong>Custo de Imagem (Marketing de Recuperação):</strong> A empresa precisou gastar R$ 5.000.000,00 em publicidade para tentar reconstruir a confiança da marca.</li>
+<li><strong>Custo de Oportunidade (Vendas Perdidas):</strong> O principal varejista cancelou um contrato de R$ 10.000.000,00 ao saber dos incidentes.</li>
+</ul>
 <p><em>Análise Crítica:</em> O que parecia uma economia de R$ 50,00 na inspeção gerou um prejuízo de quase R$ 17 milhões. Na Falha Interna, o engenheiro luta pela Eficiência; na Falha Externa, ele luta pela Sobrevivência da marca.</p>
 </div>
-<p><strong>3. A Armadilha da Superqualidade - Exceder Requerimentos</strong></p>
+</section>
+<section id="a-armadilha-da-superqualidade---exceder-requerimentos" class="level5" data-number="1.4.3.2.3">
+<h5 data-number="1.4.3.2.3" class="anchored" data-anchor-id="a-armadilha-da-superqualidade---exceder-requerimentos"><span class="header-section-number">1.4.3.2.3</span> 3. A Armadilha da Superqualidade - Exceder Requerimentos**</h5>
 <p>Existe um custo sutil e perigoso: a <strong>Superqualidade</strong>. Ocorre quando a engenharia entrega atributos que o cliente não pediu, não valoriza e, consequentemente, não paga por eles. Na Superqualidade, o engenheiro luta contra o Desperdício.</p>
 <ul>
 <li><strong>O Erro:</strong> Usar uma liga de aço inoxidável cirúrgico para fabricar um clipe de papel comum. O clipe será “eterno”, mas o custo de produção inviabiliza o preço de venda no mercado.</li>
@@ -1597,10 +1657,32 @@ Figura&nbsp;1.9: Relação Qualidade x Participação no Mercado
 </div>
 <div id="exm-custos-cafe" class="example theorem">
 <p><span class="theorem-title"><strong>Exemplo 1.17 (Gestão dos Custos da Qualidade: Torrefação de Café Gourmet)</strong></span> Para exemplificar a gestão dos Custos da Qualidade, vamos utilizar o caso de uma Torrefação de Café Gourmet que fornece para cafeterias e supermercados. Este exemplo permite visualizar como cada real gasto ou perdido afeta a operação do engenheiro de produção:</p>
-<p><strong>Custos de Controle (O Investimento)</strong> Aqui, a empresa gasta dinheiro para “comprar tranquilidade” e evitar que a variabilidade domine o processo. * <strong>Custos de Prevenção:</strong> A empresa investe no treinamento dos mestres de torra e em um software de manutenção preditiva para os sensores de temperatura do torrador. O objetivo é evitar que o equipamento oscile e queime o grão. * <strong>Custos de Avaliação:</strong> O engenheiro implementa um laboratório de classificação onde amostras de cada lote torrado são provadas (teste de <em>cupping</em>) e analisadas por colorímetros antes de serem embaladas.</p>
-<p><strong>Custos de Falha (O Prejuízo)</strong> Aqui o dinheiro “escorre pelo ralo” porque o processo não foi capaz de atender aos requisitos. * <strong>Falhas Internas:</strong> O sensor do torrador falhou e um lote de 500 kg de café saiu muito escuro (queimado). A empresa precisa moer esse café e vendê-lo como uma linha inferior (recirculação) ou descartá-lo, gerando perda de matéria-prima e tempo de máquina. * <strong>Falhas Externas:</strong> Um lote com umidade acima do permitido chegou ao cliente e mofou na prateleira do supermercado. A empresa agora precisa pagar o frete de devolução, arcar com a multa contratual por desabastecimento e ainda sofre com o custo de oportunidade: o supermercado decide reduzir os pedidos futuros por falta de confiança na marca (má fama).</p>
-<p><strong>Custos de Exceder Requerimentos (A Superqualidade)</strong> Este é o desperdício “disfarçado” de boa intenção, onde se entrega o que não foi pedido. * <strong>O Erro da Superqualidade:</strong> O contrato com o cliente exige que o café seja entregue em embalagens de 500g com fechamento simples (clipe metálico). No entanto, o marketing decide usar uma válvula desgaseificadora italiana de alta tecnologia que custa 3 vezes mais, em um produto que o cliente vai consumir em apenas 2 dias. * <strong>O Impacto:</strong> O cliente não valoriza o custo extra da válvula (não paga a mais por isso) e a empresa reduziu sua margem de lucro à toa. O engenheiro gastou recursos em um “requerimento” que o mercado não solicitou.</p>
+<section id="custos-de-controle-o-investimento-1" class="level5" data-number="1.4.3.2.4">
+<h5 data-number="1.4.3.2.4" class="anchored" data-anchor-id="custos-de-controle-o-investimento-1"><span class="header-section-number">1.4.3.2.4</span> Custos de Controle (O Investimento)</h5>
+<p>Aqui, a empresa gasta dinheiro para “comprar tranquilidade” e evitar que a variabilidade domine o processo.</p>
+<ul>
+<li><strong>Custos de Prevenção:</strong> A empresa investe no treinamento dos mestres de torra e em um software de manutenção preditiva para os sensores de temperatura do torrador. O objetivo é evitar que o equipamento oscile e queime o grão.</li>
+<li><strong>Custos de Avaliação:</strong> O engenheiro implementa um laboratório de classificação onde amostras de cada lote torrado são provadas (teste de <em>cupping</em>) e analisadas por colorímetros antes de serem embaladas.</li>
+</ul>
+</section>
+<section id="custos-de-falha-o-prejuízo-1" class="level5" data-number="1.4.3.2.5">
+<h5 data-number="1.4.3.2.5" class="anchored" data-anchor-id="custos-de-falha-o-prejuízo-1"><span class="header-section-number">1.4.3.2.5</span> Custos de Falha (O Prejuízo)</h5>
+<p>Aqui o dinheiro “escorre pelo ralo” porque o processo não foi capaz de atender aos requisitos.</p>
+<ul>
+<li><strong>Falhas Internas:</strong> O sensor do torrador falhou e um lote de 500 kg de café saiu muito escuro (queimado). A empresa precisa moer esse café e vendê-lo como uma linha inferior (recirculação) ou descartá-lo, gerando perda de matéria-prima e tempo de máquina.</li>
+<li><strong>Falhas Externas:</strong> Um lote com umidade acima do permitido chegou ao cliente e mofou na prateleira do supermercado. A empresa agora precisa pagar o frete de devolução, arcar com a multa contratual por desabastecimento e ainda sofre com o custo de oportunidade: o supermercado decide reduzir os pedidos futuros por falta de confiança na marca (má fama).</li>
+</ul>
+</section>
+<section id="custos-de-exceder-requerimentos-a-superqualidade" class="level5" data-number="1.4.3.2.6">
+<h5 data-number="1.4.3.2.6" class="anchored" data-anchor-id="custos-de-exceder-requerimentos-a-superqualidade"><span class="header-section-number">1.4.3.2.6</span> Custos de Exceder Requerimentos (A Superqualidade)</h5>
+<p>Este é o desperdício “disfarçado” de boa intenção, onde se entrega o que não foi pedido.</p>
+<ul>
+<li><strong>O Erro da Superqualidade:</strong> O contrato com o cliente exige que o café seja entregue em embalagens de 500g com fechamento simples (clipe metálico). No entanto, o marketing decide usar uma válvula desgaseificadora italiana de alta tecnologia que custa 3 vezes mais, em um produto que o cliente vai consumir em apenas 2 dias.</li>
+<li><strong>O Impacto:</strong> O cliente não valoriza o custo extra da válvula (não paga a mais por isso) e a empresa reduziu sua margem de lucro à toa. O engenheiro gastou recursos em um “requerimento” que o mercado não solicitou.</li>
+</ul>
+</section>
 </div>
+</section>
 </section>
 <section id="sec-modelagem-matematica" class="level4" data-number="1.4.3.3">
 <h4 data-number="1.4.3.3" class="anchored" data-anchor-id="sec-modelagem-matematica"><span class="header-section-number">1.4.3.3</span> A Modelagem Matemática dos Custos da Qualidade</h4>
@@ -1611,14 +1693,17 @@ Figura&nbsp;1.9: Relação Qualidade x Participação no Mercado
 <li><strong>Curva de Falha (Decrescente):</strong> Representa os prejuízos (<span class="math inline">\(C_{falha}\)</span>). Quanto maior a conformidade (<span class="math inline">\(q\)</span>), menores as falhas. Em processos críticos (como aviação), essa curva tem declínio exponencial, pois uma única falha custa milhões.</li>
 <li><strong>Curva de Controle (Crescente):</strong> Representa o investimento (<span class="math inline">\(C_{controle}\)</span>). Para aproximar-se da perfeição (<span class="math inline">\(q \to 100\%\)</span>), o custo de prevenção e avaliação sobe de forma assintótica. Eliminar o “último 1%” de erro costuma custar mais caro do que eliminar os primeiros 50%.</li>
 </ul>
-<p><strong>Cálculo do Ponto Ótimo de Qualidade (Otimização via Derivada)</strong></p>
+<section id="cálculo-do-ponto-ótimo-de-qualidade-otimização-via-derivada" class="level5" data-number="1.4.3.3.1">
+<h5 data-number="1.4.3.3.1" class="anchored" data-anchor-id="cálculo-do-ponto-ótimo-de-qualidade-otimização-via-derivada"><span class="header-section-number">1.4.3.3.1</span> Cálculo do Ponto Ótimo de Qualidade (Otimização via Derivada)</h5>
 <p>O gráfico de custos revela que existe um Ponto Ótimo de Qualidade. Se a empresa investe pouco, a falha destrói o lucro. Se investe demais, entra na zona de Superqualidade, onde o custo marginal do controle não compensa a redução marginal das falhas.</p>
 <p>Para consolidar a visão analítica, considere uma fábrica de componentes eletrônicos onde as funções de custo (em Reais) foram modeladas da seguinte forma:</p>
 <ul>
 <li>Custo de Falhas (A perda cai conforme a conformidade <span class="math inline">\(q\)</span> aumenta): <span class="math inline">\(C_{falha}(q) = \frac{1.194.000}{q}\)</span></li>
 <li>Custo de Controle (O custo sobe exponencialmente para atingir a perfeição): <span class="math inline">\(C_{controle}(q) = q^2\)</span></li>
 </ul>
-<p><strong>Qual o nível de conformidade (<span class="math inline">\(q\)</span>) que minimiza o Custo Total (<span class="math inline">\(CTQ\)</span>)?</strong></p>
+</section>
+<section id="qual-o-nível-de-conformidade-q-que-minimiza-o-custo-total-ctq" class="level5" data-number="1.4.3.3.2">
+<h5 data-number="1.4.3.3.2" class="anchored" data-anchor-id="qual-o-nível-de-conformidade-q-que-minimiza-o-custo-total-ctq"><span class="header-section-number">1.4.3.3.2</span> Qual o nível de conformidade (<span class="math inline">\(q\)</span>) que minimiza o Custo Total (<span class="math inline">\(CTQ\)</span>)?</h5>
 <ol type="1">
 <li>Montamos a Função Custo Total: <span class="math display">\[CTQ(q) = q^2 + \frac{1.194.000}{q}\]</span></li>
 <li>Derivamos em relação a <span class="math inline">\(q\)</span> para encontrar a taxa de variação marginal: <span class="math display">\[CTQ'(q) = 2q - \frac{1.194.000}{q^2}\]</span></li>
@@ -1627,7 +1712,9 @@ Figura&nbsp;1.9: Relação Qualidade x Participação no Mercado
 </ol>
 <p><strong>Insight para o Aluno:</strong> Para este processo específico, o custo mínimo financeiro ocorre em <strong>84,2%</strong> de conformidade. Tentar forçar o processo a chegar em 99% custaria muito mais caro em inspeções do que o prejuízo gerado pelas falhas residuais. A matemática impede o “perfeccionismo antieconômico”.</p>
 <p>Para consolidar o aprendizado, vamos aplicar a modelagem matemática e o estudo de caso a um cenário de <strong>Indústria de Alimentos (Linha de Envase de Sucos)</strong>. Aqui, o desvio de qualidade pode significar tanto desperdício de produto quanto multas severas de órgãos reguladores (como o INMETRO e a Vigilância Sanitária).</p>
-<p><strong>Modelagem Matemática: O Custo do “Enchimento Excessivo”</strong></p>
+</section>
+<section id="modelagem-matemática-o-custo-do-enchimento-excessivo" class="level5" data-number="1.4.3.3.3">
+<h5 data-number="1.4.3.3.3" class="anchored" data-anchor-id="modelagem-matemática-o-custo-do-enchimento-excessivo"><span class="header-section-number">1.4.3.3.3</span> Modelagem Matemática: O Custo do “Enchimento Excessivo”</h5>
 <p>Um engenheiro de produção monitora uma máquina de envase de sucos de <span class="math inline">\(1.000\text{ ml}\)</span>. O projeto aceita uma variação mínima, mas o engenheiro quer saber qual o nível de precisão de conformidade (<span class="math inline">\(q\)</span>) minimiza o custo total, considerando as seguintes funções modeladas (em Reais):</p>
 <ul>
 <li><p><strong>Custo de Falhas (<span class="math inline">\(C_{falha}\)</span>):</strong> Se o bico de envase erra para menos, o lote é rejeitado e gera multas. Se erra para mais, a empresa “doa” suco de graça (Superqualidade). A perda cai conforme a precisão aumenta: <span class="math display">\[C_{falha}(q) = \frac{1.024.000}{q}\]</span></p></li>
@@ -1743,9 +1830,14 @@ Figura&nbsp;1.10: Curvas de Custos da Qualidade e Ponto Ótimo de Precisão
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Nos dois exemplos acima, o engenheiro atua como um gestor de riscos e de capital: * No <strong>Envase</strong>, ele evita a <em>Superqualidade</em> (dar produto de graça) e o custo de Avaliação excessivo. * Na <strong>Exportação</strong>, ele investe o máximo possível na Avaliação para evitar a <em>Falha Externa</em> catastrófica que pode falir a empresa.</p>
+<p>Nos dois exemplos acima, o engenheiro atua como um gestor de riscos e de capital:</p>
+<ul>
+<li>No <strong>Envase</strong>, ele evita a <em>Superqualidade</em> (dar produto de graça) e o custo de Avaliação excessivo.</li>
+<li>Na <strong>Exportação</strong>, ele investe o máximo possível na Avaliação para evitar a <em>Falha Externa</em> catastrófica que pode falir a empresa.</li>
+</ul>
 </div>
 </div>
+</section>
 </section>
 <section id="sec-matriz-custos" class="level4" data-number="1.4.3.4">
 <h4 data-number="1.4.3.4" class="anchored" data-anchor-id="sec-matriz-custos"><span class="header-section-number">1.4.3.4</span> Resumo das Categorias de Custo (Matriz de Decisão)</h4>
@@ -1846,10 +1938,38 @@ Tabela&nbsp;1.7: Matriz de Decisão Gerencial dos Custos da Qualidade
 </div>
 <div id="exm-bicicletas-eletricas" class="example theorem">
 <p><span class="theorem-title"><strong>Exemplo 1.21 (Relações Econômicas e Custos na Prática: Bicicletas Elétricas)</strong></span> Para exemplificar essas relações econômicas e de custo de forma integrada na rotina, vamos utilizar o caso de uma Fabricante de Bicicletas Elétricas:</p>
-<p><strong>Relação Qualidade vs.&nbsp;Preço</strong> * <strong>Cenário de Risco:</strong> A empresa sobe o preço da bicicleta para R$ 7.000 apenas para “parecer premium”, sem mudar nada no produto. O cliente percebe que a bateria e o motor são os mesmos da concorrência. <em>Resultado:</em> As vendas despencam e o lucro encolhe. * <strong>Estratégia de Valor:</strong> A empresa investe em um quadro de fibra de carbono (mais leve) e uma bateria de maior autonomia. O cliente vê valor real. A empresa sobe o preço para R$ 7.500 e as vendas continuam altas. <em>Resultado:</em> O lucro dispara porque a percepção de benefício deslocou a demanda para cima.</p>
-<p><strong>Relação Qualidade vs.&nbsp;Propaganda</strong> * <strong>A Ilusão do Volume:</strong> A empresa gasta milhões em comerciais de TV com celebridades, mas a bicicleta continua apresentando falhas no freio. O custo da propaganda aumenta o custo total (<span class="math inline">\(C \uparrow\)</span>), e o pequeno aumento nas vendas não paga a conta. <em>Resultado:</em> Queda no lucro (<span class="math inline">\(L \downarrow\)</span>). * <strong>Propaganda Efetiva:</strong> A propaganda foca em testes de segurança independentes que provam que a bicicleta é a mais confiável do mercado. Isso convence o público a pagar mais caro pelo produto. <em>Resultado:</em> O aumento no preço e no volume supera o gasto com marketing, gerando lucro real.</p>
-<p><strong>Relação Qualidade vs.&nbsp;Participação no Mercado</strong> * <strong>Custo da “Falsa” Qualidade:</strong> A engenharia adiciona uma tela 4K <em>touch</em> no guidão que o ciclista não consegue usar sob o sol e que encarece o produto. O preço sobe, o cliente rejeita a complexidade e a empresa perde mercado. * <strong>Ganho por Conformidade:</strong> A empresa foca em eliminar o ruído na corrente e garantir que a totalidade das bicicletas saia da fábrica sem ajustes necessários. A alta confiabilidade faz com que os clientes indiquem a marca. Sem subir o preço, ela atrai clientes da concorrência pelo boca a boca. <em>Resultado:</em> Domínio do mercado pelo volume e reputação.</p>
-<p><strong>Qualidade vs.&nbsp;Custo e Produtividade (Os Custos da Qualidade)</strong> Imagine o dia a dia desta fábrica: * <strong>Custos de Prevenção (Investimento):</strong> Treinar os montadores e fazer manutenção preventiva nas máquinas de solda. * <strong>Custos de Avaliação (Investimento):</strong> Testar cada bateria em um simulador antes de instalar na bicicleta. * <strong>Falha Interna (Prejuízo):</strong> Uma peça é montada errada e precisa ser desmontada e refeita antes de sair da fábrica (retrabalho). * <strong>Falha Externa (O Devastador):</strong> A bicicleta quebra na mão do cliente, gerando custos de frete para devolução, troca de peças na garantia e uma avaliação negativa na internet (perda de oportunidade). * <strong>Superqualidade (O Desperdício):</strong> Pintar a parte interna do quadro (onde ninguém vê) com 5 camadas de tinta automotiva de luxo, sendo que uma camada simples bastaria. O cliente não paga a mais por isso, e a empresa joga dinheiro fora.</p>
+<section id="relação-qualidade-vs.-preço-1" class="level5" data-number="1.4.3.4.1">
+<h5 data-number="1.4.3.4.1" class="anchored" data-anchor-id="relação-qualidade-vs.-preço-1"><span class="header-section-number">1.4.3.4.1</span> Relação Qualidade vs.&nbsp;Preço</h5>
+<ul>
+<li><strong>Cenário de Risco:</strong> A empresa sobe o preço da bicicleta para R$ 7.000 apenas para “parecer premium”, sem mudar nada no produto. O cliente percebe que a bateria e o motor são os mesmos da concorrência. <em>Resultado:</em> As vendas despencam e o lucro encolhe.</li>
+<li><strong>Estratégia de Valor:</strong> A empresa investe em um quadro de fibra de carbono (mais leve) e uma bateria de maior autonomia. O cliente vê valor real. A empresa sobe o preço para R$ 7.500 e as vendas continuam altas. <em>Resultado:</em> O lucro dispara porque a percepção de benefício deslocou a demanda para cima.</li>
+</ul>
+</section>
+<section id="relação-qualidade-vs.-propaganda-1" class="level5" data-number="1.4.3.4.2">
+<h5 data-number="1.4.3.4.2" class="anchored" data-anchor-id="relação-qualidade-vs.-propaganda-1"><span class="header-section-number">1.4.3.4.2</span> Relação Qualidade vs.&nbsp;Propaganda</h5>
+<ul>
+<li><strong>A Ilusão do Volume:</strong> A empresa gasta milhões em comerciais de TV com celebridades, mas a bicicleta continua apresentando falhas no freio. O custo da propaganda aumenta o custo total (<span class="math inline">\(C \uparrow\)</span>), e o pequeno aumento nas vendas não paga a conta. <em>Resultado:</em> Queda no lucro (<span class="math inline">\(L \downarrow\)</span>).</li>
+<li><strong>Propaganda Efetiva:</strong> A propaganda foca em testes de segurança independentes que provam que a bicicleta é a mais confiável do mercado. Isso convence o público a pagar mais caro pelo produto. <em>Resultado:</em> O aumento no preço e no volume supera o gasto com marketing, gerando lucro real.</li>
+</ul>
+</section>
+<section id="relação-qualidade-vs.-participação-no-mercado-1" class="level5" data-number="1.4.3.4.3">
+<h5 data-number="1.4.3.4.3" class="anchored" data-anchor-id="relação-qualidade-vs.-participação-no-mercado-1"><span class="header-section-number">1.4.3.4.3</span> Relação Qualidade vs.&nbsp;Participação no Mercado</h5>
+<ul>
+<li><strong>Custo da “Falsa” Qualidade:</strong> A engenharia adiciona uma tela 4K <em>touch</em> no guidão que o ciclista não consegue usar sob o sol e que encarece o produto. O preço sobe, o cliente rejeita a complexidade e a empresa perde mercado.</li>
+<li><strong>Ganho por Conformidade:</strong> A empresa foca em eliminar o ruído na corrente e garantir que a totalidade das bicicletas saia da fábrica sem ajustes necessários. A alta confiabilidade faz com que os clientes indiquem a marca. Sem subir o preço, ela atrai clientes da concorrência pelo boca a boca. <em>Resultado:</em> Domínio do mercado pelo volume e reputação.</li>
+</ul>
+</section>
+<section id="qualidade-vs.-custo-e-produtividade-os-custos-da-qualidade" class="level5" data-number="1.4.3.4.4">
+<h5 data-number="1.4.3.4.4" class="anchored" data-anchor-id="qualidade-vs.-custo-e-produtividade-os-custos-da-qualidade"><span class="header-section-number">1.4.3.4.4</span> Qualidade vs.&nbsp;Custo e Produtividade (Os Custos da Qualidade)</h5>
+<p>Imagine o dia a dia desta fábrica:</p>
+<ul>
+<li><strong>Custos de Prevenção (Investimento):</strong> Treinar os montadores e fazer manutenção preventiva nas máquinas de solda.</li>
+<li><strong>Custos de Avaliação (Investimento):</strong> Testar cada bateria em um simulador antes de instalar na bicicleta.</li>
+<li><strong>Falha Interna (Prejuízo):</strong> Uma peça é montada errada e precisa ser desmontada e refeita antes de sair da fábrica (retrabalho).</li>
+<li><strong>Falha Externa (O Devastador):</strong> A bicicleta quebra na mão do cliente, gerando custos de frete para devolução, troca de peças na garantia e uma avaliação negativa na internet (perda de oportunidade).</li>
+<li><strong>Superqualidade (O Desperdício):</strong> Pintar a parte interna do quadro (onde ninguém vê) com 5 camadas de tinta automotiva de luxo, sendo que uma camada simples bastaria. O cliente não paga a mais por isso, e a empresa joga dinheiro fora.</li>
+</ul>
+</section>
 </div>
 </section>
 </section>
@@ -1894,8 +2014,26 @@ Tabela&nbsp;1.7: Matriz de Decisão Gerencial dos Custos da Qualidade
 </ul>
 <div id="exm-impacto-elevadores" class="example theorem">
 <p><span class="theorem-title"><strong>Exemplo 1.22 (Impacto Sistêmico na Prática: Indústria de Peças para Elevadores)</strong></span> Para visualizar como a qualidade (ou a falta dela) dita o destino de uma organização, considere o caso de uma Indústria de Peças para Elevadores, setor onde a segurança é inegociável:</p>
-<p><strong>O Ciclo Negativo (A “Espiral da Morte” Operacional)</strong> Imagine que a fábrica entrega roldanas com microfissuras por falhas na manutenção do maquinário: * <strong>Desperdício Imediato:</strong> 20% das peças são descartadas ainda na linha (custo de material e energia perdidos). * <strong>Baixa Eficiência:</strong> A produção é interrompida constantemente para ajustes reativos. * <strong>Impacto no Mercado:</strong> Um elevador trava em um prédio comercial por fadiga da peça defeituosa. A notícia destrói a confiança das construtoras. * <strong>Resultado Financeiro:</strong> O faturamento despenca e os custos de <em>recall</em> superam a margem. O ciclo encerra-se na perda de talentos e risco de falência.</p>
-<p><strong>O Ciclo Positivo (A Espiral de Excelência)</strong> A mesma empresa decide investir em sensores de precisão e treinamento técnico: * <strong>Alta Eficiência:</strong> As peças saem perfeitas na primeira tentativa (Zero Defeitos), eliminando o retrabalho. * <strong>Reputação Sólida:</strong> O mercado reconhece a confiabilidade absoluta; os elevadores nunca quebram. O valor percebido (e o preço) sobe. * <strong>Expansão:</strong> A empresa conquista novos mercados globais, aumentando faturamento e escala. * <strong>Resultado Financeiro:</strong> O lucro é reinvestido em tecnologia, blindando a sustentabilidade do negócio.</p>
+<section id="o-ciclo-negativo-a-espiral-da-morte-operacional" class="level5" data-number="1.4.5.0.1">
+<h5 data-number="1.4.5.0.1" class="anchored" data-anchor-id="o-ciclo-negativo-a-espiral-da-morte-operacional"><span class="header-section-number">1.4.5.0.1</span> O Ciclo Negativo (A “Espiral da Morte” Operacional)</h5>
+<p>Imagine que a fábrica entrega roldanas com microfissuras por falhas na manutenção do maquinário:</p>
+<ul>
+<li><strong>Desperdício Imediato:</strong> 20% das peças são descartadas ainda na linha (custo de material e energia perdidos).</li>
+<li><strong>Baixa Eficiência:</strong> A produção é interrompida constantemente para ajustes reativos.</li>
+<li><strong>Impacto no Mercado:</strong> Um elevador trava em um prédio comercial por fadiga da peça defeituosa. A notícia destrói a confiança das construtoras.</li>
+<li><strong>Resultado Financeiro:</strong> O faturamento despenca e os custos de <em>recall</em> superam a margem. O ciclo encerra-se na perda de talentos e risco de falência.</li>
+</ul>
+</section>
+<section id="o-ciclo-positivo-a-espiral-de-excelência" class="level5" data-number="1.4.5.0.2">
+<h5 data-number="1.4.5.0.2" class="anchored" data-anchor-id="o-ciclo-positivo-a-espiral-de-excelência"><span class="header-section-number">1.4.5.0.2</span> O Ciclo Positivo (A Espiral de Excelência)</h5>
+<p>A mesma empresa decide investir em sensores de precisão e treinamento técnico:</p>
+<ul>
+<li><strong>Alta Eficiência:</strong> As peças saem perfeitas na primeira tentativa (Zero Defeitos), eliminando o retrabalho.</li>
+<li><strong>Reputação Sólida:</strong> O mercado reconhece a confiabilidade absoluta; os elevadores nunca quebram. O valor percebido (e o preço) sobe.</li>
+<li><strong>Expansão:</strong> A empresa conquista novos mercados globais, aumentando faturamento e escala.</li>
+<li><strong>Resultado Financeiro:</strong> O lucro é reinvestido em tecnologia, blindando a sustentabilidade do negócio.</li>
+</ul>
+</section>
 </div>
 <p>Foi justamente para induzir as organizações a abandonarem o ciclo negativo e adotarem o ciclo positivo que as normas internacionais de gestão precisaram evoluir e se adaptar ao mundo corporativo moderno. A série ISO 9001 passou por transformações cruciais em sua história:</p>
 <ul>
@@ -2445,9 +2583,17 @@ Figura&nbsp;1.11: Dimensões da Qualidade no Modelo de Gestão
 <p>A figura clássica do Sistema de Produção ilustra que todo processo é um conjunto de atividades estruturadas em uma sequência lógico-temporal. Ele utiliza <strong>recursos a serem transformados</strong> (materiais, informações) e <strong>recursos transformadores</strong> (instalações, tecnologia, funcionários) sob uma metodologia preestabelecida, gerando produtos e serviços para um cliente, ao mesmo tempo em que precisa gerenciar externalidades (impactos ambientais, sociais e de segurança).</p>
 <p>No entanto, quando aplicamos essa mesma lógica de engenharia de produção para a <strong>dinâmica da gestão da informação</strong>, o chão de fábrica dá lugar ao <strong>Ambiente de Relacionamento Interno (ARI)</strong>.</p>
 <p>No ARI, a information que percorre o fluxo vertical — da alta gestão até o cliente final — é desdobrada em indicadores mensuráveis. Para que esse fluxo tenha qualidade e gere valor, torna-se estritamente necessário mapear o processo de geração de demandas e definir as responsabilidades das partes envolvidas:</p>
-<p><strong>1. A Alta Gestão (Os Fornecedores de Entrada)</strong> É responsável por fornecer o conjunto de elementos, diretrizes e indicadores desdobrados dos objetivos estratégicos da empresa. No fluxo de processos do ARI, os “produtos” gerados pela alta gestão formam as informações de entrada (<em>recursos a serem transformados</em>) que alimentarão o sistema.</p>
-<p><strong>2. A Equipe de Apoio (Os Recursos Transformadores)</strong> Visando fortalecer a cultura de excelência, áreas como engenharia, planejamento e RH são responsáveis por processar as diretrizes da alta gestão e transformá-las em produtos, serviços e treinamentos de apoio. O objetivo é subsidiar a linha de frente para o cumprimento das metas anuais de produção e especificações de qualidade. * <em>Dinâmica Operacional:</em> Ao transmitir e transformar essas informações, a equipe de apoio exerce um papel de <strong>educador/facilitador</strong>, desenvolvendo as demandas conjuntamente com a área de atendimento.</p>
-<p><strong>3. A Equipe de Operação (O Cliente Interno)</strong> Prioritariamente, sua responsabilidade é executar a metodologia de processamento físico e cumprir as metas estabelecidas. No entanto, o modelo de gestão exige que a operação compreenda a necessidade de integrar atividades gerenciais ao seu dia a dia operacional.</p>
+<section id="a-alta-gestão-os-fornecedores-de-entrada" class="level5" data-number="1.5.5.0.1">
+<h5 data-number="1.5.5.0.1" class="anchored" data-anchor-id="a-alta-gestão-os-fornecedores-de-entrada"><span class="header-section-number">1.5.5.0.1</span> 1. A Alta Gestão (Os Fornecedores de Entrada)</h5>
+<p>É responsável por fornecer o conjunto de elementos, diretrizes e indicadores desdobrados dos objetivos estratégicos da empresa. No fluxo de processos do ARI, os “produtos” gerados pela alta gestão formam as informações de entrada (<em>recursos a serem transformados</em>) que alimentarão o sistema.</p>
+</section>
+<section id="a-equipe-de-apoio-os-recursos-transformadores" class="level5" data-number="1.5.5.0.2">
+<h5 data-number="1.5.5.0.2" class="anchored" data-anchor-id="a-equipe-de-apoio-os-recursos-transformadores"><span class="header-section-number">1.5.5.0.2</span> 2. A Equipe de Apoio (Os Recursos Transformadores)</h5>
+<p>Visando fortalecer a cultura de excelência, áreas como engenharia, planejamento e RH são responsáveis por processar as diretrizes da alta gestão e transformá-las em produtos, serviços e treinamentos de apoio. O objetivo é subsidiar a linha de frente para o cumprimento das metas anuais de produção e especificações de qualidade. * <em>Dinâmica Operacional:</em> Ao transmitir e transformar essas informações, a equipe de apoio exerce um papel de <strong>educador/facilitador</strong>, desenvolvendo as demandas conjuntamente com a área de atendimento.</p>
+</section>
+<section id="a-equipe-de-operação-o-cliente-interno" class="level5" data-number="1.5.5.0.3">
+<h5 data-number="1.5.5.0.3" class="anchored" data-anchor-id="a-equipe-de-operação-o-cliente-interno"><span class="header-section-number">1.5.5.0.3</span> 3. A Equipe de Operação (O Cliente Interno)</h5>
+<p>Prioritariamente, sua responsabilidade é executar a metodologia de processamento físico e cumprir as metas estabelecidas. No entanto, o modelo de gestão exige que a operação compreenda a necessidade de integrar atividades gerenciais ao seu dia a dia operacional.</p>
 <ul>
 <li><em>Dinâmica Operacional:</em> No ARI, a equipe de operação assume o papel de <strong>aprendiz</strong> e cliente. Para garantir a melhoria contínua (<em>feedback</em>), ela torna-se responsável por retroalimentar o sistema, informando com clareza suas demandas, necessidades e dificuldades de campo para que a equipe de apoio refine os produtos ofertados.</li>
 </ul>
@@ -2665,6 +2811,7 @@ Tabela&nbsp;1.10: Esquema ARI: O Fluxo da Qualidade Gerencial
 </table>
 <p><strong>Dica Prática de Auditoria:</strong> Se você encontrar um operador de máquina perdido, “suba o fluxo”: O Apoio deu o treinamento? Se não deu, a Gestão deu a diretriz e o recurso? Se a gestão deu tudo, o Operador avisou que não entendeu? Onde o “fio” quebra, a Qualidade morre.</p>
 </div>
+</section>
 </section>
 <section id="sec-requisito-grau" class="level3" data-number="1.5.6">
 <h3 data-number="1.5.6" class="anchored" data-anchor-id="sec-requisito-grau"><span class="header-section-number">1.5.6</span> Requisito e Grau (Diferenciando Qualidade de Luxo)</h3>
