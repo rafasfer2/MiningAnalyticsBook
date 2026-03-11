@@ -1,4 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
+if (!window.__tocExpandOnClickBound) {
+  window.__tocExpandOnClickBound = true;
+
+  document.addEventListener('DOMContentLoaded', function () {
   try {
     const toc = document.querySelector('nav.toc-active[role="doc-toc"]');
     if (!toc) return;
@@ -27,4 +30,5 @@ document.addEventListener('DOMContentLoaded', function () {
     // fail silently
     console.error('toc-expand-on-click error', err);
   }
-});
+  });
+}

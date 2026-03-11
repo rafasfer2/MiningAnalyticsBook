@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -382,7 +417,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#sec-desdobramento-objetivos" id="toc-sec-desdobramento-objetivos" class="nav-link" data-scroll-target="#sec-desdobramento-objetivos"><span class="header-section-number">4.4</span> O Desdobramento Estratégico: Objetivos da Qualidade</a>
   <ul class="collapse">
-  <li><a href="#a-medição-dos-objetivos" id="toc-a-medição-dos-objetivos" class="nav-link" data-scroll-target="#a-medição-dos-objetivos"><span class="header-section-number">4.4.1</span> A Medição dos Objetivos</a></li>
+  <li><a href="#a-medição-dos-objetivos-e-o-gpd" id="toc-a-medição-dos-objetivos-e-o-gpd" class="nav-link" data-scroll-target="#a-medição-dos-objetivos-e-o-gpd"><span class="header-section-number">4.4.1</span> A Medição dos Objetivos e o GPD</a></li>
   <li><a href="#a-estrutura-prática-dos-objetivos-na-mineração" id="toc-a-estrutura-prática-dos-objetivos-na-mineração" class="nav-link" data-scroll-target="#a-estrutura-prática-dos-objetivos-na-mineração"><span class="header-section-number">4.4.2</span> A Estrutura Prática dos Objetivos na Mineração</a></li>
   <li><a href="#o-painel-de-gestão-e-o-ritual-da-rotina" id="toc-o-painel-de-gestão-e-o-ritual-da-rotina" class="nav-link" data-scroll-target="#o-painel-de-gestão-e-o-ritual-da-rotina"><span class="header-section-number">4.4.3</span> O Painel de Gestão e o Ritual da Rotina</a></li>
   <li><a href="#indicadores-e-a-qualidade-de-conformação" id="toc-indicadores-e-a-qualidade-de-conformação" class="nav-link" data-scroll-target="#indicadores-e-a-qualidade-de-conformação"><span class="header-section-number">4.4.4</span> Indicadores e a Qualidade de Conformação</a></li>
@@ -414,6 +449,7 @@ window.Quarto = {
   <li><a href="#seção-3-engenharia-de-metas" id="toc-seção-3-engenharia-de-metas" class="nav-link" data-scroll-target="#seção-3-engenharia-de-metas"><span class="header-section-number">4.8.2</span> Seção 3: Engenharia de Metas</a></li>
   <li><a href="#seção-4-estudo-de-caso-integrado" id="toc-seção-4-estudo-de-caso-integrado" class="nav-link" data-scroll-target="#seção-4-estudo-de-caso-integrado"><span class="header-section-number">4.8.3</span> Seção 4: Estudo de Caso Integrado</a></li>
   <li><a href="#seção-5-questões-de-reflexão" id="toc-seção-5-questões-de-reflexão" class="nav-link" data-scroll-target="#seção-5-questões-de-reflexão"><span class="header-section-number">4.8.4</span> Seção 5: Questões de Reflexão</a></li>
+  <li><a href="#tech-note-laboratório-de-r---definição-de-metas-pelo-método-da-lacuna" id="toc-tech-note-laboratório-de-r---definição-de-metas-pelo-método-da-lacuna" class="nav-link" data-scroll-target="#tech-note-laboratório-de-r---definição-de-metas-pelo-método-da-lacuna"><span class="header-section-number">4.8.5</span> 💻 TECH NOTE: Laboratório de R - Definição de Metas pelo Método da Lacuna</a></li>
   </ul></li>
   <li><a href="#sec-exercicios-adicionais-cap4" id="toc-sec-exercicios-adicionais-cap4" class="nav-link" data-scroll-target="#sec-exercicios-adicionais-cap4"><span class="header-section-number">4.9</span> Exercícios Adicionais</a></li>
   </ul>
@@ -553,10 +589,10 @@ window.Quarto = {
 <div id="fig-estrategia-vale" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-estrategia-vale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="image_248c77.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img">
+<img src="../images/fig-estrategia-vale.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-estrategia-vale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.1: Arcabouço Estratégico de Propósito, Valores e Ambições da Vale
+Figura&nbsp;4.1: Arcabouço Estratégico de Propósito, Valores e Ambições da Vale.
 </figcaption>
 </figure>
 </div>
@@ -712,61 +748,38 @@ Figura&nbsp;4.1: Arcabouço Estratégico de Propósito, Valores e Ambições da 
 <section id="sec-desdobramento-objetivos" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="sec-desdobramento-objetivos"><span class="header-section-number">4.4</span> O Desdobramento Estratégico: Objetivos da Qualidade</h2>
 <p>Com a Política definida, os Processos mapeados e o modelo de maturidade estabelecido, chegamos ao terceiro elemento puxado pela definição normativa: os <strong>Objetivos</strong>. Para que a excelência não seja apenas um quadro na parede, a estratégia precisa virar um alvo inquestionável.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="📌 DEFINIÇÃO NORMATIVA">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>📌 DEFINIÇÃO NORMATIVA
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Objetivos da Qualidade (3.7.2):</strong> Objetivos (3.7.1) com relação à qualidade (3.6.2). * <em>NOTA 1:</em> Um objetivo pode ser estratégico, tático ou operacional. * <em>NOTA 2:</em> Objetivos podem se relacionar a diferentes disciplinas (como finanças, saúde e segurança e metas ambientais) e podem se referir a diferentes níveis (como estratégico, da organização, projeto, produto e processos). * <em>NOTA 3:</em> Um objetivo pode ser expresso de outras formas, como resultado pretendido, propósito, critério operacional, finalidade, meta ou alvo. * <em>NOTA 4:</em> No contexto da Gestão da Qualidade, objetivos da qualidade são estabelecidos pela organização, coerentemente com a política da qualidade, para alcançar resultados específicos.</p>
-</div>
-</div>
 <p>Os objetivos são a tradução tangível da Política. Se a Política diz “focar na satisfação do cliente”, o Objetivo diz “Reduzir o número de reclamações em 20% até dezembro”. Para que um objetivo de engenharia seja válido, ele deve obrigatoriamente seguir a metodologia <strong>SMART</strong>:</p>
+<div id="fig-smart" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-smart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/fig-criterios-meta-smart.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-smart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.2: Critérios da metodologia SMART para a definição de objetivos válidos.
+</figcaption>
+</figure>
+</div>
 <ul>
-<li><p><strong>Específico (Specific):</strong> Claro e sem ambiguidade.</p></li>
-<li><p><strong>Mensurável (Measurable):</strong> Quantificável através de KPIs.</p></li>
-<li><p><strong>Alcançável (Achievable):</strong> Realista dentro da capacidade técnica instalada.</p></li>
-<li><p><strong>Relevante (Relevant):</strong> Alinhado com a estratégia do negócio.</p></li>
-<li><p><strong>Temporal (Time-bound):</strong> Com prazo definido.</p></li>
+<li><strong>Específico (Specific):</strong> Claro e sem ambiguidade.</li>
+<li><strong>Mensurável (Measurable):</strong> Quantificável através de KPIs.</li>
+<li><strong>Alcançável (Achievable):</strong> Realista dentro da capacidade técnica instalada.</li>
+<li><strong>Relevante (Relevant):</strong> Alinhado com a estratégia do negócio.</li>
+<li><strong>Temporal (Time-bound):</strong> Com prazo definido.</li>
 </ul>
-<section id="a-medição-dos-objetivos" class="level3" data-number="4.4.1">
-<h3 data-number="4.4.1" class="anchored" data-anchor-id="a-medição-dos-objetivos"><span class="header-section-number">4.4.1</span> A Medição dos Objetivos</h3>
-<p>Definir a meta não é suficiente; é fundamental mensurá-la para avaliar o desempenho. Na mineração, essa medição ocorre através de:</p>
-<ol type="1">
-<li><p><strong>KPIs (Indicadores Chave de Desempenho):</strong> Monitoramento contínuo de variáveis críticas (ex: taxa de produtos defeituosos, disponibilidade física, teor de contaminantes).</p></li>
-<li><p><strong>Auditorias:</strong> Revisões periódicas para validar se os processos estão alinhados aos objetivos.</p></li>
-<li><p><strong>Checklists e Verificações:</strong> Ferramentas de campo para coleta de dados padronizada, garantindo que a informação que chega à gestão seja confiável.</p></li>
-</ol>
-<p>É aqui que a teoria normativa se funde com o <strong>Gerenciamento pelas Diretrizes (GPD)</strong>. Como a <em>Nota 1</em> deixa claro, um objetivo precisa ser desdobrado: o Diretor foca no lucro anual (Estratégico), o Gerente foca na disponibilidade física da frota (Tático), e o Supervisor atua na redução do tempo de fila de caminhões (Operacional). O GPD garante que todos estejam trabalhando para o mesmo resultado.</p>
-<p>Para ilustrar a importância de compreender corretamente esse desdobramento e evitar a miopia gerencial, considere o seguinte diálogo hipotético entre um engenheiro e um gerente:</p>
-<blockquote class="blockquote">
-<p><strong>Engenheiro:</strong> “Nosso maior problema hoje é a quebra frequente das correias.”</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><strong>Gerente:</strong> “A sua missão é ter muitas correias rodando?”</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><strong>Engenheiro:</strong> “Não, meu objetivo é alimentar a planta com minério britado.”</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><strong>Gerente:</strong> “Qual é a taxa exigida?”</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><strong>Engenheiro:</strong> “4.500 toneladas por hora.”</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><strong>Gerente:</strong> “E qual é o nosso volume atual?”</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><strong>Engenheiro:</strong> “3.800 toneladas por hora.”</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><strong>Gerente:</strong> “Entende a diferença? Seu problema não é a correia. Seu problema é um déficit de 700 t/h. A correia rasgada é apenas uma causa. Foque no resultado e resolva o gap.”</p>
-</blockquote>
+<section id="a-medição-dos-objetivos-e-o-gpd" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="a-medição-dos-objetivos-e-o-gpd"><span class="header-section-number">4.4.1</span> A Medição dos Objetivos e o GPD</h3>
+<p>Definir a meta não é suficiente; é fundamental mensurá-la para avaliar o desempenho. Na mineração, essa medição ocorre através de KPIs (ex: disponibilidade física, taxa de alimentação), auditorias e verificações de campo.</p>
+<p>É aqui que a teoria se funde com o <strong>Gerenciamento pelas Diretrizes (GPD)</strong>. Um objetivo estratégico precisa ser desdobrado em cascata: o Diretor foca no OEE anual (Estratégico), o Gerente foca na Disponibilidade Física da frota (Tático), e o Supervisor atua na redução do tempo de manutenção corretiva (Operacional). O GPD garante que todos estejam trabalhando para o mesmo resultado, conforme ilustrado na <a href="#fig-desdobramento-metas" class="quarto-xref">Figura&nbsp;<span>4.3</span></a>.</p>
+<div id="fig-desdobramento-metas" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-desdobramento-metas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/fig-desdobramento-metas.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-desdobramento-metas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.3: Exemplo prático de desdobramento de metas da Alta Direção ao Operacional na Mineração.
+</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-important callout-titled" title="🎯 A REGRA DE OURO DA GESTÃO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -912,14 +925,18 @@ Tabela&nbsp;4.1: Exemplo de Painel de Gestão de Objetivos da Qualidade na Miner
 <p>Constitui-se de informações que uma empresa de capital aberto oferece ao mercado como uma indicação oficial do seu desempenho futuro. Trata-se de prever o futuro com a maior precisão possível, levando em conta os dados históricos e o conhecimento de eventos futuros que possam impactar as operações.</p>
 <p>A projeção não é apenas um exercício interno de planejamento — ela é uma <strong>promessa pública</strong> que impacta diretamente o valor das ações da empresa. Formulários de referência corporativos (como os exigidos pela CVM no Brasil ou SEC nos EUA) demonstram que antes de se cobrar um resultado, é necessário realizar e divulgar a projeção dos volumes de produção estimados.</p>
 <div id="exm-projecao-vale" class="example theorem">
-<p><span class="theorem-title"><strong>Exemplo 4.3 (Projeção de Produção - Vale)</strong></span> Uma mineradora global de grande porte pode publicar em seu formulário de referência anual:</p>
-<p><strong>“Guidance de Produção 2024:</strong></p>
-<ul>
-<li><p>Minério de Ferro: 310-320 Mtpa</p></li>
-<li><p>Níquel: 170-180 kt</p></li>
-<li><p>Cobre: 320-355 kt”</p></li>
-</ul>
-<p>Essa é a projeção oficial. O mercado ajusta suas expectativas com base nessa informação. Se a empresa entregar 307,8 Mt de minério (como no exemplo real), ela ficou abaixo da faixa inferior, gerando impacto no valor de mercado e gatilhos de análise crítica.</p>
+<p><span class="theorem-title"><strong>Exemplo 4.3 (Projeção de Produção - Vale)</strong></span> Uma mineradora global de grande porte pode publicar em seu formulário de referência anual o seu <em>Guidance</em> de Produção.</p>
+<div id="fig-acompanha-projecoes-vale" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-acompanha-projecoes-vale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/fig-acompanha-projecoes-vale.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-acompanha-projecoes-vale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.4: Acompanhamento das projeções (Guidance) de produção da Vale.
+</figcaption>
+</figure>
+</div>
+<p>Essa é a projeção oficial. O mercado ajusta suas expectativas com base nessa informação. Se a empresa entregar um volume de minério abaixo da faixa inferior (como pode ocorrer em anos de instabilidade), isso gera impacto imediato no valor de mercado e aciona gatilhos de análise crítica na diretoria.</p>
 </div>
 </section>
 <section id="sec-meta" class="level3" data-number="4.5.2">
@@ -1129,13 +1146,14 @@ Tabela&nbsp;4.2: Planejamento Programado vs.&nbsp;Disponível de Frota (2020-202
 <section id="o-desdobramento-da-medição-princípios-requisitos-e-critérios" class="level3" data-number="4.5.8">
 <h3 data-number="4.5.8" class="anchored" data-anchor-id="o-desdobramento-da-medição-princípios-requisitos-e-critérios"><span class="header-section-number">4.5.8</span> O Desdobramento da Medição: Princípios, Requisitos e Critérios</h3>
 <p>Para que a Gestão de Ativos e os Indicadores (KPIs) funcionem em sintonia com a estratégia da diretoria, o Sistema de Gestão Integrado (SGI) precisa traduzir as intenções macro em elementos matemáticos e auditáveis. Esse processo ocorre através de um “funil” de desdobramento lógico.</p>
-<p>A <span class="quarto-unresolved-ref">?fig-desdobramento-sgi</span> ilustra exatamente essa cascata de desdobramento estrutural do SGI, demonstrando como uma diretriz ampla e abstrata se afunila até se transformar na expressão matemática do desempenho da operação.</p>
+<p>A <a href="#fig-desdobramento-sgi" class="quarto-xref">Figura&nbsp;<span>4.5</span></a> ilustra exatamente essa cascata de desdobramento estrutural do SGI, demonstrando como uma diretriz ampla e abstrata se afunila até se transformar na expressão matemática do desempenho da operação.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
+<div id="fig-desdobramento-sgi" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-desdobramento-sgi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">graph TD
+<pre class="mermaid mermaid-js" data-label="fig-desdobramento-sgi">graph TD
     A[Objetivos da Qualidade&lt;br&gt;Alta Direção] --&gt; B(Princípios&lt;br&gt;Diretriz Estratégica)
     B --&gt; C(Requisitos&lt;br&gt;Indicador do SGI)
     C --&gt; D(Critérios&lt;br&gt;Avaliação Prática&lt;br&gt;Características + Limites)
@@ -1148,7 +1166,11 @@ Tabela&nbsp;4.2: Planejamento Programado vs.&nbsp;Disponível de Frota (2020-202
     style E fill:#e74c3c,stroke:#333,color:#fff
 </pre>
 </div>
-<p></p></figure><p></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-desdobramento-sgi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.5: Desdobramento lógico das estratégias no SGI: dos Princípios ao Desempenho Operacional
+</figcaption>
+</figure>
 </div>
 </div>
 </div>
@@ -1195,32 +1217,21 @@ Tabela&nbsp;4.2: Planejamento Programado vs.&nbsp;Disponível de Frota (2020-202
 <section id="sec-trilogia-juran" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="sec-trilogia-juran"><span class="header-section-number">4.6</span> O Motor Executivo: A Trilogia de Juran</h2>
 <p>Essa divisão não é uma coincidência. Ela é a consagração internacional da mais famosa estrutura de gestão da história da engenharia de produção, desenvolvida por Joseph Juran. Conhecida como a <strong>Trilogia de Juran</strong>, essa metodologia trata a gestão como um fluxo contínuo de três processos vitais e sequenciais.</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">graph LR
-    A[1. Planejamento&lt;br&gt;da Qualidade] --&gt;|Cria o Processo| B[2. Controle&lt;br&gt;da Qualidade]
-    B --&gt;|Mantém o Padrão&lt;br&gt;SDCA| B
-    B --&gt;|Quebra o Status Quo| C[3. Melhoria&lt;br&gt;da Qualidade]
-    C --&gt;|Novo Patamar&lt;br&gt;PDCA| B
-
-    style A fill:#2ecc71,stroke:#333,color:#fff
-    style B fill:#f1c40f,stroke:#333
-    style C fill:#e74c3c,stroke:#333,color:#fff
-</pre>
+<div id="fig-trilogia-juran" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-trilogia-juran-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/trilogia-juran.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
 </div>
-<p></p></figure><p></p>
-</div>
-</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-trilogia-juran-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.6: Diagrama da Trilogia de Juran: Integração entre Planejamento, Controle e Melhoria ao longo do tempo.
+</figcaption>
+</figure>
 </div>
 <section id="planejamento-da-qualidade-quality-planning" class="level3" data-number="4.6.1">
 <h3 data-number="4.6.1" class="anchored" data-anchor-id="planejamento-da-qualidade-quality-planning"><span class="header-section-number">4.6.1</span> Planejamento da Qualidade (Quality Planning)</h3>
 <p>O Planejamento da Qualidade é a atividade de desenvolver os produtos e processos necessários para atender às necessidades dos clientes e às metas do SGI. Na mineração, o objetivo do planejamento é entregar à equipe de operação um processo que seja intrinsecamente capaz de bater a meta (ex: processar 4.500 t/h) sob as condições reais.</p>
 <section id="o-roteiro-de-juran" class="level4" data-number="4.6.1.1">
 <h4 data-number="4.6.1.1" class="anchored" data-anchor-id="o-roteiro-de-juran"><span class="header-section-number">4.6.1.1</span> O Roteiro de Juran</h4>
-<p>O pla</p>
 <p>nejamento segue um fluxo lógico de 6 passos para converter necessidades abstratas em operação física:</p>
 <ol type="1">
 <li><p><strong>Estabelecer metas de qualidade:</strong> Definir o alvo estratégico.</p></li>
@@ -1506,6 +1517,67 @@ Tabela&nbsp;4.2: Planejamento Programado vs.&nbsp;Disponível de Frota (2020-202
 <p><span class="theorem-title"><strong>Exercício 4.12</strong></span> <strong>Meta e Realidade</strong> Se a meta definida for muito fácil de atingir, qual é o risco à cultura de melhoria contínua? E se for impossível?</p>
 </div>
 </section>
+<section id="tech-note-laboratório-de-r---definição-de-metas-pelo-método-da-lacuna" class="level3" data-number="4.8.5">
+<h3 data-number="4.8.5" class="anchored" data-anchor-id="tech-note-laboratório-de-r---definição-de-metas-pelo-método-da-lacuna"><span class="header-section-number">4.8.5</span> 💻 TECH NOTE: Laboratório de R - Definição de Metas pelo Método da Lacuna</h3>
+<p>Definir um Objetivo da Qualidade SMART exige conhecer a <strong>Lacuna (Gap)</strong> existente. Na engenharia aplicada, a meta não nasce de um desejo subjetivo da diretoria, mas de uma análise estatística rigorosa comparando o desempenho atual (Baseline) com a referência desejada (Benchmark).</p>
+<p>A <a href="cap5-cerebro-operacao.html#fig-metodo-lacuna" class="quarto-xref">Figura&nbsp;<span>5.9</span></a> ilustra o “Método da Lacuna”. O processo segue quatro passos matemáticos: 1. <strong>Baseline:</strong> O desempenho médio atual purgado de outliers (ex: 12.96). 2. <strong>Referência (Benchmark):</strong> O alvo de excelência, muitas vezes definido pelo Q10 (o 10º melhor resultado da série) (ex: 7.0). 3. <strong>Lacuna:</strong> A diferença total entre o Baseline e a Referência (5.96). 4. <strong>Meta Final:</strong> Define-se quanto da lacuna será “capturado” neste ciclo (ex: 60% de captura), resultando na nova meta SMART calculada (9.38).</p>
+<div id="fig-metodo-lacuna" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-metodo-lacuna-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/fig-matriz-captura-lacuna.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-metodo-lacuna-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.7: Aplicação do Método da Lacuna para definição estatística da Meta SMART.
+</figcaption>
+</figure>
+</div>
+<p>O código a seguir demonstra como realizar esse cálculo em R, utilizando bibliotecas de manipulação de dados (<code>dplyr</code>) e visualização (<code>ggplot2</code>), partindo de dados históricos calculados (<code>fig19_nic_calculate_kpi</code>). Observe como cada variável teórica (Lacuna, Captura, Meta) é traduzida em expressão matemática:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo Matemático das Metas</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Definir a Referência (Benchmark) utilizando o Quantil 10</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>ref_q10_val <span class="ot">&lt;-</span> <span class="fu">quantile</span>(fig19_nic_calculate_kpi<span class="sc">$</span>NIC, <span class="at">probs =</span> <span class="fl">0.10</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Calcular a Lacuna (Gap total) entre a Média e a Referência</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>lacuna_val  <span class="ot">&lt;-</span> <span class="fu">mean</span>(fig19_nic_calculate_kpi<span class="sc">$</span>NIC) <span class="sc">-</span> ref_q10_val</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Definir a agressividade da meta (Agressividade de Captura = 60%)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>captura_val <span class="ot">&lt;-</span> lacuna_val <span class="sc">*</span> <span class="fl">0.60</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Calcular o valor final da Meta SMART</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>meta_val    <span class="ot">&lt;-</span> <span class="fu">mean</span>(fig19_nic_calculate_kpi<span class="sc">$</span>NIC) <span class="sc">-</span> captura_val</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Geração da Visualização (Gráfico da Lacuna)</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------------------</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparar dados para o gráfico de barras (formato rect para efeito waterfall)</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>fig20_gap_process_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">item  =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Baseline"</span>, <span class="st">"Referência"</span>, <span class="st">"Lacuna"</span>, <span class="st">"Captura"</span>, <span class="st">"Meta"</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Baseline"</span>, <span class="st">"Referência"</span>, <span class="st">"Lacuna"</span>, <span class="st">"Captura"</span>, <span class="st">"Meta"</span>)),</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">valor =</span> <span class="fu">c</span>(fig19_nic_process_pars<span class="sc">$</span>baseline_nic[<span class="dv">1</span>], ref_q10_val, lacuna_val, captura_val, meta_val)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">xmin =</span> <span class="fu">as.numeric</span>(item)<span class="sc">-</span><span class="fl">0.4</span>, <span class="at">xmax =</span> <span class="fu">as.numeric</span>(item)<span class="sc">+</span><span class="fl">0.4</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">ymin =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, ref_q10_val, meta_val, <span class="dv">0</span>),</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">ymax =</span> <span class="fu">c</span>(fig19_nic_process_pars<span class="sc">$</span>baseline_nic[<span class="dv">1</span>], ref_q10_val, fig19_nic_process_pars<span class="sc">$</span>baseline_nic[<span class="dv">1</span>], fig19_nic_process_pars<span class="sc">$</span>baseline_nic[<span class="dv">1</span>], meta_val)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotar o gráfico utilizando ggplot2</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>fig20_gap <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(fig20_gap_process_data) <span class="sc">+</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> xmin, <span class="at">xmax =</span> xmax, <span class="at">ymin =</span> ymin, <span class="at">ymax =</span> ymax, <span class="at">fill =</span> item), <span class="at">colour =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> (xmin<span class="sc">+</span>xmax)<span class="sc">/</span><span class="dv">2</span>, <span class="at">y =</span> ymax <span class="sc">+</span> <span class="fl">0.5</span>, <span class="at">label =</span> <span class="fu">round</span>(<span class="fu">abs</span>(valor), <span class="dv">2</span>)), <span class="at">fontface =</span> <span class="st">"bold"</span>) <span class="sc">+</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> cores_projeto[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">10</span>)]) <span class="sc">+</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">labels =</span> fig20_gap_process_data<span class="sc">$</span>item) <span class="sc">+</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Método da Lacuna"</span>, <span class="at">x =</span> <span class="st">"Etapa de Cálculo"</span>, <span class="at">y =</span> <span class="st">"Valor Indicador"</span>) <span class="sc">+</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  theme_default <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fig20_gap)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
 </section>
 <section id="sec-exercicios-adicionais-cap4" class="level2" data-number="4.9">
 <h2 data-number="4.9" class="anchored" data-anchor-id="sec-exercicios-adicionais-cap4"><span class="header-section-number">4.9</span> Exercícios Adicionais</h2>
@@ -1532,12 +1604,6 @@ Tabela&nbsp;4.2: Planejamento Programado vs.&nbsp;Disponível de Frota (2020-202
 </section>
 
 </main> <!-- /main -->
-<script src="scripts/set-toc-expanded.js"></script>
-
-<script src="scripts/caption-format.js"></script>
-
-<script src="scripts/toc-expand-on-click.js"></script>
-
 <script src="scripts/set-toc-expanded.js"></script>
 
 <script src="scripts/caption-format.js"></script>

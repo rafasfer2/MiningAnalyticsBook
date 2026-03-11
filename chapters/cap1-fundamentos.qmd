@@ -71,10 +71,14 @@ A qualidade pode ser entendida como o conjunto de atributos que determina a ess�
 ::: {.example #exm-essencia-funcional name="A Essência Funcional em Produtos e Serviços"}
 Considere um exemplo simples e direto da indústria pesada: um **rolamento**. Dizer que ele "tem qualidade" não significa absolutamente nada se não forem explicitados atributos como:
 
-  * Tolerância dimensional;
-  * Capacidade de carga;
-  * Resistência ao desgaste;
-  * Vida útil esperada.
+::: {style="margin-left: 1.25rem;"}
+
+* Tolerância dimensional;
+* Capacidade de carga;
+* Resistência ao desgaste;
+* Vida útil esperada.
+
+:::
 
 A ausência de qualquer uma dessas características compromete a **essência funcional** do objeto: ele deixará de girar com precisão e confiabilidade.
 
@@ -171,7 +175,7 @@ As ferramentas estatísticas foram desenvolvidas com o intuito de satisfazer as 
 #### A Era da Garantia e Gestão Estratégica da Qualidade {#sec-era-garantia}
 Todo esse movimento de racionalização ganhou força monumental após a 2ª Guerra Mundial e estende-se até os dias de hoje, marcando a terceira era. Nela, a qualidade deixa de ser apenas uma ferramenta de fábrica e passa a ser vista como parte indissociável do gerenciamento estratégico da organização.
 
-A era contemporânea é caracterizada pelo surgimento de novos elementos integradores, como a quantificação dos custos da qualidade, a engenharia de confiabilidade, o conceito de "zero falhas" e o Controle Total da Qualidade (*Total Quality Control*). A gestão deslocou-se definitivamente do foco em "encontrar o defeito" para o foco em "garantir que o sistema não produza o defeito".
+A era contemporânea é caracterizada pelo surgimento de novos elementos integradores, como a quantificação dos custos da qualidade, a engenharia de confiabilidade, o conceito de "zero falhas" e o Controle Total da Qualidade (TQM - *Total Quality Control*). A gestão deslocou-se definitivamente do foco em "encontrar o defeito" para o foco em "garantir que o sistema não produza o defeito".
 
 ::: {.example #exm-eras-automobilistica name="A Evolução Histórica na Indústria Automobilística"}
 Para tangibilizar essa evolução, observe a mudança de foco no setor automotivo:
@@ -191,17 +195,18 @@ Esta corrente defende que um produto detém qualidade se ele cumpre de forma sat
 
 Sob essa ótica, a premissa mercadológica de que "o cliente sempre sabe o que quer" nem sempre é absoluta, uma vez que inovações são empurradas para o mercado, gerando novas necessidades antes mesmo que o consumidor as exija (Necessidades Latentes). Ao se distanciar da busca por uma "perfeição técnica" utópica e isolada, essa visão pragmática permite que as empresas incorporem a qualidade em suas estratégias comerciais.
 
-**A Perfeição Técnica vs. A Utilidade Prática**
+##### A Perfeição Técnica vs. A Utilidade Prática
 Muitas vezes, uma solução "simples" tem mais qualidade do que uma "sofisticada", dependendo estritamente do contexto. O erro comum da engenharia é achar que qualidade é apenas sinônimo de "mais recursos" ou "materiais caros". Na realidade, um relógio digital de plástico de R$ 50,00 tem maior *adequação ao uso* para um mergulhador do que um relógio de luxo de ouro que não é à prova d'água. O relógio de ouro tem *Grau* superior, mas para aquela função subaquática, tem uma *Qualidade* muito inferior.
 
 ::: {.example #exm-relatividade-uso name="A Relatividade do Uso e as Perguntas de Contorno"}
 Para dominar essa vertente, o engenheiro deve sempre aplicar o filtro das **Perguntas de Contorno**: *Quem é o usuário? Onde será usado? Para que serve?*
 
-**Cenário: Ferramentas de Manutenção (O Martelo)**
+##### Cenário: Ferramentas de Manutenção (O Martelo)
 * **Contexto 1 (Uso Doméstico):** Um martelo simples, leve e barato. *Alta Adequação:* O usuário vai pregar um quadro uma vez por ano. É fácil de guardar e o custo foi baixo.
+
 * **Contexto 2 (Uso Industrial/Mina):** O mesmo martelo simples. *Baixa Adequação:* Ele quebrará no primeiro turno de trabalho pesado. Aqui, a adequação exige um martelo de aço forjado com cabo antivibração. A "perfeição" do martelo doméstico é inútil para a oficina da mineradora.
 
-**Cenário: A Inovação e a Necessidade Latente (Mala com Rodinhas)**
+##### Cenário: A Inovação e a Necessidade Latente (Mala com Rodinhas)
 A adequação ao uso muitas vezes é algo que o cliente descobre apenas quando recebe o produto. Por décadas, as pessoas carregavam malas pesadas nas mãos (Baixa Adequação). Ninguém "pedia" rodinhas, até que a indústria as colocou. A inovação criou uma nova régua: hoje, uma mala sem rodinhas é considerada de baixíssima qualidade para o uso em aeroportos, pois falha na adequação ao uso de transporte fluido.
 :::
 
@@ -213,6 +218,7 @@ A @fig-copos-descartaveis ilustra visualmente essa relatividade em um ambiente d
 **O Problema:** "Uma mineradora precisa comprar lanternas para seus operários que trabalham no subsolo."
 
 * **Debate 1:** Uma lanterna de plástico de altíssima potência de iluminação, mas que usa pilhas comuns que duram apenas 2 horas, tem Adequação ao Uso neste contexto?
+
 * **Debate 2:** Se a lanterna for de metal super resistente e durar 20 horas, mas for muito pesada e difícil de prender no capacete, ela é de Alta Qualidade para esse operário? Qual seria a "Lanterna de Qualidade Plena"?
 :::
 
@@ -224,20 +230,22 @@ Esta segunda abordagem argumenta que a gestão da qualidade só se torna viável
 Na conformidade, o documento mestre é a Especificação Técnica. Ela transforma desejos abstratos em números auditáveis.
 
 * **Limites de Tolerância:** O projeto nunca define apenas um número fixo (ex: 10 mm), mas uma faixa aceitável (ex: $10 \pm 0,05$ mm).
+
 * **Conformidade Binária:** Se a peça mede 10,04 mm, ela é *Conforme*. Se mede 10,06 mm, ela é *Não Conforme* (defeito), mesmo que ainda funcione. Para a engenharia de conformidade, o erro é puramente o desvio do plano.
 
 ::: {.example #exm-otica-laboratorial name="A Lógica do Laboratório e da Conformidade"}
-**Cenário A: Indústria de Parafusos Automotivos**
+##### Cenário A: Indústria de Parafusos Automotivos
 * *O Projeto:* O parafuso deve suportar um torque de 50 N.m e ter uma rosca com passo de 1,25 mm.
 * *A Auditoria:* O laboratório testa amostras. Se o passo for de 1,30 mm, o lote é bloqueado. Mesmo que "pareça" bom, ele impediria a montagem automatizada na fábrica de carros.
 
-**Cenário B: Produção de Medicamentos (Cápsulas)**
+##### Cenário B: Produção de Medicamentos (Cápsulas)
 * *O Projeto:* Cada cápsula deve conter exatamente 500 mg de princípio ativo.
 * *A Auditoria:* Uma balança de precisão pesa a amostra. Se tiver 510 mg, é Não Conforme. O desvio gera risco de superdosagem, provando que seguir o projeto é uma questão de segurança.
 :::
 
-**O Indicador Chave: Taxa de Refugo e Retrabalho**
+##### O Indicador Chave: Taxa de Refugo e Retrabalho
 Na rotina industrial, a conformidade é medida pelo impacto financeiro da falha:
+
 * **Refugo (*Scrap*):** Peças não conformes que não podem ser consertadas (Perda Total).
 * **Retrabalho (*Rework*):** Peças não conformes que voltam para a máquina para ajustes (Perda de Produtividade).
 
@@ -246,7 +254,7 @@ A Conformidade é uma condição necessária, mas não suficiente. Um restaurant
 :::
 
 ::: {.example #exm-auditoria-canetas name="Auditoria de Conformidade (Simulação de Chão de Fábrica)"}
-*Instruções:* Vocês são Inspetores de uma linha de canetas. O projeto definiu 4 requisitos críticos. O lote é rejeitado se houver mais de 1 Não Conformidade (NC) total nas amostras.
+***Instruções:*** Vocês são Inspetores de uma linha de canetas. O projeto definiu 4 requisitos críticos. O lote é rejeitado se houver mais de 1 Não Conformidade (NC) total nas amostras.
 
 | Amostra | Req 1: Comprimento ($140 \pm 1$ mm) | Req 2: Esfera na Ponta | Req 3: Cor Tinta | Req 4: Escrita (Sem falha) | Status |
 | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -256,31 +264,36 @@ A Conformidade é uma condição necessária, mas não suficiente. Um restaurant
 | **#04** | $140,0\text{ mm}$ | Ausente | Azul | Falha | **NC** |
 | **#05** | $140,0\text{ mm}$ | Presente | Azul | OK | **C** |
 
-**A Lógica da Conformidade Binária (O "Muro" da Qualidade)**
-Amostra #03: Tem $141,2\text{ mm}$. São apenas $0,2\text{ mm}$ acima do Limite Superior. A caneta ainda escreve? Sim. Mas é NÃO CONFORME. Ela pode travar a máquina de embalagem ou não caber na caixa padrão, gerando custo logístico imenso.
+##### A Lógica da Conformidade Binária (O "Muro" da Qualidade)
+***Amostra #03:*** Tem $141,2\text{ mm}$. São apenas $0,2\text{ mm}$ acima do Limite Superior. A caneta ainda escreve? Sim. Mas é NÃO CONFORME. Ela pode travar a máquina de embalagem ou não caber na caixa padrão, gerando custo logístico imenso.
 :::
 
-**A Deriva do Processo e Limites de Conformidade**
+##### A Deriva do Processo e Limites de Conformidade
 Para visualizar como a conformidade se comporta ao longo do tempo, o gráfico de Controle de Tendência mostra que um processo pode estar "conforme" hoje, mas caminhando para o erro amanhã.
 
 ```{mermaid}
-flowchart LR
-    A["08:00h<br>Medida: 10,00 mm<br>No ALVO"] --> B["10:00h<br>Medida: 10,02 mm<br>Aceitável"]
-    B -->|Início da Deriva| C["12:00h<br>Medida: 10,05 mm<br>Atenção"]
-    C -->|Subindo| D["14:00h<br>Medida: 10,08 mm<br>Risco Crítico"]
-    D -->|Ultrapassa LSE| E["16:00h<br>Medida: 10,12 mm<br>REFUGO"]
+%%| label: fig-deriva-processo
+%%| fig-cap: "Conformidade Dinâmica e a Deriva do Processo"
 
-    style A fill:#2ecc71,stroke:#333,color:#fff
-    style B fill:#27ae60,stroke:#333,color:#fff
-    style C fill:#f1c40f,stroke:#333,color:#000
-    style D fill:#e67e22,stroke:#333,color:#fff
-    style E fill:#e74c3c,stroke:#333,color:#fff
+flowchart LR
+    %% Definição de estilos de alto contraste
+    classDef alvoNode fill:#2ecc71,stroke:#333,stroke-width:2px,color:#ffffff,font-weight:bold
+    classDef okNode fill:#27ae60,stroke:#333,stroke-width:2px,color:#ffffff,font-weight:bold
+    classDef warnNode fill:#f1c40f,stroke:#333,stroke-width:2px,color:#000000,font-weight:bold
+    classDef critNode fill:#e67e22,stroke:#333,stroke-width:2px,color:#ffffff,font-weight:bold
+    classDef refugoNode fill:#e74c3c,stroke:#333,stroke-width:2px,color:#ffffff,font-weight:bold
+
+    A["08:00h<br>Medida: 10,00 mm<br>No ALVO"]:::alvoNode --> B["10:00h<br>Medida: 10,02 mm<br>Aceitável"]:::okNode
+    B -->|Início da Deriva| C["12:00h<br>Medida: 10,05 mm<br>Atenção"]:::warnNode
+    C -->|Subindo| D["14:00h<br>Medida: 10,08 mm<br>Risco Crítico"]:::critNode
+    D -->|Ultrapassa LSE| E["16:00h<br>Medida: 10,12 mm<br>REFUGO"]:::refugoNode
 ```
+
 
 * **Conformidade Estática (O Passa/Não Passa):** Às 08:00h, a peça mede 10,00 mm (No Alvo). Às 12:00h, mede 10,05 mm. O Inspetor diz: "Aprovada" (ainda abaixo do LSE). O Perigo: olhar apenas para o "Sim/Não" passa a falsa impressão de que está tudo bem.
 * **Conformidade Dinâmica (Visão do Engenheiro):** O gráfico revela uma Deriva. O processo está perdendo o ajuste. Às 16:00h, ultrapassa o LSE gerando Não Conformidade (Refugo).
 
-**O Custo Oculto: RTY (Rolled Throughput Yield)**
+##### O Custo Oculto: RTY (Rolled Throughput Yield)
 Na engenharia, "fazer certo da primeira vez é o caminho mais curto para o lucro". Diferente do rendimento comum, o **RTY** mede a capacidade do processo de entregar uma peça conforme *sem qualquer retoque ou ajuste*.
 
 | Item de Custo | Peça Conforme (1ª vez) | Peça com Retrabalho (Consertada) |
@@ -293,15 +306,19 @@ Na engenharia, "fazer certo da primeira vez é o caminho mais curto para o lucro
 
 : O Custo Oculto do Retrabalho {#tbl-custo-retrabalho}
 
-**A Transição: Controle (QC) vs. Garantia (QA)**
+##### A Transição: Controle (QC) vs. Garantia (QA)
 Aqui o foco muda de *medir* a peça para *garantir* o processo.
+
 * **Inspeção (QC - Quality Control):** "Vou medir essa caneta para ver se ela tem 140 mm." (Reativo).
 * **Garantia (QA - Quality Assurance):** "Vou auditar se a máquina está calibrada para que todas as canetas saiam com 140 mm." (Proativo).
 
 ::: {.example #exm-qa-cozinha name="Manual de Garantia (QA): Cozinha Industrial"}
 Para eliminar o retrabalho em uma cozinha que faz 2.000 refeições/dia:
+
 1. **Padronização das Entradas:** A Falha (QC): Tempero forte por sal diferente. A Garantia (QA): Ficha Técnica com pesos exatos em balança digital.
+
 2. **Poka-Yoke (À Prova de Erro):** A Falha (QC): Feijão queimou. A Garantia (QA): Instalação de *Timers* com Travamento de Gás automático.
+
 3. **Controle de Processo:** A Falha (QC): Medir temperatura da carne apenas na hora de servir. A Garantia (QA): Uso de Sensores de Núcleo *durante* o cozimento (ação preventiva).
 :::
 
@@ -336,6 +353,9 @@ Onde:
 Para que o aluno visualize a diferença entre a visão tradicional (binária: dentro ou fora) e a visão de Taguchi (gradual), observe o gráfico abaixo:
 
 ```{mermaid}
+%%| label: fig-visao-taguchi
+%%| fig-cap: "Comparativo: Visão Tradicional de Tolerância vs. Função Perda de Taguchi"
+
 flowchart TD
     %% Definição de estilos para alto contraste (fundo claro e letras escuras)
     classDef nodePadrao fill:#ffffff,stroke:#555,stroke-width:2px,color:#000,font-weight:bold
@@ -1520,6 +1540,9 @@ Para sistematizar essa integração na rotina da engenharia de produção, a @tb
 : Mapeamento Integrado — Qualidade × ISO 9001 {#tbl-mapeamento-iso}
 
 ```{mermaid}
+%%| label: fig-mapeamento-iso
+%%| fig-cap: "Mapeamento Sistêmico: Da ISO 9001 à Engenharia de Dados"
+
 flowchart TD
 
     %% --- CONFIGURAÇÃO DE ESTILOS (Garantindo contraste e letras pretas fortes) ---

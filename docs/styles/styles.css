@@ -93,39 +93,8 @@ table.table td:first-child {
   color: var(--color-teal-dark);
 }
 /* ==============================================================================
-   ESTRUTURA FINAL DO LAYOUT (V10.8 - TOC FIXED & NÍVEL 3 FORÇADO)
+   ESTRUTURA FINAL DO LAYOUT (V11.0 - PALETA AZUL EXPANDIDA)
    ============================================================================== */
-
-/* --- 1. VARIÁVEIS E CORES GLOBAIS --- */
-:root {
-  /* 1.1. Paleta Customizada (Completa - BrBG) */
-  --color-brown-dark:   #543005;
-  --color-brown-med:    #8c510a;
-  --color-brown:        #bf812d;
-  --color-brown-light:  #dfc27d;
-  --color-cream:        #f6e8c3;
-  --color-cyan-light:   #c7eae5;
-  --color-cyan-mid:     #80cdc1;
-  --color-teal:         #35978f;
-  --color-teal-dark:    #01665e;
-  --color-teal-deep:    #003c30;
-
-  /* 1.2. ESCALAS DE DESTAQUE E SUPORTE */
-  --color-gold:         #d4af37;
-  --color-gold-base:    #ffd700;
-  --color-gold-darker:  #b39700;
-  --color-gray-soft:    #CCCCCC;
-  --color-hover-gray:   #e3e3e3;
-  --color-gray-med:     #aaaaaa;
-
-  /* 1.3. Layout Dimensions */
-  --sidebar-width:      320px;
-  --toc-width:          320px;
-  --header-height:      60px;
-
-  --content-gap:        -11rem;
-  --text-padding-left:  0.75rem;
-}
 
 /* === COMPONENTES ISOLADOS === */
 .exemplo-book {
@@ -194,15 +163,15 @@ h2 .header-section-number {
 /* h3: terciário */
 h3 {
   font-size: 1.25rem !important;
-  color: var(--color-brown) !important;
+  color: var(--color-teal) !important;
   font-weight: 600 !important;
   margin-top: 0.4rem !important;
   margin-bottom: 0.5rem !important;
   padding-bottom: 0.2rem !important;
-  border-bottom: 0.5pt solid var(--color-brown) !important; /* traço 1/2pt abaixo */
+  border-bottom: 0.5pt solid var(--color-teal) !important; /* traço 1/2pt abaixo */
 }
 h3 .header-section-number {
-  color: var(--color-brown) !important;
+  color: var(--color-teal) !important;
   display: inline-block !important;
   margin-right: 0.4rem !important;
 }
@@ -210,17 +179,19 @@ h3 .header-section-number {
 /* h4: sem numeração */
 h4 {
   font-size: 1.0rem !important;
-  color: var(--color-teal-dark) !important;
+  color: var(--color-blue-deep) !important;
   font-weight: 600 !important;
   margin-top: 0.35rem !important;
   margin-bottom: 0.45rem !important;
+  padding-bottom: 0.2rem !important;
+  border-bottom: 0.5pt solid var(--color-blue-deep) !important; /* traço 1/2pt abaixo */
 }
 h4 .header-section-number { display: none !important; }
 
 /* h5: mesmo tamanho do corpo do texto */
 h5 {
   font-size: 12pt !important; /* igual ao body */
-  color: var(--color-teal) !important;
+  color: var(--color-blue-bright) !important;
   font-weight: 600 !important;
   margin-top: 0.25rem !important;
   margin-bottom: 0.35rem !important;
@@ -294,8 +265,8 @@ body.nav-sidebar {
   margin: 0 !important;
 }
 
-/* Adicionado h3 e h4 para corrigir o desalinhamento de A.1.1 */
-main.content h1, main.content h2, main.content h3, main.content h4,
+/* Adicionado h3, h4 e h5 para corrigir o desalinhamento dos títulos com o corpo */
+main.content h1, main.content h2, main.content h3, main.content h4, main.content h5,
 main.content p, main.content ul, main.content ol, main.content blockquote {
   padding-left: var(--text-padding-left) !important;
   padding-right: var(--text-padding-left) !important;
@@ -499,20 +470,8 @@ span.citation sup.citation-superscript {
   padding-left: 0 !important;
 }
 /* =========================================
-   10. CORREÇÃO DE NUMERAÇÃO DUPLICADA (H4)
-   ========================================= */
-
-/* Oculta a numeração automática do Quarto apenas para o nível 4 */
-h4 .header-section-number {
-  display: none !important;
-}
-
-/* Ajuste opcional: remove o recuo que sobraria se a numeração fosse removida */
-h4 {
-  margin-top: 1.5rem !important;
-  color: var(--color-teal-dark) !important; /* Cor para destacar o tópico manual */
-  font-weight: bold !important;
-}
+   10. CORREÇÃO DE NUMERAÇÃO DUPLICADA (H4) - JÁ TRATADO NA SEÇÃO HEADERS
+   =========================================
 
 /* =========================================
    11. SOMBREAMENTO EM LEGENDAS (FIGURAS E TABELAS)
