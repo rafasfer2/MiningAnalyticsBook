@@ -1,3 +1,40 @@
 <script src="scripts/set-toc-expanded.js"></script>
 <script src="scripts/caption-format.js"></script>
 <script src="scripts/toc-expand-on-click.js"></script>
+
+<script>
+window.addEventListener("load", async function () {
+	if (!window.mermaid || !window.mermaid.mermaidAPI) {
+		return;
+	}
+
+	let i = 0;
+	const blocks = Array.from(document.querySelectorAll("pre.mermaid-js"));
+
+	for (const el of blocks) {
+		// Skip already rendered blocks.
+		if (el.querySelector("svg")) {
+			continue;
+		}
+
+		const source = (el.textContent || "").replaceAll("&nbsp;", " ");
+
+		try {
+			const id = `mermaid-safe-${++i}`;
+			const result = await window.mermaid.mermaidAPI.render(id, source, el);
+			el.innerHTML = result.svg;
+
+			if (el.dataset.label) {
+				const svg = el.firstChild;
+				const style = svg && svg.querySelector ? svg.querySelector("style") : null;
+				if (style && svg && svg.id) {
+					style.innerHTML = style.innerHTML.replaceAll(`#${svg.id}`, `#${el.dataset.label}-mermaid`);
+					svg.id = `${el.dataset.label}-mermaid`;
+				}
+			}
+		} catch (err) {
+			console.error("Mermaid render falhou para um bloco:", err);
+		}
+	}
+});
+</script>

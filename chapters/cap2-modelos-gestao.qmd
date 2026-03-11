@@ -963,33 +963,14 @@ flowchart TD
     classDef checkNode fill:#e74c3c,stroke:#7b241c,stroke-width:2px,color:#ffffff,font-size:15px,font-weight:bold
     classDef actNode fill:#27ae60,stroke:#145a32,stroke-width:2px,color:#ffffff,font-size:15px,font-weight:bold
 
-    %% --- ESTRUTURA DO MASP POR FASE (Vertical para melhor leitura) ---
-    subgraph P ["PLAN (Planejar)"]
-        direction TD
-        S1("1 - Problema") ==> S2("2 - Observação")
-        S2 ==> S3("3 - Análise")
-        S3 ==> S4("4 - Plano de Ação")
-    end
-
-    subgraph D ["DO (Executar)"]
-        direction TD
-        S5("5 - Execução")
-    end
-
-    subgraph C ["CHECK (Verificar)"]
-        direction TD
-        S6("📊 6 - Verificação")
-    end
-
-    subgraph A ["ACT (Agir / Padronizar)"]
-        direction TD
-        S7("7 - Padronização") ==> S8("8 - Conclusão")
-    end
-
-    %% --- CONEXÕES ENTRE AS FASES (O fluxo contínuo) ---
-    S4 ==> S5
-    S5 ==> S6
-    S6 ==> S7
+  %% --- ESTRUTURA DO MASP POR FASE (versão estável) ---
+  S1("P1 - Identificação do Problema") ==> S2("P2 - Observação")
+  S2 ==> S3("P3 - Análise")
+  S3 ==> S4("P4 - Plano de Ação")
+  S4 ==> S5("D5 - Execução")
+  S5 ==> S6("C6 - Verificação")
+  S6 ==> S7("A7 - Padronização")
+  S7 ==> S8("A8 - Conclusão")
 
     %% Engrossando as linhas de ligação externa
     linkStyle default stroke:#7f8c8d,stroke-width:4px
@@ -999,12 +980,6 @@ flowchart TD
     class S5 doNode;
     class S6 checkNode;
     class S7,S8 actNode;
-
-    %% --- CONFIGURAÇÃO DE ESTILOS DOS SUBGRAFOS (Devem ficar no final) ---
-    style P fill:#ebf5fb,stroke:#2980b9,stroke-width:3px,color:#2980b9,font-weight:bold,font-size:16px
-    style D fill:#fef9e7,stroke:#f39c12,stroke-width:3px,color:#d68910,font-weight:bold,font-size:16px
-    style C fill:#fdedec,stroke:#e74c3c,stroke-width:3px,color:#c0392b,font-weight:bold,font-size:16px
-    style A fill:#e9f7ef,stroke:#27ae60,stroke-width:3px,color:#27ae60,font-weight:bold,font-size:16px
 ```
 
 Criada pela União dos Cientistas e Engenheiros Japoneses (JUSE), a MASP tem o objetivo de prevenir e corrigir falhas de processos de forma altamente estruturada. A metodologia auxilia na identificação da causa raiz, propõe ações corretivas e sugere o uso de ferramentas específicas (como Brainstorming, 5W2H e 5S) para convergir ideias.
@@ -1162,11 +1137,17 @@ Este roteiro (Ata Simplificada) é desenhado para ser preenchido em uma única f
 > *[Exemplo: "Reduzir o número de quebras da máquina de 4/mês para 0 nos próximos 3 meses"]*
 
 **6. Fechamento e Próxima Reunião**
+
 * **Agendamento:** \_\_/\_\_/\_\_\_\_ às \_\_:\_\_
+
 * **Assinatura dos Participantes presentes:**
+
   1. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-  2. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+  2. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\
+
   3. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
   4. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 :::
 
