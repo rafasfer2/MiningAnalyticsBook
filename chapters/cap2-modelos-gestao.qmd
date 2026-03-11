@@ -309,20 +309,40 @@ Para conectar a filosofia *Lean Manufacturing* à realidade da Engenharia de Pro
 
 #### Os 8 Desperdícios (Mudas) na Prática Mineral
 
-
 A eliminação de desperdícios exige reconhecê-los no dia a dia. Imagine o fluxo do minério da mina até o porto:
 
-- **Disperdício 1 - Superprodução:** Extrair 10.000 toneladas de ROM (*Run of Mine*) quando o pátio da usina só suporta 5.000. Isso gera um gasto imediato e desnecessário com diesel e operação de maquinário.
-- **Disperdício 2 - Espera:** Uma escavadeira gigantesca parada porque a frota de caminhões demorou a chegar, evidenciando falta de sincronismo logístico.
-- **Disperdício 3 - Transporte:** Mover o estéril (material sem valor comercial) três vezes de lugar antes de levá-lo à pilha definitiva. A movimentação extra de material não agrega valor ao produto final, apenas eleva o custo.
-- **Disperdício 4 - Superprocessamento:** Moer o minério em uma granulometria além da malha exigida pelo cliente. Gastou-se energia elétrica, insumos e tempo de moinho à toa (um caso claro de *Superqualidade*).
-- **Disperdício 5 - Estoque:** Milhões de reais em capital imobilizado na forma de peças de reposição que nunca foram usadas, apenas oxidando nas prateleiras do almoxarifado.
-- **Disperdício 6 - Movimentação:** O mecânico precisar andar 1 km até a oficina toda vez que esquece uma ferramenta específica (foco no movimento inútil do trabalhador).
-- **Disperdício 7 - Defeitos:** Um lote de minério produzido com teor de sílica acima do permitido. Terá que ser misturado (*blendado*) com material rico ou reprocessado na usina, gerando severo retrabalho.
-- **Disperdício 8 - Talento (O Desperdício Intelectual):** O operador da britagem tem uma ideia brilhante para reduzir o desgaste estrutural de uma correia transportadora, mas a gerência tem uma estrutura tão verticalizada que nunca o ouve.
+##### Disperdício 1 - Superprodução
+
+Extrair 10.000 toneladas de ROM (*Run of Mine*) quando o pátio da usina só suporta 5.000. Isso gera um gasto imediato e desnecessário com diesel e operação de maquinário.
+##### Disperdício 2 - Espera
+
+Uma escavadeira gigantesca parada porque a frota de caminhões demorou a chegar, evidenciando falta de sincronismo logístico.
+
+##### Disperdício 3 - Transporte
+
+Mover o estéril (material sem valor comercial) três vezes de lugar antes de levá-lo à pilha definitiva. A movimentação extra de material não agrega valor ao produto final, apenas eleva o custo.
+
+##### Disperdício 4 - Superprocessamento
+
+Moer o minério em uma granulometria além da malha exigida pelo cliente. Gastou-se energia elétrica, insumos e tempo de moinho à toa (um caso claro de *Superqualidade*).
+
+##### Disperdício 5 - Estoque
+
+Milhões de reais em capital imobilizado na forma de peças de reposição que nunca foram usadas, apenas oxidando nas prateleiras do almoxarifado.
+
+##### Disperdício 6 - Movimentação
+
+O mecânico precisar andar 1 km até a oficina toda vez que esquece uma ferramenta específica (foco no movimento inútil do trabalhador).
+
+##### Disperdício 7 - Defeitos
+
+Um lote de minério produzido com teor de sílica acima do permitido. Terá que ser misturado (*blendado*) com material rico ou reprocessado na usina, gerando severo retrabalho.
+
+##### Disperdício 8 - Talento (O Desperdício Intelectual)
+
+O operador da britagem tem uma ideia brilhante para reduzir o desgaste estrutural de uma correia transportadora, mas a gerência tem uma estrutura tão verticalizada que nunca o ouve.
 
 #### A "Casa da Toyota" na Mineração: Pilares Práticos
-
 
 O modelo *Lean* é frequentemente representado como uma casa, onde o telhado (alta qualidade, baixo custo e curto *Lead Time*) é sustentado por dois pilares fundamentais. Vejamos como eles operam em uma indústria pesada:
 
@@ -364,16 +384,16 @@ flowchart TD
 
     %% --- ESTRUTURA DA CASA (Formas Especiais) ---
 
-    %% TETO: Usando Trapézio [/ \]
-    T[/"🏠 TETO: Qualidade Máxima, Menor Custo e Menor Lead Time"\]
+    %% TETO
+    T["TETO: Qualidade Máxima, Menor Custo e Menor Lead Time"]
 
-    %% PILARES E CENTRO: Retângulos e Bordas Arredondadas (usando <br> no lugar de \n)
-    P1["⚙️ PILAR 1: Just-in-Time<br>Fluxo Contínuo, Puxado, Heijunka"]
-    C("👥 CENTRO<br>Pessoas, Parceiros e<br>Melhoria Contínua (Kaizen)")
-    P2["🛑 PILAR 2: Jidoka<br>Parar e Resolver, Poka-Yoke"]
+    %% PILARES E CENTRO
+    P1["PILAR 1: Just-in-Time<br/>Fluxo Contínuo, Puxado, Heijunka"]
+    C("CENTRO<br/>Pessoas, Parceiros e<br/>Melhoria Contínua (Kaizen)")
+    P2["PILAR 2: Jidoka<br/>Parar e Resolver, Poka-Yoke"]
 
-    %% BASE: Usando Trapézio Invertido [\ /]
-    B[\"🧱 BASE: Filosofia de Longo Prazo e Processos Padronizados"/]
+    %% BASE
+    B["BASE: Filosofia de Longo Prazo e Processos Padronizados"]
 
     %% --- CONEXÕES (As Vigas da Casa) ---
     T --- P1
@@ -464,12 +484,12 @@ flowchart BT
     classDef master fill:#8e44ad,stroke:#6c3483,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
     classDef champion fill:#2980b9,stroke:#1f618d,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
 
-    W["&nbsp;&nbsp;&nbsp;⬜ WHITE BELT<br>Executores da Base Operacional&nbsp;&nbsp;&nbsp;"]
-    Y["&nbsp;&nbsp;&nbsp;🟨 YELLOW BELT<br>Participantes Ativos de Projetos&nbsp;&nbsp;&nbsp;"]
-    G["&nbsp;&nbsp;&nbsp;🟩 GREEN BELT<br>Líderes Parciais (Conciliam com rotina)&nbsp;&nbsp;&nbsp;"]
-    B["&nbsp;&nbsp;&nbsp;⬛ BLACK BELT<br>Especialistas Dedicados (Full-time)&nbsp;&nbsp;&nbsp;"]
-    M["&nbsp;&nbsp;&nbsp;🟪 MASTER BLACK BELT<br>Mentores e Gestores do Programa&nbsp;&nbsp;&nbsp;"]
-    C("👑 CHAMPION / SPONSOR<br>Alta Liderança e Direcionamento Estratégico")
+    W["WHITE BELT<br/>Executores da Base Operacional"]
+    Y["YELLOW BELT<br/>Participantes Ativos de Projetos"]
+    G["GREEN BELT<br/>Líderes Parciais (Conciliam com rotina)"]
+    B["BLACK BELT<br/>Especialistas Dedicados (Full-time)"]
+    M["MASTER BLACK BELT<br/>Mentores e Gestores do Programa"]
+    C("CHAMPION / SPONSOR<br/>Alta Liderança e Direcionamento Estratégico")
 
     W ==> Y
     Y ==> G
@@ -511,11 +531,11 @@ flowchart LR
     classDef impStyle fill:#2ecc71,stroke:#27ae60,stroke-width:3px,color:#000000,font-size:15px,font-weight:bold
     classDef ctrStyle fill:#3498db,stroke:#2980b9,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
 
-    D("&nbsp;&nbsp;&nbsp;🎯 D - DEFINE&nbsp;&nbsp;&nbsp;<br>Definir o Problema")
-    M("&nbsp;&nbsp;&nbsp;📏 M - MEASURE&nbsp;&nbsp;&nbsp;<br>Medir o Processo")
-    A("&nbsp;&nbsp;&nbsp;🔍 A - ANALYZE&nbsp;&nbsp;&nbsp;<br>Analisar a Causa")
-    I("&nbsp;&nbsp;&nbsp;🚀 I - IMPROVE&nbsp;&nbsp;&nbsp;<br>Melhorar o Fluxo")
-    C("&nbsp;&nbsp;&nbsp;🔒 C - CONTROL&nbsp;&nbsp;&nbsp;<br>Controlar e Manter")
+    D("D - DEFINE<br/>Definir o Problema")
+    M("M - MEASURE<br/>Medir o Processo")
+    A("A - ANALYZE<br/>Analisar a Causa")
+    I("I - IMPROVE<br/>Melhorar o Fluxo")
+    C("C - CONTROL<br/>Controlar e Manter")
 
     D ==> M ==> A ==> I ==> C
 
@@ -558,87 +578,6 @@ Para o engenheiro de operações, é fundamental não confundir as metodologias 
 | **Estrutura** | Filosófica e cultural em todos os níveis. | Sistema de fluxo contínuo e puxado. | Metodologia matemática guiada por projetos (DMAIC). |
 | **Origem** | Japão (Impulsionada por Deming, Juran, Ishikawa). | Toyota (TPS - Sistema Toyota de Produção). | Motorola / GE (Liderança corporativa americana). |
 | **Complexidade** | Média (Uso das 7 Ferramentas Básicas). | Média (Foco visual: Kanban, 5S, VSM). | Alta (Intensiva em software estatístico e testes). |
-
-: Comparação entre as principais filosofias de excelência operacional {#tbl-comparacao-filosofias}
-
-#### A Estrutura Organizacional (Belt System)
-
-Para conduzir esses projetos sem perder o foco corporativo, o Seis Sigma cria uma estrutura hierárquica paralela baseada em capacitação técnica:
-
-* **Executivo Líder:** Conduz, incentiva e supervisiona as iniciativas, selecionando os "Campeões".
-* **Campeão (Champion):** Lidera os executivos-chave em direção aos objetivos do projeto e acompanha a implementação em toda a organização.
-* **Master Black Belts:** Especialistas com treinamento intensivo em estatística que dão suporte aos Campeões e são fundamentais no processo de mudança.
-* **Black Belts:** Profissionais dedicados integralmente a liderar equipes na condução direta dos projetos e solução de problemas.
-* **Green Belts:** Profissionais com dedicação parcial aos projetos, que auxiliam na coleta de dados e lideram pequenas melhorias em suas respectivas áreas de atuação.
-* **Yellow Belt:** Participantes ativos de projetos de melhoria, com conhecimento básico da metodologia.
-* **White Belt:** Conhecimento básico, executores de melhorias pontuais.
-
-#### DMAIC: O Roteiro Estruturado
-
-```{mermaid}
-%%| label: fig-ciclo-dmaic
-%%| fig-cap: "Ciclo DMAIC: Roteiro Estruturado de Melhoria Contínua"
-
-flowchart LR
-    %% --- CONFIGURAÇÃO DE ESTILOS (Letras grandes e contraste ajustado) ---
-    classDef defStyle fill:#e74c3c,stroke:#c0392b,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
-    classDef meaStyle fill:#e67e22,stroke:#d35400,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
-    classDef anaStyle fill:#f1c40f,stroke:#f39c12,stroke-width:3px,color:#000000,font-size:15px,font-weight:bold
-    classDef impStyle fill:#2ecc71,stroke:#27ae60,stroke-width:3px,color:#000000,font-size:15px,font-weight:bold
-    classDef ctrStyle fill:#3498db,stroke:#2980b9,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
-
-    %% --- ESTRUTURA DOS NÓS (Com a função de cada etapa) ---
-    %% Uso de &nbsp; força a caixa a ficar mais larga e <br> garante o corte em apenas 2 linhas
-    D("&nbsp;&nbsp;&nbsp;🎯 D - DEFINE&nbsp;&nbsp;&nbsp;<br>Definir o Problema")
-    M("&nbsp;&nbsp;&nbsp;📏 M - MEASURE&nbsp;&nbsp;&nbsp;<br>Medir o Processo")
-    A("&nbsp;&nbsp;&nbsp;🔍 A - ANALYZE&nbsp;&nbsp;&nbsp;<br>Analisar a Causa")
-    I("&nbsp;&nbsp;&nbsp;🚀 I - IMPROVE&nbsp;&nbsp;&nbsp;<br>Melhorar o Fluxo")
-    C("&nbsp;&nbsp;&nbsp;🔒 C - CONTROL&nbsp;&nbsp;&nbsp;<br>Controlar e Manter")
-
-    %% --- CONEXÕES (Fluxo do Roteiro) ---
-    D ==> M ==> A ==> I ==> C
-
-    %% Engrossando a linha de avanço
-    linkStyle default stroke:#7f8c8d,stroke-width:4px
-
-    %% --- APLICAÇÃO DOS ESTILOS ---
-    class D defStyle;
-    class M meaStyle;
-    class A anaStyle;
-    class I impStyle;
-    class C ctrStyle;
-```
-
-O método Seis Sigma segue um roteiro rigoroso de 5 fases:
-
-1. **Define (Definir):** Identificar as prioridades, os requisitos do cliente (CTQs) e mapear os processos críticos que os impactam. Identificar o problema e o impacto financeiro (ex: perda de recuperação mássica na flotação).
-
-2. **Measure (Medir):** Desenhar as entradas e saídas (onde $Q=f(x)$), estabelecendo o sistema de medição adequado e coletando dados por meio de amostragem representativa. Calcular a capacidade atual do processo ($C_p, C_{pk}$).
-
-3. **Analyze (Analisar):** Utilizar ferramentas estatísticas (regressão, DOE, testes de hipótese) para analisar os dados coletados, identificando as causas vitais (raízes) que geram defeitos e variações.
-
-4. **Improve (Melhorar):** Eliminar as causas dos defeitos modificando os elementos geradores dos problemas e quantificar os efeitos obtidos nas CTQs. Testar e implementar soluções (ex: ajuste de dosagem de reagentes).
-
-5. **Control (Controlar):** Definir sistemas de controle contínuos (cartas de controle, POPs) para garantir que o novo patamar de qualidade seja mantido ao longo do tempo.
-
-::: {.callout-important title="🔬 EXEMPLO MINERAL: Projeto Seis Sigma"}
-
-**Problema:** Taxa de disponibilidade física da frota de caminhões fora de estrada abaixo de 85%, impactando a meta de produção.
-
-**Meta Seis Sigma:** Reduzir o tempo médio entre falhas (MTBF) em 30% e o tempo médio de reparo (MTTR) em 20%, elevando a disponibilidade para 90%.
-
-**Ferramentas Aplicadas:** Análise de Weibull para identificar componentes críticos, FMEA para priorizar modos de falha, DOE para otimizar intervalos de manutenção preventiva.
-:::
-
-### Comparativo: TQM vs. Lean vs. Seis Sigma
-
-| Aspecto | TQM | Lean | Seis Sigma |
-|:--------|:----|:-----|:-----------|
-| **Foco Principal** | Satisfação do cliente e cultura | Eliminação de desperdícios | Redução de variabilidade |
-| **Métrica Chave** | Conformidade com requisitos | Lead Time / Throughput | Defeitos por milhão (DPMO) |
-| **Estrutura** | Filosófica e cultural | Sistema de fluxo | Metodologia estatística (DMAIC) |
-| **Origem** | Japão (Deming, Juran) | Toyota (TPS) | Motorola / GE |
-| **Complexidade** | Média | Média | Alta (intensiva em estatística) |
 
 : Comparação entre as principais filosofias de excelência operacional {#tbl-comparacao-filosofias}
 
@@ -695,11 +634,11 @@ flowchart TD
     classDef ghost fill:none,stroke:none,color:transparent
 
     %% --- ESTRUTURA DOS NÓS REAIS ---
-    F{{"🏛️ FUNDAMENTO"}}
-    T("📚 TEMAS")
-    P["⚙️ PROCESSOS"]
-    D["📋 DETALHAMENTO"]
-    M[("🛠️ FERRAMENTAS E METODOLOGIAS")]
+    F{{"FUNDAMENTO"}}
+    T("TEMAS")
+    P["PROCESSOS"]
+    D["DETALHAMENTO"]
+    M[("FERRAMENTAS E METODOLOGIAS")]
 
     %% NÓS INVISÍVEIS PARA FORÇAR A ESCADA
     i1[" "]
@@ -747,14 +686,22 @@ flowchart TD
 
 A versão moderna do modelo baseia-se em 8 fundamentos interdependentes que sustentam o pensamento organizacional:
 
-- **Fundamento 1 - Pensamento Sistêmico:** O entendimento do negócio como um sistema integrado. As atividades não podem ser tratadas de forma isolada, exigindo uma visão macro das interdependências internas e externas.
-- **Fundamento 2 - Aprendizado Organizacional e Inovação:** A busca permanente por novos patamares de competência, ciclos contínuos de melhoria e inovação.
-- **Fundamento 3 - Liderança Transformadora:** Liderança ética e inspiradora, atenta a cenários e tendências, capaz de mobilizar as pessoas em torno de valores.
-- **Fundamento 4 - Compromisso com as Partes Interessadas:** Entendimento das necessidades e pactuação de interesses com foco em clientes, unindo a visão de curto e longo prazo à estratégia.
-- **Fundamento 5 - Adaptabilidade:** A busca pelo sucesso através da flexibilidade, agilidade, rapidez nos ciclos de aprendizagem e uso de métodos ágeis.
-- **Fundamento 6 - Desenvolvimento Sustentável:** O compromisso ético e transparente com os impactos sociais e ambientais gerados pela operação.
-- **Fundamento 7 - Orientação por Processos:** Foco em processos bem gerenciados, embasados em dados e informações, visando eficiência e eficácia.
-- **Fundamento 8 - Geração de Valor:** Todos os esforços devem culminar em valor tangível (econômico, social e ambiental) para todas as partes interessadas.
+##### Fundamento 1 - Pensamento Sistêmico
+O entendimento do negócio como um sistema integrado. As atividades não podem ser tratadas de forma isolada, exigindo uma visão macro das interdependências internas e externas.
+##### Fundamento 2 - Aprendizado Organizacional e Inovação
+A busca permanente por novos patamares de competência, ciclos contínuos de melhoria e inovação.
+##### Fundamento 3 - Liderança Transformadora
+Liderança ética e inspiradora, atenta a cenários e tendências, capaz de mobilizar as pessoas em torno de valores.
+##### Fundamento 4 - Compromisso com as Partes Interessadas
+Entendimento das necessidades e pactuação de interesses com foco em clientes, unindo a visão de curto e longo prazo à estratégia.
+##### Fundamento 5 - Adaptabilidade
+A busca pelo sucesso através da flexibilidade, agilidade, rapidez nos ciclos de aprendizagem e uso de métodos ágeis.
+##### Fundamento 6 - Desenvolvimento Sustentável
+O compromisso ético e transparente com os impactos sociais e ambientais gerados pela operação.
+##### Fundamento 7 - Orientação por Processos
+Foco em processos bem gerenciados, embasados em dados e informações, visando eficiência e eficácia.
+##### Fundamento 8 - Geração de Valor
+Todos os esforços devem culminar em valor tangível (econômico, social e ambiental) para todas as partes interessadas.
 
 ::: {.callout-note title="🔍 ZOOM: Dissecando o Pensamento Sistêmico na Prática"}
 
@@ -764,38 +711,43 @@ O MEG orienta a estruturação de *Processos* principais dentro desses temas, qu
 
 **TEMA A: Tomada de Decisão** (Foco em entender o negócio e situar-se no mercado)
 
-* **Processo 1: Identificação das Informações:**
-  - a) Definição das informações estratégicas.
-  - b) Seleção das mais críticas.
-  - c) Inteligência competitiva.
-  - d) Benchmarking.
+##### Processo 1: Identificação das Informações
 
-* **Processo 2: Utilização das Informações:**
-  - a) Integração dos dados.
-  - b) Reuniões de análise crítica.
-  - c) Definição de decisões.
-  - d) Envolvimento de pessoas.
-  - e) Acompanhamento das ações.
-  - f) Comunicação às partes.
+a) Definição das informações estratégicas.
+b) Seleção das mais críticas.
+c) Inteligência competitiva.
+d) Benchmarking.
+
+##### Processo 2: Utilização das Informações
+
+a) Integração dos dados.
+b) Reuniões de análise crítica.
+c) Definição de decisões.
+d) Envolvimento de pessoas.
+e) Acompanhamento das ações.
+f) Comunicação às partes.
 
 **TEMA B: Alinhamento** (Foco em disseminar as informações para que todos entendam o que, como e para que fazem)
 
-* **Processo 1: Estruturação do Modelo de Gestão:**
-  - a) Correlação entre requisitos e cadeia de valor.
-  - b) Inter-relacionamento de processos.
-  - c) Definição de elementos de suporte.
-  - d) Representação diagramática.
-  - e) Comunicação do modelo.
+##### Processo 1: Estruturação do Modelo de Gestão
 
-* **Processo 2: Estruturação do Sistema de Medição:**
-  - a) Definição de atributos.
-  - b) Desdobramento de indicadores estratégicos em processos.
-  - c) Definição de relações de causa e efeito.
-  - d) Equilíbrio no atendimento de necessidades.
+a) Correlação entre requisitos e cadeia de valor.
+b) Inter-relacionamento de processos.
+c) Definição de elementos de suporte.
+d) Representação diagramática.
+e) Comunicação do modelo.
 
-* **Processo 3: Atuação em Rede:**
-  - a) Mapeamento de redes de cooperação internas e externas.
-  - b) Cooperação visando influenciar o êxito das estratégias.
+##### Processo 2: Estruturação do Sistema de Medição
+
+a) Definição de atributos.
+b) Desdobramento de indicadores estratégicos em processos.
+c) Definição de relações de causa e efeito.
+d) Equilíbrio no atendimento de necessidades.
+
+##### Processo 3: Atuação em Rede
+
+a) Mapeamento de redes de cooperação internas e externas.
+b) Cooperação visando influenciar o êxito das estratégias.
 
 É através desta "escada de desdobramento" que um conceito puramente filosófico se transforma em um sistema integrado com indicadores de causa e efeito na rotina da operação mineral.
 :::
@@ -887,12 +839,12 @@ flowchart LR
     classDef st3 fill:#27ae60,stroke:#196f3d,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
     classDef st4 fill:#145a32,stroke:#0b5345,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
 
-    %% --- ESTRUTURA DOS NÓS (Uso de <br> e &nbsp; para evitar quebra errada) ---
-    A(["&nbsp;&nbsp;❌ Estágio 0<br>Inexistente&nbsp;&nbsp;"])
-    B(["&nbsp;&nbsp;⚠️ Estágio 1<br>Reativo&nbsp;&nbsp;"])
-    C(["&nbsp;&nbsp;🏗️ Estágio 2<br>Estruturado&nbsp;&nbsp;"])
-    D(["&nbsp;&nbsp;🚀 Estágio 3<br>Proativo&nbsp;&nbsp;"])
-    E(["&nbsp;&nbsp;🏆 Estágio 4<br>Classe Mundial&nbsp;&nbsp;"])
+    %% --- ESTRUTURA DOS NÓS (Versão compatível para renderização estável) ---
+    A(["Estágio 0<br/>Inexistente"])
+    B(["Estágio 1<br/>Reativo"])
+    C(["Estágio 2<br/>Estruturado"])
+    D(["Estágio 3<br/>Proativo"])
+    E(["Estágio 4<br/>Classe Mundial"])
 
     %% --- CONEXÕES (Linha do Tempo Evolutiva) ---
     A ==> B ==> C ==> D ==> E
@@ -1011,33 +963,27 @@ flowchart TD
     classDef checkNode fill:#e74c3c,stroke:#7b241c,stroke-width:2px,color:#ffffff,font-size:15px,font-weight:bold
     classDef actNode fill:#27ae60,stroke:#145a32,stroke-width:2px,color:#ffffff,font-size:15px,font-weight:bold
 
-    %% --- CONFIGURAÇÃO DE ESTILOS DOS SUBGRAFOS (Fundo suave, borda forte) ---
-    style P fill:#ebf5fb,stroke:#2980b9,stroke-width:3px,color:#2980b9,font-weight:bold,font-size:16px
-    style D fill:#fef9e7,stroke:#f39c12,stroke-width:3px,color:#d68910,font-weight:bold,font-size:16px
-    style C fill:#fdedec,stroke:#e74c3c,stroke-width:3px,color:#c0392b,font-weight:bold,font-size:16px
-    style A fill:#e9f7ef,stroke:#27ae60,stroke-width:3px,color:#27ae60,font-weight:bold,font-size:16px
-
     %% --- ESTRUTURA DO MASP POR FASE (Vertical para melhor leitura) ---
-    subgraph P ["📘 PLAN (Planejar)"]
+    subgraph P ["PLAN (Planejar)"]
         direction TD
-        S1("🎯 1 - Problema") ==> S2("🔎 2 - Observação")
-        S2 ==> S3("🔬 3 - Análise")
-        S3 ==> S4("📝 4 - Plano de Ação")
+        S1("1 - Problema") ==> S2("2 - Observação")
+        S2 ==> S3("3 - Análise")
+        S3 ==> S4("4 - Plano de Ação")
     end
 
-    subgraph D ["🟨 DO (Executar)"]
+    subgraph D ["DO (Executar)"]
         direction TD
-        S5("🚀 5 - Execução")
+        S5("5 - Execução")
     end
 
-    subgraph C ["🟥 CHECK (Verificar)"]
+    subgraph C ["CHECK (Verificar)"]
         direction TD
         S6("📊 6 - Verificação")
     end
 
-    subgraph A ["🟩 ACT (Agir / Padronizar)"]
+    subgraph A ["ACT (Agir / Padronizar)"]
         direction TD
-        S7("🔒 7 - Padronização") ==> S8("🏆 8 - Conclusão")
+        S7("7 - Padronização") ==> S8("8 - Conclusão")
     end
 
     %% --- CONEXÕES ENTRE AS FASES (O fluxo contínuo) ---
@@ -1053,22 +999,74 @@ flowchart TD
     class S5 doNode;
     class S6 checkNode;
     class S7,S8 actNode;
+
+    %% --- CONFIGURAÇÃO DE ESTILOS DOS SUBGRAFOS (Devem ficar no final) ---
+    style P fill:#ebf5fb,stroke:#2980b9,stroke-width:3px,color:#2980b9,font-weight:bold,font-size:16px
+    style D fill:#fef9e7,stroke:#f39c12,stroke-width:3px,color:#d68910,font-weight:bold,font-size:16px
+    style C fill:#fdedec,stroke:#e74c3c,stroke-width:3px,color:#c0392b,font-weight:bold,font-size:16px
+    style A fill:#e9f7ef,stroke:#27ae60,stroke-width:3px,color:#27ae60,font-weight:bold,font-size:16px
 ```
 
 Criada pela União dos Cientistas e Engenheiros Japoneses (JUSE), a MASP tem o objetivo de prevenir e corrigir falhas de processos de forma altamente estruturada. A metodologia auxilia na identificação da causa raiz, propõe ações corretivas e sugere o uso de ferramentas específicas (como Brainstorming, 5W2H e 5S) para convergir ideias.
 
-| Fase PDCA | Etapa MASP | Ação Estrutural no MASP | Aplicação Prática (Caso Express Mineral) |
-| :--- | :--- | :--- | :--- |
-| **P (Planejar)** | **1. Identificação** | Definir o problema e quantificar as perdas. | Descarrilamentos aumentaram 400% no 2º semestre. Prejuízo acumulado de R$ 5 Milhões. |
-| | **2. Observação** | Coletar dados no local do evento (*Gemba*). | Analisar fotos das fraturas dos trilhos partidos e os vídeos da condução dos maquinistas. |
-| | **3. Análise** | Descobrir e provar a **Causa Raiz**. | Usar *Ishikawa* e 5 Porquês: O trilho partiu por fadiga porque a liga era frágil e a carga superou o limite de escoamento. |
-| | **4. Plano de Ação** | Elaborar o 5W2H para bloqueio. | O QUÊ: Trocar trilhos críticos. QUEM: Equipe de Via. QUANDO: Imediato. |
-| **D (Executar)** | **5. Execução** | Bloquear as causas ativas. | Treinar maquinistas em direção defensiva e reduzir o peso por vagão para o limite original. |
-| **C (Verificar)**| **6. Verificação** | Checar se o bloqueio funcionou na prática. | Monitorar a via permanentemente por 3 meses. O índice de quebra de trilhos caiu para zero? |
-| **A (Agir)** | **7. Padronização** | Evitar a reincidência sistêmica. | Criar um novo POP de inspeção de via e proibir compras de insumos críticos sem laudo de engenharia. |
-| | **8. Conclusão** | Rever o processo e documentar lições. | Relatório final: "Economizar em insumos básicos gera custos de falha externa 10x maiores". |
-
-: Aplicação do MASP no Ciclo PDCA (Logística Ferroviária) {#tbl-masp-ferrovia}
+<table id="tbl-masp-ferrovia" class="table">
+  <caption>Aplicação do MASP no Ciclo PDCA (Logística Ferroviária)</caption>
+  <thead>
+    <tr>
+      <th>Fase PDCA</th>
+      <th>Etapa MASP</th>
+      <th>Ação Estrutural no MASP</th>
+      <th>Aplicação Prática (Caso Express Mineral)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="4"><strong>P (Planejar)</strong></td>
+      <td><strong>1. Identificação</strong></td>
+      <td>Definir o problema e quantificar as perdas.</td>
+      <td>Descarrilamentos aumentaram 400% no 2º semestre. Prejuízo acumulado de R$ 5 Milhões.</td>
+    </tr>
+    <tr>
+      <td><strong>2. Observação</strong></td>
+      <td>Coletar dados no local do evento (<em>Gemba</em>).</td>
+      <td>Analisar fotos das fraturas dos trilhos partidos e os vídeos da condução dos maquinistas.</td>
+    </tr>
+    <tr>
+      <td><strong>3. Análise</strong></td>
+      <td>Descobrir e provar a <strong>Causa Raiz</strong>.</td>
+      <td>Usar <em>Ishikawa</em> e 5 Porquês: O trilho partiu por fadiga porque a liga era frágil e a carga superou o limite de escoamento.</td>
+    </tr>
+    <tr>
+      <td><strong>4. Plano de Ação</strong></td>
+      <td>Elaborar o 5W2H para bloqueio.</td>
+      <td>O QUÊ: Trocar trilhos críticos. QUEM: Equipe de Via. QUANDO: Imediato.</td>
+    </tr>
+    <tr>
+      <td><strong>D (Executar)</strong></td>
+      <td><strong>5. Execução</strong></td>
+      <td>Bloquear as causas ativas.</td>
+      <td>Treinar maquinistas em direção defensiva e reduzir o peso por vagão para o limite original.</td>
+    </tr>
+    <tr>
+      <td><strong>C (Verificar)</strong></td>
+      <td><strong>6. Verificação</strong></td>
+      <td>Checar se o bloqueio funcionou na prática.</td>
+      <td>Monitorar a via permanentemente por 3 meses. O índice de quebra de trilhos caiu para zero?</td>
+    </tr>
+    <tr>
+      <td><strong>A (Agir)</strong></td>
+      <td><strong>7. Padronização</strong></td>
+      <td>Evitar a reincidência sistêmica.</td>
+      <td>Criar um novo POP de inspeção de via e proibir compras de insumos críticos sem laudo de engenharia.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><strong>8. Conclusão</strong></td>
+      <td>Rever o processo e documentar lições.</td>
+      <td>Relatório final: "Economizar em insumos básicos gera custos de falha externa 10x maiores".</td>
+    </tr>
+  </tbody>
+</table>
 ::: {.callout-tip title="💡 Insight para os Alunos: Ação de Bloqueio vs. 'Gambiarra'"}
 
 Explique que trocar o trilho quebrado (Etapa 5) é apenas uma **correção** imediata para o trem voltar a andar. O MASP só se torna eficaz e estratégico se a equipe chegar na **Etapa 7 (Padronização)**, mudando o processo de Compras e a cultura da Gestão para garantir que o erro original (comprar material ruim) nunca mais volte a acontecer.
@@ -1141,34 +1139,35 @@ Este roteiro (Ata Simplificada) é desenhado para ser preenchido em uma única f
 
 ::: {.example #exm-ata-ccq-texto name="Ata de Reunião: Círculo de Controle da Qualidade (CCQ)"}
 
-**Grupo (Nome do Círculo):** [ ..................................................... ]
-**Data:** [ DD / MM / AAAA ] | **Duração:** [ ...... ] min (Recomendado 60 min)
-**Líder do Círculo:** [ ........................ ] | **Relator:** [ ........................ ]
+| 📝 INFORMAÇÕES DO CÍRCULO | |
+| :--- | :--- |
+| **Grupo (Nome do Círculo):** | |
+| **Data:** \_\_/\_\_/\_\_\_\_ | **Duração:** \_\_\_\_\_\_ min *(Recomendado 60 min)* |
+| **Líder do Círculo:** | **Relator:** |
+
+---
 
 **1. Identificação do Problema (O que está atrapalhando nossa rotina?)**
-[ Descreva brevemente a anomalia ou oportunidade de melhoria escolhida pelo grupo. ]
+> *[Descreva brevemente a anomalia ou oportunidade de melhoria escolhida pelo grupo]*
 
 **2. Análise das Causas (Por que isso acontece?)**
-* Causa 1: [ .................................................................... ]
-* Causa 2: [ .................................................................... ]
-* Causa 3: [ .................................................................... ]
-*(Utilize o conhecimento prático da equipe. Pode usar Ishikawa ou 5 Porquês se necessário).*
-
-**3. Solução Proposta (O que vamos fazer para resolver?)**
-[ Descreva a intervenção de forma simples e direta. ]
+> *[Utilize o conhecimento prático da equipe. Pode usar Ishikawa ou 5 Porquês se necessário]*
+* **Causa 1:** * **Causa 2:** * **Causa 3:** **3. Solução Proposta (O que vamos fazer para resolver?)**
+> *[Descreva a intervenção de forma simples e direta]*
 
 **4. Responsáveis e Prazo (O 5W2H Básico)**
-* **Quem irá fazer:** [ ........................................................ ]
-* **Quando:** [ DD / MM / AAAA ]
+* **Quem irá executar:** * **Quando (Prazo limite):** \_\_/\_\_/\_\_\_\_
 
 **5. Como vamos saber se funcionou? (Métrica de Sucesso)**
-[ Ex: "Reduzir o número de quebras de 4/mês para 0 nos próximos 3 meses" ]
+> *[Exemplo: "Reduzir o número de quebras da máquina de 4/mês para 0 nos próximos 3 meses"]*
 
-**6. Próxima Reunião:** [ DD / MM / AAAA ] às [ HH : MM ]
-
-**Participantes:**
-1. [ ...................................... ]  3. [ ...................................... ]
-2. [ ...................................... ]  4. [ ...................................... ]
+**6. Fechamento e Próxima Reunião**
+* **Agendamento:** \_\_/\_\_/\_\_\_\_ às \_\_:\_\_
+* **Assinatura dos Participantes presentes:**
+  1. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+  2. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+  3. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+  4. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 :::
 
 ::: {.callout-note title="📚 Reflexão Acadêmica"}
@@ -1209,14 +1208,14 @@ flowchart LR
     %% Estilo de Destaque para a Manutenção (A fase mais longa e crítica)
     classDef highlight fill:#f39c12,stroke:#b9770e,stroke-width:3px,color:#000000,font-size:16px,font-weight:bold
 
-    %% --- ESTRUTURA DOS NÓS (Adicionado &nbsp; para evitar esmagamento) ---
-    S1(["&nbsp;&nbsp;💡 1 - Decisão&nbsp;&nbsp;"])
-    S2(["&nbsp;&nbsp;📋 2 - Especificação&nbsp;&nbsp;"])
-    S3(["&nbsp;&nbsp;🛒 3 - Aquisição&nbsp;&nbsp;"])
-    S4(["&nbsp;&nbsp;⚙️ 4 - Instalação&nbsp;&nbsp;"])
-    S5(["&nbsp;&nbsp;🛠️ 5 - Manutenção&nbsp;&nbsp;"])
-    S6(["&nbsp;&nbsp;🔄 6 - Reforma&nbsp;&nbsp;"])
-    S7(["&nbsp;&nbsp;🗑️ 7 - Descarte&nbsp;&nbsp;"])
+    %% --- ESTRUTURA DOS NÓS (Versão compatível para renderização estável) ---
+    S1(["1 - Decisão"])
+    S2(["2 - Especificação"])
+    S3(["3 - Aquisição"])
+    S4(["4 - Instalação"])
+    S5(["5 - Manutenção"])
+    S6(["6 - Reforma"])
+    S7(["7 - Descarte"])
 
     %% --- CONEXÕES (A linha do tempo) ---
     S1 ==> S2 ==> S3 ==> S4 ==> S5 ==> S6 ==> S7
@@ -1288,11 +1287,11 @@ flowchart TD
     classDef corpStyle fill:#d35400,stroke:#78281f,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
     classDef resultStyle fill:#27ae60,stroke:#145a32,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
 
-    %% --- ESTRUTURA DOS NÓS (Substituído \n por <br> e adicionado espaçamento) ---
-    A("&nbsp;&nbsp;&nbsp;📘 ISO 9001<br>SGQ - Base Normativa e Padronização&nbsp;&nbsp;&nbsp;")
-    B("&nbsp;&nbsp;&nbsp;🧠 TQM + Lean + Seis Sigma<br>Filosofias e Ferramentas de Excelência&nbsp;&nbsp;&nbsp;")
-    C("&nbsp;&nbsp;&nbsp;🏢 Sistemas Corporativos (Ex: VPS / MEG)<br>Modelo de Gestão Integrada&nbsp;&nbsp;&nbsp;")
-    D{{"&nbsp;&nbsp;🏆 Resultados Operacionais<br>Segurança, Produção, Qualidade e Custos&nbsp;&nbsp;"}}
+    %% --- ESTRUTURA DOS NÓS (Versão compatível para renderização estável) ---
+    A["ISO 9001<br/>SGQ - Base Normativa e Padronização"]
+    B["TQM + Lean + Seis Sigma<br/>Filosofias e Ferramentas de Excelência"]
+    C["Sistemas Corporativos (VPS / MEG)<br/>Modelo de Gestão Integrada"]
+    D{{"Resultados Operacionais<br/>Segurança, Produção, Qualidade e Custos"}}
 
     %% --- CONEXÕES (Com verbos de transição) ---
     A == "Sustenta e Padroniza" ==> B
@@ -1349,34 +1348,33 @@ flowchart TD
     classDef base fill:#e9f7ef,stroke:#1e8449,stroke-width:2px,color:#145a32,font-size:15px,font-weight:bold
 
     %% --- NÍVEL 1: O ALICERCE ESTRATÉGICO ---
-    EXC{{"&nbsp;&nbsp;🌟 EXCELÊNCIA OPERACIONAL&nbsp;&nbsp;"}}
+    EXC{{"EXCELÊNCIA OPERACIONAL"}}
 
-    %% ATENÇÃO: Quando se usa tags HTML como <b> e <hr>, o Mermaid exige o uso de <br> no lugar de \n
-    F["<b>🧠 FILOSOFIAS</b><hr>• TQM: Cultura e Pessoas<br>• LEAN: Fluxo e Valor (Mudas)<br>• 6 SIGMA: Redução de Variação<br>• 5S: Base da Estabilidade"]
-    M["<b>📚 METODOLOGIAS</b><hr>• ISO 9001: Gestão de Riscos<br>• MEG: Maturidade e Aprendizado<br>• VPS/BSC: Estratégia e Pilares<br>• SGQ: Processos e Requisitos"]
-    T["<b>🛠️ FERRAMENTAS</b><hr>• PDCA / MASP: Solução<br>• 5S: Base e Organização<br>• ISHIKAWA: Causa Raiz<br>• 5W2H: Plano de Ação"]
+    F["FILOSOFIAS<br/>- TQM: Cultura e Pessoas<br/>- LEAN: Fluxo e Valor (Mudas)<br/>- 6 SIGMA: Redução de Variação<br/>- 5S: Base da Estabilidade"]
+    M["METODOLOGIAS<br/>- ISO 9001: Gestão de Riscos<br/>- MEG: Maturidade e Aprendizado<br/>- VPS/BSC: Estratégia e Pilares<br/>- SGQ: Processos e Requisitos"]
+    T["FERRAMENTAS<br/>- PDCA / MASP: Solução<br/>- 5S: Base e Organização<br/>- ISHIKAWA: Causa Raiz<br/>- 5W2H: Plano de Ação"]
 
     EXC ==> F & M & T
 
     %% --- NÍVEL 2: A TRANSIÇÃO PARA A PRÁTICA ---
-    CICLO(["&nbsp;&nbsp;🔄 O CICLO DE ENTREGA&nbsp;&nbsp;"])
+    CICLO(["O CICLO DE ENTREGA"])
 
     F & M & T ==> CICLO
 
-    ENG["<b>📐 ENGENHARIA</b><br>(Projeto / Padrão)<hr><i>O QUE fazer?</i>"]
-    MAN["<b>🔧 MANUTENÇÃO</b><br>(Ativo / Confiabilidade)<hr><i>COMO manter?</i>"]
-    OPE["<b>🏭 OPERAÇÃO</b><br>(Uso / Produtividade)<hr><i>QUANTO produzir?</i>"]
+    ENG["ENGENHARIA<br/>(Projeto / Padrão)<br/>O QUE fazer?"]
+    MAN["MANUTENÇÃO<br/>(Ativo / Confiabilidade)<br/>COMO manter?"]
+    OPE["OPERAÇÃO<br/>(Uso / Produtividade)<br/>QUANTO produzir?"]
 
     CICLO ==> ENG & MAN & OPE
 
     %% --- NÍVEL 3: O IMPACTO NO NEGÓCIO ---
-    RES{{"&nbsp;&nbsp;🎯 RESULTADO SISTÊMICO&nbsp;&nbsp;"}}
+    RES{{"RESULTADO SISTÊMICO"}}
 
     ENG & MAN & OPE ==> RES
 
-    V["&nbsp;💎 VALOR AO<br>CLIENTE&nbsp;"]
-    C["&nbsp;📉 EFICIÊNCIA DE<br>CUSTO&nbsp;"]
-    Z["&nbsp;🛡️ ZERO DANOS<br>(HSE)&nbsp;"]
+    V["VALOR AO<br/>CLIENTE"]
+    C["EFICIÊNCIA DE<br/>CUSTO"]
+    Z["ZERO DANOS<br/>(HSE)"]
 
     RES ==> V & C & Z
 
@@ -1581,61 +1579,61 @@ Seis Sigma funciona bem em manufatura repetitiva. Qual seria o maior desafio em 
 
 Para consolidar o aprendizado de toda esta primeira etapa do livro (que cobre desde os fundamentos filosóficos e Gurus da Qualidade até o MEG, Lean e VPS), resolva as 10 questões abaixo. (Gabarito comentado no @sec-gabarito-parte1).
 
-**1. Qual "Guru da Qualidade" define o conceito essencialmente como "Adequação ao Uso"?**
+##### 1. Qual "Guru da Qualidade" define o conceito essencialmente como "Adequação ao Uso"?
 A) W. Edwards Deming
 B) Joseph Juran
 C) Philip Crosby
 D) Armand Feigenbaum
 
-**2. Na curva matemática de Custos da Qualidade, o custo de "Retrabalho antes da peça sair da fábrica" é classificado como uma:**
+##### 2. Na curva matemática de Custos da Qualidade, o custo de "Retrabalho antes da peça sair da fábrica" é classificado como uma:
 A) Falha Interna
 B) Falha Externa
 C) Prevenção
 D) Avaliação
 
-**3. O Ciclo PDCL, muito utilizado no Modelo de Excelência da Gestão (MEG), substitui a etapa "Agir/Padronizar" (Act) do PDCA tradicional por qual conceito estratégico?**
+##### 3. O Ciclo PDCL, muito utilizado no Modelo de Excelência da Gestão (MEG), substitui a etapa "Agir/Padronizar" (Act) do PDCA tradicional por qual conceito estratégico?
 A) Liderança
 B) Logística
 C) Aprendizado (*Learn*)
 D) Lucro
 
-**4. Na filosofia *Lean Manufacturing*, produzir mais itens do que o cliente (ou processo seguinte) solicitou é o letal desperdício de:**
+##### 4. Na filosofia *Lean Manufacturing*, produzir mais itens do que o cliente (ou processo seguinte) solicitou é o letal desperdício de:
 A) Superprodução
 B) Movimentação
 C) Defeito
 D) Espera
 
-**5. A metodologia estruturada do Seis Sigma utiliza qual roteiro prático para a condução de projetos de melhoria de processos?**
+##### 5. A metodologia estruturada do Seis Sigma utiliza qual roteiro prático para a condução de projetos de melhoria de processos?
 A) PDCA
 B) DMAIC
 C) 5S
 D) SDCA
 
-**6. Qual a principal diferença de abordagem entre as certificações ISO 9001:1994 e a ISO 9001:2015?**
+##### 6. Qual a principal diferença de abordagem entre as certificações ISO 9001:1994 e a ISO 9001:2015?
 A) A versão 2015 é focada puramente em aumento de documentação.
 B) A versão 2015 foca no Pensamento Baseado em Riscos e na Liderança.
 C) A versão 1994 focava no desenvolvimento de *softwares*.
 D) Não houve mudança filosófica estrutural entre elas.
 
-**7. Em sistemas de excelência como o VPS, qual ferramenta/ciclo é usada especificamente para *manter* e estabilizar os padrões já conquistados?**
+##### 7. Em sistemas de excelência como o VPS, qual ferramenta/ciclo é usada especificamente para *manter* e estabilizar os padrões já conquistados?
 A) *Kaizen*
 B) DMAIC
 C) SDCA
 D) *Brainstorming*
 
-**8. Na engenharia de requisitos, o que caracteriza a perigosa "Superqualidade" (*Over-quality*)?**
+##### 8. Na engenharia de requisitos, o que caracteriza a perigosa "Superqualidade" (*Over-quality*)?
 A) Atingir a meta de "Zero Defeitos".
 B) Atender com rigor laboratorial ao requisito do cliente.
 C) Entregar atributos de alto grau que o mercado não pediu, não valoriza e não paga para ter.
 D) Utilizar alta tecnologia no chão de fábrica.
 
-**9. No conceito de Ambiente de Relacionamento Interno (ARI), quem desempenha o papel de "Cliente Interno" em relação à Equipe de Apoio (Engenharia/Planejamento)?**
+##### 9. No conceito de Ambiente de Relacionamento Interno (ARI), quem desempenha o papel de "Cliente Interno" em relação à Equipe de Apoio (Engenharia/Planejamento)?
 A) Fornecedor Externo de insumos.
 B) Alta Gestão / Diretoria.
 C) Equipe de Operação (os executores na linha de frente).
 D) Acionistas e Investidores.
 
-**10. Qual é a "Equação fundamental da Produtividade" atrelada à Gestão da Qualidade?**
+##### 10. Qual é a "Equação fundamental da Produtividade" atrelada à Gestão da Qualidade?
 A) $Produtividade = \frac{Preço \times Quantidade}{Custo}$
 B) $Produtividade = \frac{Custo}{Preço}$
 C) $Produtividade = Qualidade + Lucro$
