@@ -362,6 +362,8 @@ Nesta etapa, o aluno responde individualmente a dilemas operacionais. O objetivo
 **Instruções de Preenchimento projetadas aos alunos:**
 > *Bem-vindo(a) à simulação de Gestão de Crises. A partir de agora, você assume a cadeira de Gerente de Operações de uma instalação industrial complexa. Você tem exatos 10 minutos para concluir. Escolha apenas uma alternativa por cenário.*
 
+* **🔗 Link de Acesso:** [FORMULÁRIO 4 — Simulação de Gestão de Crises e Dilemas Operacionais (Individual)](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UQTJGVEE3Mk1OOVNYRklJTTMyVFdGRlJDVS4u)
+
 ##### Dilema 1 — Qualidade vs. Produção (Conflito ISO 9001)
 
 * **Contexto:** Durante o carregamento de um navio no porto, o laboratório identifica que o lote de minério de ferro está com sílica 0,5% acima do limite de um cliente europeu *premium*. O navio está 40% carregado. Paralisar gerará *demurrage* de US$ 100.000/dia e comprometerá a meta trimestral de produção.
@@ -555,29 +557,132 @@ A injeção do peso secundário (+2) revela a ferramenta de gestão ou a postura
 **A Lógica de Backend (Motor R):**
 Todo o mapeamento ocorre de forma invisível no *backend*. Quando o tempo acaba, o professor exporta o `.csv` e o script em **R** executa um cruzamento relacional (`left_join`) entre as escolhas dos 10 dilemas e a Matriz $w_{SJT}$. O resultado é um perfil recalibrado em 360 graus.
 
-#### A Mecânica de Reorganização Pós-Formulário 4
+### A Mecânica de Reorganização Pós-Formulário 4
 
-Com os novos perfis revelados, a coordenação **desfaz os grupos antigos e forma novas equipes multidisciplinares**. O terreno está preparado para a aplicação do **Formulário 5**, onde esses perfis remapeados terão que debater e negociar a sobrevivência operacional em conjunto.
+Com os novos perfis revelados, a coordenação **desfaz os grupos antigos (formados por afinidade) e estrutura novas equipes estritamente multidisciplinares**. O terreno está preparado para a aplicação do **Formulário 5**, onde esses perfis remapeados terão que debater, negociar e formalizar a sua governança e sobrevivência operacional em conjunto.
 
 #### ⏱️ Rodada 5: A Engenharia de Equipes e Validação (Dinâmica Presencial)
 
-Com os perfis individuais recalibrados de forma objetiva pelo algoritmo, a dinâmica abandona o uso de formulários. O objetivo desta etapa presencial é garantir que as "Consultorias" (os grupos definitivos) possuam a resiliência multidisciplinar necessária para iniciar e concluir a disciplina com sucesso.
+Nesta etapa presencial, a dinâmica abandona os questionários avaliativos individuais e passa a exigir ferramentas de gestão coletiva. O objetivo é garantir que as "Consultorias" (os grupos definitivos) possuam a resiliência multidisciplinar e o alinhamento necessários para iniciar e concluir a implantação do SGI com sucesso.
 
-**Passo 1: A Formação Algorítmica (Os 10 Grupos)**
-O professor projeta o resultado do *Dashboard*, distribuindo os 48 alunos matriculados em **10 equipes definitivas** (oito grupos de 5 membros e dois grupos de 4 membros). A alocação obedece a uma regra estrita de complementaridade: nenhuma equipe pode ser homogênea. Para que o grupo seja validado, o sistema garante o cruzamento das matrizes, misturando o núcleo operacional (Perfis 1 e 2), o núcleo de articulação (Perfis 4 e 5) e o núcleo de visão sistêmica (Perfis 3 e 6).
+##### Passo 1: A Formação Algorítmica (Os 10 Grupos)
+O professor projeta o resultado do *Dashboard*, distribuindo os 48 alunos matriculados em **10 equipes definitivas** (oito grupos de 5 membros e dois grupos de 4 membros). A alocação obedece a uma regra estrita de complementaridade: nenhuma equipe pode ser homogênea. Para que o grupo seja validado, o sistema garante o cruzamento das matrizes, misturando obrigatoriamente:
 
-**Passo 2: O Teste de Viabilidade da Equipe**
+* **O Núcleo Operacional** (Perfis 1 e 2: Analítico e Operações).
+* **O Núcleo de Articulação** (Perfis 4 e 5: Comunicador e Líder).
+* **O Núcleo de Visão Sistêmica** (Perfis 3 e 6: Criativo e Sustentável).
 
-Já reunidos fisicamente em suas novas formações, os alunos executam o rito de validação do grupo:
+##### Passo 2: O Teste de Viabilidade e o Formulário 5 (Termo de Pactuação)
+Já reunidos fisicamente em suas novas formações, os alunos debatem presencialmente, mas o líder designado utiliza o **Formulário 5** para registrar digitalmente o "Contrato Social" da equipe. Através deste instrumento de registro oficial, os alunos executam o rito de validação do grupo:
 
-1. **Análise do Radar da Equipe:** O grupo analisa o seu próprio gráfico de competências cruzadas gerado pelo script em R. Eles devem identificar imediatamente os "pontos cegos" da equipe (ex: "Temos alta capacidade analítica, mas nossa habilidade de comunicação está baixa").
+1. **Diagnóstico do Radar da Equipe:** O grupo analisa o seu próprio gráfico de competências cruzadas (gerado pelo script em R). Eles devem registrar no formulário qual é a maior força do time e identificar imediatamente os "pontos cegos" da equipe (ex: *"Temos alta capacidade analítica, mas nossa habilidade de comunicação está baixa"*), estipulando uma tática para mitigar essa fraqueza.
 
-2. **Distribuição Estratégica de Papéis:** Baseado nas forças individuais reveladas pelo SJT, os membros distribuem as responsabilidades reais para o semestre. Quem será o gestor do cronograma? Quem estruturará as análises de risco do projeto? Quem fará a ponte nas apresentações dos seminários?
+2. **Distribuição Estratégica de Papéis (Matriz de Responsabilidades):** Baseado nas forças individuais reveladas pelo SJT, os membros distribuem as responsabilidades reais para o semestre. O formulário documenta: Quem será o Gestor do Projeto (prazos e cronogramas)? Quem será o Revisor da Qualidade (análise de risco e formatação)? Quem fará a ponte nas apresentações dos seminários (articulador)?
 
-3. **Pactuação de Regras Internas:** A equipe formaliza como lidará com faltas, atrasos nas entregas das 8 tarefas práticas e nivelamento de qualidade dos trabalhos.
+3. **Pactuação de Regras Internas (Compliance Interno):** A equipe formaliza no sistema corporativo como lidará com faltas, atrasos nas entregas das 8 tarefas práticas e qual será a política interna de nivelamento de qualidade dos trabalhos antes da submissão ao professor.
 
-A partir deste momento de alinhamento e transparência, o grupo está oficialmente homologado como uma equipe multidisciplinar, pronta para conduzir o desenvolvimento do Sistema de Gestão Integrado da empresa fictícia ao longo das semanas seguintes.
+A partir da submissão deste Formulário 5, que atua como o Termo de Abertura do Projeto (*Team Charter*), o grupo está oficialmente homologado como uma equipe multidisciplinar, pronta para conduzir o desenvolvimento do Sistema de Gestão Integrado da empresa fictícia ao longo das semanas seguintes.
 
+#### FORMULÁRIO 5 — Termo de Abertura do Projeto (Team Charter / Contrato de Consultoria)
+
+**Instruções à Equipe:**
+Bem-vindos à formação oficial da sua Equipe de Consultoria. A partir deste momento, vocês deixam de ser um grupo de alunos e passam a atuar como uma equipe multidisciplinar encarregada de desenvolver e implantar um Sistema de Gestão Integrado (SGI).
+
+Este formulário atua como o **Contrato Social** da equipe. Ele deve ser discutido presencialmente por todos os membros, mas preenchido e enviado por **apenas um representante** (o Líder designado). As regras pactuadas aqui serão o documento oficial de governança de vocês para o semestre e poderão ser acionadas pelo professor (Auditor Externo) em caso de conflitos de avaliação ou entregas.
+
+Tempo estimado para debate e preenchimento: **20 minutos**.
+
+* **🔗 Link de Acesso:** [FORMULÁRIO 5 — Termo de Abertura do Projeto (Team Charter / Contrato de Consultoria)](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UQkFOUUs0QklYSVZVNlVPVzMwODYxRDUwNi4u)
+
+---
+
+##### Seção 1: Identidade da Consultoria
+*(Esta seção mapeia a identidade corporativa da equipe e os recursos humanos à disposição).*
+
+**1. Nome da Empresa/Consultoria (Fictício):**
+*(Crie um nome profissional para a equipe que atuará neste projeto).*
+`[Campo: Resposta Curta]`
+
+**2. Nome Completo e Perfil Dominante de cada Integrante:**
+*(Liste o nome de todos os membros e o perfil que o algoritmo revelou na etapa anterior. Ex: João da Silva - Perfil Analítico; Maria Souza - Perfil Líder).*
+`[Campo: Resposta Longa]`
+
+---
+
+##### Seção 2: Diagnóstico Multidisciplinar (O Radar da Equipe)
+*(Com base nos perfis que compõem o grupo, façam uma análise crítica das suas capacidades coletivas).*
+
+**3. Qual é a MAIOR FORÇA operacional da equipe?**
+*(Ex: "Temos um forte núcleo de Processos e Liderança, o que garante foco em prazos e execução").*
+`[Campo: Resposta Curta]`
+
+**4. Qual é o MAIOR PONTO CEGO (Gargalo ou Fraqueza) da equipe?**
+*(Ex: "Não temos ninguém com o perfil Criativo-Inovador, corremos o risco de termos dificuldade com o design ou soluções fora da caixa").*
+`[Campo: Resposta Curta]`
+
+**5. Qual a estratégia prática do grupo para mitigar essa fraqueza durante o semestre?**
+*(Como vocês vão compensar a ausência de determinada competência?)*
+`[Campo: Resposta Longa]`
+
+---
+
+##### Seção 3: Matriz de Responsabilidades (Distribuição de Papéis)
+*(Todo mundo faz tudo, mas as entregas finais precisam ter donos. Indiquem o Nome Completo e a Matrícula do responsável primário por cada pilar da equipe).*
+
+**6. Gestor do Projeto**
+*(Dono do cronograma, cobra a equipe pelos prazos e faz as submissões oficiais no sistema do professor).*
+`[Campo: Resposta Curta]`
+
+**7. Revisor de Qualidade e Compliance**
+*(Garante que o trabalho atende às normas da ABNT/ISO, formatação e aos critérios técnicos exigidos antes de qualquer envio).*
+`[Campo: Resposta Curta]`
+
+**8. Articulador de Comunicação**
+*(Responsável por guiar a montagem das apresentações visuais e a defesa oral nos seminários).*
+`[Campo: Resposta Curta]`
+
+**9. Analista de Dados/Pesquisa**
+*(Responsável por estruturar as planilhas, cálculos, gráficos e levantamento de referências técnicas e bibliográficas).*
+`[Campo: Resposta Curta]`
+
+**10. Quinto Integrante / Função Estratégica Extra**
+*(Apenas para equipes de 5 pessoas. Definam o título do cargo e o nome do responsável de acordo com a necessidade da equipe. Ex: "Apoio de Pesquisa - João Silva". Se a equipe tiver apenas 4 pessoas, preencham com "Não se aplica").*
+`[Campo: Resposta Curta]`
+
+---
+
+##### Seção 4: Governança e Compliance Interno (As Regras do Jogo)
+*(Definição de como a equipe vai operar sob pressão).*
+
+**11. SLA Interno (Acordo de Nível de Serviço para Prazos):**
+Para não corrermos o risco de perder os prazos da disciplina, as partes individuais do trabalho de cada membro devem ser enviadas ao Revisor de Qualidade com qual antecedência mínima antes do prazo final do professor?
+*( ) 24 horas antes do prazo final.*
+*( ) 48 horas antes do prazo final.*
+*( ) 72 horas antes do prazo final.*
+*( ) Outro: [Especificar]*
+`[Campo: Múltipla Escolha]`
+
+**12. Canal Oficial de Comunicação e Repositório:**
+Por onde a equipe vai centralizar as decisões e arquivos para não perder o histórico e a rastreabilidade do projeto?
+*( ) Apenas Grupo de WhatsApp.*
+*( ) WhatsApp + Google Drive compartilhado.*
+*( ) Microsoft Teams / Trello / Notion.*
+*( ) Outro: [Especificar]*
+`[Campo: Múltipla Escolha]`
+
+**13. Resolução de Conflitos e Sanções Internas (A Cláusula de Rescisão):**
+O que a equipe fará, de forma prática, caso um membro desapareça sistematicamente, não entregue sua parte no SLA combinado (pergunta 11) ou entregue com qualidade inaceitável (o "copia e cola" de véspera)?
+*(Escrevam a regra clara. Ex: "No 1º atraso: advertência. No 2º atraso: o nome do membro será removido da capa do trabalho da rodada e o professor notificado").*
+`[Campo: Resposta Longa]`
+
+---
+
+##### Seção 5: Assinatura de Compromisso
+
+**14. Termo de Aceite Multidisciplinar:**
+Como Líder designado para o preenchimento deste documento, declaro que as respostas acima foram debatidas e aprovadas por todos os membros presentes. Compreendemos que este Termo de Abertura do Projeto regerá nossas relações de trabalho ao longo do desenvolvimento do SGI e que o professor atuará como "Auditor Externo", cobrando o cumprimento das regras que nós mesmos estabelecemos.
+*( ) Li, confirmo com a minha equipe e aceitamos os termos de governança.*
+`[Campo: Opção Única]`
 ---
 
 ### Estudo de Caso II: Perspectivas em Administração e a Auditoria via TRI {#sec-caso-administracao}
