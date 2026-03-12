@@ -412,38 +412,123 @@ Nesta etapa, o aluno responde individualmente a dilemas operacionais. O objetivo
    - **Opção B (Foco em Postura/Liderança):** Veta a fraude por violar a ética corporativa. Assume a liderança da crise e vai até a diretoria apresentar o risco de imagem que essa maquiagem traria a longo prazo.
    - **Opção C (Foco em Estatística/Causa-raiz):** Nega a manipulação. Puxa a base de dados completa do semestre para analisar estatisticamente a causa-raiz da insatisfação e atua para otimizar o processo.
 
+**Dilema 7 — Cadeia de Suprimentos vs. Qualidade Assegurada (Conflito ISO 9001 / Lean Manufacturing)**
+
+* **Contexto:** Uma greve portuária atrasou a importação de um componente eletrônico crítico para a linha de montagem. O estoque de segurança zerou. Parar a linha custará US$ 80.000 por turno. A equipe de compras encontrou um fabricante local não homologado pelo Sistema de Gestão da Qualidade, que tem o componente a pronta entrega, mas sem histórico de confiabilidade.
+
+* **O Conflito:** Homologar o fornecedor leva 15 dias e paralisa a fábrica. Comprar sem homologar viola os procedimentos de qualidade e pode gerar falhas no produto final no mercado.
+   - **Opção A (Foco em Qualidade/Processos):** Interrompo a linha de montagem, assumo o custo da parada e só volto a operar quando a peça do fornecedor importado original chegar.
+   - **Opção B (Foco em Risco/Contingência):** Compro um lote pequeno do fornecedor não homologado, mas implemento uma barreira de inspeção de qualidade 100% no recebimento e no final da linha, mitigando o risco de falha.
+   - **Opção C (Foco Operacional/Custos):** Compro o lote inteiro do fornecedor local e rodo a produção normalmente. O impacto financeiro de parar a fábrica é muito pior do que lidar com um eventual acionamento de garantia pelos clientes depois.
+
+**Dilema 8 — Segurança Cibernética vs. Continuidade Produtiva (Conflito ISO 27001 / Indústria 4.0)**
+
+* **Contexto:** A equipe de TI detectou uma tentativa de invasão (*ransomware*) na rede corporativa. Para garantir que os CLPs (Controladores Lógicos Programáveis) e robôs do chão de fábrica não sejam infectados, a TI exige derrubar toda a rede industrial por 12 horas para aplicar correções de segurança.
+
+* **O Conflito:** Desligar a rede agora interrompe o processamento do lote do maior cliente da empresa, cujo prazo de entrega inegociável é amanhã de manhã.
+   - **Opção A (Foco em Segurança da Informação):** Autorizo a TI a derrubar a rede imediatamente. O risco de ter a planta sequestrada por hackers e perder todos os dados é inaceitável, mesmo perdendo o maior cliente.
+   - **Opção B (Foco em Negociação/Criatividade):** Acordo com a TI para desconectar fisicamente a fábrica da internet (*air gap*), isolando o risco, e mantenho a produção rodando em modo manual/local até concluir o lote.
+   - **Opção C (Foco em Produção/Risco Operacional):** Nego a paralisação. O risco de um ataque chegar ao chão de fábrica é uma hipótese estatística, mas a multa milionária e a quebra de contrato com o cliente por atraso são certezas absolutas.
+
+**Dilema 9 — Manutenção de Ativos vs. Pressão de Cronograma (Conflito ISO 55001 / Gestão de Riscos)**
+
+* **Contexto:** O sistema de manutenção preditiva emitiu um alerta vermelho de vibração severa no redutor da correia transportadora principal. O laudo técnico indica que a quebra catastrófica pode ocorrer a qualquer momento. A troca preventiva do rolamento leva 3 dias.
+
+* **O Conflito:** A equipe de PCP (Planejamento e Controle da Produção) implora para você manter a máquina rodando por mais 7 dias para fechar a meta de exportação do mês.
+   - **Opção A (Foco em Engenharia/Confiabilidade):** Paro a correia hoje e inicio a manutenção preventiva imediatamente. Respeito o laudo técnico, independentemente da grita do setor de planejamento e vendas.
+   - **Opção B (Foco em Monitoramento/Eficiência):** Mantenho o equipamento rodando, mas reduzo a velocidade operacional em 30% para diminuir o estresse mecânico, aceitando uma queda na produtividade para tentar chegar vivo até o fim do mês.
+   - **Opção C (Foco Operacional/Run-to-Failure):** Rodo a máquina na capacidade máxima para tentar terminar a campanha de exportação o quanto antes. Se quebrar, aciono a manutenção corretiva de emergência e lido com as consequências.
+
+**Dilema 10 — Qualificação de Pessoal vs. Escassez de Mão de Obra (Conflito Normas Regulamentadoras / Continuidade)**
+
+* **Contexto:** Um surto repentino de virose afasta todos os operadores de empilhadeira certificados do turno da madrugada. Há 15 carretas no pátio esperando carregamento, e cada carreta parada gera multa (*demurrage*) por hora.
+
+* **O Conflito:** O encarregado do turno sugere colocar ajudantes de armazém, que têm experiência prática não documentada em dirigir empilhadeiras, para operar as máquinas, mesmo sem o treinamento formal e a certificação da NR-11.
+   - **Opção A (Foco em Segurança/Legalidade):** Proíbo terminantemente. Travo o carregamento, mando as carretas aguardarem até o turno da manhã (quando chegam os operadores certificados) e a empresa paga as multas.
+   - **Opção B (Foco em Liderança/Contorno):** Autorizo os ajudantes a operarem apenas na área externa (sem prateleiras altas) e assumo pessoalmente a supervisão visual direta deles durante toda a madrugada, assumindo o risco gerencial.
+   - **Opção C (Foco em Eficiência/Riscos Ocultos):** Autorizo os ajudantes a fazerem o trabalho normal para liberar os caminhões rápido, mas combino com o encarregado de não registrar os nomes deles nos diários de bordo das máquinas para não deixar rastros em auditorias futuras.
+
 ##### A Engenharia de Dados do SJT: A Matriz de Injeção de Pesos ($w_{SJT}$)
 
-Com a expansão para 6 dilemas, o espaço amostral do julgamento situacional atinge o volume necessário para a estabilidade algorítmica. O sistema injeta um vetor de pontos (+5 ou +0) nos perfis correspondentes a cada decisão exclusiva.
+Com a expansão para 10 dilemas, o espaço amostral do julgamento situacional atinge o volume necessário para a estabilidade algorítmica. O sistema injeta um vetor de pontos (+5 ou +0) nos perfis correspondentes a cada decisão exclusiva.
 
-| Dilema e Opções de Decisão | P01 (Analítico) | P02 (Operações) | P03 (Criativo) | P04 (Comunicador) | P05 (Líder) | P06 (Sustentável) |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **1. Quali/Prod (ISO 9001)** | | | | | | |
-| ↳ **A.** Compliance/Cliente | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** |
-| ↳ **B.** Negociação/Crise | + 0.0 | **+ 5.0** | + 0.0 | **+ 5.0** | + 0.0 | + 0.0 |
-| ↳ **C.** Burlar/Meta | + 0.0 | + 0.0 | **+ 5.0** | + 0.0 | **+ 5.0** | + 0.0 |
-| **2. SST/Cultura (ISO 45001)** | | | | | | |
-| ↳ **A.** Ética/Risco 0 | + 0.0 | + 0.0 | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** |
-| ↳ **B.** Clima/Equipe | + 0.0 | + 0.0 | **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 |
-| ↳ **C.** Investigação/RH | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** | + 0.0 |
-| **3. Amb/Orçam (ISO 14001)** | | | | | | |
-| ↳ **A.** Parar/Trocar | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** |
-| ↳ **B.** Monitorar/Risco | + 0.0 | **+ 5.0** | + 0.0 | + 0.0 | **+ 5.0** | + 0.0 |
-| ↳ **C.** Reduzir/Negociar | + 0.0 | + 0.0 | **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 |
-| **4. Auditoria (ISO 19011)** | | | | | | |
-| ↳ **A.** Reportar/NC | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** |
-| ↳ **B.** Barganhar/Prazo | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** | **+ 5.0** | + 0.0 |
-| ↳ **C.** Manobra/Sistema | + 0.0 | **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 |
-| **5. Social/Lucro (NBR 16001)** | | | | | | |
-| ↳ **A.** Transparência | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** | + 0.0 | **+ 5.0** |
-| ↳ **B.** Compensação Cruzada | + 0.0 | + 0.0 | **+ 5.0** | + 0.0 | **+ 5.0** | + 0.0 |
-| ↳ **C.** Eficiência Legal | **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | + 0.0 |
-| **6. Indicador (ISO 9001)** | | | | | | |
-| ↳ **A.** Serviço/Redação | + 0.0 | + 0.0 | **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 |
-| ↳ **B.** Vetar/Postura | + 0.0 | + 0.0 | + 0.0 | + 0.0 | **+ 5.0** | **+ 5.0** |
-| ↳ **C.** Estatística/Causa | **+ 5.0** | **+ 5.0** | + 0.0 | + 0.0 | + 0.0 | + 0.0 |
+```{r}
+#| label: tbl-pesos-sjt
+#| tbl-cap: "Matriz de Injeção de Pesos ($w_{SJT}$) por Perfil e Dilema"
+#| echo: false
+#| message: false
+#| warning: false
 
-: Matriz de Injeção de Pesos ($w_{SJT}$) por Perfil e Dilema {#tbl-pesos-sjt}
+library(kableExtra)
+
+fmt_peso <- function(v) ifelse(v == 5, cell_spec("+5.0", bold = TRUE), "+0.0")
+
+pesos_raw <- rbind(
+  # Dilemas 1–6 (originais)
+  c(5,0,0,0,0,5), c(0,5,0,5,0,0), c(0,0,5,0,5,0),
+  c(0,0,0,0,0,5), c(0,0,5,5,0,0), c(5,0,0,0,5,0),
+  c(5,0,0,0,0,5), c(0,5,0,0,5,0), c(0,0,5,5,0,0),
+  c(5,0,0,0,0,5), c(0,0,0,5,5,0), c(0,5,5,0,0,0),
+  c(0,0,0,5,0,5), c(0,0,5,0,5,0), c(5,5,0,0,0,0),
+  c(0,0,5,5,0,0), c(0,0,0,0,5,5), c(5,5,0,0,0,0),
+  # Dilema 7 — Cadeia de Suprimentos (ISO 9001/Lean)
+  c(5,0,0,0,0,5), c(0,5,0,0,5,0), c(0,0,5,5,0,0),
+  # Dilema 8 — Segurança Cibernética (ISO 27001)
+  c(5,0,0,0,0,5), c(0,0,5,0,5,0), c(0,5,0,5,0,0),
+  # Dilema 9 — Manutenção de Ativos (ISO 55001)
+  c(5,0,0,0,0,5), c(0,5,5,0,0,0), c(0,0,0,5,5,0),
+  # Dilema 10 — Qualificação de Pessoal (NR-11)
+  c(5,0,0,0,0,5), c(0,0,0,5,5,0), c(0,5,5,0,0,0)
+)
+
+opcoes <- c(
+  "\u21b3 A. Compliance/Cliente", "\u21b3 B. Negociação/Crise",  "\u21b3 C. Burlar/Meta",
+  "\u21b3 A. Ética/Risco 0",      "\u21b3 B. Clima/Equipe",      "\u21b3 C. Investigação/RH",
+  "\u21b3 A. Parar/Trocar",       "\u21b3 B. Monitorar/Risco",   "\u21b3 C. Reduzir/Negociar",
+  "\u21b3 A. Reportar/NC",        "\u21b3 B. Barganhar/Prazo",   "\u21b3 C. Manobra/Sistema",
+  "\u21b3 A. Transparência",      "\u21b3 B. Compens. Cruzada",  "\u21b3 C. Eficiência Legal",
+  "\u21b3 A. Serviço/Redação",    "\u21b3 B. Vetar/Postura",     "\u21b3 C. Estatística/Causa",
+  "\u21b3 A. Qualidade/Processos", "\u21b3 B. Risco/Contingência", "\u21b3 C. Operacional/Custos",
+  "\u21b3 A. Segurança/Info",      "\u21b3 B. Negoc./Criativo",    "\u21b3 C. Produção/Risco",
+  "\u21b3 A. Engenh./Confiab.",   "\u21b3 B. Monit./Eficiência", "\u21b3 C. Run-to-Failure",
+  "\u21b3 A. Segurança/Legal",     "\u21b3 B. Liderança/Contorno", "\u21b3 C. Eficiência/Oculto"
+)
+
+df_sjt <- data.frame(
+  Opcao = opcoes,
+  P01   = fmt_peso(pesos_raw[, 1]),
+  P02   = fmt_peso(pesos_raw[, 2]),
+  P03   = fmt_peso(pesos_raw[, 3]),
+  P04   = fmt_peso(pesos_raw[, 4]),
+  P05   = fmt_peso(pesos_raw[, 5]),
+  P06   = fmt_peso(pesos_raw[, 6]),
+  stringsAsFactors = FALSE
+)
+
+kbl(df_sjt,
+    escape    = FALSE,
+    align     = c("l", rep("c", 6)),
+    col.names = c("Dilema / Opção",
+                  "P01 (Analítico)", "P02 (Operações)", "P03 (Criativo)",
+                  "P04 (Comunicador)", "P05 (Líder)", "P06 (Sustentável)")) |>
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed", "bordered"),
+    full_width = TRUE,
+    font_size  = 13
+  ) |>
+  column_spec(1, width = "30%") |>
+  row_spec(0, background = "#1a5276", color = "white", bold = TRUE) |>
+  pack_rows("1. Quali/Prod (ISO 9001)",          1,  3, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("2. SST/Cultura (ISO 45001)",         4,  6, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("3. Amb/Orçam (ISO 14001)",           7,  9, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("4. Auditoria (ISO 19011)",          10, 12, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("5. Social/Lucro (NBR 16001)",       13, 15, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("6. Indicador (ISO 9001)",           16, 18, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("7. Cadeia de Suprimentos (ISO 9001/Lean)", 19, 21, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("8. Segurança Cibernética (ISO 27001)",     22, 24, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("9. Manutenção de Ativos (ISO 55001)",      25, 27, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("10. Qualificação de Pessoal (NR-11)",      28, 30, bold = TRUE, background = "#d6eaf8", color = "#1a5276")
+```
 **A Lógica de Backend (Motor R):**
 Todo o mapeamento ocorre de forma invisível no *backend*. Quando o tempo acaba, o professor exporta o `.csv` e o script em **R** executa um cruzamento relacional (`left_join`) entre as escolhas dos 6 dilemas e a Matriz $w_{SJT}$. O resultado é um perfil recalibrado em 360 graus.
 

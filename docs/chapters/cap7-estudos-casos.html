@@ -70,6 +70,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Procurar"
   }
 }</script>
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -1036,250 +1040,378 @@ Tabela&nbsp;7.4: Matriz d e Pesos Percentuais (<span class="math inline">\(w_{i,
 <li><strong>Opção C (Foco em Estatística/Causa-raiz):</strong> Nega a manipulação. Puxa a base de dados completa do semestre para analisar estatisticamente a causa-raiz da insatisfação e atua para otimizar o processo.</li>
 </ul></li>
 </ul>
+<p><strong>Dilema 7 — Cadeia de Suprimentos vs.&nbsp;Qualidade Assegurada (Conflito ISO 9001 / Lean Manufacturing)</strong></p>
+<ul>
+<li><p><strong>Contexto:</strong> Uma greve portuária atrasou a importação de um componente eletrônico crítico para a linha de montagem. O estoque de segurança zerou. Parar a linha custará US$ 80.000 por turno. A equipe de compras encontrou um fabricante local não homologado pelo Sistema de Gestão da Qualidade, que tem o componente a pronta entrega, mas sem histórico de confiabilidade.</p></li>
+<li><p><strong>O Conflito:</strong> Homologar o fornecedor leva 15 dias e paralisa a fábrica. Comprar sem homologar viola os procedimentos de qualidade e pode gerar falhas no produto final no mercado.</p>
+<ul>
+<li><strong>Opção A (Foco em Qualidade/Processos):</strong> Interrompo a linha de montagem, assumo o custo da parada e só volto a operar quando a peça do fornecedor importado original chegar.</li>
+<li><strong>Opção B (Foco em Risco/Contingência):</strong> Compro um lote pequeno do fornecedor não homologado, mas implemento uma barreira de inspeção de qualidade 100% no recebimento e no final da linha, mitigando o risco de falha.</li>
+<li><strong>Opção C (Foco Operacional/Custos):</strong> Compro o lote inteiro do fornecedor local e rodo a produção normalmente. O impacto financeiro de parar a fábrica é muito pior do que lidar com um eventual acionamento de garantia pelos clientes depois.</li>
+</ul></li>
+</ul>
+<p><strong>Dilema 8 — Segurança Cibernética vs.&nbsp;Continuidade Produtiva (Conflito ISO 27001 / Indústria 4.0)</strong></p>
+<ul>
+<li><p><strong>Contexto:</strong> A equipe de TI detectou uma tentativa de invasão (<em>ransomware</em>) na rede corporativa. Para garantir que os CLPs (Controladores Lógicos Programáveis) e robôs do chão de fábrica não sejam infectados, a TI exige derrubar toda a rede industrial por 12 horas para aplicar correções de segurança.</p></li>
+<li><p><strong>O Conflito:</strong> Desligar a rede agora interrompe o processamento do lote do maior cliente da empresa, cujo prazo de entrega inegociável é amanhã de manhã.</p>
+<ul>
+<li><strong>Opção A (Foco em Segurança da Informação):</strong> Autorizo a TI a derrubar a rede imediatamente. O risco de ter a planta sequestrada por hackers e perder todos os dados é inaceitável, mesmo perdendo o maior cliente.</li>
+<li><strong>Opção B (Foco em Negociação/Criatividade):</strong> Acordo com a TI para desconectar fisicamente a fábrica da internet (<em>air gap</em>), isolando o risco, e mantenho a produção rodando em modo manual/local até concluir o lote.</li>
+<li><strong>Opção C (Foco em Produção/Risco Operacional):</strong> Nego a paralisação. O risco de um ataque chegar ao chão de fábrica é uma hipótese estatística, mas a multa milionária e a quebra de contrato com o cliente por atraso são certezas absolutas.</li>
+</ul></li>
+</ul>
+<p><strong>Dilema 9 — Manutenção de Ativos vs.&nbsp;Pressão de Cronograma (Conflito ISO 55001 / Gestão de Riscos)</strong></p>
+<ul>
+<li><p><strong>Contexto:</strong> O sistema de manutenção preditiva emitiu um alerta vermelho de vibração severa no redutor da correia transportadora principal. O laudo técnico indica que a quebra catastrófica pode ocorrer a qualquer momento. A troca preventiva do rolamento leva 3 dias.</p></li>
+<li><p><strong>O Conflito:</strong> A equipe de PCP (Planejamento e Controle da Produção) implora para você manter a máquina rodando por mais 7 dias para fechar a meta de exportação do mês.</p>
+<ul>
+<li><strong>Opção A (Foco em Engenharia/Confiabilidade):</strong> Paro a correia hoje e inicio a manutenção preventiva imediatamente. Respeito o laudo técnico, independentemente da grita do setor de planejamento e vendas.</li>
+<li><strong>Opção B (Foco em Monitoramento/Eficiência):</strong> Mantenho o equipamento rodando, mas reduzo a velocidade operacional em 30% para diminuir o estresse mecânico, aceitando uma queda na produtividade para tentar chegar vivo até o fim do mês.</li>
+<li><strong>Opção C (Foco Operacional/Run-to-Failure):</strong> Rodo a máquina na capacidade máxima para tentar terminar a campanha de exportação o quanto antes. Se quebrar, aciono a manutenção corretiva de emergência e lido com as consequências.</li>
+</ul></li>
+</ul>
+<p><strong>Dilema 10 — Qualificação de Pessoal vs.&nbsp;Escassez de Mão de Obra (Conflito Normas Regulamentadoras / Continuidade)</strong></p>
+<ul>
+<li><p><strong>Contexto:</strong> Um surto repentino de virose afasta todos os operadores de empilhadeira certificados do turno da madrugada. Há 15 carretas no pátio esperando carregamento, e cada carreta parada gera multa (<em>demurrage</em>) por hora.</p></li>
+<li><p><strong>O Conflito:</strong> O encarregado do turno sugere colocar ajudantes de armazém, que têm experiência prática não documentada em dirigir empilhadeiras, para operar as máquinas, mesmo sem o treinamento formal e a certificação da NR-11.</p>
+<ul>
+<li><strong>Opção A (Foco em Segurança/Legalidade):</strong> Proíbo terminantemente. Travo o carregamento, mando as carretas aguardarem até o turno da manhã (quando chegam os operadores certificados) e a empresa paga as multas.</li>
+<li><strong>Opção B (Foco em Liderança/Contorno):</strong> Autorizo os ajudantes a operarem apenas na área externa (sem prateleiras altas) e assumo pessoalmente a supervisão visual direta deles durante toda a madrugada, assumindo o risco gerencial.</li>
+<li><strong>Opção C (Foco em Eficiência/Riscos Ocultos):</strong> Autorizo os ajudantes a fazerem o trabalho normal para liberar os caminhões rápido, mas combino com o encarregado de não registrar os nomes deles nos diários de bordo das máquinas para não deixar rastros em auditorias futuras.</li>
+</ul></li>
+</ul>
 <section id="a-engenharia-de-dados-do-sjt-a-matriz-de-injeção-de-pesos-w_sjt" class="level5" data-number="7.1.9.1.1">
 <h5 data-number="7.1.9.1.1" class="anchored" data-anchor-id="a-engenharia-de-dados-do-sjt-a-matriz-de-injeção-de-pesos-w_sjt"><span class="header-section-number">7.1.9.1.1</span> A Engenharia de Dados do SJT: A Matriz de Injeção de Pesos (<span class="math inline">\(w_{SJT}\)</span>)</h5>
-<p>Com a expansão para 6 dilemas, o espaço amostral do julgamento situacional atinge o volume necessário para a estabilidade algorítmica. O sistema injeta um vetor de pontos (+5 ou +0) nos perfis correspondentes a cada decisão exclusiva.</p>
-<table class="caption-top table">
-<caption>Matriz de Injeção de Pesos (<span class="math inline">\(w_{SJT}\)</span>) por Perfil e Dilema {#tbl-pesos-sjt} <strong>A Lógica de Backend (Motor R):</strong> Todo o mapeamento ocorre de forma invisível no <em>backend</em>. Quando o tempo acaba, o professor exporta o <code>.csv</code> e o script em <strong>R</strong> executa um cruzamento relacional (<code>left_join</code>) entre as escolhas dos 6 dilemas e a Matriz <span class="math inline">\(w_{SJT}\)</span>. O resultado é um perfil recalibrado em 360 graus.</caption>
-<colgroup>
-<col style="width: 11%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-</colgroup>
+<p>Com a expansão para 10 dilemas, o espaço amostral do julgamento situacional atinge o volume necessário para a estabilidade algorítmica. O sistema injeta um vetor de pontos (+5 ou +0) nos perfis correspondentes a cada decisão exclusiva.</p>
+<div class="cell">
+<div id="tbl-pesos-sjt" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pesos-sjt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;7.5: Matriz de Injeção de Pesos (<span class="math inline">\(w_{SJT}\)</span>) por Perfil e Dilema
+</figcaption>
+<div aria-describedby="tbl-pesos-sjt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed table-bordered do-not-create-environment cell caption-top table-sm small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Dilema e Opções de Decisão</th>
-<th style="text-align: center;">P01 (Analítico)</th>
-<th style="text-align: center;">P02 (Operações)</th>
-<th style="text-align: center;">P03 (Criativo)</th>
-<th style="text-align: center;">P04 (Comunicador)</th>
-<th style="text-align: center;">P05 (Líder)</th>
-<th style="text-align: center;">P06 (Sustentável)</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(26, 82, 118, 255) !important;">Dilema / Opção</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(26, 82, 118, 255) !important;">P01 (Analítico)</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(26, 82, 118, 255) !important;">P02 (Operações)</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(26, 82, 118, 255) !important;">P03 (Criativo)</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(26, 82, 118, 255) !important;">P04 (Comunicador)</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(26, 82, 118, 255) !important;">P05 (Líder)</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(26, 82, 118, 255) !important;">P06 (Sustentável)</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>1. Quali/Prod (ISO 9001)</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<tr class="odd" data-grouplength="3">
+<td colspan="7" style="border-bottom: 1px solid; color: rgba(26, 82, 118, 255) !important; background-color: rgba(214, 234, 248, 255) !important"><strong>1. Quali/Prod (ISO 9001)</strong></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">↳ <strong>A.</strong> Compliance/Cliente</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ A. Compliance/Cliente</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">↳ <strong>B.</strong> Negociação/Crise</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ B. Negociação/Crise</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">↳ <strong>C.</strong> Burlar/Meta</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ C. Burlar/Meta</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+</tr>
+<tr class="odd" data-grouplength="3">
+<td colspan="7" style="border-bottom: 1px solid; color: rgba(26, 82, 118, 255) !important; background-color: rgba(214, 234, 248, 255) !important"><strong>2. SST/Cultura (ISO 45001)</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ A. Ética/Risco 0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>2. SST/Cultura (ISO 45001)</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ B. Clima/Equipe</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">↳ <strong>A.</strong> Ética/Risco 0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ C. Investigação/RH</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+</tr>
+<tr class="odd" data-grouplength="3">
+<td colspan="7" style="border-bottom: 1px solid; color: rgba(26, 82, 118, 255) !important; background-color: rgba(214, 234, 248, 255) !important"><strong>3. Amb/Orçam (ISO 14001)</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ A. Parar/Trocar</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">↳ <strong>B.</strong> Clima/Equipe</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ B. Monitorar/Risco</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">↳ <strong>C.</strong> Investigação/RH</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ C. Reduzir/Negociar</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+</tr>
+<tr class="odd" data-grouplength="3">
+<td colspan="7" style="border-bottom: 1px solid; color: rgba(26, 82, 118, 255) !important; background-color: rgba(214, 234, 248, 255) !important"><strong>4. Auditoria (ISO 19011)</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ A. Reportar/NC</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>3. Amb/Orçam (ISO 14001)</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ B. Barganhar/Prazo</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">↳ <strong>A.</strong> Parar/Trocar</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ C. Manobra/Sistema</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+</tr>
+<tr class="odd" data-grouplength="3">
+<td colspan="7" style="border-bottom: 1px solid; color: rgba(26, 82, 118, 255) !important; background-color: rgba(214, 234, 248, 255) !important"><strong>5. Social/Lucro (NBR 16001)</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ A. Transparência</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">↳ <strong>B.</strong> Monitorar/Risco</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ B. Compens. Cruzada</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">↳ <strong>C.</strong> Reduzir/Negociar</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ C. Eficiência Legal</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+</tr>
+<tr class="odd" data-grouplength="3">
+<td colspan="7" style="border-bottom: 1px solid; color: rgba(26, 82, 118, 255) !important; background-color: rgba(214, 234, 248, 255) !important"><strong>6. Indicador (ISO 9001)</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ A. Serviço/Redação</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>4. Auditoria (ISO 19011)</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ B. Vetar/Postura</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">↳ <strong>A.</strong> Reportar/NC</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ C. Estatística/Causa</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+</tr>
+<tr class="odd" data-grouplength="3">
+<td colspan="7" style="border-bottom: 1px solid; color: rgba(26, 82, 118, 255) !important; background-color: rgba(214, 234, 248, 255) !important"><strong>7. Cadeia de Suprimentos (ISO 9001/Lean)</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ A. Qualidade/Processos</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">↳ <strong>B.</strong> Barganhar/Prazo</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ B. Risco/Contingência</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">↳ <strong>C.</strong> Manobra/Sistema</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ C. Operacional/Custos</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+</tr>
+<tr class="odd" data-grouplength="3">
+<td colspan="7" style="border-bottom: 1px solid; color: rgba(26, 82, 118, 255) !important; background-color: rgba(214, 234, 248, 255) !important"><strong>8. Segurança Cibernética (ISO 27001)</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ A. Segurança/Info</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>5. Social/Lucro (NBR 16001)</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ B. Negoc./Criativo</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">↳ <strong>A.</strong> Transparência</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ C. Produção/Risco</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+</tr>
+<tr class="odd" data-grouplength="3">
+<td colspan="7" style="border-bottom: 1px solid; color: rgba(26, 82, 118, 255) !important; background-color: rgba(214, 234, 248, 255) !important"><strong>9. Manutenção de Ativos (ISO 55001)</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ A. Engenh./Confiab.</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">↳ <strong>B.</strong> Compensação Cruzada</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ B. Monit./Eficiência</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">↳ <strong>C.</strong> Eficiência Legal</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ C. Run-to-Failure</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+</tr>
+<tr class="odd" data-grouplength="3">
+<td colspan="7" style="border-bottom: 1px solid; color: rgba(26, 82, 118, 255) !important; background-color: rgba(214, 234, 248, 255) !important"><strong>10. Qualificação de Pessoal (NR-11)</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ A. Segurança/Legal</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>6. Indicador (ISO 9001)</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ B. Liderança/Contorno</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">↳ <strong>A.</strong> Serviço/Redação</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">↳ <strong>B.</strong> Vetar/Postura</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">↳ <strong>C.</strong> Estatística/Causa</td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;"><strong>+ 5.0</strong></td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
-<td style="text-align: center;">+ 0.0</td>
+<td style="text-align: left; width: 30%; padding-left: 2em;" data-indentlevel="1">↳ C. Eficiência/Oculto</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;"><span style=" font-weight: bold;    ">+5.0</span></td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
+<td style="text-align: center;">+0.0</td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p><strong>A Lógica de Backend (Motor R):</strong> Todo o mapeamento ocorre de forma invisível no <em>backend</em>. Quando o tempo acaba, o professor exporta o <code>.csv</code> e o script em <strong>R</strong> executa um cruzamento relacional (<code>left_join</code>) entre as escolhas dos 6 dilemas e a Matriz <span class="math inline">\(w_{SJT}\)</span>. O resultado é um perfil recalibrado em 360 graus.</p>
 </section>
 </section>
 <section id="a-mecânica-de-reorganização-pós-formulário-4" class="level4" data-number="7.1.9.2">
@@ -1328,7 +1460,7 @@ Tabela&nbsp;7.4: Matriz d e Pesos Percentuais (<span class="math inline">\(w_{i,
 <div id="tbl-instrumento-gestao" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[10, 60, 10, 10, 10]">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-instrumento-gestao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;7.5: Instrumento de medida para Avaliação de Competências em Gestão
+Tabela&nbsp;7.6: Instrumento de medida para Avaliação de Competências em Gestão
 </figcaption>
 <div aria-describedby="tbl-instrumento-gestao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1551,15 +1683,15 @@ Tabela&nbsp;7.5: Instrumento de medida para Avaliação de Competências em Gest
 <section id="procedimentos-teóricos-e-elaboração-do-instrumento" class="level4" data-number="7.1.10.2">
 <h4 data-number="7.1.10.2" class="anchored" data-anchor-id="procedimentos-teóricos-e-elaboração-do-instrumento"><span class="header-section-number">7.1.10.2</span> Procedimentos Teóricos e Elaboração do Instrumento</h4>
 <p><strong>Construção do Referencial Teórico e Escalas</strong> A pesquisa bibliográfica focou nas competências do administrador baseadas nos trabalhos de Oliveira e Araújo (2014), Souza, Ferrugini e Zambalde (2017), Regio et al.&nbsp;(2014) e Rossoni (2013). Seguindo a recomendação de Collis e Hussey (2005), optou-se pela escala <em>Likert</em> de 5 pontos para quantificar a Exigência (1=Pouquíssima a 5=Muita), Importância (1=Pouquíssima a 5=Muita) e Desempenho (1=Muito ruim a 5=Muito bom).</p>
-<p><strong>Validação de Conteúdo (Grupo Focal)</strong> Diante das competências selecionadas, realizou-se um grupo focal (01/07/2024) formado por quatro discentes do curso de Administração da UFRA. Oito itens (C02, C07, C08, C09, C11, C12, C15 e C23) foram reformulados para maior clareza, e o antigo item C10 foi excluído por alto nível de imprecisão, consolidando os 25 itens definitivos da <a href="#tbl-instrumento-gestao" class="quarto-xref">Tabela&nbsp;<span>7.5</span></a>.</p>
+<p><strong>Validação de Conteúdo (Grupo Focal)</strong> Diante das competências selecionadas, realizou-se um grupo focal (01/07/2024) formado por quatro discentes do curso de Administração da UFRA. Oito itens (C02, C07, C08, C09, C11, C12, C15 e C23) foram reformulados para maior clareza, e o antigo item C10 foi excluído por alto nível de imprecisão, consolidando os 25 itens definitivos da <a href="#tbl-instrumento-gestao" class="quarto-xref">Tabela&nbsp;<span>7.6</span></a>.</p>
 </section>
 <section id="caracterização-e-coleta-de-dados" class="level4" data-number="7.1.10.3">
 <h4 data-number="7.1.10.3" class="anchored" data-anchor-id="caracterização-e-coleta-de-dados"><span class="header-section-number">7.1.10.3</span> Caracterização e Coleta de Dados</h4>
-<p>A plataforma Google Forms foi utilizada para a aplicação entre 12/09/2024 e 24/09/2024. O questionário foi respondido por 67 discentes. A <a href="#tbl-recorte-respostas" class="quarto-xref">Tabela&nbsp;<span>7.6</span></a> apresenta um recorte didático da matriz: o indivíduo <span class="math inline">\(j=2\)</span> obteve score máximo (<span class="math inline">\(T_j = 125\)</span>), significando que ele percebe todas as competências com nota máxima de importância, enquanto o respondente <span class="math inline">\(j=66\)</span> já apresenta variabilidade (<span class="math inline">\(T_j = 94\)</span>).</p>
+<p>A plataforma Google Forms foi utilizada para a aplicação entre 12/09/2024 e 24/09/2024. O questionário foi respondido por 67 discentes. A <a href="#tbl-recorte-respostas" class="quarto-xref">Tabela&nbsp;<span>7.7</span></a> apresenta um recorte didático da matriz: o indivíduo <span class="math inline">\(j=2\)</span> obteve score máximo (<span class="math inline">\(T_j = 125\)</span>), significando que ele percebe todas as competências com nota máxima de importância, enquanto o respondente <span class="math inline">\(j=66\)</span> já apresenta variabilidade (<span class="math inline">\(T_j = 94\)</span>).</p>
 <div id="tbl-recorte-respostas" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-recorte-respostas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;7.6: Recorte do conjunto de respostas para a dimensão de Importância
+Tabela&nbsp;7.7: Recorte do conjunto de respostas para a dimensão de Importância
 </figcaption>
 <div aria-describedby="tbl-recorte-respostas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1659,7 +1791,7 @@ Tabela&nbsp;7.6: Recorte do conjunto de respostas para a dimensão de Importânc
 <div id="tbl-demografia-respondentes" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-demografia-respondentes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;7.7: Informações demográficas e médias por cluster analítico (Recorte)
+Tabela&nbsp;7.8: Informações demográficas e médias por cluster analítico (Recorte)
 </figcaption>
 <div aria-describedby="tbl-demografia-respondentes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1756,7 +1888,7 @@ Tabela&nbsp;7.7: Informações demográficas e médias por cluster analítico (R
 <div id="tbl-gaps-competencias" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gaps-competencias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;7.8: Média e discrepância (<em>Gaps</em>) entre as competências (Recorte dos itens críticos)
+Tabela&nbsp;7.9: Média e discrepância (<em>Gaps</em>) entre as competências (Recorte dos itens críticos)
 </figcaption>
 <div aria-describedby="tbl-gaps-competencias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1896,6 +2028,80 @@ Tabela&nbsp;7.8: Média e discrepância (<em>Gaps</em>) entre as competências (
 <script src="scripts/caption-format.js"></script>
 
 <script src="scripts/toc-expand-on-click.js"></script>
+
+
+
+<script>
+
+window.addEventListener("load", async function () {
+
+	if (!window.mermaid || !window.mermaid.mermaidAPI) {
+
+		return;
+
+	}
+
+
+
+	let i = 0;
+
+	const blocks = Array.from(document.querySelectorAll("pre.mermaid-js"));
+
+
+
+	for (const el of blocks) {
+
+		// Skip already rendered blocks.
+
+		if (el.querySelector("svg")) {
+
+			continue;
+
+		}
+
+
+
+		const source = (el.textContent || "").replaceAll("&nbsp;", " ");
+
+
+
+		try {
+
+			const id = `mermaid-safe-${++i}`;
+
+			const result = await window.mermaid.mermaidAPI.render(id, source, el);
+
+			el.innerHTML = result.svg;
+
+
+
+			if (el.dataset.label) {
+
+				const svg = el.firstChild;
+
+				const style = svg && svg.querySelector ? svg.querySelector("style") : null;
+
+				if (style && svg && svg.id) {
+
+					style.innerHTML = style.innerHTML.replaceAll(`#${svg.id}`, `#${el.dataset.label}-mermaid`);
+
+					svg.id = `${el.dataset.label}-mermaid`;
+
+				}
+
+			}
+
+		} catch (err) {
+
+			console.error("Mermaid render falhou para um bloco:", err);
+
+		}
+
+	}
+
+});
+
+</script>
 
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
