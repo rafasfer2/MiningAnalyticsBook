@@ -131,6 +131,8 @@ window.addEventListener("load", async function () {
 				const next = current === "wide" ? "standard" : "wide";
 				if (next === "wide") {
 					applySidebarState(true);
+				} else {
+					applySidebarState(false);
 				}
 				applyHeaderWidthMode(next);
 			});
