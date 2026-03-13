@@ -32,11 +32,11 @@
   --color-gray-med:     #aaaaaa;
 
   /* 1.4. Layout Dimensions */
-  --sidebar-width:      clamp(220px, 17vw, 320px);
-  --toc-width:          clamp(200px, 16vw, 300px);
+  --sidebar-width:      320px;
+  --toc-width:          320px;
   --header-height:      60px;
 
-  --content-gap:        0rem;
+  --content-gap:        -11rem;
   --text-padding-left:  0.75rem;
   --main-font-scale:    1;
 }
@@ -256,7 +256,10 @@ main.content p, main.content blockquote { text-align: justify; }
   right: var(--toc-width) !important;
   height: var(--header-height) !important;
   background: white !important;
-  z-index: 99 !important;
+  z-index: 110 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 body.nav-sidebar {
@@ -459,13 +462,6 @@ span.citation sup.citation-superscript {
   body.nav-sidebar {
     padding-left: 0 !important;
     padding-right: 0 !important;
-  }
-}
-
-@media (max-width: 1500px) {
-  :root {
-    --sidebar-width: 260px;
-    --toc-width: 240px;
   }
 }
 
