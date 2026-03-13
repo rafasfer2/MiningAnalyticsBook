@@ -535,6 +535,20 @@ span.citation sup.citation-superscript {
   padding-left: 0 !important;
 }
 
+/* Evita limite de largura interno do Bootstrap no header */
+#quarto-header .navbar-container,
+#quarto-header .container,
+#quarto-header .container-fluid,
+#quarto-header .container-lg,
+#quarto-header .container-xl,
+#quarto-header .container-xxl {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-right: 0.75rem !important;
+}
+
 .main-font-controls {
   margin-left: auto;
   display: inline-flex;
