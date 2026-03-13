@@ -33,7 +33,7 @@
 
   /* 1.4. Layout Dimensions */
   --sidebar-width:      320px;
-  --toc-width:          320px;
+  --toc-width:          300px;
   --header-height:      60px;
 
   --content-gap:        -11rem;
@@ -351,7 +351,7 @@ main.content ul li, main.content ol li {
 
 /* Título do Índice */
 #quarto-toc-target h2 {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: normal;
   text-transform: none;
   color: #495057;
@@ -387,7 +387,7 @@ nav[role="doc-toc"] ul > li > ul > li > ul {
 /* 5.3. Links e Identação */
 nav[role="doc-toc"] a.nav-link {
   display: block;
-  font-size: 0.8rem !important;
+  font-size: 0.76rem !important;
   line-height: 1.2 !important;
   padding: 0.25rem 0 0.25rem 1rem !important;
   color: var(--color-brown-med) !important;
