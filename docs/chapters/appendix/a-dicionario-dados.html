@@ -779,107 +779,11 @@ window.addEventListener("load", async function () {
 
 <script>
 
-window.addEventListener("DOMContentLoaded", function () {
+(() => {
 
 	const stateKey = "sidebar-collapsed";
 
-	const tocHost = document.querySelector("#quarto-margin-sidebar") ||
-
-						 document.querySelector("#quarto-toc-target");
-
-	const fallbackHost = document.querySelector("#quarto-header .navbar-container") ||
-
-							 document.querySelector("#quarto-header .container-fluid");
-
-	const controlHost = tocHost || fallbackHost;
-
-
-
-	if (!controlHost) {
-
-		return;
-
-	}
-
-
-
-	let toolsHost = document.querySelector(".toc-quick-controls");
-
-	if (!toolsHost && tocHost) {
-
-		toolsHost = document.createElement("div");
-
-		toolsHost.className = "toc-quick-controls";
-
-		tocHost.prepend(toolsHost);
-
-	}
-
-
-
-	const targetHost = toolsHost || controlHost;
-
-
-
-	if (!document.querySelector(".sidebar-toggle-btn")) {
-
-		const toggleBtn = document.createElement("button");
-
-		toggleBtn.type = "button";
-
-		toggleBtn.className = "sidebar-toggle-btn";
-
-		if (targetHost === toolsHost) {
-
-			toggleBtn.classList.add("toc-sidebar-toggle-btn");
-
-		}
-
-
-
-		const applyState = (collapsed) => {
-
-			document.body.classList.toggle("sidebar-collapsed", collapsed);
-
-			toggleBtn.innerHTML = collapsed
-
-				? '<span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label">Mostrar menu</span>'
-
-				: '<span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label">Ocultar menu</span>';
-
-			toggleBtn.setAttribute("aria-pressed", collapsed ? "true" : "false");
-
-		};
-
-
-
-		const initialCollapsed = localStorage.getItem(stateKey) === "1";
-
-		applyState(initialCollapsed);
-
-
-
-		toggleBtn.addEventListener("click", function () {
-
-			const next = !document.body.classList.contains("sidebar-collapsed");
-
-			applyState(next);
-
-			localStorage.setItem(stateKey, next ? "1" : "0");
-
-		});
-
-
-
-		targetHost.appendChild(toggleBtn);
-
-	}
-
-
-
-	const root = document.documentElement;
-
-	const key = "main-font-scale";
+	const fontScaleKey = "main-font-scale";
 
 	const minScale = 0.85;
 
@@ -895,7 +799,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 	const getScale = () => {
 
-		const stored = parseFloat(localStorage.getItem(key));
+		const stored = parseFloat(localStorage.getItem(fontScaleKey));
 
 		return Number.isFinite(stored) ? clamp(stored) : 1;
 
@@ -907,71 +811,181 @@ window.addEventListener("DOMContentLoaded", function () {
 
 		const safe = clamp(value);
 
-		root.style.setProperty("--main-font-scale", String(safe));
+		document.documentElement.style.setProperty("--main-font-scale", String(safe));
 
-		localStorage.setItem(key, String(safe));
+		localStorage.setItem(fontScaleKey, String(safe));
 
 	};
 
 
 
-	setScale(getScale());
+	function getControlHost() {
+
+		const tocHost = document.querySelector("#quarto-margin-sidebar") ||
+
+			document.querySelector("#quarto-toc-target");
+
+		const fallbackHost = document.querySelector("#quarto-header .navbar-container") ||
+
+			document.querySelector("#quarto-header .container-fluid");
 
 
 
-	if (document.querySelector(".toc-font-controls")) {
+		if (!tocHost) {
 
-		return;
+			return fallbackHost;
+
+		}
+
+
+
+		let toolsHost = document.querySelector(".toc-quick-controls");
+
+		if (!toolsHost) {
+
+			toolsHost = document.createElement("div");
+
+			toolsHost.className = "toc-quick-controls";
+
+			tocHost.prepend(toolsHost);
+
+		}
+
+
+
+		return toolsHost;
 
 	}
 
 
 
-	const controls = document.createElement("div");
+	function ensureControls() {
 
-	controls.className = "main-font-controls toc-font-controls";
+		const host = getControlHost();
 
-	controls.innerHTML = [
-
-		'<span class="font-label">Fonte:</span>',
-
-		'<button type="button" data-action="decrease" title="Diminuir fonte">A-</button>',
-
-		'<button type="button" data-action="reset" title="Fonte padrão">A</button>',
-
-		'<button type="button" data-action="increase" title="Aumentar fonte">A+</button>'
-
-	].join("");
+		if (!host) return;
 
 
 
-	controls.addEventListener("click", function (ev) {
-
-		const button = ev.target.closest("button[data-action]");
-
-		if (!button) return;
+		setScale(getScale());
 
 
 
-		const current = getScale();
+		if (!document.querySelector(".sidebar-toggle-btn")) {
 
-		const action = button.dataset.action;
+			const toggleBtn = document.createElement("button");
+
+			toggleBtn.type = "button";
+
+			toggleBtn.className = "sidebar-toggle-btn";
+
+			if (host.classList.contains("toc-quick-controls")) {
+
+				toggleBtn.classList.add("toc-sidebar-toggle-btn");
+
+			}
 
 
 
-		if (action === "decrease") setScale(current - step);
+			const applyState = (collapsed) => {
 
-		if (action === "increase") setScale(current + step);
+				document.body.classList.toggle("sidebar-collapsed", collapsed);
 
-		if (action === "reset") setScale(1);
+				toggleBtn.innerHTML = collapsed
 
-	});
+					? '<span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label">Mostrar menu</span>'
+
+					: '<span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label">Ocultar menu</span>';
+
+				toggleBtn.setAttribute("aria-pressed", collapsed ? "true" : "false");
+
+			};
 
 
 
-	targetHost.appendChild(controls);
+			const initialCollapsed = localStorage.getItem(stateKey) === "1";
 
-});
+			applyState(initialCollapsed);
+
+
+
+			toggleBtn.addEventListener("click", function () {
+
+				const next = !document.body.classList.contains("sidebar-collapsed");
+
+				applyState(next);
+
+				localStorage.setItem(stateKey, next ? "1" : "0");
+
+			});
+
+
+
+			host.appendChild(toggleBtn);
+
+		}
+
+
+
+		if (!document.querySelector(".toc-font-controls")) {
+
+			const controls = document.createElement("div");
+
+			controls.className = "main-font-controls toc-font-controls";
+
+			controls.innerHTML = [
+
+				'<span class="font-label">Fonte:</span>',
+
+				'<button type="button" data-action="decrease" title="Diminuir fonte">A-</button>',
+
+				'<button type="button" data-action="reset" title="Fonte padrão">A</button>',
+
+				'<button type="button" data-action="increase" title="Aumentar fonte">A+</button>'
+
+			].join("");
+
+
+
+			controls.addEventListener("click", function (ev) {
+
+				const button = ev.target.closest("button[data-action]");
+
+				if (!button) return;
+
+
+
+				const current = getScale();
+
+				const action = button.dataset.action;
+
+
+
+				if (action === "decrease") setScale(current - step);
+
+				if (action === "increase") setScale(current + step);
+
+				if (action === "reset") setScale(1);
+
+			});
+
+
+
+			host.appendChild(controls);
+
+		}
+
+	}
+
+
+
+	window.addEventListener("DOMContentLoaded", ensureControls);
+
+	window.addEventListener("load", ensureControls);
+
+	setTimeout(ensureControls, 300);
+
+})();
 
 </script>
 
