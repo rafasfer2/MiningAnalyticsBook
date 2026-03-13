@@ -262,6 +262,16 @@ main.content p, main.content blockquote { text-align: justify; }
   opacity: 1 !important;
 }
 
+/* Forca o header a permanecer visivel mesmo com classes do Headroom */
+#quarto-header.headroom,
+#quarto-header.headroom--top,
+#quarto-header.headroom--not-top,
+#quarto-header.headroom--pinned,
+#quarto-header.headroom--unpinned {
+  transform: translateY(0) !important;
+  top: 0 !important;
+}
+
 body.nav-sidebar {
   padding-left: calc(var(--sidebar-width) + var(--content-gap)) !important;
   padding-right: calc(var(--toc-width) + var(--content-gap)) !important;
