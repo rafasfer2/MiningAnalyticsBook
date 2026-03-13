@@ -2295,13 +2295,13 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
 
-	const fontHost = document.querySelector("#quarto-header .navbar-container") ||
+	const tocHost = document.querySelector("#quarto-margin-sidebar") ||
 
-								 document.querySelector("#quarto-header .container-fluid");
+						 document.querySelector("#quarto-toc-target");
 
 
 
-	if (!fontHost || document.querySelector(".main-font-controls")) {
+	if (!tocHost || document.querySelector(".toc-font-controls")) {
 
 		return;
 
@@ -2311,7 +2311,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 	const controls = document.createElement("div");
 
-	controls.className = "main-font-controls";
+	controls.className = "main-font-controls toc-font-controls";
 
 	controls.innerHTML = [
 
@@ -2351,7 +2351,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
 
-	fontHost.appendChild(controls);
+	tocHost.prepend(controls);
 
 });
 

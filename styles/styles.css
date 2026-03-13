@@ -553,6 +553,25 @@ span.citation sup.citation-superscript {
   background: #eef4ff;
 }
 
+.toc-font-controls {
+  margin: 0.6rem 0.75rem 0.4rem 0.75rem;
+  padding: 0.45rem 0.5rem;
+  border: 1px solid #d9e1ea;
+  border-radius: 8px;
+  background: #f8fbff;
+  justify-content: flex-start;
+  gap: 0.3rem;
+  margin-left: 0;
+  padding-right: 0.5rem;
+  position: sticky;
+  top: 0.5rem;
+  z-index: 2;
+}
+
+.toc-font-controls .font-label {
+  margin-right: 0.2rem;
+}
+
 .sidebar-toggle-btn {
   margin-left: 0.75rem;
   border: 1px solid #c7d1db;
