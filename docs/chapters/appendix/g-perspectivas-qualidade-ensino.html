@@ -665,13 +665,7 @@ window.addEventListener("load", async function () {
 
 			const safeMode = mode === "wide" ? "wide" : "standard";
 
-			document.documentElement.style.setProperty(
-
-				"--header-right-gap-adjust",
-
-				safeMode === "wide" ? "var(--content-gap)" : "0px"
-
-			);
+			document.body.classList.toggle("header-wide", safeMode === "wide");
 
 			localStorage.setItem(headerWidthKey, safeMode);
 
@@ -696,6 +690,30 @@ window.addEventListener("load", async function () {
 		const savedHeaderMode = localStorage.getItem(headerWidthKey);
 
 		applyHeaderWidthMode(savedHeaderMode === "wide" ? "wide" : "standard");
+
+
+
+		if (!document.querySelector(".header-width-btn")) {
+
+			const headerWidthBtn = document.createElement("button");
+
+			headerWidthBtn.type = "button";
+
+			headerWidthBtn.className = "sidebar-toggle-btn header-width-btn";
+
+			headerWidthBtn.addEventListener("click", function () {
+
+				const current = localStorage.getItem(headerWidthKey) === "wide" ? "wide" : "standard";
+
+				applyHeaderWidthMode(current === "wide" ? "standard" : "wide");
+
+			});
+
+			host.appendChild(headerWidthBtn);
+
+			applyHeaderWidthMode(localStorage.getItem(headerWidthKey) === "wide" ? "wide" : "standard");
+
+		}
 
 
 
@@ -756,30 +774,6 @@ window.addEventListener("load", async function () {
 
 
 		if (!document.querySelector(".toc-font-controls")) {
-
-			if (!document.querySelector(".header-width-btn")) {
-
-				const headerWidthBtn = document.createElement("button");
-
-				headerWidthBtn.type = "button";
-
-				headerWidthBtn.className = "sidebar-toggle-btn header-width-btn";
-
-				headerWidthBtn.addEventListener("click", function () {
-
-					const current = localStorage.getItem(headerWidthKey) === "wide" ? "wide" : "standard";
-
-					applyHeaderWidthMode(current === "wide" ? "standard" : "wide");
-
-				});
-
-				host.appendChild(headerWidthBtn);
-
-				applyHeaderWidthMode(localStorage.getItem(headerWidthKey) === "wide" ? "wide" : "standard");
-
-			}
-
-
 
 			const controls = document.createElement("div");
 

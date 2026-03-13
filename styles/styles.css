@@ -42,6 +42,10 @@
   --main-font-scale:    1;
 }
 
+body.header-wide {
+  --header-right-gap-adjust: var(--content-gap);
+}
+
 /* --- CLASSES AUXILIARES DE TÍTULOS (Atualizadas com novos Azuis) --- */
 /* Substituímos os antigos azuis fixos e o vermelho pelas novas variáveis */
 
