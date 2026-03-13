@@ -46,6 +46,12 @@ body.header-wide {
   --header-right-gap-adjust: var(--content-gap);
 }
 
+/* Modo amplo: header explicitamente expandido para ocupar a area do sidebar */
+body.header-wide #quarto-header {
+  left: 0 !important;
+  right: var(--toc-width) !important;
+}
+
 /* --- CLASSES AUXILIARES DE TÍTULOS (Atualizadas com novos Azuis) --- */
 /* Substituímos os antigos azuis fixos e o vermelho pelas novas variáveis */
 
