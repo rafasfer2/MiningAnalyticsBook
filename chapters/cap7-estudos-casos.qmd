@@ -545,7 +545,7 @@ kbl(df_sjt,
   pack_rows("10. Qualificação de Pessoal (NR-11)",      28, 30, bold = TRUE, background = "#d6eaf8", color = "#1a5276")
 ```
 
-#### A Racionalidade dos Pesos Secundários (+2)
+##### A Racionalidade dos Pesos Secundários (+2)
 
 A injeção do peso secundário (+2) revela a ferramenta de gestão ou a postura subjacente à escolha principal do aluno, refinando o diagnóstico do perfil:
 
@@ -557,7 +557,7 @@ A injeção do peso secundário (+2) revela a ferramenta de gestão ou a postura
 **A Lógica de Backend (Motor R):**
 Todo o mapeamento ocorre de forma invisível no *backend*. Quando o tempo acaba, o professor exporta o `.csv` e o script em **R** executa um cruzamento relacional (`left_join`) entre as escolhas dos 10 dilemas e a Matriz $w_{SJT}$. O resultado é um perfil recalibrado em 360 graus.
 
-### A Mecânica de Reorganização Pós-Formulário 4
+##### A Mecânica de Reorganização Pós-Formulário 4
 
 Com os novos perfis revelados, a coordenação **desfaz os grupos antigos (formados por afinidade) e estrutura novas equipes estritamente multidisciplinares**. O terreno está preparado para a aplicação do **Formulário 5**, onde esses perfis remapeados terão que debater, negociar e formalizar a sua governança e sobrevivência operacional em conjunto.
 

@@ -32,12 +32,13 @@
   --color-gray-med:     #aaaaaa;
 
   /* 1.4. Layout Dimensions */
-  --sidebar-width:      320px;
-  --toc-width:          320px;
+  --sidebar-width:      clamp(220px, 17vw, 320px);
+  --toc-width:          clamp(200px, 16vw, 300px);
   --header-height:      60px;
 
-  --content-gap:        -11rem;
+  --content-gap:        0rem;
   --text-padding-left:  0.75rem;
+  --main-font-scale:    1;
 }
 
 /* --- CLASSES AUXILIARES DE TÍTULOS (Atualizadas com novos Azuis) --- */
@@ -112,7 +113,7 @@ table.table td:first-child {
 body, html {
   margin: 0 !important;
   padding: 0 !important;
-  overflow-x: hidden; /* Nota: Isso impede o sticky de funcionar, por isso usaremos FIXED no TOC */
+  overflow-x: auto;
   font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
   font-size: 12pt;
   line-height: 1.5;
@@ -264,6 +265,32 @@ body.nav-sidebar {
   padding-top: var(--header-height) !important;
   margin: 0 !important;
 }
+
+main.content,
+#quarto-document-content {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+main.content p,
+main.content li,
+main.content blockquote,
+main.content td,
+main.content th,
+main.content figcaption,
+main.content .quarto-float-caption,
+main.content .callout,
+main.content .cell-output,
+main.content pre,
+main.content code {
+  font-size: calc(1rem * var(--main-font-scale)) !important;
+}
+
+main.content h1 { font-size: calc(2rem * var(--main-font-scale)) !important; }
+main.content h2 { font-size: calc(1.5rem * var(--main-font-scale)) !important; }
+main.content h3 { font-size: calc(1.25rem * var(--main-font-scale)) !important; }
+main.content h4 { font-size: calc(1rem * var(--main-font-scale)) !important; }
+main.content h5 { font-size: calc(1rem * var(--main-font-scale)) !important; }
 
 /* Adicionado h3, h4 e h5 para corrigir o desalinhamento dos títulos com o corpo */
 main.content h1, main.content h2, main.content h3, main.content h4, main.content h5,
@@ -435,6 +462,27 @@ span.citation sup.citation-superscript {
   }
 }
 
+@media (max-width: 1500px) {
+  :root {
+    --sidebar-width: 260px;
+    --toc-width: 240px;
+  }
+}
+
+@media (max-width: 1280px) {
+  #quarto-margin-sidebar {
+    display: none !important;
+  }
+
+  #quarto-header {
+    right: 0 !important;
+  }
+
+  body.nav-sidebar {
+    padding-right: 0 !important;
+  }
+}
+
 /* =========================================
    9. CUSTOMIZAÇÃO DO BREADCRUMB (CABEÇALHO)
    ========================================= */
@@ -467,6 +515,64 @@ span.citation sup.citation-superscript {
 
 /* Remove recuo do container pai para garantir o alinhamento */
 #quarto-header .navbar-container {
+  padding-left: 0 !important;
+}
+
+.main-font-controls {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding-right: 0.75rem;
+}
+
+.main-font-controls .font-label {
+  font-size: 0.78rem;
+  color: #495057;
+}
+
+.main-font-controls button {
+  border: 1px solid #c7d1db;
+  background: #ffffff;
+  color: #154360;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 6px;
+  line-height: 1;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.main-font-controls button:hover {
+  background: #eef4ff;
+}
+
+.sidebar-toggle-btn {
+  margin-left: 0.75rem;
+  border: 1px solid #c7d1db;
+  background: #ffffff;
+  color: #154360;
+  height: 32px;
+  border-radius: 8px;
+  padding: 0 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sidebar-toggle-btn:hover {
+  background: #eef4ff;
+}
+
+body.sidebar-collapsed #quarto-sidebar {
+  transform: translateX(calc(-1 * var(--sidebar-width)));
+}
+
+body.sidebar-collapsed #quarto-header {
+  left: 0 !important;
+}
+
+body.nav-sidebar.sidebar-collapsed {
   padding-left: 0 !important;
 }
 /* =========================================
@@ -831,6 +937,86 @@ a.footnote-back:hover {
 }
 .callout-tip .callout-header {
   color: var(--color-brown-dark) !important;
+}
+
+/* ==============================================================================
+   21. VISUALIZADOR DE FIGURAS (LIGHTBOX)
+   ============================================================================== */
+
+main.content img.zoomable-figure {
+  cursor: zoom-in;
+}
+
+.figure-lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 16, 24, 0.92);
+  z-index: 1200;
+  padding: 2rem;
+}
+
+.figure-lightbox.is-open {
+  display: flex;
+}
+
+.figure-lightbox__panel {
+  width: min(92vw, 1600px);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.figure-lightbox__toolbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.figure-lightbox__toolbar button,
+.figure-lightbox__toolbar a {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  height: 36px;
+  min-width: 36px;
+  padding: 0 0.8rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.figure-lightbox__toolbar button:hover,
+.figure-lightbox__toolbar a:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.figure-lightbox__image-wrap {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.figure-lightbox__image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.figure-lightbox__caption {
+  color: #e9eef5;
+  font-size: 0.95rem;
+  text-align: center;
 }
 
 /* ------------------------------------------------------------------
