@@ -561,6 +561,7 @@ span.citation sup.citation-superscript {
   position: sticky;
   top: 0.5rem;
   z-index: 3;
+  align-items: stretch;
 }
 
 .toc-font-controls {
@@ -573,18 +574,12 @@ span.citation sup.citation-superscript {
   gap: 0.3rem;
   margin-left: 0;
   padding-right: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .toc-font-controls .font-label {
   margin-right: 0.2rem;
-}
-
-.toc-sidebar-toggle-btn {
-  margin-left: 0;
-  width: 100%;
-  justify-content: center;
-  display: inline-flex;
-  align-items: center;
 }
 
 .sidebar-toggle-btn {
@@ -602,6 +597,39 @@ span.citation sup.citation-superscript {
 
 .sidebar-toggle-btn:hover {
   background: #eef4ff;
+}
+
+.toc-sidebar-toggle-btn {
+  margin-left: 0 !important;
+  width: 100%;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  box-sizing: border-box;
+  border: 1px solid var(--color-teal) !important;
+  background: var(--color-teal-dark) !important;
+  color: #ffffff !important;
+}
+
+.toc-sidebar-toggle-btn:hover {
+  background: var(--color-teal) !important;
+  color: #ffffff !important;
+}
+
+.toc-sidebar-toggle-btn .menu-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.toc-sidebar-toggle-btn .menu-label {
+  font-size: 0.83rem;
+  font-weight: 700;
+}
+
+body.sidebar-collapsed .toc-sidebar-toggle-btn {
+  border-color: var(--color-gold-base) !important;
+  color: var(--color-gold-base) !important;
 }
 
 body.sidebar-collapsed #quarto-sidebar {

@@ -2259,7 +2259,11 @@ window.addEventListener("DOMContentLoaded", function () {
 
 			document.body.classList.toggle("sidebar-collapsed", collapsed);
 
-			toggleBtn.textContent = collapsed ? "Mostrar menu" : "Ocultar menu";
+			toggleBtn.innerHTML = collapsed
+
+				? '<span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label">Mostrar menu</span>'
+
+				: '<span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label">Ocultar menu</span>';
 
 			toggleBtn.setAttribute("aria-pressed", collapsed ? "true" : "false");
 
