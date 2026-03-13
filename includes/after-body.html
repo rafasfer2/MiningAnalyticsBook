@@ -46,6 +46,7 @@ window.addEventListener("load", async function () {
 	const minScale = 0.85;
 	const maxScale = 1.5;
 	const step = 0.05;
+	let initialized = false;
 
 	const clamp = (value) => Math.max(minScale, Math.min(maxScale, value));
 
@@ -67,7 +68,8 @@ window.addEventListener("load", async function () {
 			document.querySelector("#quarto-header .container-fluid");
 
 		if (!tocHost) {
-			return fallbackHost;
+			const useFallback = window.matchMedia("(max-width: 1280px)").matches;
+			return useFallback ? fallbackHost : null;
 		}
 
 		let toolsHost = document.querySelector(".toc-quick-controls");
@@ -81,8 +83,10 @@ window.addEventListener("load", async function () {
 	}
 
 	function ensureControls() {
+		if (initialized) return true;
+
 		const host = getControlHost();
-		if (!host) return;
+		if (!host) return false;
 
 		setScale(getScale());
 
@@ -138,11 +142,22 @@ window.addEventListener("load", async function () {
 
 			host.appendChild(controls);
 		}
+
+		initialized = true;
+		return true;
 	}
 
-	window.addEventListener("DOMContentLoaded", ensureControls);
-	window.addEventListener("load", ensureControls);
-	setTimeout(ensureControls, 300);
+	if (!ensureControls()) {
+		document.addEventListener("DOMContentLoaded", ensureControls, { once: true });
+		window.addEventListener("load", ensureControls, { once: true });
+
+		if (document.body) {
+			const observer = new MutationObserver(() => {
+				if (ensureControls()) observer.disconnect();
+			});
+			observer.observe(document.body, { childList: true, subtree: true });
+		}
+	}
 })();
 </script>
 

@@ -487,6 +487,8 @@ window.addEventListener("load", async function () {
 
 	const step = 0.05;
 
+	let initialized = false;
+
 
 
 	const clamp = (value) => Math.max(minScale, Math.min(maxScale, value));
@@ -529,7 +531,9 @@ window.addEventListener("load", async function () {
 
 		if (!tocHost) {
 
-			return fallbackHost;
+			const useFallback = window.matchMedia("(max-width: 1280px)").matches;
+
+			return useFallback ? fallbackHost : null;
 
 		}
 
@@ -557,9 +561,13 @@ window.addEventListener("load", async function () {
 
 	function ensureControls() {
 
+		if (initialized) return true;
+
+
+
 		const host = getControlHost();
 
-		if (!host) return;
+		if (!host) return false;
 
 
 
@@ -671,15 +679,37 @@ window.addEventListener("load", async function () {
 
 		}
 
+
+
+		initialized = true;
+
+		return true;
+
 	}
 
 
 
-	window.addEventListener("DOMContentLoaded", ensureControls);
+	if (!ensureControls()) {
 
-	window.addEventListener("load", ensureControls);
+		document.addEventListener("DOMContentLoaded", ensureControls, { once: true });
 
-	setTimeout(ensureControls, 300);
+		window.addEventListener("load", ensureControls, { once: true });
+
+
+
+		if (document.body) {
+
+			const observer = new MutationObserver(() => {
+
+				if (ensureControls()) observer.disconnect();
+
+			});
+
+			observer.observe(document.body, { childList: true, subtree: true });
+
+		}
+
+	}
 
 })();
 
