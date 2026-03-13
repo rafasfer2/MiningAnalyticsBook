@@ -582,6 +582,8 @@ window.addEventListener("load", async function () {
 
 	const stateKey = "sidebar-collapsed";
 
+	const headerWidthKey = "header-width-mode";
+
 	const fontScaleKey = "main-font-scale";
 
 	const minScale = 0.85;
@@ -678,6 +680,44 @@ window.addEventListener("load", async function () {
 
 
 
+		const applyHeaderWidthMode = (mode) => {
+
+			const safeMode = mode === "wide" ? "wide" : "standard";
+
+			document.documentElement.style.setProperty(
+
+				"--header-right-gap-adjust",
+
+				safeMode === "wide" ? "var(--content-gap)" : "0px"
+
+			);
+
+			localStorage.setItem(headerWidthKey, safeMode);
+
+
+
+			const btn = document.querySelector(".header-width-btn");
+
+			if (btn) {
+
+				btn.innerHTML = safeMode === "wide"
+
+					? '<span aria-hidden="true">↔</span><span>Largura: Ampla</span>'
+
+					: '<span aria-hidden="true">↔</span><span>Largura: Padrão</span>';
+
+			}
+
+		};
+
+
+
+		const savedHeaderMode = localStorage.getItem(headerWidthKey);
+
+		applyHeaderWidthMode(savedHeaderMode === "wide" ? "wide" : "standard");
+
+
+
 		if (!document.querySelector(".sidebar-toggle-btn")) {
 
 			const toggleBtn = document.createElement("button");
@@ -735,6 +775,30 @@ window.addEventListener("load", async function () {
 
 
 		if (!document.querySelector(".toc-font-controls")) {
+
+			if (!document.querySelector(".header-width-btn")) {
+
+				const headerWidthBtn = document.createElement("button");
+
+				headerWidthBtn.type = "button";
+
+				headerWidthBtn.className = "sidebar-toggle-btn header-width-btn";
+
+				headerWidthBtn.addEventListener("click", function () {
+
+					const current = localStorage.getItem(headerWidthKey) === "wide" ? "wide" : "standard";
+
+					applyHeaderWidthMode(current === "wide" ? "standard" : "wide");
+
+				});
+
+				host.appendChild(headerWidthBtn);
+
+				applyHeaderWidthMode(localStorage.getItem(headerWidthKey) === "wide" ? "wide" : "standard");
+
+			}
+
+
 
 			const controls = document.createElement("div");
 
