@@ -2201,19 +2201,57 @@ window.addEventListener("DOMContentLoaded", function () {
 
 	const stateKey = "sidebar-collapsed";
 
-	const host = document.querySelector("#quarto-header .navbar-container") ||
+	const tocHost = document.querySelector("#quarto-margin-sidebar") ||
+
+						 document.querySelector("#quarto-toc-target");
+
+	const fallbackHost = document.querySelector("#quarto-header .navbar-container") ||
 
 							 document.querySelector("#quarto-header .container-fluid");
 
+	const controlHost = tocHost || fallbackHost;
 
 
-	if (host && !document.querySelector(".sidebar-toggle-btn")) {
+
+	if (!controlHost) {
+
+		return;
+
+	}
+
+
+
+	let toolsHost = document.querySelector(".toc-quick-controls");
+
+	if (!toolsHost && tocHost) {
+
+		toolsHost = document.createElement("div");
+
+		toolsHost.className = "toc-quick-controls";
+
+		tocHost.prepend(toolsHost);
+
+	}
+
+
+
+	const targetHost = toolsHost || controlHost;
+
+
+
+	if (!document.querySelector(".sidebar-toggle-btn")) {
 
 		const toggleBtn = document.createElement("button");
 
 		toggleBtn.type = "button";
 
 		toggleBtn.className = "sidebar-toggle-btn";
+
+		if (targetHost === toolsHost) {
+
+			toggleBtn.classList.add("toc-sidebar-toggle-btn");
+
+		}
 
 
 
@@ -2247,7 +2285,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
 
-		host.appendChild(toggleBtn);
+		targetHost.appendChild(toggleBtn);
 
 	}
 
@@ -2295,13 +2333,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
 
-	const tocHost = document.querySelector("#quarto-margin-sidebar") ||
-
-						 document.querySelector("#quarto-toc-target");
-
-
-
-	if (!tocHost || document.querySelector(".toc-font-controls")) {
+	if (document.querySelector(".toc-font-controls")) {
 
 		return;
 
@@ -2351,7 +2383,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
 
-	tocHost.prepend(controls);
+	targetHost.appendChild(controls);
 
 });
 

@@ -553,8 +553,18 @@ span.citation sup.citation-superscript {
   background: #eef4ff;
 }
 
-.toc-font-controls {
+.toc-quick-controls {
   margin: 0.6rem 0.75rem 0.4rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  position: sticky;
+  top: 0.5rem;
+  z-index: 3;
+}
+
+.toc-font-controls {
+  margin: 0;
   padding: 0.45rem 0.5rem;
   border: 1px solid #d9e1ea;
   border-radius: 8px;
@@ -563,13 +573,18 @@ span.citation sup.citation-superscript {
   gap: 0.3rem;
   margin-left: 0;
   padding-right: 0.5rem;
-  position: sticky;
-  top: 0.5rem;
-  z-index: 2;
 }
 
 .toc-font-controls .font-label {
   margin-right: 0.2rem;
+}
+
+.toc-sidebar-toggle-btn {
+  margin-left: 0;
+  width: 100%;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
 }
 
 .sidebar-toggle-btn {
