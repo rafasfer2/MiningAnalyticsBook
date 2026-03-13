@@ -70,9 +70,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Procurar"
   }
 }</script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<script src="../site_libs/quarto-diagram/mermaid-postprocess-shim.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -767,37 +765,282 @@ Tabela&nbsp;3.1: Evolução do Conceito de Qualidade: Da Filosofia à Matemátic
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart TD
-    A["Passos 1 a 4: Setup de x_i, r_i, Δ_i, w_i"] --&gt; E["Passo 5: Coletar Medições"]
-
-    E --&gt; G0{GATE 0:\nDados OK?\nrastreabilidade,\nincerteza}
-    G0 --&gt;|Não| H0["HOLD:\nRecolher dados\nsem decisão"]
-    G0 --&gt;|Sim| F["Passo 6: Calcular Notas (x*_i)"]
-
-    F --&gt; G1A{GATE 1A:\nLegal e Regulatório\nConforme?}
-    G1A --&gt;|Não| X1["BLOQUEAR:\nNC crítica"]
-    G1A --&gt;|Sim| G1B{GATE 1B:\nSegurança OK?}
-
-    G1B --&gt;|Não| X1
-    G1B --&gt;|Sim| G1C{GATE 1C:\nCTQ do Cliente OK?}
-
-    G1C --&gt;|Não| X1
-    G1C --&gt;|Sim| Th["Passo 7: Calcular θ"]
-    Th --&gt; P["Passo 8: Penalidades\nθ* = max(0, θ-P)"]
-
-    P --&gt; G2{GATE 2:\nθ* ≥ θ_min?}
-    G2 --&gt;|Não| X2["BLOQUEAR:\nAnálise de causa"]
-    G2 --&gt;|Sim| G3{GATE 3:\nEficiência OK?\nSem superqualidade}
-
-    G3 --&gt;|Sim| OK["Passo 9: APROVAR\nRegistrar evidências"]
-    G3 --&gt;|Não| OPT["LIBERAR COM PLANO\nOtimizar custos"]
-
-    H0 --&gt; PDCA["Passo 10: PDCA\nPriorizar ações"]
-    X1 --&gt; PDCA
-    X2 --&gt; PDCA
-    OK --&gt; PDCA
-    OPT --&gt; PDCA
-</pre>
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewbox="0 0 1341.66796875 2847.453125" class="flowchart" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="672" id="mermaid-figure-1" height="480">
+<style>#mermaid-figure-1{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-1 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-1 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-1 .error-icon{fill:#552222;}#mermaid-figure-1 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-1 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-1 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-1 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-1 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-1 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-1 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-1 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-1 .marker.cross{stroke:#333333;}#mermaid-figure-1 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-figure-1 p{margin:0;}#mermaid-figure-1 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-1 .cluster-label text{fill:#333;}#mermaid-figure-1 .cluster-label span{color:#333;}#mermaid-figure-1 .cluster-label span p{background-color:transparent;}#mermaid-figure-1 .label text,#mermaid-figure-1 span{fill:#333;color:#333;}#mermaid-figure-1 .node rect,#mermaid-figure-1 .node circle,#mermaid-figure-1 .node ellipse,#mermaid-figure-1 .node polygon,#mermaid-figure-1 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-1 .rough-node .label text,#mermaid-figure-1 .node .label text,#mermaid-figure-1 .image-shape .label,#mermaid-figure-1 .icon-shape .label{text-anchor:middle;}#mermaid-figure-1 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-figure-1 .rough-node .label,#mermaid-figure-1 .node .label,#mermaid-figure-1 .image-shape .label,#mermaid-figure-1 .icon-shape .label{text-align:center;}#mermaid-figure-1 .node.clickable{cursor:pointer;}#mermaid-figure-1 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaid-figure-1 .arrowheadPath{fill:#333333;}#mermaid-figure-1 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-1 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-1 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-1 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaid-figure-1 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-1 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-figure-1 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-1 .cluster text{fill:#333;}#mermaid-figure-1 .cluster span{color:#333;}#mermaid-figure-1 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-1 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-1 rect.text{fill:none;stroke-width:0;}#mermaid-figure-1 .icon-shape,#mermaid-figure-1 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-1 .icon-shape p,#mermaid-figure-1 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaid-figure-1 .icon-shape rect,#mermaid-figure-1 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-1 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style>
+<g><marker orient="auto" markerheight="8" markerwidth="8" markerunits="userSpaceOnUse" refy="5" refx="5" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1773406245908_flowchart-v2-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerheight="8" markerwidth="8" markerunits="userSpaceOnUse" refy="5" refx="4.5" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1773406245908_flowchart-v2-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="11" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1773406245908_flowchart-v2-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="-1" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1773406245908_flowchart-v2-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="12" viewbox="0 0 11 11" class="marker cross flowchart-v2" id="mermaid-1773406245908_flowchart-v2-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="-1" viewbox="0 0 11 11" class="marker cross flowchart-v2" id="mermaid-1773406245908_flowchart-v2-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_A_E_0" d="M613,86L613,90.167C613,94.333,613,102.667,613,110.333C613,118,613,125,613,128.5L613,132"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_E_G0_0" d="M613,190L613,194.167C613,198.333,613,206.667,613.07,214.417C613.141,222.167,613.281,229.334,613.351,232.917L613.422,236.501"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G0_H0_0" d="M509.095,424.579L447.246,448.063C385.397,471.548,261.698,518.516,199.849,554.667C138,590.818,138,616.151,138,639.484C138,662.818,138,684.151,138,722.151C138,760.151,138,814.818,138,871.484C138,928.151,138,986.818,138,1042.044C138,1097.271,138,1149.057,138,1200.844C138,1252.63,138,1304.417,138,1359.643C138,1414.87,138,1473.536,138,1532.203C138,1590.87,138,1649.536,138,1689.536C138,1729.536,138,1750.87,138,1770.203C138,1789.536,138,1806.87,138,1826.203C138,1845.536,138,1866.87,138,1888.203C138,1909.536,138,1930.87,138,1962.891C138,1994.911,138,2037.62,138,2082.328C138,2127.036,138,2173.745,138,2226.432C138,2279.12,138,2337.786,138,2396.453C138,2455.12,138,2513.786,138,2550.62C138,2587.453,138,2602.453,138,2609.953L138,2617.453"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G0_F_0" d="M660.283,482.202L666.902,496.082C673.522,509.963,686.761,537.724,693.38,557.104C700,576.484,700,587.484,700,592.984L700,598.484"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_F_G1A_0" d="M700,680.484L700,684.651C700,688.818,700,697.151,700.07,704.901C700.141,712.651,700.281,719.818,700.351,723.402L700.422,726.985"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G1A_X1_0" d="M600.075,908.559L540.362,931.38C480.65,954.201,361.225,999.843,301.513,1048.557C241.801,1097.271,241.801,1149.057,241.801,1200.844C241.801,1252.63,241.801,1304.417,241.801,1359.643C241.801,1414.87,241.801,1473.536,241.801,1532.203C241.801,1590.87,241.801,1649.536,247.654,1684.571C253.506,1719.606,265.212,1731.009,271.065,1736.711L276.918,1742.412"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G1A_G1B_0" d="M742.682,966.803L748.348,979.916C754.014,993.03,765.347,1019.257,771.088,1037.954C776.829,1056.651,776.977,1067.818,777.052,1073.401L777.126,1078.985"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G1B_X1_0" d="M692.384,1234.908L641.017,1255.123C589.649,1275.339,486.914,1315.771,435.547,1365.321C384.18,1414.87,384.18,1473.536,384.18,1532.203C384.18,1590.87,384.18,1649.536,377.303,1684.609C370.427,1719.682,356.673,1731.161,349.797,1736.901L342.92,1742.64"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G1B_G1C_0" d="M825.504,1271.379L835.233,1285.516C844.962,1299.653,864.421,1327.928,874.224,1347.649C884.028,1367.37,884.177,1378.537,884.251,1384.12L884.326,1389.703"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G1C_X1_0" d="M788.671,1575.995L739.689,1598.029C690.707,1620.064,592.744,1664.134,526.348,1692.119C459.952,1720.105,425.123,1732.007,407.709,1737.959L390.294,1743.91"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G1C_Th_0" d="M900.56,1655.522L901.644,1664.302C902.729,1673.082,904.898,1690.643,905.982,1704.923C907.066,1719.203,907.066,1730.203,907.066,1735.703L907.066,1741.203"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_Th_P_0" d="M907.066,1799.203L907.066,1803.37C907.066,1807.536,907.066,1815.87,907.066,1823.536C907.066,1831.203,907.066,1838.203,907.066,1841.703L907.066,1845.203"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_P_G2_0" d="M907.066,1927.203L907.066,1931.37C907.066,1935.536,907.066,1943.87,907.137,1951.62C907.207,1959.37,907.347,1966.537,907.418,1970.12L907.488,1973.704"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G2_X2_0" d="M835.617,2112.003L793.625,2130.078C751.634,2148.153,667.651,2184.303,625.659,2231.711C583.668,2279.12,583.668,2337.786,583.668,2396.453C583.668,2455.12,583.668,2513.786,583.668,2550.62C583.668,2587.453,583.668,2602.453,583.668,2609.953L583.668,2617.453"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G2_G3_0" d="M961.728,2129.792L978.451,2144.902C995.174,2160.012,1028.62,2190.233,1045.418,2210.926C1062.215,2231.62,1062.364,2242.787,1062.439,2248.37L1062.513,2253.953"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G3_OK_0" d="M994.6,2467.987L977.778,2485.398C960.956,2502.809,927.312,2537.631,910.49,2560.542C893.668,2583.453,893.668,2594.453,893.668,2599.953L893.668,2605.453"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G3_OPT_0" d="M1124.539,2473.98L1137.727,2490.393C1150.915,2506.805,1177.292,2539.629,1190.48,2563.541C1203.668,2587.453,1203.668,2602.453,1203.668,2609.953L1203.668,2617.453"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_H0_PDCA_0" d="M138,2699.453L138,2705.62C138,2711.786,138,2724.12,192.184,2737.84C246.368,2751.561,354.736,2766.669,408.921,2774.223L463.105,2781.777"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_X1_PDCA_0" d="M307.5,1799.203L307.5,1803.37C307.5,1807.536,307.5,1815.87,307.5,1830.703C307.5,1845.536,307.5,1866.87,307.5,1888.203C307.5,1909.536,307.5,1930.87,307.5,1962.891C307.5,1994.911,307.5,2037.62,307.5,2082.328C307.5,2127.036,307.5,2173.745,307.5,2226.432C307.5,2279.12,307.5,2337.786,307.5,2396.453C307.5,2455.12,307.5,2513.786,307.5,2557.786C307.5,2601.786,307.5,2631.12,307.5,2658.453C307.5,2685.786,307.5,2711.12,333.443,2729.52C359.387,2747.921,411.274,2759.389,437.217,2765.123L463.161,2770.857"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_X2_PDCA_0" d="M583.668,2699.453L583.668,2705.62C583.668,2711.786,583.668,2724.12,584.404,2733.801C585.139,2743.481,586.611,2750.51,587.346,2754.024L588.082,2757.538"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_OK_PDCA_0" d="M893.668,2711.453L893.668,2715.62C893.668,2719.786,893.668,2728.12,866.553,2738.137C839.437,2748.155,785.207,2759.857,758.092,2765.707L730.976,2771.558"></path><path marker-end="url(#mermaid-1773406245908_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_OPT_PDCA_0" d="M1203.668,2699.453L1203.668,2705.62C1203.668,2711.786,1203.668,2724.12,1124.897,2738.597C1046.127,2753.075,888.586,2769.696,809.815,2778.007L731.044,2786.318"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g><g transform="translate(138, 1708.203125)" class="edgeLabel"><g transform="translate(-13.6015625, -12)" class="label"><foreignobject height="24" width="27.203125">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+Não
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(700, 565.484375)" class="edgeLabel"><g transform="translate(-12.7734375, -12)" class="label"><foreignobject height="24" width="25.546875">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+Sim
+</p>
+</span>
+</div>
+</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g><g transform="translate(241.80078125, 1356.203125)" class="edgeLabel"><g transform="translate(-13.6015625, -12)" class="label"><foreignobject height="24" width="27.203125">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+Não
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(776.6796875, 1045.484375)" class="edgeLabel"><g transform="translate(-12.7734375, -12)" class="label"><foreignobject height="24" width="25.546875">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+Sim
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(384.1796875, 1532.203125)" class="edgeLabel"><g transform="translate(-13.6015625, -12)" class="label"><foreignobject height="24" width="27.203125">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+Não
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(883.87890625, 1356.203125)" class="edgeLabel"><g transform="translate(-12.7734375, -12)" class="label"><foreignobject height="24" width="25.546875">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+Sim
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(494.78125, 1708.203125)" class="edgeLabel"><g transform="translate(-13.6015625, -12)" class="label"><foreignobject height="24" width="27.203125">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+Não
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(907.06640625, 1708.203125)" class="edgeLabel"><g transform="translate(-12.7734375, -12)" class="label"><foreignobject height="24" width="25.546875">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+Sim
+</p>
+</span>
+</div>
+</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g><g transform="translate(583.66796875, 2396.453125)" class="edgeLabel"><g transform="translate(-13.6015625, -12)" class="label"><foreignobject height="24" width="27.203125">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+Não
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(1062.06640625, 2220.453125)" class="edgeLabel"><g transform="translate(-12.7734375, -12)" class="label"><foreignobject height="24" width="25.546875">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+Sim
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(893.66796875, 2572.453125)" class="edgeLabel"><g transform="translate(-12.7734375, -12)" class="label"><foreignobject height="24" width="25.546875">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+Sim
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(1203.66796875, 2572.453125)" class="edgeLabel"><g transform="translate(-13.6015625, -12)" class="label"><foreignobject height="24" width="27.203125">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+Não
+</p>
+</span>
+</div>
+</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g></g><g class="nodes"><g transform="translate(613, 47)" id="flowchart-A-0" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"></rect><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
+<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Passos 1 a 4: Setup de x_i, r_i, Δ_i, w_i
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(613, 163)" id="flowchart-E-1" class="node default"><rect height="54" width="244.6875" y="-27" x="-122.34375" style="" class="basic label-container"></rect><g transform="translate(-92.34375, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="184.6875">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Passo 5: Coletar Medições
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(613, 384.2421875)" id="flowchart-G0-3" class="node default"><polygon transform="translate(-144.2421875,144.2421875)" class="label-container" points="144.2421875,0 288.484375,-144.2421875 144.2421875,-288.484375 0,-144.2421875"></polygon><g transform="translate(-105.2421875, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="210.484375">
+<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+GATE 0:OK?,
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(138, 2660.453125)" id="flowchart-H0-5" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"></rect><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
+<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+HOLD:dadosdecisão
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(700, 641.484375)" id="flowchart-F-7" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"></rect><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
+<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Passo 6: Calcular Notas (x*_i)
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(700, 869.484375)" id="flowchart-G1A-9" class="node default"><polygon transform="translate(-139,139)" class="label-container" points="139,0 278,-139 139,-278 0,-139"></polygon><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
+<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+GATE 1A:e Regulatório?
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(307.5, 1772.203125)" id="flowchart-X1-11" class="node default"><rect height="54" width="227.296875" y="-27" x="-113.6484375" style="" class="basic label-container"></rect><g transform="translate(-83.6484375, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="167.296875">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+BLOQUEAR:crítica
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(776.6796875, 1200.84375)" id="flowchart-G1B-13" class="node default"><polygon transform="translate(-118.359375,118.359375)" class="label-container" points="118.359375,0 236.71875,-118.359375 118.359375,-236.71875 0,-118.359375"></polygon><g transform="translate(-91.359375, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="182.71875">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+GATE 1B:OK?
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(883.87890625, 1532.203125)" id="flowchart-G1C-17" class="node default"><polygon transform="translate(-139,139)" class="label-container" points="139,0 278,-139 139,-278 0,-139"></polygon><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
+<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+GATE 1C:do Cliente OK?
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(907.06640625, 1772.203125)" id="flowchart-Th-21" class="node default"><rect height="54" width="194.25" y="-27" x="-97.125" style="" class="basic label-container"></rect><g transform="translate(-67.125, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="134.25">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Passo 7: Calcular θ
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(907.06640625, 1888.203125)" id="flowchart-P-23" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"></rect><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
+<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Passo 8: Penalidades= max(0, θ-P)
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(907.06640625, 2080.328125)" id="flowchart-G2-25" class="node default"><polygon transform="translate(-103.125,103.125)" class="label-container" points="103.125,0 206.25,-103.125 103.125,-206.25 0,-103.125"></polygon><g transform="translate(-76.125, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="152.25">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+GATE 2:≥ θ_min?
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(583.66796875, 2660.453125)" id="flowchart-X2-27" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"></rect><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
+<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+BLOQUEAR:de causa
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(1062.06640625, 2396.453125)" id="flowchart-G3-29" class="node default"><polygon transform="translate(-139,139)" class="label-container" points="139,0 278,-139 139,-278 0,-139"></polygon><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
+<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+GATE 3:OK?superqualidade
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(893.66796875, 2660.453125)" id="flowchart-OK-31" class="node default"><rect height="102" width="260" y="-51" x="-130" style="" class="basic label-container"></rect><g transform="translate(-100, -36)" style="" class="label"><rect></rect><foreignobject height="72" width="200">
+<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Passo 9: APROVARevidências
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(1203.66796875, 2660.453125)" id="flowchart-OPT-33" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"></rect><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
+<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+LIBERAR COM PLANOcustos
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(597.06640625, 2800.453125)" id="flowchart-PDCA-35" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"></rect><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
+<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Passo 10: PDCAações
+</p>
+</span>
+</div>
+</foreignobject></g></g></g></g></g>
+</svg>
 </div>
 <p></p></figure><p></p>
 </div>
@@ -1219,6 +1462,434 @@ Tabela&nbsp;3.1: Evolução do Conceito de Qualidade: Da Filosofia à Matemátic
 <script src="scripts/caption-format.js"></script>
 
 <script src="scripts/toc-expand-on-click.js"></script>
+
+
+
+<script>
+
+window.addEventListener("load", async function () {
+
+	if (!window.mermaid || !window.mermaid.mermaidAPI) {
+
+		return;
+
+	}
+
+
+
+	let i = 0;
+
+	const blocks = Array.from(document.querySelectorAll("pre.mermaid-js"));
+
+
+
+	for (const el of blocks) {
+
+		// Skip already rendered blocks.
+
+		if (el.querySelector("svg")) {
+
+			continue;
+
+		}
+
+
+
+		const source = (el.textContent || "").replaceAll("&nbsp;", " ");
+
+
+
+		try {
+
+			const id = `mermaid-safe-${++i}`;
+
+			const result = await window.mermaid.mermaidAPI.render(id, source, el);
+
+			el.innerHTML = result.svg;
+
+
+
+			if (el.dataset.label) {
+
+				const svg = el.firstChild;
+
+				const style = svg && svg.querySelector ? svg.querySelector("style") : null;
+
+				if (style && svg && svg.id) {
+
+					style.innerHTML = style.innerHTML.replaceAll(`#${svg.id}`, `#${el.dataset.label}-mermaid`);
+
+					svg.id = `${el.dataset.label}-mermaid`;
+
+				}
+
+			}
+
+		} catch (err) {
+
+			console.error("Mermaid render falhou para um bloco:", err);
+
+		}
+
+	}
+
+});
+
+</script>
+
+
+
+<script>
+
+window.addEventListener("DOMContentLoaded", function () {
+
+	const stateKey = "sidebar-collapsed";
+
+	const tocHost = document.querySelector("#quarto-margin-sidebar") ||
+
+						 document.querySelector("#quarto-toc-target");
+
+	const fallbackHost = document.querySelector("#quarto-header .navbar-container") ||
+
+							 document.querySelector("#quarto-header .container-fluid");
+
+	const controlHost = tocHost || fallbackHost;
+
+
+
+	if (!controlHost) {
+
+		return;
+
+	}
+
+
+
+	let toolsHost = document.querySelector(".toc-quick-controls");
+
+	if (!toolsHost && tocHost) {
+
+		toolsHost = document.createElement("div");
+
+		toolsHost.className = "toc-quick-controls";
+
+		tocHost.prepend(toolsHost);
+
+	}
+
+
+
+	const targetHost = toolsHost || controlHost;
+
+
+
+	if (!document.querySelector(".sidebar-toggle-btn")) {
+
+		const toggleBtn = document.createElement("button");
+
+		toggleBtn.type = "button";
+
+		toggleBtn.className = "sidebar-toggle-btn";
+
+		if (targetHost === toolsHost) {
+
+			toggleBtn.classList.add("toc-sidebar-toggle-btn");
+
+		}
+
+
+
+		const applyState = (collapsed) => {
+
+			document.body.classList.toggle("sidebar-collapsed", collapsed);
+
+			toggleBtn.innerHTML = collapsed
+
+				? '<span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label">Mostrar menu</span>'
+
+				: '<span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label">Ocultar menu</span>';
+
+			toggleBtn.setAttribute("aria-pressed", collapsed ? "true" : "false");
+
+		};
+
+
+
+		const initialCollapsed = localStorage.getItem(stateKey) === "1";
+
+		applyState(initialCollapsed);
+
+
+
+		toggleBtn.addEventListener("click", function () {
+
+			const next = !document.body.classList.contains("sidebar-collapsed");
+
+			applyState(next);
+
+			localStorage.setItem(stateKey, next ? "1" : "0");
+
+		});
+
+
+
+		targetHost.appendChild(toggleBtn);
+
+	}
+
+
+
+	const root = document.documentElement;
+
+	const key = "main-font-scale";
+
+	const minScale = 0.85;
+
+	const maxScale = 1.5;
+
+	const step = 0.05;
+
+
+
+	const clamp = (value) => Math.max(minScale, Math.min(maxScale, value));
+
+
+
+	const getScale = () => {
+
+		const stored = parseFloat(localStorage.getItem(key));
+
+		return Number.isFinite(stored) ? clamp(stored) : 1;
+
+	};
+
+
+
+	const setScale = (value) => {
+
+		const safe = clamp(value);
+
+		root.style.setProperty("--main-font-scale", String(safe));
+
+		localStorage.setItem(key, String(safe));
+
+	};
+
+
+
+	setScale(getScale());
+
+
+
+	if (document.querySelector(".toc-font-controls")) {
+
+		return;
+
+	}
+
+
+
+	const controls = document.createElement("div");
+
+	controls.className = "main-font-controls toc-font-controls";
+
+	controls.innerHTML = [
+
+		'<span class="font-label">Fonte:</span>',
+
+		'<button type="button" data-action="decrease" title="Diminuir fonte">A-</button>',
+
+		'<button type="button" data-action="reset" title="Fonte padrão">A</button>',
+
+		'<button type="button" data-action="increase" title="Aumentar fonte">A+</button>'
+
+	].join("");
+
+
+
+	controls.addEventListener("click", function (ev) {
+
+		const button = ev.target.closest("button[data-action]");
+
+		if (!button) return;
+
+
+
+		const current = getScale();
+
+		const action = button.dataset.action;
+
+
+
+		if (action === "decrease") setScale(current - step);
+
+		if (action === "increase") setScale(current + step);
+
+		if (action === "reset") setScale(1);
+
+	});
+
+
+
+	targetHost.appendChild(controls);
+
+});
+
+</script>
+
+
+
+<script>
+
+window.addEventListener("DOMContentLoaded", function () {
+
+	const contentRoot = document.querySelector("main.content") || document;
+
+	const candidates = contentRoot.querySelectorAll("figure img, .quarto-figure img, main.content img");
+
+
+
+	const modal = document.createElement("div");
+
+	modal.className = "figure-lightbox";
+
+	modal.setAttribute("aria-hidden", "true");
+
+	modal.innerHTML = [
+
+		'<div class="figure-lightbox__panel" role="dialog" aria-modal="true" aria-label="Visualizador de figura">',
+
+		'  <div class="figure-lightbox__toolbar">',
+
+		'    <a class="figure-lightbox__open" target="_blank" rel="noopener noreferrer">Abrir em nova guia</a>',
+
+		'    <button type="button" class="figure-lightbox__close" aria-label="Fechar">Fechar</button>',
+
+		'  </div>',
+
+		'  <div class="figure-lightbox__image-wrap">',
+
+		'    <img class="figure-lightbox__image" alt="" />',
+
+		'  </div>',
+
+		'  <div class="figure-lightbox__caption"></div>',
+
+		'</div>'
+
+	].join("");
+
+
+
+	document.body.appendChild(modal);
+
+
+
+	const modalImage = modal.querySelector(".figure-lightbox__image");
+
+	const modalCaption = modal.querySelector(".figure-lightbox__caption");
+
+	const modalOpenLink = modal.querySelector(".figure-lightbox__open");
+
+	const closeButton = modal.querySelector(".figure-lightbox__close");
+
+
+
+	const openModal = (img) => {
+
+		const src = img.currentSrc || img.src;
+
+		if (!src) return;
+
+
+
+		const fig = img.closest("figure") || img.closest(".quarto-figure");
+
+		const captionNode = fig && fig.querySelector("figcaption, .quarto-float-caption");
+
+		const caption = captionNode ? (captionNode.textContent || "").trim() : "";
+
+
+
+		modalImage.src = src;
+
+		modalImage.alt = img.alt || caption || "Figura";
+
+		modalCaption.textContent = caption;
+
+		modalOpenLink.href = src;
+
+		modal.classList.add("is-open");
+
+		modal.setAttribute("aria-hidden", "false");
+
+		document.body.style.overflow = "hidden";
+
+	};
+
+
+
+	const closeModal = () => {
+
+		modal.classList.remove("is-open");
+
+		modal.setAttribute("aria-hidden", "true");
+
+		modalImage.removeAttribute("src");
+
+		modalCaption.textContent = "";
+
+		modalOpenLink.removeAttribute("href");
+
+		document.body.style.overflow = "";
+
+	};
+
+
+
+	candidates.forEach((img) => {
+
+		if (img.closest("a")) return;
+
+		if (img.classList.contains("zoomable-figure")) return;
+
+		img.classList.add("zoomable-figure");
+
+
+
+		img.addEventListener("click", (ev) => {
+
+			ev.preventDefault();
+
+			openModal(img);
+
+		});
+
+	});
+
+
+
+	closeButton.addEventListener("click", closeModal);
+
+	modal.addEventListener("click", (ev) => {
+
+		if (ev.target === modal) closeModal();
+
+	});
+
+	document.addEventListener("keydown", (ev) => {
+
+		if (ev.key === "Escape" && modal.classList.contains("is-open")) {
+
+			closeModal();
+
+		}
+
+	});
+
+});
+
+</script>
 
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

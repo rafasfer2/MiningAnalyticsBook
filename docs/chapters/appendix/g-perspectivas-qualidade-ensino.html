@@ -481,6 +481,434 @@ Tabela&nbsp;H.1: Quadro-síntese das concepções de qualidade adaptadas ao Bras
 
 <script src="scripts/toc-expand-on-click.js"></script>
 
+
+
+<script>
+
+window.addEventListener("load", async function () {
+
+	if (!window.mermaid || !window.mermaid.mermaidAPI) {
+
+		return;
+
+	}
+
+
+
+	let i = 0;
+
+	const blocks = Array.from(document.querySelectorAll("pre.mermaid-js"));
+
+
+
+	for (const el of blocks) {
+
+		// Skip already rendered blocks.
+
+		if (el.querySelector("svg")) {
+
+			continue;
+
+		}
+
+
+
+		const source = (el.textContent || "").replaceAll("&nbsp;", " ");
+
+
+
+		try {
+
+			const id = `mermaid-safe-${++i}`;
+
+			const result = await window.mermaid.mermaidAPI.render(id, source, el);
+
+			el.innerHTML = result.svg;
+
+
+
+			if (el.dataset.label) {
+
+				const svg = el.firstChild;
+
+				const style = svg && svg.querySelector ? svg.querySelector("style") : null;
+
+				if (style && svg && svg.id) {
+
+					style.innerHTML = style.innerHTML.replaceAll(`#${svg.id}`, `#${el.dataset.label}-mermaid`);
+
+					svg.id = `${el.dataset.label}-mermaid`;
+
+				}
+
+			}
+
+		} catch (err) {
+
+			console.error("Mermaid render falhou para um bloco:", err);
+
+		}
+
+	}
+
+});
+
+</script>
+
+
+
+<script>
+
+window.addEventListener("DOMContentLoaded", function () {
+
+	const stateKey = "sidebar-collapsed";
+
+	const tocHost = document.querySelector("#quarto-margin-sidebar") ||
+
+						 document.querySelector("#quarto-toc-target");
+
+	const fallbackHost = document.querySelector("#quarto-header .navbar-container") ||
+
+							 document.querySelector("#quarto-header .container-fluid");
+
+	const controlHost = tocHost || fallbackHost;
+
+
+
+	if (!controlHost) {
+
+		return;
+
+	}
+
+
+
+	let toolsHost = document.querySelector(".toc-quick-controls");
+
+	if (!toolsHost && tocHost) {
+
+		toolsHost = document.createElement("div");
+
+		toolsHost.className = "toc-quick-controls";
+
+		tocHost.prepend(toolsHost);
+
+	}
+
+
+
+	const targetHost = toolsHost || controlHost;
+
+
+
+	if (!document.querySelector(".sidebar-toggle-btn")) {
+
+		const toggleBtn = document.createElement("button");
+
+		toggleBtn.type = "button";
+
+		toggleBtn.className = "sidebar-toggle-btn";
+
+		if (targetHost === toolsHost) {
+
+			toggleBtn.classList.add("toc-sidebar-toggle-btn");
+
+		}
+
+
+
+		const applyState = (collapsed) => {
+
+			document.body.classList.toggle("sidebar-collapsed", collapsed);
+
+			toggleBtn.innerHTML = collapsed
+
+				? '<span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label">Mostrar menu</span>'
+
+				: '<span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label">Ocultar menu</span>';
+
+			toggleBtn.setAttribute("aria-pressed", collapsed ? "true" : "false");
+
+		};
+
+
+
+		const initialCollapsed = localStorage.getItem(stateKey) === "1";
+
+		applyState(initialCollapsed);
+
+
+
+		toggleBtn.addEventListener("click", function () {
+
+			const next = !document.body.classList.contains("sidebar-collapsed");
+
+			applyState(next);
+
+			localStorage.setItem(stateKey, next ? "1" : "0");
+
+		});
+
+
+
+		targetHost.appendChild(toggleBtn);
+
+	}
+
+
+
+	const root = document.documentElement;
+
+	const key = "main-font-scale";
+
+	const minScale = 0.85;
+
+	const maxScale = 1.5;
+
+	const step = 0.05;
+
+
+
+	const clamp = (value) => Math.max(minScale, Math.min(maxScale, value));
+
+
+
+	const getScale = () => {
+
+		const stored = parseFloat(localStorage.getItem(key));
+
+		return Number.isFinite(stored) ? clamp(stored) : 1;
+
+	};
+
+
+
+	const setScale = (value) => {
+
+		const safe = clamp(value);
+
+		root.style.setProperty("--main-font-scale", String(safe));
+
+		localStorage.setItem(key, String(safe));
+
+	};
+
+
+
+	setScale(getScale());
+
+
+
+	if (document.querySelector(".toc-font-controls")) {
+
+		return;
+
+	}
+
+
+
+	const controls = document.createElement("div");
+
+	controls.className = "main-font-controls toc-font-controls";
+
+	controls.innerHTML = [
+
+		'<span class="font-label">Fonte:</span>',
+
+		'<button type="button" data-action="decrease" title="Diminuir fonte">A-</button>',
+
+		'<button type="button" data-action="reset" title="Fonte padrão">A</button>',
+
+		'<button type="button" data-action="increase" title="Aumentar fonte">A+</button>'
+
+	].join("");
+
+
+
+	controls.addEventListener("click", function (ev) {
+
+		const button = ev.target.closest("button[data-action]");
+
+		if (!button) return;
+
+
+
+		const current = getScale();
+
+		const action = button.dataset.action;
+
+
+
+		if (action === "decrease") setScale(current - step);
+
+		if (action === "increase") setScale(current + step);
+
+		if (action === "reset") setScale(1);
+
+	});
+
+
+
+	targetHost.appendChild(controls);
+
+});
+
+</script>
+
+
+
+<script>
+
+window.addEventListener("DOMContentLoaded", function () {
+
+	const contentRoot = document.querySelector("main.content") || document;
+
+	const candidates = contentRoot.querySelectorAll("figure img, .quarto-figure img, main.content img");
+
+
+
+	const modal = document.createElement("div");
+
+	modal.className = "figure-lightbox";
+
+	modal.setAttribute("aria-hidden", "true");
+
+	modal.innerHTML = [
+
+		'<div class="figure-lightbox__panel" role="dialog" aria-modal="true" aria-label="Visualizador de figura">',
+
+		'  <div class="figure-lightbox__toolbar">',
+
+		'    <a class="figure-lightbox__open" target="_blank" rel="noopener noreferrer">Abrir em nova guia</a>',
+
+		'    <button type="button" class="figure-lightbox__close" aria-label="Fechar">Fechar</button>',
+
+		'  </div>',
+
+		'  <div class="figure-lightbox__image-wrap">',
+
+		'    <img class="figure-lightbox__image" alt="" />',
+
+		'  </div>',
+
+		'  <div class="figure-lightbox__caption"></div>',
+
+		'</div>'
+
+	].join("");
+
+
+
+	document.body.appendChild(modal);
+
+
+
+	const modalImage = modal.querySelector(".figure-lightbox__image");
+
+	const modalCaption = modal.querySelector(".figure-lightbox__caption");
+
+	const modalOpenLink = modal.querySelector(".figure-lightbox__open");
+
+	const closeButton = modal.querySelector(".figure-lightbox__close");
+
+
+
+	const openModal = (img) => {
+
+		const src = img.currentSrc || img.src;
+
+		if (!src) return;
+
+
+
+		const fig = img.closest("figure") || img.closest(".quarto-figure");
+
+		const captionNode = fig && fig.querySelector("figcaption, .quarto-float-caption");
+
+		const caption = captionNode ? (captionNode.textContent || "").trim() : "";
+
+
+
+		modalImage.src = src;
+
+		modalImage.alt = img.alt || caption || "Figura";
+
+		modalCaption.textContent = caption;
+
+		modalOpenLink.href = src;
+
+		modal.classList.add("is-open");
+
+		modal.setAttribute("aria-hidden", "false");
+
+		document.body.style.overflow = "hidden";
+
+	};
+
+
+
+	const closeModal = () => {
+
+		modal.classList.remove("is-open");
+
+		modal.setAttribute("aria-hidden", "true");
+
+		modalImage.removeAttribute("src");
+
+		modalCaption.textContent = "";
+
+		modalOpenLink.removeAttribute("href");
+
+		document.body.style.overflow = "";
+
+	};
+
+
+
+	candidates.forEach((img) => {
+
+		if (img.closest("a")) return;
+
+		if (img.classList.contains("zoomable-figure")) return;
+
+		img.classList.add("zoomable-figure");
+
+
+
+		img.addEventListener("click", (ev) => {
+
+			ev.preventDefault();
+
+			openModal(img);
+
+		});
+
+	});
+
+
+
+	closeButton.addEventListener("click", closeModal);
+
+	modal.addEventListener("click", (ev) => {
+
+		if (ev.target === modal) closeModal();
+
+	});
+
+	document.addEventListener("keydown", (ev) => {
+
+		if (ev.key === "Escape" && modal.classList.contains("is-open")) {
+
+			closeModal();
+
+		}
+
+	});
+
+});
+
+</script>
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
