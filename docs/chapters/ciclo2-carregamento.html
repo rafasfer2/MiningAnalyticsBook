@@ -949,6 +949,36 @@ window.addEventListener("load", async function () {
 
 
 
+		const setMenuButtonUI = (collapsed) => {
+
+			const menuBtn = document.querySelector(".menu-toggle-btn");
+
+			if (!menuBtn) return;
+
+			menuBtn.innerHTML = collapsed
+
+				? '<span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label">Mostrar menu</span>'
+
+				: '<span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label">Ocultar menu</span>';
+
+			menuBtn.setAttribute("aria-pressed", collapsed ? "true" : "false");
+
+		};
+
+
+
+		const applySidebarState = (collapsed) => {
+
+			document.body.classList.toggle("sidebar-collapsed", collapsed);
+
+			localStorage.setItem(stateKey, collapsed ? "1" : "0");
+
+			setMenuButtonUI(collapsed);
+
+		};
+
+
+
 		const applyHeaderWidthMode = (mode) => {
 
 			const safeMode = mode === "wide" ? "wide" : "standard";
@@ -993,7 +1023,15 @@ window.addEventListener("load", async function () {
 
 				const current = localStorage.getItem(headerWidthKey) === "wide" ? "wide" : "standard";
 
-				applyHeaderWidthMode(current === "wide" ? "standard" : "wide");
+				const next = current === "wide" ? "standard" : "wide";
+
+				if (next === "wide") {
+
+					applySidebarState(true);
+
+				}
+
+				applyHeaderWidthMode(next);
 
 			});
 
@@ -1021,25 +1059,9 @@ window.addEventListener("load", async function () {
 
 
 
-			const applyState = (collapsed) => {
-
-				document.body.classList.toggle("sidebar-collapsed", collapsed);
-
-				toggleBtn.innerHTML = collapsed
-
-					? '<span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label">Mostrar menu</span>'
-
-					: '<span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label">Ocultar menu</span>';
-
-				toggleBtn.setAttribute("aria-pressed", collapsed ? "true" : "false");
-
-			};
-
-
-
 			const initialCollapsed = localStorage.getItem(stateKey) === "1";
 
-			applyState(initialCollapsed);
+			setMenuButtonUI(initialCollapsed);
 
 
 
@@ -1047,15 +1069,27 @@ window.addEventListener("load", async function () {
 
 				const next = !document.body.classList.contains("sidebar-collapsed");
 
-				applyState(next);
-
-				localStorage.setItem(stateKey, next ? "1" : "0");
+				applySidebarState(next);
 
 			});
 
 
 
 			host.appendChild(toggleBtn);
+
+		}
+
+
+
+		const initialCollapsed = localStorage.getItem(stateKey) === "1";
+
+		applySidebarState(initialCollapsed);
+
+
+
+		if (localStorage.getItem(headerWidthKey) === "wide") {
+
+			applySidebarState(true);
 
 		}
 
