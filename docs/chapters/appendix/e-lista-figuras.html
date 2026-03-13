@@ -827,8 +827,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
 	candidates.forEach((img) => {
 
-		if (img.closest("a")) return;
-
 		if (img.classList.contains("zoomable-figure")) return;
 
 		img.classList.add("zoomable-figure");
@@ -838,6 +836,8 @@ window.addEventListener("DOMContentLoaded", function () {
 		img.addEventListener("click", (ev) => {
 
 			ev.preventDefault();
+
+			ev.stopPropagation();
 
 			openModal(img);
 

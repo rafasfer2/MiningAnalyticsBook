@@ -252,8 +252,8 @@ main.content p, main.content blockquote { text-align: justify; }
    ========================================= */
 #quarto-header {
   position: fixed !important; top: 0 !important;
-  left: var(--sidebar-width) !important;
-  right: var(--toc-width) !important;
+  left: calc(var(--sidebar-width) + var(--content-gap)) !important;
+  right: calc(var(--toc-width) + var(--content-gap)) !important;
   height: var(--header-height) !important;
   background: white !important;
   z-index: 110 !important;
@@ -638,6 +638,7 @@ body.sidebar-collapsed #quarto-sidebar {
 
 body.sidebar-collapsed #quarto-header {
   left: 0 !important;
+  right: calc(var(--toc-width) + var(--content-gap)) !important;
 }
 
 body.nav-sidebar.sidebar-collapsed {
