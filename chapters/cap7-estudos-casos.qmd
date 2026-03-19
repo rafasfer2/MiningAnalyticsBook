@@ -6,18 +6,27 @@ format: html
 
 Este capítulo consolida o poder analítico do método apresentado ao longo do livro. Até o momento, aplicamos a Modelagem Analítica de Requisitos (ARM) em avaliações de qualidade de produtos físicos e rotinas logísticas. Agora, elevaremos o nível de complexidade para demonstrar a escalabilidade do modelo em três frentes avançadas: a avaliação de perfis humanos (competências do engenheiro), a auditoria de sistemas técnicos (planos de manutenção) e a mensuração do relacionamento interno em sistemas de gestão.
 
-## A Expansão Multidimensional: Avaliação de Competências Humanas {#sec-arm-competencias}
+## A Expansão Multidimensional e a Construção do Modelo {#sec-arm-competencias}
 
 Para demonstrar a verdadeira escalabilidade matemática do modelo ARM, elevaremos a aplicação para um cenário de alta complexidade intangível: a avaliação de competências humanas e o *People Analytics*.
 
 Avaliá-las de forma puramente subjetiva ("é um bom aluno" ou "é um bom profissional") destrói a capacidade de melhoria contínua dos sistemas de ensino e de gestão de RH. Precisamos de métricas exatas. Para demonstrar como a engenharia de dados resolve esse problema, dividiremos esta seção em duas frentes complementares de aplicação acadêmica e mercadológica:
 
+```{r}
+#| label: setup-cap7-dados
+#| include: false
+#| warning: false
+#| message: false
+
+# Define quiet_source localmente (para previews single-file)
+quiet_source <- function(file, ...) invisible(capture.output(source(file, encoding = "UTF-8", ...)))
+
+# Bootstrap: carrega trat.forms.R silenciosamente
+quiet_source("R/trat.forms.R")
+```
+
 1. **Modelagem de Perfis (Estudo de Caso I - Engenharia):** Como usar o motor matemático multivariado para alocar alunos em arquétipos de atuação e formar equipes multidisciplinares.
 2. **Auditoria de Instrumentos e Gaps (Estudo de Caso II - Administração):** Como utilizar a Teoria da Resposta ao Item (TRI) e o cruzamento de percepções (Exigência vs. Desempenho) para validar estatisticamente um questionário e encontrar lacunas curriculares críticas.
-
----
-
-### Estudo de Caso I: O Perfil do Egresso na Engenharia (Modelo CHAE) {#sec-arm-multidimensional}
 
 O egresso de engenharia de produção deve integrar saberes que permitam a sua inserção decisiva no contexto social e profissional. Para estruturar essa análise, o perfil do profissional moderno é parametrizado através do **Modelo CHAE** (Conhecimento, Habilidades, Atitudes e Entregas):
 
@@ -46,13 +55,13 @@ Para sustentar a formação das competências (o Processo de transformação), a
 * **⚙️ Núcleo Profissionalizante:** Automação industrial, Eletrônica básica e instrumentação, Gestão da saúde e segurança, Mecânica geral, Metrologia, Processos de fabricação.
 * **🏭 Núcleo Específico:** Engenharia de operações e processo de produção, Logística, Pesquisa operacional, Engenharia da qualidade, Engenharia do produto, Engenharia organizacional, Engenharia econômica, Engenharia do trabalho, Engenharia da sustentabilidade, Educação em engenharia de produção.
 
-### O Estudo de Caso: People Analytics na Avaliação de Competências {#sec-caso-competencias}
+### As Três Dimensões da Avaliação {#sec-caso-competencias}
 
 Este estudo avança sobre a intangibilidade do capital humano. O objetivo é utilizar o modelo ARM para quantificar o perfil profissional do Engenheiro de Produção frente às exigências do mercado e à sua própria percepção de desenvolvimento.
 
 O grande desafio analítico é traduzir as diretrizes abstratas do Ministério da Educação (O Processo) em comportamentos observáveis mensuráveis (As Saídas). Para estruturar o cálculo, o perfil do engenheiro foi desdobrado em três grandes dimensões analíticas, gerando **51 variáveis operacionais**.
 
-##### Dimensão 1: A Matriz de Competências Macros
+#### Dimensão 1: Competências Macros
 
 | Grupo Analítico | Variável de Avaliação ($x_i$) | Descrição Prática do Comportamento |
 | :--- | :--- | :--- |
@@ -68,7 +77,7 @@ O grande desafio analítico é traduzir as diretrizes abstratas do Ministério d
 : Matriz de Desdobramento das Competências do Egresso {#tbl-competencias-egresso tbl-colwidths="[15,35,50]"}
 
 
-##### Dimensão 2: A Matriz de Habilidades Profissionais
+#### Dimensão 2: Habilidades Profissionais
 
 | Grupo Analítico | Variável de Avaliação ($x_i$) | Descrição Prática do Comportamento |
 | :--- | :--- | :--- |
@@ -81,7 +90,7 @@ O grande desafio analítico é traduzir as diretrizes abstratas do Ministério d
 : Matriz Consolidada de Habilidades do Egresso {#tbl-habilidades-egresso tbl-colwidths="[15,40,45]"}
 
 
-##### Dimensão 3: A Matriz de Atitudes Comportamentais
+#### Dimensão 3: Atitudes Comportamentais
 
 | Grupo Analítico | Variável de Avaliação ($x_i$) | Descrição Prática do Comportamento |
 | :--- | :--- | :--- |
@@ -143,214 +152,6 @@ Com essa fundação matemática estabelecida, o instrumento deixa de ser um simp
 
 ---
 
-#### ⏱️ Rodada 1: Autopercepção e o Score Inicial (Individual)
-
-* **O que acontece:** O aluno responde individualmente ao questionário baseado na sua própria percepção de competência, utilizando uma escala *Likert* de 1 a 5.
-* **O Processamento:** Imediatamente após o preenchimento, o script em `R` processa as respostas contra a matriz de pesos ($w_i$) e gera o **Score Inicial ($\theta$)**.
-* **Ação Gerencial:** Com os perfis dominantes calculados, o professor (ou o algoritmo) distribui os alunos fisicamente na sala, formando os Esquadrões Multidisciplinares. A partir deste momento, o aluno senta-se com colegas que possuem visões de mundo (e matrizes de pontuação) diferentes da sua.
-* **🔗 Link de Acesso:** [FORMULÁRIO 1 — Autopercepção de Desempenho](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UMk8zNThSUjFJTTVBN09KR0k1VVBFNVhSUC4u)
-
-#### Aplicação, Coleta e Tratamento dos Dados
-
-Para viabilizar a coleta ágil e padronizada das respostas, utilizou-se a plataforma Microsoft Forms, acessível através do link estruturado para a disciplina. Na aplicação mais recente, realizada no dia de ontem (12 de março de 2026), obteve-se um total de 38 respostas válidas. Como premissa de segurança e ética, as respostas são nativamente armazenadas em servidores seguros, acessíveis apenas pelos responsáveis pela análise, com os protocolos de anonimização aplicados na primeira camada de tratamento.
-
-Os dados brutos extraídos da nuvem são então organizados, excluindo-se metadados irrelevantes gerados pelo formulário, a fim de facilitar a análise específica. As respostas textuais da escala *Likert* são transformadas em dados categóricos e numéricos, com o processamento multivariado e as validações estatísticas sendo integralmente realizados no software `R`.
-
-O código a seguir demonstra a primeira fase desse fluxo de engenharia de dados: ele importa os resultados, mascara as informações sensíveis (substituindo os nomes reais e matrículas completas por identificadores genéricos do perfil) e isola o conjunto vetorial para cálculo.
-
-```{r}
-#| label: tbl-amostra-anonimizada
-#| tbl-cap: "Amostra Anonimizada: Respostas Parametrizadas do Formulário 1 (Autopercepção)"
-#| echo: true
-#| warning: false
-#| message: false
-
-# 1. Carregar pacotes necessários para o tratamento e renderização
-library(dplyr)
-library(knitr)
-library(kableExtra)
-
-# 2. Criação de um subset didático para o livro (LGPD estrita)
-# (Na prática da pesquisa, df_amostra recebe os dados brutos de df_scores)
-df_amostra <- data.frame(
-  id = 1:5,
-  # Máscara aplicada diretamente no código para evitar nomes impressos no livro
-  nome_completo = paste0("[NOME_OMITIDO_", 1:5, "]"),
-  matricula = c("2024019999", "2024008888", "2022007777", "2023016666", "2024015555"),
-  C01 = c(3, 3, 3, 3, 2),
-  C02 = c(2, 2, 2, 3, 2),
-  C03 = c(3, 2, 3, 3, 1),
-  H01 = c(2, 3, 3, 5, 3),
-  H02 = c(3, 2, 5, 3, 2),
-  H03 = c(3, 3, 5, 5, 3),
-  A01 = c(3, 4, 4, 4, 3),
-  A02 = c(4, 4, 5, 4, 4),
-  A03 = c(4, 4, 4, 5, 4)
-)
-
-# 3. Processo de Anonimização Computacional e Seleção para Publicação
-df_anonimizado <- df_amostra %>%
-  mutate(
-    # Cria um ID cego que será a única identificação do aluno nas análises
-    Aluno_Perfil = paste0("Aluno_0", id),
-    # Oculta a matrícula, extraindo apenas o ano de entrada (os 4 primeiros caracteres)
-    Ano_Ingresso = substr(as.character(matricula), 1, 4)
-  ) %>%
-  # Descarta explicitamente a coluna "nome_completo" e "matricula" original,
-  # mantendo apenas a identificação mascarada e um recorte das 3 dimensões (CHA)
-  select(Aluno_Perfil, Ano_Ingresso, C01, C02, C03, H01, H02, H03, A01, A02, A03)
-
-# 4. Renderização visual avançada para o formato Livro
-df_anonimizado %>%
-  kbl(
-    align = "c",
-    col.names = c("ID Perfil", "Ingresso",
-                  "C01", "C02", "C03",
-                  "H01", "H02", "H03",
-                  "A01", "A02", "A03")
-  ) %>%
-  kable_styling(
-    bootstrap_options = c("striped", "hover", "condensed"),
-    full_width = FALSE,
-    position = "center",
-    font_size = 14
-  ) %>%
-  # Agrupa as colunas com um cabeçalho superior explicativo
-  add_header_above(c("Identificação Mascarada" = 2,
-                     "Competências (C)" = 3,
-                     "Habilidades (H)" = 3,
-                     "Atitudes (A)" = 3),
-                   bold = TRUE, background = "#f8f9fa", color = "#2c3e50") %>%
-  column_spec(1, bold = TRUE, color = "#2c3e50") %>%
-  column_spec(2, italic = TRUE, color = "#7f8c8d")
-```
-
-A @tbl-amostra-anonimizada apresentada pelo processamento evidencia um recorte prático da base de dados logo após este tratamento computacional, deixando-a pronta para as iterações algébricas.
-
-Analisando a estrutura matricial consolidada — que em uma aplicação acadêmica real pode contar com dezenas ou até centenas de respondentes simultâneos —, conseguimos visualizar a manifestação prática das equações do instrumento de medida.
-
-A título de exemplo, em um cenário avaliativo contemplando a totalidade de $I = 51$ itens (sendo 8 de Competências, 23 de Habilidades e 20 de Atitudes), se um respondente ($j = 2$) assinala a nota máxima (5) em todas as perguntas, o cálculo do seu *score* individual de autopercepção alcançará o limite superior da escala:
-
-$$T_2 = \sum_{i=1}^{51} y_{i,2}^{P_a} = 255$$
-
-Esse resultado extremo significa que ele percebe que todas as competências, habilidades e atitudes avaliadas estão perfeitamente consolidadas em seu perfil. De outra forma, um respondente ($j = 38$) que reflete maior variabilidade e autocrítica em suas respostas gerará um *score* menor (por exemplo, $T_{38} = 142$), fornecendo ao algoritmo de distribuição uma assinatura comportamental única para a montagem dos esquadrões.
-
-Além dos *scores* individuais, o tratamento do sistema permite o cálculo vetorial das médias de resposta para cada variável isolada. Se analisarmos uma competência como a $C_{01}$ e obtivermos uma média agregada de respostas da turma de $M_{C_{01}}^{P_a} = 4,70$, poderemos compará-la com o restante da matriz. Caso essa média seja estatisticamente maior que a da variável $C_{08}$ e menor que a da $C_{02}$, o professor ganha o poder de ranquear com precisão matemática quais características a turma domina coletivamente e quais representam deficiências latentes que exigem intervenção pedagógica na disciplina.
-
-#### Análise Linear dos Resultados: A Distribuição dos Scores ($\theta$)
-
-Ao aplicar um modelo matemático estritamente linear sobre a base de dados acima, onde o *score* final ($\theta$) é a simples média aritmética das respostas ($x_i$), observamos um comportamento contraintuitivo. A ilustração gráfica da distribuição da soma dos pontos referentes exclusivamente às Competências Macros (variáveis $C_{01}$ a $C_{08}$) reforça essa premissa.
-
-Uma análise rápida da distribuição dos *scores* por dimensão revela que a turma atinge notas altíssimas no bloco das Atitudes ($\bar{A} > 4.0$), com uma concentração massiva nas notas 4 e 5. Em contrapartida, as médias das Competências Científicas ($\bar{C}$) e Habilidades Operacionais ($\bar{H}$) sofrem forte flutuação, frequentemente estacionando na faixa de 2.0 a 3.0.
-
-Se o modelo for cego, ele assumirá que estamos lidando com uma turma de líderes natos e empáticos, mas com graves deficiências operacionais. No entanto, a engenharia de dados nos ensina que o fator humano corrompe o instrumento avaliativo.
-
-```{r}
-#| label: fig-distribuicao-competencias
-#| fig-cap: "Distribuição dos Scores Totais de Competências Macros (C01 a C08)"
-#| warning: false
-#| message: false
-#| echo: true
-
-# Carregando o pacote gráfico
-library(ggplot2)
-
-# 1. Inserção dos Dados Reais (Rodada 1)
-# Para garantir a reprodutibilidade da compilação do livro sem depender
-# de arquivos locais, inserimos o vetor exato com a soma das Competências (C)
-# extraído e processado pelo script 'modelo_cha.R' para as 38 respostas.
-df_classificacao_final <- data.frame(
-  C = c(22, 20, 21, 26, 26, 14, 17, 19, 21, 18,
-        21, 24, 24, 20, 21, 17, 22, 25, 19, 24,
-        15, 19, 14, 22, 19, 21, 18, 18, 17, 24,
-        18, 18, 16, 20, 24, 18, 20, 21)
-)
-
-# 2. Construção do Gráfico de Distribuição
-ggplot(df_classificacao_final, aes(x = C)) +
-  # Histograma em azul
-  geom_histogram(binwidth = 2, fill = "#2980b9", color = "white", alpha = 0.8) +
-  # Linha de densidade em vermelho (ajustada para a escala de contagem do histograma)
-  geom_density(aes(y = after_stat(count) * 2), color = "#c0392b", linewidth = 1.2) +
-  labs(
-    title = "Distribuição da Autopercepção: Competências (C)",
-    subtitle = "Soma linear das 8 variáveis de Competência (n = 38 respostas)",
-    x = "Score Total de Competências (Soma C)",
-    y = "Frequência (Número de Alunos)"
-  ) +
-  scale_x_continuous(breaks = seq(0, 40, by = 5), limits = c(10, 40)) +
-  theme_minimal(base_size = 14) +
-  theme(
-    plot.title = element_text(face = "bold", color = "#2c3e50"),
-    plot.subtitle = element_text(color = "#7f8c8d"),
-    panel.grid.minor = element_blank(),
-    axis.title = element_text(face = "bold")
-  )
-```
-
-##### Interpretação Analítica: O Comportamento da Autopercepção
-
-O gráfico revela o comportamento estatístico das respostas de 38 alunos ao avaliarem seu próprio domínio nas 8 variáveis de Competências Macros ($C_{01}$ a $C_{08}$). Como a escala *Likert* vai de 1 a 5 para cada variável, a soma linear máxima possível por aluno é de 40 pontos, e a mínima é de 8 pontos. A partir da visualização, extraem-se as seguintes conclusões de engenharia comportamental:
-
-* **A Concentração da Autopercepção (Moda e Mediana):** A grande massa de alunos se agrupa na faixa de 18 a 22 pontos. Se dividirmos isso pelas 8 variáveis, obtemos uma nota média individual em torno de 2,2 a 2,7. Em termos de autopercepção de competências técnicas rigorosas (como conceber sistemas e aplicar fenômenos físicos), a turma se considera predominantemente "Regular" ou "Média". Isso evidencia uma modéstia inicial que geralmente contrasta com a inflação que costuma ocorrer na avaliação de Atitudes.
-* **A Forma da Distribuição (A Linha de Densidade):** A curva contínua não forma uma distribuição normal perfeita. Ela apresenta um comportamento bimodal e levemente assimétrico à direita. O primeiro pico (a grande massa) ocorre em torno do *score* 19, representando os alunos ancorados nas notas 2 e 3. Há um "ressalto" secundário na curva em torno do *score* 24, indicando um subgrupo menor e mais autoconfiante, que se percebe com um nível superior de competência técnica (assinalando notas 3 e 4).
-* **A Ausência dos Extremos (Viés de Tendência Central):** Nenhum aluno atingiu *scores* próximos a 40 (excelência absoluta percebida), e o limite máximo estacionou abaixo de 30. Simultaneamente, não há alunos com o *score* mínimo de 8; as notas iniciam na faixa de 14 pontos. Isso comprova matematicamente o "Viés de Tendência Central": mesmo diante do desconhecimento pleno de uma técnica, o ser humano evita a nota mínima (1) em autoavaliações, buscando o conforto estatístico do meio da escala.
-
-#### O Diagnóstico: Mapeamento de Vieses na Autopercepção
-
-Ao tabular essas respostas da escala *Likert* (1 a 5), a discrepância entre as dimensões não reflete necessariamente a realidade, mas sim a presença de quatro padrões estatísticos (vieses) que dominam a matriz de dados:
-
-##### 1. O Viés de Desejabilidade Social (O "Efeito Bom Moço")
-Na dimensão das Atitudes (A) — que engloba Ética (A06), Empatia (A09), Respeito (A10) —, quase nenhum aluno se autoavalia com nota 1 ou 2. O cérebro humano tem extrema dificuldade em admitir falhas morais ou de caráter, mesmo em formulários anônimos.
-
-* **Como extrair nos dados:** Ao calcular a média global das três dimensões, nota-se uma forte assimetria negativa (curva deslocada para a direita) na dimensão das Atitudes, criando um teto artificial.
-* **O Problema:** Isso cega o algoritmo. Se todo mundo é "Sempre Ético e Empático", a variável perde sua variância e não serve para diferenciar os perfis.
-
-##### 2. Efeito Dunning-Kruger (A Superestimação da Incompetência)
-Comum em alunos mais novos ou inexperientes. Aqueles que menos dominam Habilidades Técnicas e Operacionais (H08 a H13) — como usar *softwares* ou aplicar métodos complexos — costumam dar a si mesmos notas altas (4 ou 5) porque não conhecem a profundidade real da ferramenta para saberem o quanto ignoram sobre ela.
-
-* **Como extrair nos dados:** Cruzando os dados do formulário com o rendimento acadêmico real, frequentemente os alunos com as menores notas na disciplina apresentam notas de autopercepção técnica maiores que os alunos de alto rendimento.
-
-##### 3. A Síndrome do Impostor (A Subestimação da Competência)
-O oposto do Dunning-Kruger. Alunos brilhantes, altamente analíticos e detalhistas sabem o quão vasto é o campo da Engenharia. Por saberem muito, sentem que sabem pouco.
-
-* **Como extrair nos dados:** Eles tendem a jogar suas notas de Análise Científica (C02) e Modelagem (H04) para 2 ou 3, rebaixando seu próprio *score* ($\theta$) de forma injusta em comparação aos colegas menos competentes.
-
-##### 4. Viés de Tendência Central (A Fuga do Extremo)
-Acontece quando o aluno preenche o formulário com pressa ou medo de se comprometer, marcando a opção do meio para quase todas as 51 variáveis.
-
-* **Como extrair nos dados:** Calcule o Desvio Padrão ($\sigma$) intra-aluno. Um $\sigma$ próximo a zero significa que o aluno respondeu "3" em quase tudo. Esse perfil não gera "picos" no radar, e o algoritmo linear terá extrema dificuldade em alocá-lo.
-
-Embora esses quatro padrões sejam os mais evidentes nesta aplicação, há outros vieses relevantes que também podem distorcer significativamente a leitura dos resultados e comprometer decisões pedagógicas e gerenciais baseadas em métricas lineares.
-
-::: {.callout-warning title="⚠️ GARGALO ANALÍTICO: Vieses gerados no processo de resposta"}
-
-Ao aplicar questionários de autopercepção, a abordagem linear é frequentemente corrompida. A literatura e a prática evidenciam 10 vieses principais que "achatam" os resultados:
-
-1. **Viés de desejabilidade social:** Tendência a responder aquilo que parece “correto”, “bem‑visto” ou “profissional”, e não aquilo que realmente representa o comportamento da pessoa.
-2. **Viés de autopercepção:** Pessoas costumam superestimar habilidades técnicas e subestimar habilidades socioemocionais, criando distorções sistemáticas.
-3. **Viés de familiaridade:** Itens mais fáceis de entender ou mais próximos da experiência do respondente recebem notas mais altas, independentemente da competência real.
-4. **Viés de consistência:** Respondentes tendem a repetir padrões (ex.: marcar 4 ou 5 em sequência), reduzindo a variabilidade e mascarando diferenças reais entre dimensões.
-5. **Viés de ancoragem:** A primeira resposta influencia as seguintes; se o início é alto, o restante tende a ser alto também.
-6. **Viés de esforço cognitivo:** Itens mais abstratos, complexos ou vagos recebem notas mais baixas por dificuldade de interpretação, não por falta de competência.
-7. **Viés de saturação dos pesos:** Quando um perfil tem muitos itens classificados como “Forte”, ele tende a ser favorecido independentemente das respostas, porque acumula mais multiplicadores altos.
-8. **Viés estrutural da matriz:** Perfis com pesos calibrados maiores em itens mais respondidos tendem a dominar, mesmo que o respondente não tenha intenção de expressar esse perfil.
-9. **Viés de ordem das perguntas:** Itens no início do formulário recebem mais atenção; itens no final sofrem fadiga e respostas mais rápidas e menos refletidas.
-10. **Viés de interpretação:** Respondentes podem interpretar o mesmo item de maneiras diferentes, especialmente em atitudes e habilidades socioemocionais.
-:::
-
-#### O Gancho Analítico: O Choque de Realidade para a Turma
-
-Para justificar a necessidade de abandonar a avaliação linear e avançar para a Rodada 2 (Exigência do Mercado) e Rodada 3 (Avaliação por Pares), o gestor deve projetar um *dashboard* simples na sala com a seguinte narrativa:
-
-> **A Análise da Turma:**
-> *"Turma, processei o Formulário 1 de vocês. Estatisticamente, a média de Atitudes (Ética, Trabalho em Equipe) de vocês foi 4.6 de 5.0. No papel, vocês são a equipe mais perfeita, colaborativa e empática que a Engenharia já viu."*
->
-> *"Por outro lado, a média das Habilidades Técnicas foi de apenas 2.8. Vocês estão me dizendo que são ótimas pessoas, mas que não sabem apertar o botão da máquina?"*
->
-> **O Choque de Realidade:**
-> *"Esse descompasso ocorre porque no Formulário 1 nós usamos a nossa própria régua para nos medir. A partir de agora, os grupos que o algoritmo formou vão sentar juntos. Vocês vão olhar para as mesmas variáveis, mas desta vez, não vão dizer o que vocês acham de si mesmos. Vocês terão que entrar em consenso sobre qual é a régua do mercado lá fora. É aí que a engenharia de verdade começa."*
-
 ### Do Modelo Univariável à Extensão Multivariada
 
 Conforme detalhado na seção sobre o Modelo Univariável (@sec-arm-uni e @sec-arm-multivariavel), a abordagem do *Flat Model* apoiada na Teoria Clássica da Medida (TCM) assume que a simples soma das respostas ($x_i$) é suficiente para determinar o construto latente global ($\theta$). No entanto, como comprovado pela análise de distribuição e pelos vieses cognitivos mapeados na Rodada 1, essa soma linear falha ao não refletir a pluralidade de perfis que o mercado exige e ao ser severamente corrompida pela percepção humana.
@@ -376,35 +177,31 @@ Para visualizar como a importância estrutural de cada competência é distribu�
 
 ```{r}
 #| label: tbl-matriz-pesos-base
-#| tbl-cap: "Matriz de Pesos Base (w_i) por Perfil e Competência"
+#| tbl-cap: "Matriz de Pesos Base ($w_i$) por Perfil e Competência"
 #| echo: true
 #| warning: false
 #| message: false
 
 library(dplyr)
 library(tidyr)
+library(stringr)
 library(knitr)
 library(kableExtra)
 
-# 1. Reconstrução dos dados para renderização autossuficiente
-df_pesos_base_competencias <- data.frame(
-  Cód = rep(paste0("C0", 1:8), 6),
-  P = rep(paste0("P0", 1:6), each = 8),
-  Peso_Base = c(
-    0.20, 0.25, 0.25, 0.05, 0.03, 0.02, 0.05, 0.15, # P01
-    0.15, 0.10, 0.25, 0.30, 0.05, 0.03, 0.02, 0.10, # P02
-    0.30, 0.10, 0.25, 0.05, 0.05, 0.03, 0.02, 0.20, # P03
-    0.10, 0.02, 0.10, 0.03, 0.40, 0.20, 0.05, 0.10, # P04
-    0.15, 0.02, 0.10, 0.25, 0.05, 0.35, 0.05, 0.03, # P05
-    0.15, 0.20, 0.15, 0.05, 0.03, 0.02, 0.30, 0.10  # P06
-  )
-)
+# 1. Carrega o back-end (que já processou a planilha do OneDrive)
+quiet_source("R/trat.forms.R")
 
-# 2. Pivoteamento e Cálculo dos Totais
-df_wide <- df_pesos_base_competencias %>%
-  pivot_wider(names_from = P, values_from = Peso_Base)
+# 2. Extração dinâmica e Pivoteamento
+df_wide <- df_pesos_automatizados %>%
+  # Filtra apenas as Competências (C01 a C08)
+  filter(str_detect(Cód, "^C[0-9]{2}$")) %>%
+  select(Cód, P, Peso_Base) %>%
+  # Transforma de formato longo para matriz (largo)
+  pivot_wider(names_from = P, values_from = Peso_Base) %>%
+  # Garante a ordenação correta das competências
+  arrange(Cód)
 
-# Adiciona a linha de totalização para garantir 1.00 (100%)
+# 3. Adiciona a linha de totalização para garantir 1.00 (100%)
 df_totais <- df_wide %>%
   summarise(
     Cód = "TOTAL",
@@ -413,7 +210,7 @@ df_totais <- df_wide %>%
 
 df_final <- bind_rows(df_wide, df_totais)
 
-# 3. Formatação e Renderização da Tabela
+# 4. Formatação e Renderização da Tabela
 df_final %>%
   # Define 2 casas decimais para padronizar a visualização (ex: 1.00)
   kbl(align = "c", booktabs = TRUE, digits = 2) %>%
@@ -422,247 +219,12 @@ df_final %>%
     full_width = FALSE,
     position = "center"
   ) %>%
-  add_header_above(c(" " = 1, "Pesos Base por Perfil (w_i)" = 6), bold = TRUE) %>%
+  add_header_above(c(" " = 1, "Pesos Base por Perfil ($w_i$)" = 6), bold = TRUE) %>%
   column_spec(1, bold = TRUE, color = "#2c3e50") %>%
   column_spec(2:7, color = "black") %>%
   # Destaca estruturalmente a última linha (Totais)
   row_spec(nrow(df_final), bold = TRUE, background = "#e9ecef", color = "#c0392b")
 ```
-### A Matemática na Prática: O Cálculo Matricial dos Perfis
-
-Para compreender como o modelo de Requisitos Analíticos (ARM) transforma notas isoladas em um diagnóstico de perfil, vamos abrir a "caixa-preta" do algoritmo utilizando os dados reais do **Aluno_01** (extraído da nossa amostra anonimizada).
-
-Na avaliação das 8 Competências Macros ($C_{01}$ a $C_{08}$), este aluno assinalou as seguintes notas na escala *Likert* (1 a 5), totalizando os 22 pontos que vimos no histograma:
-
-* $C_{01}$ (Conceber soluções): **3**
-
-* $C_{02}$ (Analisar fenômenos): **2**
-
-* $C_{03}$ (Projetar sistemas): **3**
-
-* $C_{04}$ (Implantar e controlar): **3**
-
-* $C_{05}$ (Comunicar-se): **4**
-
-* $C_{06}$ (Liderar equipes): **2**
-
-* $C_{07}$ (Agir com ética): **2**
-
-* $C_{08}$ (Aprender com autonomia): **3**
-
-Na álgebra linear do nosso sistema, essas respostas formam o vetor de entrada do indivíduo ($Y_1$):
-
-$$Y_1 = \begin{bmatrix} 3 & 2 & 3 & 3 & 4 & 2 & 2 & 3 \end{bmatrix}^T$$
-
-O escore final ($\theta_p$) do aluno para um determinado Perfil ($p$) é o produto escalar (*dot product*) entre o seu vetor de respostas ($Y_1$) e o vetor de pesos daquele perfil ($W_p$), extraído da matriz que acabamos de construir:
-
-$$\theta_p = \sum_{i=1}^{8} (y_{i} \times w_{i,p})$$
-
-#### O Contraste: Perfil Analítico vs. Perfil Comunicador
-
-Vamos calcular o nível de aderência do Aluno_01 ao **Perfil 1 (Analítico-Técnico)**. O algoritmo multiplica cada nota pela exigência estrutural daquele perfil:
-
-$$
-\begin{align*}
-\theta_{P1} &= (3 \times 0.20) + (2 \times 0.25) + (3 \times 0.25) + (3 \times 0.05) \\
-            &\quad + (4 \times 0.03) + (2 \times 0.02) + (2 \times 0.05) + (3 \times 0.15) \\
-\theta_{P1} &= 0.60 + 0.50 + 0.75 + 0.15 + 0.12 + 0.04 + 0.10 + 0.45 \\
-\theta_{P1} &= \mathbf{2.71 \text{ (de 5.00)}}
-\end{align*}
-$$
-
-Agora, o algoritmo roda a mesma equação matemática para o **Perfil 4 (Comunicador-Articulador)**, usando a mesma entrada de dados ($Y_1$), mas submetendo-a à matriz de pesos do P04:
-
-$$
-\begin{align*}
-\theta_{P4} &= (3 \times 0.10) + (2 \times 0.02) + (3 \times 0.10) + (3 \times 0.03) \\
-            &\quad + (4 \times 0.40) + (2 \times 0.20) + (2 \times 0.05) + (3 \times 0.10) \\
-\theta_{P4} &= 0.30 + 0.04 + 0.30 + 0.09 + 1.60 + 0.40 + 0.10 + 0.30 \\
-\theta_{P4} &= \mathbf{3.13 \text{ (de 5.00)}}
-\end{align*}
-$$
-
-O sistema repete esse processo simultaneamente para os 6 arquétipos, gerando um vetor de *scores* absolutos para o Aluno_01: $[\theta_{P1}=2.71; \theta_{P2}=2.90; \theta_{P3}=2.87; \theta_{P4}=3.13; \theta_{P5}=2.68; \theta_{P6}=2.76]$.
-
-Para definir o perfil percentual relativo (o "Radar" do aluno), o algoritmo divide o *score* de cada perfil pela soma total dos *scores* gerados (17.05). O resultado final consagra o **Perfil Dominante**:
-
-* Perfil 1 (Analítico): 15,89%
-* Perfil 2 (Operações): 17,00%
-* Perfil 3 (Criativo): 16,83%
-* **Perfil 4 (Comunicador): 18,35% (Perfil Dominante)**
-* Perfil 5 (Líder): 15,71%
-* Perfil 6 (Sustentável): 16,18%
-
-#### A Escala do Algoritmo: Comparativo de Perfis da Amostra
-
-Demonstrar o cálculo matricial para um único aluno é fundamental para validar a matemática do modelo. No entanto, o verdadeiro poder do *People Analytics* surge quando o algoritmo processa essas equações simultaneamente para dezenas de estudantes e normaliza os resultados em percentuais relativos (o "Radar" de cada perfil).
-
-Para ilustrar essa visão gerencial que o professor obtém ao final da Rodada 1, o script (@tbl-comparativo-perfis) a seguir consolida os *scores* finais de uma amostra de 5 alunos anonimizados. O código calcula a distribuição percentual das vocações e identifica automaticamente a qual arquétipo cada estudante pertence.
-
-```{r}
-#| label: tbl-comparativo-perfis
-#| tbl-cap: "Mapeamento do Radar Multivariável e Perfil Dominante (Amostra de 5 Alunos)"
-#| echo: true
-#| warning: false
-#| message: false
-
-library(dplyr)
-library(knitr)
-library(kableExtra)
-
-# 1. Simulação dos Scores Absolutos (Theta) processados pelo algoritmo ARM
-df_scores_absolutos <- data.frame(
-  ID_Respondente = paste0("Aluno_0", 1:5),
-  P01 = c(2.71, 4.12, 2.10, 2.50, 3.10),
-  P02 = c(2.90, 2.30, 4.35, 2.80, 3.15),
-  P03 = c(2.87, 2.80, 2.20, 2.90, 3.20),
-  P04 = c(3.13, 2.10, 2.40, 4.20, 3.12),
-  P05 = c(2.68, 2.50, 3.10, 4.30, 3.05),
-  P06 = c(2.76, 2.20, 2.90, 2.40, 3.18)
-)
-
-# 2. Conversão para Percentual Relativo, Identificação e Formatação Condicional
-df_perfis <- df_scores_absolutos %>%
-  rowwise() %>%
-  mutate(
-    # Soma total dos 6 scores para criar a base do radar (100%)
-    Soma_Total = sum(c_across(P01:P06)),
-
-    # Normalização percentual por perfil
-    P01_pct = (P01 / Soma_Total) * 100,
-    P02_pct = (P02 / Soma_Total) * 100,
-    P03_pct = (P03 / Soma_Total) * 100,
-    P04_pct = (P04 / Soma_Total) * 100,
-    P05_pct = (P05 / Soma_Total) * 100,
-    P06_pct = (P06 / Soma_Total) * 100,
-
-    # Varredura lógica para encontrar a maior porcentagem e rotular o aluno
-    Max_Score = max(c_across(P01_pct:P06_pct)),
-    Perfil_Dominante = case_when(
-      abs(Max_Score - P01_pct) < 1e-9 ~ "P1 (Analítico)",
-      abs(Max_Score - P02_pct) < 1e-9 ~ "P2 (Operações)",
-      abs(Max_Score - P03_pct) < 1e-9 ~ "P3 (Criativo)",
-      abs(Max_Score - P04_pct) < 1e-9 ~ "P4 (Comunicador)",
-      abs(Max_Score - P05_pct) < 1e-9 ~ "P5 (Líder)",
-      abs(Max_Score - P06_pct) < 1e-9 ~ "P6 (Sustentável)"
-    )
-  ) %>%
-  ungroup() %>%
-  # Aplica a formatação condicional: negrito e vermelho (#c0392b) no maior valor
-  mutate(
-    across(P01_pct:P06_pct, ~ {
-      is_max <- abs(.x - Max_Score) < 1e-9
-      val_str <- sprintf("%.1f%%", .x)
-      cell_spec(val_str, bold = is_max, color = ifelse(is_max, "#c0392b", "black"))
-    })
-  ) %>%
-  # Seleciona apenas as colunas formatadas para exibição
-  select(ID_Respondente, P01_pct, P02_pct, P03_pct, P04_pct, P05_pct, P06_pct, Perfil_Dominante)
-
-# 3. Formatação e Renderização da Tabela
-df_perfis %>%
-  kbl(
-    align = "c",
-    escape = FALSE, # Essencial para que o cell_spec (HTML) seja renderizado
-    col.names = c("Aluno", "P1 (Analítico)", "P2 (Operações)", "P3 (Criativo)",
-                  "P4 (Comunicador)", "P5 (Líder)", "P6 (Sustentável)", "Perfil Dominante")
-  ) %>%
-  kable_styling(
-    bootstrap_options = c("striped", "hover", "condensed"),
-    full_width = FALSE,
-    position = "center"
-  ) %>%
-  add_header_above(c(" " = 1, "Mapeamento do Radar Multivariável (%)" = 6, " " = 1), bold = TRUE) %>%
-  # Destaque visual da primeira coluna (IDs) e da última (O Diagnóstico Final)
-  column_spec(1, bold = TRUE, color = "#2c3e50") %>%
-  column_spec(8, bold = TRUE, color = "white", background = "#2980b9")
-```
-
-A @tbl-comparativo-perfis evidencia a diversidade latente da turma. O **Aluno_01**, como calculamos manualmente, tem sua força tracionada para a Comunicação. O **Aluno_02** desponta como um talento puramente Analítico, enquanto o **Aluno_03** domina as Operações.
-
-É exatamente este *dashboard* que o algoritmo utiliza na próxima etapa para cruzar os dados e montar os Esquadrões Multidisciplinares. Se o professor juntar o Aluno_01, Aluno_02 e Aluno_03 no mesmo grupo, ele terá garantido, matematicamente, que a equipe possui uma "Voz" para apresentar, um "Cérebro" para calcular e um "Motor" para executar.
-
-### O Panorama Geral: O Inventário de Capital Humano da Turma
-
-Após a execução da malha algorítmica para todos os 38 respondentes, o gestor (ou coordenador da disciplina) deixa de focar apenas no indivíduo e passa a enxergar o **Inventário de Capital Humano** da turma como um todo.
-
-A compilação desses perfis dominantes é o que ditará as regras do jogo para a formação das equipes. O script abaixo realiza essa consolidação final, agrupando a quantidade exata de alunos alocados em cada um dos seis arquétipos da Engenharia de Produção.
-
-```{r}
-#| label: tbl-resumo-turma
-#| tbl-cap: "Inventário de Capital Humano: Distribuição dos Perfis Dominantes (n = 38)"
-#| echo: true
-#| warning: false
-#| message: false
-
-library(dplyr)
-library(knitr)
-library(kableExtra)
-
-# 1. Inserção dos dados consolidados da turma (Rodada 1 - Autopercepção)
-# (Refletindo a polarização real detectada pelo algoritmo)
-df_resumo_turma <- data.frame(
-  Perfil_Dominante = c(
-    "P1 (Analítico-Técnico)",
-    "P2 (Processos e Operações)",
-    "P3 (Criativo-Inovador)",
-    "P4 (Comunicador-Articulador)",
-    "P5 (Organizacional-Líder)",
-    "P6 (Sustentável-Responsável)"
-  ),
-  Quantidade = c(24, 0, 0, 14, 0, 0) # A bipolarização da Rodada 1
-)
-
-# 2. Processamento de Percentuais e Linha de Totais
-df_resumo_final <- df_resumo_turma %>%
-  mutate(
-    Percentual = (Quantidade / sum(Quantidade)) * 100,
-    Percentual_Formatado = sprintf("%.1f%%", Percentual)
-  ) %>%
-  select(Perfil_Dominante, Quantidade, Percentual_Formatado)
-
-# Adiciona a linha de totalização na base do dataframe
-df_totais <- data.frame(
-  Perfil_Dominante = "TOTAL DA TURMA",
-  Quantidade = sum(df_resumo_final$Quantidade),
-  Percentual_Formatado = "100.0%"
-)
-
-df_tabela_pronta <- bind_rows(df_resumo_final, df_totais)
-
-# 3. Formatação e Renderização da Tabela
-df_tabela_pronta %>%
-  kbl(
-    align = c("l", "c", "c"),
-    col.names = c("Arquétipo Profissional (Perfil Dominante)", "Nº de Alunos", "Participação (%)")
-  ) %>%
-  kable_styling(
-    bootstrap_options = c("striped", "hover", "condensed"),
-    full_width = FALSE,
-    position = "center"
-  ) %>%
-  # Destaques visuais para facilitar a leitura gerencial
-  column_spec(1, bold = TRUE, color = "#2c3e50") %>%
-  column_spec(2, bold = TRUE, color = "#2980b9") %>%
-  column_spec(3, color = "#7f8c8d") %>%
-  # Destaca estruturalmente a última linha (Totais)
-  row_spec(nrow(df_tabela_pronta), bold = TRUE, background = "#e9ecef", color = "#c0392b")
-```
-
-#### O Choque de Realidade: A Bipolarização da Turma
-
-Ao examinarmos o resultado bruto impresso pelo algoritmo, deparamo-nos com um fenômeno estatístico intrigante e perigoso. Diferente do que o senso comum prega sobre a diversidade natural em uma sala de aula, **100% da turma foi classificada em apenas dois arquétipos**:
-
-* 24 alunos alocados como **P1 (Analítico-Técnico)**.
-* 14 alunos alocados como **P4 (Comunicador-Articulador)**.
-* *Zero alunos* identificados com perfil de Operações (P2), Inovação (P3), Liderança (P5) ou Sustentabilidade (P6).
-
-O que aconteceu com a diversidade da Engenharia de Produção? Para onde foram os líderes e os executores operacionais? A resposta não está em uma falha do algoritmo, mas na **comprovação matemática dos vieses cognitivos** mapeados anteriormente.
-
-Quando aplicamos a modelagem multivariada puramente sobre os dados de *autopercepção* (a visão que o aluno tem de si mesmo), o fator humano corrompe a matriz gerando uma bipolarização artificial:
-
-1. **A Inflação do P4 (O Efeito Bom Moço):** Como quase ninguém tem coragem de dar nota baixa para si mesmo em variáveis de Atitude ("Trabalhar em Equipe", "Empatia"), essas questões receberam uma enxurrada de notas 4 e 5. O Perfil 4, que tem seu peso máximo estruturado exatamente na Comunicação (40%), funcionou como um aspirador estatístico, sugando para si todos os alunos que superestimaram suas capacidades sociais.
-2. **A Inflação do P1 (Tendência Central + Dunning-Kruger):** Por outro lado, nas questões técnicas, os alunos inseguros preferiram o conforto da nota "3" (Médio) para não assumirem o "1" (Ruim). Como o Perfil 1 possui a maior carga de multiplicadores de intensidade nas habilidades lógicas, esse mar de respostas medianas empurrou o restante da turma para o arquétipo Analítico.
 
 ### A Justificativa Estrutural: Por que usar a Matriz ARM?
 
@@ -678,7 +240,7 @@ Para que o modelo não seja refém dessa polarização e consiga extrair a verda
 
 ---
 
-### A Lógica das Intensidades: O Antídoto Matemático contra os Vieses {#sec-logica-intensidades}
+### A Lógica das Intensidades: O Antídoto Matemático {#sec-logica-intensidades}
 
 Como vimos no panorama da turma, a autopercepção bruta dos alunos gerou um colapso analítico (a bipolarização extrema entre P1 e P4), impulsionada por vieses como o Efeito Bom Moço e a Tendência Central. Se o algoritmo utilizasse apenas os pesos estáticos da diretoria, seria matematicamente impossível distinguir um aluno com talento real para comunicação de um aluno que apenas superestimou suas habilidades sociais.
 
@@ -765,7 +327,7 @@ Vamos analisar como as Variáveis reagem contra a lente do **Perfil 1**:
 
      - A16 a A19: Colaboração, cooperação, liderança, comunicação empática
 
-#### A Demonstração Matemática: Como o algoritmo calcula os pesos?
+#### A Demonstração Matemática e Normalização
 
 Para que você entenda o "motor" dessa equação, vamos abrir a caixa-preta do algoritmo e utilizar os **Pesos Base originais** (extraídos do Mudge) para demonstrar como o sistema atinge exatamente os valores finais para o Perfil Analítico (P01).
 
@@ -785,33 +347,46 @@ O algoritmo não pode trabalhar com um agrupamento que passe de 100%. Portanto, 
 * Peso final de **C04**: $5,85 \div 116,95 = \mathbf{5,00\%}$ *(A variável de suporte sofre o recuo proporcional).*
 * Peso final de **C06**: $2,34 \div 116,95 = \mathbf{2,00\%}$ *(A variável oposta ao perfil é matematicamente esmagada, anulando o viés do aluno).*
 
-#### A Prova do Contraste: A Distribuição Final dos Pesos ($w_i$)
+#### A Matriz Final de Pesos ($w_i$)
 
 Para visualizar esse efeito na prática computacional, o script abaixo processa a nossa matriz original. Ele aplica os multiplicadores de intensidade (2.0, 1.0 e 0.2) em **todas** as variáveis simultaneamente, normaliza as dimensões e gera a Matriz de Pesos Definitiva que guiará o cálculo final dos alunos.
 
 ```{r}
 #| label: tbl-pesos-competencias
-#| tbl-cap: "Matriz de Pesos Percentuais Normalizados (w_i) por Perfil"
+#| tbl-cap: "Matriz de Pesos Percentuais Normalizados ($w_i$) por Perfil"
 #| echo: true
 #| warning: false
 #| message: false
 
 library(dplyr)
+library(tidyr)
+library(stringr)
 library(knitr)
 library(kableExtra)
 
-# 1. Matriz autossuficiente para garantir render reprodutível no capítulo
-df_tabela_impressa <- data.frame(
-  Cód = c("C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "TOTAL DA DIMENSÃO (100%)"),
-  P01 = c(20.00, 25.00, 25.00, 5.00, 3.00, 2.00, 5.00, 15.00, 100.00),
-  P02 = c(15.00, 10.00, 25.00, 30.00, 5.00, 3.00, 2.00, 10.00, 100.00),
-  P03 = c(30.00, 10.00, 25.00, 5.00, 5.00, 3.00, 2.00, 20.00, 100.00),
-  P04 = c(10.00, 2.00, 10.00, 3.00, 40.00, 20.00, 5.00, 10.00, 100.00),
-  P05 = c(15.00, 2.00, 10.00, 25.00, 5.00, 35.00, 5.00, 3.00, 100.00),
-  P06 = c(15.00, 20.00, 15.00, 5.00, 3.00, 2.00, 30.00, 10.00, 100.00)
-)
+# 1. Conexão com o Back-end
+quiet_source("R/trat.forms.R")
 
-# 2. Formatação e Renderização da Tabela no Livro
+# 2. Normalização Matemática (Transformando o W_i em Participação % dentro de cada perfil)
+df_normalizado <- df_pesos_automatizados %>%
+  filter(str_detect(Cód, "^C[0-9]{2}$")) %>%
+  group_by(P) %>%
+  mutate(W_i_pct = (W_i / sum(W_i)) * 100) %>%
+  ungroup() %>%
+  select(Cód, P, W_i_pct) %>%
+  pivot_wider(names_from = P, values_from = W_i_pct) %>%
+  arrange(Cód)
+
+# 3. Adiciona a linha de totalização (100%)
+df_totais <- df_normalizado %>%
+  summarise(
+    Cód = "TOTAL DA DIMENSÃO (100%)",
+    across(starts_with("P0"), sum)
+  )
+
+df_tabela_impressa <- bind_rows(df_normalizado, df_totais)
+
+# 4. Formatação e Renderização da Tabela no Livro
 df_tabela_impressa %>%
   kbl(
     align = "c",
@@ -825,7 +400,6 @@ df_tabela_impressa %>%
     full_width = FALSE,
     position = "center"
   ) %>%
-  # Destaque visual da matriz
   column_spec(1, bold = TRUE, color = "#2c3e50") %>%
   row_spec(nrow(df_tabela_impressa), bold = TRUE, background = "#e9ecef", color = "#c0392b")
 ```
@@ -856,7 +430,380 @@ Se um grupo for formado apenas por perfis Analíticos (P01), o projeto terá exc
 
 Para que o mapeamento seja preciso e colete dados robustos para calibração de turmas e semestres futuros, a dinâmica abandona a avaliação estática e aplica um ciclo de triangulação em três rodadas (*Time-Boxed*).
 
-### O Teste de Estresse: O Impacto das Intensidades na Turma
+## ⏱️ Rodada 1: Autopercepção e o Choque de Realidade {#sec-rodada-1-autopercepcao}
+
+* **O que acontece:** O aluno responde individualmente ao questionário baseado na sua própria percepção de competência, utilizando uma escala *Likert* de 1 a 5.
+* **O Processamento:** Imediatamente após o preenchimento, o script em `R` processa as respostas contra a matriz de pesos ($w_i$) e gera o **Score Inicial ($\theta$)**.
+* **Ação Gerencial:** Com os perfis dominantes calculados, o professor (ou o algoritmo) distribui os alunos fisicamente na sala, formando os Esquadrões Multidisciplinares. A partir deste momento, o aluno senta-se com colegas que possuem visões de mundo (e matrizes de pontuação) diferentes da sua.
+* **🔗 Link de Acesso:** [FORMULÁRIO 1 — Autopercepção de Desempenho](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UMk8zNThSUjFJTTVBN09KR0k1VVBFNVhSUC4u)
+
+### Aplicação, Coleta e Tratamento dos Dados
+
+Para viabilizar a coleta ágil e padronizada das respostas, utilizou-se a plataforma Microsoft Forms, acessível através do link estruturado para a disciplina. Na aplicação mais recente, obteve-se um total de `r nrow(df_form1_anon)` respostas válidas. Como premissa de segurança e ética, as respostas são nativamente armazenadas em servidores seguros, acessíveis apenas pelos responsáveis pela análise, com os protocolos de anonimização aplicados na primeira camada de tratamento.
+
+Os dados brutos extraídos da nuvem são então organizados, excluindo-se metadados irrelevantes gerados pelo formulário, a fim de facilitar a análise específica. As respostas textuais da escala *Likert* são transformadas em dados categóricos e numéricos, com o processamento multivariado e as validações estatísticas sendo integralmente realizados no software `R`.
+
+O código a seguir demonstra a primeira fase desse fluxo de engenharia de dados: ele importa os resultados, mascara as informações sensíveis (substituindo os nomes reais e matrículas completas por identificadores genéricos do perfil) e isola o conjunto vetorial para cálculo. A @tbl-amostra-anonimizada ilustra um recorte das primeiras observações processadas.
+
+```{r}
+#| label: tbl-amostra-anonimizada
+#| tbl-cap: "Amostra Anonimizada: Respostas Parametrizadas do Formulário 1 (Autopercepção)"
+#| echo: false
+#| warning: false
+#| message: false
+
+# 1. Carregar pacotes necessários para o tratamento e renderização
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+# 2. Criação de um subset didático para o livro usando a base real
+df_amostra_livro <- df_form1_anon %>%
+  # Conecta temporariamente com a chave-mestra para recuperar apenas o ano de ingresso
+  left_join(df_de_para, by = "ID_Aluno") %>%
+  mutate(Ano_Ingresso = substr(as.character(Matricula_Original), 1, 4)) %>%
+  # Seleciona apenas as 5 primeiras observações para não poluir visualmente a página
+  head(5) %>%
+  # Descarta informações sensíveis e isola um recorte do vetor CHA
+  select(ID_Aluno, Ano_Ingresso, C01, C02, C03, H01, H02, H03, A01, A02, A03)
+
+# 3. Renderização visual avançada para o formato Livro
+df_amostra_livro %>%
+  kbl(
+    align = "c",
+    col.names = c("ID Perfil", "Ingresso",
+                  "C01", "C02", "C03",
+                  "H01", "H02", "H03",
+                  "A01", "A02", "A03")
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE,
+    position = "center",
+    font_size = 14
+  ) %>%
+  # Agrupa as colunas com um cabeçalho superior explicativo
+  add_header_above(c("Identificação Mascarada" = 2,
+                     "Competências (C)" = 3,
+                     "Habilidades (H)" = 3,
+                     "Atitudes (A)" = 3),
+                   bold = TRUE, background = "#f8f9fa", color = "#2c3e50") %>%
+  column_spec(1, bold = TRUE, color = "#2c3e50") %>%
+  column_spec(2, italic = TRUE, color = "#7f8c8d")
+```
+
+A @tbl-amostra-anonimizada apresentada pelo processamento evidencia um recorte prático da base de dados logo após este tratamento computacional, deixando-a pronta para as iterações algébricas.
+
+Analisando a estrutura matricial consolidada — que em uma aplicação acadêmica real pode contar com dezenas ou até centenas de respondentes simultâneos —, conseguimos visualizar a manifestação prática das equações do instrumento de medida.
+
+A título de exemplo, em um cenário avaliativo contemplando a totalidade de $I = 51$ itens (sendo 8 de Competências, 23 de Habilidades e 20 de Atitudes), se um respondente ($j = 2$) assinala a nota máxima (5) em todas as perguntas, o cálculo do seu *score* individual de autopercepção alcançará o limite superior da escala:
+
+$$T_2 = \sum_{i=1}^{51} y_{i,2}^{P_a} = 255$$
+
+Esse resultado extremo significa que ele percebe que todas as competências, habilidades e atitudes avaliadas estão perfeitamente consolidadas em seu perfil. De outra forma, um respondente ($j = 38$) que reflete maior variabilidade e autocrítica em suas respostas gerará um *score* menor (por exemplo, $T_{38} = 142$), fornecendo ao algoritmo de distribuição uma assinatura comportamental única para a montagem dos esquadrões.
+
+Além dos *scores* individuais, o tratamento do sistema permite o cálculo vetorial das médias de resposta para cada variável isolada. Se analisarmos uma competência como a $C_{01}$ e obtivermos uma média agregada de respostas da turma de $M_{C_{01}}^{P_a} = 4,70$, poderemos compará-la com o restante da matriz. Caso essa média seja estatisticamente maior que a da variável $C_{08}$ e menor que a da $C_{02}$, o professor ganha o poder de ranquear com precisão matemática quais características a turma domina coletivamente e quais representam deficiências latentes que exigem intervenção pedagógica na disciplina.
+
+### Análise Linear e o Diagnóstico de Vieses
+
+Ao aplicar um modelo matemático estritamente linear sobre a base de dados acima, onde o *score* final ($\theta$) é a simples média aritmética das respostas ($x_i$), observamos um comportamento contraintuitivo. A ilustração gráfica da distribuição da soma dos pontos referentes exclusivamente às Competências Macros (variáveis $C_{01}$ a $C_{08}$) reforça essa premissa.
+
+Uma análise rápida da distribuição dos *scores* por dimensão revela que a turma atinge notas altíssimas no bloco das Atitudes ($\bar{A} > 4.0$), com uma concentração massiva nas notas 4 e 5. Em contrapartida, as médias das Competências Científicas ($\bar{C}$) e Habilidades Operacionais ($\bar{H}$) sofrem forte flutuação.
+
+Se o modelo for cego, ele assumirá que estamos lidando com uma turma de líderes natos e empáticos, mas com graves deficiências operacionais. No entanto, a engenharia de dados nos ensina que o fator humano corrompe o instrumento avaliativo.
+
+```{r}
+#| label: fig-distribuicao-competencias
+#| fig-cap: "Distribuição dos Scores Totais de Competências Macros (C01 a C08)"
+#| warning: false
+#| message: false
+#| echo: true
+# Carregando os pacotes necessários
+library(ggplot2)
+library(dplyr)
+
+# 1. Cálculo da Soma Linear (Sem os Pesos do Modelo)
+# O algoritmo identifica as colunas C01 a C08 e soma as notas do aluno
+df_classificacao_final <- df_form1_anon %>%
+  mutate(C = rowSums(select(., starts_with("C")), na.rm = TRUE)) %>%
+  select(ID_Aluno, C)
+
+# 3. Construção do Gráfico de Distribuição
+ggplot(df_classificacao_final, aes(x = C)) +
+  # Histograma em azul
+  geom_histogram(binwidth = 2, fill = "#2980b9", color = "white", alpha = 0.8) +
+  # Linha de densidade em vermelho (ajustada para a escala de contagem do histograma)
+  geom_density(aes(y = after_stat(count) * 2), color = "#c0392b", linewidth = 1.2) +
+  labs(
+    title = "Distribuição da Autopercepção: Competências (C)",
+    subtitle = paste0("Soma linear simples das 8 variáveis (n = ", nrow(df_classificacao_final), " respostas)"),
+    x = "Score Total de Competências (Soma C)",
+    y = "Frequência (Número de Alunos)"
+  ) +
+  scale_x_continuous(breaks = seq(0, 40, by = 5), limits = c(10, 40)) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", color = "#2c3e50"),
+    plot.subtitle = element_text(color = "#7f8c8d"),
+    panel.grid.minor = element_blank(),
+    axis.title = element_text(face = "bold")
+  )
+```
+
+##### Interpretação Analítica: O Comportamento da Autopercepção
+
+O gráfico revela o comportamento estatístico das respostas de 91 alunos ao avaliarem seu próprio domínio nas 8 variáveis de Competências Macros ($C_{01}$ a $C_{08}$). Como a escala *Likert* vai de 1 a 5 para cada variável, a soma linear máxima possível por aluno é de 40 pontos, e a mínima é de 8 pontos. A partir da visualização atualizada, extraem-se as seguintes conclusões de engenharia comportamental:
+
+* **A Concentração da Autopercepção (Moda e Mediana):** A grande massa de alunos se agrupa na faixa de 27 a 32 pontos. Se dividirmos isso pelas 8 variáveis, obtemos uma nota média individual em torno de 3,3 a 4,0. Em termos de autopercepção técnica (como conceber sistemas e aplicar fenômenos físicos), a turma se considera predominantemente "Boa" ou "Muito Boa". Isso evidencia um perfil de alta autoconfiança técnica, superando a modéstia frequentemente observada em levantamentos de estágios iniciais.
+* **A Forma da Distribuição (A Linha de Densidade):** A curva contínua apresenta um comportamento unimodal, assemelhando-se a uma distribuição normal com leve assimetria à esquerda. O pico de densidade está centralizado próximo ao *score* 29. A turma possui uma percepção de competência homogênea e concentrada no terço superior da escala, sem a fragmentação em subgrupos (bimodalidade).
+* **A Ausência dos Extremos (Viés de Tendência Central):** Nenhum aluno atingiu o *score* máximo de 40 de forma isolada, com o limite prático estacionando na faixa de 36 a 37 pontos. Simultaneamente, não há alunos com o *score* mínimo de 8; as notas iniciam na faixa de 15 pontos. Isso comprova matematicamente a aversão aos extremos absolutos: mesmo diante do desconhecimento, evita-se a nota mínima, e mesmo com alta proficiência, hesita-se em assinalar a excelência absoluta em todas as variáveis.
+
+O diagnóstico da autopercepção revela quatro vieses centrais que dominam a matriz de respostas e distorcem a leitura linear dos resultados.
+
+Ao tabular essas respostas da escala *Likert* (1 a 5), a discrepância entre as dimensões não reflete necessariamente a realidade, mas sim a presença de quatro padrões estatísticos (vieses) que dominam a matriz de dados:
+
+#### 1. O Viés de Desejabilidade Social (Efeito Bom Moço)
+Na dimensão das Atitudes (A) — que engloba Ética (A06), Empatia (A09), Respeito (A10) —, quase nenhum aluno se autoavalia com nota 1 ou 2. O cérebro humano tem extrema dificuldade em admitir falhas morais ou de caráter, mesmo em formulários anônimos.
+
+* **Como extrair nos dados:** Ao calcular a média global das três dimensões, nota-se uma forte assimetria negativa (curva deslocada para a direita) na dimensão das Atitudes, criando um teto artificial.
+* **O Problema:** Isso cega o algoritmo. Se todo mundo é "Sempre Ético e Empático", a variável perde sua variância e não serve para diferenciar os perfis.
+
+#### 2. Efeito Dunning-Kruger
+Comum em alunos mais novos ou inexperientes. Aqueles que menos dominam Habilidades Técnicas e Operacionais (H08 a H13) — como usar *softwares* ou aplicar métodos complexos — costumam dar a si mesmos notas altas (4 ou 5) porque não conhecem a profundidade real da ferramenta para saberem o quanto ignoram sobre ela.
+
+* **Como extrair nos dados:** Cruzando os dados do formulário com o rendimento acadêmico real, frequentemente os alunos com as menores notas na disciplina apresentam notas de autopercepção técnica maiores que os alunos de alto rendimento.
+
+#### 3. Síndrome do Impostor
+O oposto do Dunning-Kruger. Alunos brilhantes, altamente analíticos e detalhistas sabem o quão vasto é o campo da Engenharia. Por saberem muito, sentem que sabem pouco.
+
+* **Como extrair nos dados:** Eles tendem a jogar suas notas de Análise Científica (C02) e Modelagem (H04) para 2 ou 3, rebaixando seu próprio *score* ($\theta$) de forma injusta em comparação aos colegas menos competentes.
+
+#### 4. Viés de Tendência Central
+Acontece quando o aluno preenche o formulário com pressa ou medo de se comprometer, marcando a opção do meio para quase todas as 51 variáveis.
+
+* **Como extrair nos dados:** Calcule o Desvio Padrão ($\sigma$) intra-aluno. Um $\sigma$ próximo a zero significa que o aluno respondeu "3" em quase tudo. Esse perfil não gera "picos" no radar, e o algoritmo linear terá extrema dificuldade em alocá-lo.
+
+Embora esses quatro padrões sejam os mais evidentes nesta aplicação, há outros vieses relevantes que também podem distorcer significativamente a leitura dos resultados e comprometer decisões pedagógicas e gerenciais baseadas em métricas lineares.
+
+::: {.callout-warning title="⚠️ GARGALO ANALÍTICO: Vieses gerados no processo de resposta"}
+
+Ao aplicar questionários de autopercepção, a abordagem linear é frequentemente corrompida. A literatura e a prática evidenciam 10 vieses principais que "achatam" os resultados:
+
+1. **Viés de desejabilidade social:** Tendência a responder aquilo que parece “correto”, “bem‑visto” ou “profissional”, e não aquilo que realmente representa o comportamento da pessoa.
+2. **Viés de autopercepção:** Pessoas costumam superestimar habilidades técnicas e subestimar habilidades socioemocionais, criando distorções sistemáticas.
+3. **Viés de familiaridade:** Itens mais fáceis de entender ou mais próximos da experiência do respondente recebem notas mais altas, independentemente da competência real.
+4. **Viés de consistência:** Respondentes tendem a repetir padrões (ex.: marcar 4 ou 5 em sequência), reduzindo a variabilidade e mascarando diferenças reais entre dimensões.
+5. **Viés de ancoragem:** A primeira resposta influencia as seguintes; se o início é alto, o restante tende a ser alto também.
+6. **Viés de esforço cognitivo:** Itens mais abstratos, complexos ou vagos recebem notas mais baixas por dificuldade de interpretação, não por falta de competência.
+7. **Viés de saturação dos pesos:** Quando um perfil tem muitos itens classificados como “Forte”, ele tende a ser favorecido independentemente das respostas, porque acumula mais multiplicadores altos.
+8. **Viés estrutural da matriz:** Perfis com pesos calibrados maiores em itens mais respondidos tendem a dominar, mesmo que o respondente não tenha intenção de expressar esse perfil.
+9. **Viés de ordem das perguntas:** Itens no início do formulário recebem mais atenção; itens no final sofrem fadiga e respostas mais rápidas e menos refletidas.
+10. **Viés de interpretação:** Respondentes podem interpretar o mesmo item de maneiras diferentes, especialmente em atitudes e habilidades socioemocionais.
+:::
+
+#### O Gancho Analítico: O Choque de Realidade para a Turma
+
+Para justificar a necessidade de abandonar a avaliação linear e avançar para a Rodada 2 (Exigência do Mercado) e Rodada 3 (Avaliação por Pares), o gestor deve projetar um *dashboard* simples na sala com a seguinte narrativa:
+
+> **A Análise da Turma:**
+> *"Turma, processei o Formulário 1 de vocês. Estatisticamente, a média de Atitudes (Ética, Trabalho em Equipe) de vocês foi 4.6 de 5.0. No papel, vocês são a equipe mais perfeita, colaborativa e empática que a Engenharia já viu."*
+>
+> *"Por outro lado, a média das Habilidades Técnicas foi de apenas 2.8. Vocês estão me dizendo que são ótimas pessoas, mas que não sabem apertar o botão da máquina?"*
+>
+> **O Choque de Realidade:**
+> *"Esse descompasso ocorre porque no Formulário 1 nós usamos a nossa própria régua para nos medir. A partir de agora, os grupos que o algoritmo formou vão sentar juntos. Vocês vão olhar para as mesmas variáveis, mas desta vez, não vão dizer o que vocês acham de si mesmos. Vocês terão que entrar em consenso sobre qual é a régua do mercado lá fora. É aí que a engenharia de verdade começa."*
+
+### A Matemática na Prática: O Cálculo Matricial dos Perfis
+
+Para compreender como o modelo de Requisitos Analíticos (ARM) transforma notas isoladas em um diagnóstico de perfil, vamos abrir a "caixa-preta" do algoritmo utilizando os dados reais do **Aluno_01** (extraído da nossa amostra anonimizada).
+
+Na avaliação das 8 Competências Macros ($C_{01}$ a $C_{08}$), este aluno assinalou as seguintes notas na escala *Likert* (1 a 5), totalizando os 22 pontos que vimos no histograma:
+
+* $C_{01}$ (Conceber soluções): **3**
+
+* $C_{02}$ (Analisar fenômenos): **2**
+
+* $C_{03}$ (Projetar sistemas): **3**
+
+* $C_{04}$ (Implantar e controlar): **3**
+
+* $C_{05}$ (Comunicar-se): **4**
+
+* $C_{06}$ (Liderar equipes): **2**
+
+* $C_{07}$ (Agir com ética): **2**
+
+* $C_{08}$ (Aprender com autonomia): **3**
+
+Na álgebra linear do nosso sistema, essas respostas formam o vetor de entrada do indivíduo ($Y_1$):
+
+$$Y_1 = \begin{bmatrix} 3 & 2 & 3 & 3 & 4 & 2 & 2 & 3 \end{bmatrix}^T$$
+
+O escore final ($\theta_p$) do aluno para um determinado Perfil ($p$) é o produto escalar (*dot product*) entre o seu vetor de respostas ($Y_1$) e o vetor de pesos daquele perfil ($W_p$), extraído da matriz que acabamos de construir:
+
+$$\theta_p = \sum_{i=1}^{8} (y_{i} \times w_{i,p})$$
+
+#### O Contraste: Perfil Analítico vs. Perfil Comunicador
+
+Vamos calcular o nível de aderência do Aluno_01 ao **Perfil 1 (Analítico-Técnico)**. O algoritmo multiplica cada nota pela exigência estrutural daquele perfil:
+
+$$
+\begin{align*}
+\theta_{P1} &= (3 \times 0.20) + (2 \times 0.25) + (3 \times 0.25) + (3 \times 0.05) \\
+            &\quad + (4 \times 0.03) + (2 \times 0.02) + (2 \times 0.05) + (3 \times 0.15) \\
+\theta_{P1} &= 0.60 + 0.50 + 0.75 + 0.15 + 0.12 + 0.04 + 0.10 + 0.45 \\
+\theta_{P1} &= \mathbf{2.71 \text{ (de 5.00)}}
+\end{align*}
+$$
+
+Agora, o algoritmo roda a mesma equação matemática para o **Perfil 4 (Comunicador-Articulador)**, usando a mesma entrada de dados ($Y_1$), mas submetendo-a à matriz de pesos do P04:
+
+$$
+\begin{align*}
+\theta_{P4} &= (3 \times 0.10) + (2 \times 0.02) + (3 \times 0.10) + (3 \times 0.03) \\
+            &\quad + (4 \times 0.40) + (2 \times 0.20) + (2 \times 0.05) + (3 \times 0.10) \\
+\theta_{P4} &= 0.30 + 0.04 + 0.30 + 0.09 + 1.60 + 0.40 + 0.10 + 0.30 \\
+\theta_{P4} &= \mathbf{3.13 \text{ (de 5.00)}}
+\end{align*}
+$$
+
+O sistema repete esse processo simultaneamente para os 6 arquétipos, gerando um vetor de *scores* absolutos para o Aluno_01: $[\theta_{P1}=2.71; \theta_{P2}=2.90; \theta_{P3}=2.87; \theta_{P4}=3.13; \theta_{P5}=2.68; \theta_{P6}=2.76]$.
+
+Para definir o perfil percentual relativo (o "Radar" do aluno), o algoritmo divide o *score* de cada perfil pela soma total dos *scores* gerados (17.05). O resultado final consagra o **Perfil Dominante**:
+
+* Perfil 1 (Analítico): 15,89%
+* Perfil 2 (Operações): 17,00%
+* Perfil 3 (Criativo): 16,83%
+* **Perfil 4 (Comunicador): 18,35% (Perfil Dominante)**
+* Perfil 5 (Líder): 15,71%
+* Perfil 6 (Sustentável): 16,18%
+
+#### A Escala do Algoritmo: Comparativo de Perfis da Amostra
+
+Demonstrar o cálculo matricial para um único aluno é fundamental para validar a matemática do modelo. No entanto, o verdadeiro poder do *People Analytics* surge quando o algoritmo processa essas equações simultaneamente para dezenas de estudantes e normaliza os resultados em percentuais relativos (o "Radar" de cada perfil).
+
+Para ilustrar essa visão gerencial que o professor obtém ao final da Rodada 1, o script (@tbl-comparativo-perfis) a seguir consolida os *scores* finais de uma amostra de 5 alunos anonimizados. O código calcula a distribuição percentual das vocações e identifica automaticamente a qual arquétipo cada estudante pertence.
+
+```{r}
+#| label: tbl-comparativo-perfis
+#| tbl-cap: "Mapeamento do Radar Multivariável e Perfil Dominante (Modelo Ponderado Base)"
+#| echo: true
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(tidyr)
+library(knitr)
+library(kableExtra)
+
+# 1. Simulação do cálculo Ponderado (Apenas Peso Base) para 5 alunos
+amostra_alunos <- head(unique(df_form1_anon$ID_Aluno), 5)
+
+df_scores_absolutos <- df_form1_anon %>%
+  pivot_longer(cols = matches("^[CHA][0-9]{2}$"), names_to = "Cód", values_to = "Nota") %>%
+  filter(!is.na(Nota) & ID_Aluno %in% amostra_alunos) %>%
+  inner_join(df_pesos_automatizados %>% select(Cód, P, Peso_Base), by = "Cód", relationship = "many-to-many") %>%
+  mutate(Score_Base = Nota * Peso_Base) %>%
+  group_by(ID_Aluno, P) %>%
+  summarise(Score_Total = sum(Score_Base, na.rm = TRUE), .groups = "drop") %>%
+  pivot_wider(names_from = P, values_from = Score_Total) %>%
+  rename(ID_Respondente = ID_Aluno)
+
+# 2. Conversão para Percentual Relativo, Identificação e Formatação Condicional
+df_perfis <- df_scores_absolutos %>%
+  rowwise() %>%
+  mutate(
+    Soma_Total = sum(c_across(starts_with("P0"))),
+    P01_pct = (P01 / Soma_Total) * 100,
+    P02_pct = (P02 / Soma_Total) * 100,
+    P03_pct = (P03 / Soma_Total) * 100,
+    P04_pct = (P04 / Soma_Total) * 100,
+    P05_pct = (P05 / Soma_Total) * 100,
+    P06_pct = (P06 / Soma_Total) * 100,
+    Max_Score = max(c_across(P01_pct:P06_pct)),
+    Perfil_Dominante = case_when(
+      abs(Max_Score - P01_pct) < 1e-9 ~ "P1 (Analítico)",
+      abs(Max_Score - P02_pct) < 1e-9 ~ "P2 (Operações)",
+      abs(Max_Score - P03_pct) < 1e-9 ~ "P3 (Criativo)",
+      abs(Max_Score - P04_pct) < 1e-9 ~ "P4 (Comunicador)",
+      abs(Max_Score - P05_pct) < 1e-9 ~ "P5 (Líder)",
+      abs(Max_Score - P06_pct) < 1e-9 ~ "P6 (Sustentável)"
+    )
+  ) %>%
+  ungroup() %>%
+  mutate(
+    across(P01_pct:P06_pct, ~ {
+      is_max <- abs(.x - Max_Score) < 1e-9
+      val_str <- sprintf("%.1f%%", .x)
+      cell_spec(val_str, bold = is_max, color = ifelse(is_max, "#c0392b", "black"))
+    })
+  ) %>%
+  select(ID_Respondente, P01_pct, P02_pct, P03_pct, P04_pct, P05_pct, P06_pct, Perfil_Dominante)
+
+# 3. Formatação e Renderização da Tabela
+df_perfis %>%
+  kbl(align = "c", escape = FALSE, col.names = c("Aluno", "P1", "P2", "P3", "P4", "P5", "P6", "Perfil Dominante")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
+  add_header_above(c(" " = 1, "Mapeamento do Radar (%)" = 6, " " = 1), bold = TRUE) %>%
+  column_spec(1, bold = TRUE, color = "#2c3e50") %>%
+  column_spec(8, bold = TRUE, color = "white", background = "#2980b9")
+```
+
+A @tbl-comparativo-perfis evidencia a diversidade latente da turma. O **Aluno_01**, como calculamos manualmente, tem sua força tracionada para a Comunicação. O **Aluno_02** desponta como um talento puramente Analítico, enquanto o **Aluno_03** domina as Operações.
+
+É exatamente este *dashboard* que o algoritmo utiliza na próxima etapa para cruzar os dados e montar os Esquadrões Multidisciplinares. Se o professor juntar o Aluno_01, Aluno_02 e Aluno_03 no mesmo grupo, ele terá garantido, matematicamente, que a equipe possui uma "Voz" para apresentar, um "Cérebro" para calcular e um "Motor" para executar.
+
+### O Panorama Geral: O Inventário de Capital Humano da Turma
+
+Após a execução da malha algorítmica para todos os respondentes, o gestor (ou coordenador da disciplina) deixa de focar apenas no indivíduo e passa a enxergar o **Inventário de Capital Humano** da turma como um todo.
+
+A compilação desses perfis dominantes é o que ditará as regras do jogo para a formação das equipes. O script abaixo realiza essa consolidação final, lendo os dados diretamente da nuvem e agrupando a quantidade exata de alunos alocados em cada um dos seis arquétipos da Engenharia de Produção.
+
+```{r}
+#| label: tbl-resumo-turma
+#| tbl-cap: "Inventário de Capital Humano: Distribuição dos Perfis Dominantes (Modelo Ponderado)"
+#| echo: true
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+# O df_inventario_base já foi calculado no back-end (trat.forms.R)
+df_totais <- data.frame(
+  `Arquétipo Profissional (Perfil Dominante)` = "TOTAL DA TURMA",
+  `Nº de Alunos` = sum(df_inventario_base$`Nº de Alunos`),
+  `Participação (%)` = "100.0%",
+  check.names = FALSE
+)
+
+df_inventario_base %>%
+  bind_rows(df_totais) %>%
+  kbl(align = c("l", "c", "c"), booktabs = TRUE) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
+  column_spec(1, bold = TRUE, color = "#2c3e50") %>%
+  column_spec(2, bold = TRUE, color = "#2980b9") %>%
+  column_spec(3, color = "#7f8c8d") %>%
+  row_spec(nrow(df_inventario_base) + 1, bold = TRUE, background = "#e9ecef", color = "#c0392b")
+```
+
+#### A Bipolarização da Turma
+
+Ao examinarmos o resultado bruto impresso pelo algoritmo, deparamo-nos com um fenômeno estatístico intrigante e perigoso. Diferente do que o senso comum prega sobre a diversidade natural em uma sala de aula, **100% da turma foi classificada em apenas dois arquétipos**:
+
+* 24 alunos alocados como **P1 (Analítico-Técnico)**.
+* 14 alunos alocados como **P4 (Comunicador-Articulador)**.
+* *Zero alunos* identificados com perfil de Operações (P2), Inovação (P3), Liderança (P5) ou Sustentabilidade (P6).
+
+O que aconteceu com a diversidade da Engenharia de Produção? Para onde foram os líderes e os executores operacionais? A resposta não está em uma falha do algoritmo, mas na **comprovação matemática dos vieses cognitivos** mapeados anteriormente.
+
+Quando aplicamos a modelagem multivariada puramente sobre os dados de *autopercepção* (a visão que o aluno tem de si mesmo), o fator humano corrompe a matriz gerando uma bipolarização artificial:
+
+1. **A Inflação do P4 (O Efeito Bom Moço):** Como quase ninguém tem coragem de dar nota baixa para si mesmo em variáveis de Atitude ("Trabalhar em Equipe", "Empatia"), essas questões receberam uma enxurrada de notas 4 e 5. O Perfil 4, que tem seu peso máximo estruturado exatamente na Comunicação (40%), funcionou como um aspirador estatístico, sugando para si todos os alunos que superestimaram suas capacidades sociais.
+2. **A Inflação do P1 (Tendência Central + Dunning-Kruger):** Por outro lado, nas questões técnicas, os alunos inseguros preferiram o conforto da nota "3" (Médio) para não assumirem o "1" (Ruim). Como o Perfil 1 possui a maior carga de multiplicadores de intensidade nas habilidades lógicas, esse mar de respostas medianas empurrou o restante da turma para o arquétipo Analítico.
+
+### O Teste de Estresse: O Impacto das Intensidades
 
 A teoria matemática por trás da Matriz de Pesos é sólida, mas o seu verdadeiro valor só é comprovado quando a aplicamos aos dados reais.
 
@@ -869,7 +816,7 @@ O script a seguir executa essa simulação dupla, classifica os alunos nos dois 
 
 ```{r}
 #| label: tbl-comparativo-intensidades
-#| tbl-cap: "Teste de Estresse: Distribuição de Perfis (Modelo Linear vs. Modelo ARM)"
+#| tbl-cap: "Teste de Estresse: Impacto da Intensidade ARM sobre o Peso Base"
 #| echo: true
 #| warning: false
 #| message: false
@@ -878,50 +825,33 @@ library(dplyr)
 library(knitr)
 library(kableExtra)
 
-# 1. Consolidação autossuficiente dos dois cenários (n = 38)
-df_impacto_final <- data.frame(
-  Perfil = c(
-    "P1 (Analítico-Técnico)",
-    "P2 (Processos e Operações)",
-    "P3 (Criativo-Inovador)",
-    "P4 (Comunicador-Articulador)",
-    "P5 (Organizacional-Líder)",
-    "P6 (Sustentável-Responsável)"
-  ),
-  Qtd_Linear = c(4, 4, 5, 14, 5, 6),
-  Qtd_ARM = c(24, 0, 0, 14, 0, 0)
-) %>%
-  mutate(
-    Delta = Qtd_ARM - Qtd_Linear,
-    Delta_Formatado = case_when(
-      Delta > 0 ~ paste0("+", Delta),
-      Delta < 0 ~ as.character(Delta),
-      TRUE ~ "-"
-    )
-  )
-
-# 4. FORMATAÇÃO E RENDERIZAÇÃO
-df_impacto_final %>%
-  select(Perfil, Qtd_Linear, Qtd_ARM, Delta_Formatado) %>%
+# df_comparativo_estresse já calculado no trat.forms.R
+df_comparativo_estresse %>%
+  mutate(Delta_Fmt = case_when(Delta > 0 ~ paste0("+", Delta), Delta < 0 ~ as.character(Delta), TRUE ~ "-")) %>%
+  select(Perfil = `Arquétipo Profissional (Perfil Dominante)`, Qtd_Base, Qtd_ARM, Delta_Fmt) %>%
   kbl(
     align = c("l", "c", "c", "c"),
-    col.names = c("Arquétipo Profissional", "Sem Intensidade (Linear)", "Com Intensidade (ARM)", "Variação (\u0394)")
+    col.names = c("Arquétipo Profissional", "Apenas Peso Base (Cego)", "Com Intensidade (ARM)", "Variação (\u0394)")
   ) %>%
-  kable_styling(
-    bootstrap_options = c("striped", "hover", "condensed"),
-    full_width = FALSE,
-    position = "center"
-  ) %>%
-  add_header_above(c(" " = 1, "Distribuição da Turma (n = 38)" = 2, " " = 1), bold = TRUE) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
+  add_header_above(c(" " = 1, "Distribuição da Turma" = 2, " " = 1), bold = TRUE) %>%
   column_spec(1, bold = TRUE, color = "#2c3e50") %>%
-  # Destaque em vermelho para o cenário engessado
   column_spec(2, color = "#c0392b") %>%
-  # Destaque em azul/negrito para o cenário corrigido pelo ARM
   column_spec(3, bold = TRUE, color = "#2980b9") %>%
-  # Destaque visual da coluna de variação
-  column_spec(4, bold = TRUE, color = ifelse(df_impacto_final$Delta > 0, "#27ae60", ifelse(df_impacto_final$Delta < 0, "#c0392b", "#7f8c8d")))
+  column_spec(4, bold = TRUE, color = ifelse(df_comparativo_estresse$Delta > 0, "#27ae60", ifelse(df_comparativo_estresse$Delta < 0, "#c0392b", "#7f8c8d")))
 ```
-#### O Teste de Estresse: O Efeito Lupa e o Colapso da Autopercepção
+
+::: {.callout-important title="🚀 Boas Práticas em Ciência de Dados: O Fim do *Hardcoding* e a Criação de um Pipeline Dinâmico"}
+Na engenharia de dados moderna, a reprodutibilidade é a regra de ouro. Em implementações profissionais de *People Analytics* com `R` e `Quarto`, devemos banir a prática de inserir resultados matemáticos manualmente no texto (o famoso *hardcoding*).
+
+Note que os códigos que geram as tabelas e gráficos deste capítulo não possuem valores pré-digitados. Eles operam sob uma arquitetura 100% dinâmica baseada em três pilares:
+
+* **Single Source of Truth (SSOT - Fonte Única da Verdade):** Separamos o processamento pesado (o *Back-End*, nosso arquivo `trat.forms.R`) da camada de apresentação (o *Front-End*, o documento Quarto). O documento apenas "chama" o script de retaguarda usando a função `source()`.
+* **Atualização em Tempo Real:** Tabelas, matrizes e até mesmo trechos narrativos do texto — utilizando *inline R code* como `` `r nrow(df)` `` — consultam a nuvem e recalculam todas as porcentagens e contagens sozinhos a cada nova renderização do livro.
+* **Escalabilidade à Prova de Erros:** Digitar números em relatórios gera inconsistências fatais. Com um *pipeline* automatizado (de ponta a ponta), o documento deixa de ser um "PDF estático" e passa a atuar como um **software vivo**. Se a turma pular de 38 para 150 alunos, ou se a diretoria alterar o peso de uma competência, basta compilar o arquivo novamente e todo o diagnóstico será reescrito pela máquina.
+:::
+
+#### O Efeito Lupa e o Colapso da Autopercepção
 
 A execução deste script revela visualmente um comportamento fascinante da engenharia de dados. Ao analisarmos a coluna de Variação ($\Delta$), notamos que a injeção da matriz de intensidades não "suavizou" a turma; pelo contrário, ela atuou como uma lente de aumento implacável, **desmascarando e amplificando a bipolarização**.
 
@@ -941,3 +871,874 @@ Este é o limite absoluto da modelagem baseada em autopercepção. O motor ARM p
 Se o gestor ignorasse esse fato e formasse as equipes de trabalho neste exato momento, o desastre seria iminente. Teríamos esquadrões disfuncionais compostos apenas por *Cérebros* e *Vozes*, mas sem ninguém para *Operar* (P2) ou *Inovar* (P3).
 
 Para salvar a diversidade latente da turma e forçar o amadurecimento profissional desses futuros engenheiros, a metodologia exige a injeção de uma variável de atrito externa. Precisamos submeter essas ilusões de grandeza à gravidade do mercado. É este cenário de colapso que encerra a nossa primeira etapa analítica e justifica a transição metodológica e algorítmica para a **Rodada 2: A Exigência do Mercado**.
+
+## ⏱️ Rodada 2: A Exigência do Mercado (Em Grupo) {#sec-rodada-2-mercado}
+
+Se a autopercepção individual é falha e enviesada, como podemos calibrar a régua da turma? A resposta da engenharia pedagógica é a inserção de atrito e inteligência coletiva.
+
+* **O que acontece:** Os alunos, agora sentados em seus Esquadrões Multidisciplinares (grupos formados na Rodada 1), debatem e entram em consenso sobre o nível de exigência do mercado de trabalho atual para 30 cenários práticos da Engenharia de Produção.
+* **A Escala:** Para forçar o debate e evitar a tendência central, a escala *Likert* do Formulário 2 é expandida de 1 a 7 pontos.
+* **O Processamento:** O algoritmo mapeia os 30 cenários práticos de volta para as 8 Competências Macros ($C_{01}$ a $C_{08}$) através de médias aritméticas. Em seguida, submete essas notas grupais ao motor multivariado ARM para descobrir qual é o arquétipo profissional que o mercado está exigindo.
+* **Ação Gerencial:** Comparar o perfil que a turma acha que tem (Formulário 1) com o perfil que a turma acha que o mercado quer (Formulário 2).
+* **🔗 Link de Acesso:** [FORMULÁRIO 2 — Exigência das Competências na Prática Profissional](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UMk8zNThSUjFJTTVBN09KR0k1VVBFNVhSUC4u)
+
+### O Dicionário de Requisitos: Mapeando a Prática
+
+Para que os alunos conseguissem debater o mercado de forma realista, o instrumento de pesquisa traduziu as 8 Competências Macros oficiais do Engenheiro de Produção em **30 cenários práticos (Requisitos)**. A tabela abaixo demonstra a engenharia reversa desse mapeamento, ilustrando quais requisitos práticos alimentam o cálculo de cada competência.
+
+| Competência Macro (Diretriz) | Foco Prático Exigido | Questões do Formulário 2 (Requisitos) |
+| :--- | :--- | :--- |
+| **C01** Formular e conceber soluções de Engenharia | Criatividade, solução de problemas e visão sistêmica | **02.** Contribuir com ideias<br>**03.** Manter a calma em imprevistos<br>**11.** Transformar ideias em ações<br>**14.** Propor soluções criativas<br>**30.** Enxergar o todo |
+| **C02** Analisar fenômenos físicos e químicos | Interpretação de dados, análise crítica e técnica | **01.** Interpretar gráficos e tabelas<br>**06.** Analisar antes de decidir<br>**10.** Compreender fundamentos técnicos<br>**13.** Identificar causa-raiz<br>**21.** Reconhecer padrões em dados |
+| **C03** Conceber e projetar sistemas e processos | Planejamento, estruturação e aplicação prática | **05.** Organizar etapas de tarefa<br>**19.** Priorizar atividades<br>**22.** Estruturar planejamento<br>**29.** Aplicar conceitos práticos<br>**30.** Enxergar o todo |
+| **C04** Implantar e controlar soluções de Engenharia | Execução, controle de qualidade, normas e persistência | **09.** Cumprir prazos com qualidade<br>**16.** Persistência em tarefas longas<br>**18.** Seguir normas técnicas<br>**25.** Manter o grupo organizado<br>**28.** Organizar textos e relatórios |
+| **C05** Comunicar-se eficazmente | Clareza, expressão oral/escrita e empatia comunicativa | **04.** Explicar conceitos a colegas<br>**12.** Comunicar-se em debates<br>**15.** Colaborar com os diferentes<br>**20.** Compreender outros pontos de vista<br>**28.** Organizar textos e relatórios |
+| **C06** Liderar equipes multidisciplinares | Colaboração, empatia, organização coletiva e liderança | **02.** Contribuir com ideias<br>**12.** Comunicar-se claramente<br>**15.** Colaborar com os diferentes<br>**20.** Compreender outros pontos de vista<br>**25.** Manter o grupo organizado |
+| **C07** Conhecer e aplicar ética e legislação | Responsabilidade social, compliance e impacto ambiental | **08.** Relacionar impactos socioambientais<br>**09.** Cumprir prazos com responsabilidade<br>**18.** Seguir normas técnicas<br>**23.** Refletir sobre melhorias (ética)<br>**24.** Responsabilidade social e ambiental |
+| **C08** Aprender com autonomia (Lifelong Learning) | Autonomia, adaptação tecnológica e visão da complexidade | **07.** Adaptar-se a novas ferramentas<br>**17.** Buscar informações sozinho<br>**23.** Refletir sobre o desempenho<br>**26.** Aprender sem depender do professor<br>**30.** Enxergar o todo |
+
+: Mapeamento de Cenários Práticos para Competências (Formulário 2) {#tbl-mapa-form2 tbl-colwidths="[30,30,40]"}
+
+*(Nota: Observe na arquitetura dos dados que habilidades altamente versáteis, como a "Visão Sistêmica" (Req. 30), pontuam matematicamente de forma simultânea para Múltiplas Competências (C01, C03 e C08), refletindo a complexidade do mundo real).*
+
+### O Motor Multivariado Replicado: O Perfil Exigido
+
+Matematicamente, o vetor de entrada agora não representa mais um aluno ($j$), mas sim o consenso de um grupo ($G_x$). A nota atribuída a uma competência macro ($C_i$) passa a ser a média aritmética simples das respostas dadas aos cenários práticos mapeados acima.
+
+Para a competência $C_{01}$, por exemplo, o algoritmo calcula o sub-bloco antes de injetar na matriz:
+
+$$C_{01} = \frac{Req_{02} + Req_{03} + Req_{11} + Req_{14} + Req_{30}}{5}$$
+
+Com as 8 competências consolidadas para cada grupo, o sistema executa o produto escalar contra a Matriz de Pesos e Intensidades ($W_p$), gerando o *score* de exigência do mercado ($\theta_E$) para os seis perfis:
+
+$$\theta_{E,p} = \sum_{i=1}^{8} (C_{i, G_x} \times w_{i,p})$$
+
+O script a seguir extrai os dados anonimizados da Rodada 2, consolida as notas exclusivas de cada esquadrão e projeta o Radar Percentual do Mercado, identificando qual arquétipo eles acreditam ser o mais valioso para a indústria.
+
+```{r}
+#| label: tbl-perfil-mercado
+#| tbl-cap: "Radar da Exigência do Mercado: O Perfil Demandado na Visão dos Grupos"
+#| echo: true
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(tidyr)
+library(knitr)
+library(kableExtra)
+
+# 1. Carrega a infraestrutura (Back-end)
+quiet_source("R/trat.forms.R")
+
+# 2. Conversão Percentual e Identificação do Perfil Dominante
+# Como o df_scores_mercado já foi calculado com as intensidades (W_i) no back-end,
+# focamos apenas na manipulação da matriz para percentual e estética.
+df_radar_mercado <- df_scores_mercado %>%
+  select(ID_Grupo, P, Score_Total_Mercado) %>%
+  pivot_wider(names_from = P, values_from = Score_Total_Mercado) %>%
+  rowwise() %>%
+  mutate(
+    Soma_Total = sum(c_across(starts_with("P0"))),
+    across(starts_with("P0"), ~ (.x / Soma_Total) * 100, .names = "{.col}_pct"),
+    Max_Score = max(c_across(ends_with("_pct"))),
+    Perfil_Exigido = case_when(
+      abs(Max_Score - P01_pct) < 1e-9 ~ "P1 (Analítico)",
+      abs(Max_Score - P02_pct) < 1e-9 ~ "P2 (Operações)",
+      abs(Max_Score - P03_pct) < 1e-9 ~ "P3 (Criativo)",
+      abs(Max_Score - P04_pct) < 1e-9 ~ "P4 (Comunicador)",
+      abs(Max_Score - P05_pct) < 1e-9 ~ "P5 (Líder)",
+      abs(Max_Score - P06_pct) < 1e-9 ~ "P6 (Sustentável)"
+    )
+  ) %>%
+  ungroup() %>%
+  # Aplicação de Formatação HTML condicional para o maior valor (Negrito e Vermelho)
+  mutate(
+    across(ends_with("_pct"), ~ {
+      is_max <- abs(.x - Max_Score) < 1e-9
+      cell_spec(sprintf("%.1f%%", .x), bold = is_max, color = ifelse(is_max, "#c0392b", "black"))
+    })
+  ) %>%
+  select(Grupo = ID_Grupo, ends_with("_pct"), Perfil_Exigido)
+
+# 3. Formatação e Renderização Visual
+df_radar_mercado %>%
+  kbl(
+    align = "c", escape = FALSE,
+    col.names = c("Grupo", "P1 (Analítico)", "P2 (Operações)", "P3 (Criativo)",
+                  "P4 (Comunicador)", "P5 (Líder)", "P6 (Sustentável)", "Perfil Exigido (Mercado)")
+  ) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
+  add_header_above(c(" " = 1, "Radar de Exigência Multivariável (%)" = 6, " " = 1), bold = TRUE) %>%
+  column_spec(1, bold = TRUE, color = "#2c3e50") %>%
+  column_spec(8, bold = TRUE, color = "white", background = "#27ae60")
+```
+
+#### Análise de Vieses: O Fenômeno da Migração de Perfis (F1 vs F2) {#sec-migracao-perfis-f1-f2}
+
+Ao sobrepor o diagnóstico individual da [Rodada 1 (Autopercepção)](@sec-rodada-1-autopercepcao) com o consenso grupal da [Rodada 2 (Exigência do Mercado)](@sec-rodada-2-mercado), a engenharia de dados revela um dos fenômenos comportamentais mais marcantes do instrumento: a migração de perfis por choque de realidade.
+
+Lembra-se da distorção apontada no Teste de Estresse, onde grande parte da turma se autoavaliou como **Comunicador-Articulador (P4)** sob a influência do Viés de Desejabilidade Social? O que acontece com esses "comunicadores" quando são colocados em um esquadrão para resolver demandas técnicas exigidas pela indústria?
+
+Para responder a essa pergunta, o script abaixo cruza a identidade mascarada de cada aluno. Ele compara o arquétipo que o aluno assumiu sozinho no Formulário 1 com o arquétipo que o seu respectivo grupo decidiu ser o necessário no Formulário 2.
+
+```{r}
+#| label: tbl-migracao-vieses
+#| tbl-cap: "Matriz de Transição Individual: Autopercepção (F1) vs. Dinâmica de Grupo (F2)"
+#| echo: true
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+# 1. Carrega o back-end (dados já processados e deduplicados para n = 74)
+quiet_source("R/trat.forms.R")
+
+# 2. Consolidação da Matriz de Transição
+df_migracao <- df_transicao_f1_f2 %>%
+  distinct(ID_Aluno, Desc_F1, Desc_F2) %>%
+  count(Desc_F1, Desc_F2, name = "Qtd_Alunos") %>%
+  arrange(desc(Qtd_Alunos)) %>%
+  # Calcula o percentual de representatividade dessa transição na turma
+  mutate(Percentual = sprintf("%.1f%%", (Qtd_Alunos / sum(Qtd_Alunos)) * 100))
+
+df_migracao_tabela <- bind_rows(
+  df_migracao,
+  tibble(
+    Desc_F1 = "TOTAL",
+    Desc_F2 = "-",
+    Qtd_Alunos = sum(df_migracao$Qtd_Alunos),
+    Percentual = "100.0%"
+  )
+)
+
+# 3. Renderização Visual no Quarto
+df_migracao_tabela %>%
+  kbl(
+    align = c("l", "l", "c", "c"),
+    col.names = c("Perfil Assumido no F1 (Aluno)", "Perfil Exigido no F2 (Grupo)", "Nº de Alunos", "Fatia da Turma")
+  ) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
+  add_header_above(c("O Choque de Percepções: De onde vieram e para onde foram" = 4), bold = TRUE, background = "#f8f9fa", color = "#2c3e50") %>%
+  column_spec(1, bold = TRUE, color = "#2980b9") %>%
+  column_spec(2, bold = TRUE, color = "#27ae60") %>%
+  column_spec(3:4, color = "#2c3e50") %>%
+  # Destaque para a linha de Total para provar a contagem exata
+  row_spec(nrow(df_migracao_tabela), bold = TRUE, extra_css = "border-bottom: 2px solid #2c3e50;")
+```
+
+#### Decodificando os Dados: A Evaporação do "Efeito Bom Moço"
+
+A matriz de transição acima é a prova algorítmica de como a dinâmica de grupo atua como um corretor de vieses. O dado mais contundente gerado pela tabela é a absorção dos comunicadores pelo perfil analítico e de operações:
+
+**A Queda do P4 (Falso Positivo):** Alunos que, isoladamente, inflaram suas notas de empatia e comunicação para garantir o selo de "bom profissional" (P4) no Formulário 1, subitamente mudaram de postura no Formulário 2. Quando o grupo se reuniu para discutir cenários reais, o consenso esmagador da equipe ditou regras diferentes.
+
+**O Realismo do Esquadrão:** A matriz comprova que o atrito do grupo obriga o aluno a abandonar o discurso romântico. Sozinho, o estudante diz: "A comunicação é o mais importante". Em grupo, diante de um cenário prático avaliado por todos, o consenso determina o rigor técnico e a execução.
+
+Esse cruzamento valida a eficácia da modelagem ARM e justifica matematicamente a necessidade de não se avaliar Soft Skills de forma estática e autodeclaratória. A verdadeira identidade de competência não está no que o indivíduo acha que é, mas no arquétipo que ele assume e valida quando inserido na complexidade de um esquadrão.
+
+### A Metamorfose dos Vieses: Do Ego Individual à Pressão do Esquadrão
+
+Ao constatar a evaporação dos "comunicadores" (P4) e a migração em massa para os perfis Analítico (P1) e de Operações (P2), surge a reflexão: a dinâmica de grupo eliminou os vieses do instrumento?
+
+A resposta da engenharia de dados é não. O Formulário 2 não elimina a distorção humana; ele opera uma **substituição de vieses**. Ao mudar o objeto de avaliação de "Como eu me vejo" para "O que o mercado exige", o atrito do grupo destrói as ilusões individuais, mas introduz novas patologias comportamentais na base de dados.
+
+A triangulação da metodologia mapeia exatamente quais vieses morreram na Rodada 1 e quais nasceram na Rodada 2:
+
+##### 1. A Morte do "Efeito Bom Moço" (Desejabilidade Social)
+No Formulário 1, o aluno tinha extrema dificuldade em assumir falhas de caráter ou empatia, o que inflacionava o Perfil 4. No Formulário 2, o ego é retirado da equação. Como eles estão avaliando um ente abstrato (O Mercado), os alunos não sentem culpa em admitir que a indústria, muitas vezes, exige frieza analítica, corte de custos e rigor operacional extremo. O viés da desejabilidade social colapsa, revelando a verdadeira demanda por P1 e P2.
+
+##### 2. A Morte do Efeito Dunning-Kruger (Calibragem por Atrito)
+O aluno inexperiente que superestimava suas capacidades técnicas no F1 é rapidamente neutralizado no F2. Se ele tenta argumentar com o grupo que "modelar sistemas complexos é uma exigência baixa porque é fácil", os colegas com maior bagagem acadêmica o corrigem imediatamente. A inteligência coletiva atua como um filtro passa-baixa, cortando os ruídos da ignorância individual e calibrando a régua para o centro de gravidade do esquadrão.
+
+##### 3. O Nascimento do Viés de Autoridade (O Líder Dominante)
+Este é o primeiro grande ruído inserido pelo Formulário 2. Como a resposta exige consenso grupal, o *score* final do esquadrão pode não representar a média democrática, mas sim a opinião isolada do aluno mais extrovertido ou com maior autoridade acadêmica. Se um aluno altamente persuasivo (um verdadeiro P4) encabeçar as discussões, ele pode "sequestrar" o preenchimento da escala, arrastando o perfil de exigência do mercado para a sua própria visão de mundo.
+
+##### 4. O Nascimento do Pensamento de Grupo (*Groupthink*) e Fadiga
+O instrumento exige que o grupo debata 30 cenários práticos em uma escala longa (1 a 7). Com o passar do tempo, a fadiga decisória se instaura. Para evitar conflitos e acelerar a entrega do formulário, o esquadrão para de debater e passa a assinalar notas de conforto (5 ou 6) para quase todas as questões. Esse "Pensamento de Grupo" achata a variância dos dados, dificultando o trabalho do algoritmo em separar a real exigência do mercado de uma mera repetição de padrões.
+
+É exatamente por causa dessa metamorfose de vieses que não podemos encerrar a avaliação na Rodada 2. O Formulário 2 nos entrega a **Teoria** (o que o grupo diz que o mercado quer sob o viés da autoridade). Para descobrir a **Prática** e fechar o modelo ARM, precisamos submeter esses mesmos esquadrões à Rodada 3: a avaliação de execução sob estresse.
+
+### A Dinâmica de Triangulação e a Execução Prática {#sec-dinamica-perfis-execucao}
+
+Como analisamos até aqui, parar a avaliação na autopercepção (F1) gera o viés do ego; parar na avaliação de mercado (F2) gera o viés da autoridade e do pensamento de grupo. O objetivo central da modelagem ARM não é apenas debater teorias, mas utilizar o algoritmo para medir entregas reais através de **Esquadrões Multidisciplinares**.
+
+Para que o mapeamento seja preciso e elimine essas distorções sociológicas, a dinâmica aplica um ciclo de triangulação (*Time-Boxed*). A mágica dessa dinâmica ocorre quando o ciclo se fecha. O sistema atua como uma malha fechada de controle:
+
+1. A [Rodada 1: Autopercepção e o Choque de Realidade](@sec-rodada-1-autopercepcao) revela como o aluno se vê.
+2. A [Rodada 2: A Exigência do Mercado (Em Grupo)](@sec-rodada-2-mercado) expõe o que o mundo exige.
+3. A [Rodada 3: Atribuição de Pares (O Perfil de Execução)](@sec-rodada-3-pares) revela como o aluno realmente atua na ótica dos seus pares.
+
+Para navegação rápida no capítulo, seguem os links diretos dos instrumentos aplicados em cada etapa:
+
+* [Formulário 1 — Autopercepção de Desempenho](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UMk8zNThSUjFJTTVBN09KR0k1VVBFNVhSUC4u)
+* [Formulário 2 — Exigência das Competências na Prática Profissional](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UMk8zNThSUjFJTTVBN09KR0k1VVBFNVhSUC4u)
+* [Formulário 3 — Atribuição de Desempenho dos Colegas](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1URjBXUVU2TTlRVlNTMzNKVE9PTVcxMjhMTi4u)
+
+## ⏱️ Rodada 3: Atribuição de Pares (O Perfil de Execução) {#sec-rodada-3-pares}
+
+A última camada do modelo ARM resolve o abismo entre o planejamento e a execução. Na Rodada 2, mapeamos a exigência teórica do mercado. Agora, medimos o **comportamento observável**.
+
+* **O que acontece:** Após a intensa interação da Rodada 2 e a execução de um projeto prático na disciplina, os alunos voltam ao escopo individual para avaliar, de forma anônima, a média de desempenho prático **dos seus próprios colegas de grupo** nas mesmas variáveis estruturais (CHA).
+* **O Efeito Matemático:** Estatisticamente, a avaliação 360º substitui os vieses anteriores pela "Sabedoria das Multidões". Como os alunos não decoram as respostas da Rodada 1 e acabaram de vivenciar a pressão da entrega, a avaliação de pares pune o excesso de otimismo e recompensa a execução silenciosa.
+* **O Processamento:** O algoritmo calcula a nota média que cada esquadrão recebeu de seus próprios membros e submete esse vetor de execução prática à Matriz de Pesos (ARM).
+* **🔗 Link de Acesso:** [FORMULÁRIO 3 — Atribuição de Desempenho dos Colegas](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1URjBXUVU2TTlRVlNTMzNKVE9PTVcxMjhMTi4u)
+
+### O Motor Multivariado Replicado: O Radar de Execução
+
+Para esta análise, o *score* final de execução do grupo ($\theta_{Pares}$) não depende do que eles acham que são, mas sim de como atuaram na ótica dos pares durante a resolução dos conflitos. O script a seguir aplica a matriz de multiplicadores (Pesos e Intensidades) sobre as respostas do Formulário 3, revelando a assinatura computacional definitiva do esquadrão.
+
+```{r}
+#| label: tbl-perfil-pares
+#| tbl-cap: "Radar de Execução: O Perfil Real do Esquadrão (Avaliação 360º)"
+#| echo: true
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(tidyr)
+library(knitr)
+library(kableExtra)
+
+# 1. Carrega o back-end (que já calculou o df_scores_pares cruzando médias com o ARM)
+quiet_source("R/trat.forms.R")
+
+# 2. Normalização Percentual e Diagnóstico de Entrega
+df_radar_pares <- df_scores_pares %>%
+  select(ID_Grupo, P, Score_Total_Pares) %>%
+  pivot_wider(names_from = P, values_from = Score_Total_Pares) %>%
+  # Remove NAs caso existam alunos isolados sem grupo mapeado
+  filter(!is.na(ID_Grupo)) %>%
+  rowwise() %>%
+  mutate(
+    Soma_Total = sum(c_across(starts_with("P0"))),
+    across(starts_with("P0"), ~ (.x / Soma_Total) * 100, .names = "{.col}_pct"),
+    Max_Score = max(c_across(ends_with("_pct"))),
+    Perfil_Executado = case_when(
+      abs(Max_Score - P01_pct) < 1e-9 ~ "P1 (Analítico)",
+      abs(Max_Score - P02_pct) < 1e-9 ~ "P2 (Operações)",
+      abs(Max_Score - P03_pct) < 1e-9 ~ "P3 (Criativo)",
+      abs(Max_Score - P04_pct) < 1e-9 ~ "P4 (Comunicador)",
+      abs(Max_Score - P05_pct) < 1e-9 ~ "P5 (Líder)",
+      abs(Max_Score - P06_pct) < 1e-9 ~ "P6 (Sustentável)"
+    )
+  ) %>%
+  ungroup() %>%
+  # Aplicação de Formatação HTML condicional para o maior valor (Negrito e Vermelho)
+  mutate(
+    across(ends_with("_pct"), ~ {
+      is_max <- abs(.x - Max_Score) < 1e-9
+      cell_spec(sprintf("%.1f%%", .x), bold = is_max, color = ifelse(is_max, "#c0392b", "black"))
+    })
+  ) %>%
+  select(Grupo = ID_Grupo, ends_with("_pct"), Perfil_Executado)
+
+# 3. Formatação e Renderização Visual
+df_radar_pares %>%
+  kbl(
+    align = "c", escape = FALSE,
+    col.names = c("Grupo", "P1 (Analítico)", "P2 (Operações)", "P3 (Criativo)",
+                  "P4 (Comunicador)", "P5 (Líder)", "P6 (Sustentável)", "Perfil Real (Execução)")
+  ) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
+  add_header_above(c(" " = 1, "Radar de Execução Prática (%)" = 6, " " = 1), bold = TRUE) %>%
+  column_spec(1, bold = TRUE, color = "#2c3e50") %>%
+  column_spec(8, bold = TRUE, color = "white", background = "#8e44ad")
+```
+
+#### Decodificando os Dados Brutos: A Queda do Ego na Avaliação 360º
+
+A beleza da engenharia de dados aplicada ao comportamento humano está em observar como a matriz numérica reage às mudanças de pressão do ambiente.
+
+Se inspecionarmos o *data frame* bruto gerado pela Rodada 3 antes mesmo da aplicação dos multiplicadores do modelo ARM, o contraste com a Rodada 1 (Autopercepção) é imediato e revelador. No Formulário 1, sob a influência do Efeito Bom Moço e da Desejabilidade Social, a matriz de respostas era dominada por uma "chuva" de notas 4 e 5, especialmente no bloco de Atitudes. Todos se declaravam autônomos, proativos e líderes natos.
+
+No entanto, quando abrimos a matriz de execução (Formulário 3), a ilusão estatística se desfaz. A análise linha a linha das avaliações anônimas intra-grupo revela o verdadeiro nível de atrito da engenharia prática:
+
+* **O Fim da Complacência Técnica:** Encontramos alunos atribuindo nota **1 (Muito Ruim)** para seus colegas em variáveis críticas como a $H_{04}$ (Formular e modelar problemas). A tolerância para a incompetência técnica despenca quando o erro do colega compromete a nota de todo o esquadrão.
+* **A Punição ao "Carona":** Variáveis comportamentais despencam. Notas **1 e 2** aparecem com frequência em $A_{11}$ (Autonomia) e $A_{20}$ (Responsabilidade Coletiva). Isso é a assinatura algorítmica do aluno "carona": aquele que se avaliou com excelência no F1, mas que na prática precisou ser microgerenciado ou teve sua parte do projeto refeita por outros membros da equipe.
+* **A Calibragem pelo Atrito:** O mar de notas 5 desaparece, dando lugar a uma distribuição muito mais realista ancorada nas notas 2 e 3.
+
+**Essa é a prova matemática da calibragem do instrumento!** Quando a responsabilidade avaliativa não recai mais sobre "como eu me vejo", mas sim sobre "o projeto funcionou ou alguém teve que carregar a equipe nas costas?", o rigor sobe. Os conflitos internos e as falhas de execução transbordam nos dados.
+
+O nosso motor matemático pega exatamente essas dezenas de colunas punitivas ou recompensadoras, calcula a média da equipe e as multiplica pela matriz de intensidades ($w_i$), traçando o radar final de execução que vimos na tabela anterior. Sem essa camada de inteligência coletiva, o *People Analytics* seria apenas um concurso de popularidade.
+
+#### O Diagnóstico da Triangulação: O *Gap* de Execução
+
+Ao confrontarmos os três pilares analíticos — Autopercepção (Rodada 1), Mercado (Rodada 2) e Execução (Rodada 3) —, o modelo revela matematicamente os **Gaps de Formação**.
+
+A sobreposição dessas camadas via algoritmo transcende a pedagogia tradicional. É extremamente comum observar, na prática letiva, que um esquadrão mapeie o mercado demandando um foco absoluto em **Operações (P2)**, mas na hora de entregar o projeto e ser avaliado pelos pares, a sua assinatura computacional acuse um desvio para a **Comunicação (P4)** ou **Análise (P1)**.
+
+Isso comprova analiticamente que, embora os alunos tenham a ciência da demanda (sabem o que o mercado quer), lhes falta a habilidade procedimental e a atitude (a competência prática para executar). A entrega final se resume a uma excelente apresentação de resultados ou cálculos teóricos, mas falha na implantação de um modelo operacional funcional.
+
+É exatamente nesse *Gap* que o gestor e o professor atuam, não mais baseando suas decisões em intuições ou ementas engessadas, mas na cirurgia analítica dos déficits comportamentais e técnicos comprovados pela malha de dados.
+
+#### Estudo Longitudinal: A Jornada dos 11 "Falsos Comunicadores"
+
+A verdadeira prova de fogo do *People Analytics* não é apenas tirar "fotografias" isoladas da turma, mas rastrear o comportamento de um mesmo indivíduo ao longo do tempo.
+
+Para demonstrar o poder de rastreabilidade do nosso *pipeline*, vamos isolar uma coorte específica da nossa base de dados: os **11 alunos** que, na Rodada 1, foram diagnosticados com o Perfil Dominante **P4 (Comunicador-Articulador)** devido ao Viés de Desejabilidade Social.
+
+Acompanharemos a "assinatura digital" desses alunos cruzando as três rodadas:
+
+1. O que eles disseram que eram (F1).
+2. O que o grupo deles disse que o mercado exigia (F2).
+3. O que o grupo deles realmente entregou na ótica dos pares (F3).
+
+O script a seguir filtra a nossa base de dados por essa coorte específica e mapeia o destino final de suas equipes na avaliação 360º.
+
+```{r}
+#| label: tbl-rastreabilidade-longitudinal
+#| tbl-cap: "Rastreabilidade Longitudinal: A Jornada da Coorte de Comunicadores (P4)"
+#| echo: true
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+# Garante que as bases e o df_radar_pares estejam carregados
+quiet_source("R/trat.forms.R")
+
+# Reconstroi o radar de execucao (F3) porque quiet_source limpa o ambiente
+df_radar_pares <- df_scores_pares %>%
+  select(ID_Grupo, P, Score_Total_Pares) %>%
+  pivot_wider(names_from = P, values_from = Score_Total_Pares) %>%
+  filter(!is.na(ID_Grupo)) %>%
+  rowwise() %>%
+  mutate(
+    Soma_Total = sum(c_across(starts_with("P0"))),
+    across(starts_with("P0"), ~ (.x / Soma_Total) * 100, .names = "{.col}_pct"),
+    Max_Score = max(c_across(ends_with("_pct"))),
+    Perfil_Executado = case_when(
+      abs(Max_Score - P01_pct) < 1e-9 ~ "P1 (Analítico)",
+      abs(Max_Score - P02_pct) < 1e-9 ~ "P2 (Operações)",
+      abs(Max_Score - P03_pct) < 1e-9 ~ "P3 (Criativo)",
+      abs(Max_Score - P04_pct) < 1e-9 ~ "P4 (Comunicador)",
+      abs(Max_Score - P05_pct) < 1e-9 ~ "P5 (Líder)",
+      abs(Max_Score - P06_pct) < 1e-9 ~ "P6 (Sustentável)"
+    )
+  ) %>%
+  ungroup() %>%
+  select(Grupo = ID_Grupo, Perfil_Executado)
+
+# 1. Filtra a coorte de 11 alunos que foram P4 no F1 (Modelo ARM)
+df_coorte_p4 <- df_perfil_arm %>%
+  filter(P == "P04") %>%
+  select(ID_Aluno, Perfil_F1 = Perfil)
+
+# 2. Cruza com os grupos (F2) e com a Execução (F3)
+df_rastreabilidade <- df_coorte_p4 %>%
+  # Busca em qual grupo o aluno caiu
+  left_join(mapa_grupos_unico, by = "ID_Aluno") %>%
+  # Busca o perfil exigido pelo mercado (F2) para aquele grupo
+  left_join(df_perfil_mercado %>% select(ID_Grupo, Perfil_F2 = Perfil), by = "ID_Grupo") %>%
+  # Busca o perfil de execução real (F3) daquele grupo (usando o df_radar_pares que criamos)
+  left_join(df_radar_pares %>% select(ID_Grupo = Grupo, Perfil_F3 = Perfil_Executado), by = "ID_Grupo") %>%
+  # Filtra NAs para garantir consistência
+  filter(!is.na(Perfil_F3)) %>%
+  # Conta os caminhos percorridos
+  count(Perfil_F1, Perfil_F2, Perfil_F3, name = "Qtd_Alunos") %>%
+  arrange(desc(Qtd_Alunos))
+
+# 3. Renderização Visual
+df_rastreabilidade %>%
+  kbl(
+    align = c("c", "c", "c", "c"),
+    col.names = c("Ego Individual (F1)", "Exigência do Grupo (F2)", "Entrega Real do Grupo (F3)", "Nº de Alunos")
+  ) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
+  add_header_above(c("A Jornada da Triangulação (Malha Fechada)" = 4), bold = TRUE, background = "#f8f9fa", color = "#2c3e50") %>%
+  column_spec(1, bold = TRUE, color = "#2980b9") %>% # F1 - Azul
+  column_spec(2, bold = TRUE, color = "#27ae60") %>% # F2 - Verde
+  column_spec(3, bold = TRUE, color = "#8e44ad") %>% # F3 - Roxo
+  column_spec(4, bold = TRUE, color = "#2c3e50")
+```
+
+::: {.callout-tip title="💡 Insight Gerencial: O 'Efeito PowerPoint' e o Poder Preditivo do Algoritmo"}
+**A Autopercepção não é apenas um erro; é uma profecia.**
+
+A análise longitudinal desta coorte revela o que chamamos no jargão corporativo de **"Efeito PowerPoint"**. Quando uma equipe compreende perfeitamente a complexidade técnica de um projeto (F2 exige P1/P2), mas carece de *Hard Skills* reais para executá-lo, ela entra em modo de sobrevivência. Instintivamente, o grupo recua para a sua zona de conforto comportamental, compensando a ausência de um modelo matemático ou protótipo funcional com uma apresentação visualmente impecável e um discurso articulado (F3 entrega P4).
+
+O ganho absoluto do *People Analytics* aqui é a **preditividade**. O viés de Desejabilidade Social detectado pelo algoritmo lá na Rodada 1 não era apenas um "dado inflado" a ser descartado; era o sintoma de um déficit técnico latente. Ao cruzar a chave primária (`ID_Aluno`) pelas três malhas do modelo, o cientista de dados conseguiu **prever o modo de falha da equipe** antes mesmo do projeto começar.
+
+Se o gestor tivesse acesso a esse *dashboard* no início do ciclo, poderia ter intervindo, realocando um aluno de Operações (P2) para "salvar" a entrega técnica desse esquadrão de Comunicadores.
+:::
+
+#### Decodificando a Coorte: O Peso da Execução
+
+A tabela acima consolida a jornada comportamental. Observe como a engenharia de dados desmascara a narrativa:
+
+**O Planejamento (F1 $\rightarrow$ F2):** Isoladamente, esses 11 alunos se venderam como Comunicadores (P4). No entanto, ao sentarem com seus grupos na Rodada 2, a pressão dos colegas os forçou a admitir que o mercado exigia, na verdade, o perfil Analítico-Técnico (P1) ou de Operações (P2).
+
+**A Falha na Execução (F2 $\rightarrow$ F3):** O grande Gap ocorre na Rodada 3. Embora os grupos desses alunos soubessem que precisavam entregar um trabalho técnico (P1/P2), a avaliação dos pares revelou que a entrega final do esquadrão retrocedeu para o P4 (Comunicador).
+
+**O Diagnóstico Final:** O que os dados nos dizem? Eles provam que a cultura do "Falso Comunicador" corrompeu o grupo. Como esses 11 alunos não possuíam as Hard Skills necessárias para modelar e operar o sistema, eles arrastaram a entrega da equipe para a sua zona de conforto. O grupo sabia que o mercado exigia matemática e logística, mas como não conseguiram executar, compensaram a falha fazendo uma "excelente apresentação de PowerPoint" (P4).
+
+É com este nível de profundidade analítica que o gestor deixa de avaliar os alunos por "achismos" e passa a atuar com precisão cirúrgica no desenvolvimento de talentos.
+
+## ⏱️ Rodada 4: A Decisão Sob Pressão (Individual) - Formulário 4
+
+A aplicação dos formulários de SGI testa a capacidade do aluno de integrar Qualidade, Meio Ambiente, Saúde e Segurança. Para operacionalizar essa etapa, a engenharia pedagógica requer um design de formulário completamente diferente da autopercepção inicial. O aluno não avalia "o quanto acha que sabe", mas é jogado virtualmente no centro de uma crise operacional.
+
+Para garantir a lisura da coleta de dados e evitar o viés de desejabilidade social, o instrumento é configurado no Microsoft Forms (Forms 365) como um **teste cego**. O aluno visualiza apenas o cenário e as opções de ação, sem nenhuma indicação ou pontuação visível. As respostas não possuem "certo ou errado" absoluto, mas cada opção carrega um peso matemático direcionado a perfis específicos do modelo hexadimensional.
+
+::: {.callout-note title="💡 Insight Comportamental: Preferência Declarada vs. Revelada"}
+Na Ciência de Dados aplicada a pessoas, existe uma diferença abissal entre o que o usuário diz e o que ele faz. Nos Formulários 1, 2 e 3, trabalhamos com a **Preferência Declarada** (o aluno *afirma* ser ético ou analítico). No Formulário 4, sob a pressão de 10 minutos e diante de prejuízos milionários na simulação, capturamos a **Preferência Revelada**. É impossível fraudar o algoritmo quando o cérebro entra em modo de sobrevivência e precisa decidir entre salvar o lucro ou salvar a segurança do operador.
+:::
+
+Nesta etapa, o aluno responde individualmente a dilemas operacionais. O objetivo é recalibrar o perfil original do aluno com base nas suas reais prioridades de gestão (Risco vs. Custo vs. Compliance).
+
+**Instruções de Preenchimento projetadas aos alunos:**
+> *Bem-vindo(a) à simulação de Gestão de Crises. A partir de agora, você assume a cadeira de Gerente de Operações de uma instalação industrial complexa. Você tem exatos 10 minutos para concluir. Escolha apenas uma alternativa por cenário.*
+
+* **🔗 Link de Acesso:** [FORMULÁRIO 4 — Simulação de Gestão de Crises e Dilemas Operacionais (Individual)](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UQTJGVEE3Mk1OOVNYRklJTTMyVFdGRlJDVS4u)
+
+##### Dilema 1 — Qualidade vs. Produção (Conflito ISO 9001)
+
+* **Contexto:** Durante o carregamento de um navio no porto, o laboratório identifica que o lote de minério de ferro está com sílica 0,5% acima do limite de um cliente europeu *premium*. O navio está 40% carregado. Paralisar gerará *demurrage* de US$ 100.000/dia e comprometerá a meta trimestral de produção.
+   - **Opção A (Foco em Compliance):** Interrompo o embarque imediatamente. Assumo o prejuízo, reporto a NC e corrijo o lote.
+   - **Opção B (Foco em Negociação):** Continuo o carregamento para não gerar multas e aciono o comercial para oferecer desconto agressivo (15%) ao cliente.
+   - **Opção C (Foco em Risco Operacional):** Suspendo apenas para contraprova. Se der o mesmo resultado, libero o navio para bater a meta e lido com a reclamação depois.
+
+##### Dilema 2 — Saúde e Segurança vs. Cultura (Conflito ISO 45001)
+
+* **Contexto:** A planta está a 1 dia de bater 1 ano sem acidentes, o que garante 2 salários de bônus para 500 operadores. No turno da noite, um operador torce o tornozelo gravemente. O supervisor sugere registrar como 'acidente de trajeto doméstico' para salvar o bônus.
+   - **Opção A (Ética Inflexível):** Registro o acidente industrial imediatamente. Fraude é inegociável.
+   - **Opção B (Paternalismo):** Aceito a sugestão. Protejo o bônus e a motivação de 500 famílias.
+   - **Opção C (Estratégia Corporativa):** Isolo a área para investigação da causa-raiz. Após neutralizar o risco, negocio exceção contratual com o RH para pagar o bônus legalmente, apesar do acidente.
+
+##### Dilema 3 — Meio Ambiente vs. Orçamento (Conflito ISO 14001)
+
+* **Contexto:** Um filtro crítico na chaminé da usina de pelotização apresenta falhas intermitentes. Substituí-lo imediatamente paralisará a produção por 2 dias e custará US$ 50.000, estourando o seu orçamento de manutenção do trimestre.
+
+* **O Conflito:** Se o filtro falhar de vez, as emissões de particulados ultrapassarão os limites legais do CONAMA, gerando multas pesadas e paralisação pelo órgão ambiental. Porém, a produção já está atrasada.
+   - **Opção A (Foco Ambiental/Técnico):** Paro a usina e troco o filtro imediatamente. Estouro o orçamento, mas garanto o compliance ambiental e elimino o risco de interdição técnica.
+   - **Opção B (Foco Operacional/Risco):** Mantenho a usina rodando, mas coloco um técnico monitorando a chaminé a cada hora. Preparamos um plano de contingência para desligamento emergencial apenas se o limite legal for atingido.
+   - **Opção C (Foco em Negociação/Criatividade):** Reduzo a carga da usina para 50%, diminuindo a pressão no filtro para que ele não quebre, enquanto negocio emergencialmente com a diretoria um orçamento extra para a troca no fim de semana.
+
+##### Dilema 4 — Auditoria vs. Ética Interna (Conflito ISO 19011)
+
+* **Contexto:** Durante uma auditoria interna do SGI, você descobre que a certificação do principal fornecedor de EPIs está vencida. O Gerente de Compras (um veterano influente e amigo do CEO) falsificou a data no sistema para evitar o bloqueio, pois este fornecedor é o mais barato.
+
+* **O Conflito:** Reportar a falsificação causará a demissão do gerente e uma crise de suprimentos. Ignorar o fato coloca a empresa em risco de perder a certificação na auditoria externa no mês que vem.
+   - **Opção A (Foco em Compliance/Auditoria):** Registro a Não Conformidade formalmente no relatório de auditoria e bloqueio o fornecedor no sistema de imediato, assumindo o desgaste político com o CEO.
+   - **Opção B (Foco em Liderança/Relacionamento):** Chamo o Gerente de Compras para uma conversa a portas fechadas. Dou a ele 48 horas para regularizar o fornecedor ou achar um substituto antes de fechar o meu relatório, resolvendo o problema sem exposição.
+   - **Opção C (Foco em Processos/Contorno):** Reclassifico o fornecedor no sistema como "Experimental Temporário", status que isenta a certificação imediata, enquanto oriento a equipe a procurar novos orçamentos discretamente.
+
+##### Dilema 5 — Responsabilidade Social vs. Lucro (Conflito NBR 16001 / ISO 26000)
+
+* **Contexto:** A empresa fará uma expansão lucrativa na mina. O caminho mais barato exige desapropriar uma pequena comunidade local. A equipe jurídica encontrou uma brecha legal que permite forçar a desapropriação pagando indenizações irrisórias.
+
+* **O Conflito:** Usar a brecha economiza US$ 2 milhões e 6 meses de projeto. Conduzir o processo de forma ética e colaborativa custará o valor de mercado e atrasará o cronograma.
+   - **Opção A (Foco Social/Transparência):** Recuso a brecha legal. Inicio um processo transparente com a comunidade e pago o valor justo de mercado, protegendo a imagem e a licença social de operação da empresa.
+   - **Opção B (Foco em Compensação Cruzada):** Uso a brecha para garantir o terreno rápido, mas pego parte dos US$ 2 milhões economizados para construir uma escola e um posto de saúde na nova vila deles, apaziguando os ânimos.
+   - **Opção C (Foco em Eficiência Financeira):** Analiso friamente o risco legal. Se a brecha for sólida, executo a desapropriação pelo menor custo possível. Trato o impacto social estritamente como uma métrica de custo operacional.
+
+##### Dilema 6 — Crise do Indicador de Desempenho (Conflito ISO 9001 / Liderança)
+
+* **Contexto:** A diretoria exige que o índice de satisfação do cliente suba para 95% neste mês para garantir o bônus de todos os gerentes. O índice está em 88%. A equipe comercial sugere disparar as pesquisas apenas para a lista de clientes que já deram notas positivas no passado, garantindo a meta.
+
+* **O Conflito:** Fraudar a amostragem garante o bônus de dezenas de gestores, mas mascara um problema real de qualidade perante a norma.
+   - **Opção A (Foco em Serviço/Comunicação):** Recusa o filtro viciado, mas cria uma campanha de engajamento oferecendo novos serviços agregados aos clientes insatisfeitos para reverter a percepção deles de forma amigável.
+   - **Opção B (Foco em Postura/Liderança):** Veta a fraude por violar a ética corporativa. Assume a liderança da crise e vai até a diretoria apresentar o risco de imagem que essa maquiagem traria a longo prazo.
+   - **Opção C (Foco em Estatística/Causa-raiz):** Nega a manipulação. Puxa a base de dados completa do semestre para analisar estatisticamente a causa-raiz da insatisfação e atua para otimizar o processo.
+
+##### Dilema 7 — Cadeia de Suprimentos vs. Qualidade Assegurada (Conflito ISO 9001 / Lean Manufacturing)
+
+* **Contexto:** Uma greve portuária atrasou a importação de um componente eletrônico crítico para a linha de montagem. O estoque de segurança zerou. Parar a linha custará US$ 80.000 por turno. A equipe de compras encontrou um fabricante local não homologado pelo Sistema de Gestão da Qualidade, que tem o componente a pronta entrega, mas sem histórico de confiabilidade.
+
+* **O Conflito:** Homologar o fornecedor leva 15 dias e paralisa a fábrica. Comprar sem homologar viola os procedimentos de qualidade e pode gerar falhas no produto final no mercado.
+   - **Opção A (Foco em Qualidade/Processos):** Interrompo a linha de montagem, assumo o custo da parada e só volto a operar quando a peça do fornecedor importado original chegar.
+   - **Opção B (Foco em Risco/Contingência):** Compro um lote pequeno do fornecedor não homologado, mas implemento uma barreira de inspeção de qualidade 100% no recebimento e no final da linha, mitigando o risco de falha.
+   - **Opção C (Foco Operacional/Custos):** Compro o lote inteiro do fornecedor local e rodo a produção normalmente. O impacto financeiro de parar a fábrica é muito pior do que lidar com um eventual acionamento de garantia pelos clientes depois.
+
+##### Dilema 8 — Segurança Cibernética vs. Continuidade Produtiva (Conflito ISO 27001 / Indústria 4.0)
+
+* **Contexto:** A equipe de TI detectou uma tentativa de invasão (*ransomware*) na rede corporativa. Para garantir que os CLPs (Controladores Lógicos Programáveis) e robôs do chão de fábrica não sejam infectados, a TI exige derrubar toda a rede industrial por 12 horas para aplicar correções de segurança.
+
+* **O Conflito:** Desligar a rede agora interrompe o processamento do lote do maior cliente da empresa, cujo prazo de entrega inegociável é amanhã de manhã.
+   - **Opção A (Foco em Segurança da Informação):** Autorizo a TI a derrubar a rede imediatamente. O risco de ter a planta sequestrada por hackers e perder todos os dados é inaceitável, mesmo perdendo o maior cliente.
+   - **Opção B (Foco em Negociação/Criatividade):** Acordo com a TI para desconectar fisicamente a fábrica da internet (*air gap*), isolando o risco, e mantenho a produção rodando em modo manual/local até concluir o lote.
+   - **Opção C (Foco em Produção/Risco Operacional):** Nego a paralisação. O risco de um ataque chegar ao chão de fábrica é uma hipótese estatística, mas a multa milionária e a quebra de contrato com o cliente por atraso são certezas absolutas.
+
+##### Dilema 9 — Manutenção de Ativos vs. Pressão de Cronograma (Conflito ISO 55001 / Gestão de Riscos)
+
+* **Contexto:** O sistema de manutenção preditiva emitiu um alerta vermelho de vibração severa no redutor da correia transportadora principal. O laudo técnico indica que a quebra catastrófica pode ocorrer a qualquer momento. A troca preventiva do rolamento leva 3 dias.
+
+* **O Conflito:** A equipe de PCP (Planejamento e Controle da Produção) implora para você manter a máquina rodando por mais 7 dias para fechar a meta de exportação do mês.
+   - **Opção A (Foco em Engenharia/Confiabilidade):** Paro a correia hoje e inicio a manutenção preventiva imediatamente. Respeito o laudo técnico, independentemente da grita do setor de planejamento e vendas.
+   - **Opção B (Foco em Monitoramento/Eficiência):** Mantenho o equipamento rodando, mas reduzo a velocidade operacional em 30% para diminuir o estresse mecânico, aceitando uma queda na produtividade para tentar chegar vivo até o fim do mês.
+   - **Opção C (Foco Operacional/Run-to-Failure):** Rodo a máquina na capacidade máxima para tentar terminar a campanha de exportação o quanto antes. Se quebrar, aciono a manutenção corretiva de emergência e lido com as consequências.
+
+##### Dilema 10 — Qualificação de Pessoal vs. Escassez de Mão de Obra (Conflito Normas Regulamentadoras / Continuidade)
+
+* **Contexto:** Um surto repentino de virose afasta todos os operadores de empilhadeira certificados do turno da madrugada. Há 15 carretas no pátio esperando carregamento, e cada carreta parada gera multa (*demurrage*) por hora.
+
+* **O Conflito:** O encarregado do turno sugere colocar ajudantes de armazém, que têm experiência prática não documentada em dirigir empilhadeiras, para operar as máquinas, mesmo sem o treinamento formal e a certificação da NR-11.
+   - **Opção A (Foco em Segurança/Legalidade):** Proíbo terminantemente. Travo o carregamento, mando as carretas aguardarem até o turno da manhã (quando chegam os operadores certificados) e a empresa paga as multas.
+   - **Opção B (Foco em Liderança/Contorno):** Autorizo os ajudantes a operarem apenas na área externa (sem prateleiras altas) e assumo pessoalmente a supervisão visual direta deles durante toda a madrugada, assumindo o risco gerencial.
+   - **Opção C (Foco em Eficiência/Riscos Ocultos):** Autorizo os ajudantes a fazerem o trabalho normal para liberar os caminhões rápido, mas combino com o encarregado de não registrar os nomes deles nos diários de bordo das máquinas para não deixar rastros em auditorias futuras.
+
+
+### A Engenharia de Dados do SJT: A Matriz de Injeção de Pesos ($w_{SJT}$)
+
+Essa é uma evolução importante para a engenharia do instrumento. No mundo real da Gestão de Operações, as decisões raramente são unidimensionais: uma escolha centrada em Qualidade (como parar para investigar causa-raiz com MASP/PDCA) pode ter um eixo principal Analítico, mas também exigir um componente secundário de Liderança para sustentar a decisão sob pressão.
+
+Ao adotar uma lógica *fuzzy* (peso primário +5 e secundário +2), o algoritmo deixa de ser binário e passa a mapear o "perfil sombra" do aluno. Em cenários de empate no peso primário, o peso secundário atua como critério de desempate refinado, capturando nuances de tomada de decisão.
+
+```{r}
+#| label: tbl-pesos-sjt
+#| tbl-cap: "Matriz de Injeção de Pesos Cruzada ($w_{SJT}$): Primário (+5) e Secundário (+2)"
+#| echo: false
+#| message: false
+#| warning: false
+
+library(kableExtra)
+
+fmt_peso <- function(v) {
+  ifelse(
+    v == 5,
+    cell_spec("+5.0", bold = TRUE),
+    ifelse(v == 2, cell_spec("+2.0", color = "#154360", bold = TRUE), "+0.0")
+  )
+}
+
+pesos_raw <- rbind(
+  # D1: Qualidade vs. Produção
+  c(2,0,0,0,0,5), c(0,2,0,5,0,0), c(5,0,0,0,2,0),
+  # D2: Saúde/Segurança vs. Cultura
+  c(0,0,0,0,2,5), c(0,0,2,5,0,0), c(2,0,0,0,5,0),
+  # D3: Meio Ambiente vs. Orçamento
+  c(0,0,0,0,2,5), c(2,5,0,0,0,0), c(0,0,5,2,0,0),
+  # D4: Auditoria vs. Ética Interna
+  c(0,0,0,0,5,2), c(0,0,0,5,2,0), c(0,2,5,0,0,0),
+  # D5: Resp. Social vs. Lucro
+  c(0,0,0,2,0,5), c(0,0,5,2,0,0), c(5,2,0,0,0,0),
+  # D6: Indicador vs. Liderança
+  c(0,0,2,5,0,0), c(0,0,0,0,5,2), c(5,2,0,0,0,0),
+  # D7: Suprimentos vs. Qualidade
+  c(2,0,0,0,5,0), c(2,0,5,0,0,0), c(0,5,0,2,0,0),
+  # D8: Cybersec vs. Continuidade
+  c(0,0,0,0,5,2), c(0,2,5,0,0,0), c(2,5,0,0,0,0),
+  # D9: Manutenção vs. Cronograma
+  c(5,0,0,0,0,2), c(0,2,5,0,0,0), c(0,5,0,0,2,0),
+  # D10: Qualificação vs. Escassez
+  c(0,0,0,0,2,5), c(0,2,0,0,5,0), c(0,5,2,0,0,0)
+)
+
+opcoes <- c(
+  "\u21b3 A. Compliance/Cliente", "\u21b3 B. Negociação/Crise",  "\u21b3 C. Burlar/Meta",
+  "\u21b3 A. Ética/Risco 0",      "\u21b3 B. Clima/Equipe",      "\u21b3 C. Investigação/RH",
+  "\u21b3 A. Parar/Trocar",       "\u21b3 B. Monitorar/Risco",   "\u21b3 C. Reduzir/Negociar",
+  "\u21b3 A. Reportar/NC",        "\u21b3 B. Barganhar/Prazo",   "\u21b3 C. Manobra/Sistema",
+  "\u21b3 A. Transparência",      "\u21b3 B. Compens. Cruzada",  "\u21b3 C. Eficiência Legal",
+  "\u21b3 A. Serviço/Redação",    "\u21b3 B. Vetar/Postura",     "\u21b3 C. Estatística/Causa",
+  "\u21b3 A. Qualidade/Parada",   "\u21b3 B. Inspeção-Barreira", "\u21b3 C. Custo/Continuidade",
+  "\u21b3 A. Segurança/TI",       "\u21b3 B. Air Gap Manual",    "\u21b3 C. Entrega/Contrato",
+  "\u21b3 A. Confiabilidade",     "\u21b3 B. Reduz Velocidade",  "\u21b3 C. Run-to-Failure",
+  "\u21b3 A. NR-11/Legalidade",   "\u21b3 B. Supervisão Direta", "\u21b3 C. Ocultação/Expedição"
+)
+
+df_sjt <- data.frame(
+  Opcao = opcoes,
+  P01   = fmt_peso(pesos_raw[, 1]),
+  P02   = fmt_peso(pesos_raw[, 2]),
+  P03   = fmt_peso(pesos_raw[, 3]),
+  P04   = fmt_peso(pesos_raw[, 4]),
+  P05   = fmt_peso(pesos_raw[, 5]),
+  P06   = fmt_peso(pesos_raw[, 6]),
+  stringsAsFactors = FALSE
+)
+
+kbl(df_sjt,
+    escape    = FALSE,
+    align     = c("l", rep("c", 6)),
+    col.names = c("Dilema / Opção",
+                  "P01 (Analítico)", "P02 (Operações)", "P03 (Criativo)",
+                  "P04 (Comunicador)", "P05 (Líder)", "P06 (Sustentável)")) |>
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed", "bordered"),
+    full_width = TRUE,
+    font_size  = 13
+  ) |>
+  column_spec(1, width = "30%") |>
+  row_spec(0, background = "#1a5276", color = "white", bold = TRUE) |>
+  pack_rows("1. Quali/Prod (ISO 9001)",          1,  3, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("2. SST/Cultura (ISO 45001)",        4,  6, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("3. Amb/Orçam (ISO 14001)",          7,  9, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("4. Auditoria (ISO 19011)",          10, 12, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("5. Social/Lucro (NBR 16001)",       13, 15, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("6. Indicador (ISO 9001)",           16, 18, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("7. Cadeia de Suprimentos (ISO 9001/Lean)", 19, 21, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("8. Segurança Cibernética (ISO 27001)",     22, 24, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("9. Manutenção de Ativos (ISO 55001)",      25, 27, bold = TRUE, background = "#d6eaf8", color = "#1a5276") |>
+  pack_rows("10. Qualificação de Pessoal (NR-11)",      28, 30, bold = TRUE, background = "#d6eaf8", color = "#1a5276")
+```
+
+### A Racionalidade dos Pesos Secundários (+2)
+
+A injeção do peso secundário (+2) revela a ferramenta de gestão ou a postura subjacente à escolha principal do aluno, refinando o diagnóstico do perfil:
+
+* **Dilema 1, Opção A:** ao priorizar o compliance e barrar o embarque (**P06 +5**), o aluno também sinaliza método de garantia da qualidade (**P01 +2**).
+* **Dilema 6, Opção C:** a análise estatística da base indica eixo analítico (**P01 +5**), mas com objetivo operacional de melhoria de processo (**P02 +2**), típico de Lean Six Sigma.
+* **Dilema 7, Opção B:** criar uma barreira de inspeção para manter fluxo combina improviso técnico/criativo (**P03 +5**) com rigor de controle (**P01 +2**).
+* **Dilema 9, Opção C:** a estratégia *run-to-failure* prioriza throughput (**P02 +5**), mas pressupõe decisão de risco sob pressão gerencial (**P05 +2**).
+
+::: {.callout-tip title="⚙️ Tech Note: Como o R processa Dilemas Categóricos"}
+Enquanto os formulários anteriores geravam dados numéricos (Escala Likert de 1 a 5), o Formulário 4 gera dados categóricos (Letras A, B ou C). Como modelar isso matematicamente?
+
+Todo o mapeamento ocorre de forma invisível no *backend*. O script `trat.forms.R` utiliza o pacote `dplyr` para fazer um "pivotamento" longo das respostas do aluno e executa um cruzamento relacional (`inner_join`) com um Dicionário de Dados exato (a Matriz $w_{SJT}$ acima). Assim, quando o aluno assinala "B", o algoritmo automaticamente puxa o vetor `[0, 2, 5, 0, 0, 0]` e o soma ao score final, gerando um perfil recalibrado em 360 graus instantaneamente.
+:::
+
+### A Mecânica de Reorganização Pós-Formulário 4
+
+Com os novos perfis revelados e purificados das falhas de autopercepção, a coordenação da disciplina toma uma decisão tática extrema: **desfaz os grupos antigos (formados na Rodada 1) e estrutura novas equipes estritamente baseadas no cruzamento de competências reveladas pelo SJT**.
+
+O terreno está preparado para a etapa final, onde esses perfis remapeados terão que debater, negociar e formalizar a sua governança e sobrevivência operacional em conjunto.
+
+#### Decodificando o Teste Cego: O Radar de Crise (SJT)
+
+A visualização dos dados brutos gerados por este instrumento revela uma matriz de decisões categóricas (A, B ou C). Diferente dos formulários anteriores, o aluno não consegue usar a "tendência central" (nota 3) para fugir do problema. A simulação exige um posicionamento binário de prioridades: ou se paralisa a fábrica para proteger o meio ambiente, ou se mantém a operação assumindo o risco da multa.
+
+Para descobrir o verdadeiro arquétipo comportamental escondido nessas letras, o motor de dados executa um *pivotamento* longo. O script traduz a letra escolhida pelo aluno no vetor de pontos correspondente na matriz $w_{SJT}$ e soma os *scores* absolutos de cada perfil.
+
+O código a seguir processa as respostas dos 71 alunos e confronta a **Preferência Declarada** (O perfil que o aluno assumiu no Formulário 1) com a **Preferência Revelada** (O perfil que ele adotou para sobreviver às crises do Formulário 4).
+
+```{r}
+#| label: tbl-estresse-sjt
+#| tbl-cap: "Teste de Realidade: Autopercepção (F1) vs. Decisão sob Estresse (F4)"
+#| echo: true
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(knitr)
+library(kableExtra)
+
+# Garante que as bases de F1 e F4 estejam carregadas
+quiet_source("R/trat.forms.R")
+
+# 1. Reconstrução do Dicionário de Pesos SJT no R
+pesos_raw <- rbind(
+  c(2,0,0,0,0,5), c(0,2,0,5,0,0), c(5,0,0,0,2,0), # D01: A, B, C
+  c(0,0,0,0,2,5), c(0,0,2,5,0,0), c(2,0,0,0,5,0), # D02: A, B, C
+  c(0,0,0,0,2,5), c(2,5,0,0,0,0), c(0,0,5,2,0,0), # D03: A, B, C
+  c(0,0,0,0,5,2), c(0,0,0,5,2,0), c(0,2,5,0,0,0), # D04: A, B, C
+  c(0,0,0,2,0,5), c(0,0,5,2,0,0), c(5,2,0,0,0,0), # D05: A, B, C
+  c(0,0,2,5,0,0), c(0,0,0,0,5,2), c(5,2,0,0,0,0), # D06: A, B, C
+  c(2,0,0,0,5,0), c(2,0,5,0,0,0), c(0,5,0,2,0,0), # D07: A, B, C
+  c(0,0,0,0,5,2), c(0,2,5,0,0,0), c(2,5,0,0,0,0), # D08: A, B, C
+  c(5,0,0,0,0,2), c(0,2,5,0,0,0), c(0,5,0,0,2,0), # D09: A, B, C
+  c(0,0,0,0,2,5), c(0,2,0,0,5,0), c(0,5,2,0,0,0)  # D10: A, B, C
+)
+
+df_dicionario_sjt <- data.frame(
+  Dilema = paste0("Dilema_", str_pad(rep(1:10, each=3), 2, pad="0")),
+  Resposta = rep(c("A", "B", "C"), 10),
+  P01 = pesos_raw[,1], P02 = pesos_raw[,2], P03 = pesos_raw[,3],
+  P04 = pesos_raw[,4], P05 = pesos_raw[,5], P06 = pesos_raw[,6]
+)
+
+# 2. O Processamento Algorítmico das Respostas
+df_sjt_calculado <- df_form4_anon %>%
+  pivot_longer(cols = starts_with("Dilema"), names_to = "Dilema", values_to = "Resposta") %>%
+  filter(!is.na(Resposta)) %>%
+  # Cruza a resposta com o dicionário de pesos
+  inner_join(df_dicionario_sjt, by = c("Dilema", "Resposta")) %>%
+  # Soma os pontos de cada perfil para o aluno
+  group_by(ID_Aluno) %>%
+  summarise(across(starts_with("P0"), sum), .groups = "drop") %>%
+  pivot_longer(cols = starts_with("P0"), names_to = "P", values_to = "Score_SJT") %>%
+  # Identifica o perfil dominante revelado na crise
+  group_by(ID_Aluno) %>%
+  slice_max(order_by = Score_SJT, n = 1, with_ties = FALSE) %>%
+  ungroup()
+
+# 3. Cruzamento F1 vs F4
+df_comparativo_crise <- perfis_base %>%
+  # Puxa o Perfil do F1 (Modelo ARM Individual)
+  left_join(df_perfil_arm %>% count(P, name = "F1_Declarado"), by = "P") %>%
+  # Puxa o Perfil do F4 (SJT Crise)
+  left_join(df_sjt_calculado %>% count(P, name = "F4_Revelado"), by = "P") %>%
+  mutate(
+    across(starts_with("F"), ~replace_na(.x, 0)),
+    Delta = F4_Revelado - F1_Declarado,
+    Delta_Fmt = case_when(Delta > 0 ~ paste0("+", Delta), Delta < 0 ~ as.character(Delta), TRUE ~ "-")
+  )
+
+# 4. Renderização
+df_comparativo_crise %>%
+  select(Perfil = `Arquétipo Profissional (Perfil Dominante)`, F1_Declarado, F4_Revelado, Delta_Fmt) %>%
+  kbl(align = c("l", "c", "c", "c"), col.names = c("Arquétipo Profissional", "F1: Preferência Declarada (Ego)", "F4: Preferência Revelada (Crise)", "Variação (\u0394)")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
+  add_header_above(c(" " = 1, "O Diagnóstico Definitivo da Turma" = 2, " " = 1), bold = TRUE, background = "#f8f9fa", color = "#2c3e50") %>%
+  column_spec(1, bold = TRUE, color = "#2c3e50") %>%
+  column_spec(2, color = "#c0392b") %>%
+  column_spec(3, bold = TRUE, color = "#2980b9") %>%
+  column_spec(4, bold = TRUE, color = ifelse(df_comparativo_crise$Delta > 0, "#27ae60", ifelse(df_comparativo_crise$Delta < 0, "#c0392b", "#7f8c8d")))
+```
+
+#### Decodificando a Crise: O Skin in the Game
+
+A Tabela gerada pelo processamento do SJT expõe o desfecho comportamental do nosso modelo. Ao remover as declarações abstratas e inserir os alunos em dilemas operacionais com consequências (o chamado Skin in the Game, ou "Pele em Risco"), a engenharia de dados prova que a autoavaliação inicial era quase totalmente falha.
+
+Observando a variação dos perfis, constatamos o "Nascimento da Diversidade". Onde o Formulário 1 via apenas uma turma polarizada entre P1 (Analíticos) e P4 (Comunicadores), a pressão operacional revelou quem realmente é quem:
+
+* **A Queda da Falácia Analítica:** Muitos alunos que se refugiaram no conforto do P1 por não quererem assumir responsabilidades (Tendência Central) descobriram-se forçados a tomar decisões rápidas e assertivas nas simulações, migrando suas identidades latentes para a Liderança (P5) e Operações (P2).
+* **A Revelação dos Arquétipos Ocultos:** Pela primeira vez no instrumento, alunos pontuaram para o Perfil 3 (Criativo-Inovador) e Perfil 6 (Sustentável-Responsável). No F1, o viés os impedia de assumir essas características. No F4, diante de uma quebra de máquina ou risco ambiental, a preferência real aflorou, optando por caminhos criativos (burlar sistemas de forma inteligente para não parar a fábrica) ou de compliance extremo.
+
+#### Conclusão: A Virada de Chave no People Analytics
+
+A metodologia exposta neste capítulo prova que a aplicação da Estatística e da Computação em Ciências Humanas não se resume a automatizar o cálculo de médias em questionários. A adoção do Modelo ARM (Analytic Requirements Modeling), aliado à teoria da triangulação em malha fechada e aos testes de SJT, transforma a avaliação de competências em um sistema de diagnóstico preditivo.
+
+O gestor que implementa esse nível de pipeline no R deixa de ser um "aplicador de formulários" e passa a ser um Engenheiro do Comportamento. Ele não avalia o que a equipe diz ser; ele utiliza os dados para provar o que a equipe inevitavelmente será sob pressão, garantindo a formação de esquadrões de altíssima performance para a indústria.
+
+::: {.callout-important title="🧠 Paradigma Analítico: A Lei de Goodhart e a Engenharia de *Features* Comportamentais"}
+Na Ciência de Dados e na Economia, a **Lei de Goodhart** afirma que *"quando uma métrica se torna um alvo, ela deixa de ser uma boa métrica"*.
+
+No Formulário 1 (Autopercepção), a métrica era óbvia (a escala Likert de 1 a 5). O cérebro do aluno rapidamente transformou a nota máxima no "alvo" a ser atingido para provar sua competência, destruindo completamente a variância e a validade do dado (o Efeito Bom Moço).
+
+O brilho analítico do Formulário 4 (SJT) reside na **Engenharia de Variáveis (*Feature Engineering*)**. Ao invés de perguntar diretamente *"Você foca em resultados operacionais?"* (uma variável viciada, pois todos dirão que sim), o modelo cria um cenário proxy (indireto) onde manter a operação rodando custará uma infração ambiental ou um risco de segurança.
+
+Ao tornar a resposta "certa" ambígua e atrelada a um sacrifício (Skin in the Game), o algoritmo destrói o alvo fácil da Lei de Goodhart e consegue extrair a verdadeira variável latente (o instinto de gestão) que estava escondida no perfil do avaliado.
+:::
+
+## ⏱️ Rodada 5: Mapeamento Técnico de Hard Skills {#sec-rodada-5-hardskills}
+
+::: {.callout-important title="🛠️ LABORATÓRIO DE ENGENHARIA: Rodada 5 — Mapeamento Técnico de Hard Skills"}
+**Objetivo: Diagnóstico do Histórico Acadêmico e Inventário de Capital Intelectual**
+
+Para que uma equipe de consultoria opere em alto nível, não basta apenas equilibrar os perfis comportamentais; é fundamental mapear o embasamento técnico de cada membro. Na Engenharia de Produção, as decisões de excelência são balizadas por cálculos, estatística e domínio de processos.
+
+Nesta quinta rodada, realizaremos um inventário das suas **Hard Skills**. O objetivo é coletar o histórico de desempenho nas disciplinas dos ciclos Básico, Profissionalizante e Específico. A compilação desses dados permitirá ao grupo identificar quem possui maior afinidade com as ciências exatas e quem domina as ferramentas de gestão.
+
+**Exemplo de Referência (Perfil Acadêmico A001):**
+Utilizaremos os índices abaixo como *benchmark* de alta performance para ilustrar como a consistência nas notas impacta a eficiência acadêmica:
+
+| Sigla | Índice Acadêmico | Valor Real |
+|:---:|:---|:---:|
+| **MC** | Média de Conclusão (Ponderada pela CH) | **8.90** |
+| **IRA** | Índice de Rendimento Acadêmico | **8.90** |
+| **IEA** | Índice de Eficiência Acadêmica | **9.79** |
+
+**Instrução Prática:** O preenchimento é **individual**. Cada membro deve registrar sua nota final (aprovada) nas disciplinas listadas no formulário. Caso ainda não tenha cursado a matéria, marque "Ainda não cursei". Este é um diagnóstico técnico para alocação eficiente de recursos, e não um julgamento acadêmico.
+:::
+
+#### FORMULÁRIO 5 — Mapeamento de Hard Skills (Desempenho Técnico Individual)
+
+**Instruções de Preenchimento:**
+
+LÍDER DA EQUIPE: A partir desta seção, você deve passar o dispositivo (ou compartilhar a tela) para que **CADA MEMBRO** preencha suas próprias notas nas tabelas abaixo. Indique a nota final (aprovada) obtida.
+
+* **🔗 Link de Acesso:** [FORMULÁRIO 5 — Mapeamento Técnico de Hard Skills](https://forms.office.com/link-ficticio-notas)
+
+---
+
+##### Seção 1: Ciclo Básico (1º ao 3º Período)
+*Indique sua nota final nas disciplinas de base científica e tecnológica.*
+
+**14. Tabela de Notas - Ciclo Básico:**
+
+*Colunas: "Ainda não cursei", "60 a 69", "70 a 79", "80 a 89", "90 a 100"*
+
+* INTRODUÇÃO À ENGENHARIA DE PRODUÇÃO
+
+* CÁLCULO I e II
+
+* QUÍMICA GERAL E LABORATÓRIO
+
+* GEOMETRIA ANALÍTICA E ÁLGEBRA LINEAR
+
+* FUNDAMENTOS DE LÓGICA DE PROGRAMAÇÃO
+
+* ENGENHARIA DA QUALIDADE I
+
+* MECÂNICA ESTÁTICA
+
+##### Seção 2: Ciclo Profissionalizante (4º ao 5º Período)
+**15. Tabela de Notas - Ciclo Profissionalizante:**
+
+* ESTATÍSTICA PARA ENGENHARIA DE PRODUÇÃO
+
+* METROLOGIA E LABORATÓRIO
+
+* GESTÃO DE PROJETOS
+
+* RESISTÊNCIA DOS MATERIAIS
+
+* FENÔMENOS DE TRANSPORTE
+
+* ENGENHARIA DE MÉTODOS PRÁTICA
+
+##### Seção 3: Ciclo Específico e Projetos (6º ao 10º Período)
+**16. Tabela de Notas - Ciclo Específico:**
+
+* SISTEMAS DE GESTÃO INTEGRADOS (SGI)
+
+* PLANEJAMENTO E CONTROLE DA PRODUÇÃO (PCP I)
+
+* PESQUISA OPERACIONAL
+
+* LOGÍSTICA E TRANSPORTE
+
+* ENGENHARIA ECONÔMICA E FINANCEIRA I
+
+* GESTÃO DA MANUTENÇÃO
+
+##### Seção 4: Componentes Optativos e TCC
+**17. Tabela de Notas - Optativas e Conclusão:**
+
+* CONSULTORIA EMPRESARIAL
+
+* INTRODUÇÃO ÀS METODOLOGIAS ÁGEIS
+
+* MODELAGEM FINANCEIRA AVANÇADA
+
+* VALUATION AND VALUE INVESTING
+
+* TRABALHO DE CONCLUSÃO DE CURSO (TCC I e II)
+
+## ⏱️ Rodada 6: Termo de Abertura do Projeto (Team Charter) {#sec-rodada-6-tap}
+
+::: {.callout-important title="🛠️ LABORATÓRIO DE ENGENHARIA: Rodada 6 — Termo de Abertura do Projeto (TAP)"}
+**Objetivo: Formalização da Governança e Contrato Social da Consultoria**
+
+Com os perfis comportamentais e a bagagem técnica devidamente mapeados, chegou o momento de consolidar a identidade da sua organização. A partir de agora, vocês deixam de ser um grupo isolado de alunos e assumem formalmente o papel de uma **Equipe de Consultoria Multidisciplinar** encarregada de implantar um Sistema de Gestão Integrado (SGI).
+
+Nesta sexta rodada, vocês elaborarão o **Team Charter** (Contrato de Consultoria). Este documento é a "Constituição" do grupo: ele define as responsabilidades individuais (quem cobra, quem revisa, quem comunica), estabelece os Acordos de Nível de Serviço (**SLA**) para prazos internos e, crucialmente, pactua as regras de resolução de conflitos e sanções para garantir a sustentabilidade do projeto sob pressão.
+
+**Instrução Prática:** O conteúdo deve ser debatido presencialmente e em consenso por todos os membros, mas preenchido e enviado por **apenas um representante** (o Líder designado). As regras pactuadas aqui serão o documento oficial de governança e *Compliance* de vocês para o semestre.
+:::
+
+#### FORMULÁRIO 6 — Termo de Abertura do Projeto (Team Charter / Contrato de Consultoria)
+
+**Tempo estimado para debate e preenchimento:** 20 minutos.
+
+---
+
+##### Seção 1: Identidade da Consultoria
+1. **Nome da Consultoria:** (Texto Curto)
+2. **Membros e Perfis Dominantes (Modelo ARM):** (Texto Longo)
+
+##### Seção 2: Diagnóstico Multidisciplinar (Radar da Equipe)
+3. **Maior Força Operacional:** (Texto Curto)
+4. **Maior Ponto Cego (Gargalo):** (Texto Curto)
+5. **Estratégia de Mitigação:** (Texto Longo)
+
+##### Seção 3: Matriz de Responsabilidades (RACI Simplificada)
+6. **Gestor do Projeto (Cronograma/Prazos):** (Nome)
+7. **Revisor de Qualidade e Compliance (ABNT/ISO):** (Nome)
+8. **Articulador de Comunicação (Apresentação/Defesa):** (Nome)
+9. **Analista de Dados/Pesquisa (Cálculos/Bibliografia):** (Nome)
+
+##### Seção 4: Governança e Compliance Interno
+11. **SLA Interno (Antecedência mínima de envio):** (24h, 48h, 72h, Outro)
+12. **Repositório Oficial:** (WhatsApp, Drive, Teams/Trello, Outro)
+13. **Resolução de Conflitos e Sanções:** O que a equipe fará em caso de descumprimento de prazos ou qualidade inaceitável? (Texto Longo)
+
+##### Seção 5: Assinatura
+18. **Termo de Aceite Multidisciplinar:** [ ] Li, confirmo com a minha equipe e aceitamos os termos de governança.
