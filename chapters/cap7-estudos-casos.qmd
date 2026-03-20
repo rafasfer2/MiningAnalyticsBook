@@ -2419,6 +2419,108 @@ Essa lógica matemática resolve o problema da matriz curricular fragmentada: me
 
 O perfil que emerge após essa fusão não é mais uma autopercepção ou um instinto isolado. É o verdadeiro **DNA do Engenheiro**, onde a atitude sob pressão encontra a prova matemática do histórico escolar. É com base neste Perfil Recalibrado que os Squads (apresentados nas seções anteriores) foram definitivamente formados.
 
+#### A Matriz de Talentos Definitiva (O DNA em Gráfico)
+
+A matriz gerada na Rodada 5 utilizava a autopercepção (F1) como eixo comportamental. Com a Fusão de Dados concluída, substituímos o eixo "Ego" pelo eixo "Realidade": o **Score Recalibrado** (Instinto na Crise + Bônus de Notas).
+
+O gráfico abaixo ilustra a taxonomia tática definitiva da turma. Note que os limiares de corte (Percentil 70) ajustaram-se automaticamente aos novos valores. Alunos que antes figuravam como *High Potentials* pelo seu ego podem ter despencado para o quadrante *Operacional* ao terem seus instintos testados. Em contrapartida, os verdadeiros talentos estabilizaram-se no topo.
+
+```{r}
+#| label: fig-matriz-talentos-final
+#| fig-cap: "Matriz de Talentos Definitiva: O DNA Recalibrado (F4+F5) vs. Eficiência Técnica (IEA)."
+#| echo: true
+#| message: false
+#| warning: false
+#| fig-width: 12
+#| fig-height: 8
+#| out-width: "100%"
+
+library(dplyr)
+library(ggplot2)
+library(ggrepel)
+
+# 1. Usa a base já com a fusão de dados (F4 + F5 + IEA) calculada no Back-End
+df_analise_talentos_final <- df_perfil_dominante_f4 %>%
+  left_join(df_indices_anon %>% select(ID_Aluno, IEA), by = "ID_Aluno") %>%
+  filter(!is.na(IEA) & !is.na(Score_Final_Recalibrado)) # Remove pendentes para o plot
+
+# 2. Recalcula as linhas de corte (Percentil 70) para o novo cenário
+limiar_iea_final <- quantile(df_analise_talentos_final$IEA, 0.7, na.rm = TRUE)
+limiar_score_final <- quantile(df_analise_talentos_final$Score_Final_Recalibrado, 0.7, na.rm = TRUE)
+
+# 3. Reclassifica os quadrantes com o DNA definitivo
+df_analise_talentos_final <- df_analise_talentos_final %>%
+  mutate(
+    Status_Talento = case_when(
+      IEA >= limiar_iea_final & Score_Final_Recalibrado >= limiar_score_final ~ "High Potential",
+      IEA >= limiar_iea_final & Score_Final_Recalibrado < limiar_score_final ~ "Técnico Subutilizado",
+      IEA < limiar_iea_final & Score_Final_Recalibrado >= limiar_score_final ~ "Risco Técnico",
+      TRUE ~ "Operacional"
+    )
+  )
+
+# Identifica os top alunos finais para rotular no gráfico (LGPD: será usado o ID anônimo)
+destaques_hp_f <- df_analise_talentos_final %>% filter(Status_Talento == "High Potential") %>% slice_max(order_by = Score_Final_Recalibrado, n = 2, with_ties = FALSE)
+destaques_ts_f <- df_analise_talentos_final %>% filter(Status_Talento == "Técnico Subutilizado") %>% slice_max(order_by = IEA, n = 2, with_ties = FALSE)
+destaques_rt_f <- df_analise_talentos_final %>% filter(Status_Talento == "Risco Técnico") %>% slice_min(order_by = IEA, n = 2, with_ties = FALSE)
+
+alunos_destaque_f <- bind_rows(destaques_hp_f, destaques_ts_f, destaques_rt_f) %>% pull(ID_Aluno)
+
+df_plot_talentos_final <- df_analise_talentos_final %>%
+  mutate(Label = if_else(ID_Aluno %in% alunos_destaque_f, ID_Aluno, ""))
+
+x_iea_min <- min(df_plot_talentos_final$IEA, na.rm = TRUE)
+x_iea_max <- max(df_plot_talentos_final$IEA, na.rm = TRUE)
+y_score_min <- min(df_plot_talentos_final$Score_Final_Recalibrado, na.rm = TRUE)
+y_score_max <- max(df_plot_talentos_final$Score_Final_Recalibrado, na.rm = TRUE)
+x_iea_span <- max(x_iea_max - x_iea_min, 1)
+y_score_span <- max(y_score_max - y_score_min, 1)
+
+cores_talentos <- c(
+  "High Potential"        = "#24A379",
+  "Técnico Subutilizado"  = "#1D5185",
+  "Risco Técnico"         = "#C40E0E",
+  "Operacional"           = "#F1C40F"
+)
+
+# 4. Renderiza a Matriz
+ggplot(df_plot_talentos_final, aes(x = IEA, y = Score_Final_Recalibrado, color = Status_Talento)) +
+  geom_vline(xintercept = limiar_iea_final, linetype = "dashed", color = "#2C3E50", alpha = 0.8, linewidth = 0.6) +
+  geom_hline(yintercept = limiar_score_final, linetype = "dashed", color = "#2C3E50", alpha = 0.8, linewidth = 0.6) +
+  geom_point(size = 3.5, alpha = 0.8) +
+  geom_text_repel(aes(label = Label), color = "black", size = 4, fontface = "bold",
+                  show.legend = FALSE, box.padding = 0.6, point.padding = 0.5, max.overlaps = Inf) +
+  annotate("text", x = x_iea_max + 0.02 * x_iea_span, y = y_score_max + 0.03 * y_score_span,
+           label = "High Potentials", hjust = 1, vjust = 1, color = "#24A379", fontface = "bold", alpha = 0.6, size = 5) +
+  annotate("text", x = x_iea_max + 0.02 * x_iea_span, y = y_score_min - 0.03 * y_score_span,
+           label = "Técnicos\nSubutilizados", hjust = 1, vjust = 0, color = "#1D5185", fontface = "bold", alpha = 0.6, size = 5) +
+  annotate("text", x = x_iea_min - 0.02 * x_iea_span, y = y_score_max + 0.03 * y_score_span,
+           label = "Risco\nTécnico", hjust = 0, vjust = 1, color = "#C40E0E", fontface = "bold", alpha = 0.6, size = 5) +
+  annotate("text", x = x_iea_min - 0.02 * x_iea_span, y = y_score_min - 0.03 * y_score_span,
+           label = "Operacional", hjust = 0, vjust = 0, color = "#F1C40F", fontface = "bold", alpha = 0.8, size = 5) +
+  scale_color_manual(values = cores_talentos) +
+  labs(
+    title    = "Matriz de Talentos Definitiva: DNA Recalibrado vs. Eficiência (IEA)",
+    subtitle = "Posicionamento estratégico após a Fusão de Dados (F4 + F5 + IEA)",
+    x        = "Índice de Eficiência Acadêmica (IEA) - Eixo Técnico",
+    y        = "Score Recalibrado (Crise + Bônus de Hard Skills)",
+    color    = "Classificação Final:"
+  ) +
+  scale_x_continuous(expand = expansion(mult = c(0.08, 0.12))) +
+  scale_y_continuous(expand = expansion(mult = c(0.08, 0.12))) +
+  coord_cartesian(clip = "off") +
+  theme_minimal(base_size = 14) +
+  theme(
+    legend.position   = "bottom",
+    plot.title        = element_text(face = "bold", size = 16, color = "#2C3E50"),
+    plot.subtitle     = element_text(color = "#7F8C8D", margin = margin(b = 15)),
+    panel.grid.minor  = element_blank(),
+    axis.title.x      = element_text(face = "bold"),
+    axis.title.y      = element_text(face = "bold"),
+    plot.margin       = margin(t = 18, r = 28, b = 18, l = 28)
+  )
+```
+
 ### A Linha do Tempo Analítica: Rastreabilidade de Perfis
 
 Para provar a volatilidade do perfil humano, o motor de dados rastreia a evolução individual dos alunos ao longo de todas as rodadas metodológicas. A tabela abaixo ilustra o comportamento de uma amostra da turma de *Gestão da Qualidade*, mostrando a "viagem" de cada aluno desde a sua autopercepção enviesada (F1), passando pela adequação forçada da equipe (F2 e F3), até o choque de realidade gerado pela fusão do instinto de crise com as *Hard Skills* (F4 + F5).
