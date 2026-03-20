@@ -7,7 +7,7 @@ lang: pt-BR
 
 book:
   title: "Sistema de Gestão e Excelência Operacional na Mineração"
-  subtitle: "Análise de Indicadores e Data Science com R"
+  subtitle: "Análise de Indicadores e Data Science com R - Versão 2.0 (Parte I completa)"
   author: "Rafael da Silva Fernandes"
   date: last-modified
 
@@ -30,18 +30,19 @@ book:
         - chapters/cap5-cerebro-operacao.qmd     # Cap 5: Trilogia de Juran, PDCA e MASP
         - chapters/cap6-caixa-ferramentas.qmd    # Cap 6: Ferramentas da Qualidade
         - chapters/cap7-estudos-casos.qmd        # Cap 7: Aplicações Multidimensionais e Prática Mineral
+        - chapters/cap8-inicio-consultoria.qmd   # Cap 8: Kick-off da consultoria e ponte para a Parte II
 
     # PARTE 2: Metrologia, Gestão de Ativos e Confiabilidade
     - part: chapters/part2-intro.qmd
       chapters:
-        - chapters/cap8-metrologia-kpi.qmd       # Cap 8: Metrologia Operacional (Telemetria, DF, UF, RO, OEE)
-        - chapters/cap9-gestao-ativos-pco.qmd    # Cap 9: Gestão de Ativos e PCO (Planejamento da Mina)
-        - chapters/cap10-plan-crtl-manut.qmd     # Cap 10: PCM (Planejamento e Controle da Manutenção)
-        - chapters/cap11-iqpl-aprofundamento.qmd # Cap 11: Índice de Qualidade de Plano de Manutenção (IQPL)
-        - chapters/cap12-indicadores-manut.qmd   # Cap 12: Indicadores de Manutenção (MTBF, MTTR, ISAC, ATSP, IDF)
-        - chapters/cap13-confiabilidade.qmd      # Cap 13: Engenharia de Confiabilidade (Estatística Avançada e Processos de Contagem)
-        - chapters/cap14-manut-imperfeita.qmd    # Cap 14: Manutenção Imperfeita (Ciclos PR, ABAO/AGAN)
-        - chapters/cap15-exercicios-parte2.qmd    # Exercícios: Consolidação da Parte 2
+        - chapters/cap8-metrologia-kpi.qmd       # Cap 9: Metrologia Operacional (Telemetria, DF, UF, RO, OEE)
+        - chapters/cap9-gestao-ativos-pco.qmd    # Cap 10: Gestão de Ativos e PCO (Planejamento da Mina)
+        - chapters/cap10-plan-crtl-manut.qmd     # Cap 11: PCM (Planejamento e Controle da Manutenção)
+        - chapters/cap11-iqpl-aprofundamento.qmd # Cap 12: Índice de Qualidade de Plano de Manutenção (IQPL)
+        - chapters/cap12-indicadores-manut.qmd   # Cap 13: Indicadores de Manutenção (MTBF, MTTR, ISAC, ATSP, IDF)
+        - chapters/cap13-confiabilidade.qmd      # Cap 14: Engenharia de Confiabilidade (Estatística Avançada e Processos de Contagem)
+        - chapters/cap14-manut-imperfeita.qmd    # Cap 15: Manutenção Imperfeita (Ciclos PR, ABAO/AGAN)
+        - chapters/cap15-exercicios-parte2.qmd    # Cap 16: Exercícios de Consolidação da Parte 2
 
     # PARTE 3: Aplicação Operacional na Mineração (Ciclo de Mina)
     - part: chapters/part3-intro.qmd

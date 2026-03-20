@@ -1,0 +1,83 @@
+---
+format: html
+---
+
+# O Início da Consultoria e a Metrologia Operacional {#sec-cap8}
+
+::: {.callout-tip title="🎯 Objetivos deste Capítulo"}
+Neste capítulo, encerramos a Parte I do nosso livro, conectando a governança das equipes recém-formadas à realidade do chão de fábrica. Ao final da leitura, você será capaz de:
+
+* **Compreender as Missões Táticas** que os Esquadrões de Consultoria deverão executar ao longo do semestre.
+* **Acessar e Extrair** informações do Repositório de Dados (Data Lake) tratado para o projeto prático.
+* **Entender a lógica** da Metrologia Operacional como o gatilho inicial para rodar o ciclo PDCA.
+* **Preparar o terreno** para a Parte II do livro, onde aprofundaremos as equações e os algoritmos de confiabilidade e gestão de ativos.
+:::
+
+Com os *Squads* formados, os perfis mapeados e o *Team Charter* assinado (Capítulo 7), a fase de planejamento humano está oficialmente encerrada. A partir de agora, os esquadrões assumem o papel de Consultorias de Engenharia.
+
+Para que uma consultoria resolva problemas complexos aplicando o MASP e o PDCA (vistos no Capítulo 5), ela precisa de duas coisas: um alvo claro e dados confiáveis. Este capítulo serve como a Reunião de Partida (*Kick-off*) do seu projeto semestral.
+
+---
+
+## 🚀 A Missão Tática: O Roteiro do Semestre {#sec-missao-squads}
+
+Como nosso laboratório atende a diferentes frentes da Engenharia de Produção, as missões das consultorias são divididas em duas grandes trilhas operacionais. Identifique a trilha correspondente à sua disciplina e utilize este roteiro como o *Backlog* (lista de tarefas) do seu projeto.
+
+### Trilha 1: Gestão da Qualidade (Foco em PDCA e Data Science)
+Para os esquadrões desta disciplina, o objetivo é atuar como Analistas de Confiabilidade e Melhoria Contínua. Vocês receberão uma base de dados real de uma operação de mineração contendo milhares de registros de telemetria, ciclos de transporte e falhas de equipamento. A missão do semestre é rodar o ciclo MASP/PDCA completo em cima dessa base:
+
+* **Etapa 1 (Plan - O Baseline):** Baixar os dados, limpá-los e calcular os Indicadores-Chave de Desempenho (KPIs) para descobrir o estado atual da frota.
+* **Etapa 2 (Plan - A Lacuna):** Identificar o equipamento ou o processo ofensor através do Gráfico de Pareto. Construir o método da lacuna (*Waterfall*) para definir uma Meta SMART.
+* **Etapa 3 (Plan - A Causa Raiz):** Aplicar o diagrama de Ishikawa e a matriz GUT sobre os modos de falha do ofensor, aprofundando-se com a técnica dos 5 Porquês.
+* **Etapa 4 (Do/Check - O Plano de Ação):** Propor um plano de engenharia estruturado (5W2H) - como uma mudança no plano de manutenção, alteração de layout ou retreinamento - e simular o impacto financeiro dessa ação.
+
+### Trilha 2: Sistemas de Gestão Integrados (Foco em Governança e Normas)
+Para os esquadrões de SGI, a vertente avança para a estruturação normativa. Em vez de focar apenas na correção da falha de uma máquina, a missão é desenhar a arquitetura de gestão que impede que as falhas sistêmicas ocorram, integrando Qualidade (ISO 9001), Meio Ambiente (ISO 14001) e Saúde e Segurança (ISO 45001).
+
+* **Etapa 1 (Contexto e Liderança):** Definir o escopo do SGI da empresa fictícia, mapeando as partes interessadas e elaborando a Política Integrada.
+* **Etapa 2 (Planejamento e Risco):** Construir a Matriz de Riscos e Oportunidades (SWOT) corporativa e a Matriz de Aspectos/Impactos Ambientais e Perigos/Riscos Ocupacionais.
+* **Etapa 3 (Apoio e Operação):** Desenvolver a matriz de competências do SGI, o plano de comunicação e estruturar a Informação Documentada (POP) de um processo crítico.
+* **Etapa 4 (Avaliação e Melhoria):** Estruturar o modelo de auditoria interna, o fluxo de tratamento de Não Conformidades (RNC) e a sistemática de Análise Crítica pela Direção.
+
+---
+
+## 💾 Repositório de Dados Operacionais (Data Lake) {#sec-repositorio-dados}
+
+Para as equipes da **Trilha 1 (Gestão da Qualidade)**, a matéria-prima do projeto encontra-se abaixo. Tratam-se de bancos de dados extraídos de sistemas reais de despacho e telemetria, devidamente anonimizados e tratados para fins acadêmicos.
+
+::: {.callout-warning title="Atenção Analistas de Dados"}
+O papel do membro designado como **Analista de Dados/Pesquisa** no seu *Team Charter* é ativado agora. É responsabilidade formal dele baixar, auditar e garantir o versionamento dessas planilhas para o restante da equipe analisar.
+:::
+
+**Download das Bases de Dados (Formato `.csv` / `.xlsx`):**
+
+1. 📊 [**Base 01: Eventos de Telemetria e Apontamentos de Frota**](#)
+   *(Contém os status de operação, horas de espera, atraso operacional e tempo de manutenção por equipamento).*
+2. 🛠️ [**Base 02: Ordens de Manutenção e Modos de Falha**](#)
+   *(Contém o histórico de quebras, códigos de falha mecânica/elétrica e tempo médio de reparo).*
+3. 📈 [**Base 03: Produção e Movimentação de Massa**](#)
+   *(Contém o volume em toneladas movimentado por ciclo, distâncias de transporte e produtividade horária).*
+
+*(Nota: Os links acima devem ser acessados através do repositório oficial da disciplina no ambiente virtual de aprendizagem).*
+
+---
+
+## 📐 Introdução à Metrologia Operacional {#sec-intro-metrologia}
+
+Você não pode gerenciar o que não pode medir. Para que os esquadrões da Trilha 1 consigam transformar o "Data Lake" acima no Passo 1 do PDCA (Identificação do Problema), é necessário introduzir o conceito de **Metrologia Operacional**.
+
+Na mineração, o tempo é o recurso mais escasso e caro. Uma hora de um caminhão fora de estrada parado custa milhares de dólares à companhia. A Metrologia Operacional é a ciência de fatiar o tempo de calendário de uma máquina (24 horas por dia, 365 dias por ano) em "caixas" exatas para descobrir onde o dinheiro está vazando.
+
+Ao longo da **Parte II** deste livro, mergulharemos a fundo nas modelagens matemáticas e nos códigos em `R` para o cálculo desses indicadores. No entanto, para o início imediato dos trabalhos da sua consultoria, você precisa compreender conceitualmente os três pilares que buscará nas bases de dados:
+
+1. **Disponibilidade Física (DF):** É o indicador que mede a saúde da máquina. De todo o tempo do mês, quanto tempo o equipamento esteve mecanicamente "pronto para uso", sem estar quebrado ou em manutenção? (Este é o foco de cobrança da equipe de Manutenção).
+2. **Utilização Física (UF):** É o indicador que mede a eficiência da equipe. Do tempo em que a máquina esteve disponível, quanto tempo ela de fato foi operada gerando valor? (Ela não estava parada por falta de operador, aguardando frente de lavra ou em horário de refeição?).
+3. **Rendimento Operacional (RO):** É a taxa de produção bruta. Quando a máquina estava efetivamente operando, ela entregou as toneladas por hora prometidas pelo fabricante, ou operou "arrastada" de forma ineficiente?
+
+O cruzamento da Disponibilidade, Utilização e Rendimento gera o **OEE (*Overall Equipment Effectiveness*)**, o indicador supremo de excelência de qualquer indústria pesada.
+
+::: {.callout-important title="➡️ O Próximo Passo: Rumo à Parte II"}
+Sua equipe já tem o grupo formado, as regras estabelecidas e os dados baixados. O problema a ser resolvido está escondido dentro dessas milhares de linhas do Excel.
+
+Para extrair a verdade dos dados e calcular a DF, UF, MTBF e outros KPIs avançados com precisão cirúrgica, avance para a **Parte II: Metrologia, Gestão de Ativos e Confiabilidade**. Lá, abandonaremos a filosofia e entraremos definitivamente na Ciência de Dados aplicada à Engenharia.
+:::
