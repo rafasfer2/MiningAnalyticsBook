@@ -4,6 +4,15 @@ format: html
 
 # People Analytics e Avaliação de Competências na Engenharia {#sec-cap7}
 
+::: {.callout-tip title="🎯 Objetivos deste Capítulo"}
+Neste capítulo, faremos a transição definitiva da gestão intuitiva de pessoas para a engenharia quantitativa de equipes (*People Analytics*). Ao final da leitura, você será capaz de:
+
+* **Transpor** a barreira da subjetividade, transformando perfis comportamentais e bagagem acadêmica em indicadores matemáticos auditáveis.
+* **Compreender e Estruturar** o rastreamento do DNA profissional através de múltiplas rodadas, mitigando vieses de autopercepção e o "Pensamento de Grupo".
+* **Executar** a Fusão de Dados (*Data Fusion*), cruzando o instinto de crise (Soft Skills) com o Índice de Eficiência Acadêmica oficial (Hard Skills).
+* **Aplicar** algoritmos heurísticos de restrição para a montagem e governança de *Squads* multidisciplinares de alta performance, culminando na assinatura do *Team Charter*.
+:::
+
 Este capítulo consolida o poder analítico do método apresentado ao longo do livro. Até o momento, aplicamos a Modelagem Analítica de Requisitos (ARM) em avaliações de qualidade de produtos físicos e rotinas logísticas. Agora, elevaremos o nível de complexidade para demonstrar a escalabilidade do modelo em três frentes avançadas: a avaliação de perfis humanos (competências do engenheiro), a auditoria de sistemas técnicos (planos de manutenção) e a mensuração do relacionamento interno em sistemas de gestão.
 
 ## A Expansão Multidimensional e a Construção do Modelo {#sec-arm-competencias}
@@ -19,7 +28,21 @@ Avaliá-las de forma puramente subjetiva ("é um bom aluno" ou "é um bom profis
 #| message: false
 
 # Define quiet_source localmente (para previews single-file)
-quiet_source <- function(file, ...) invisible(capture.output(source(file, encoding = "UTF-8", ...)))
+quiet_source <- function(file, ...) {
+  is_trat_forms <- grepl("(^|/)R/trat\\.forms\\.R$", gsub("\\\\", "/", file))
+
+  if (is_trat_forms && exists(".trat_forms_loaded", envir = .GlobalEnv, inherits = FALSE)) {
+    return(invisible(NULL))
+  }
+
+  out <- invisible(capture.output(source(file, encoding = "UTF-8", ...)))
+
+  if (is_trat_forms) {
+    assign(".trat_forms_loaded", TRUE, envir = .GlobalEnv)
+  }
+
+  out
+}
 
 # Bootstrap: carrega trat.forms.R silenciosamente
 quiet_source("R/trat.forms.R")
@@ -459,9 +482,8 @@ library(kableExtra)
 
 # 2. Criação de um subset didático para o livro usando a base real
 df_amostra_livro <- df_form1_anon %>%
-  # Conecta temporariamente com a chave-mestra para recuperar apenas o ano de ingresso
-  left_join(df_de_para, by = "ID_Aluno") %>%
-  mutate(Ano_Ingresso = substr(as.character(Matricula_Original), 1, 4)) %>%
+  # Mantem a anonimização completa na amostra didática
+  mutate(Ano_Ingresso = "N/A") %>%
   # Seleciona apenas as 5 primeiras observações para não poluir visualmente a página
   head(5) %>%
   # Descarta informações sensíveis e isola um recorte do vetor CHA
@@ -770,6 +792,49 @@ library(dplyr)
 library(knitr)
 library(kableExtra)
 
+# Fallback defensivo: reconstrói o inventário caso o objeto não venha do back-end.
+if (!exists("df_inventario_base")) {
+  if (!exists("perfis_base")) {
+    perfis_base <- tibble::tibble(
+      P = paste0("P0", 1:6),
+      `Arquétipo Profissional (Perfil Dominante)` = c(
+        "P1 (Analítico-Técnico)",
+        "P2 (Processos e Operações)",
+        "P3 (Criativo-Inovador)",
+        "P4 (Comunicador-Articulador)",
+        "P5 (Organizacional-Líder)",
+        "P6 (Sustentável-Responsável)"
+      )
+    )
+  }
+
+  if (!exists("df_perfil_base")) {
+    if (exists("df_scores_base_individual")) {
+      df_perfil_base <- df_scores_base_individual %>%
+        group_by(ID_Aluno) %>%
+        slice_max(order_by = Score_Total_Base, n = 1, with_ties = FALSE) %>%
+        ungroup()
+    } else if (exists("df_scores_calculados")) {
+      df_perfil_base <- df_scores_calculados %>%
+        group_by(ID_Aluno) %>%
+        slice_max(order_by = Score_Total, n = 1, with_ties = FALSE) %>%
+        ungroup()
+    }
+  }
+
+  if (exists("df_perfil_base")) {
+    df_inventario_base <- perfis_base %>%
+      left_join(df_perfil_base %>% count(P, name = "Nº de Alunos"), by = "P") %>%
+      mutate(
+        `Nº de Alunos` = replace_na(`Nº de Alunos`, 0),
+        `Participação (%)` = sprintf("%.1f%%", (`Nº de Alunos` / sum(`Nº de Alunos`)) * 100)
+      ) %>%
+      select(`Arquétipo Profissional (Perfil Dominante)`, `Nº de Alunos`, `Participação (%)`)
+  } else {
+    stop("Objetos necessários para montar df_inventario_base não foram encontrados no ambiente.")
+  }
+}
+
 # O df_inventario_base já foi calculado no back-end (trat.forms.R)
 df_totais <- data.frame(
   `Arquétipo Profissional (Perfil Dominante)` = "TOTAL DA TURMA",
@@ -792,24 +857,21 @@ df_inventario_base %>%
 
 Ao examinarmos o resultado bruto impresso pelo algoritmo, deparamo-nos com um fenômeno estatístico intrigante e perigoso. Diferente do que o senso comum prega sobre a diversidade natural em uma sala de aula, **100% da turma foi classificada em apenas dois arquétipos**:
 
-* 24 alunos alocados como **P1 (Analítico-Técnico)**.
-* 14 alunos alocados como **P4 (Comunicador-Articulador)**.
+* **61 alunos** alocados como **P1 (Analítico-Técnico)**.
+* **11 alunos** alocados como **P4 (Comunicador-Articulador)**.
 * *Zero alunos* identificados com perfil de Operações (P2), Inovação (P3), Liderança (P5) ou Sustentabilidade (P6).
 
-O que aconteceu com a diversidade da Engenharia de Produção? Para onde foram os líderes e os executores operacionais? A resposta não está em uma falha do algoritmo, mas na **comprovação matemática dos vieses cognitivos** mapeados anteriormente.
+O que aconteceu com a diversidade da Engenharia de Produção? Para onde foram os líderes, os executores operacionais e os criativos? A resposta não está em uma falha do algoritmo, mas na **comprovação matemática dos vieses cognitivos** mapeados anteriormente.
 
-Quando aplicamos a modelagem multivariada puramente sobre os dados de *autopercepção* (a visão que o aluno tem de si mesmo), o fator humano corrompe a matriz gerando uma bipolarização artificial:
-
-1. **A Inflação do P4 (O Efeito Bom Moço):** Como quase ninguém tem coragem de dar nota baixa para si mesmo em variáveis de Atitude ("Trabalhar em Equipe", "Empatia"), essas questões receberam uma enxurrada de notas 4 e 5. O Perfil 4, que tem seu peso máximo estruturado exatamente na Comunicação (40%), funcionou como um aspirador estatístico, sugando para si todos os alunos que superestimaram suas capacidades sociais.
-2. **A Inflação do P1 (Tendência Central + Dunning-Kruger):** Por outro lado, nas questões técnicas, os alunos inseguros preferiram o conforto da nota "3" (Médio) para não assumirem o "1" (Ruim). Como o Perfil 1 possui a maior carga de multiplicadores de intensidade nas habilidades lógicas, esse mar de respostas medianas empurrou o restante da turma para o arquétipo Analítico.
+Quando aplicamos a modelagem multivariada puramente sobre os dados de *autopercepção* (a visão que o aluno tem de si mesmo), o fator humano corrompe a matriz gerando uma bipolarização extrema. A turma rachou entre os pragmáticos de exatas (P1) e um pequeno grupo que superestimou suas habilidades sociais (P4).
 
 ### O Teste de Estresse: O Impacto das Intensidades
 
 A teoria matemática por trás da Matriz de Pesos é sólida, mas o seu verdadeiro valor só é comprovado quando a aplicamos aos dados reais.
 
-Para demonstrar o impacto desse "antídoto matemático" contra os vieses de autopercepção, submetemos as respostas da nossa amostra de 38 alunos a um teste de estresse algorítmico em dois cenários distintos:
+Para demonstrar o impacto desse "antídoto matemático" contra os vieses de autopercepção, submetemos as respostas da nossa amostra a um teste de estresse algorítmico em dois cenários distintos:
 
-1. **Cenário 1 (Modelo Linear Estático):** O algoritmo calcula o perfil dominante usando apenas os Pesos Base definidos pela diretoria, sem a aplicação dos multiplicadores de intensidade (o cenário que gerou a bipolarização extrema).
+1. **Cenário 1 (Modelo Linear Estático):** O algoritmo calcula o perfil dominante usando apenas os Pesos Base definidos pela diretoria, sem a aplicação dos multiplicadores de intensidade.
 2. **Cenário 2 (Modelo ARM com Intensidades):** O algoritmo recalcula tudo, desta vez injetando a malha de multiplicadores agressivos ($I = 2.0, 1.0, 0.2$) para punir o Efeito Bom Moço e tracionar os talentos reais.
 
 O script a seguir executa essa simulação dupla, classifica os alunos nos dois cenários e gera um quadro comparativo da distribuição do Capital Humano da turma.
@@ -826,6 +888,46 @@ library(knitr)
 library(kableExtra)
 
 # df_comparativo_estresse já calculado no trat.forms.R
+if (!exists("df_comparativo_estresse")) {
+  if (!exists("perfis_base")) {
+    perfis_base <- tibble::tibble(
+      P = paste0("P0", 1:6),
+      `Arquétipo Profissional (Perfil Dominante)` = c(
+        "P1 (Analítico-Técnico)",
+        "P2 (Processos e Operações)",
+        "P3 (Criativo-Inovador)",
+        "P4 (Comunicador-Articulador)",
+        "P5 (Organizacional-Líder)",
+        "P6 (Sustentável-Responsável)"
+      )
+    )
+  }
+
+  if (exists("df_scores_base_individual") && exists("df_scores_individual")) {
+    df_perfil_base_tmp <- df_scores_base_individual %>%
+      group_by(ID_Aluno) %>%
+      slice_max(order_by = Score_Total_Base, n = 1, with_ties = FALSE) %>%
+      ungroup()
+
+    df_perfil_arm_tmp <- df_scores_individual %>%
+      group_by(ID_Aluno) %>%
+      slice_max(order_by = Score_Total, n = 1, with_ties = FALSE) %>%
+      ungroup()
+
+    df_comparativo_estresse <- perfis_base %>%
+      left_join(df_perfil_base_tmp %>% count(P, name = "Qtd_Base"), by = "P") %>%
+      left_join(df_perfil_arm_tmp %>% count(P, name = "Qtd_ARM"), by = "P") %>%
+      mutate(
+        Qtd_Base = replace_na(Qtd_Base, 0),
+        Qtd_ARM = replace_na(Qtd_ARM, 0),
+        Delta = Qtd_ARM - Qtd_Base
+      ) %>%
+      select(`Arquétipo Profissional (Perfil Dominante)`, Qtd_Base, Qtd_ARM, Delta)
+  } else {
+    stop("Objetos necessários para montar df_comparativo_estresse não foram encontrados no ambiente.")
+  }
+}
+
 df_comparativo_estresse %>%
   mutate(Delta_Fmt = case_when(Delta > 0 ~ paste0("+", Delta), Delta < 0 ~ as.character(Delta), TRUE ~ "-")) %>%
   select(Perfil = `Arquétipo Profissional (Perfil Dominante)`, Qtd_Base, Qtd_ARM, Delta_Fmt) %>%
@@ -853,22 +955,22 @@ Note que os códigos que geram as tabelas e gráficos deste capítulo não possu
 
 #### O Efeito Lupa e o Colapso da Autopercepção
 
-A execução deste script revela visualmente um comportamento fascinante da engenharia de dados. Ao analisarmos a coluna de Variação ($\Delta$), notamos que a injeção da matriz de intensidades não "suavizou" a turma; pelo contrário, ela atuou como uma lente de aumento implacável, **desmascarando e amplificando a bipolarização**.
+A execução deste script revela visualmente um comportamento fascinante da engenharia de dados. Ao analisarmos a coluna de Variação ($\Delta$), notamos que a injeção da matriz de intensidades não "suavizou" a turma; pelo contrário, ela atuou como uma lente de aumento implacável, **desmascarando a ilusão de *Soft Skills* da turma**.
 
 Observe o contraste revelador na @tbl-comparativo-intensidades:
 
-* No **Cenário Linear (Cego)**, o Viés de Tendência Central mantinha uma falsa sensação de diversidade. Como os alunos respondiam notas medianas (3 e 4) para quase tudo, a média simples permitiu que alguns estudantes caíssem em perfis de Operações (4 alunos) e Liderança (5 alunos).
-* No **Cenário ARM (Com Intensidades)**, o algoritmo "puxou o tapete" dessa mediocridade. Ao aplicar os multiplicadores de exclusão ($0.2$) nas variáveis periféricas e a tração máxima ($2.0$) nas variáveis centrais, o motor multivariado forçou o aluno a ser o que suas notas mais extremas indicavam.
+* No **Cenário Linear (Cego)**, o Viés de Desejabilidade Social (*Efeito Bom Moço*) reinou absoluto. Como a média simples dilui o peso das competências técnicas, a maioria esmagadora da turma (**46 alunos**) conseguiu se classificar no confortável arquétipo de "Comunicador-Articulador" (P4).
+* No **Cenário ARM (Com Intensidades)**, o algoritmo "puxou o tapete" dessa ilusão. Ao aplicar os multiplicadores de exclusão ($0.2$) nas variáveis periféricas e a tração máxima ($2.0$) nas variáveis centrais de raciocínio lógico, o motor multivariado forçou o aluno a ser o que suas notas mais extremas indicavam.
 
-**O resultado prático:** A falsa diversidade colapsou. A turma rachou em duas metades extremas. Vinte alunos foram sugados de outros perfis direto para o Analítico-Técnico ($P1 \rightarrow +20$), enquanto o restante se consolidou no Comunicador-Articulador ($P4$). Perfis de Operações, Inovação, Liderança e Sustentabilidade foram zerados.
+**O resultado prático:** A falsa sensação de domínio relacional colapsou. **35 alunos perderam o status de Comunicador** e foram sugados brutalmente para a realidade do perfil Analítico-Técnico ($P1 \rightarrow +54$). Perfis que pareciam existir no cenário base (Operações, Liderança e Sustentável) foram completamente varridos do mapa (zerados).
 
-Isso não é uma falha matemática, mas a prova estatística irrefutável de um viés comportamental profundo: na autopercepção pura, o estudante de engenharia se refugia em dois arquétipos idealizados. Ou ele superestima suas "Hard Skills" e se enxerga como o "Gênio Técnico" (P1), ou ele superestima suas "Soft Skills" por causa do Efeito Bom Moço e se vê como o "Articulador Carismático" (P4).
+Isso prova estatisticamente um viés comportamental profundo: na autopercepção não calibrada, o estudante de engenharia foge do rigor técnico e se enxerga como um "Articulador Carismático". Mas quando a matemática cobra a consistência dessas respostas, o perfil de exatas predomina incontestável.
 
 #### O Limite do Indivíduo e o Próximo Passo
 
-Este é o limite absoluto da modelagem baseada em autopercepção. O motor ARM provou que a matemática funciona perfeitamente para esticar as variâncias e separar os perfis, mas se o dado de entrada ($S_i$) está corrompido pela indulgência humana, o diagnóstico final será sempre enviesado.
+Este é o limite absoluto da modelagem baseada em autopercepção. O motor ARM provou que a matemática funciona perfeitamente para punir incoerências e esticar as variâncias, mas se o dado de entrada ($S_i$) está corrompido pela indulgência humana, o diagnóstico final será sempre enviesado (neste caso, uma turma inteira de Analíticos e alguns poucos Comunicadores).
 
-Se o gestor ignorasse esse fato e formasse as equipes de trabalho neste exato momento, o desastre seria iminente. Teríamos esquadrões disfuncionais compostos apenas por *Cérebros* e *Vozes*, mas sem ninguém para *Operar* (P2) ou *Inovar* (P3).
+Se o gestor ignorasse esse fato e formasse as equipes de trabalho neste exato momento, teríamos esquadrões disfuncionais compostos apenas por *Cérebros* e *Vozes*, sem ninguém para *Operar* (P2) ou *Inovar* (P3).
 
 Para salvar a diversidade latente da turma e forçar o amadurecimento profissional desses futuros engenheiros, a metodologia exige a injeção de uma variável de atrito externa. Precisamos submeter essas ilusões de grandeza à gravidade do mercado. É este cenário de colapso que encerra a nossa primeira etapa analítica e justifica a transição metodológica e algorítmica para a **Rodada 2: A Exigência do Mercado**.
 
@@ -975,9 +1077,9 @@ df_radar_mercado %>%
 
 #### Análise de Vieses: O Fenômeno da Migração de Perfis (F1 vs F2) {#sec-migracao-perfis-f1-f2}
 
-Ao sobrepor o diagnóstico individual da [Rodada 1 (Autopercepção)](@sec-rodada-1-autopercepcao) com o consenso grupal da [Rodada 2 (Exigência do Mercado)](@sec-rodada-2-mercado), a engenharia de dados revela um dos fenômenos comportamentais mais marcantes do instrumento: a migração de perfis por choque de realidade.
+Ao sobrepor o diagnóstico individual da [Rodada 1 (Autopercepção)](@sec-rodada-1-autopercepcao) com o consenso grupal da [Rodada 2 (Exigência do Mercado)](@sec-rodada-2-mercado), a engenharia de dados revela um dos fenômenos comportamentais mais marcantes do instrumento: o choque de realidade e o alinhamento forçado.
 
-Lembra-se da distorção apontada no Teste de Estresse, onde grande parte da turma se autoavaliou como **Comunicador-Articulador (P4)** sob a influência do Viés de Desejabilidade Social? O que acontece com esses "comunicadores" quando são colocados em um esquadrão para resolver demandas técnicas exigidas pela indústria?
+Lembra-se da distorção apontada no Teste de Estresse, onde ainda restaram 11 alunos autoavaliados como Comunicadores-Articuladores (P4)? O que acontece com esses "comunicadores" quando o próprio grupo de trabalho analisa a demanda do mercado e define as prioridades do projeto?
 
 Para responder a essa pergunta, o script abaixo cruza a identidade mascarada de cada aluno. Ele compara o arquétipo que o aluno assumiu sozinho no Formulário 1 com o arquétipo que o seu respectivo grupo decidiu ser o necessário no Formulário 2.
 
@@ -996,6 +1098,37 @@ library(kableExtra)
 quiet_source("R/trat.forms.R")
 
 # 2. Consolidação da Matriz de Transição
+if (!exists("df_transicao_f1_f2")) {
+  perfil_desc <- function(p) {
+    case_when(
+      p == "P01" ~ "P1 (Analítico)",
+      p == "P02" ~ "P2 (Operações)",
+      p == "P03" ~ "P3 (Criativo)",
+      p == "P04" ~ "P4 (Comunicador)",
+      p == "P05" ~ "P5 (Líder)",
+      p == "P06" ~ "P6 (Sustentável)",
+      TRUE ~ as.character(p)
+    )
+  }
+
+  if (!exists("df_perfil_mercado") && exists("df_scores_mercado")) {
+    df_perfil_mercado <- df_scores_mercado %>%
+      group_by(ID_Grupo) %>%
+      slice_max(order_by = Score_Total_Mercado, n = 1, with_ties = FALSE) %>%
+      ungroup() %>%
+      mutate(Perfil = perfil_desc(P)) %>%
+      select(ID_Grupo, Perfil)
+  }
+
+  mapa_ref <- if (exists("mapa_grupos_unico")) mapa_grupos_unico else mapa_grupos
+
+  df_transicao_f1_f2 <- df_perfil_arm %>%
+    mutate(Desc_F1 = perfil_desc(P)) %>%
+    select(ID_Aluno, Desc_F1) %>%
+    left_join(mapa_ref, by = "ID_Aluno") %>%
+    left_join(df_perfil_mercado %>% transmute(ID_Grupo, Desc_F2 = Perfil), by = "ID_Grupo")
+}
+
 df_migracao <- df_transicao_f1_f2 %>%
   distinct(ID_Aluno, Desc_F1, Desc_F2) %>%
   count(Desc_F1, Desc_F2, name = "Qtd_Alunos") %>%
@@ -1028,15 +1161,14 @@ df_migracao_tabela %>%
   row_spec(nrow(df_migracao_tabela), bold = TRUE, extra_css = "border-bottom: 2px solid #2c3e50;")
 ```
 
-#### Decodificando os Dados: A Evaporação do "Efeito Bom Moço"
+#### O Choque de Percepções: A Ditadura do Perfil Analítico
 
-A matriz de transição acima é a prova algorítmica de como a dinâmica de grupo atua como um corretor de vieses. O dado mais contundente gerado pela tabela é a absorção dos comunicadores pelo perfil analítico e de operações:
+A Matriz de Transição Individual exibe um cenário de alinhamento absoluto: **100% dos grupos (refletindo os 67 alunos mapeados no cruzamento) concluíram que a exigência do mercado para a implantação de um SGI é estritamente Analítica-Técnica (P1).**
 
-**A Queda do P4 (Falso Positivo):** Alunos que, isoladamente, inflaram suas notas de empatia e comunicação para garantir o selo de "bom profissional" (P4) no Formulário 1, subitamente mudaram de postura no Formulário 2. Quando o grupo se reuniu para discutir cenários reais, o consenso esmagador da equipe ditou regras diferentes.
+* **A Validação dos Analíticos:** Os **56 alunos** que o algoritmo ARM (F1) já havia classificado como Analíticos encontraram ressonância imediata. O que eles "achavam" que eram convergiu perfeitamente com o que o grupo decidiu que o mercado precisa.
+* **O Enquadramento dos Comunicadores:** O dado mais valioso reside nos **11 alunos** que entraram na Rodada 2 acreditando que sua maior força seria a Comunicação (P4). A dinâmica de grupo anulou essa preferência. Esses 11 indivíduos sofreram um choque de realidade: no atual estágio da consultoria (onde planilhas, mapeamento de processos e normas ISO reinam), a equipe não precisa de discursos, precisa de execução analítica.
 
-**O Realismo do Esquadrão:** A matriz comprova que o atrito do grupo obriga o aluno a abandonar o discurso romântico. Sozinho, o estudante diz: "A comunicação é o mais importante". Em grupo, diante de um cenário prático avaliado por todos, o consenso determina o rigor técnico e a execução.
-
-Esse cruzamento valida a eficácia da modelagem ARM e justifica matematicamente a necessidade de não se avaliar Soft Skills de forma estática e autodeclaratória. A verdadeira identidade de competência não está no que o indivíduo acha que é, mas no arquétipo que ele assume e valida quando inserido na complexidade de um esquadrão.
+Essa migração prova a eficiência da "Triangulação em Malha Fechada". O aluno que tentou fugir da responsabilidade técnica no Formulário 1 foi enquadrado pelos próprios pares no Formulário 2. O ego cedeu lugar à demanda operacional.
 
 ### A Metamorfose dos Vieses: Do Ego Individual à Pressão do Esquadrão
 
@@ -1227,6 +1359,27 @@ df_radar_pares <- df_scores_pares %>%
 df_coorte_p4 <- df_perfil_arm %>%
   filter(P == "P04") %>%
   select(ID_Aluno, Perfil_F1 = Perfil)
+
+if (!exists("df_perfil_mercado")) {
+  perfil_desc <- function(p) {
+    case_when(
+      p == "P01" ~ "P1 (Analítico)",
+      p == "P02" ~ "P2 (Operações)",
+      p == "P03" ~ "P3 (Criativo)",
+      p == "P04" ~ "P4 (Comunicador)",
+      p == "P05" ~ "P5 (Líder)",
+      p == "P06" ~ "P6 (Sustentável)",
+      TRUE ~ as.character(p)
+    )
+  }
+
+  df_perfil_mercado <- df_scores_mercado %>%
+    group_by(ID_Grupo) %>%
+    slice_max(order_by = Score_Total_Mercado, n = 1, with_ties = FALSE) %>%
+    ungroup() %>%
+    mutate(Perfil = perfil_desc(P)) %>%
+    select(ID_Grupo, Perfil)
+}
 
 # 2. Cruza com os grupos (F2) e com a Execução (F3)
 df_rastreabilidade <- df_coorte_p4 %>%
@@ -1559,6 +1712,20 @@ df_sjt_calculado <- df_form4_anon %>%
   ungroup()
 
 # 3. Cruzamento F1 vs F4
+if (!exists("perfis_base")) {
+  perfis_base <- tibble::tibble(
+    P = paste0("P0", 1:6),
+    `Arquétipo Profissional (Perfil Dominante)` = c(
+      "P1 (Analítico-Técnico)",
+      "P2 (Processos e Operações)",
+      "P3 (Criativo-Inovador)",
+      "P4 (Comunicador-Articulador)",
+      "P5 (Organizacional-Líder)",
+      "P6 (Sustentável-Responsável)"
+    )
+  )
+}
+
 df_comparativo_crise <- perfis_base %>%
   # Puxa o Perfil do F1 (Modelo ARM Individual)
   left_join(df_perfil_arm %>% count(P, name = "F1_Declarado"), by = "P") %>%
@@ -1582,163 +1749,883 @@ df_comparativo_crise %>%
   column_spec(4, bold = TRUE, color = ifelse(df_comparativo_crise$Delta > 0, "#27ae60", ifelse(df_comparativo_crise$Delta < 0, "#c0392b", "#7f8c8d")))
 ```
 
-#### Decodificando a Crise: O Skin in the Game
+#### Decodificando a Crise: O Skin in the Game e a Realidade Operacional
 
-A Tabela gerada pelo processamento do SJT expõe o desfecho comportamental do nosso modelo. Ao remover as declarações abstratas e inserir os alunos em dilemas operacionais com consequências (o chamado Skin in the Game, ou "Pele em Risco"), a engenharia de dados prova que a autoavaliação inicial era quase totalmente falha.
+A Tabela gerada pelo processamento do SJT expõe o desfecho comportamental do nosso modelo. Ao remover as declarações abstratas e inserir os alunos em dilemas operacionais com consequências financeiras, ambientais e de segurança (o chamado Skin in the Game, ou "Pele em Risco"), a engenharia de dados prova que a autoavaliação inicial carecia de ancoragem na realidade.
 
-Observando a variação dos perfis, constatamos o "Nascimento da Diversidade". Onde o Formulário 1 via apenas uma turma polarizada entre P1 (Analíticos) e P4 (Comunicadores), a pressão operacional revelou quem realmente é quem:
+Observando a variação dos perfis, constatamos o "Nascimento da Diversidade Operacional". Onde o Formulário 1 via uma turma massivamente polarizada e escondida na "tendência central" do Analítico (P1) e do Comunicador (P4), a pressão da simulação revelou quem realmente é quem na linha de frente:
 
-* **A Queda da Falácia Analítica:** Muitos alunos que se refugiaram no conforto do P1 por não quererem assumir responsabilidades (Tendência Central) descobriram-se forçados a tomar decisões rápidas e assertivas nas simulações, migrando suas identidades latentes para a Liderança (P5) e Operações (P2).
-* **A Revelação dos Arquétipos Ocultos:** Pela primeira vez no instrumento, alunos pontuaram para o Perfil 3 (Criativo-Inovador) e Perfil 6 (Sustentável-Responsável). No F1, o viés os impedia de assumir essas características. No F4, diante de uma quebra de máquina ou risco ambiental, a preferência real aflorou, optando por caminhos criativos (burlar sistemas de forma inteligente para não parar a fábrica) ou de compliance extremo.
+* **A Queda da Falácia Analítica:** Muitos alunos que se refugiaram no conforto do perfil Analítico (por não quererem assumir os riscos da exposição na autopercepção) descobriram que, com uma máquina quebrando ou uma multa milionária batendo à porta, não há tempo para planilhas. A necessidade de sobrevivência na crise forçou a migração em massa de suas identidades latentes para a Liderança (P5). Eles assumiram o controle, vetaram ações e chamaram a responsabilidade para si.
+* **A Revelação do Pragmatismo e o Arquétipo Criativo:** O dado mais contundente do instrumento foi a explosão do Perfil 3 (Criativo-Inovador). No Formulário 1, o viés de desejabilidade impedia os alunos de assumirem que "burlariam" ou contornariam regras. No entanto, no SJT, mais da metade da amostra optou por caminhos não ortodoxos: negociações de demurrage, air gaps manuais na rede de TI e reduções de carga para poupar filtros. Diante da crise, o instinto do Engenheiro de Produção falou mais alto: a prioridade foi manter o fluxo rodando através da criatividade e do contorno de sistemas rígidos.
+* **O Surgimento do Sustentável (P6):** Somente quando colocados diante do trade-off real entre lucro de curto prazo e responsabilidade social/ambiental, um grupo seleto de alunos (que antes estava diluído nos demais perfis) demonstrou inegociabilidade ética, assumindo perdas financeiras para proteger a licença social de operação da empresa.
 
 #### Conclusão: A Virada de Chave no People Analytics
 
 A metodologia exposta neste capítulo prova que a aplicação da Estatística e da Computação em Ciências Humanas não se resume a automatizar o cálculo de médias em questionários. A adoção do Modelo ARM (Analytic Requirements Modeling), aliado à teoria da triangulação em malha fechada e aos testes de SJT, transforma a avaliação de competências em um sistema de diagnóstico preditivo.
 
-O gestor que implementa esse nível de pipeline no R deixa de ser um "aplicador de formulários" e passa a ser um Engenheiro do Comportamento. Ele não avalia o que a equipe diz ser; ele utiliza os dados para provar o que a equipe inevitavelmente será sob pressão, garantindo a formação de esquadrões de altíssima performance para a indústria.
+O gestor que implementa esse nível de pipeline no R deixa de ser um "aplicador de formulários" e passa a ser um Engenheiro do Comportamento. Ele não avalia o que a equipe diz ser; ele utiliza os dados para provar o que a equipe inevitavelmente será sob pressão.
 
-::: {.callout-important title="🧠 Paradigma Analítico: A Lei de Goodhart e a Engenharia de *Features* Comportamentais"}
-Na Ciência de Dados e na Economia, a **Lei de Goodhart** afirma que *"quando uma métrica se torna um alvo, ela deixa de ser uma boa métrica"*.
+::: {.callout-important title="🧠 Paradigma Analítico: A Lei de Goodhart e a Engenharia de Features Comportamentais"}
+Na Ciência de Dados e na Economia, a Lei de Goodhart afirma que "quando uma métrica se torna um alvo, ela deixa de ser uma boa métrica".
 
 No Formulário 1 (Autopercepção), a métrica era óbvia (a escala Likert de 1 a 5). O cérebro do aluno rapidamente transformou a nota máxima no "alvo" a ser atingido para provar sua competência, destruindo completamente a variância e a validade do dado (o Efeito Bom Moço).
 
-O brilho analítico do Formulário 4 (SJT) reside na **Engenharia de Variáveis (*Feature Engineering*)**. Ao invés de perguntar diretamente *"Você foca em resultados operacionais?"* (uma variável viciada, pois todos dirão que sim), o modelo cria um cenário proxy (indireto) onde manter a operação rodando custará uma infração ambiental ou um risco de segurança.
+O brilho analítico do Formulário 4 (SJT) reside na Engenharia de Variáveis (Feature Engineering). Ao invés de perguntar diretamente "Você foca em resultados operacionais?" (uma variável viciada, pois todos dirão que sim), o modelo cria um cenário proxy (indireto) onde manter a operação rodando custará uma infração ambiental ou um risco cibernético.
 
-Ao tornar a resposta "certa" ambígua e atrelada a um sacrifício (Skin in the Game), o algoritmo destrói o alvo fácil da Lei de Goodhart e consegue extrair a verdadeira variável latente (o instinto de gestão) que estava escondida no perfil do avaliado.
+Ao tornar a resposta "certa" ambígua e atrelada a um sacrifício corporativo, o algoritmo destrói o alvo fácil da Lei de Goodhart e consegue extrair a verdadeira variável latente (o instinto de gestão) que estava escondida no perfil do avaliado.
 :::
 
-## ⏱️ Rodada 5: Mapeamento Técnico de Hard Skills {#sec-rodada-5-hardskills}
+## A Metamorfose dos Perfis: Da Dinâmica de Grupo à Sobrevivência em Crise
 
-::: {.callout-important title="🛠️ LABORATÓRIO DE ENGENHARIA: Rodada 5 — Mapeamento Técnico de Hard Skills"}
-**Objetivo: Diagnóstico do Histórico Acadêmico e Inventário de Capital Intelectual**
+Ao longo das três primeiras rodadas, a engenharia de dados do projeto mapeou o comportamento dos alunos sob a influência do coletivo. No entanto, o verdadeiro valor do *People Analytics* não reside apenas em fotografar um momento estático, mas em rastrear a **transição de estado** do indivíduo à medida que o ambiente muda.
 
-Para que uma equipe de consultoria opere em alto nível, não basta apenas equilibrar os perfis comportamentais; é fundamental mapear o embasamento técnico de cada membro. Na Engenharia de Produção, as decisões de excelência são balizadas por cálculos, estatística e domínio de processos.
+Para justificar a reestruturação tática das equipes de consultoria, precisamos analisar duas matrizes de transição finais: a consolidação da máscara do grupo (F2 $\rightarrow$ F3) e a ruptura dessa máscara durante a crise (F3 $\rightarrow$ F4).
 
-Nesta quinta rodada, realizaremos um inventário das suas **Hard Skills**. O objetivo é coletar o histórico de desempenho nas disciplinas dos ciclos Básico, Profissionalizante e Específico. A compilação desses dados permitirá ao grupo identificar quem possui maior afinidade com as ciências exatas e quem domina as ferramentas de gestão.
+### O Pensamento de Grupo (Groupthink): A Bipolarização Consolidada
 
-**Exemplo de Referência (Perfil Acadêmico A001):**
-Utilizaremos os índices abaixo como *benchmark* de alta performance para ilustrar como a consistência nas notas impacta a eficiência acadêmica:
+O Formulário 2 (Visão de Mercado) forçou a equipe a entrar em consenso sobre o que a indústria exige para a implantação de um SGI. O Formulário 3 (Avaliação 360º) mediu como os pares avaliaram a execução desse consenso no dia a dia.
 
-| Sigla | Índice Acadêmico | Valor Real |
+O código abaixo extrai essa matriz de transição no nível das equipes (os 18 grupos formados no início do semestre):
+
+```{r}
+#| label: tbl-transicao-f2-f3
+#| tbl-cap: "Matriz de Transição de Grupo: O Consenso de Mercado (F2) vs. Execução dos Pares (F3)"
+#| echo: true
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+quiet_source("R/trat.forms.R")
+
+df_migracao_f2_f3 %>%
+  kbl(
+    align = c("l", "l", "c", "c"),
+    col.names = c("Perfil Exigido (Mercado - F2)", "Perfil Executado (Pares - F3)", "Qtd de Grupos", "Fatia da Turma")
+  ) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
+  add_header_above(c("O Efeito Manada na Engenharia" = 4), bold = TRUE, background = "#f8f9fa", color = "#2c3e50") %>%
+  column_spec(1, bold = TRUE, color = "#2980b9") %>%
+  column_spec(2, bold = TRUE, color = "#27ae60") %>%
+  column_spec(3:4, color = "#2c3e50")
+```
+
+A Tabela revela um fenômeno absoluto: **100% dos grupos operaram sob o arquétipo Analítico-Técnico**.
+
+Na psicologia organizacional, isso é conhecido como Efeito Manada (*Groupthink*). Estudantes de engenharia, quando colocados em grupo e sob avaliação mútua, tendem a reprimir características destoantes (como criatividade arriscada ou liderança agressiva) para se adequarem ao arquétipo "padrão" esperado de um engenheiro: o pragmatismo analítico. O grupo se torna uma bolha homogênea.
+
+### O Estilhaçamento da Máscara: A Sobrevivência (F3 vs F4)
+
+A bolha analítica se sustenta enquanto o ambiente é controlado e a decisão é diluída entre os pares. Contudo, o Formulário 4 (SJT - Gestão de Crises) isola o aluno e o submete a dilemas operacionais com restrição de tempo e consequências severas.
+
+O que acontece com os membros desse "bloco analítico" uníssono quando a fábrica começa a pegar fogo e eles precisam decidir sozinhos? A matriz de transição definitiva (F3 $\rightarrow$ F4) desvenda o verdadeiro DNA da turma:
+
+```{r}
+#| label: tbl-transicao-f3-f4
+#| tbl-cap: "O Colapso da Máscara: Perfil de Grupo (F3) vs. Instinto Individual na Crise (F4)"
+#| echo: true
+#| warning: false
+#| message: false
+
+df_migracao_f3_f4 %>%
+  kbl(
+    align = c("l", "l", "c", "c"),
+    col.names = c("Máscara do Grupo (F3)", "Instinto Real na Crise (F4)", "Nº de Alunos", "Fatia da Turma")
+  ) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
+  add_header_above(c("O Despertar do Skin in the Game" = 4), bold = TRUE, background = "#f8f9fa", color = "#2c3e50") %>%
+  column_spec(1, bold = TRUE, color = "#7f8c8d") %>%
+  column_spec(2, bold = TRUE, color = "#c0392b") %>%
+  column_spec(3:4, color = "#2c3e50") %>%
+  row_spec(1:2, background = "#fdf2e9")
+```
+
+A revelação algorítmica é brutal. O bloco analítico de 100% que existia no trabalho em grupo fragmentou-se completamente quando submetido ao teste de estresse do mundo real (*Skin in the Game*):
+
+* **A Explosão do Pragmatismo Criativo (53,8%):** A maioria esmagadora da turma (35 alunos) abandonou o rigor metódico das normas ISO para adotar o perfil **Criativo-Inovador**. Sob ameaça de paralisação de produção ou atraso de projetos, o instinto de contorno de regras, improvisação técnica (*air gaps* manuais, negociações não ortodoxas) falou mais alto do que a burocracia analítica.
+* **A Ascensão da Liderança (29,2%):** Quase um terço da turma (19 alunos) chamou a responsabilidade operacional para si. Diante do vazio de poder da crise, eles descartaram o perfil puramente calculista e assumiram a postura de **Líderes**, focados em gerenciar a equipe, assumir o risco gerencial da decisão e barrar intervenções antiéticas.
+* **O Fim da Ilusão:** Apenas 3 alunos (4,6%) mantiveram a frieza do perfil Analítico-Técnico real durante a simulação de crise.
+
+### Decisão Estratégica: A Destruição Criativa dos Grupos
+
+O *pipeline* de dados cumpriu o seu propósito diagnóstico. Provamos matematicamente que as equipes formadas no início do semestre eram ilusões de homogeneidade. Eram agrupamentos por afinidade, mascarados pelo "Efeito Bom Moço" (Rodada 1) e sustentados pelo "Pensamento de Grupo" (Rodadas 2 e 3).
+
+Agora que possuímos o **DNA Comportamental Real** de cada aluno (revelado pelo F4), manter a estrutura dos grupos antigos seria um erro pedagógico e gerencial grave. Equipes de alta performance não nascem por acidente ou amizade; elas são engenheiradas a partir do atrito produtivo de perfis complementares.
+
+Para o sucesso do projeto de SGI no restante do semestre, a coordenação aplicará a "Destruição Criativa": **os 18 grupos originais estão oficialmente dissolvidos.**
+
+Uma nova alocação será processada em R. O algoritmo garantirá que nenhuma equipe concentre três "Líderes" (evitando canibalismo de egos) ou quatro "Criativos" (evitando o caos documental).
+
+## A Engenharia de Equipes: O Algoritmo de Alocação de Squads
+
+Após a "Destruição Criativa" dos grupos originais e o mapeamento definitivo dos perfis (via Simulação de Crise e Histórico Acadêmico), o *pipeline* de dados enfrenta o seu desafio final: como reagrupar os 86 alunos de forma otimizada?
+
+O agrupamento não é aleatório. Se deixássemos os alunos escolherem, eles voltariam a se agrupar por afinidade (o que gera o Efeito Manada). Se fizéssemos um sorteio simples, correríamos o risco de criar "Squads da Morte" (grupos sem nenhuma liderança ou grupos apenas com teóricos).
+
+Para resolver isso, a modelagem utiliza um algoritmo heurístico de balanceamento baseado em quatro critérios restritivos simultâneos:
+
+1. **Restrição de Capacidade (Dimensionamento Fixo):** A regra de ouro operacional. Cada esquadrão deve ser formado rigorosamente por **5 membros**. Como a turma possui 86 alunos matriculados, o algoritmo admite a tolerância de alocar **6 membros** apenas nos últimos *Squads*, absorvendo o resto da divisão matemática.
+2. **Restrição de Canibalismo (Teto de Egos):** O algoritmo é programado para evitar a concentração de perfis de **Liderança (P5)** e **Comunicadores (P4)**. Colocar três líderes natos no mesmo *Squad* de 5 pessoas invariavelmente gera disputas por território e paralisa a execução.
+3. **Complementaridade Obrigatória (O Motor):** Todo *Squad* precisa de uma "Casa de Máquinas". O algoritmo varre a base buscando perfis **Analíticos (P1)** ou de **Operações (P2)** com alto IEA (Eficiência Acadêmica) para servirem como lastro técnico obrigatório em cada equipe.
+4. **Diluição de Risco (A Gestão de Pendentes):** Alunos que não responderam ao Formulário 4 ("Pendentes") ou que possuem alto Risco Técnico são tratados pelo algoritmo como pontos cegos. A regra é clara: nenhum *Squad* pode receber uma carga desproporcional de alunos pendentes. O risco deve ser estatisticamente diluído por toda a turma.
+
+### O Resultado Anônimo: A Matriz de Distribuição
+
+Como a ética e a LGPD (Lei Geral de Proteção de Dados) são pilares do *People Analytics*, o gestor de dados nunca expõe nominalmente os perfis e os *gaps* dos indivíduos para a diretoria de forma desprotegida.
+
+O script a seguir recebe a base consolidada final (que contém matrículas e nomes reais), cruza com o nosso dicionário de anonimização (Chave de Hash `ID_Aluno`) e gera a prova matemática de que o algoritmo funcionou: a tabela de distribuição de perfis e dimensionamento por *Squad*.
+
+```{r}
+#| label: tbl-distribuicao-squads
+#| tbl-cap: "Matriz de Alocação Otimizada: Distribuição de Perfis e Balanceamento de Risco"
+#| echo: true
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(knitr)
+library(kableExtra)
+
+# 1. Carrega o back-end e o dicionário de anonimização (df_de_para)
+quiet_source("R/trat.forms.R")
+
+# Identifica a coluna correta de matrícula no dicionário
+col_mapa_de_para <- if ("Matricula_Original" %in% names(df_de_para)) {
+  "Matricula_Original"
+} else if ("Matrícula_Original" %in% names(df_de_para)) {
+  "Matrícula_Original"
+} else {
+  NA_character_
+}
+
+if (is.na(col_mapa_de_para)) {
+  stop("Nao foi encontrada a coluna de matricula no dicionario de anonimização (df_de_para).")
+}
+
+# Aplicamos a camada de Anonimização (LGPD)
+# Usa a base completa quando disponível; se não houver, usa a versão simplificada.
+df_base_squads <- if (exists("df_consolidado_entregas_completo")) {
+  df_consolidado_entregas_completo
+} else {
+  df_consolidado_entregas
+}
+
+df_squads_anon <- df_base_squads %>%
+  left_join(df_de_para, by = setNames(col_mapa_de_para, "Matrícula")) %>%
+  select(any_of(c("Turma", "ID_Aluno", "Squad", "Perfil"))) %>%
+  filter(!is.na(Squad))
+
+# 2. Pivotamento: Conta quantos perfis existem em cada Squad POR DISCIPLINA
+df_distribuicao_squads <- df_squads_anon %>%
+  # Limpa o nome da turma para a tabela não ficar muito larga; se não houver turma, usa rótulo único.
+  mutate(Disciplina = if ("Turma" %in% names(.)) {
+    str_extract(Turma, "(?<=- ).*?(?= -)")
+  } else {
+    "Turma Unica"
+  }) %>%
+  count(Disciplina, Squad, Perfil) %>%
+  pivot_wider(names_from = Perfil, values_from = n, values_fill = list(n = 0)) %>%
+  # Calcula o tamanho total da equipe e o percentual de risco isolando as chaves
+  rowwise() %>%
+  mutate(
+    `Tamanho da Equipe` = sum(c_across(c(-Disciplina, -Squad))),
+    `Taxa de Risco (%)` = if_else(`Pendente (Sem F4)` > 0, (`Pendente (Sem F4)` / `Tamanho da Equipe`) * 100, 0)
+  ) %>%
+  ungroup() %>%
+  mutate(
+    `Taxa de Risco (%)` = sprintf("%.1f%%", `Taxa de Risco (%)`)
+  ) %>%
+  arrange(Disciplina, Squad)
+
+# 3. Renderização Visual da Matriz de Governança
+idx_pendente <- which(names(df_distribuicao_squads) == "Pendente (Sem F4)")
+idx_tamanho <- which(names(df_distribuicao_squads) == "Tamanho da Equipe")
+
+tb_squads <- df_distribuicao_squads %>%
+  kbl(align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = TRUE) %>%
+  column_spec(1:2, bold = TRUE, color = "#2c3e50", background = "#fdf2e9")
+
+# Destaque visual no Tamanho da Equipe para auditar a regra de 5 ou 6 membros
+if (length(idx_tamanho) == 1) {
+  tb_squads <- tb_squads %>%
+    column_spec(idx_tamanho, bold = TRUE, color = "#27ae60")
+}
+
+# Destaque em vermelho para as colunas de Risco/Pendentes
+if (length(idx_pendente) == 1) {
+  tb_squads <- tb_squads %>%
+    column_spec(idx_pendente, color = "#c0392b", bold = TRUE)
+}
+
+tb_squads <- tb_squads %>%
+  column_spec(ncol(df_distribuicao_squads), color = "#c0392b", bold = TRUE)
+
+tb_squads
+```
+
+#### Decodificando a Alocação: A Prova Matemática
+
+Ao analisarmos a matriz gerada, a eficiência do algoritmo de alocação se torna evidente:
+
+* **Auditoria de Capacidade:** A penúltima coluna prova que a restrição de dimensionamento foi respeitada matematicamente. O algoritmo encheu as "caixas" com exatos 5 assentos e alocou o excedente da turma permitindo que alguns times chegassem ao limite operacional de 6 pessoas.
+* **O Equilíbrio Criativo:** Note que o perfil **Criativo** (que explodiu no F4) foi cirurgicamente distribuído. Se o agrupamento fosse livre, teríamos equipes inteiras de "idealizadores" sem ninguém para executar.
+* **O Controle da Liderança:** A restrição funcionou perfeitamente. O algoritmo espalhou as "Lideranças" para que atuassem como âncoras metodológicas, respeitando o limite do espaço confinado de 5 membros e evitando o colapso por disputa de controle.
+* **A Gestão de Danos (Pendentes):** Em vez de isolar os alunos ausentes ou jogá-los todos no mesmo grupo, a taxa de risco foi diluída. Praticamente todos os *Squads* absorveram uma cota mínima e suportável de alunos pendentes, garantindo que o impacto da falta de dados não destrua a entrega de um único esquadrão.
+
+Essa tabela marca a transição definitiva da teoria para a operação. A partir deste ponto, as equipes são entidades empresariais formadas, limitadas e auditadas pela engenharia de dados.
+
+Contudo, equilibrar o comportamento não é suficiente. Antes de rodarmos o algoritmo de formação dos novos *squads*, precisamos da última variável da equação de alta performance: o lastro técnico de conhecimento. É o que faremos a seguir, mapeando a base histórica de Hard Skills dos alunos.
+
+## ⏱️ Rodada 5: Auditoria do Histórico Acadêmico (Dados do Sistema) {#sec-rodada-5-historico}
+
+::: {.callout-important title="🛠️ LABORATÓRIO DE ENGENHARIA: Rodada 5 — Auditoria de Eficiência Operacional"}
+**Objetivo: Mapeamento Passivo do Capital Intelectual**
+
+Para que uma equipe de consultoria opere em alto nível, não basta apenas equilibrar os perfis comportamentais; é fundamental mapear o embasamento técnico de cada membro. Na Engenharia de Produção, as decisões de excelência são balizadas por fatos e dados extraídos diretamente do **Sistema da UF**.
+
+Nesta quinta rodada, **não há aplicação de formulários para os alunos**. O motor de análise puxa os dados passivamente, integrando o desempenho acadêmico real extraído diretamente do Sistema ao nosso pipeline. Essa transparência técnica permitirá que cada equipe visualize sua capacidade de entrega antes de formalizar sua governança.
+
+**Exemplo de Referência Acadêmica — Aluno A122:**
+Utilizamos o perfil do aluno **A122** como referência de alta performance técnica da base de dados:
+
+| Sigla | Índice Acadêmico (Extração Direta UF) | Valor Real |
 |:---:|:---|:---:|
-| **MC** | Média de Conclusão (Ponderada pela CH) | **8.90** |
-| **IRA** | Índice de Rendimento Acadêmico | **8.90** |
-| **IEA** | Índice de Eficiência Acadêmica | **9.79** |
+| **MC** | Média de Conclusão (Consistência Técnica) | **8.90** |
+| **IRA** | Índice de Rendimento Acadêmico (Aproveitamento) | **8.90** |
+| **IEA** | Índice de Eficiência Acadêmica (Velocidade vs. Qualidade) | **9.79** |
 
-**Instrução Prática:** O preenchimento é **individual**. Cada membro deve registrar sua nota final (aprovada) nas disciplinas listadas no formulário. Caso ainda não tenha cursado a matéria, marque "Ainda não cursei". Este é um diagnóstico técnico para alocação eficiente de recursos, e não um julgamento acadêmico.
+**Instrução Prática:** A equipe deve analisar o relatório consolidado de índices para fundamentar a **Matriz de Responsabilidades** no Termo de Abertura.
 :::
 
-#### FORMULÁRIO 5 — Mapeamento de Hard Skills (Desempenho Técnico Individual)
+### Descrição dos Índices Acadêmicos Oficiais
 
-**Instruções de Preenchimento:**
+Para que a avaliação de *Hard Skills* possua rigor técnico, o modelo abandona o uso isolado de notas brutas e adota os indicadores oficiais de eficiência processados pelo Sistema da Universidade. A adoção dessas métricas garante que a análise não sofra vieses qualitativos.
 
-LÍDER DA EQUIPE: A partir desta seção, você deve passar o dispositivo (ou compartilhar a tela) para que **CADA MEMBRO** preencha suas próprias notas nas tabelas abaixo. Indique a nota final (aprovada) obtida.
+Abaixo, a formalização matemática de cada indicador utilizado pelo motor de dados:
 
-* **🔗 Link de Acesso:** [FORMULÁRIO 5 — Mapeamento Técnico de Hard Skills](https://forms.office.com/link-ficticio-notas)
+* **MC (Média de Conclusão):** É a média do rendimento escolar final obtido pelo aluno nos componentes curriculares em que obteve êxito, ponderada pela carga horária. Representa a "Consistência Técnica" nas aprovações.
+$$MC = \frac{\sum_{i=1}^{n} (N_i \times CH_i)}{\sum_{i=1}^{n} CH_i}$$ {#eq-mc}
+*(Onde $N$ é a nota final, $CH$ é a carga horária da disciplina, e $n$ é o total de disciplinas com aprovação).*
+
+* **IRA (Índice de Rendimento Acadêmico):** É a média do rendimento escolar final em todos os componentes curriculares que concluiu (incluindo as reprovações). Representa o "Aproveitamento Bruto".
+$$IRA = \frac{\sum_{j=1}^{k} (N_j \times CH_j)}{\sum_{j=1}^{k} CH_j}$$ {#eq-ira}
+*(Onde $k$ é o total de disciplinas cursadas, com ou sem êxito).*
+
+* **IECH (Índice de Eficiência em Carga Horária):** É a divisão da carga horária com aprovação pela carga horária total utilizada. Funciona como um medidor da taxa de sucesso vs. retrabalho (reprovações).
+$$IECH = \frac{CH_{Aprovada}}{CH_{Utilizada}}$$ {#eq-iech}
+
+* **IEPL (Índice de Eficiência em Períodos Letivos):** É a divisão da carga horária acumulada pela carga horária esperada para aquele período de integralização. Funciona como um medidor do atraso ou adiantamento do aluno no curso.
+$$IEPL = \frac{CH_{Acumulada}}{CH_{Esperada}}$$ {#eq-iepl}
+
+* **IEA (Índice de Eficiência Acadêmica):** É o indicador global do sistema. Ele pune ou recompensa o aluno combinando a sua nota com a sua taxa de falha e sua velocidade de formação. É o produto escalar exato da qualidade pela velocidade.
+$$IEA = MC \times IECH \times IEPL$$ {#eq-iea}
+
+### Análise Estratégica: O Capital Intelectual da Turma
+
+Após o cruzamento dos dados comportamentais (Modelo ARM) com os indicadores técnicos oficiais, emergiram quatro dimensões críticas que fundamentam a governança das equipes de consultoria:
+
+#### 1. Identificação de "High Potentials" e Gaps de Execução
+O cruzamento entre o **Score comportamental** e o **IEA (Eficiência Acadêmica)** permitiu classificar os alunos em quadrantes de desempenho tático:
+
+* **High Potentials:** Destacam-se alunos como **A129** (Score 28.3, IEA 8.68) e **A078** (Score 24.4, IEA 8.20), que possuem alto alinhamento de perfil de liderança com altíssima eficiência técnica de entrega.
+* **Técnicos Subutilizados:** Alunos como o **A133** (IEA 9.87) e **A122** (IEA 9.79) possuem bases técnicas de excelência absoluta (as maiores notas da turma), mas scores comportamentais moderados, sugerindo um potencial técnico brutal que ainda não se converteu totalmente em proatividade de articulação ou liderança.
+* **Risco Técnico:** Casos severos como o do aluno **A174**, que possui um score comportamental elevado (**24.2**), mas um IEA crítico (**1.58**), e o aluno **A103** (Score 25.1, IEA 3.73). Eles indicam perfis com grande imposição comportamental (são ouvidos pela equipe), mas que enfrentarão gargalos técnicos graves na execução de cálculos e modelagens complexas.
+
+#### 2. Normalização e Aderência ao Benchmark
+Utilizando o maior indicador de eficiência da turma como o "Padrão Ouro" (Benchmark), o algoritmo mapeia o nível de aderência técnica do grupo:
+
+* O aluno **A133** define o limite superior da turma com **100% de aderência** (IEA 9.87 e MC 9.28).
+* O aluno **A122** opera logo atrás, com **99.2%** de aderência ao benchmark, nível condizente com uma Liderança Técnica de Projetos.
+* Em contrapartida, o aluno **A125** apresenta a maior lacuna de performance técnica da base, com IEA de **0.668** (apenas **6.77%** de aderência ao benchmark), exigindo que seu esquadrão mitigue ativamente essa deficiência operacional.
+
+#### 3. O Viés da Autopercepção (Dunning-Kruger)
+A análise do **Delta_Viés** (confronto entre a autopercepção técnica inflada e a realidade do MC oficial) revela perfis de maturidade distintos:
+
+* **Falsa Modéstia / Rigor Extremo:** O aluno **A111** possui o maior viés negativo (**-1.39**), seguido pelo **A130** (**-1.32**). Isso indica uma síndrome do impostor acadêmico: eles se percebem muito piores do que o sistema universitário prova que eles realmente são.
+* **Sobre-estimação Técnica:** Alunos com Delta positivo, como o **A037** (**+0.371**) e o **A093** (**+0.274**), avaliaram suas competências operacionais acima do que o histórico técnico comprova, sinalizando a urgência de uma calibragem de realidade pelos pares.
+
+### A Matemática dos Quadrantes: A Matriz de Talentos Bidimensional
+
+No universo do RH estratégico e do *People Analytics*, ferramentas de categorização como a clássica matriz *9-Box* são amplamente utilizadas para classificar colaboradores. No entanto, em sua versão tradicional, as divisões dos quadrantes costumam ser definidas de forma qualitativa e discricionária pelo gestor.
+
+Para elevar esse conceito ao rigor da engenharia, nossa metodologia projeta uma **Matriz de Talentos Bidimensional** contínua. Nela, a posição do aluno não é "escolhida", mas sim calculada como um par ordenado $(x, y)$, onde a performance técnica e a maturidade comportamental se cruzam:
+
+* **Eixo X (A Dimensão Técnica):** Representado pelo Índice de Eficiência Acadêmica ($IEA$), extraído dos sistemas oficiais da universidade. Ele quantifica a robustez das *Hard Skills*.
+* **Eixo Y (A Dimensão Comportamental):** Representado pelo *Score* Total do Modelo Multivariado ($\theta_{ARM}$), obtido através das rodadas de triangulação. Ele quantifica a tração das *Soft Skills* e da liderança.
+
+#### A Definição Estatística dos Limiares de Corte
+
+Para dividir o plano cartesiano em quatro quadrantes estratégicos, o algoritmo precisa de linhas divisórias (limiares). Se utilizássemos a média aritmética simples para traçar essas linhas, correríamos o risco de distorcer os quadrantes devido a valores atípicos (*outliers*).
+
+A solução mais robusta na ciência de dados é a utilização de **Percentis**. Para este laboratório, definimos que apenas o terço superior da turma (os 30% melhores) deve cruzar a barreira da excelência em cada eixo. Portanto, o limite de transição é o **Percentil 70** ($P_{70}$).
+
+Matematicamente, se $X$ é o conjunto de notas do $IEA$ e $Y$ é o conjunto de *scores* do modelo $ARM$, os limiares vertical ($L_x$) e horizontal ($L_y$) são definidos por meio de suas respectivas funções de distribuição acumulada ($F$):
+
+$$L_x = \inf \{x \in \mathbb{R} : F_X(x) \ge 0.70\}$$
+
+$$L_y = \inf \{y \in \mathbb{R} : F_Y(y) \ge 0.70\}$$
+
+Essa modelagem matemática garante que as linhas de corte se ajustem dinamicamente ao desempenho da turma a cada semestre. A interseção ortogonal dessas duas retas ($x = L_x$ e $y = L_y$) divide o espaço amostral em quatro taxonomias táticas:
+
+1. **High Potentials ($x \ge L_x$ e $y \ge L_y$):** O quadrante de ouro. Alunos que superaram a nota de corte tanto na eficiência técnica quanto no engajamento comportamental. Estão aptos a assumir a gestão executiva dos esquadrões.
+2. **Técnicos Subutilizados ($x \ge L_x$ e $y < L_y$):** Excelente domínio de cálculo, normas e engenharia, mas com déficit de comunicação ou liderança. São a "casa de máquinas" do grupo, mas precisam ser provocados a desenvolver protagonismo (o foco principal do seu Plano de Desenvolvimento Individual).
+3. **Risco Técnico ($x < L_x$ e $y \ge L_y$):** Alto poder de articulação, liderança e engajamento, mas com histórico técnico deficiente. São perigosos para o projeto se não forem ancorados por colegas analíticos, pois podem vender muito bem uma solução inviável matematicamente (o "Efeito PowerPoint").
+4. **Operacional ($x < L_x$ e $y < L_y$):** A base da pirâmide de distribuição. Alunos que ainda estão em desenvolvimento em ambas as dimensões e que deverão compor a base de execução dos esquadrões sob supervisão direta dos perfis mais experientes.
+
+Para traduzir visualmente esses quadrantes de decisão, o motor de dados cruza o **Score Comportamental (ARM)** com o **Eixo Técnico (IEA)**, segmentando a turma e destacando os alunos citados nesta auditoria.
+
+```{r}
+#| label: fig-matriz-talentos
+#| fig-cap: "Matriz de Talentos cruzando o Score Comportamental (ARM) com a Eficiência Técnica Acadêmica (IEA)."
+#| echo: true
+#| message: false
+#| warning: false
+#| fig-width: 12
+#| fig-height: 8
+#| out-width: "100%"
+
+# ==============================================================================
+# PARTE 6: GRÁFICO DE TALENTOS
+# ==============================================================================
+library(dplyr)
+library(ggplot2)
+library(ggrepel)
+
+limiar_iea <- quantile(df_analise_talentos$IEA, 0.7, na.rm = TRUE)
+limiar_arm <- quantile(df_analise_talentos$Score_Total, 0.7, na.rm = TRUE)
+
+df_plot_talentos <- df_analise_talentos %>%
+  filter(Status_Talento != "Sem Dados Técnicos") %>%
+  distinct(ID_Aluno, .keep_all = TRUE)
+
+destaques_hp <- df_plot_talentos %>%
+  filter(Status_Talento == "High Potential") %>%
+  slice_max(order_by = Score_Total, n = 2, with_ties = FALSE)
+
+destaques_ts <- df_plot_talentos %>%
+  filter(Status_Talento == "Técnico Subutilizado") %>%
+  slice_max(order_by = IEA, n = 2, with_ties = FALSE)
+
+destaques_rt <- df_plot_talentos %>%
+  filter(Status_Talento == "Risco Técnico") %>%
+  slice_min(order_by = IEA, n = 2, with_ties = FALSE)
+
+destaques_delta <- if ("Delta_Vies" %in% names(df_plot_talentos)) {
+  bind_rows(
+    df_plot_talentos %>% slice_min(order_by = Delta_Vies, n = 1, with_ties = FALSE),
+    df_plot_talentos %>% slice_max(order_by = Delta_Vies, n = 1, with_ties = FALSE)
+  )
+} else {
+  dplyr::tibble()
+}
+
+alunos_destaque <- bind_rows(destaques_hp, destaques_ts, destaques_rt, destaques_delta) %>%
+  distinct(ID_Aluno) %>%
+  pull(ID_Aluno)
+
+df_plot_talentos <- df_plot_talentos %>%
+  mutate(Label = if_else(ID_Aluno %in% alunos_destaque, ID_Aluno, ""))
+
+x_iea_min <- min(df_plot_talentos$IEA, na.rm = TRUE)
+x_iea_max <- max(df_plot_talentos$IEA, na.rm = TRUE)
+y_score_min <- min(df_plot_talentos$Score_Total, na.rm = TRUE)
+y_score_max <- max(df_plot_talentos$Score_Total, na.rm = TRUE)
+x_iea_span <- max(x_iea_max - x_iea_min, 1)
+y_score_span <- max(y_score_max - y_score_min, 1)
+
+cores_talentos <- c(
+  "High Potential" = "#24A379",
+  "Técnico Subutilizado" = "#1D5185",
+  "Risco Técnico" = "#C40E0E",
+  "Operacional" = "#F1C40F"
+)
+
+fig_talentos <- ggplot(df_plot_talentos, aes(x = IEA, y = Score_Total, color = Status_Talento)) +
+  geom_vline(xintercept = limiar_iea, linetype = "dashed", color = "#2C3E50", alpha = 0.8, linewidth = 0.6) +
+  geom_hline(yintercept = limiar_arm, linetype = "dashed", color = "#2C3E50", alpha = 0.8, linewidth = 0.6) +
+  geom_point(size = 3.5, alpha = 0.8) +
+  geom_text_repel(
+    aes(label = Label),
+    color = "black",
+    size = 4,
+    fontface = "bold",
+    show.legend = FALSE,
+    box.padding = 0.6,
+    point.padding = 0.5,
+    max.overlaps = Inf
+  ) +
+  annotate("text", x = x_iea_max + 0.02 * x_iea_span, y = y_score_max + 0.03 * y_score_span, label = "High Potentials", hjust = 1, vjust = 1, color = "#24A379", fontface = "bold", alpha = 0.6, size = 5) +
+  annotate("text", x = x_iea_max + 0.02 * x_iea_span, y = y_score_min - 0.03 * y_score_span, label = "Técnicos\nSubutilizados", hjust = 1, vjust = 0, color = "#1D5185", fontface = "bold", alpha = 0.6, size = 5) +
+  annotate("text", x = x_iea_min - 0.02 * x_iea_span, y = y_score_max + 0.03 * y_score_span, label = "Risco\nTécnico", hjust = 0, vjust = 1, color = "#C40E0E", fontface = "bold", alpha = 0.6, size = 5) +
+  annotate("text", x = x_iea_min - 0.02 * x_iea_span, y = y_score_min - 0.03 * y_score_span, label = "Operacional", hjust = 0, vjust = 0, color = "#F1C40F", fontface = "bold", alpha = 0.8, size = 5) +
+  scale_color_manual(values = cores_talentos) +
+  labs(
+    title = "Matriz de Talentos: Comportamento (ARM) vs. Eficiência (IEA)",
+    subtitle = "Mapeamento tático para formação de equipes de consultoria",
+    x = "Índice de Eficiência Acadêmica (IEA) - Eixo Técnico",
+    y = "Score Total (Modelo ARM) - Eixo Comportamental",
+    color = "Classificação:"
+  ) +
+  scale_x_continuous(expand = expansion(mult = c(0.08, 0.12))) +
+  scale_y_continuous(expand = expansion(mult = c(0.08, 0.12))) +
+  coord_cartesian(clip = "off") +
+  theme_minimal(base_size = 14) +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold", size = 16, color = "#2C3E50"),
+    plot.subtitle = element_text(color = "#7F8C8D", margin = margin(b = 15)),
+    panel.grid.minor = element_blank(),
+    axis.title.x = element_text(face = "bold"),
+    axis.title.y = element_text(face = "bold"),
+    plot.margin = margin(t = 18, r = 28, b = 18, l = 28)
+  )
+
+print(fig_talentos)
+```
+
+### A Matriz Curricular: O Lastro da Formação Técnica
+
+Para sustentar a formação das competências e subsidiar o mapeamento de *Hard Skills*, é fundamental compreender a arquitetura acadêmica do curso. A matriz curricular da Engenharia de Produção é estruturada em três grandes blocos de conhecimento, que conectam a ciência pura à prática profissional:
+
+* **📘 Núcleo Básico:** Algoritmos e programação, Administração e economia, Ciências dos materiais, Ciências do ambiente, Estatística, Desenho técnico, Expressão gráfica, Eletricidade, Fenômenos de transporte, Física, Informática, Matemática, Mecânica dos sólidos, Metodologia científica e tecnológica, e Química.
+* **⚙️ Núcleo Profissionalizante:** Automação industrial, Eletrônica básica e instrumentação, Gestão da saúde e segurança, Mecânica geral, Metrologia, e Processos de fabricação.
+* **🏭 Núcleo Específico:** Engenharia de operações e processo de produção, Logística, Pesquisa operacional, Engenharia da qualidade, Engenharia do produto, Engenharia organizacional, Engenharia econômica, Engenharia do trabalho, Engenharia da sustentabilidade, e Educação em engenharia de produção.
 
 ---
 
-##### Seção 1: Ciclo Básico (1º ao 3º Período)
-*Indique sua nota final nas disciplinas de base científica e tecnológica.*
+## ⏱️ Rodada 6: Mapeamento Granular de *Hard Skills* {#sec-rodada-6-hardskills}
 
-**14. Tabela de Notas - Ciclo Básico:**
+::: {.callout-important title="🛠️ LABORATÓRIO DE ENGENHARIA: Rodada 6 — Especialidades e Gaps Individuais"}
+**Objetivo: Inventário Micro de Conhecimentos Específicos**
 
-*Colunas: "Ainda não cursei", "60 a 69", "70 a 79", "80 a 89", "90 a 100"*
+Enquanto a Rodada 5 nos forneceu o desempenho global (*Dashboard* de IEA), a Rodada 6 desce ao nível granular. Para que o esquadrão possa montar sua Matriz de Responsabilidades de forma inteligente (ex: quem fará os cálculos de confiabilidade e quem revisará os relatórios), é imperativo saber o desempenho técnico em disciplinas-chave.
 
-* INTRODUÇÃO À ENGENHARIA DE PRODUÇÃO
+Nesta etapa, de forma transparente, a equipe mapeará internamente as suas *Hard Skills* declaradas, identificando onde estão seus especialistas técnicos (ex: Estatística, Manutenção, Custos) e onde o grupo precisará de nivelamento conjunto.
+:::
 
-* CÁLCULO I e II
+#### O Mapeamento Técnico de *Hard Skills* (Formulário 5)
 
-* QUÍMICA GERAL E LABORATÓRIO
+Para extrair esse dado sem obrigar o aluno a enviar o PDF do histórico escolar (o que inviabilizaria a extração tabular automatizada no `R`), a engenharia do questionário utilizou uma estratégia avançada de *UX (User Experience)*.
 
-* GEOMETRIA ANALÍTICA E ÁLGEBRA LINEAR
+Em vez de criar uma pergunta solta para cada uma das quase 100 disciplinas do curso, o formulário parametriza as respostas através de **Matrizes Likert agrupadas por períodos**. O aluno visualiza uma tabela limpa e compacta, bastando clicar na bolha correspondente à sua faixa de proficiência. No *Back-End*, o algoritmo transforma essas bolhas em variáveis categóricas ordinais.
 
-* FUNDAMENTOS DE LÓGICA DE PROGRAMAÇÃO
+**Instruções de Preenchimento Projetadas à Equipe:**
+> *LÍDER DA EQUIPE: A partir desta seção, você deve passar o dispositivo (ou compartilhar a tela) para que CADA MEMBRO preencha suas próprias notas nas tabelas abaixo. Indique a nota final (aprovada) obtida nas disciplinas já cursadas.*
 
-* ENGENHARIA DA QUALIDADE I
+* **🔗 Link de Acesso:** [FORMULÁRIO 5 — Termo de Abertura e Mapeamento Técnico](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UNTZRQTBDSVVLUTBPVldJVUxRQkJDOENaRS4u)
 
-* MECÂNICA ESTÁTICA
+*(Abaixo, o recorte das disciplinas mapeadas por blocos curriculares, que fundamentam a base de dados técnica do algoritmo).*
 
-##### Seção 2: Ciclo Profissionalizante (4º ao 5º Período)
-**15. Tabela de Notas - Ciclo Profissionalizante:**
+##### Seção 1: O Ciclo Básico (1º ao 3º Período)
+*Escala de Resposta: "Ainda não cursei", "60 a 69", "70 a 79", "80 a 89", "90 a 100".*
 
-* ESTATÍSTICA PARA ENGENHARIA DE PRODUÇÃO
+* INTRODUÇÃO À ENGENHARIA DE PRODUÇÃO (32h)
+* CÁLCULO I e II (64h)
+* GEOMETRIA ANALÍTICA E ÁLGEBRA LINEAR (64h)
+* FUNDAMENTOS DE LÓGICA DE PROGRAMAÇÃO (64h)
+* ENGENHARIA DA QUALIDADE I (32h)
+* MECÂNICA ESTÁTICA (64h)
+* EQUAÇÕES DIFERENCIAIS ORDINÁRIAS (64h)
+* GESTÃO DE PESSOAS (64h)
 
-* METROLOGIA E LABORATÓRIO
+##### Seção 2: O Ciclo Profissionalizante (4º ao 5º Período)
+*Escala de Resposta: "Ainda não cursei", "60 a 69", "70 a 79", "80 a 89", "90 a 100".*
 
-* GESTÃO DE PROJETOS
+* METROLOGIA (32h)
+* CÁLCULO NUMÉRICO (64h)
+* ESTATÍSTICA PARA ENGENHARIA DE PRODUÇÃO (64h)
+* GESTÃO DE PROJETOS (64h)
+* ORGANIZAÇÃO DO TRABALHO NA PRODUÇÃO (64h)
+* RESISTÊNCIA DOS MATERIAIS (64h)
+* GESTÃO DA QUALIDADE (64h)
+* ECONOMIA INDUSTRIAL (64h)
+* FENÔMENOS DE TRANSPORTE (64h)
 
-* RESISTÊNCIA DOS MATERIAIS
+##### Seção 3: O Ciclo Específico e Projetos (6º ao 10º Período)
+*Escala de Resposta: "Ainda não cursei", "60 a 69", "70 a 79", "80 a 89", "90 a 100".*
 
-* FENÔMENOS DE TRANSPORTE
-
-* ENGENHARIA DE MÉTODOS PRÁTICA
-
-##### Seção 3: Ciclo Específico e Projetos (6º ao 10º Período)
-**16. Tabela de Notas - Ciclo Específico:**
-
-* SISTEMAS DE GESTÃO INTEGRADOS (SGI)
-
-* PLANEJAMENTO E CONTROLE DA PRODUÇÃO (PCP I)
-
-* PESQUISA OPERACIONAL
-
-* LOGÍSTICA E TRANSPORTE
-
-* ENGENHARIA ECONÔMICA E FINANCEIRA I
-
-* GESTÃO DA MANUTENÇÃO
+* ANÁLISE ERGONÔMICA DO TRABALHO (64h)
+* CIÊNCIAS DO AMBIENTE (32h)
+* CUSTOS I (64h)
+* ENGENHARIA DO PRODUTO II (64h)
+* GESTÃO ESTRATÉGICA (64h)
+* INTRODUÇÃO À AUTOMAÇÃO INDUSTRIAL E LABORATÓRIOS
+* TECNOLOGIA DE FABRICAÇÃO III E IV (Com laboratórios)
+* SISTEMAS DE PRODUÇÃO I (32h)
+* SISTEMAS DE GESTÃO INTEGRADOS (64h)
+* ANÁLISE DE SITUAÇÕES REAIS (64h)
+* ENGENHARIA ECONÔMICA E FINANCEIRA I (64h)
+* GESTÃO DA MANUTENÇÃO (64h)
+* LOGÍSTICA E TRANSPORTE (64h)
+* PESQUISA OPERACIONAL (32h)
+* PROJETOS INTEGRADOS DE ENGENHARIA DE PRODUÇÃO I E II (32h)
+* SISTEMAS DE INFORMAÇÃO (64h)
+* PLANEJAMENTO E CONTROLE DA PRODUÇÃO I (64h)
+* PROJETO DE FÁBRICA I (64h)
+* SIMULAÇÃO (32h)
+* ESTÁGIO SUPERVISIONADO (175h)
 
 ##### Seção 4: Componentes Optativos e TCC
-**17. Tabela de Notas - Optativas e Conclusão:**
+*Escala de Resposta: "Ainda não cursei", "60 a 69", "70 a 79", "80 a 89", "90 a 100".*
 
-* CONSULTORIA EMPRESARIAL
-
-* INTRODUÇÃO ÀS METODOLOGIAS ÁGEIS
-
-* MODELAGEM FINANCEIRA AVANÇADA
-
-* VALUATION AND VALUE INVESTING
-
-* TRABALHO DE CONCLUSÃO DE CURSO (TCC I e II)
-
-## ⏱️ Rodada 6: Termo de Abertura do Projeto (Team Charter) {#sec-rodada-6-tap}
-
-::: {.callout-important title="🛠️ LABORATÓRIO DE ENGENHARIA: Rodada 6 — Termo de Abertura do Projeto (TAP)"}
-**Objetivo: Formalização da Governança e Contrato Social da Consultoria**
-
-Com os perfis comportamentais e a bagagem técnica devidamente mapeados, chegou o momento de consolidar a identidade da sua organização. A partir de agora, vocês deixam de ser um grupo isolado de alunos e assumem formalmente o papel de uma **Equipe de Consultoria Multidisciplinar** encarregada de implantar um Sistema de Gestão Integrado (SGI).
-
-Nesta sexta rodada, vocês elaborarão o **Team Charter** (Contrato de Consultoria). Este documento é a "Constituição" do grupo: ele define as responsabilidades individuais (quem cobra, quem revisa, quem comunica), estabelece os Acordos de Nível de Serviço (**SLA**) para prazos internos e, crucialmente, pactua as regras de resolução de conflitos e sanções para garantir a sustentabilidade do projeto sob pressão.
-
-**Instrução Prática:** O conteúdo deve ser debatido presencialmente e em consenso por todos os membros, mas preenchido e enviado por **apenas um representante** (o Líder designado). As regras pactuadas aqui serão o documento oficial de governança e *Compliance* de vocês para o semestre.
-:::
-
-#### FORMULÁRIO 6 — Termo de Abertura do Projeto (Team Charter / Contrato de Consultoria)
-
-**Tempo estimado para debate e preenchimento:** 20 minutos.
+* TRABALHO DE CONCLUSÃO DE CURSO I E II (51h e 77h)
+* CONSULTORIA EMPRESARIAL (64h)
+* ENGENHARIA DA QUALIDADE II (64h)
+* GESTÃO DA INOVAÇÃO (64h)
+* INTRODUÇÃO À PRODUÇÃO CIENTÍFICA (32h)
+* INTRODUÇÃO ÀS METODOLOGIAS ÁGEIS (32h)
+* LIBRAS – LÍNGUA BRASILEIRA DE SINAIS (48h)
+* MARKETING DO PRODUTO (32h)
+* MÉTODOS QUANTITATIVOS I a V (80h)
+* MODELAGEM FINANCEIRA AVANÇADA (64h)
+* PLANEJAMENTO E CONTROLE DA PRODUÇÃO II (32h)
+* PROJETO DE FÁBRICA II (32h)
+* SISTEMA DE GESTÃO DA QUALIDADE (32h)
+* SISTEMAS DE PRODUÇÃO II (32h)
+* SISTEMAS DE PRODUÇÃO RECONFIGURÁVEIS (32h)
+* TENDÊNCIAS DE MERCADO (32h)
+* VALUATION AND VALUE INVESTING (80h)
 
 ---
 
-##### Seção 1: Identidade da Consultoria
-1. **Nome da Consultoria:** (Texto Curto)
-2. **Membros e Perfis Dominantes (Modelo ARM):** (Texto Longo)
+### A Transformação dos Dados: Do Likert ao Ponto Médio
 
-##### Seção 2: Diagnóstico Multidisciplinar (Radar da Equipe)
-3. **Maior Força Operacional:** (Texto Curto)
-4. **Maior Ponto Cego (Gargalo):** (Texto Curto)
-5. **Estratégia de Mitigação:** (Texto Longo)
+A coleta das notas em faixas (ex: "80 a 89") é excelente para a experiência do usuário, mas os algoritmos de Ciência de Dados exigem variáveis numéricas contínuas para calcular médias e identificar especialistas.
 
-##### Seção 3: Matriz de Responsabilidades (RACI Simplificada)
-6. **Gestor do Projeto (Cronograma/Prazos):** (Nome)
-7. **Revisor de Qualidade e Compliance (ABNT/ISO):** (Nome)
-8. **Articulador de Comunicação (Apresentação/Defesa):** (Nome)
-9. **Analista de Dados/Pesquisa (Cálculos/Bibliografia):** (Nome)
+Para resolver esse gargalo, o *pipeline* de dados aplica a técnica estatística de conversão por **Ponto Médio (*Midpoint*)**. O script localiza a resposta de texto do aluno e a traduz para um valor exato:
 
-##### Seção 4: Governança e Compliance Interno
-11. **SLA Interno (Antecedência mínima de envio):** (24h, 48h, 72h, Outro)
-12. **Repositório Oficial:** (WhatsApp, Drive, Teams/Trello, Outro)
-13. **Resolução de Conflitos e Sanções:** O que a equipe fará em caso de descumprimento de prazos ou qualidade inaceitável? (Texto Longo)
+* "Ainda não cursei" $\rightarrow$ `NA` (Ignorado matematicamente)
+* "60 a 69" $\rightarrow$ $65$
+* "70 a 79" $\rightarrow$ $75$
+* "80 a 89" $\rightarrow$ $85$
+* "90 a 100" $\rightarrow$ $95$ (Sinalizador de Especialista)
 
-##### Seção 5: Assinatura
-18. **Termo de Aceite Multidisciplinar:** [ ] Li, confirmo com a minha equipe e aceitamos os termos de governança.
+O código abaixo ilustra a extração do capital intelectual mapeado pelo Formulário 5. Ele identifica as **Lideranças Técnicas** (*Hard Skills* com nota $\ge 85$) dentro dos *Squads*, para que as equipes saibam exatamente a quem delegar as tarefas de maior complexidade matemática e analítica.
+
+```{r}
+#| label: tbl-hardskills-squad
+#| tbl-cap: "Inventário de Lideranças Técnicas (Especialistas com Notas $\\ge$ 85) por Squad"
+#| echo: true
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(stringr)
+library(knitr)
+library(kableExtra)
+
+# 1. Carrega o back-end (Garante que o df_form5_anon esteja na memória)
+quiet_source("R/trat.forms.R")
+
+# Se o formulário 5 for muito recente, garantimos que a base de squads está carregada
+if (!exists("df_consolidado_entregas")) {
+  stop("A base de Squads (df_consolidado_entregas) não foi encontrada.")
+}
+
+# Compatibiliza possíveis nomes da chave de aluno no consolidado
+id_col <- intersect(c("Matrícula", "Matricula", "ID_Aluno"), names(df_consolidado_entregas))[1]
+if (is.na(id_col)) {
+  stop("Não foi possível identificar a coluna de ID do aluno em df_consolidado_entregas.")
+}
+
+if (!"Turma" %in% names(df_consolidado_entregas)) {
+  df_consolidado_entregas <- df_consolidado_entregas %>% mutate(Turma = "Turma Única")
+}
+
+# Isola os alunos que se declararam especialistas (Nota >= 85)
+df_especialistas <- df_form5_anon %>%
+  # Traz a informação de qual Squad o aluno pertence
+  inner_join(
+    df_consolidado_entregas %>%
+      transmute(ID_Aluno = as.character(.data[[id_col]]), Turma, Squad),
+    by = "ID_Aluno"
+  ) %>%
+  mutate(
+    Turma = coalesce(
+      if ("Turma" %in% names(.)) Turma else NA_character_,
+      if ("Turma.x" %in% names(.)) .data[["Turma.x"]] else NA_character_,
+      if ("Turma.y" %in% names(.)) .data[["Turma.y"]] else NA_character_,
+      "Turma Única"
+    )
+  ) %>%
+  # Filtra apenas a alta proficiência e alunos alocados
+  filter(Nota_Numerica >= 85 & !is.na(Squad)) %>%
+  # Agrupa por Turma, Squad e Categoria de Conhecimento
+  group_by(Turma, Squad, Categoria) %>%
+  summarise(
+    `Nº de Especialistas` = n_distinct(ID_Aluno),
+    `Principais Disciplinas Dominadas` = paste(unique(Disciplina)[1:3], collapse = ", "),
+    .groups = "drop"
+  ) %>%
+  # Limpa o texto da categoria para a tabela (Remove o texto entre parênteses)
+  mutate(
+    Categoria = str_remove(Categoria, " \\(.*\\)"),
+    # Limpa a redundância da string gerada pelo Forms ("ESTATÍSTICA PARA ENGENHARIA DE PRODUÇÃO1")
+    `Principais Disciplinas Dominadas` = str_remove(`Principais Disciplinas Dominadas`, "1$")
+  ) %>%
+  # Remove NAs indesejados da string colapsada
+  mutate(`Principais Disciplinas Dominadas` = str_replace_all(`Principais Disciplinas Dominadas`, ", NA", "")) %>%
+  arrange(Turma, Squad, Categoria)
+
+# Fallback defensivo para evitar quebra em casos de baixa resposta
+if (nrow(df_especialistas) == 0) {
+  df_especialistas <- tibble(
+    Turma = "-",
+    Squad = "-",
+    Categoria = "Sem especialistas mapeados",
+    `Nº de Especialistas` = 0,
+    `Principais Disciplinas Dominadas` = "-"
+  )
+}
+
+# 3. Renderiza a tabela de auditoria de conhecimento
+tabela_hs <- df_especialistas %>%
+  select(Squad, Categoria, `Nº de Especialistas`, `Principais Disciplinas Dominadas`) %>%
+  kbl(align = c("c", "l", "c", "l")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = TRUE) %>%
+  collapse_rows(columns = 1, valign = "top") %>%
+  add_header_above(c("Mapeamento do Capital Intelectual por Equipe" = 4), bold = TRUE, background = "#fdf2e9", color = "#2c3e50") %>%
+  column_spec(3, bold = TRUE, color = "#27ae60")
+
+tabela_hs
+```
+
+#### Decodificando o *Skill Mapping*
+*(Este texto será melhor compreendido assim que a turma inteira preencher o formulário, mas podemos observar a tendência nas respostas parciais).*
+
+Ao analisar o inventário gerado, nota-se que a alocação do algoritmo foi bem-sucedida em diluir o risco técnico. Os esquadrões que possuem apenas 1 ou 2 especialistas no Ciclo Profissionalizante já podem antever problemas na execução de cálculos de Confiabilidade ou Estatística para a Qualidade.
+
+Ao preencherem o **Team Charter** (Rodada 7), a instrução tática é clara: a matriz de responsabilidades e as revisões de documentação devem ser ancoradas nesses alunos com alta proficiência declarada. Delegar a compilação de relatórios estatísticos a um "Risco Técnico" (encontrado na Rodada 5) é o caminho mais rápido para a perda do SLA no semestre.
+
+### Fusão de Dados: A Recalibragem do DNA Profissional
+
+No *People Analytics*, uma das armadilhas mais perigosas é confiar em uma única fonte de dados. Se o nosso algoritmo definisse o perfil do aluno baseando-se apenas em como ele agiu na Simulação de Crise (Formulário 4), estaríamos medindo o seu "Instinto", mas ignorando o seu "Lastro Técnico".
+
+O que acontece se um aluno age como um rigoroso **Analítico (P1)** no simulador, exigindo cálculos de causa-raiz, mas o seu Formulário 5 revela que ele possui médias abaixo de 70 em Cálculo, Física e Estatística? Ele possui o perfil, mas não a proficiência. É o que o mercado chama de "Efeito PowerPoint".
+
+Para blindar o sistema contra essa anomalia, aplicamos a **Fusão de Dados (*Data Fusion*)**. O algoritmo cruza os *scores* do F4 com as médias extraídas do F5 e aplica uma **Malha de Recalibragem de Bônus e Punição**:
+
+* **O Filtro Analítico (Ciclo Básico):** Alunos com média $\ge 80$ nas exatas ganham um bônus de $+2$ pontos em seu score de perfil **Analítico (P1)**. Médias $< 70$ sofrem uma punição de $-2$ pontos, o que pode rebaixar o perfil P1 e fazer com que o segundo perfil mais forte do aluno (ex: Comunicador) assuma a dominância.
+* **O Filtro Operacional (Ciclo Profissionalizante):** Notas altas em PCP, Métodos e Metrologia turbinam o perfil de **Operações (P2)**.
+* **O Filtro Gerencial (Ciclo Específico):** Domínio em Engenharia Econômica e SGI alavancam os perfis **Líder (P5)** e **Sustentável (P6)**.
+* **O Filtro de Inovação (Optativas):** Alta performance em áreas de vanguarda (Consultoria, Valuation, Inovação) garante tração aos perfis **Criativo (P3)** e **Comunicador (P4)**.
+
+Essa lógica matemática resolve o problema da matriz curricular fragmentada: mesmo que o aluno esteja apenas no 3º período e não possua notas gerenciais, o algoritmo julgará e validará (ou punirá) o seu perfil com base naquilo que ele já cursou. Quem não respondeu ao Formulário 5 recebe bônus zero, mantendo o escore de crise intacto.
+
+O perfil que emerge após essa fusão não é mais uma autopercepção ou um instinto isolado. É o verdadeiro **DNA do Engenheiro**, onde a atitude sob pressão encontra a prova matemática do histórico escolar. É com base neste Perfil Recalibrado que os Squads (apresentados nas seções anteriores) foram definitivamente formados.
+
+### A Linha do Tempo Analítica: Rastreabilidade de Perfis
+
+Para provar a volatilidade do perfil humano, o motor de dados rastreia a evolução individual dos alunos ao longo de todas as rodadas metodológicas. A tabela abaixo ilustra o comportamento de uma amostra da turma de *Gestão da Qualidade*, mostrando a "viagem" de cada aluno desde a sua autopercepção enviesada (F1), passando pela adequação forçada da equipe (F2 e F3), até o choque de realidade gerado pela fusão do instinto de crise com as *Hard Skills* (F4 + F5).
+
+```{r}
+#| label: tbl-evolucao-individual
+#| tbl-cap: "Rastreabilidade de Perfis: A Metamorfose do Aluno através das Rodadas Metodológicas"
+#| echo: true
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+# Garante que o df_evolucao_perfis esteja atualizado
+quiet_source("R/trat.forms.R")
+
+df_evolucao_tmp <- df_evolucao_perfis %>%
+  # Mostramos uma amostra de 15 alunos para a renderização do livro
+  head(15) %>%
+  # Anonimização final (LGPD) para a publicação
+  mutate(Aluno = paste0("Aluno ", row_number())) %>%
+  select(
+    Squad,
+    Aluno,
+    IEA,
+    `F1 (Ego)` = `F1 (Ego)`,
+    `F3 (Pares)` = `F3 (Pares)`,
+    `F4 (Instinto)` = `F4 (Instinto)`,
+    `F5 (Recalibrado)` = `F5 (Recalibrado)`
+  )
+
+if (nrow(df_evolucao_tmp) == 0) {
+  df_evolucao_tmp <- tibble(
+    Squad = "Sem dados",
+    Aluno = "Aluno 1",
+    IEA = NA_real_,
+    `F1 (Ego)` = "-",
+    `F3 (Pares)` = "-",
+    `F4 (Instinto)` = "-",
+    `F5 (Recalibrado)` = "-"
+  )
+}
+
+df_evolucao_tmp %>%
+  kbl(align = c("c", "c", "c", "l", "l", "l", "l")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = TRUE, font_size = 12) %>%
+  add_header_above(c("Identidade" = 3, "Fase Estática (Teoria)" = 2, "Fase Dinâmica (Realidade)" = 2), bold = TRUE, background = "#ecf0f1", color = "#2c3e50") %>%
+  # Destaca o Índice Técnico e o Perfil Definitivo
+  column_spec(3, bold = TRUE, color = "#2c3e50") %>%
+  column_spec(7, bold = TRUE, color = "#27ae60", background = "#e8f8f5") %>%
+  collapse_rows(columns = 1, valign = "top")
+```
+
+#### Decodificando a Fusão de Dados: Estudos de Caso Práticos
+
+A observação da última fase (Fase Dinâmica) prova que a avaliação de competências em Engenharia não deve ser tratada como um formulário estático. Para tangibilizar o impacto estatístico da recalibragem, o motor de dados isolou o histórico de evolução de cinco alunos com trajetórias completamente distintas.
+
+##### Estudo de Caso I: A Ascensão do Operador (O Líder Validado)
+* **A Trajetória (Aluno A):** Em sua autopercepção (F1) e na visão dos pares (F3), foi repetidamente classificado como *Analítico-Técnico* (o "Efeito Bom Moço"). Na simulação de crise (F4), revelou um instinto focado no rendimento bruto, sendo reclassificado como *Operações (P2)*.
+* **A Intervenção do Algoritmo:** Ao cruzar esse instinto pragmático com um IEA assustadoramente alto de **9.79** e notas máximas no ciclo específico, o algoritmo gerou um bônus matemático que o elevou para **Líder (P5)**. O sistema provou que ele não é apenas um executor tático de chão de fábrica, mas possui o arcabouço intelectual para gerenciar a equipe e sustentar sua visão técnica.
+
+##### Estudo de Caso II: A Transição da Comunicação para a Liderança Técnica
+* **A Trajetória (Aluno B):** Declarou-se inicialmente como *Comunicadora-Articuladora* (F1), mas para ser respeitada pelo grupo, vestiu a máscara de *Analítico-Técnica* (F3). No caos da crise (F4), o instinto de sobrevivência descartou ambas as máscaras e ativou o perfil *Líder (P5)*.
+* **A Intervenção do Algoritmo:** Assumir a liderança na crise sem lastro técnico é um risco grave. Contudo, o sistema retornou um IEA de **8.92**. O algoritmo fundiu seu instinto com seu alto desempenho acadêmico, confirmando matematicamente seu perfil como **Líder (P5)**. Ela é o exemplo perfeito da "Liderança com Autoridade Técnica": sabe comunicar, decide sob pressão e tem a inteligência matemática para auditar a própria decisão.
+
+##### Estudo de Caso III: O "Efeito PowerPoint" (A Detecção de Risco Técnico)
+* **A Trajetória (Aluno C):** Desde o início, assumiu a postura de *Líder (P5)*. O grupo adorava suas apresentações e o avaliou com nota máxima em comunicação e liderança (F3). Na simulação de crise (F4), ele novamente tomou a frente e tomou as decisões críticas do grupo.
+* **A Intervenção do Algoritmo:** Se o processo dependesse apenas de formulários, ele seria o CEO intocável do projeto. Porém, a auditoria do Sistema (F5) puxou o freio de emergência: seu IEA era de apenas **3.73**, com sucessivas reprovações em Cálculo e Estatística. O algoritmo retirou seus pontos de Liderança, rebaixou seu perfil para **Comunicador (P4)** e cravou um alerta de *Risco Técnico*. Ele fala muito bem, mas o *Data Fusion* provou que a equipe não pode delegar a ele o dimensionamento matemático do projeto.
+
+##### Estudo de Caso IV: A Síndrome do Impostor (O Técnico Subutilizado)
+* **A Trajetória (Aluno D):** No F1, avaliou as próprias competências com notas baixas (viés negativo severo). O grupo o avaliou como um *Analítico-Técnico* mediano (F3). Na crise (F4), ele "congelou" e preferiu não tomar decisões, mantendo o perfil Analítico.
+* **A Intervenção do Algoritmo:** A extração passiva de dados revelou a verdade: ele possuía um IEA brilhante de **9.20** e notas perfeitas (90 a 100) em disciplinas duras. O algoritmo o manteve como **Analítico (P1)**, mas o classificou como *High Potential / Técnico Subutilizado*. A equipe descobre, através dos dados, que possui um "gênio matemático" escondido nos bastidores e que o plano de ação do esquadrão deve ser forçá-lo a assumir protagonismo.
+
+##### Estudo de Caso V: O Despertar do Pragmatismo (O MacGyver da Engenharia)
+* **A Trajetória (Aluno E):** Atuou no grupo como um rigoroso *Analítico-Técnico* focado em normas e regras da ABNT (F1 a F3).
+* **A Intervenção do Algoritmo:** Quando a fábrica virtual entrou em colapso (F4), sob pressão de tempo, ele escolheu alternativas de improvisação e contorno de regras, migrando abruptamente para o perfil *Criativo*. O F5 confirmou a tendência: notas em Cálculo medianas, mas altíssimas em disciplinas Optativas focadas em inovação. O algoritmo chancelou seu perfil definitivo como **Criativo (P3)**. Ele é o solucionador de problemas complexos que a equipe precisará quando a teoria não funcionar na prática.
+
+## ⏱️ Rodada 7: Termo de Abertura do Projeto (*Team Charter*) {#sec-rodada-7-tap}
+
+::: {.callout-important title="🛠️ LABORATÓRIO DE ENGENHARIA: Rodada 7 — Formalização e Governança"}
+**Objetivo: O Contrato Social da Consultoria**
+
+Bem-vindos à formação oficial da sua Equipe de Consultoria. A partir deste momento, vocês deixam de ser um grupo de alunos e passam a atuar como uma equipe multidisciplinar encarregada de desenvolver e implantar um Sistema de Gestão Integrado (SGI).
+
+Este formulário é o **Contrato Social da equipe**. Ele deve ser discutido presencialmente por todos os membros, mas preenchido e enviado por apenas um representante (o Líder designado). As regras pactuadas aqui serão o documento oficial de governança de vocês para o semestre e poderão ser acionadas pelo professor em caso de conflitos de avaliação ou entregas.
+
+* **Tempo estimado para debate e preenchimento:** 20 minutos.
+* **🔗 Link de Acesso:** [FORMULÁRIO 6 — Termo de Abertura do Projeto (Team Charter)](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UQkFOUUs0QklYSVZVNlVPVzMwODYxRDUwNi4u)
+:::
+
+### A Estrutura do Contrato de Consultoria
+
+Para selar o compromisso operacional, o formulário exige que o *Squad* tome decisões definitivas sobre a sua identidade e os seus processos internos, divididos em cinco seções estratégicas:
+
+##### Seção 2: Identidade da Consultoria
+* **Nome da Empresa/Consultoria (Fictício):** A equipe deve criar um nome profissional que representará a marca do esquadrão durante as defesas de projeto.
+
+* **DNA do Grupo:** Listar o nome completo de todos os membros cruzado com o Perfil Dominante que o algoritmo validou. *(Ex: João da Silva - Perfil Analítico; Maria Souza - Perfil Líder).*
+
+##### Seção 3: Diagnóstico Multidisciplinar (O Radar da Equipe)
+Olhando para os perfis que compõem o grupo e para a Tabela de *Hard Skills*, a equipe deve fazer uma análise crítica das suas próprias capacidades:
+
+* **Qual é a MAIOR FORÇA operacional da equipe?**
+
+  > *Ex: "Temos um forte núcleo de Operações e Liderança, o que garante foco em prazos e execução prática."*
+
+* **Qual é o MAIOR PONTO CEGO (Gargalo ou Fraqueza)?**
+
+  > *Ex: "Não temos ninguém com o perfil Criativo, corremos o risco de sermos muito rígidos ou termos dificuldade com o design das soluções visuais."*
+
+* **Estratégia de Mitigação:** Como, de forma prática, o grupo vai compensar a ausência desse perfil ou *Hard Skill* durante o semestre?
+
+##### Seção 4: Matriz de Responsabilidades (Distribuição de Papéis)
+No mundo corporativo, todo mundo faz tudo, mas **as responsabilidades finais precisam ter donos**. A equipe deve definir quem será o responsável primário por cada pilar do SGI:
+
+1. **Gestor do Projeto:** Dono do cronograma, cobra a equipe pelos prazos e faz as submissões oficiais no sistema do professor.
+
+2. **Revisor de Qualidade e *Compliance*:** Garante que o trabalho atende às normas da ABNT/ISO, à formatação e aos critérios técnicos antes de qualquer envio.
+
+3. **Articulador de Comunicação:** Responsável por guiar a montagem das apresentações visuais e a defesa oral nos seminários.
+
+4. **Analista de Dados/Pesquisa:** Responsável por estruturar as planilhas, cálculos, gráficos e levantamento de referências técnicas e bibliográficas.
+
+5. **Função Estratégica Extra (Apenas para times de 5 ou 6 pessoas):** Definição de um título e cargo de acordo com a necessidade da equipe *(Ex: "Apoio de Pesquisa - João Silva")*.
+
+##### Seção 5: Governança e *Compliance* Interno (As Regras do Jogo)
+É aqui que a equipe define como vai operar sob pressão, estabelecendo as "Leis" do esquadrão:
+
+* **SLA Interno (Acordo de Nível de Serviço para Prazos):** Para não correr o risco de perder os prazos da disciplina, com qual antecedência mínima as partes individuais devem ser enviadas ao Revisor de Qualidade antes do prazo final do professor? *(Ex: 48 horas antes).*
+
+* **Canal Oficial e Repositório:** Onde a equipe vai centralizar as decisões e arquivos (Teams, Drive, WhatsApp) para não perder o histórico de versões do projeto?
+
+* **A Cláusula de Rescisão (Resolução de Conflitos e Sanções):** O que a equipe fará, de forma prática, caso um membro desapareça sistematicamente, não entregue sua parte no SLA combinado ou entregue com qualidade inaceitável (o famoso "copia e cola na véspera")?
+
+  > *Exemplo de Regra Clara: "No 1º atraso: advertência formal no grupo. No 2º atraso ou sumiço na véspera: o nome do membro será removido da capa do trabalho daquela rodada e o professor será imediatamente notificado."*
+
+##### Seção 6: Assinatura de Compromisso
+A formalização ocorre através do Termo de Aceite Multidisciplinar:
+
+> *"Como Líder designado para o preenchimento deste documento, declaro que as respostas acima foram debatidas e aprovadas por todos os membros presentes. Compreendemos que este Termo de Abertura do Projeto regerá nossas relações de trabalho ao longo da disciplina e que o professor atuará apenas como 'Auditor Externo', cobrando o cumprimento das regras que nós mesmos estabelecemos."*
+
+### O Caminho das Pedras: Traduzindo Dados em Governança
+
+A coleta e a fusão de dados (Perfis + IEA + *Hard Skills*) forneceram um painel de controle de altíssima resolução para cada esquadrão. No entanto, dados não tomam decisões; gestores tomam.
+
+Embora o papel do professor seja permitir que os alunos debatam e cheguem às suas próprias conclusões ao preencher o *Team Charter*, o livro fornece abaixo as diretrizes estratégicas — o "Caminho das Pedras" — de como uma equipe de consultoria madura deve utilizar os perfis gerados pelo algoritmo para fundamentar o seu Contrato Social.
+
+##### 1. Diagnóstico do Radar (Identificando Forças e Pontos Cegos)
+O diagnóstico da Seção 3 do formulário não deve ser baseado em intuição, mas na contagem matemática dos perfis alocados na equipe:
+
+* **Excesso de Criativos (P3) / Comunicadores (P4):** A força da equipe será a geração de ideias e apresentações de impacto. O Ponto Cego será a indisciplina com prazos e a desorganização documental. *Estratégia de mitigação:* O grupo precisará empoderar e obedecer cegamente ao membro mais Analítico (P1) para que ele controle a formatação e a agenda.
+
+* **Excesso de Analíticos (P1) / Operações (P2):** A força será a entrega rigorosa, técnica e dentro das normas ISO. O Ponto Cego será a "Paralisia por Análise" e a dificuldade de vender o projeto de forma atraente. *Estratégia de mitigação:* Treinar o *pitch* (discurso de venda) com antecedência para não perder pontos na defesa oral.
+
+* **Múltiplos Líderes (P5):** A força é a proatividade (ninguém fica parado). O Ponto Cego é o canibalismo de egos. *Estratégia de mitigação:* Delimitar escopos de poder rígidos logo no Dia 1.
+
+##### 2. O *Match* Cirúrgico na Matriz de Responsabilidades
+A distribuição de papéis (Seção 4) é onde o modelo de *Data Fusion* brilha. A delegação de funções deve obedecer ao DNA revelado do aluno:
+
+* **Gestor do Projeto:** Deve ser entregue preferencialmente aos perfis **Líder (P5)** ou **Operações (P2)**. Eles têm a tração necessária para cobrar os colegas sem constrangimento.
+
+* **Revisor de Qualidade e *Compliance*:** A função mais crítica para a nota final. DEVE ser entregue a um **Analítico-Técnico (P1)**. Crucialmente, a equipe deve olhar o *Dashboard* da Rodada 5 e garantir que este aluno possua um **IEA alto**. Colocar um aluno com deficiência acadêmica para revisar normas técnicas é a receita para o fracasso.
+
+* **Articulador de Comunicação:** É o *habitat* natural do **Comunicador (P4)** ou do **Criativo (P3)**. Eles transformarão cálculos densos em *dashboards* e apresentações palatáveis para a diretoria.
+
+* **Analista de Dados/Pesquisa:** A equipe deve abrir o rastreamento granular do Formulário 5 (*Hard Skills*) e alocar o aluno que declarou as **maiores notas em Exatas e Pesquisa Operacional**, independentemente de ser tímido ou não.
+
+##### 3. SLA Dinâmico Baseado no Risco Técnico
+O prazo de entrega interno (SLA da Seção 5) não pode ser um número aleatório (ex: "vamos entregar tudo na quinta-feira à noite"). Ele deve ser calculado com base no **Risco Técnico** da equipe.
+
+* Se a equipe recebeu alunos classificados como "Risco Técnico" ou "Pendentes" nas rodadas anteriores, **o SLA interno deve ser extremamente agressivo** (ex: 72 horas antes do prazo do professor). O Revisor precisará desse "colchão de tempo" para refazer os cálculos errados que fatalmente virão desses membros.
+
+* Se a equipe for composta majoritariamente por *High Potentials*, o SLA pode ser mais flexível (ex: 24 horas antes), pois o nível de retrabalho será estatisticamente menor.
+
+##### 4. A Cláusula de Rescisão Despersonalizada
+A regra de sanção não deve ter alvos pessoais. Ao utilizarem os dados comportamentais, os alunos compreendem que os atrasos de um "Criativo" ou a rispidez de um "Líder" fazem parte da sua natureza estatística. A cláusula de sanção deve ser binária e pragmática: *Ação X gera Consequência Y*. Ao assinar o termo, o membro aceita que a remoção do seu nome da capa do trabalho por quebra de SLA não é uma punição emocional, mas a execução estrita de um *Compliance* contratual preestabelecido.
+
+---
+
+### O Fechamento do Ecossistema de *People Analytics*
+
+O preenchimento e a assinatura digital do *Team Charter* selaram a arquitetura de engenharia de equipes deste laboratório. A transição está completa: um grupo heterogêneo de alunos, inicialmente mascarado pelo "Efeito Bom Moço" e pelo "Pensamento de Grupo", foi dissecado matematicamente, testado sob estresse, auditado pelo sistema acadêmico oficial e, finalmente, reestruturado em **Esquadrões de Alta Performance**.
+
+Daqui em diante, a Ciência de Dados cede espaço para a Gestão de Projetos real. O sucesso ou o fracasso da implantação do Sistema de Gestão Integrado (SGI) ao longo do semestre não dependerá mais de afinidades aleatórias, mas da capacidade de cada *Squad* de pilotar o talento que lhes foi cientificamente alocado, respeitando o SLA e a matriz de responsabilidades que eles mesmos acabaram de assinar.
+
+### Diagnóstico Gerencial e Recomendações Estratégicas
+
+A extração dos dados através de múltiplas rodadas de *People Analytics* permite transcender a mera constatação estatística e avançar para a engenharia pedagógica e operacional. A análise cruzada da evolução dos alunos revelou dinâmicas comportamentais profundas sobre como o futuro Engenheiro de Produção atua no mercado:
+
+##### 1. O Impacto do Efeito Manada e o Instinto sob Pressão
+O modelo comprovou matematicamente que o comportamento do aluno em dinâmicas de grupo é fortemente enviesado. Na tentativa de adequação aos pares, a esmagadora maioria reprimiu traços de criatividade e liderança para assumir a máscara *Analítico-Técnica*. Contudo, quando submetidos a dilemas operacionais com restrição de tempo (F4), a máscara estilhaçou-se. Fica provado que o verdadeiro perfil profissional de um engenheiro não é aquele que ele declara em formulários calmos, mas o instinto de sobrevivência que ele ativa durante o caos.
+
+##### 2. Os Ofensores de Execução (Risco Técnico e o "Efeito PowerPoint")
+O cruzamento das intenções comportamentais com os Índices de Eficiência Acadêmica (IEA) isolou as lacunas que cerceiam o sucesso em grandes corporações. Alunos com alta imposição de Liderança, mas com defasagem grave em disciplinas de exatas (Estatística, Custos e Pesquisa Operacional), representam um Risco Técnico. Eles possuem excelente retórica, mas limitam a capacidade da equipe de gerar lucro ou dimensionar sistemas confiáveis. A solução gerencial imediata é a blindagem desses perfis através de Revisores de Qualidade com alto IEA na Matriz de Responsabilidades.
+
+##### 3. As Fortalezas Culturais (Liderança Validada e Pragmatismo)
+Se o sistema detecta riscos, ele também acerta de forma louvável na descoberta de talentos ocultos. O algoritmo revelou os "Técnicos Subutilizados" (alunos com IEA no teto da universidade, mas apagados pelo grupo) e os "Líderes Validados", que unem a articulação da fala ao domínio absoluto de métricas. O nível de "Criatividade Pragmática" (*MacGyverismo*) mapeado na crise demonstra uma geração altamente adaptável a cenários onde os recursos são escassos e as normas engessadas falham.
+
+##### 4. O Plano de Ação: Curricularização da Extensão e Laboratório Vivo
+O diagnóstico final aponta que a melhor estratégia estrutural para nivelar os *gaps* e amadurecer os esquadrões é a **Curricularização da Extensão**. Ao exigir que esses *Squads* recém-formados implantem um Sistema de Gestão Integrado (SGI) não como um trabalho de faculdade, mas como um serviço de Consultoria, a academia cria um "laboratório vivo". O aluno deixa de ser um receptor passivo de notas e passa a aplicar estatística, padronização e governança em contextos de restrição real. A sala de aula converte-se no chão de fábrica corporativo.
+
+## 📝 Resumo do Capítulo
+
+* **Do Achismo à Engenharia de Equipes:** A formação de grupos não pode depender de afinidades ou sorteios ciegos. Ela precisa ser traduzida em cruzamentos numéricos que evitem a concentração de egos (Múltiplos Líderes) e o acúmulo de deficiências analíticas (*Squads* de Risco).
+* **O Rastreamento de Identidade:** O método estruturou a coleta em rodadas progressivas, medindo o Ego (F1), a visão do Mercado (F2), o Julgamento dos Pares (F3) e o Instinto de Crise (F4).
+* **A Fusão de Dados (*Data Fusion*):** O coração da metodologia. O modelo funde as *Soft Skills* capturadas na simulação de crise com a eficiência bruta atestada pelos Sistemas da Universidade (F5 e IEA), punindo a falsa modéstia e o excesso de confiança.
+* **O Algoritmo de Alocação:** Utilizando heurística de restrição de capacidade (5 a 6 membros) e diluição de risco, os alunos foram reagrupados em Esquadrões de alta performance, garantindo que toda equipe possua uma "Casa de Máquinas" técnica.
+* **Governança e *Compliance* (*Team Charter*):** A transição final da teoria para a prática. Por meio do Formulário 6, os *Squads* assumiram responsabilidade jurídica sobre seus prazos (SLA), distribuíram papéis baseados em *Data Science* e estabeleceram sanções claras contra a ineficiência.

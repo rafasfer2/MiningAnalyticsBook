@@ -1,6 +1,9 @@
 # --- _common.R ---
 set.seed(42)
 
+# Helper global: executa source() silenciosamente (suprime logs do pipeline)
+quiet_source <- function(file, ...) invisible(capture.output(source(file, encoding = "UTF-8", ...)))
+
 # 1. Bibliotecas base para todos os capítulos
 library(miningKPI)
 library(tidyverse)
@@ -28,13 +31,15 @@ mining_colors <- c(
   "CMH"  = "#c0392b", # Vermelho (Corrective Maintenance)
   "ACH"  = "#000000", # Preto (Accident)
   "SPH"  = "#8e44ad", # Roxo (Systematic Preventive)
-  "NSPH" = "#34495e"  # Dark Gray (Non-Systematic)
+  "NSPH" = "#34495e" # Dark Gray (Non-Systematic)
 )
 
 # 4. Tema Padrão do Livro
 theme_set(theme_minimal(base_size = 12) +
-            theme(legend.position = "bottom",
-                  panel.grid.minor = element_blank()))
+  theme(
+    legend.position = "bottom",
+    panel.grid.minor = element_blank()
+  ))
 
 # Funções auxiliares para os gráficos
 scale_fill_mining <- function() scale_fill_manual(values = mining_colors)
