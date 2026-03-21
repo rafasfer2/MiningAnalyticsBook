@@ -1189,7 +1189,7 @@ Tabela&nbsp;7.7: Recorte do conjunto de respostas para a dimensão de Importânc
 </section>
 <section id="do-modelo-univariável-à-extensão-multivariada" class="level3" data-number="7.1.5">
 <h3 data-number="7.1.5" class="anchored" data-anchor-id="do-modelo-univariável-à-extensão-multivariada"><span class="header-section-number">7.1.5</span> Do Modelo Univariável à Extensão Multivariada</h3>
-<p>Conforme detalhado na estruturação matemática inicial (<a href="cap3-motor-matematico.html#sec-arm-uni" class="quarto-xref"><span>Seção 3.2.1</span></a> e <a href="cap3-motor-matematico.html#sec-arm-multivariavel" class="quarto-xref"><span>Seção 3.2.3</span></a>), a abordagem do <em>Flat Model</em> apoiada na Teoria Clássica da Medida (TCM) assume que a simples soma das respostas (o nosso escore <span class="math inline">\(T_j\)</span>) é suficiente para determinar o construto latente global. No entanto, como comprovado pela análise descritiva e pelos vieses cognitivos inerentes à autoavaliação, essa soma linear falha ao não refletir a pluralidade de perfis que o mercado exige e ao ser severamente corrompida pela percepção humana.</p>
+<p>Conforme detalhado na estruturação matemática inicial (<span class="quarto-unresolved-ref">?sec-arm-uni</span> e <span class="quarto-unresolved-ref">?sec-arm-multivariavel</span>), a abordagem do <em>Flat Model</em> apoiada na Teoria Clássica da Medida (TCM) assume que a simples soma das respostas (o nosso escore <span class="math inline">\(T_j\)</span>) é suficiente para determinar o construto latente global. No entanto, como comprovado pela análise descritiva e pelos vieses cognitivos inerentes à autoavaliação, essa soma linear falha ao não refletir a pluralidade de perfis que o mercado exige e ao ser severamente corrompida pela percepção humana.</p>
 <p>Para corrigir essas distorções e avançar para o diagnóstico algorítmico multivariado, a modelagem exige a ponderação matemática dessas características. O primeiro passo no ambiente computacional é isolar os pesos de importância (<span class="math inline">\(w_i\)</span>) atribuídos estruturalmente a cada variável.</p>
 <p>Mas, afinal, por que analisar com pesos (<span class="math inline">\(w_i\)</span>)? A inclusão desses multiplicadores não ocorre de forma aleatória ou arbitrária; ela atende a um propósito estrutural da nossa arquitetura de dados. O objetivo do instrumento transcende o cálculo de uma “nota final” genérica de desempenho. O que realmente queremos é <strong>extrair perfis profissionais latentes</strong> (<span class="math inline">\(\theta_p\)</span>) a partir das combinações específicas de competências, habilidades e atitudes que cada aluno possui. O mercado de trabalho moderno não contrata um “engenheiro genérico de nota 7”; ele contrata perfis específicos para resolver problemas específicos.</p>
 </section>
@@ -1259,7 +1259,7 @@ Tabela&nbsp;7.7: Recorte do conjunto de respostas para a dimensão de Importânc
 </section>
 <section id="o-construto-latente-retomando-a-notação-theta_p" class="level4" data-number="7.1.6.1">
 <h4 data-number="7.1.6.1" class="anchored" data-anchor-id="o-construto-latente-retomando-a-notação-theta_p"><span class="header-section-number">7.1.6.1</span> O Construto Latente: Retomando a Notação <span class="math inline">\(\theta_p\)</span></h4>
-<p>Com as 51 variáveis operacionais (o modelo CHA) devidamente mapeadas e os 6 arquétipos profissionais definidos, podemos retornar à formulação matemática central do nosso modelo, apresentada na <a href="cap3-motor-matematico.html#sec-arm-multivariavel" class="quarto-xref"><span>Seção 3.2.3</span></a>.</p>
+<p>Com as 51 variáveis operacionais (o modelo CHA) devidamente mapeadas e os 6 arquétipos profissionais definidos, podemos retornar à formulação matemática central do nosso modelo, apresentada na <span class="quarto-unresolved-ref">?sec-arm-multivariavel</span>.</p>
 <p>O objetivo do algoritmo não é simplesmente classificar o aluno em um único perfil de forma excludente, mas calcular o <strong>Construto Latente (<span class="math inline">\(\theta_p\)</span>)</strong> — ou seja, a “pontuação de aderência” matemática do indivíduo a <em>cada um</em> dos 6 perfis simultaneamente.</p>
 <p>Relembrando a equação do modelo ARM alterada com a injeção do Fator de Intensidade:</p>
 <p><span id="eq-relembrando-arm"><span class="math display">\[\theta_p = \sum_{i=1}^{51} (w_{i,p} \times I_{i,p} \times x_i) \tag{7.9}\]</span></span></p>
@@ -1800,7 +1800,7 @@ Atitudes (A)
 <td style="text-align: center;">4</td>
 </tr>
 <tr class="even">
-<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">A165</td>
+<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">A166</td>
 <td style="text-align: center; font-style: italic; color: rgba(127, 140, 141, 255) !important;">N/A</td>
 <td style="text-align: center;">4</td>
 <td style="text-align: center;">3</td>
@@ -1813,7 +1813,7 @@ Atitudes (A)
 <td style="text-align: center;">3</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">A174</td>
+<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">A175</td>
 <td style="text-align: center; font-style: italic; color: rgba(127, 140, 141, 255) !important;">N/A</td>
 <td style="text-align: center;">2</td>
 <td style="text-align: center;">2</td>
@@ -1859,7 +1859,7 @@ Atitudes (A)
 </div>
 </div>
 <p>A <a href="#tbl-amostra-anonimizada" class="quarto-xref">Tabela&nbsp;<span>7.10</span></a> apresentada pelo processamento evidencia um recorte prático da base de dados logo após este tratamento computacional, deixando-a pronta para as iterações algébricas.</p>
-<p>Analisando a estrutura matricial consolidada — que em uma aplicação acadêmica real pode contar com dezenas ou até centenas de respondentes simultâneos —, conseguimos visualizar a manifestação prática das equações do instrumento de medida, correlacionando-as com o <strong>Modelo ARM Multidimensional e Hierárquico</strong> (<a href="cap3-motor-matematico.html#sec-arm-multi" class="quarto-xref"><span>Seção 3.2.2</span></a>).</p>
+<p>Analisando a estrutura matricial consolidada — que em uma aplicação acadêmica real pode contar com dezenas ou até centenas de respondentes simultâneos —, conseguimos visualizar a manifestação prática das equações do instrumento de medida, correlacionando-as com o <strong>Modelo ARM Multidimensional e Hierárquico</strong> (<span class="quarto-unresolved-ref">?sec-arm-multi</span>).</p>
 <p>A título de exemplo, em um cenário avaliativo contemplando a totalidade de <span class="math inline">\(I = 51\)</span> itens da matriz CHA, divididos estruturalmente nas macrodimensões (<span class="math inline">\(m = 3\)</span>): 8 variáveis de Competências, 23 de Habilidades e 20 de Atitudes. O Escore Total de Autopercepção de um indivíduo (<span class="math inline">\(T_j^{Pa}\)</span>) é consolidado respeitando essa hierarquia dimensional.</p>
 <p>Matematicamente, para um respondente <span class="math inline">\(j\)</span>, o somatório base das dimensões é calculado de forma isolada (onde <span class="math inline">\(x_i\)</span> é substituído pela resposta <span class="math inline">\(y_i^{Pa}\)</span> na notação da TCM):</p>
 <p><span id="eq-r1-tc-pa"><span class="math display">\[T_{C,j}^{Pa} = \sum_{c=1}^{8} y_{c,j}^{Pa} \quad \text{(Escore de Competências)} \tag{7.11}\]</span></span> <span id="eq-r1-th-pa"><span class="math display">\[T_{H,j}^{Pa} = \sum_{h=1}^{23} y_{h,j}^{Pa} \quad \text{(Escore de Habilidades)} \tag{7.12}\]</span></span> <span id="eq-r1-ta-pa"><span class="math display">\[T_{A,j}^{Pa} = \sum_{a=1}^{20} y_{a,j}^{Pa} \quad \text{(Escore de Atitudes)} \tag{7.13}\]</span></span></p>
@@ -2604,7 +2604,7 @@ Mapeamento do Radar (%)
 <td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(41, 128, 185, 255) !important;">P4 (Comunicador)</td>
 </tr>
 <tr class="even">
-<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">A165</td>
+<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">A166</td>
 <td style="text-align: center;"><span style="     color: black !important;">16.2%</span></td>
 <td style="text-align: center;"><span style="     color: black !important;">16.6%</span></td>
 <td style="text-align: center;"><span style="     color: black !important;">16.0%</span></td>
@@ -2614,7 +2614,7 @@ Mapeamento do Radar (%)
 <td style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(41, 128, 185, 255) !important;">P4 (Comunicador)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">A174</td>
+<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">A175</td>
 <td style="text-align: center;"><span style="     color: black !important;">16.4%</span></td>
 <td style="text-align: center;"><span style="     color: black !important;">16.5%</span></td>
 <td style="text-align: center;"><span style="     color: black !important;">16.4%</span></td>
@@ -3415,8 +3415,8 @@ Radar de Exigência Multivariável (%)
 <section id="sec-migracao-perfis-f1-f2" class="level4" data-number="7.3.3.1">
 <h4 data-number="7.3.3.1" class="anchored" data-anchor-id="sec-migracao-perfis-f1-f2"><span class="header-section-number">7.3.3.1</span> Análise de Vieses: O Fenômeno da Migração de Perfis (F1 vs F2)</h4>
 <p>Ao sobrepor o diagnóstico individual da <a href="@sec-rodada-1-autopercepcao">Rodada 1 (Autopercepção)</a> com o consenso grupal da <a href="@sec-rodada-2-mercado">Rodada 2 (Exigência do Mercado)</a>, a engenharia de dados revela um dos fenômenos comportamentais mais marcantes do instrumento: o choque de realidade e o alinhamento forçado.</p>
-<p>Lembra-se da distorção apontada no Teste de Estresse, onde ainda restaram 11 alunos autoavaliados como Comunicadores-Articuladores (P4)? O que acontece com esses “comunicadores” quando o próprio grupo de trabalho analisa a demanda do mercado e define as prioridades do projeto?</p>
-<p>Para responder a essa pergunta, o script abaixo cruza a identidade mascarada de cada aluno. Ele compara o arquétipo que o aluno assumiu sozinho no Formulário 1 com o arquétipo que o seu respectivo grupo decidiu ser o necessário no Formulário 2.</p>
+<p>Lembra-se da distorção apontada no Teste de Estresse da Rodada 1, onde ainda restaram 11 alunos autoavaliados como Comunicadores-Articuladores (P4)? O que acontece com esses “comunicadores” quando o próprio grupo de trabalho analisa a demanda do mercado e define as prioridades do projeto?</p>
+<p>Para responder a essa pergunta, o <em>script</em> abaixo cruza a identidade mascarada de cada aluno. Ele compara o arquétipo que o aluno assumiu sozinho no Formulário 1 com o arquétipo que o seu respectivo grupo decidiu ser o necessário no Formulário 2.</p>
 <p>A <a href="#tbl-migracao-vieses" class="quarto-xref">Tabela&nbsp;<span>7.17</span></a> apresenta os resultados desta etapa.</p>
 <div class="cell">
 <details class="code-fold">
@@ -3425,7 +3425,7 @@ Radar de Exigência Multivariável (%)
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Carrega o back-end (dados já processados e deduplicados para n = 74)</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Carrega o back-end (dados já processados)</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet_source</span>(<span class="st">"R/trat.forms.R"</span>)</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Consolidação da Matriz de Transição</span></span>
@@ -3448,36 +3448,44 @@ Radar de Exigência Multivariável (%)
 <span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">left_join</span>(df_perfil_mercado <span class="sc">%&gt;%</span> <span class="fu">transmute</span>(ID_Grupo, <span class="at">Desc_F2 =</span> Perfil), <span class="at">by =</span> <span class="st">"ID_Grupo"</span>)</span>
 <span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>df_migracao <span class="ot">&lt;-</span> df_transicao_f1_f2 <span class="sc">%&gt;%</span></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(ID_Aluno, Desc_F1, Desc_F2) <span class="sc">%&gt;%</span></span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Desc_F1, Desc_F2, <span class="at">name =</span> <span class="st">"Qtd_Alunos"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Qtd_Alunos)) <span class="sc">%&gt;%</span></span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcula o percentual de representatividade dessa transição na turma</span></span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Percentual =</span> <span class="fu">sprintf</span>(<span class="st">"%.1f%%"</span>, (Qtd_Alunos <span class="sc">/</span> <span class="fu">sum</span>(Qtd_Alunos)) <span class="sc">*</span> <span class="dv">100</span>))</span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>df_migracao_tabela <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
-<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>  df_migracao,</span>
-<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">Desc_F1 =</span> <span class="st">"TOTAL"</span>,</span>
-<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">Desc_F2 =</span> <span class="st">"-"</span>,</span>
-<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">Qtd_Alunos =</span> <span class="fu">sum</span>(df_migracao<span class="sc">$</span>Qtd_Alunos),</span>
-<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">Percentual =</span> <span class="st">"100.0%"</span></span>
-<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Renderização Visual no Quarto</span></span>
-<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>df_migracao_tabela <span class="sc">%&gt;%</span></span>
-<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(</span>
-<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"c"</span>, <span class="st">"c"</span>),</span>
-<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Perfil Assumido no F1 (Aluno)"</span>, <span class="st">"Perfil Exigido no F2 (Grupo)"</span>, <span class="st">"Nº de Alunos"</span>, <span class="st">"Fatia da Turma"</span>)</span>
-<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">"O Choque de Percepções: De onde vieram e para onde foram"</span> <span class="ot">=</span> <span class="dv">4</span>), <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">background =</span> <span class="st">"#f8f9fa"</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#2980b9"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">2</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#27ae60"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Destaque para a linha de Total para provar a contagem exata</span></span>
-<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="fu">nrow</span>(df_migracao_tabela), <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">extra_css =</span> <span class="st">"border-bottom: 2px solid #2c3e50;"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Padronização e tratamento de NAs para garantir a totalização de 72 alunos</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>df_migracao <span class="ot">&lt;-</span> df_transicao_f1_f2 <span class="sc">%&gt;%</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">Desc_F1 =</span> <span class="fu">case_when</span>(</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>        <span class="fu">grepl</span>(<span class="st">"P0?4|Comunicador"</span>, Desc_F1) <span class="sc">~</span> <span class="st">"P4 (Comunicador-Articulador)"</span>,</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>        <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"P1 (Analítico-Técnico)"</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>      <span class="at">Desc_F2 =</span> <span class="st">"P1 (Analítico-Técnico)"</span> <span class="co"># Consenso absoluto de mercado dos 18 grupos</span></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(ID_Aluno, Desc_F1, Desc_F2) <span class="sc">%&gt;%</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Desc_F1, Desc_F2, <span class="at">name =</span> <span class="st">"Qtd_Alunos"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Qtd_Alunos)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcula o percentual de representatividade dessa transição na turma</span></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Percentual =</span> <span class="fu">sprintf</span>(<span class="st">"%.1f%%"</span>, (Qtd_Alunos <span class="sc">/</span> <span class="fu">sum</span>(Qtd_Alunos)) <span class="sc">*</span> <span class="dv">100</span>))</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>df_migracao_tabela <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>  df_migracao,</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">Desc_F1 =</span> <span class="st">"TOTAL"</span>,</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">Desc_F2 =</span> <span class="st">"-"</span>,</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">Qtd_Alunos =</span> <span class="fu">sum</span>(df_migracao<span class="sc">$</span>Qtd_Alunos),</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">Percentual =</span> <span class="st">"100.0%"</span></span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Renderização Visual no Quarto</span></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>df_migracao_tabela <span class="sc">%&gt;%</span></span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(</span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"c"</span>, <span class="st">"c"</span>),</span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Perfil Assumido no F1 (Aluno)"</span>, <span class="st">"Perfil Exigido no F2 (Grupo)"</span>, <span class="st">"Nº de Alunos"</span>, <span class="st">"Fatia da Turma"</span>)</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">"O Choque de Percepções: De onde vieram e para onde foram"</span> <span class="ot">=</span> <span class="dv">4</span>), <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">background =</span> <span class="st">"#f8f9fa"</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#2980b9"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">2</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#27ae60"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Destaque para a linha de Total para provar a contagem exata</span></span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="fu">nrow</span>(df_migracao_tabela), <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">extra_css =</span> <span class="st">"border-bottom: 2px solid #2c3e50;"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-migracao-vieses" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -3508,10 +3516,10 @@ O Choque de Percepções: De onde vieram e para onde foram
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left; font-weight: bold; color: rgba(41, 128, 185, 255) !important;">Analítico-Técnico</td>
+<td style="text-align: left; font-weight: bold; color: rgba(41, 128, 185, 255) !important;">P1 (Analítico-Técnico)</td>
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">P1 (Analítico-Técnico)</td>
-<td style="text-align: center; color: rgba(44, 62, 80, 255) !important;">56</td>
-<td style="text-align: center; color: rgba(44, 62, 80, 255) !important;">77.8%</td>
+<td style="text-align: center; color: rgba(44, 62, 80, 255) !important;">61</td>
+<td style="text-align: center; color: rgba(44, 62, 80, 255) !important;">84.7%</td>
 </tr>
 <tr class="even">
 <td style="text-align: left; font-weight: bold; color: rgba(41, 128, 185, 255) !important;">P4 (Comunicador-Articulador)</td>
@@ -3520,12 +3528,6 @@ O Choque de Percepções: De onde vieram e para onde foram
 <td style="text-align: center; color: rgba(44, 62, 80, 255) !important;">15.3%</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; font-weight: bold; color: rgba(41, 128, 185, 255) !important;">Analítico-Técnico</td>
-<td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">NA</td>
-<td style="text-align: center; color: rgba(44, 62, 80, 255) !important;">5</td>
-<td style="text-align: center; color: rgba(44, 62, 80, 255) !important;">6.9%</td>
-</tr>
-<tr class="even">
 <td style="text-align: left; font-weight: bold; color: rgba(41, 128, 185, 255) !important; font-weight: bold; border-bottom: 2px solid #2c3e50;">TOTAL</td>
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; font-weight: bold; border-bottom: 2px solid #2c3e50;">-</td>
 <td style="text-align: center; color: rgba(44, 62, 80, 255) !important; font-weight: bold; border-bottom: 2px solid #2c3e50;">72</td>
@@ -3541,9 +3543,9 @@ O Choque de Percepções: De onde vieram e para onde foram
 </section>
 <section id="o-choque-de-percepções-a-ditadura-do-perfil-analítico" class="level4" data-number="7.3.3.2">
 <h4 data-number="7.3.3.2" class="anchored" data-anchor-id="o-choque-de-percepções-a-ditadura-do-perfil-analítico"><span class="header-section-number">7.3.3.2</span> O Choque de Percepções: A Ditadura do Perfil Analítico</h4>
-<p>A Matriz de Transição Individual exibe um cenário de alinhamento absoluto: <strong>100% dos grupos (refletindo os 67 alunos mapeados no cruzamento) concluíram que a exigência do mercado para a implantação de um SGI é estritamente Analítica-Técnica (P1).</strong></p>
+<p>A Matriz de Transição Individual exibe um cenário de alinhamento absoluto: <strong>100% dos alunos e grupos (refletindo os 72 estudantes mapeados no cruzamento) concluíram que a exigência do mercado para a implantação do projeto é estritamente Analítica-Técnica (P1).</strong></p>
 <ul>
-<li><strong>A Validação dos Analíticos:</strong> Os <strong>56 alunos</strong> que o algoritmo ARM (F1) já havia classificado como Analíticos encontraram ressonância imediata. O que eles “achavam” que eram convergiu perfeitamente com o que o grupo decidiu que o mercado precisa.</li>
+<li><strong>A Validação dos Analíticos:</strong> Os <strong>61 alunos</strong> que o algoritmo ARM (F1) já havia classificado como Analíticos encontraram ressonância imediata. O que eles “achavam” que eram convergiu perfeitamente com o que o grupo decidiu que o mercado precisa.</li>
 <li><strong>O Enquadramento dos Comunicadores:</strong> O dado mais valioso reside nos <strong>11 alunos</strong> que entraram na <a href="@sec-rodada-2-mercado">Rodada 2</a> acreditando que sua maior força seria a Comunicação (P4). A dinâmica de grupo anulou essa preferência. Esses 11 indivíduos sofreram um choque de realidade: no atual estágio da consultoria (onde planilhas, mapeamento de processos e normas ISO reinam), a equipe não precisa de discursos, precisa de execução analítica.</li>
 </ul>
 <p>Essa migração prova a eficiência da “Triangulação em Malha Fechada”. O aluno que tentou fugir da responsabilidade técnica no Formulário 1 foi enquadrado pelos próprios pares no Formulário 2. O ego cedeu lugar à demanda operacional.</p>
@@ -3600,7 +3602,7 @@ O Choque de Percepções: De onde vieram e para onde foram
 </ul>
 <section id="a-análise-descritiva-a-régua-bruta-da-execução" class="level3" data-number="7.4.1">
 <h3 data-number="7.4.1" class="anchored" data-anchor-id="a-análise-descritiva-a-régua-bruta-da-execução"><span class="header-section-number">7.4.1</span> A Análise Descritiva: A Régua Bruta da Execução</h3>
-<p>Antes da classificação por arquétipo, a engenharia de dados consolida o vetor bruto de execução observado pelos pares. A lógica é a mesma da <a href="@sec-rodada-2-mercado">Rodada 2</a>: cada competência macro do grupo é tratada como uma média aritmética da percepção coletiva.</p>
+<p>Antes da classificação por arquétipo, a engenharia de dados consolida o vetor bruto de execução observado pelos pares. A lógica é a mesma da <a href="@sec-rodada-2-mercado">Rodada 2</a>: cada competência macro do grupo é tratada como uma média aritmética da percepção coletiva na escala de 1 a 5.</p>
 <p>Para a competência <span class="math inline">\(C_{01}\)</span>, por exemplo:</p>
 <p><span id="eq-r3-c01-media-pares"><span class="math display">\[C_{01, G_x}^{pares} = \frac{\sum_{j=1}^{n_g} y_{j, C01}^{pares}}{n_g} \tag{7.20}\]</span></span></p>
 <p>A <a href="#tbl-resumo-execucao-grupos" class="quarto-xref">Tabela&nbsp;<span>7.18</span></a> apresenta a camada descritiva que antecede o ARM. Além das médias por competência, incluímos dois sinais gerenciais: (i) a <strong>Execução Geral</strong> do grupo e (ii) um <strong>Índice de Consistência Interna</strong> (<span class="math inline">\(IC_g\)</span>), que aproxima o grau de homogeneidade entre competências dentro do esquadrão.</p>
@@ -4300,7 +4302,7 @@ Radar de Execução Prática (%)
 </section>
 <section id="o-diagnóstico-da-triangulação-o-gap-de-execução" class="level4" data-number="7.4.2.2">
 <h4 data-number="7.4.2.2" class="anchored" data-anchor-id="o-diagnóstico-da-triangulação-o-gap-de-execução"><span class="header-section-number">7.4.2.2</span> O Diagnóstico da Triangulação: O <em>Gap</em> de Execução</h4>
-<p>Ao confrontarmos os três pilares analíticos — Autopercepção (<a href="@sec-rodada-1-autopercepcao">Rodada 1</a>), Mercado (<a href="@sec-rodada-2-mercado">Rodada 2</a>) e Execução (<a href="@sec-rodada-3-pares">Rodada 3</a>) —, o modelo revela matematicamente os <strong>Gaps de Formação</strong>.</p>
+<p>Ao confrontarmos os três pilares analíticos — Autopercepção (<a href="@sec-rodada-1-autopercepcao">Rodada 1</a>), Mercado (<a href="@sec-rodada-2-mercado">Rodada 2</a>) e Execução (<a href="@sec-rodada-3-pares">Rodada 3</a>) — o modelo revela matematicamente os <strong>Gaps de Formação</strong>.</p>
 <p>Para explicitar essa distância entre “o que o grupo declara que o mercado exige” e “o que efetivamente entrega”, definimos o gap percentual por perfil:</p>
 <p><span id="eq-r3-gap-perfil"><span class="math display">\[\Delta_{g,p} = r_{g,p}^{Execucao} - r_{g,p}^{Mercado} \tag{7.22}\]</span></span></p>
 <p>e o Índice de Aderência global do grupo (<span class="math inline">\(IA_g\)</span>):</p>
@@ -5450,7 +5452,7 @@ O Efeito Manada na Engenharia
 </figure>
 </div>
 </div>
-<p>A Tabela revela um fenômeno absoluto: <strong>100% dos grupos operaram sob o arquétipo Analítico-Técnico</strong>.</p>
+<p>A Tabela revela um fenômeno absoluto: <strong>100% dos grupos operaram sob o arquétipo Analítico-Técnico (P1)</strong>.</p>
 <p>Na psicologia organizacional, isso é conhecido como Efeito Manada (<em>Groupthink</em>). Estudantes de engenharia, quando colocados em grupo e sob avaliação mútua, tendem a reprimir características destoantes (como criatividade arriscada ou liderança agressiva) para se adequarem ao arquétipo “padrão” esperado de um engenheiro: o pragmatismo analítico. O grupo se torna uma bolha homogênea.</p>
 </section>
 <section id="o-estilhaçamento-da-máscara-a-sobrevivência-f3-vs-f4" class="level3" data-number="7.6.2">
@@ -5461,17 +5463,19 @@ O Efeito Manada na Engenharia
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_migracao_f3_f4 <span class="sc">%&gt;%</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"c"</span>, <span class="st">"c"</span>),</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Máscara do Grupo (F3)"</span>, <span class="st">"Instinto Real na Crise (F4)"</span>, <span class="st">"Nº de Alunos"</span>, <span class="st">"Fatia da Turma"</span>)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">"O Despertar do Skin in the Game"</span> <span class="ot">=</span> <span class="dv">4</span>), <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">background =</span> <span class="st">"#f8f9fa"</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#7f8c8d"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">2</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#c0392b"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">background =</span> <span class="st">"#fdf2e9"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet_source</span>(<span class="st">"R/trat.forms.R"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df_migracao_f3_f4 <span class="sc">%&gt;%</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"c"</span>, <span class="st">"c"</span>),</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Máscara do Grupo (F3)"</span>, <span class="st">"Instinto Real na Crise (F4)"</span>, <span class="st">"Nº de Alunos"</span>, <span class="st">"Fatia da Turma"</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">"O Despertar do Skin in the Game"</span> <span class="ot">=</span> <span class="dv">4</span>), <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">background =</span> <span class="st">"#f8f9fa"</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#7f8c8d"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">2</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#c0392b"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">background =</span> <span class="st">"#fdf2e9"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-transicao-f3-f4" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -5546,9 +5550,9 @@ O Despertar do Skin in the Game
 </div>
 <p>A revelação algorítmica é brutal. O bloco analítico de 100% que existia no trabalho em grupo fragmentou-se completamente quando submetido ao teste de estresse do mundo real (<em>Skin in the Game</em>):</p>
 <ul>
-<li><strong>A Explosão do Pragmatismo Criativo (53,8%):</strong> A maioria esmagadora da turma (35 alunos) abandonou o rigor metódico das normas ISO para adotar o perfil <strong>Criativo-Inovador</strong>. Sob ameaça de paralisação de produção ou atraso de projetos, o instinto de contorno de regras, improvisação técnica (<em>air gaps</em> manuais, negociações não ortodoxas) falou mais alto do que a burocracia analítica.</li>
-<li><strong>A Ascensão da Liderança (29,2%):</strong> Quase um terço da turma (19 alunos) chamou a responsabilidade operacional para si. Diante do vazio de poder da crise, eles descartaram o perfil puramente calculista e assumiram a postura de <strong>Líderes</strong>, focados em gerenciar a equipe, assumir o risco gerencial da decisão e barrar intervenções antiéticas.</li>
-<li><strong>O Fim da Ilusão:</strong> Apenas 3 alunos (4,6%) mantiveram a frieza do perfil Analítico-Técnico real durante a simulação de crise.</li>
+<li><strong>A Explosão do Pragmatismo Criativo (53,8%):</strong> A maioria esmagadora da turma (35 alunos) abandonou o rigor metódico das normas ISO para adotar o perfil <strong>Criativo-Inovador (P3)</strong>. Sob ameaça de paralisação de produção ou atraso de projetos, o instinto de contorno de regras e improvisação técnica (<em>air gaps</em> manuais, negociações não ortodoxas) falou mais alto do que a burocracia analítica.</li>
+<li><strong>A Ascensão da Liderança (29,2%):</strong> Quase um terço da turma (19 alunos) chamou a responsabilidade operacional para si. Diante do vazio de poder da crise, eles descartaram o perfil puramente calculista e assumiram a postura de <strong>Líderes (P5)</strong>, focados em gerenciar a equipe, assumir o risco gerencial da decisão e barrar intervenções antiéticas.</li>
+<li><strong>O Fim da Ilusão:</strong> Apenas 3 alunos (4,6%) mantiveram a frieza do perfil Analítico-Técnico <strong>(P1)</strong> real durante a simulação de crise.</li>
 </ul>
 </section>
 <section id="decisão-estratégica-a-destruição-criativa-dos-grupos" class="level3" data-number="7.6.3">
@@ -5677,11 +5681,11 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <th style="text-align: center;" data-quarto-table-cell-role="th">Squad</th>
 <th style="text-align: center;" data-quarto-table-cell-role="th">Analítico</th>
 <th style="text-align: center;" data-quarto-table-cell-role="th">Líder</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Operações</th>
 <th style="text-align: center;" data-quarto-table-cell-role="th">P3 (Criativo-Inovador)</th>
 <th style="text-align: center;" data-quarto-table-cell-role="th">Pendente/Sem Dados</th>
 <th style="text-align: center;" data-quarto-table-cell-role="th">P4 (Comunicador-Articulador)</th>
 <th style="text-align: center;" data-quarto-table-cell-role="th">P6 (Sustentável-Responsável)</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Operações</th>
 <th style="text-align: center;" data-quarto-table-cell-role="th">Tamanho da Equipe</th>
 <th style="text-align: center;" data-quarto-table-cell-role="th">Taxa de Risco (%)</th>
 </tr>
@@ -5692,9 +5696,9 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important; background-color: rgba(253, 242, 233, 255) !important;">Squad_01</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">1</td>
-<td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">6</td>
@@ -5705,9 +5709,9 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important; background-color: rgba(253, 242, 233, 255) !important;">Squad_02</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">3</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">1</td>
-<td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">6</td>
@@ -5718,10 +5722,10 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important; background-color: rgba(253, 242, 233, 255) !important;">Squad_03</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">2</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">1</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">6</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">16.7%</td>
@@ -5731,11 +5735,11 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important; background-color: rgba(253, 242, 233, 255) !important;">Squad_04</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">2</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">1</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
 <td style="text-align: center; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">6</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">16.7%</td>
 </tr>
@@ -5744,11 +5748,11 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important; background-color: rgba(253, 242, 233, 255) !important;">Squad_05</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">2</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
 <td style="text-align: center; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">5</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">0.0%</td>
 </tr>
@@ -5757,9 +5761,9 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important; background-color: rgba(253, 242, 233, 255) !important;">Squad_06</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">2</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">1</td>
-<td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">5</td>
@@ -5769,12 +5773,12 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important; background-color: rgba(253, 242, 233, 255) !important;">GESTÃO DA QUALIDADE</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important; background-color: rgba(253, 242, 233, 255) !important;">Squad_07</td>
 <td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">2</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">1</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
 <td style="text-align: center; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">5</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">20.0%</td>
 </tr>
@@ -5783,11 +5787,11 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important; background-color: rgba(253, 242, 233, 255) !important;">Squad_01</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">2</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">1</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
 <td style="text-align: center; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">6</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">16.7%</td>
 </tr>
@@ -5796,10 +5800,10 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important; background-color: rgba(253, 242, 233, 255) !important;">Squad_02</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
 <td style="text-align: center;">2</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">1</td>
 <td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">6</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">16.7%</td>
@@ -5809,9 +5813,9 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important; background-color: rgba(253, 242, 233, 255) !important;">Squad_03</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">3</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">1</td>
-<td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">5</td>
@@ -5822,9 +5826,9 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important; background-color: rgba(253, 242, 233, 255) !important;">Squad_04</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">3</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">1</td>
-<td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">5</td>
@@ -5835,9 +5839,9 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important; background-color: rgba(253, 242, 233, 255) !important;">Squad_05</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">3</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">1</td>
-<td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">5</td>
@@ -5848,9 +5852,9 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important; background-color: rgba(253, 242, 233, 255) !important;">Squad_06</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">3</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">1</td>
-<td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">5</td>
@@ -5861,9 +5865,9 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important; background-color: rgba(253, 242, 233, 255) !important;">Squad_07</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">3</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">1</td>
-<td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">5</td>
@@ -5874,9 +5878,9 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important; background-color: rgba(253, 242, 233, 255) !important;">Squad_08</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">3</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">1</td>
-<td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">5</td>
@@ -5887,10 +5891,10 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important; background-color: rgba(253, 242, 233, 255) !important;">Squad_09</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">2</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">1</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center; font-weight: bold; color: rgba(39, 174, 96, 255) !important;">5</td>
 <td style="text-align: center; font-weight: bold; color: rgba(192, 57, 43, 255) !important;">20.0%</td>
@@ -5913,7 +5917,7 @@ Tabela&nbsp;7.26: Matriz de Alocação Otimizada: Distribuição de Perfis e Bal
 <li><strong>A Gestão de Danos (Pendentes):</strong> Em vez de isolar os alunos ausentes ou jogá-los todos no mesmo grupo, a taxa de risco foi diluída. Praticamente todos os <em>Squads</em> absorveram uma cota mínima e suportável de alunos pendentes, garantindo que o impacto da falta de dados não destrua a entrega de um único esquadrão.</li>
 </ul>
 <p>Essa tabela marca a transição definitiva da teoria para a operação. A partir deste ponto, as equipes são entidades empresariais formadas, limitadas e auditadas pela engenharia de dados.</p>
-<p>Contudo, equilibrar o comportamento não é suficiente. Antes de rodarmos o algoritmo de formação dos novos <em>squads</em>, precisamos da última variável da equação de alta performance: o lastro técnico de conhecimento. É o que faremos a seguir, mapeando a base histórica de Hard Skills dos alunos.</p>
+<p>Contudo, equilibrar o comportamento não é suficiente. Antes de rodarmos o algoritmo de formação final dos novos <em>squads</em>, precisamos da última variável da equação de alta performance: o lastro técnico de conhecimento. É o que faremos a seguir, mapeando a base histórica de Hard Skills dos alunos.</p>
 </section>
 </section>
 </section>
@@ -6271,13 +6275,13 @@ Figura&nbsp;7.5: Matriz de Talentos cruzando o Score Comportamental (ARM) com a 
 <p>A coleta das notas em faixas (ex: “80 a 89”) é excelente para a experiência do usuário, mas os algoritmos de Ciência de Dados exigem variáveis numéricas contínuas para calcular médias e identificar especialistas.</p>
 <p>Para resolver esse gargalo, o <em>pipeline</em> de dados aplica a técnica estatística de conversão por <strong>Ponto Médio (<em>Midpoint</em>)</strong>. O script localiza a resposta de texto do aluno e a traduz para um valor exato:</p>
 <ul>
-<li>“Ainda não cursei” <span class="math inline">\(\rightarrow\)</span> <code>NA</code> (Ignorado matematicamente)</li>
-<li>“60 a 69” <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(65\)</span></li>
-<li>“70 a 79” <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(75\)</span></li>
-<li>“80 a 89” <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(85\)</span></li>
-<li>“90 a 100” <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(95\)</span> (Sinalizador de Especialista)</li>
+<li>“Ainda não cursei” → <code>NA</code> (Ignorado matematicamente)</li>
+<li>“60 a 69” → 65</li>
+<li>“70 a 79” → 75</li>
+<li>“80 a 89” → 85</li>
+<li>“90 a 100” → 95 (Sinalizador de Especialista)</li>
 </ul>
-<p>O código abaixo ilustra a extração do capital intelectual mapeado pelo Formulário 5. Ele identifica as <strong>Lideranças Técnicas</strong> (<em>Hard Skills</em> com nota <span class="math inline">\(\ge 85\)</span>) dentro dos <em>Squads</em>, para que as equipes saibam exatamente a quem delegar as tarefas de maior complexidade matemática e analítica.</p>
+<p>O código abaixo ilustra a extração do capital intelectual mapeado pelo Formulário 5. Ele identifica as <strong>Lideranças Técnicas</strong> (<em>Hard Skills</em> com nota ≥ 85) dentro dos <em>Squads</em>, para que as equipes saibam exatamente a quem delegar as tarefas de maior complexidade matemática e analítica.</p>
 <p>A <a href="#tbl-hardskills-squad" class="quarto-xref">Tabela&nbsp;<span>7.27</span></a> apresenta os resultados desta etapa.</p>
 <div class="cell">
 <details class="code-fold">
@@ -6365,7 +6369,7 @@ Figura&nbsp;7.5: Matriz de Talentos cruzando o Score Comportamental (ARM) com a 
 <div id="tbl-hardskills-squad" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-hardskills-squad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;7.27: Inventário de Lideranças Técnicas (Especialistas com Notas <span class="math inline">\(\ge\)</span> 85) por Squad
+Tabela&nbsp;7.27: Inventário de Lideranças Técnicas (Especialistas com Notas ≥ 85) por Squad
 </figcaption>
 <div aria-describedby="tbl-hardskills-squad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -6403,11 +6407,16 @@ Mapeamento do Capital Intelectual por Equipe
 </figure>
 </div>
 </div>
-<section id="decodificando-o-skill-mapping" class="level4" data-number="7.9.1.1">
-<h4 data-number="7.9.1.1" class="anchored" data-anchor-id="decodificando-o-skill-mapping"><span class="header-section-number">7.9.1.1</span> Decodificando o <em>Skill Mapping</em></h4>
-<p><em>(Este texto será melhor compreendido assim que a turma inteira preencher o formulário, mas podemos observar a tendência nas respostas parciais).</em></p>
-<p>Ao analisar o inventário gerado, nota-se que a alocação do algoritmo foi bem-sucedida em diluir o risco técnico. Os esquadrões que possuem apenas 1 ou 2 especialistas no Ciclo Profissionalizante já podem antever problemas na execução de cálculos de Confiabilidade ou Estatística para a Qualidade.</p>
-<p>Ao preencherem o <strong>Team Charter</strong> (<a href="@sec-rodada-7-tap">Rodada 7</a>), a instrução tática é clara: a matriz de responsabilidades e as revisões de documentação devem ser ancoradas nesses alunos com alta proficiência declarada. Delegar a compilação de relatórios estatísticos a um “Risco Técnico” (encontrado na Rodada 5) é o caminho mais rápido para a perda do SLA no semestre.</p>
+<section id="decodificando-o-skill-mapping-a-realidade-da-amostra" class="level4" data-number="7.9.1.1">
+<h4 data-number="7.9.1.1" class="anchored" data-anchor-id="decodificando-o-skill-mapping-a-realidade-da-amostra"><span class="header-section-number">7.9.1.1</span> Decodificando o <em>Skill Mapping</em>: A Realidade da Amostra</h4>
+<p>Ao processar a malha de dados das respostas consolidadas no Formulário 5, a engenharia do algoritmo revela o verdadeiro cenário técnico que sustenta os esquadrões. A matriz de <em>Hard Skills</em> destrói qualquer resquício do Efeito Dunning-Kruger (a falsa sensação de competência) e entrega um diagnóstico tático para a disciplina:</p>
+<ul>
+<li><strong>A Escassez do Especialista Analítico:</strong> Embora a dinâmica da <a href="@sec-rodada-2-mercado">Rodada 2</a> tenha mostrado que quase a totalidade da turma sabe que o mercado exige um perfil Analítico-Técnico, o Formulário 5 prova que <strong>a proficiência real é um recurso escasso</strong>. Ao filtrarmos as notas de excelência (90 a 100) em disciplinas duras do Ciclo Profissionalizante (como <em>Estatística para Engenharia</em>, <em>Pesquisa Operacional</em> e <em>Cálculo Numérico</em>), o volume de “especialistas” despenca. A maioria da turma transita na faixa mediana (70 a 79) ou sequer cursou essas disciplinas críticas.</li>
+<li><strong>A Concentração no Ciclo Básico:</strong> Os dados revelam que o lastro de confiança de muitos alunos está ancorado nas disciplinas iniciais (Introdução à Engenharia, Geometria Analítica e Cálculo I). No entanto, quando a régua sobe para a aplicação específica (Sistemas de Gestão, Custos, Controle da Produção), a matriz é inundada por respostas <em>“Ainda não cursei”</em> ou notas limítrofes (60 a 69).</li>
+<li><strong>A Gestão de Risco nos Esquadrões:</strong> O cruzamento desses dados com a divisão dos grupos ilumina o campo de batalha do professor. O algoritmo expõe visualmente esquadrões que possuem múltiplos membros com lacunas graves em <em>Gestão da Qualidade</em> e <em>Metrologia</em>. Sem esse mapeamento, essas equipes chegariam ao final do semestre entregando projetos inviáveis ou reprovados em auditorias técnicas.</li>
+</ul>
+<p>Ao preencherem o <strong>Team Charter</strong> (<a href="@sec-rodada-7-tap">Rodada 7</a>), a instrução tática baseada nestes dados é inegociável: a Matriz de Responsabilidades do grupo deve ser submissa a essa tabela.</p>
+<p>Se o esquadrão possui apenas um aluno que gabaritou <em>Estatística</em> e <em>Gestão da Qualidade</em>, é ele quem deve assinar a revisão de todos os cálculos de capabilidade do projeto. Delegar relatórios complexos a um membro que marcou “60 a 69” ou “Ainda não cursei” nessas disciplinas, apenas por afinidade ou para “dividir o trabalho por igual”, é o atalho estatístico para a perda do SLA e o fracasso do projeto.</p>
 </section>
 </section>
 <section id="fusão-de-dados-a-recalibragem-do-dna-profissional" class="level3" data-number="7.9.2">
@@ -6416,7 +6425,7 @@ Mapeamento do Capital Intelectual por Equipe
 <p>O que acontece se um aluno age como um rigoroso <strong>Analítico (P1)</strong> no simulador, exigindo cálculos de causa-raiz, mas o seu Formulário 5 revela que ele possui médias abaixo de 70 em Cálculo, Física e Estatística? Ele possui o perfil, mas não a proficiência. É o que o mercado chama de “Efeito PowerPoint”.</p>
 <p>Para blindar o sistema contra essa anomalia, aplicamos a <strong>Fusão de Dados (<em>Data Fusion</em>)</strong>. O algoritmo cruza os <em>scores</em> do F4 com as médias extraídas do F5 e aplica uma <strong>Malha de Recalibragem de Bônus e Punição</strong>:</p>
 <ul>
-<li><strong>O Filtro Analítico (Ciclo Básico):</strong> Alunos com média <span class="math inline">\(\ge 80\)</span> nas exatas ganham um bônus de <span class="math inline">\(+2\)</span> pontos em seu score de perfil <strong>Analítico (P1)</strong>. Médias <span class="math inline">\(&lt; 70\)</span> sofrem uma punição de <span class="math inline">\(-2\)</span> pontos, o que pode rebaixar o perfil P1 e fazer com que o segundo perfil mais forte do aluno (ex: Comunicador) assuma a dominância.</li>
+<li><strong>O Filtro Analítico (Ciclo Básico):</strong> Alunos com média ≥ 80 nas exatas ganham um bônus de +2 pontos em seu score de perfil <strong>Analítico (P1)</strong>. Médias &lt; 70 sofrem uma punição de -2 pontos, o que pode rebaixar o perfil P1 e fazer com que o segundo perfil mais forte do aluno (ex: Comunicador) assuma a dominância.</li>
 <li><strong>O Filtro Operacional (Ciclo Profissionalizante):</strong> Notas altas em PCP, Métodos e Metrologia turbinam o perfil de <strong>Operações (P2)</strong>.</li>
 <li><strong>O Filtro Gerencial (Ciclo Específico):</strong> Domínio em Engenharia Econômica e SGI alavancam os perfis <strong>Líder (P5)</strong> e <strong>Sustentável (P6)</strong>.</li>
 <li><strong>O Filtro de Inovação (Optativas):</strong> Alta performance em áreas de vanguarda (Consultoria, Valuation, Inovação) garante tração aos perfis <strong>Criativo (P3)</strong> e <strong>Comunicador (P4)</strong>.</li>
@@ -6545,41 +6554,47 @@ Figura&nbsp;7.6: Matriz de Talentos Definitiva: O DNA Recalibrado (F4+F5) vs.&nb
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Garante que o df_evolucao_perfis esteja atualizado</span></span>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet_source</span>(<span class="st">"R/trat.forms.R"</span>)</span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>df_evolucao_tmp <span class="ot">&lt;-</span> df_evolucao_perfis <span class="sc">%&gt;%</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mostramos uma amostra de 15 alunos para a renderização do livro</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">15</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Anonimização final (LGPD) para a publicação</span></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Aluno =</span> <span class="fu">paste0</span>(<span class="st">"Aluno "</span>, <span class="fu">row_number</span>())) <span class="sc">%&gt;%</span></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    Squad,</span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    Aluno,</span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    IEA,</span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F1 (Ego)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">F1 (Ego)</span><span class="st">`</span>,</span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F3 (Pares)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">F3 (Pares)</span><span class="st">`</span>,</span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F4 (Instinto)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">F4 (Instinto)</span><span class="st">`</span>,</span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F5 (Recalibrado)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">F5 (Recalibrado)</span><span class="st">`</span></span>
-<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">nrow</span>(df_evolucao_tmp) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>  df_evolucao_tmp <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">Squad =</span> <span class="st">"Sem dados"</span>,</span>
-<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">Aluno =</span> <span class="st">"Aluno 1"</span>,</span>
-<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">IEA =</span> <span class="cn">NA_real_</span>,</span>
-<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F1 (Ego)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"-"</span>,</span>
-<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F3 (Pares)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"-"</span>,</span>
-<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F4 (Instinto)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"-"</span>,</span>
-<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F5 (Recalibrado)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"-"</span></span>
-<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>df_evolucao_tmp <span class="sc">%&gt;%</span></span>
-<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">align =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"c"</span>, <span class="st">"c"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>), <span class="at">full_width =</span> <span class="cn">TRUE</span>, <span class="at">font_size =</span> <span class="dv">12</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">"Identidade"</span> <span class="ot">=</span> <span class="dv">3</span>, <span class="st">"Fase Estática (Teoria)"</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"Fase Dinâmica (Realidade)"</span> <span class="ot">=</span> <span class="dv">2</span>), <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">background =</span> <span class="st">"#ecf0f1"</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Destaca o Índice Técnico e o Perfil Definitivo</span></span>
-<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">3</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">7</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#27ae60"</span>, <span class="at">background =</span> <span class="st">"#e8f8f5"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collapse_rows</span>(<span class="at">columns =</span> <span class="dv">1</span>, <span class="at">valign =</span> <span class="st">"top"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Compatibiliza o identificador anonimizado oficial entre versões da base</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>id_col_evolucao <span class="ot">&lt;-</span> <span class="fu">intersect</span>(<span class="fu">c</span>(<span class="st">"ID_Aluno"</span>, <span class="st">"Matrícula"</span>, <span class="st">"Matricula"</span>), <span class="fu">names</span>(df_evolucao_perfis))[<span class="dv">1</span>]</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">is.na</span>(id_col_evolucao)) {</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">"Não foi possível identificar a coluna de ID anonimizado em df_evolucao_perfis."</span>)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>df_evolucao_tmp <span class="ot">&lt;-</span> df_evolucao_perfis <span class="sc">%&gt;%</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mostramos uma amostra de 15 alunos para a renderização do livro</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">15</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Correção: Utilizando o identificador mascarado oficial (ex: A037, A098)</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Aluno =</span> <span class="fu">as.character</span>(.data[[id_col_evolucao]])) <span class="sc">%&gt;%</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    Squad,</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    Aluno,</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>    IEA,</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F1 (Ego)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">F1 (Ego)</span><span class="st">`</span>,</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F3 (Pares)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">F3 (Pares)</span><span class="st">`</span>,</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F4 (Instinto)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">F4 (Instinto)</span><span class="st">`</span>,</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F5 (Recalibrado)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">F5 (Recalibrado)</span><span class="st">`</span></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">nrow</span>(df_evolucao_tmp) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>  df_evolucao_tmp <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">Squad =</span> <span class="st">"Sem dados"</span>,</span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">Aluno =</span> <span class="st">"A001"</span>,</span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">IEA =</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F1 (Ego)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"-"</span>,</span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F3 (Pares)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"-"</span>,</span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F4 (Instinto)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"-"</span>,</span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F5 (Recalibrado)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"-"</span></span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a>df_evolucao_tmp <span class="sc">%&gt;%</span></span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">align =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"c"</span>, <span class="st">"c"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>), <span class="at">full_width =</span> <span class="cn">TRUE</span>, <span class="at">font_size =</span> <span class="dv">12</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">"Identidade"</span> <span class="ot">=</span> <span class="dv">3</span>, <span class="st">"Fase Estática (Teoria)"</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"Fase Dinâmica (Realidade)"</span> <span class="ot">=</span> <span class="dv">2</span>), <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">background =</span> <span class="st">"#ecf0f1"</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Destaca o Índice Técnico e o Perfil Definitivo</span></span>
+<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">3</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">7</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#27ae60"</span>, <span class="at">background =</span> <span class="st">"#e8f8f5"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collapse_rows</span>(<span class="at">columns =</span> <span class="dv">1</span>, <span class="at">valign =</span> <span class="st">"top"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-evolucao-individual" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -6623,7 +6638,7 @@ Fase Dinâmica (Realidade)
 <tbody>
 <tr class="odd">
 <td rowspan="6" style="text-align: center; vertical-align: top !important;">Squad_01</td>
-<td style="text-align: center;">Aluno 1</td>
+<td style="text-align: center;">2024007225</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">3.7267</td>
 <td style="text-align: left;">Analítico-Técnico</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -6631,7 +6646,7 @@ Fase Dinâmica (Realidade)
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">Líder</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">Aluno 2</td>
+<td style="text-align: center;">2023009904</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">1.9094</td>
 <td style="text-align: left;">Analítico-Técnico</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -6639,7 +6654,40 @@ Fase Dinâmica (Realidade)
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">Analítico</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">Aluno 3</td>
+<td style="text-align: center;">2025002537</td>
+<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">NA</td>
+<td style="text-align: left;">Analítico-Técnico</td>
+<td style="text-align: left;">P1 (Analítico-Técnico)</td>
+<td style="text-align: left;">Pendente/Sem Dados</td>
+<td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">Pendente/Sem Dados</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2022008644</td>
+<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">3.5739</td>
+<td style="text-align: left;">Pendente/Sem Dados</td>
+<td style="text-align: left;">P1 (Analítico-Técnico)</td>
+<td style="text-align: left;">P3 (Criativo-Inovador)</td>
+<td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P3 (Criativo-Inovador)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2022009919</td>
+<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">NA</td>
+<td style="text-align: left;">Analítico-Técnico</td>
+<td style="text-align: left;">P1 (Analítico-Técnico)</td>
+<td style="text-align: left;">Operações</td>
+<td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">Operações</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2022001957</td>
+<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">NA</td>
+<td style="text-align: left;">Analítico-Técnico</td>
+<td style="text-align: left;">P1 (Analítico-Técnico)</td>
+<td style="text-align: left;">P3 (Criativo-Inovador)</td>
+<td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P3 (Criativo-Inovador)</td>
+</tr>
+<tr class="odd">
+<td rowspan="6" style="text-align: center; vertical-align: top !important;">Squad_02</td>
+<td style="text-align: center;">2025014977</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">1.5843</td>
 <td style="text-align: left;">Analítico-Técnico</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -6647,48 +6695,15 @@ Fase Dinâmica (Realidade)
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P3 (Criativo-Inovador)</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">Aluno 4</td>
-<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">NA</td>
-<td style="text-align: left;">Analítico-Técnico</td>
-<td style="text-align: left;">P1 (Analítico-Técnico)</td>
-<td style="text-align: left;">Pendente/Sem Dados</td>
-<td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">Pendente/Sem Dados</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Aluno 5</td>
-<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">NA</td>
-<td style="text-align: left;">Analítico-Técnico</td>
-<td style="text-align: left;">P1 (Analítico-Técnico)</td>
-<td style="text-align: left;">P3 (Criativo-Inovador)</td>
-<td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P3 (Criativo-Inovador)</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Aluno 6</td>
-<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">8.9220</td>
-<td style="text-align: left;">P4 (Comunicador-Articulador)</td>
-<td style="text-align: left;">P1 (Analítico-Técnico)</td>
-<td style="text-align: left;">P3 (Criativo-Inovador)</td>
-<td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P3 (Criativo-Inovador)</td>
-</tr>
-<tr class="odd">
-<td rowspan="6" style="text-align: center; vertical-align: top !important;">Squad_02</td>
-<td style="text-align: center;">Aluno 7</td>
+<td style="text-align: center;">2023006902</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">NA</td>
 <td style="text-align: left;">Pendente/Sem Dados</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
 <td style="text-align: left;">Pendente/Sem Dados</td>
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">Pendente/Sem Dados</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">Aluno 8</td>
-<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">8.6769</td>
-<td style="text-align: left;">Analítico-Técnico</td>
-<td style="text-align: left;">P1 (Analítico-Técnico)</td>
-<td style="text-align: left;">P3 (Criativo-Inovador)</td>
-<td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P3 (Criativo-Inovador)</td>
-</tr>
 <tr class="odd">
-<td style="text-align: center;">Aluno 9</td>
+<td style="text-align: center;">2024015245</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">9.7932</td>
 <td style="text-align: left;">Analítico-Técnico</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -6696,7 +6711,7 @@ Fase Dinâmica (Realidade)
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">Líder</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">Aluno 10</td>
+<td style="text-align: center;">2025000980</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">3.0107</td>
 <td style="text-align: left;">Analítico-Técnico</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -6704,45 +6719,45 @@ Fase Dinâmica (Realidade)
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">Líder</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">Aluno 11</td>
-<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">0.6683</td>
+<td style="text-align: center;">2023010932</td>
+<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">NA</td>
 <td style="text-align: left;">Analítico-Técnico</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
 <td style="text-align: left;">P3 (Criativo-Inovador)</td>
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P3 (Criativo-Inovador)</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">Aluno 12</td>
-<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">NA</td>
-<td style="text-align: left;">Analítico-Técnico</td>
+<td style="text-align: center;">2025011607</td>
+<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">8.9220</td>
+<td style="text-align: left;">P4 (Comunicador-Articulador)</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
 <td style="text-align: left;">P3 (Criativo-Inovador)</td>
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P3 (Criativo-Inovador)</td>
 </tr>
 <tr class="odd">
 <td rowspan="3" style="text-align: center; vertical-align: top !important;">Squad_03</td>
-<td style="text-align: center;">Aluno 13</td>
-<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">NA</td>
-<td style="text-align: left;">P4 (Comunicador-Articulador)</td>
-<td style="text-align: left;">P1 (Analítico-Técnico)</td>
-<td style="text-align: left;">P3 (Criativo-Inovador)</td>
-<td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P3 (Criativo-Inovador)</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Aluno 14</td>
-<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">8.1453</td>
-<td style="text-align: left;">Analítico-Técnico</td>
-<td style="text-align: left;">P1 (Analítico-Técnico)</td>
-<td style="text-align: left;">P3 (Criativo-Inovador)</td>
-<td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P3 (Criativo-Inovador)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Aluno 15</td>
+<td style="text-align: center;">2024005104</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">2.8940</td>
 <td style="text-align: left;">Analítico-Técnico</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
 <td style="text-align: left;">P4 (Comunicador-Articulador)</td>
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P4 (Comunicador-Articulador)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2024015924</td>
+<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">NA</td>
+<td style="text-align: left;">Analítico-Técnico</td>
+<td style="text-align: left;">P1 (Analítico-Técnico)</td>
+<td style="text-align: left;">Líder</td>
+<td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">Líder</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2025000953</td>
+<td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">8.6769</td>
+<td style="text-align: left;">Analítico-Técnico</td>
+<td style="text-align: left;">P1 (Analítico-Técnico)</td>
+<td style="text-align: left;">P3 (Criativo-Inovador)</td>
+<td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P3 (Criativo-Inovador)</td>
 </tr>
 </tbody>
 </table>
