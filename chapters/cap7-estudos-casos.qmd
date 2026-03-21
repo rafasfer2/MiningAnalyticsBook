@@ -1175,19 +1175,61 @@ Para que os alunos conseguissem debater o mercado de forma realista, o instrumen
 
 *(Nota: Observe na arquitetura dos dados que habilidades altamente versáteis, como a "Visão Sistêmica" (Req. 30), pontuam matematicamente de forma simultânea para Múltiplas Competências (C01, C03 e C08), refletindo a complexidade do mundo real).*
 
+### A Análise Descritiva: A Régua Bruta do Mercado
+
+O primeiro passo do processamento é calcular a nota bruta que cada grupo atribuiu às 8 Competências. Matematicamente, a nota atribuída a uma competência macro ($C_i$) passa a ser a média aritmética simples das respostas ($y$) dadas aos cenários práticos mapeados acima na escala de 1 a 7.
+
+Para a competência $C01$ (Formular soluções), por exemplo, o algoritmo calcula o seguinte sub-bloco de média antes de prosseguir:
+
+$$C01 = \frac{Req_{02} + Req_{03} + Req_{11} + Req_{14} + Req_{30}}{5}$$ {#eq-r2-c01-media-req}
+
+A @tbl-resumo-exigencia-grupos apresenta o resultado bruto (médias aritméticas) para os 18 esquadrões (divididos em duas turmas distintas), calculando também a "Exigência Geral do Mercado", que representa a média global de exigência declarada pelo grupo para a engenharia.
+
+```{r}
+#| label: tbl-resumo-exigencia-grupos
+#| tbl-cap: "Análise Descritiva: Médias de Exigência (1 a 7) por Grupo e Competência"
+#| echo: true
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+quiet_source("R/trat.forms.R")
+
+# 1. Cálculo das Médias Brutas por Grupo
+df_resumo_f2 <- df_form2_anon %>%
+  group_by(ID_Grupo, Turma) %>%
+  summarise(across(starts_with("C0"), ~ mean(.x, na.rm = TRUE)), .groups = "drop") %>%
+  mutate(Exigencia_Geral_Mercado = rowMeans(select(., starts_with("C0")), na.rm = TRUE)) %>%
+  arrange(ID_Grupo)
+
+# 2. Renderização da Tabela
+df_resumo_f2 %>%
+  # Para otimizar o espaço no livro, extraímos apenas a sigla da turma
+  mutate(Turma = sub(" - .*$", "", Turma)) %>%
+  kbl(
+    align = "c", digits = 2,
+    col.names = c("Grupo", "Turma", "C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "Exigência Geral")
+  ) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
+  column_spec(1, bold = TRUE, color = "#2c3e50") %>%
+  column_spec(11, bold = TRUE, color = "white", background = "#34495e")
+```
+A matriz descritiva confirma a tese de que, quando forçados a pensar no mundo real e sob a ótica do mercado (e não mais na complacência da própria avaliação), os alunos elevam o rigor. A maioria dos esquadrões posicionou a régua geral de exigência para o Engenheiro de Produção acima de 6,00 em uma escala de 7,00, beirando a excelência mandatória.
+
 ### O Motor Multivariado Replicado: O Perfil Exigido
 
-Matematicamente, o vetor de entrada agora não representa mais um aluno ($j$), mas sim o consenso de um grupo ($G_x$). A nota atribuída a uma competência macro ($C_i$) passa a ser a média aritmética simples das respostas dadas aos cenários práticos mapeados acima.
+No entanto, médias brutas não formam perfis. Para descobrir qual arquétipo os alunos estão desenhando com essas notas altas, precisamos acionar novamente a álgebra linear.
 
-Para a competência $C_{01}$, por exemplo, o algoritmo calcula o sub-bloco antes de injetar na matriz:
+Nesta etapa, o vetor de entrada agora não representa mais um aluno isolado ($j$), mas sim o consenso de um esquadrão genérico ($g$). A vetorização das 8 competências calculadas na etapa anterior forma o vetor coluna de exigência do grupo ($\mathbf{y}_g^{Pe}$).
 
-$$C_{01} = \frac{Req_{02} + Req_{03} + Req_{11} + Req_{14} + Req_{30}}{5}$$ {#eq-r2-c01-media-req}
+Com as 8 competências consolidadas, o sistema executa o produto da transposta da Matriz de Pesos e Intensidades ($\mathbf{W}^T$) contra esse vetor de exigência, gerando o Construto Latente do mercado ($\boldsymbol{\Theta}_{E}$) para aquele grupo nos seis perfis:
 
-Com as 8 competências consolidadas para cada grupo, o sistema executa o produto escalar contra a Matriz de Pesos e Intensidades ($W_p$), gerando o *score* de exigência do mercado ($\theta_E$) para os seis perfis:
+$$\boldsymbol{\Theta}_{E,g} = \mathbf{W}^T \mathbf{y}_g^{Pe}$$ {#eq-r2-theta-e}
 
-$$\theta_{E,p} = \sum_{i=1}^{8} (C_{i, G_x} \times w_{i,p})$$ {#eq-r2-theta-e}
-
-O script a seguir extrai os dados anonimizados da [Rodada 2](@sec-rodada-2-mercado), consolida as notas exclusivas de cada esquadrão e projeta o Radar Percentual do Mercado, identificando qual arquétipo eles acreditam ser o mais valioso para a indústria.
+O *script* a seguir extrai os dados anonimizados da [Rodada 2](@sec-rodada-2-mercado), converte o cálculo do motor ARM em percentuais relativos e projeta o Radar do Mercado, identificando qual arquétipo eles acreditam ser o mais valioso para a indústria.
 
 A @tbl-perfil-mercado apresenta os resultados desta etapa.
 
@@ -1235,7 +1277,8 @@ df_radar_mercado <- df_scores_mercado %>%
       cell_spec(sprintf("%.1f%%", .x), bold = is_max, color = ifelse(is_max, "#c0392b", "black"))
     })
   ) %>%
-  select(Grupo = ID_Grupo, ends_with("_pct"), Perfil_Exigido)
+  select(Grupo = ID_Grupo, ends_with("_pct"), Perfil_Exigido) %>%
+  head(10) # Amostra as 10 primeiras para nao poluir visualmente
 
 # 3. Formatação e Renderização Visual
 df_radar_mercado %>%
