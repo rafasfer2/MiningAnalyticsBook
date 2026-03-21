@@ -49,15 +49,15 @@ Para conceituar qualidade de forma plena, a engenharia deve alinhar:
 * **@exr-salao-beleza:** *Padrão:* Tempo de bula respeitado. *Uso:* Corte prático. *Custo:* Durabilidade alta. *Latente:* Cadeira de massagem no lavatório.
 * **@exr-hotelaria:** *Padrão:* Quarto como na foto. *Uso:* Chuveiro forte e Wi-Fi estável. *Custo:* Diária justa. *Latente:* Check-in pelo celular e escolha de travesseiro.
 * **@exr-transporte-passageiros:** *Padrão:* Manutenção rigorosa. *Uso:* Pontualidade. *Custo:* Mais barato que pedágio/combustível. *Latente:* Wi-Fi e USB individuais.
-* **@exr-niveis-smartphone:** *Padrão:* Velocidade do processador conforme manual. *Uso:* Bateria dura 24h. *Custo:* Automação fabril abaixa o preço. *Latente:* Modo foco por IA.
-* **@exr-niveis-restaurante:** *Padrão:* Bife de 200g. *Uso:* Almoço em 15 min. *Custo:* Ingredientes locais otimizados. *Latente:* Água gelada antes de pedir no verão.
+* **Exercício de níveis - smartphone:** *Padrão:* Velocidade do processador conforme manual. *Uso:* Bateria dura 24h. *Custo:* Automação fabril abaixa o preço. *Latente:* Modo foco por IA.
+* **Exercício de níveis - restaurante:** *Padrão:* Bife de 200g. *Uso:* Almoço em 15 min. *Custo:* Ingredientes locais otimizados. *Latente:* Água gelada antes de pedir no verão.
 
-### Resolução do @exr-qualidade-contexto-integrado {#sec-gab-qualidade-contexto-integrado}
+### Resolução do exercício de qualidade em contexto integrado {#sec-gab-qualidade-contexto-integrado}
 * Nenhuma definição está "errada": cada stakeholder reflete uma dimensão (Operador = confiabilidade; Engenheiro = conformidade; Gerente = eficiência).
 * A integração resulta em: "Capacidade de entregar minério no P80 = 12 mm, com disponibilidade >90%, a custo $X/ton".
 * A ferramenta adequada para esta harmonização é o **Hoshin Kanri** (desdobramento) ou a **X-Matrix**.
 
-### Resolução do @exr-adequacao-vs-conformidade {#sec-gab-adequacao-vs-conformidade}
+### Resolução do exercício de adequação vs. conformidade {#sec-gab-adequacao-vs-conformidade}
 * **Conformidade com Projeto:** NÃO. A especificação prometia 2g, mas entrega 8g. Falha de validação de campo.
 * **Adequação ao Uso:** NÃO. Em mineração, fragmentos de 8g comprometem equipamentos caros e a segurança.
 * **Solução:** O projeto possui uma falha grave. A solução exige redesenho (blindagem eletromagnética), ou adaptação rigorosa dos procedimentos operacionais e de distanciamento, priorizando sempre a adequação (segurança).
@@ -65,7 +65,7 @@ Para conceituar qualidade de forma plena, a engenharia deve alinhar:
 ### Resolução do @exr-caneta-grau {#sec-gab-caneta-grau}
 A caneta de R$ 1,00 possui **Alta Qualidade** (cumpriu 100% de seus requisitos funcionais). A caneta de R$ 500,00 tem **Péssima Qualidade** (falhou em sua função básica). O preço define o **Grau** (luxo, design), mas a qualidade é estritamente a capacidade de cumprir a função sem defeitos.
 
-### Resolução do @exr-eras-qualidade {#sec-gab-eras-qualidade}
+### Resolução do exercício sobre eras da qualidade {#sec-gab-eras-qualidade}
 * **Lâmpadas:** Inspeção = testar 1 a 1. Controle Estatístico = cartas de controle para o filamento. Garantia Estratégica = confiabilidade estrutural (15.000h) em parceria com fornecedores.
 * **Software:** Inspeção = ler código pronto. Controle Estatístico = testes de *bugs*/1000 linhas. Garantia Estratégica = *DevOps* e CI/CD impedindo injeção de erros.
 * **Medicamentos:** Inspeção = checar frasco visualmente. Controle Estatístico = amostrar concentração em lote. Garantia Estratégica = BPF/GMP garantindo ambiente livre de contaminação.
