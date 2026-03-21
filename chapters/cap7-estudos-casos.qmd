@@ -206,19 +206,19 @@ $$IDisc_i = P_{sup} - P_{inf}$$ {#eq-indice-discriminacao}
 
 #### A Matriz de Respostas (Dataset)
 
-A @tbl-matriz-respostas apresenta um recorte da matriz transposta gerada pelas respostas da turma no Formulário 1 (Autopercepção - $P_a$). Cada linha representa o vetor de um indivíduo $N_j$, e cada coluna abriga a resposta dada para um item da escala. A coluna do Escore Total por respondente ($T_j$) e a linha inferior com a Soma do Item ($S_i$) estão destacadas para facilitar a visualização analítica.
+A @tbl-matriz-respostas apresenta um recorte da matriz transposta gerada pelas respostas da turma no Formulário 1. Como a tabela retrata os dados de Autopercepção, assume-se implicitamente a notação ($P_a$) para todas as colunas de competências. Cada linha representa o vetor de resposta para o aluno genérico $j$, denotado por $y_{j,\cdot} = [y_{1,j}^{Pa}, y_{2,j}^{Pa}, \dots, y_{i,j}^{Pa}]$, onde cada célula abriga a nota dada para um item da escala. A coluna do Escore Total por respondente ($T_j$) e a linha inferior com a Soma do Item ($S_i$) estão destacadas para facilitar a visualização analítica.
 
-| Indivíduo ($N_j$) | $Pa_{C01}$ | $Pa_{C02}$ | $Pa_{C03}$ | $\dots$ | $Pa_{C07}$ | $Pa_{C08}$ | Escore Total ($T_j$) |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| $N_1$ | $y_{1,1}^{Pa}$ | $y_{2,1}^{Pa}$ | $y_{3,1}^{Pa}$ | $\dots$ | $y_{7,1}^{Pa}$ | $y_{8,1}^{Pa}$ | **$T_1^{Pa}$** |
-| $N_2$ | $y_{1,2}^{Pa}$ | $y_{2,2}^{Pa}$ | $y_{3,2}^{Pa}$ | $\dots$ | $y_{7,2}^{Pa}$ | $y_{8,2}^{Pa}$ | **$T_2^{Pa}$** |
-| $N_3$ | $y_{1,3}^{Pa}$ | $y_{2,3}^{Pa}$ | $y_{3,3}^{Pa}$ | $\dots$ | $y_{7,3}^{Pa}$ | $y_{8,3}^{Pa}$ | **$T_3^{Pa}$** |
-| $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | $\ddots$ | $\vdots$ | $\vdots$ | **$\vdots$** |
-| $N_{n-1}$ | $y_{1,n-1}^{Pa}$ | $y_{2,n-1}^{Pa}$ | $y_{3,n-1}^{Pa}$ | $\dots$ | $y_{7,n-1}^{Pa}$ | $y_{8,n-1}^{Pa}$ | **$T_{n-1}^{Pa}$** |
-| $N_n$ | $y_{1,n}^{Pa}$ | $y_{2,n}^{Pa}$ | $y_{3,n}^{Pa}$ | $\dots$ | $y_{7,n}^{Pa}$ | $y_{8,n}^{Pa}$ | **$T_n^{Pa}$** |
-| Soma do Item ($S_i$) | **$S_1^{Pa}$** | **$S_2^{Pa}$** | **$S_3^{Pa}$** | **$\dots$** | **$S_7^{Pa}$** | **$S_8^{Pa}$** | **$\sum T_j^{Pa}$** |
+| Indivíduo ($N_j$) | C01 | C02 | C03 | C04 | C05 | C06 | C07 | C08 | Escore Total ($T_j$) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| $N_1$ | $y_{1,1}^{Pa}$ | $y_{2,1}^{Pa}$ | $y_{3,1}^{Pa}$ | $y_{4,1}^{Pa}$ | $y_{5,1}^{Pa}$ | $y_{6,1}^{Pa}$ | $y_{7,1}^{Pa}$ | $y_{8,1}^{Pa}$ | **$T_1^{Pa}$** |
+| $N_2$ | $y_{1,2}^{Pa}$ | $y_{2,2}^{Pa}$ | $y_{3,2}^{Pa}$ | $y_{4,2}^{Pa}$ | $y_{5,2}^{Pa}$ | $y_{6,2}^{Pa}$ | $y_{7,2}^{Pa}$ | $y_{8,2}^{Pa}$ | **$T_2^{Pa}$** |
+| $N_3$ | $y_{1,3}^{Pa}$ | $y_{2,3}^{Pa}$ | $y_{3,3}^{Pa}$ | $y_{4,3}^{Pa}$ | $y_{5,3}^{Pa}$ | $y_{6,3}^{Pa}$ | $y_{7,3}^{Pa}$ | $y_{8,3}^{Pa}$ | **$T_3^{Pa}$** |
+| $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | **$\vdots$** |
+| $N_{n-1}$ | $y_{1,n-1}^{Pa}$ | $y_{2,n-1}^{Pa}$ | $y_{3,n-1}^{Pa}$ | $y_{4,n-1}^{Pa}$ | $y_{5,n-1}^{Pa}$ | $y_{6,n-1}^{Pa}$ | $y_{7,n-1}^{Pa}$ | $y_{8,n-1}^{Pa}$ | **$T_{n-1}^{Pa}$** |
+| $N_n$ | $y_{1,n}^{Pa}$ | $y_{2,n}^{Pa}$ | $y_{3,n}^{Pa}$ | $y_{4,n}^{Pa}$ | $y_{5,n}^{Pa}$ | $y_{6,n}^{Pa}$ | $y_{7,n}^{Pa}$ | $y_{8,n}^{Pa}$ | **$T_n^{Pa}$** |
+| Soma do Item ($S_i$) | **$S_1^{Pa}$** | **$S_2^{Pa}$** | **$S_3^{Pa}$** | **$S_4^{Pa}$** | **$S_5^{Pa}$** | **$S_6^{Pa}$** | **$S_7^{Pa}$** | **$S_8^{Pa}$** | **$\sum T_j^{Pa}$** |
 
-: Representação Tabular da Matriz de Respostas de Autopercepção {#tbl-matriz-respostas}
+: Representação Tabular da Matriz de Respostas (Dimensão de Autopercepção - $P_a$) {#tbl-matriz-respostas}
 
 ::: {.example #exm-calculo-tcm name="Cálculo Direto do Escore Total e Médio"}
 Suponha um cenário de aplicação da Autopercepção ($P_a$) em uma pequena equipe de $n = 5$ alunos, avaliando os $I = 8$ itens de Engenharia utilizando uma escala de $k = 5$ pontos.
@@ -321,6 +321,27 @@ Guardião do *Compliance*, garantindo que a engenharia gerada pelo grupo respeit
 * **Habilidades Profissionais:** Analisar e avaliar dados ambientais e de risco ocupacional; Diferenciar causas e impactos sociais das decisões técnicas.
 * **Atitudes e Postura:** Consciência social e ambiental irretocável, postura pautada na ética e respeito profundo às diretrizes humanas.
 * **Papel na Equipe:** Atua como o auditor de riscos e adequação normativa. Garante que os projetos sejam ecologicamente corretos e seguros.
+
+---
+
+#### O Construto Latente: Retomando a Notação $\theta_p$
+
+Com as 51 variáveis operacionais (o modelo CHA) devidamente mapeadas e os 6 arquétipos profissionais definidos, podemos retornar à formulação matemática central do nosso modelo, apresentada na @sec-arm-multivariavel.
+
+O objetivo do algoritmo não é simplesmente classificar o aluno em um único perfil de forma excludente, mas calcular o **Construto Latente ($\theta_p$)** — ou seja, a "pontuação de aderência" matemática do indivíduo a *cada um* dos 6 perfis simultaneamente.
+
+Relembrando a equação do modelo ARM alterada com a injeção do Fator de Intensidade:
+
+$$\theta_p = \sum_{i=1}^{51} (w_{i,p} \times I_{i,p} \times x_i)$$ {#eq-relembrando-arm}
+
+Nesta aplicação específica de *People Analytics*:
+
+* **$p$:** Representa um dos 6 arquétipos profissionais (onde $p = 1$ é o Analítico-Técnico, $p = 2$ é o Motor de Operações, e assim por diante).
+* **$\theta_p$:** É o Escore Final (o construto latente) do aluno para aquele perfil $p$. Ao final do processo, cada aluno terá 6 valores de $\theta$ distintos. O seu "Perfil Dominante" será aquele onde ele atingir o maior valor de $\theta$.
+* **$x_i$:** É a resposta dada pelo aluno na escala Likert (variando de 1 a 5) para cada uma das 51 variáveis estruturadas nas dimensões de Competências, Habilidades e Atitudes.
+* **$w_{i,p}$ e $I_{i,p}$:** São, respectivamente, o peso estrutural e a intensidade que cada variável $x_i$ exerce na formação daquele perfil específico $p$.
+
+Para entendermos como o algoritmo constrói esse Escore de Aderência ($\theta_p$) sem ser engolido pelos vieses comportamentais que vimos anteriormente, precisamos analisar a racionalidade matemática que calibra esses pesos ($w_i$).
 
 ---
 

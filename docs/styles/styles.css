@@ -1104,6 +1104,37 @@ main.content img.zoomable-figure {
   cursor: pointer;
 }
 
+/* ============================================================
+   Tabelas com linha/coluna de totais — destaque ouro com transparência
+   Aplica fundo rgba(#d4af37, 0.18) na última coluna e última linha
+   de cada tabela de matriz de respostas do cap7.
+   ============================================================ */
+
+/* tbl-matriz-respostas */
+#tbl-matriz-respostas table tr > td:last-child,
+#tbl-matriz-respostas table tr > th:last-child {
+  background-color: rgba(212, 175, 55, 0.18);
+}
+#tbl-matriz-respostas table tr:last-child > td {
+  background-color: rgba(212, 175, 55, 0.18);
+}
+/* célula de interseção (linha totais × coluna totais) — intensidade dupla */
+#tbl-matriz-respostas table tr:last-child > td:last-child {
+  background-color: rgba(212, 175, 55, 0.36);
+}
+
+/* tbl-respostas-importancia */
+#tbl-respostas-importancia table tr > td:last-child,
+#tbl-respostas-importancia table tr > th:last-child {
+  background-color: rgba(212, 175, 55, 0.18);
+}
+#tbl-respostas-importancia table tr:last-child > td {
+  background-color: rgba(212, 175, 55, 0.18);
+}
+#tbl-respostas-importancia table tr:last-child > td:last-child {
+  background-color: rgba(212, 175, 55, 0.36);
+}
+
 .figure-lightbox__toolbar button:hover,
 .figure-lightbox__toolbar a:hover {
   background: rgba(255, 255, 255, 0.22);
