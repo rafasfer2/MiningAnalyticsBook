@@ -389,18 +389,67 @@ df_final <- bind_rows(df_wide, df_totais)
 # 4. Formatação e Renderização da Tabela
 df_final %>%
   # Define 2 casas decimais para padronizar a visualização (ex: 1.00)
-  kbl(align = "c", booktabs = TRUE, digits = 2) %>%
+  kbl(
+    align = "c",
+    booktabs = TRUE,
+    digits = 2,
+    # Padronizando os nomes das colunas para P1, P2, P3...
+    col.names = c("Cód", "P1", "P2", "P3", "P4", "P5", "P6")
+  ) %>%
   kable_styling(
     bootstrap_options = c("striped", "hover", "condensed"),
     full_width = FALSE,
     position = "center"
   ) %>%
-  add_header_above(c(" " = 1, "Pesos Base por Perfil ($w_i$)" = 6), bold = TRUE) %>%
+  add_header_above(c(" " = 1, "Pesos Base por Perfil (w_i)" = 6), bold = TRUE) %>%
   column_spec(1, bold = TRUE, color = "#2c3e50") %>%
   column_spec(2:7, color = "black") %>%
   # Destaca estruturalmente a última linha (Totais)
   row_spec(nrow(df_final), bold = TRUE, background = "#e9ecef", color = "#c0392b")
 ```
+
+#### A Estruturação Matricial Aplicada (O Motor Computacional)
+
+No Capítulo 3, apresentamos a formulação genérica da Modelagem Analítica de Requisitos (ARM), onde o vetor observável genérico era tratado como $\mathbf{x}$. Agora, ao aplicarmos essa lógica à avaliação de pessoas na disciplina, substituímos a variável teórica $\mathbf{x}$ pelo nosso vetor real de respostas do indivíduo ($y_{i,j}^p$), levantado pelos formulários de percepção.
+
+Para otimizar o processamento computacional nas linguagens de análise de dados (como **R** ou **Python**), o cálculo dos perfis abandona o somatório iterativo e passa a ser operado estritamente por Álgebra Linear. O que a linguagem de programação faz nos bastidores é cruzar matrizes.
+
+Para um respondente único $j$ avaliando as 8 Competências Macros ($n = 8$), seu vetor coluna de respostas ($\mathbf{y}_j$) terá dimensão $8 \times 1$:
+
+$$\mathbf{y}_j = \begin{bmatrix} y_{1,j} \\ y_{2,j} \\ y_{3,j} \\ y_{4,j} \\ y_{5,j} \\ y_{6,j} \\ y_{7,j} \\ y_{8,j} \end{bmatrix}$$
+
+Simultaneamente, o sistema carrega a matriz de pesos efetivos $\mathbf{W}$ de dimensão $8 \times 6$ (sendo 8 competências e $m = 6$ perfis), já parametrizada com as intensidades de cada arquétipo:
+
+$$\mathbf{W} = \begin{bmatrix}
+w_{1,P1} & w_{1,P2} & w_{1,P3} & w_{1,P4} & w_{1,P5} & w_{1,P6} \\
+w_{2,P1} & w_{2,P2} & w_{2,P3} & w_{2,P4} & w_{2,P5} & w_{2,P6} \\
+w_{3,P1} & w_{3,P2} & w_{3,P3} & w_{3,P4} & w_{3,P5} & w_{3,P6} \\
+w_{4,P1} & w_{4,P2} & w_{4,P3} & w_{4,P4} & w_{4,P5} & w_{4,P6} \\
+w_{5,P1} & w_{5,P2} & w_{5,P3} & w_{5,P4} & w_{5,P5} & w_{5,P6} \\
+w_{6,P1} & w_{6,P2} & w_{6,P3} & w_{6,P4} & w_{6,P5} & w_{6,P6} \\
+w_{7,P1} & w_{7,P2} & w_{7,P3} & w_{7,P4} & w_{7,P5} & w_{7,P6} \\
+w_{8,P1} & w_{8,P2} & w_{8,P3} & w_{8,P4} & w_{8,P5} & w_{8,P6}
+\end{bmatrix}$$
+
+Para extrairmos a pontuação exata deste aluno em todos os arquétipos de uma única vez, o algoritmo calcula o **Vetor de Construtos Latentes** ($\boldsymbol{\Theta}_j$), cuja dimensão final será $6 \times 1$. A operação é a multiplicação da transposta da matriz de pesos ($\mathbf{W}^T$) pelo vetor de respostas do indivíduo ($\mathbf{y}_j$):
+
+$$\boldsymbol{\Theta}_j = \mathbf{W}^T \mathbf{y}_j$$ {#eq-arm-matricial-aplicada}
+
+Abrindo a matriz, temos a prova matemática do cálculo escalar. O escore de aderência do aluno ao Perfil Analítico ($\theta_{P1}$), por exemplo, será o produto da primeira linha da matriz transposta pelas respostas do aluno:
+
+$$\begin{bmatrix} \theta_{P1} \\ \theta_{P2} \\ \theta_{P3} \\ \theta_{P4} \\ \theta_{P5} \\ \theta_{P6} \end{bmatrix} = \begin{bmatrix}
+w_{1,P1} & w_{2,P1} & w_{3,P1} & w_{4,P1} & w_{5,P1} & w_{6,P1} & w_{7,P1} & w_{8,P1} \\
+w_{1,P2} & w_{2,P2} & w_{3,P2} & w_{4,P2} & w_{5,P2} & w_{6,P2} & w_{7,P2} & w_{8,P2} \\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\
+w_{1,P6} & w_{2,P6} & w_{3,P6} & w_{4,P6} & w_{5,P6} & w_{6,P6} & w_{7,P6} & w_{8,P6}
+\end{bmatrix}
+\begin{bmatrix} y_{1,j} \\ y_{2,j} \\ y_{3,j} \\ y_{4,j} \\ y_{5,j} \\ y_{6,j} \\ y_{7,j} \\ y_{8,j} \end{bmatrix}$$
+
+Portanto, o escore calculado do aluno no Perfil Analítico-Técnico (linha 1) resulta matematicamente em:
+
+$$\theta_{P1} = (w_{1,P1} \times y_{1,j}) + (w_{2,P1} \times y_{2,j}) + \dots + (w_{8,P1} \times y_{8,j})$$
+
+Essa arquitetura de Álgebra Linear, combinada com a lógica de intensidades, permite calcular o perfil exato não apenas de um, mas de centenas de alunos simultaneamente, sem perda de *performance* computacional.
 
 ### A Justificativa Estrutural: Por que usar a Matriz ARM?
 
@@ -595,21 +644,21 @@ df_amostra_livro %>%
 
 A @tbl-amostra-anonimizada apresentada pelo processamento evidencia um recorte prático da base de dados logo após este tratamento computacional, deixando-a pronta para as iterações algébricas.
 
-Analisando a estrutura matricial consolidada — que em uma aplicação acadêmica real pode contar com dezenas ou até centenas de respondentes simultâneos —, conseguimos visualizar a manifestação prática das equações do instrumento de medida.
+Analisando a estrutura matricial consolidada — que em uma aplicação acadêmica real pode contar com dezenas ou até centenas de respondentes simultâneos —, conseguimos visualizar a manifestação prática das equações do instrumento de medida, correlacionando-as com o **Modelo ARM Multidimensional e Hierárquico** (@sec-arm-multi).
 
-A título de exemplo, em um cenário avaliativo contemplando a totalidade de $I = 51$ itens da matriz CHA, divididos estruturalmente em três dimensões (8 variáveis de Competências, 23 de Habilidades e 20 de Atitudes), o Escore Total de Autopercepção de um indivíduo ($T_j^{Pa}$) é o somatório escalar de seus três escores dimensionais ($T_{C}$, $T_{H}$ e $T_{A}$).
+A título de exemplo, em um cenário avaliativo contemplando a totalidade de $I = 51$ itens da matriz CHA, divididos estruturalmente nas macrodimensões ($m = 3$): 8 variáveis de Competências, 23 de Habilidades e 20 de Atitudes. O Escore Total de Autopercepção de um indivíduo ($T_j^{Pa}$) é consolidado respeitando essa hierarquia dimensional.
 
-Matematicamente, para um respondente $j$, as dimensões são calculadas de forma isolada:
+Matematicamente, para um respondente $j$, o somatório base das dimensões é calculado de forma isolada (onde $x_i$ é substituído pela resposta $y_i^{Pa}$ na notação da TCM):
 
 $$T_{C,j}^{Pa} = \sum_{c=1}^{8} y_{c,j}^{Pa} \quad \text{(Escore de Competências)}$$ {#eq-r1-tc-pa}
 $$T_{H,j}^{Pa} = \sum_{h=1}^{23} y_{h,j}^{Pa} \quad \text{(Escore de Habilidades)}$$ {#eq-r1-th-pa}
 $$T_{A,j}^{Pa} = \sum_{a=1}^{20} y_{a,j}^{Pa} \quad \text{(Escore de Atitudes)}$$ {#eq-r1-ta-pa}
 
-A equação do Escore Total global para a Autopercepção torna-se a agregação dessas três componentes:
+A equação do Escore Total global para a Autopercepção ($\theta$), seguindo a estrutura de árvore do ARM Multidimensional, torna-se a agregação dessas três componentes colapsadas ($D_j$), ponderadas pelos seus respectivos pesos dimensionais ($w_{D_j}$) no contexto global:
 
-$$T_j^{Pa} = T_{C,j}^{Pa} + T_{H,j}^{Pa} + T_{A,j}^{Pa}$$ {#eq-r1-tj-agregado}
+$$T_j^{Pa} = \sum_{j=1}^{3} \left( w_{D_j} \times T_{D_j}^{Pa} \right) = w_C T_{C,j}^{Pa} + w_H T_{H,j}^{Pa} + w_A T_{A,j}^{Pa}$$ {#eq-r1-tj-agregado}
 
-Se um respondente ($j = 2$) assinala a nota máxima (5) em todas as perguntas do instrumento, o cálculo do seu Escore Total alcançará o limite superior exato da escala, composto pelos tetos de cada dimensão ($40 + 115 + 100$):
+Se assumirmos, provisoriamente para fins descritivos, que as três macrodimensões possuem pesos iguais na formação do egresso ($w_C = w_H = w_A = 1$), e um respondente ($j = 2$) assinala a nota máxima (5) em todas as perguntas do instrumento, o cálculo do seu Escore Total alcançará o limite superior exato da escala, composto pelos tetos de cada dimensão ($40 + 115 + 100$):
 
 $$T_2^{Pa} = 255$$ {#eq-r1-t2-pa}
 
@@ -824,7 +873,7 @@ ggplot(tabela_indices, aes(x = Dificuldade, y = Discriminacao, label = Item)) +
     title = "Diagnóstico da Escala de Autopercepção",
     subtitle = "Linha tracejada indica o limiar mínimo aceitável de discriminação (> 0.30)",
     x = "Índice de Dificuldade (Proporção de notas Altas)",
-    y = "Índice de Discriminação (P_sup - P_inf)"
+    y = expression("Índice de Discriminação (" * P[sup] - P[inf] * ")")
   ) +
   scale_x_continuous(limits = c(0, 1), breaks = seq(0, 1, 0.2)) +
   scale_y_continuous(limits = c(-0.1, 1), breaks = seq(0, 1, 0.2)) +
@@ -838,7 +887,7 @@ Itens localizados na extremidade inferior do gráfico (baixa discriminação) s�
 
 ### A Matemática na Prática: O Cálculo Vetorial da Autopercepção
 
-Para compreender como a Teoria Clássica da Medida (TCM) consolida os dados, vamos abrir o algoritmo utilizando as respostas reais do **Aluno_01** (extraído da nossa amostra anonimizada).
+Para compreender como a Teoria Clássica da Medida (TCM) consolida os dados, vamos abrir o algoritmo utilizando as respostas reais do **Aluno A037** (extraído da nossa amostra anonimizada).
 
 Na avaliação das 8 Competências Macros ($C01$ a $C08$), este aluno assinalou as seguintes notas na escala Likert (1 a 5), correspondentes à sua própria percepção de desempenho:
 
@@ -851,15 +900,251 @@ Na avaliação das 8 Competências Macros ($C01$ a $C08$), este aluno assinalou 
 * $C07$ (Agir com ética): **2**
 * $C08$ (Aprender com autonomia): **3**
 
-Na álgebra do nosso sistema, essas respostas formam o vetor de entrada de autopercepção do primeiro indivíduo ($y_1^{Pa}$):
+Na álgebra do nosso sistema, essas respostas formam o vetor coluna de entrada de autopercepção do primeiro indivíduo ($\mathbf{y}_{A037}^{Pa}$), seguindo a estruturação matricial definida na seção anterior:
 
-$$y_1^{Pa} = \begin{bmatrix} 3 & 2 & 3 & 3 & 4 & 2 & 2 & 3 \end{bmatrix}$$ {#eq-r1-vetor-y1-pa}
+$$\mathbf{y}_{A037}^{Pa} = \begin{bmatrix} 3 \\ 2 \\ 3 \\ 3 \\ 4 \\ 2 \\ 2 \\ 3 \end{bmatrix}$$ {#eq-r1-vetor-y1-pa}
 
-Aplicando a @eq-escore-total formulada no início do capítulo, o Escore Total ($T_1^{Pa}$) deste aluno é simplesmente a soma dos valores do seu vetor:
+Aplicando a @eq-escore-total formulada no início do capítulo, o Escore Total ($T_{A037}^{Pa}$) deste aluno é simplesmente a soma dos valores do seu vetor:
 
-$$T_1^{Pa} = \sum_{i=1}^{8} y_{i,1}^{Pa} = 3 + 2 + 3 + 3 + 4 + 2 + 2 + 3 = 22$$ {#eq-r1-t1-pa-vetor}
+$$T_{A037}^{Pa} = \sum_{i=1}^{8} y_{i,A037}^{Pa} = 3 + 2 + 3 + 3 + 4 + 2 + 2 + 3 = 22$$ {#eq-r1-t1-pa-vetor}
 
-Esse escore individual de 22 pontos é exatamente o valor que posicionou este aluno no lado esquerdo do histograma apresentado na @fig-distribuicao-competencias. Ao armazenar os vetores de todos os alunos $N_j$, o software é capaz de calcular a @eq-media-item, revelando, por exemplo, que a competência de Comunicação ($C05$) pode ser um ponto forte do indivíduo 1, mas uma fraqueza generalizada caso a Média do Item na amostra ($M_{C05}^{Pa}$) resulte baixa.
+Esse escore individual de 22 pontos é exatamente o valor que posicionou este aluno no lado esquerdo do histograma apresentado na @fig-distribuicao-competencias. Ao armazenar os vetores de todos os alunos $N_j$, o software é capaz de calcular a @eq-media-item, revelando, por exemplo, que a competência de Comunicação ($C05$) pode ser um ponto forte deste indivíduo, mas uma fraqueza generalizada caso a Média do Item na amostra ($M_{C05}^{Pa}$) resulte baixa.
+
+### A Transição para o ARM: Do Modelo Univariável aos Arquétipos
+
+O escore bruto de 22 pontos ($T_{A037}^{Pa}$) gerado pela TCM reflete a essência da abordagem do *Flat Model* (Modelo Univariável). Nele, todas as variáveis operacionais possuem exatamente o mesmo peso escalar (peso 1), o que é excelente para medir o volume geral de conhecimento ou detectar vieses de distribuição na turma, mas péssimo para diferenciar vocações. Se parássemos a análise aqui, o Aluno A037 seria apenas um indivíduo "mediano e indiferenciado" na curva.
+
+Para descobrirmos a sua real identidade profissional, precisamos submeter esse mesmo vetor de respostas ($\mathbf{y}_{A037}^{Pa}$) ao motor do **Modelo Multivariável ARM**. Ao cruzar as respostas estáticas com a Matriz de Pesos Efetivos ($\mathbf{W}$), o algoritmo abandona a soma linear simples e passa a calcular o Construto Latente ($\theta_p$) — a pontuação exata de aderência — para cada um dos 6 arquétipos da Engenharia de Produção.
+
+#### O Contraste: Perfil Analítico vs. Perfil Comunicador
+
+Para provar a eficácia do algoritmo de intensidades, vamos calcular o nível de aderência deste mesmo Aluno A037 ao **Perfil 1 (Analítico-Técnico)**. O algoritmo multiplica cada nota de autopercepção ($y_{i,A037}^{Pa}$) pela exigência estrutural daquele perfil na matriz de pesos:
+
+$$
+\begin{align*}
+  \theta_{P1} &= (3 \times 0.20) + (2 \times 0.25) + (3 \times 0.25) + (3 \times 0.05) \\
+            &\quad + (4 \times 0.03) + (2 \times 0.02) + (2 \times 0.05) + (3 \times 0.15) \\
+  \theta_{P1} &= 0.60 + 0.50 + 0.75 + 0.15 + 0.12 + 0.04 + 0.10 + 0.45 \\
+  \theta_{P1} &= \mathbf{2.71 \text{ (de 5.00)}}
+\end{align*}
+$$
+
+Agora, o algoritmo roda a mesma operação matricial para o **Perfil 4 (Comunicador-Articulador)**, usando exatamente o mesmo vetor de entrada ($\mathbf{y}_{A037}^{Pa}$), mas submetendo-o à matriz de pesos do $P_4$:
+
+$$
+\begin{align*}
+  \theta_{P4} &= (3 \times 0.10) + (2 \times 0.02) + (3 \times 0.10) + (3 \times 0.03) \\
+            &\quad + (4 \times 0.40) + (2 \times 0.20) + (2 \times 0.05) + (3 \times 0.10) \\
+  \theta_{P4} &= 0.30 + 0.04 + 0.30 + 0.09 + 1.60 + 0.40 + 0.10 + 0.30 \\
+  \theta_{P4} &= \mathbf{3.13 \text{ (de 5.00)}}
+\end{align*}
+$$
+
+O sistema repete esse processo simultaneamente para os 6 arquétipos, gerando um vetor de *scores* absolutos para o Aluno A037: $[\theta_{P1}=2.71; \theta_{P2}=2.90; \theta_{P3}=2.87; \theta_{P4}=3.13; \theta_{P5}=2.68; \theta_{P6}=2.76]$.
+
+Para definir o perfil percentual relativo (o "Radar" do aluno), o algoritmo divide o *score* de cada perfil pela soma total dos *scores* gerados (17.05). O resultado final consagra o **Perfil Dominante**:
+
+* Perfil 1 (Analítico): 15,89%
+* Perfil 2 (Operações): 17,00%
+* Perfil 3 (Criativo): 16,83%
+* **Perfil 4 (Comunicador): 18,35% (Perfil Dominante)**
+* Perfil 5 (Líder): 15,71%
+* Perfil 6 (Sustentável): 16,18%
+
+#### A Escala do Algoritmo: Comparativo de Perfis da Amostra
+
+Demonstrar o cálculo matricial para um único aluno é fundamental para validar a matemática do modelo. No entanto, o verdadeiro poder do *People Analytics* surge quando o algoritmo processa essas equações simultaneamente para dezenas de estudantes e normaliza os resultados em percentuais relativos (o "Radar" de cada perfil).
+
+Para ilustrar essa visão gerencial que o professor obtém ao final da Rodada 1, o *script* (@tbl-comparativo-perfis) a seguir consolida os *scores* finais de uma amostra de 5 alunos anonimizados. O código calcula a distribuição percentual das vocações e identifica automaticamente a qual arquétipo cada estudante pertence.
+
+```{r}
+#| label: tbl-comparativo-perfis
+#| tbl-cap: "Mapeamento do Radar Multivariável e Perfil Dominante (Modelo Ponderado Base)"
+#| echo: true
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(tidyr)
+library(knitr)
+library(kableExtra)
+
+quiet_source("R/trat.forms.R")
+
+# 1. Simulação do cálculo Ponderado (Apenas Peso Base) para 5 alunos
+amostra_alunos <- head(unique(df_form1_anon$ID_Aluno), 5)
+
+df_scores_absolutos <- df_form1_anon %>%
+  pivot_longer(cols = matches("^[CHA][0-9]{2}$"), names_to = "Cód", values_to = "Nota") %>%
+  filter(!is.na(Nota) & ID_Aluno %in% amostra_alunos) %>%
+  inner_join(df_pesos_automatizados %>% select(Cód, P, Peso_Base), by = "Cód", relationship = "many-to-many") %>%
+  mutate(Score_Base = Nota * Peso_Base) %>%
+  group_by(ID_Aluno, P) %>%
+  summarise(Score_Total = sum(Score_Base, na.rm = TRUE), .groups = "drop") %>%
+  pivot_wider(names_from = P, values_from = Score_Total) %>%
+  rename(ID_Respondente = ID_Aluno)
+
+# 2. Conversão para Percentual Relativo, Identificação e Formatação Condicional
+df_perfis <- df_scores_absolutos %>%
+  rowwise() %>%
+  mutate(
+    Soma_Total = sum(c_across(starts_with("P0"))),
+    P01_pct = (P01 / Soma_Total) * 100,
+    P02_pct = (P02 / Soma_Total) * 100,
+    P03_pct = (P03 / Soma_Total) * 100,
+    P04_pct = (P04 / Soma_Total) * 100,
+    P05_pct = (P05 / Soma_Total) * 100,
+    P06_pct = (P06 / Soma_Total) * 100,
+    Max_Score = max(c_across(P01_pct:P06_pct)),
+    Perfil_Dominante = case_when(
+      abs(Max_Score - P01_pct) < 1e-9 ~ "P1 (Analítico)",
+      abs(Max_Score - P02_pct) < 1e-9 ~ "P2 (Operações)",
+      abs(Max_Score - P03_pct) < 1e-9 ~ "P3 (Criativo)",
+      abs(Max_Score - P04_pct) < 1e-9 ~ "P4 (Comunicador)",
+      abs(Max_Score - P05_pct) < 1e-9 ~ "P5 (Líder)",
+      abs(Max_Score - P06_pct) < 1e-9 ~ "P6 (Sustentável)"
+    )
+  ) %>%
+  ungroup() %>%
+  mutate(
+    across(P01_pct:P06_pct, ~ {
+      is_max <- abs(.x - Max_Score) < 1e-9
+      val_str <- sprintf("%.1f%%", .x)
+      cell_spec(val_str, bold = is_max, color = ifelse(is_max, "#c0392b", "black"))
+    })
+  ) %>%
+  select(ID_Respondente, P01_pct, P02_pct, P03_pct, P04_pct, P05_pct, P06_pct, Perfil_Dominante)
+
+# 3. Formatação e Renderização da Tabela
+df_perfis %>%
+  kbl(align = "c", escape = FALSE, col.names = c("Aluno", "P1", "P2", "P3", "P4", "P5", "P6", "Perfil Dominante")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
+  add_header_above(c(" " = 1, "Mapeamento do Radar (%)" = 6, " " = 1), bold = TRUE) %>%
+  column_spec(1, bold = TRUE, color = "#2c3e50") %>%
+  column_spec(8, bold = TRUE, color = "white", background = "#2980b9")
+```
+
+A @tbl-comparativo-perfis não evidencia a tão sonhada diversidade latente da turma, mas sim um flagrante desvio estatístico gerado pela autoavaliação cega. O **Aluno A037**, como calculamos manualmente, teve sua força tracionada para a Comunicação. O problema crítico é que **todos os outros alunos da amostra** (A098, A101, A165 e A174) sofreram o exato mesmo "Efeito Bom Moço", sendo diagnosticados como Comunicadores (P4).
+
+Se o professor utilizasse apenas esse modelo base (sem intensidades) para montar as equipes, ele falharia miseravelmente. Não é possível formar Esquadrões Multidisciplinares se a matemática indica que todos na sala possuem a mesma vocação.
+
+É exatamente por isso que o *dashboard* gerencial exige o **Teste de Estresse** na próxima etapa, acionando os multiplicadores de intensidade para punir esse viés e forçar o afloramento de quem são os verdadeiros Analíticos, Operadores e Inovadores ocultos na turma.
+
+### O Panorama Geral: O Inventário de Capital Humano da Turma
+
+Após a execução da malha algorítmica para todos os respondentes, o gestor (ou coordenador da disciplina) deixa de focar apenas no indivíduo e passa a enxergar o **Inventário de Capital Humano** da turma como um todo.
+
+A compilação desses perfis dominantes é o que ditará as regras do jogo para a formação das equipes. Mas, antes de extrairmos o inventário definitivo e alocarmos os alunos, precisamos validar o impacto do nosso motor matemático sobre a amostra bruta.
+
+#### O Teste de Estresse: O Impacto das Intensidades
+
+A teoria matemática por trás da Matriz de Pesos é sólida, mas o seu verdadeiro valor só é comprovado quando a aplicamos aos dados reais.
+
+Para demonstrar o impacto desse "antídoto matemático" contra os vieses de autopercepção, submetemos as respostas da nossa amostra a um teste de estresse algorítmico em dois cenários distintos:
+
+1. **Cenário 1 (Modelo Linear Estático):** O algoritmo calcula o perfil dominante usando apenas os Pesos Base definidos pela diretoria, sem a aplicação dos multiplicadores de intensidade.
+2. **Cenário 2 (Modelo ARM com Intensidades):** O algoritmo recalcula tudo, desta vez injetando a malha de multiplicadores agressivos ($I = 2.0, 1.0, 0.2$) para punir o Efeito Bom Moço e tracionar os talentos reais.
+
+O *script* a seguir executa essa simulação dupla, classifica os alunos nos dois cenários e gera um quadro comparativo da distribuição do Capital Humano da turma.
+
+```{r}
+#| label: tbl-comparativo-intensidades
+#| tbl-cap: "Teste de Estresse: Impacto da Intensidade ARM sobre o Peso Base"
+#| echo: true
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+quiet_source("R/trat.forms.R")
+
+if (!exists("df_comparativo_estresse")) {
+  if (!exists("perfis_base")) {
+    perfis_base <- tibble::tibble(
+      P = paste0("P0", 1:6),
+      `Arquétipo Profissional (Perfil Dominante)` = c(
+        "P1 (Analítico-Técnico)",
+        "P2 (Processos e Operações)",
+        "P3 (Criativo-Inovador)",
+        "P4 (Comunicador-Articulador)",
+        "P5 (Organizacional-Líder)",
+        "P6 (Sustentável-Responsável)"
+      )
+    )
+  }
+
+  if (exists("df_scores_base_individual") && exists("df_scores_individual")) {
+    df_perfil_base_tmp <- df_scores_base_individual %>%
+      group_by(ID_Aluno) %>%
+      slice_max(order_by = Score_Total_Base, n = 1, with_ties = FALSE) %>%
+      ungroup()
+
+    df_perfil_arm_tmp <- df_scores_individual %>%
+      group_by(ID_Aluno) %>%
+      slice_max(order_by = Score_Total, n = 1, with_ties = FALSE) %>%
+      ungroup()
+
+    df_comparativo_estresse <- perfis_base %>%
+      left_join(df_perfil_base_tmp %>% count(P, name = "Qtd_Base"), by = "P") %>%
+      left_join(df_perfil_arm_tmp %>% count(P, name = "Qtd_ARM"), by = "P") %>%
+      mutate(
+        Qtd_Base = replace_na(Qtd_Base, 0),
+        Qtd_ARM = replace_na(Qtd_ARM, 0),
+        Delta = Qtd_ARM - Qtd_Base
+      ) %>%
+      select(`Arquétipo Profissional (Perfil Dominante)`, Qtd_Base, Qtd_ARM, Delta)
+  } else {
+    stop("Objetos necessários para montar df_comparativo_estresse não foram encontrados no ambiente.")
+  }
+}
+
+df_comparativo_estresse %>%
+  mutate(Delta_Fmt = case_when(Delta > 0 ~ paste0("+", Delta), Delta < 0 ~ as.character(Delta), TRUE ~ "-")) %>%
+  select(Perfil = `Arquétipo Profissional (Perfil Dominante)`, Qtd_Base, Qtd_ARM, Delta_Fmt) %>%
+  kbl(
+    align = c("l", "c", "c", "c"),
+    col.names = c("Arquétipo Profissional", "Apenas Peso Base (Cego)", "Com Intensidade (ARM)", "Variação (\u0394)")
+  ) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
+  add_header_above(c(" " = 1, "Distribuição da Turma" = 2, " " = 1), bold = TRUE) %>%
+  column_spec(1, bold = TRUE, color = "#2c3e50") %>%
+  column_spec(2, color = "#c0392b") %>%
+  column_spec(3, bold = TRUE, color = "#2980b9") %>%
+  column_spec(4, bold = TRUE, color = ifelse(df_comparativo_estresse$Delta > 0, "#27ae60", ifelse(df_comparativo_estresse$Delta < 0, "#c0392b", "#7f8c8d")))
+```
+
+::: {.callout-important title="🚀 Boas Práticas em Ciência de Dados: O Fim do Hardcoding"}
+Na engenharia de dados moderna, a reprodutibilidade é a regra de ouro. Em implementações profissionais de *People Analytics* com `R` e `Quarto`, devemos banir a prática de inserir resultados matemáticos manualmente no texto (o famoso *hardcoding*).
+
+Note que os códigos que geram as tabelas e gráficos deste capítulo não possuem valores pré-digitados. Eles operam sob uma arquitetura 100% dinâmica baseada em três pilares:
+
+* **Single Source of Truth (SSOT - Fonte Única da Verdade):** Separamos o processamento pesado (o *Back-End*, nosso arquivo `trat.forms.R`) da camada de apresentação (o *Front-End*, o documento Quarto). O documento apenas "chama" o script de retaguarda usando a função `source()`.
+* **Atualização em Tempo Real:** Tabelas, matrizes e até mesmo trechos narrativos do texto — utilizando código `R` embutido — consultam a nuvem e recalculam todas as porcentagens sozinhos a cada nova renderização do livro.
+* **Escalabilidade à Prova de Erros:** Com um *pipeline* automatizado, o documento deixa de ser um "PDF estático" e passa a atuar como um **software vivo**. Se a turma pular de 38 para 150 alunos, basta compilar o arquivo novamente e todo o diagnóstico será reescrito pela máquina.
+:::
+
+#### A Bipolarização da Turma (O Efeito Lupa)
+
+A execução deste *script* revela visualmente um comportamento fascinante da engenharia de dados. Ao analisarmos a coluna de Variação ($\Delta$) na @tbl-comparativo-intensidades, deparamo-nos com um fenômeno estatístico intrigante e perigoso. Diferente do que o senso comum prega sobre a diversidade natural em uma sala de aula, **100% da turma foi classificada em apenas dois arquétipos** pelo modelo ARM.
+
+Observe o contraste revelador:
+
+* No **Cenário Linear (Cego)**, o Viés de Desejabilidade Social (*Efeito Bom Moço*) reinou absoluto. Como a média simples dilui o peso das competências técnicas, a maioria esmagadora da turma (**46 alunos**) conseguiu se classificar no confortável arquétipo de "Comunicador-Articulador" (P4). Outros perfis como Operações (7 alunos) e Líderes (6 alunos) ainda aparentavam existir.
+* No **Cenário ARM (Com Intensidades)**, a matriz não "suavizou" a turma; ela atuou como uma lente de aumento implacável. Ao aplicar os multiplicadores, o algoritmo "puxou o tapete" da ilusão comportamental. A falsa sensação de domínio relacional colapsou: **35 alunos perderam o status de Comunicador** e os perfis secundários (P2, P3, P5, P6) foram completamente varridos do mapa (zerados).
+
+O resultado final do ARM forçou uma bipolarização extrema: **61 alunos** alocados como Analítico-Técnico (P1) e **11 alunos** como Comunicadores (P4).
+
+O que aconteceu com a diversidade da Engenharia de Produção? A resposta não está em uma falha do algoritmo, mas na comprovação matemática dos vieses cognitivos. Na autopercepção não calibrada, o estudante de engenharia foge do rigor técnico e se enxerga como um "Articulador Carismático". Mas quando a matemática cobra a consistência dessas respostas nas variáveis exatas ($I=2.0$), o perfil de exatas predomina de forma incontestável.
+
+#### O Limite do Indivíduo e o Próximo Passo
+
+Este é o limite absoluto da modelagem baseada em autopercepção. O motor ARM provou que a matemática funciona perfeitamente para punir incoerências e esticar as variâncias, mas se o dado de entrada ($y_i^{Pa}$) está corrompido pela indulgência humana, o diagnóstico final será sempre enviesado (neste caso, uma turma bipolarizada).
+
+Se o gestor ignorasse esse fato e formasse as equipes de trabalho neste exato momento, teríamos esquadrões disfuncionais compostos apenas por *Cérebros* e *Vozes*, sem ninguém para *Operar* (P2) ou *Inovar* (P3).
+
+Para salvar a diversidade latente da turma e forçar o amadurecimento profissional desses futuros engenheiros, a metodologia exige a injeção de uma variável de atrito externa. Precisamos submeter essas ilusões de grandeza à gravidade do mercado. É este cenário de colapso que encerra a nossa primeira etapa analítica e justifica a transição metodológica e algorítmica para a **Rodada 2: A Exigência do Mercado**.
 
 ## ⏱️ Rodada 2: A Exigência do Mercado (Em Grupo) {#sec-rodada-2-mercado}
 
@@ -1097,7 +1382,73 @@ A última camada do modelo ARM resolve o abismo entre o planejamento e a execuç
 * **O Processamento:** O algoritmo calcula a nota média que cada esquadrão recebeu de seus próprios membros e submete esse vetor de execução prática à Matriz de Pesos (ARM).
 * **🔗 Link de Acesso:** [FORMULÁRIO 3 — Atribuição de Desempenho dos Colegas](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1URjBXUVU2TTlRVlNTMzNKVE9PTVcxMjhMTi4u)
 
+### A Análise Descritiva: A Régua Bruta da Execução
+
+Antes da classificação por arquétipo, a engenharia de dados consolida o vetor bruto de execução observado pelos pares. A lógica é a mesma da [Rodada 2](@sec-rodada-2-mercado): cada competência macro do grupo é tratada como uma média aritmética da percepção coletiva.
+
+Para a competência $C_{01}$, por exemplo:
+
+$$C_{01, G_x}^{pares} = \frac{\sum_{j=1}^{n_g} y_{j, C01}^{pares}}{n_g}$$ {#eq-r3-c01-media-pares}
+
+A @tbl-resumo-execucao-grupos apresenta a camada descritiva que antecede o ARM. Além das médias por competência, incluímos dois sinais gerenciais: (i) a **Execução Geral** do grupo e (ii) um **Índice de Consistência Interna** ($IC_g$), que aproxima o grau de homogeneidade entre competências dentro do esquadrão.
+
+```{r}
+#| label: tbl-resumo-execucao-grupos
+#| tbl-cap: "Análise Descritiva: Médias de Execução por Pares (Escala Original)"
+#| echo: true
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+quiet_source("R/trat.forms.R")
+
+df_f3_base <- if ("Turma" %in% names(df_form3_anon)) {
+  df_form3_anon %>% group_by(ID_Grupo, Turma)
+} else {
+  df_form3_anon %>% mutate(Turma = "Turma Unica") %>% group_by(ID_Grupo, Turma)
+}
+
+df_resumo_f3 <- df_f3_base %>%
+  summarise(across(starts_with("C0"), ~ mean(.x, na.rm = TRUE)), .groups = "drop") %>%
+  rowwise() %>%
+  mutate(
+    Execucao_Geral = mean(c_across(starts_with("C0")), na.rm = TRUE),
+    DP_Entre_Competencias = sd(c_across(starts_with("C0")), na.rm = TRUE),
+    IC_g = pmax(0, 1 - (DP_Entre_Competencias / 3))
+  ) %>%
+  ungroup() %>%
+  mutate(Turma = sub(" - .*$", "", Turma)) %>%
+  arrange(ID_Grupo)
+
+idx_exec <- which(names(df_resumo_f3) == "Execucao_Geral")
+idx_ic <- which(names(df_resumo_f3) == "IC_g")
+
+tbl_resumo_f3 <- df_resumo_f3 %>%
+  kbl(align = "c", digits = 2) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
+  column_spec(1, bold = TRUE, color = "#2c3e50")
+
+if (length(idx_exec) == 1) {
+  tbl_resumo_f3 <- tbl_resumo_f3 %>%
+    column_spec(idx_exec, bold = TRUE, color = "white", background = "#34495e")
+}
+
+if (length(idx_ic) == 1) {
+  tbl_resumo_f3 <- tbl_resumo_f3 %>%
+    column_spec(idx_ic, bold = TRUE, color = "white", background = "#7f8c8d")
+}
+
+tbl_resumo_f3
+```
+
 ### O Motor Multivariado Replicado: O Radar de Execução
+
+Médias descritivas, por si só, não identificam vocação dominante. Com o vetor consolidado de execução ($C_{i,G_x}^{pares}$), o modelo calcula o escore de aderência de cada perfil na ótica da entrega:
+
+$$\theta_{Pares,p} = \sum_{i=1}^{8} (C_{i,G_x}^{pares} \times w_{i,p})$$ {#eq-r3-theta-pares}
 
 Para esta análise, o *score* final de execução do grupo ($\theta_{Pares}$) não depende do que eles acham que são, mas sim de como atuaram na ótica dos pares durante a resolução dos conflitos. O script a seguir aplica a matriz de multiplicadores (Pesos e Intensidades) sobre as respostas do Formulário 3, revelando a assinatura computacional definitiva do esquadrão.
 
@@ -1181,6 +1532,86 @@ O nosso motor matemático pega exatamente essas dezenas de colunas punitivas ou 
 #### O Diagnóstico da Triangulação: O *Gap* de Execução
 
 Ao confrontarmos os três pilares analíticos — Autopercepção ([Rodada 1](@sec-rodada-1-autopercepcao)), Mercado ([Rodada 2](@sec-rodada-2-mercado)) e Execução ([Rodada 3](@sec-rodada-3-pares)) —, o modelo revela matematicamente os **Gaps de Formação**.
+
+Para explicitar essa distância entre "o que o grupo declara que o mercado exige" e "o que efetivamente entrega", definimos o gap percentual por perfil:
+
+$$\Delta_{g,p} = r_{g,p}^{Execucao} - r_{g,p}^{Mercado}$$ {#eq-r3-gap-perfil}
+
+e o Índice de Aderência global do grupo ($IA_g$):
+
+$$IA_g = 1 - \frac{1}{2}\sum_{p=1}^{6}\left|r_{g,p}^{Execucao} - r_{g,p}^{Mercado}\right|$$ {#eq-r3-indice-aderencia}
+
+A @tbl-gap-f2-f3 resume esse diagnóstico em nível de esquadrão.
+
+```{r}
+#| label: tbl-gap-f2-f3
+#| tbl-cap: "Gap de Execução por Esquadrão: Exigência de Mercado (F2) vs. Entrega Real (F3)"
+#| echo: true
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(tidyr)
+library(knitr)
+library(kableExtra)
+
+quiet_source("R/trat.forms.R")
+
+df_f2_pct <- df_scores_mercado %>%
+  select(ID_Grupo, P, Score_Total_Mercado) %>%
+  group_by(ID_Grupo) %>%
+  mutate(r_mercado = (Score_Total_Mercado / sum(Score_Total_Mercado)) * 100) %>%
+  ungroup() %>%
+  select(ID_Grupo, P, r_mercado)
+
+df_f3_pct <- df_scores_pares %>%
+  select(ID_Grupo, P, Score_Total_Pares) %>%
+  filter(!is.na(ID_Grupo)) %>%
+  group_by(ID_Grupo) %>%
+  mutate(r_execucao = (Score_Total_Pares / sum(Score_Total_Pares)) * 100) %>%
+  ungroup() %>%
+  select(ID_Grupo, P, r_execucao)
+
+df_gap <- full_join(df_f2_pct, df_f3_pct, by = c("ID_Grupo", "P")) %>%
+  mutate(
+    r_mercado = replace_na(r_mercado, 0),
+    r_execucao = replace_na(r_execucao, 0),
+    Delta_pp = r_execucao - r_mercado
+  )
+
+df_gap_resumo <- df_gap %>%
+  group_by(ID_Grupo) %>%
+  summarise(
+    IA_g = (1 - (sum(abs(Delta_pp), na.rm = TRUE) / 200)) * 100,
+    Gap_Medio_pp = mean(abs(Delta_pp), na.rm = TRUE),
+    .groups = "drop"
+  )
+
+df_gap_critico <- df_gap %>%
+  group_by(ID_Grupo) %>%
+  slice_max(order_by = abs(Delta_pp), n = 1, with_ties = FALSE) %>%
+  ungroup() %>%
+  transmute(
+    ID_Grupo,
+    Perfil_Maior_Gap = normalizar_perfil(P),
+    Delta_Dominante = sprintf("%+.1f p.p.", Delta_pp)
+  )
+
+df_gap_tabela <- df_gap_resumo %>%
+  left_join(df_gap_critico, by = "ID_Grupo") %>%
+  arrange(desc(Gap_Medio_pp))
+
+df_gap_tabela %>%
+  kbl(
+    align = c("c", "c", "c", "c", "c"),
+    digits = 2,
+    col.names = c("Grupo", "IA_g (%)", "Gap Médio (p.p.)", "Perfil de Maior Desvio", "Delta Dominante")
+  ) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
+  column_spec(1, bold = TRUE, color = "#2c3e50") %>%
+  column_spec(2, bold = TRUE, color = "white", background = "#16a085") %>%
+  column_spec(3, bold = TRUE, color = "#c0392b")
+```
 
 A sobreposição dessas camadas via algoritmo transcende a pedagogia tradicional. É extremamente comum observar, na prática letiva, que um esquadrão mapeie o mercado demandando um foco absoluto em **Operações (P2)**, mas na hora de entregar o projeto e ser avaliado pelos pares, a sua assinatura computacional acuse um desvio para a **Comunicação (P4)** ou **Análise (P1)**.
 
@@ -2791,3 +3222,4 @@ Prezado(a) aluno(a), convido você e sua equipe a participarem da pesquisa "FORM
 **Retorno dos Dados:** O diagnóstico das estratégias de mitigação e das regras de Compliance criadas pelas equipes poderá ser discutido de forma macro em sala de aula para otimizar as melhores práticas de Gestão de Projetos na turma.
 
 Recomendamos que você salve ou tire um print desta tela para o seu registro de consentimento.
+
