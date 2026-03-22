@@ -24,20 +24,35 @@ Para que uma consultoria resolva problemas complexos aplicando o MASP e o PDCA (
 Como nosso laboratório atende a diferentes frentes da Engenharia de Produção, as missões das consultorias são divididas em duas grandes trilhas operacionais. Identifique a trilha correspondente à sua disciplina e utilize este roteiro como o *Backlog* (lista de tarefas) do seu projeto.
 
 ### Trilha 1: Gestão da Qualidade (Foco em PDCA e *Data Science*)
-Para os esquadrões desta disciplina, o objetivo é atuar como Analistas de Confiabilidade e Melhoria Contínua. Vocês receberão uma base de dados real de uma operação de mineração contendo milhares de registros de telemetria, ciclos de transporte e falhas de equipamento. A missão do semestre é rodar o ciclo MASP/PDCA completo em cima dessa base:
+Para os esquadrões desta disciplina, o objetivo é atuar como Analistas de Confiabilidade e Melhoria Contínua. Vocês receberão uma base de dados real de uma operação de mineração contendo milhares de registros de telemetria, ciclos de transporte e falhas de equipamento. A missão do semestre é rodar o ciclo MASP/PDCA metodicamente em cima dessa base, dividido em duas grandes etapas de avaliação (N1 e N2):
 
-* **Etapa 1 (Plan - O Baseline):** Baixar os dados, limpá-los e calcular os Indicadores-Chave de Desempenho (KPIs) para descobrir o estado atual da frota.
-* **Etapa 2 (Plan - A Lacuna):** Identificar o equipamento ou o processo ofensor através do Gráfico de Pareto. Construir o método da lacuna (*Waterfall*) para definir uma Meta SMART.
-* **Etapa 3 (Plan - A Causa-Raiz):** Aplicar o diagrama de Ishikawa e a matriz GUT sobre os modos de falha do ofensor, aprofundando-se com a técnica dos 5 Porquês.
-* **Etapa 4 (Do/Check - O Plano de Ação):** Propor um plano de engenharia estruturado (5W2H) — como uma mudança no plano de manutenção, alteração de *layout* ou retreinamento — e simular o impacto financeiro dessa ação.
+**Fase 1: O Planejamento e o MASP (Avaliação N1)**
+O foco inicial é debruçar-se sobre o *Data Lake* para blindar a fase *Plan* (Planejamento) do ciclo, evitando "soluções de prateleira":
+* **Identificação do Problema:** Processar os dados brutos, avaliar o desempenho real da frota e definir Metas e Objetivos claros.
+* **Análise do Fenômeno e do Processo:** Isolar o equipamento ou processo ofensor (utilizando estratificação) e descobrir a causa-raiz geradora das falhas e gargalos.
+* **Plano de Ação:** Propor um pacote de contramedidas de engenharia estruturado na ferramenta 5W2H para bloquear definitivamente a causa-raiz descoberta na etapa anterior.
 
-### Trilha 2: Sistemas de Gestão Integrados (Foco em Governança e Normas)
-Para os esquadrões de SGI, a vertente avança para a estruturação normativa. Em vez de focar apenas na correção da falha de uma máquina, a missão é desenhar a arquitetura de gestão que impede que as falhas sistêmicas ocorram, integrando Qualidade (ISO 9001), Meio Ambiente (ISO 14001) e Saúde e Segurança (ISO 45001).
+**Fase 2: Execução, Controle e Padronização (Avaliação N2)**
+Após a aprovação do planejamento no primeiro seminário, o esquadrão avança para as fases *Do*, *Check* e *Act*:
+* **Execução (*Do*):** Especificar a qualidade e os equipamentos necessários para a mudança e simular o Relatório de Execução.
+* **Verificação de Resultados (*Check*):** Auditar os dados e simular os Custos da Qualidade (Prevenção vs. Falha). As metas de ROI e desempenho traçadas na N1 foram atingidas?
+* **Ação e Padronização (*Act*):** Elaborar procedimentos operacionais padrão para prevenir a reincidência da falha e aplicar a matriz FMEA (Análise de Modos de Falha e Efeito) no equipamento de mineração escolhido para consolidar a melhoria contínua.
 
-* **Etapa 1 (Contexto e Liderança):** Definir o escopo do SGI da empresa fictícia, mapeando as partes interessadas e elaborando a Política Integrada.
-* **Etapa 2 (Planejamento e Risco):** Construir a Matriz de Riscos e Oportunidades corporativa (SWOT) e a Matriz de Aspectos/Impactos Ambientais e Perigos/Riscos Ocupacionais.
-* **Etapa 3 (Apoio e Operação):** Desenvolver a matriz de competências do SGI, o plano de comunicação e estruturar a Informação Documentada (POP) de um processo crítico.
-* **Etapa 4 (Avaliação e Melhoria):** Estruturar o modelo de auditoria interna, o fluxo de tratamento de Não Conformidades (RNC) e a sistemática de Análise Crítica pela Direção.
+#### Trilha 2: Sistemas de Gestão Integrados (Foco em Governança e Normas)
+
+Para os esquadrões de SGI, a vertente avança para a estruturação normativa corporativa. A missão da consultoria é desenhar, do zero, a arquitetura de gestão de uma empresa, integrando Qualidade (ISO 9001), Meio Ambiente (ISO 14001), Saúde e Segurança Ocupacional (ISO 45001) e Responsabilidade Social (ISO 26000 / NBR 16001). O projeto semestral é dividido em duas grandes entregas (N1 e N2):
+
+**Fase 1: Estruturação, Qualidade e Meio Ambiente (Avaliação N1)**
+O foco inicial é estabelecer a fundação da empresa e mapear seus primeiros riscos sistêmicos e ambientais:
+* **Contexto e Liderança:** Definir a empresa fictícia, seu escopo de atuação, mapear as partes interessadas e aplicar o diagnóstico estratégico (SWOT).
+* **Mapeamento de Processos e Qualidade:** Construir a Matriz de Riscos e Oportunidades do negócio corporativo e estruturar procedimentos operacionais críticos, incluindo o fluxo de tratamento de Não Conformidades (NC).
+* **Gestão Ambiental:** Aplicar a metodologia LAIA (Levantamento de Aspectos e Impactos Ambientais) para mapear e mitigar os passivos ecológicos da operação, garantindo o *compliance* normativo.
+
+**Fase 2: Segurança, Integração e Auditoria (Avaliação N2)**
+Na segunda etapa, o escopo de consultoria se expande para a proteção humana, a governança corporativa e a auditoria do próprio sistema:
+* **Saúde e Segurança Ocupacional (SST):** Elaborar a Matriz de Perigos e Riscos (APR/HRN), definindo a hierarquia de controles operacionais e conduzindo simulações de investigação de incidentes com análise de causa-raiz (Ishikawa e 5 Porquês).
+* **Governança e ESG:** Redigir a Política Integrada do SGI, incorporando diretrizes de Direitos Humanos, cadeia de valor e Responsabilidade Social.
+* **Auditoria e Consolidação (Manual do SGI):** Planejar um programa de auditoria interna baseado na ISO 19011. Os alunos deverão criar os *checklists* de verificação, redigir Relatórios de Não Conformidade (RNC) perfeitos e unificar todas as entregas do semestre no Manual do SGI digital para a defesa oral do projeto.
 
 ---
 

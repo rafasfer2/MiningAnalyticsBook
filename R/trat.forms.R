@@ -78,6 +78,11 @@ escala_habilidades <- c("Pouquíssima experiência" = 1, "Pouca experiência" = 
 escala_atitudes <- c("Nunca" = 1, "Raramente" = 2, "Às vezes" = 3, "Frequentemente" = 4, "Sempre" = 5)
 escala_notas_hardskills <- c("Ainda não cursei" = NA_real_, "60 a 69" = 65, "70 a 79" = 75, "80 a 89" = 85, "90 a 100" = 95)
 
+col_matricula_form5 <- intersect(c("Matrícula", "Matricula"), names(df_form5_bruto))[1]
+if (is.na(col_matricula_form5)) {
+    stop("Coluna de matrícula do Formulário 5 não encontrada.")
+}
+
 mat_f1 <- limpar_mat(df_form1_bruto$Matrícula[!is.na(df_form1_bruto$Matrícula)])
 mat_f2 <- df_form2_bruto %>%
     pivot_longer(cols = matches("\\(Aluno \\d\\)"), names_to = c(".value", "Posicao_Grupo"), names_pattern = "(.*) \\(Aluno (\\d)\\)") %>%
@@ -92,7 +97,11 @@ mat_f4 <- coalesce(
 ) %>%
     .[!is.na(.)] %>%
     limpar_mat()
-mat_f5 <- limpar_mat(df_form5_bruto$Matrícula[!is.na(df_form5_bruto$Matrícula)])
+mat_f5 <- df_form5_bruto %>%
+    mutate(Matrícula = as.character(.data[[col_matricula_form5]])) %>%
+    filter(!is.na(Matrícula)) %>%
+    pull(Matrícula) %>%
+    limpar_mat()
 mat_ind <- limpar_mat(df_indices_bruto[[1]][!is.na(df_indices_bruto[[1]])])
 mat_of <- limpar_mat(df_Matrículas_bruto[[1]][!is.na(df_Matrículas_bruto[[1]])])
 
@@ -210,8 +219,8 @@ df_indices_anon <- df_indices_bruto %>%
     select(ID_Aluno, ID_Grupo, any_of("Turma"), MC, IEA, IRA)
 
 df_form5_anon <- df_form5_bruto %>%
-    filter(!is.na(Matrícula)) %>%
-    mutate(Matrícula = limpar_mat(Matrícula)) %>%
+    mutate(Matrícula = limpar_mat(.data[[col_matricula_form5]])) %>%
+    filter(!is.na(Matrícula) & Matrícula != "") %>%
     left_join(df_de_para, by = c("Matrícula" = "Matrícula_Original")) %>%
     left_join(mapa_grupos_unico, by = "ID_Aluno", suffix = c("_f5", "")) %>%
     select(ID_Aluno, ID_Grupo, any_of("Turma"), matches("Ciclo|Componentes")) %>%
@@ -223,6 +232,14 @@ df_form5_anon <- df_form5_bruto %>%
     ) %>%
     filter(!is.na(Nota_Numerica)) %>%
     select(ID_Aluno, ID_Grupo, Turma, Categoria, Disciplina, Nota_Numerica)
+
+df_form5_respondentes <- df_form5_bruto %>%
+    mutate(Matrícula = limpar_mat(.data[[col_matricula_form5]])) %>%
+    filter(!is.na(Matrícula) & Matrícula != "") %>%
+    left_join(df_de_para, by = c("Matrícula" = "Matrícula_Original")) %>%
+    distinct(ID_Aluno)
+
+n_respostas_form5 <- nrow(df_form5_respondentes)
 
 # ==============================================================================
 # PARTE 4: CALCULOS MULTIVARIADOS (BASE vs ARM) - F1, F2, F3
