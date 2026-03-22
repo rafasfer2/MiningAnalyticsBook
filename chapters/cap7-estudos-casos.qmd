@@ -2003,7 +2003,7 @@ Se o gestor tivesse acesso a esse *dashboard* no início do ciclo, poderia ter i
 
 #### Decodificando a Coorte: O Peso da Execução
 
-A tabela acima consolida a jornada comportamental. Observe como a engenharia de dados desmascara a narrativa:
+A @tbl-rastreabilidade-longitudinal consolida a jornada comportamental. Observe como a engenharia de dados desmascara a narrativa:
 
 **O Planejamento (F1 $\rightarrow$ F2):** Isoladamente, esses 11 alunos se venderam como Comunicadores (P4). No entanto, ao sentarem com seus grupos na [Rodada 2](@sec-rodada-2-mercado), a pressão dos colegas os forçou a admitir que o mercado exigia, na verdade, o perfil Analítico-Técnico (P1) ou de Operações (P2).
 
@@ -2374,7 +2374,7 @@ df_comparativo_crise %>%
 
 #### Decodificando a Crise: O Skin in the Game e a Realidade Operacional
 
-A Tabela gerada pelo processamento do SJT expõe o desfecho comportamental do nosso modelo. Ao remover as declarações abstratas e inserir os alunos em dilemas operacionais com consequências financeiras, ambientais e de segurança (o chamado Skin in the Game, ou "Pele em Risco"), a engenharia de dados prova que a autoavaliação inicial carecia de ancoragem na realidade.
+A @tbl-estresse-sjt expõe o desfecho comportamental do nosso modelo. Ao remover as declarações abstratas e inserir os alunos em dilemas operacionais com consequências financeiras, ambientais e de segurança (o chamado Skin in the Game, ou "Pele em Risco"), a engenharia de dados prova que a autoavaliação inicial carecia de ancoragem na realidade.
 
 Observando a variação dos perfis, constatamos o "Nascimento da Diversidade Operacional". Onde o Formulário 1 via uma turma massivamente polarizada e escondida na "tendência central" do Analítico (P1) e do Comunicador (P4), a pressão da simulação revelou quem realmente é quem na linha de frente:
 
@@ -2437,7 +2437,7 @@ df_migracao_f2_f3 %>%
   column_spec(3:4, color = "#2c3e50")
 ```
 
-A Tabela revela um fenômeno absoluto: **100% dos grupos operaram sob o arquétipo Analítico-Técnico (P1)**.
+A @tbl-transicao-f2-f3 revela um fenômeno absoluto: **100% dos grupos operaram sob o arquétipo Analítico-Técnico (P1)**.
 
 Na psicologia organizacional, isso é conhecido como Efeito Manada (*Groupthink*). Estudantes de engenharia, quando colocados em grupo e sob avaliação mútua, tendem a reprimir características destoantes (como criatividade arriscada ou liderança agressiva) para se adequarem ao arquétipo "padrão" esperado de um engenheiro: o pragmatismo analítico. O grupo se torna uma bolha homogênea.
 
@@ -2651,7 +2651,7 @@ Ao analisarmos a matriz gerada, a eficiência do algoritmo de alocação se torn
 * **O Controle da Liderança:** A restrição funcionou perfeitamente. O algoritmo espalhou as "Lideranças" para que atuassem como âncoras metodológicas, respeitando o limite do espaço confinado de 5 membros e evitando o colapso por disputa de controle.
 * **A Gestão de Danos (Pendentes):** Em vez de isolar os alunos ausentes ou jogá-los todos no mesmo grupo, a taxa de risco foi diluída. Praticamente todos os *Squads* absorveram uma cota mínima e suportável de alunos pendentes, garantindo que o impacto da falta de dados não destrua a entrega de um único esquadrão.
 
-Essa tabela marca a transição definitiva da teoria para a operação. A partir deste ponto, as equipes são entidades empresariais formadas, limitadas e auditadas pela engenharia de dados.
+A @tbl-distribuicao-squads marca a transição definitiva da teoria para a operação. A partir deste ponto, as equipes são entidades empresariais formadas, limitadas e auditadas pela engenharia de dados.
 
 Contudo, equilibrar o comportamento não é suficiente. Antes de rodarmos o algoritmo de formação final dos novos *squads*, precisamos da última variável da equação de alta performance: o lastro técnico de conhecimento. É o que faremos a seguir, mapeando a base histórica de Hard Skills dos alunos.
 
@@ -3201,7 +3201,7 @@ Ao processar a malha de dados das respostas consolidadas no Formulário 5, a eng
 * **A Escassez do Especialista Analítico:** Embora a dinâmica da [Rodada 2](@sec-rodada-2-mercado) tenha mostrado que quase a totalidade da turma sabe que o mercado exige um perfil Analítico-Técnico, o Formulário 5 prova que **a proficiência real é um recurso escasso**. Ao filtrarmos as notas de excelência (90 a 100) em disciplinas duras do Ciclo Profissionalizante, o volume de "especialistas" despenca.
 * **A Gestão de Risco nos Esquadrões:** O cruzamento desses dados ilumina o campo de batalha do professor. O algoritmo expõe visualmente esquadrões que possuem múltiplos membros com lacunas graves em *Gestão da Qualidade* e *Metrologia*. Sem esse mapeamento, essas equipes chegariam ao final do semestre entregando projetos inviáveis.
 
-Ao preencherem o **Team Charter** ([Rodada 7](@sec-rodada-7-tap)), a instrução tática baseada nestes dados é inegociável: a Matriz de Responsabilidades do grupo deve ser submissa a essa tabela.
+Ao preencherem o **Team Charter** ([Rodada 7](@sec-rodada-7-tap)), a instrução tática baseada nestes dados é inegociável: a Matriz de Responsabilidades do grupo deve ser submissa à @tbl-hardskills-squad.
 
 Se o esquadrão possui apenas um aluno que gabaritou *Estatística*, é ele quem deve assinar a revisão dos cálculos de capabilidade.
 
@@ -3328,7 +3328,7 @@ ggplot(df_plot_talentos_final, aes(x = IEA, y = Score_Final_Recalibrado, color =
 
 ### A Linha do Tempo Analítica: Rastreabilidade de Perfis
 
-Para provar a volatilidade do perfil humano, o motor de dados rastreia a evolução individual dos alunos ao longo de todas as rodadas metodológicas. A tabela abaixo ilustra o comportamento de uma amostra da turma de *Gestão da Qualidade*, mostrando a "viagem" de cada aluno desde a sua autopercepção enviesada (F1), passando pela adequação forçada da equipe (F2 e F3), até o choque de realidade gerado pela fusão do instinto de crise com as *Hard Skills* (F4 + F5).
+Para provar a volatilidade do perfil humano, o motor de dados rastreia a evolução individual dos alunos ao longo de todas as rodadas metodológicas. A @tbl-evolucao-individual ilustra o comportamento de uma amostra da turma de *Gestão da Qualidade*, mostrando a "viagem" de cada aluno desde a sua autopercepção enviesada (F1), passando pela adequação forçada da equipe (F2 e F3), até o choque de realidade gerado pela fusão do instinto de crise com as *Hard Skills* (F4 + F5).
 
 A @tbl-evolucao-individual apresenta os resultados desta etapa.
 
