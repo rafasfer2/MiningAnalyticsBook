@@ -8543,7 +8543,7 @@ Figura&nbsp;7.6: Matriz de Talentos Definitiva: O DNA Recalibrado (F4+F5) vs.&nb
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Garante que o df_evolucao_perfis esteja atualizado</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Carrega o back-end (dados brutos + dicionário de anonimização)</span></span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet_source</span>(<span class="st">"R/trat.forms.R"</span>)</span>
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Função robusta de padronização para a nomenclatura oficial dos Arquétipos</span></span>
@@ -8559,52 +8559,70 @@ Figura&nbsp;7.6: Matriz de Talentos Definitiva: O DNA Recalibrado (F4+F5) vs.&nb
 <span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Compatibiliza o identificador anonimizado oficial entre versões da base</span></span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>id_col_evolucao <span class="ot">&lt;-</span> <span class="fu">intersect</span>(<span class="fu">c</span>(<span class="st">"ID_Aluno"</span>, <span class="st">"Matrícula"</span>, <span class="st">"Matricula"</span>), <span class="fu">names</span>(df_evolucao_perfis))[<span class="dv">1</span>]</span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">is.na</span>(id_col_evolucao)) {</span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">"Não foi possível identificar a coluna de ID anonimizado em df_evolucao_perfis."</span>)</span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>df_evolucao_tmp <span class="ot">&lt;-</span> df_evolucao_perfis <span class="sc">%&gt;%</span></span>
-<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mostramos uma amostra de 15 alunos para a renderização do livro</span></span>
-<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">15</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Aluno =</span> <span class="fu">as.character</span>(.data[[id_col_evolucao]])) <span class="sc">%&gt;%</span></span>
-<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
-<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>    Squad,</span>
-<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>    Aluno,</span>
-<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>    IEA,</span>
-<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F1 (Ego)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">F1 (Ego)</span><span class="st">`</span>,</span>
-<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F3 (Pares)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">F3 (Pares)</span><span class="st">`</span>,</span>
-<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F4 (Instinto)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">F4 (Instinto)</span><span class="st">`</span>,</span>
-<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F5 (Recalibrado)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">F5 (Recalibrado)</span><span class="st">`</span></span>
-<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Aplica a padronização oficial nas 4 colunas de perfil simultaneamente</span></span>
-<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">F1 (Ego)</span><span class="st">`</span>, <span class="st">`</span><span class="at">F3 (Pares)</span><span class="st">`</span>, <span class="st">`</span><span class="at">F4 (Instinto)</span><span class="st">`</span>, <span class="st">`</span><span class="at">F5 (Recalibrado)</span><span class="st">`</span>), padronizar_perfil)</span>
-<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Tratamento de segurança caso a base retorne vazia</span></span>
-<span id="cb23-47"><a href="#cb23-47" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">nrow</span>(df_evolucao_tmp) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb23-48"><a href="#cb23-48" aria-hidden="true" tabindex="-1"></a>  df_evolucao_tmp <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb23-49"><a href="#cb23-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">Squad =</span> <span class="st">"Sem dados"</span>,</span>
-<span id="cb23-50"><a href="#cb23-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">Aluno =</span> <span class="st">"A001"</span>,</span>
-<span id="cb23-51"><a href="#cb23-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">IEA =</span> <span class="cn">NA_real_</span>,</span>
-<span id="cb23-52"><a href="#cb23-52" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F1 (Ego)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"-"</span>,</span>
-<span id="cb23-53"><a href="#cb23-53" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F3 (Pares)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"-"</span>,</span>
-<span id="cb23-54"><a href="#cb23-54" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F4 (Instinto)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"-"</span>,</span>
-<span id="cb23-55"><a href="#cb23-55" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F5 (Recalibrado)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"-"</span></span>
-<span id="cb23-56"><a href="#cb23-56" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb23-57"><a href="#cb23-57" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb23-58"><a href="#cb23-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-59"><a href="#cb23-59" aria-hidden="true" tabindex="-1"></a><span class="co"># Renderização Visual</span></span>
-<span id="cb23-60"><a href="#cb23-60" aria-hidden="true" tabindex="-1"></a>df_evolucao_tmp <span class="sc">%&gt;%</span></span>
-<span id="cb23-61"><a href="#cb23-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">align =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"c"</span>, <span class="st">"c"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb23-62"><a href="#cb23-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>), <span class="at">full_width =</span> <span class="cn">TRUE</span>, <span class="at">font_size =</span> <span class="dv">12</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-63"><a href="#cb23-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">"Identidade"</span> <span class="ot">=</span> <span class="dv">3</span>, <span class="st">"Fase Estática (Teoria)"</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"Fase Dinâmica (Realidade)"</span> <span class="ot">=</span> <span class="dv">2</span>), <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">background =</span> <span class="st">"#ecf0f1"</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-64"><a href="#cb23-64" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Destaca o Índice Técnico e o Perfil Definitivo</span></span>
-<span id="cb23-65"><a href="#cb23-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">3</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-66"><a href="#cb23-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">7</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#27ae60"</span>, <span class="at">background =</span> <span class="st">"#e8f8f5"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-67"><a href="#cb23-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collapse_rows</span>(<span class="at">columns =</span> <span class="dv">1</span>, <span class="at">valign =</span> <span class="st">"top"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Identifica a coluna correta de matrícula no dicionário e na base bruta</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>col_mapa_de_para <span class="ot">&lt;-</span> <span class="fu">intersect</span>(<span class="fu">c</span>(<span class="st">"Matrícula_Original"</span>, <span class="st">"Matricula_Original"</span>), <span class="fu">names</span>(df_de_para))[<span class="dv">1</span>]</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume que a base df_evolucao_perfis tem uma coluna chamada Matrícula (ou similar)</span></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>col_base_bruta    <span class="ot">&lt;-</span> <span class="fu">intersect</span>(<span class="fu">c</span>(<span class="st">"Matrícula"</span>, <span class="st">"Matricula"</span>), <span class="fu">names</span>(df_evolucao_perfis))[<span class="dv">1</span>]</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">is.na</span>(col_mapa_de_para) <span class="sc">|</span> <span class="fu">is.na</span>(col_base_bruta)) {</span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">"Não foi encontrada a coluna de matrícula para o cruzamento de anonimização."</span>)</span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Processamento Algorítmico da Anonimização (Segurança LGPD)</span></span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Pegamos apenas a amostra de 15 alunos e resolvemos a LGPD *antes* de renderizar</span></span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>df_evolucao_tmp <span class="ot">&lt;-</span> df_evolucao_perfis <span class="sc">%&gt;%</span></span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">15</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cruza a base bruta com o dicionário de hash de hash (ID_Aluno)</span></span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(df_de_para, <span class="at">by =</span> <span class="fu">setNames</span>(col_mapa_de_para, col_base_bruta)) <span class="sc">%&gt;%</span></span>
+<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Se não houver hash, trata como pendente</span></span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ID_Aluno =</span> <span class="fu">replace_na</span>(ID_Aluno, <span class="st">"Inconsistência/Pendente"</span>))</span>
+<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Cria o sequencial anonimizado (A001, A002...) com base nos alunos únicos da amostra</span></span>
+<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a><span class="co"># (Se ID_Aluno for pendente, A--- será o ID)</span></span>
+<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a>mapa_anonimizacao <span class="ot">&lt;-</span> df_evolucao_tmp <span class="sc">%&gt;%</span></span>
+<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(ID_Aluno) <span class="sc">%&gt;%</span></span>
+<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(ID_Aluno) <span class="sc">%&gt;%</span></span>
+<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Filtra inconsistências para a sequência</span></span>
+<span id="cb23-47"><a href="#cb23-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">Temp_ID =</span> <span class="fu">if_else</span>(ID_Aluno <span class="sc">==</span> <span class="st">"Inconsistência/Pendente"</span>, <span class="cn">NA_character_</span>, ID_Aluno),</span>
+<span id="cb23-48"><a href="#cb23-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">Sequence =</span> <span class="fu">if_else</span>(ID_Aluno <span class="sc">==</span> <span class="st">"Inconsistência/Pendente"</span>,</span>
+<span id="cb23-49"><a href="#cb23-49" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"A---"</span>,</span>
+<span id="cb23-50"><a href="#cb23-50" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">sprintf</span>(<span class="st">"A%03d"</span>, <span class="fu">row_number</span>() <span class="sc">-</span> (<span class="fu">is.na</span>(Temp_ID))))</span>
+<span id="cb23-51"><a href="#cb23-51" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb23-52"><a href="#cb23-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ID_Aluno, <span class="at">Aluno =</span> Sequence)</span>
+<span id="cb23-53"><a href="#cb23-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-54"><a href="#cb23-54" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Consolidação e Formatação do Panorama</span></span>
+<span id="cb23-55"><a href="#cb23-55" aria-hidden="true" tabindex="-1"></a>df_evolucao_tmp <span class="ot">&lt;-</span> df_evolucao_tmp <span class="sc">%&gt;%</span></span>
+<span id="cb23-56"><a href="#cb23-56" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Substitui o ID de hash pelo Aluno (A001) e finaliza o select</span></span>
+<span id="cb23-57"><a href="#cb23-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(mapa_anonimizacao, <span class="at">by =</span> <span class="st">"ID_Aluno"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-58"><a href="#cb23-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb23-59"><a href="#cb23-59" aria-hidden="true" tabindex="-1"></a>    Squad,</span>
+<span id="cb23-60"><a href="#cb23-60" aria-hidden="true" tabindex="-1"></a>    Aluno,</span>
+<span id="cb23-61"><a href="#cb23-61" aria-hidden="true" tabindex="-1"></a>    IEA,</span>
+<span id="cb23-62"><a href="#cb23-62" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F1 (Ego)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">F1 (Ego)</span><span class="st">`</span>,</span>
+<span id="cb23-63"><a href="#cb23-63" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F3 (Pares)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">F3 (Pares)</span><span class="st">`</span>,</span>
+<span id="cb23-64"><a href="#cb23-64" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F4 (Instinto)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">F4 (Instinto)</span><span class="st">`</span>,</span>
+<span id="cb23-65"><a href="#cb23-65" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F5 (Recalibrado)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">F5 (Recalibrado)</span><span class="st">`</span></span>
+<span id="cb23-66"><a href="#cb23-66" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb23-67"><a href="#cb23-67" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Aplica a padronização oficial nas 4 colunas de perfil</span></span>
+<span id="cb23-68"><a href="#cb23-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">F1 (Ego)</span><span class="st">`</span>, <span class="st">`</span><span class="at">F3 (Pares)</span><span class="st">`</span>, <span class="st">`</span><span class="at">F4 (Instinto)</span><span class="st">`</span>, <span class="st">`</span><span class="at">F5 (Recalibrado)</span><span class="st">`</span>), padronizar_perfil))</span>
+<span id="cb23-69"><a href="#cb23-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-70"><a href="#cb23-70" aria-hidden="true" tabindex="-1"></a><span class="co"># Tratamento de segurança para base vazia</span></span>
+<span id="cb23-71"><a href="#cb23-71" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">nrow</span>(df_evolucao_tmp) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb23-72"><a href="#cb23-72" aria-hidden="true" tabindex="-1"></a>  df_evolucao_tmp <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb23-73"><a href="#cb23-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">Squad =</span> <span class="st">"Sem dados"</span>, <span class="at">Aluno =</span> <span class="st">"A001"</span>, <span class="at">IEA =</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb23-74"><a href="#cb23-74" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F1 (Ego)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"-"</span>, <span class="st">`</span><span class="at">F3 (Pares)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"-"</span>, <span class="st">`</span><span class="at">F4 (Instinto)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"-"</span>, <span class="st">`</span><span class="at">F5 (Recalibrado)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"-"</span></span>
+<span id="cb23-75"><a href="#cb23-75" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb23-76"><a href="#cb23-76" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-77"><a href="#cb23-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-78"><a href="#cb23-78" aria-hidden="true" tabindex="-1"></a><span class="co"># Renderização Visual</span></span>
+<span id="cb23-79"><a href="#cb23-79" aria-hidden="true" tabindex="-1"></a>df_evolucao_tmp <span class="sc">%&gt;%</span></span>
+<span id="cb23-80"><a href="#cb23-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">align =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"c"</span>, <span class="st">"c"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb23-81"><a href="#cb23-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>), <span class="at">full_width =</span> <span class="cn">TRUE</span>, <span class="at">font_size =</span> <span class="dv">12</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-82"><a href="#cb23-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">"Identidade"</span> <span class="ot">=</span> <span class="dv">3</span>, <span class="st">"Fase Estática (Teoria)"</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"Fase Dinâmica (Realidade)"</span> <span class="ot">=</span> <span class="dv">2</span>), <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">background =</span> <span class="st">"#ecf0f1"</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-83"><a href="#cb23-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">3</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-84"><a href="#cb23-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">7</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#27ae60"</span>, <span class="at">background =</span> <span class="st">"#e8f8f5"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-85"><a href="#cb23-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collapse_rows</span>(<span class="at">columns =</span> <span class="dv">1</span>, <span class="at">valign =</span> <span class="st">"top"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-evolucao-individual" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -8648,7 +8666,7 @@ Fase Dinâmica (Realidade)
 <tbody>
 <tr class="odd">
 <td rowspan="6" style="text-align: center; vertical-align: top !important;">Squad_01</td>
-<td style="text-align: center;">2024007225</td>
+<td style="text-align: center;">A008</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">3.7267</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -8656,7 +8674,7 @@ Fase Dinâmica (Realidade)
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P5 (Organizacional-Líder)</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">2023009904</td>
+<td style="text-align: center;">A005</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">1.9094</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -8664,7 +8682,7 @@ Fase Dinâmica (Realidade)
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P1 (Analítico-Técnico)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">2025002537</td>
+<td style="text-align: center;">A013</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">NA</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -8672,7 +8690,7 @@ Fase Dinâmica (Realidade)
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">Pendente/Sem Dados</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">2022008644</td>
+<td style="text-align: center;">A002</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">3.5739</td>
 <td style="text-align: left;">Pendente/Sem Dados</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -8680,7 +8698,7 @@ Fase Dinâmica (Realidade)
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P3 (Criativo-Inovador)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">2022009919</td>
+<td style="text-align: center;">A003</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">NA</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -8688,7 +8706,7 @@ Fase Dinâmica (Realidade)
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P2 (Processos e Operações)</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">2022001957</td>
+<td style="text-align: center;">A001</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">NA</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -8697,7 +8715,7 @@ Fase Dinâmica (Realidade)
 </tr>
 <tr class="odd">
 <td rowspan="6" style="text-align: center; vertical-align: top !important;">Squad_02</td>
-<td style="text-align: center;">2025014977</td>
+<td style="text-align: center;">A015</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">1.5843</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -8705,7 +8723,7 @@ Fase Dinâmica (Realidade)
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P3 (Criativo-Inovador)</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">2023006902</td>
+<td style="text-align: center;">A004</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">NA</td>
 <td style="text-align: left;">Pendente/Sem Dados</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -8713,7 +8731,7 @@ Fase Dinâmica (Realidade)
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">Pendente/Sem Dados</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">2024015245</td>
+<td style="text-align: center;">A009</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">9.7932</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -8721,7 +8739,7 @@ Fase Dinâmica (Realidade)
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P5 (Organizacional-Líder)</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">2025000980</td>
+<td style="text-align: center;">A012</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">3.0107</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -8729,7 +8747,7 @@ Fase Dinâmica (Realidade)
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P5 (Organizacional-Líder)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">2023010932</td>
+<td style="text-align: center;">A006</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">NA</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -8737,7 +8755,7 @@ Fase Dinâmica (Realidade)
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P3 (Criativo-Inovador)</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">2025011607</td>
+<td style="text-align: center;">A014</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">8.9220</td>
 <td style="text-align: left;">P4 (Comunicador-Articulador)</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -8746,7 +8764,7 @@ Fase Dinâmica (Realidade)
 </tr>
 <tr class="odd">
 <td rowspan="3" style="text-align: center; vertical-align: top !important;">Squad_03</td>
-<td style="text-align: center;">2024005104</td>
+<td style="text-align: center;">A007</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">2.8940</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -8754,7 +8772,7 @@ Fase Dinâmica (Realidade)
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P4 (Comunicador-Articulador)</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">2024015924</td>
+<td style="text-align: center;">A010</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">NA</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
@@ -8762,7 +8780,7 @@ Fase Dinâmica (Realidade)
 <td style="text-align: left; font-weight: bold; color: rgba(39, 174, 96, 255) !important; background-color: rgba(232, 248, 245, 255) !important;">P5 (Organizacional-Líder)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">2025000953</td>
+<td style="text-align: center;">A011</td>
 <td style="text-align: center; font-weight: bold; color: rgba(44, 62, 80, 255) !important;">8.6769</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>
 <td style="text-align: left;">P1 (Analítico-Técnico)</td>

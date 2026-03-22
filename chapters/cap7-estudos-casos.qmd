@@ -3333,6 +3333,7 @@ Para provar a volatilidade do perfil humano, o motor de dados rastreia a evoluç
 A @tbl-evolucao-individual apresenta os resultados desta etapa.
 
 ```{r}
+```{r}
 #| label: tbl-evolucao-individual
 #| tbl-cap: "Rastreabilidade de Perfis: A Metamorfose do Aluno através das Rodadas Metodológicas"
 #| echo: true
@@ -3344,7 +3345,7 @@ library(stringr)
 library(knitr)
 library(kableExtra)
 
-# Garante que o df_evolucao_perfis esteja atualizado
+# 1. Carrega o back-end (dados brutos + dicionário de anonimização)
 quiet_source("R/trat.forms.R")
 
 # Função robusta de padronização para a nomenclatura oficial dos Arquétipos
@@ -3360,16 +3361,42 @@ padronizar_perfil <- function(x) {
   )
 }
 
-# Compatibiliza o identificador anonimizado oficial entre versões da base
-id_col_evolucao <- intersect(c("ID_Aluno", "Matrícula", "Matricula"), names(df_evolucao_perfis))[1]
-if (is.na(id_col_evolucao)) {
-  stop("Não foi possível identificar a coluna de ID anonimizado em df_evolucao_perfis.")
+# Identifica a coluna correta de matrícula no dicionário e na base bruta
+col_mapa_de_para <- intersect(c("Matrícula_Original", "Matricula_Original"), names(df_de_para))[1]
+# Assume que a base df_evolucao_perfis tem uma coluna chamada Matrícula (ou similar)
+col_base_bruta    <- intersect(c("Matrícula", "Matricula"), names(df_evolucao_perfis))[1]
+
+if (is.na(col_mapa_de_para) | is.na(col_base_bruta)) {
+  stop("Não foi encontrada a coluna de matrícula para o cruzamento de anonimização.")
 }
 
+# 2. Processamento Algorítmico da Anonimização (Segurança LGPD)
+# Pegamos apenas a amostra de 15 alunos e resolvemos a LGPD *antes* de renderizar
 df_evolucao_tmp <- df_evolucao_perfis %>%
-  # Mostramos uma amostra de 15 alunos para a renderização do livro
   head(15) %>%
-  mutate(Aluno = as.character(.data[[id_col_evolucao]])) %>%
+  # Cruza a base bruta com o dicionário de hash de hash (ID_Aluno)
+  left_join(df_de_para, by = setNames(col_mapa_de_para, col_base_bruta)) %>%
+  # Se não houver hash, trata como pendente
+  mutate(ID_Aluno = replace_na(ID_Aluno, "Inconsistência/Pendente"))
+
+# Cria o sequencial anonimizado (A001, A002...) com base nos alunos únicos da amostra
+# (Se ID_Aluno for pendente, A--- será o ID)
+mapa_anonimizacao <- df_evolucao_tmp %>%
+  distinct(ID_Aluno) %>%
+  arrange(ID_Aluno) %>%
+  mutate(
+    # Filtra inconsistências para a sequência
+    Temp_ID = if_else(ID_Aluno == "Inconsistência/Pendente", NA_character_, ID_Aluno),
+    Sequence = if_else(ID_Aluno == "Inconsistência/Pendente",
+                        "A---",
+                        sprintf("A%03d", row_number() - (is.na(Temp_ID))))
+  ) %>%
+  select(ID_Aluno, Aluno = Sequence)
+
+# 3. Consolidação e Formatação do Panorama
+df_evolucao_tmp <- df_evolucao_tmp %>%
+  # Substitui o ID de hash pelo Aluno (A001) e finaliza o select
+  left_join(mapa_anonimizacao, by = "ID_Aluno") %>%
   select(
     Squad,
     Aluno,
@@ -3379,21 +3406,14 @@ df_evolucao_tmp <- df_evolucao_perfis %>%
     `F4 (Instinto)` = `F4 (Instinto)`,
     `F5 (Recalibrado)` = `F5 (Recalibrado)`
   ) %>%
-  # Aplica a padronização oficial nas 4 colunas de perfil simultaneamente
-  mutate(
-    across(c(`F1 (Ego)`, `F3 (Pares)`, `F4 (Instinto)`, `F5 (Recalibrado)`), padronizar_perfil)
-  )
+  # Aplica a padronização oficial nas 4 colunas de perfil
+  mutate(across(c(`F1 (Ego)`, `F3 (Pares)`, `F4 (Instinto)`, `F5 (Recalibrado)`), padronizar_perfil))
 
-# Tratamento de segurança caso a base retorne vazia
+# Tratamento de segurança para base vazia
 if (nrow(df_evolucao_tmp) == 0) {
   df_evolucao_tmp <- tibble(
-    Squad = "Sem dados",
-    Aluno = "A001",
-    IEA = NA_real_,
-    `F1 (Ego)` = "-",
-    `F3 (Pares)` = "-",
-    `F4 (Instinto)` = "-",
-    `F5 (Recalibrado)` = "-"
+    Squad = "Sem dados", Aluno = "A001", IEA = NA_real_,
+    `F1 (Ego)` = "-", `F3 (Pares)` = "-", `F4 (Instinto)` = "-", `F5 (Recalibrado)` = "-"
   )
 }
 
@@ -3402,7 +3422,6 @@ df_evolucao_tmp %>%
   kbl(align = c("c", "c", "c", "l", "l", "l", "l")) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = TRUE, font_size = 12) %>%
   add_header_above(c("Identidade" = 3, "Fase Estática (Teoria)" = 2, "Fase Dinâmica (Realidade)" = 2), bold = TRUE, background = "#ecf0f1", color = "#2c3e50") %>%
-  # Destaca o Índice Técnico e o Perfil Definitivo
   column_spec(3, bold = TRUE, color = "#2c3e50") %>%
   column_spec(7, bold = TRUE, color = "#27ae60", background = "#e8f8f5") %>%
   collapse_rows(columns = 1, valign = "top")
@@ -3452,10 +3471,12 @@ O diagnóstico final aponta que a melhor estratégia estrutural para nivelar os 
 
 ## 📝 Resumo do Capítulo
 
-* **Do Achismo à Engenharia de Equipes:** A formação de grupos não pode depender de afinidades ou sorteios cegos. Ela precisa ser traduzida em cruzamentos numéricos que evitem a concentração de egos (Múltiplos Líderes) e o acúmulo de deficiências analíticas.
-* **O Rastreamento de Identidade:** O método estruturou a coleta em rodadas progressivas, medindo o Ego (F1), a visão do Mercado (F2), o Julgamento dos Pares (F3) e o Instinto de Crise (F4).
-* **A Fusão de Dados (*Data Fusion*):** O coração da metodologia. O modelo funde as *Soft Skills* capturadas na simulação de crise com a eficiência bruta atestada pelos Sistemas da Universidade (F5 e IEA), punindo a falsa modéstia e o excesso de confiança para criar o **Score Recalibrado (O DNA Definitivo)**.
-* O próximo passo é formalizar a governança desses esquadrões recém-formados e inseri-los no chão de fábrica da consultoria.
+* **Do Achismo à Engenharia de Equipes:** A formação de grupos deixa de depender de afinidades pessoais ou sorteios cegos para se tornar um processo algorítmico rigoroso. O cruzamento de dados evita a concentração de egos (Múltiplos Líderes) e o acúmulo de deficiências analíticas dentro de um mesmo projeto.
+* **A Arquitetura da Coleta de Dados:** Os cinco instrumentos (F1 a F5) foram padronizados visual e matematicamente. Para que os alunos pudessem avaliar o mercado sem abstrações, as 8 Competências Macros foram traduzidas em 30 requisitos práticos ($Req_{01}$ a $Req_{30}$), permitindo que o motor capture a complexidade do mundo real (como um único requisito alimentando múltiplas competências simultaneamente).
+* **A Metamorfose dos Vieses:** O método estruturou a pesquisa em rodadas progressivas (*Time-Boxed*), rastreando a identidade do aluno e desconstruindo distorções cognitivas. O Ego e o Efeito Dunning-Kruger (F1) foram confrontados pela Pressão e Autoridade do Grupo (F2), que por sua vez foram validados pela Execução Prática sob a ótica dos pares (F3) e pelo Instinto Revelado na Crise (F4).
+* **A Fusão de Dados (*Data Fusion*):** O coração da metodologia. O modelo funde as *Soft Skills* capturadas nas simulações comportamentais com a proficiência técnica declarada (F5) e a eficiência bruta atestada pela Universidade (IEA). O algoritmo pune a falsa modéstia e o excesso de confiança, originando o **Score Recalibrado (O DNA Definitivo)** e a Matriz de Talentos.
+* **A Matriz de Alocação Otimizada:** O *output* de todo esse processamento multivariado é a montagem de Esquadrões Multidisciplinares balanceados, com o mapeamento exato das lideranças técnicas (especialistas) de cada grupo e a auditoria contínua da **Taxa de Risco**.
+* **O Próximo Passo:** Com os times montados de forma cirúrgica, a etapa seguinte é formalizar a governança desses esquadrões e inseri-los no "chão de fábrica" da consultoria para a execução dos projetos reais.
 
 ---
 
