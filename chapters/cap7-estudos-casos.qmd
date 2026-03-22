@@ -2459,6 +2459,27 @@ A @tbl-transicao-f3-f4 apresenta os resultados desta etapa.
 quiet_source("R/trat.forms.R")
 
 df_migracao_f3_f4 %>%
+  mutate(
+    across(2, ~ recode(
+      as.character(.x),
+      "P1" = "P1 (Analítico-Técnico)",
+      "P01" = "P1 (Analítico-Técnico)",
+      "P2" = "P2 (Processos e Operações)",
+      "P02" = "P2 (Processos e Operações)",
+      "P3" = "P3 (Criativo-Inovador)",
+      "P03" = "P3 (Criativo-Inovador)",
+      "P4" = "P4 (Comunicador-Articulador)",
+      "P04" = "P4 (Comunicador-Articulador)",
+      "P5" = "P5 (Organizacional-Líder)",
+      "P05" = "P5 (Organizacional-Líder)",
+      "P6" = "P6 (Sustentável-Responsável)",
+      "P06" = "P6 (Sustentável-Responsável)",
+      "P2 (Operações)" = "P2 (Processos e Operações)",
+      "P5 (Líder)" = "P5 (Organizacional-Líder)",
+      "P6 (Sustentável)" = "P6 (Sustentável-Responsável)",
+      .default = as.character(.x)
+    ))
+  ) %>%
   kbl(
     align = c("l", "l", "c", "c"),
     col.names = c("Máscara do Grupo (F3)", "Instinto Real na Crise (F4)", "Nº de Alunos", "Fatia da Turma")
@@ -2506,7 +2527,13 @@ Como a ética e a LGPD (Lei Geral de Proteção de Dados) são pilares do *Peopl
 
 O script a seguir recebe a base consolidada final (que contém matrículas e nomes reais), cruza com o nosso dicionário de anonimização (Chave de Hash `ID_Aluno`) e gera a prova matemática de que o algoritmo funcionou: a tabela de distribuição de perfis e dimensionamento por *Squad*.
 
-A @tbl-distribuicao-squads apresenta os resultados desta etapa.
+Antes de apresentar a matriz, é necessário formalizar a métrica de governança adotada pelo sistema de auditoria contínua: a **Taxa de Risco**. Matematicamente, ela é definida pela razão entre o número de alunos com dados pendentes (ou inconsistentes) e o tamanho total do esquadrão ($g$):
+
+$$Taxa\ de\ Risco_g = \left( \frac{Pendentes_g}{Tamanho\ da\ Equipe_g} \right) \times 100$$ {#eq-taxa-risco-squad}
+
+**Interpretação:** Uma Taxa de Risco de $0\%$ indica que o grupo está operando com previsibilidade máxima, possuindo $100\%$ do seu capital intelectual mapeado pelo algoritmo. Por outro lado, valores crescentes de risco sinalizam "pontos cegos" gerenciais — contingentes de alunos cujas habilidades não puderam ser verificadas, impedindo a alocação otimizada de tarefas e elevando a chance de falhas na entrega final do projeto.
+
+A @tbl-distribuicao-squads apresenta os resultados desta etapa, incluindo a linha consolidada de auditoria da turma.
 
 ```{r}
 #| label: tbl-distribuicao-squads
@@ -2521,81 +2548,96 @@ library(stringr)
 library(knitr)
 library(kableExtra)
 
-# 1. Carrega o back-end e o dicionário de anonimização (df_de_para)
+# 1. Carrega o back-end e o dicionário de anonimização
 quiet_source("R/trat.forms.R")
 
-# Identifica a coluna correta de matrícula no dicionário
-col_mapa_de_para <- if ("Matricula_Original" %in% names(df_de_para)) {
-  "Matricula_Original"
-} else if ("Matrícula_Original" %in% names(df_de_para)) {
-  "Matrícula_Original"
-} else {
-  NA_character_
-}
+col_mapa_de_para <- intersect(c("Matrícula_Original", "Matricula_Original"), names(df_de_para))[1]
+if (is.na(col_mapa_de_para)) stop("Coluna de matrícula não encontrada no df_de_para.")
 
-if (is.na(col_mapa_de_para)) {
-  stop("Nao foi encontrada a coluna de matricula no dicionario de anonimização (df_de_para).")
-}
+df_base_squads <- if (exists("df_consolidado_entregas_completo")) df_consolidado_entregas_completo else df_consolidado_entregas
 
-# Aplicamos a camada de Anonimização (LGPD)
-# Usa a base completa quando disponível; se não houver, usa a versão simplificada.
-df_base_squads <- if (exists("df_consolidado_entregas_completo")) {
-  df_consolidado_entregas_completo
-} else {
-  df_consolidado_entregas
-}
-
+# 2. Tratamento e Limpeza (Detecção Robusta de Texto)
 df_squads_anon <- df_base_squads %>%
   left_join(df_de_para, by = setNames(col_mapa_de_para, "Matrícula")) %>%
-  select(any_of(c("Turma", "ID_Aluno", "Squad", "Perfil"))) %>%
-  filter(!is.na(Squad))
+  filter(!is.na(Squad)) %>%
+  mutate(
+    Turma = if ("Turma" %in% names(.)) word(Turma, 1) else "Turma_Unica",
+    Perfil_Raw = as.character(Perfil),
+    Perfil_Limpo = case_when(
+      str_detect(Perfil_Raw, "(?i)Analítico|P0?1") ~ "P1",
+      str_detect(Perfil_Raw, "(?i)Opera[çc][õo]es|P0?2") ~ "P2",
+      str_detect(Perfil_Raw, "(?i)Criativo|P0?3") ~ "P3",
+      str_detect(Perfil_Raw, "(?i)Comunicador|P0?4") ~ "P4",
+      str_detect(Perfil_Raw, "(?i)Líder|Organizacional|P0?5") ~ "P5",
+      str_detect(Perfil_Raw, "(?i)Sustentável|P0?6") ~ "P6",
+      TRUE ~ "Pendente/Sem Dados"
+    )
+  )
 
-# 2. Pivotamento: Conta quantos perfis existem em cada Squad POR DISCIPLINA
+# 3. Pivotamento e Blindagem das Colunas
 df_distribuicao_squads <- df_squads_anon %>%
-  # Limpa o nome da turma para a tabela não ficar muito larga; se não houver turma, usa rótulo único.
-  mutate(Disciplina = if ("Turma" %in% names(.)) {
-    str_extract(Turma, "(?<=- ).*?(?= -)")
-  } else {
-    "Turma Unica"
-  }) %>%
-  count(Disciplina, Squad, Perfil) %>%
-  pivot_wider(names_from = Perfil, values_from = n, values_fill = list(n = 0)) %>%
-  # Calcula o tamanho total da equipe e o percentual de risco isolando as chaves
-  mutate(`Pendente/Sem Dados` = if (!"Pendente/Sem Dados" %in% names(.)) 0 else `Pendente/Sem Dados`) %>%
-  rowwise() %>%
+  count(Turma, Squad, Perfil_Limpo) %>%
+  pivot_wider(names_from = Perfil_Limpo, values_from = n, values_fill = list(n = 0))
+
+# Garante a existência de todas as colunas
+colunas_esperadas <- c("P1", "P2", "P3", "P4", "P5", "P6", "Pendente/Sem Dados")
+colunas_faltantes <- setdiff(colunas_esperadas, names(df_distribuicao_squads))
+if(length(colunas_faltantes) > 0) {
+  df_distribuicao_squads[colunas_faltantes] <- 0
+}
+
+# Ordena, faz os cálculos vetoriais
+df_distribuicao_squads <- df_distribuicao_squads %>%
+  select(Turma, Squad, all_of(colunas_esperadas)) %>%
   mutate(
-    `Tamanho da Equipe` = sum(c_across(c(-Disciplina, -Squad))),
-    `Taxa de Risco (%)` = if_else(`Pendente/Sem Dados` > 0, (`Pendente/Sem Dados` / `Tamanho da Equipe`) * 100, 0)
-  ) %>%
-  ungroup() %>%
-  mutate(
+    `Tamanho da Equipe` = rowSums(select(., all_of(colunas_esperadas))),
+    `Taxa de Risco (%)` = if_else(`Tamanho da Equipe` > 0, (`Pendente/Sem Dados` / `Tamanho da Equipe`) * 100, 0),
     `Taxa de Risco (%)` = sprintf("%.1f%%", `Taxa de Risco (%)`)
   ) %>%
-  arrange(Disciplina, Squad)
+  arrange(Turma, Squad)
 
-# 3. Renderização Visual da Matriz de Governança
+# ADIÇÃO: Calculando a linha de Total Geral
+df_totais <- df_distribuicao_squads %>%
+  ungroup() %>%
+  summarise(
+    Turma = "TOTAL",
+    Squad = "-",
+    across(all_of(c(colunas_esperadas, "Tamanho da Equipe")), sum)
+  ) %>%
+  mutate(
+    `Taxa de Risco (%)` = if_else(`Tamanho da Equipe` > 0, (`Pendente/Sem Dados` / `Tamanho da Equipe`) * 100, 0),
+    `Taxa de Risco (%)` = sprintf("%.1f%%", `Taxa de Risco (%)`)
+  )
+
+# Empilha a matriz com a linha de total
+df_distribuicao_squads <- bind_rows(df_distribuicao_squads, df_totais)
+
+# 4. Renderização Visual
 idx_pendente <- which(names(df_distribuicao_squads) == "Pendente/Sem Dados")
-idx_tamanho <- which(names(df_distribuicao_squads) == "Tamanho da Equipe")
+idx_tamanho  <- which(names(df_distribuicao_squads) == "Tamanho da Equipe")
+idx_risco    <- ncol(df_distribuicao_squads)
+
+turmas_unicas <- unique(df_distribuicao_squads$Turma[df_distribuicao_squads$Turma != "TOTAL"])
+cores_base <- c("#1f77b4", "#e67e22", "#27ae60", "#8e44ad")
+mapa_cores_turma <- setNames(rep(cores_base, length.out = length(turmas_unicas)), turmas_unicas)
+# Para a linha "TOTAL", mantemos uma cor neutra
+mapa_cores_turma["TOTAL"] <- "#2c3e50"
+cores_coluna_turma <- unname(mapa_cores_turma[df_distribuicao_squads$Turma])
 
 tb_squads <- df_distribuicao_squads %>%
   kbl(align = "c") %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = TRUE) %>%
-  column_spec(1:2, bold = TRUE, color = "#2c3e50", background = "#fdf2e9")
+  column_spec(1:2, bold = TRUE, color = cores_coluna_turma, background = "#fdf2e9") %>%
+  column_spec(idx_tamanho, bold = TRUE, color = "#27ae60") %>%
+  column_spec(idx_risco, bold = TRUE, color = "#c0392b")
 
-# Destaque visual no Tamanho da Equipe para auditar a regra de 5 ou 6 membros
-if (length(idx_tamanho) == 1) {
-  tb_squads <- tb_squads %>%
-    column_spec(idx_tamanho, bold = TRUE, color = "#27ae60")
-}
-
-# Destaque em vermelho para as colunas de Risco/Pendentes
 if (length(idx_pendente) == 1) {
-  tb_squads <- tb_squads %>%
-    column_spec(idx_pendente, color = "#c0392b", bold = TRUE)
+  tb_squads <- tb_squads %>% column_spec(idx_pendente, bold = TRUE, color = "#c0392b")
 }
 
+# Destaque forte na linha de totais (última linha)
 tb_squads <- tb_squads %>%
-  column_spec(ncol(df_distribuicao_squads), color = "#c0392b", bold = TRUE)
+  row_spec(nrow(df_distribuicao_squads), bold = TRUE, background = "#ecf0f1", color = "#2c3e50", extra_css = "border-top: 2px solid #2c3e50;")
 
 tb_squads
 ```
@@ -2888,91 +2930,91 @@ Onde a chave primária (`ID_Aluno`) e o vínculo com a disciplina são estabelec
 #### Seção 3: Matrizes de Proficiência Curricular
 Abaixo, o recorte das disciplinas mapeadas por blocos curriculares, que fundamentam a base de dados técnica do algoritmo de alocação.
 
-| | Ainda não cursei | 60 a 69 | 70 a 79 | 80 a 89 | 90 a 100 |
+| Disciplina / Carga Horária | Ainda não cursei | 60 a 69 | 70 a 79 | 80 a 89 | 90 a 100 |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **INTRODUÇÃO À ENGENHARIA DE PRODUÇÃO (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **CÁLCULO I e II (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **GEOMETRIA ANALÍTICA E ÁLGEBRA LINEAR (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **FUNDAMENTOS DE LÓGICA DE PROGRAMAÇÃO (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **ENGENHARIA DA QUALIDADE I (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **MECÂNICA ESTÁTICA (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **EQUAÇÕES DIFERENCIAIS ORDINÁRIAS (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **GESTÃO DE PESSOAS (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**1. INTRODUÇÃO À ENGENHARIA DE PRODUÇÃO (32h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**2. CÁLCULO I e II (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**3. GEOMETRIA ANALÍTICA E ÁLGEBRA LINEAR (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**4. FUNDAMENTOS DE LÓGICA DE PROGRAMAÇÃO (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**5. ENGENHARIA DA QUALIDADE I (32h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**6. MECÂNICA ESTÁTICA (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**7. EQUAÇÕES DIFERENCIAIS ORDINÁRIAS (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**8. GESTÃO DE PESSOAS (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
 
 : O Ciclo Básico (1º ao 3º Período) {#tbl-f5-basico tbl-colwidths="[50,10,10,10,10,10]"}
 
 <br>
 
-| | Ainda não cursei | 60 a 69 | 70 a 79 | 80 a 89 | 90 a 100 |
+| Disciplina / Carga Horária | Ainda não cursei | 60 a 69 | 70 a 79 | 80 a 89 | 90 a 100 |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **METROLOGIA (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **CÁLCULO NUMÉRICO (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **ESTATÍSTICA PARA ENGENHARIA DE PRODUÇÃO (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **GESTÃO DE PROJETOS (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **ORGANIZAÇÃO DO TRABALHO NA PRODUÇÃO (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **RESISTÊNCIA DOS MATERIAIS (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **GESTÃO DA QUALIDADE (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **ECONOMIA INDUSTRIAL (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **FENÔMENOS DE TRANSPORTE (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**9. METROLOGIA (32h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**10. CÁLCULO NUMÉRICO (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**11. ESTATÍSTICA PARA ENG. DE PRODUÇÃO (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**12. GESTÃO DE PROJETOS (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**13. ORGANIZAÇÃO DO TRABALHO NA PRODUÇÃO (64h)**</span>| <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**14. RESISTÊNCIA DOS MATERIAIS (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**15. GESTÃO DA QUALIDADE (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**16. ECONOMIA INDUSTRIAL (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**17. FENÔMENOS DE TRANSPORTE (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
 
 : O Ciclo Profissionalizante (4º ao 5º Período) {#tbl-f5-profissionalizante tbl-colwidths="[50,10,10,10,10,10]"}
 
 <br>
 
-| | Ainda não cursei | 60 a 69 | 70 a 79 | 80 a 89 | 90 a 100 |
+| Disciplina / Carga Horária | Ainda não cursei | 60 a 69 | 70 a 79 | 80 a 89 | 90 a 100 |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **ANÁLISE ERGONÔMICA DO TRABALHO (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **CIÊNCIAS DO AMBIENTE (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **CUSTOS I (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **ENGENHARIA DO PRODUTO II (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **GESTÃO ESTRATÉGICA (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **INTRODUÇÃO À AUTOMAÇÃO IND. E LABORATÓRIOS** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **TECNOLOGIA DE FABRICAÇÃO III E IV** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **SISTEMAS DE PRODUÇÃO I (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **SISTEMAS DE GESTÃO INTEGRADOS (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **ANÁLISE DE SITUAÇÕES REAIS (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **ENGENHARIA ECONÔMICA E FINANCEIRA I (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **GESTÃO DA MANUTENÇÃO (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **LOGÍSTICA E TRANSPORTE (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **PESQUISA OPERACIONAL (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **PROJETOS INTEGRADOS DE ENG. DE PRODUÇÃO I E II**| <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **SISTEMAS DE INFORMAÇÃO (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**18. ANÁLISE ERGONÔMICA DO TRABALHO (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**19. CIÊNCIAS DO AMBIENTE (32h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**20. CUSTOS I (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**21. ENGENHARIA DO PRODUTO II (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**22. GESTÃO ESTRATÉGICA (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**23. INTRODUÇÃO À AUTOMAÇÃO IND. E LAB.**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**24. TECNOLOGIA DE FABRICAÇÃO III E IV**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**25. SISTEMAS DE PRODUÇÃO I (32h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**26. SISTEMAS DE GESTÃO INTEGRADOS (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**27. ANÁLISE DE SITUAÇÕES REAIS (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**28. ENGENHARIA ECONÔMICA E FINANCEIRA I (64h)**</span>| <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**29. GESTÃO DA MANUTENÇÃO (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**30. LOGÍSTICA E TRANSPORTE (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**31. PESQUISA OPERACIONAL (32h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**32. PROJETOS INTEGRADOS DE ENG. DE PROD. I E II**</span>| <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**33. SISTEMAS DE INFORMAÇÃO (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
 
 : O Ciclo Específico e Projetos (6º ao 7º Período) {#tbl-f5-especifico-67 tbl-colwidths="[50,10,10,10,10,10]"}
 
 <br>
 
-| | Ainda não cursei | 60 a 69 | 70 a 79 | 80 a 89 | 90 a 100 |
+| Disciplina / Carga Horária | Ainda não cursei | 60 a 69 | 70 a 79 | 80 a 89 | 90 a 100 |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **PLANEJAMENTO E CONTROLE DA PRODUÇÃO I (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **PROJETO DE FÁBRICA I (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **PROJETOS INTEGRADOS DE ENG. DE PRODUÇÃO II**| <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **SIMULAÇÃO (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **ESTÁGIO SUPERVISIONADO (175h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **TRABALHO DE CONCLUSÃO DE CURSO I E II** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**34. PLANEJAMENTO E CONTROLE DA PRODUÇÃO I (64h)**</span>| <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**35. PROJETO DE FÁBRICA I (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**36. PROJETOS INTEGRADOS DE ENG. DE PRODUÇÃO II**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**37. SIMULAÇÃO (32h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**38. ESTÁGIO SUPERVISIONADO (175h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**39. TRABALHO DE CONCLUSÃO DE CURSO I E II**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
 
 : O Ciclo Específico e Projetos (8º ao 10º Período) {#tbl-f5-especifico-810 tbl-colwidths="[50,10,10,10,10,10]"}
 
 <br>
 
-| | Ainda não cursei | 60 a 69 | 70 a 79 | 80 a 89 | 90 a 100 |
+| Disciplina / Carga Horária | Ainda não cursei | 60 a 69 | 70 a 79 | 80 a 89 | 90 a 100 |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **CONSULTORIA EMPRESARIAL (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **ENGENHARIA DA QUALIDADE II (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **GESTÃO DA INOVAÇÃO (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **INTRODUÇÃO À PRODUÇÃO CIENTÍFICA (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **INTRODUÇÃO ÀS METODOLOGIAS ÁGEIS (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **LIBRAS – LÍNGUA BRASILEIRA DE SINAIS (48h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **MARKETING DO PRODUTO (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **MÉTODOS QUANTITATIVOS I a V (80h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **MODELAGEM FINANCEIRA AVANÇADA (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **PLANEJAMENTO E CONTROLE DA PRODUÇÃO II (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **PROJETO DE FÁBRICA II (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **SISTEMA DE GESTÃO DA QUALIDADE (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **SISTEMAS DE PRODUÇÃO II (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **SISTEMAS DE PRODUÇÃO RECONFIGURÁVEIS (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **TENDÊNCIAS DE MERCADO (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
-| **VALUATION AND VALUE INVESTING (80h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**40. CONSULTORIA EMPRESARIAL (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**41. ENGENHARIA DA QUALIDADE II (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**42. GESTÃO DA INOVAÇÃO (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**43. INTRODUÇÃO À PRODUÇÃO CIENTÍFICA (32h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**44. INTRODUÇÃO ÀS METODOLOGIAS ÁGEIS (32h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**45. MARKETING DO PRODUTO (32h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**46. MÉTODOS QUANTITATIVOS I a V (80h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**47. MODELAGEM FINANCEIRA AVANÇADA (64h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**48. PLANEJAMENTO E CONTROLE DA PRODUÇÃO II (32h)**</span>| <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**49. PROJETO DE FÁBRICA II (32h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**50. SISTEMA DE GESTÃO DA QUALIDADE (32h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**51. SISTEMAS DE PRODUÇÃO II (32h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**52. SISTEMAS DE PRODUÇÃO RECONFIGURÁVEIS (32h)**</span>| <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**53. TENDÊNCIAS DE MERCADO (32h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**54. VALUATION AND VALUE INVESTING (80h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| <span style="font-size: 0.85em;">**55. LIBRAS – LÍNGUA BRASILEIRA DE SINAIS (48h)**</span> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
 
 : Componentes Optativos {#tbl-f5-optativas tbl-colwidths="[50,10,10,10,10,10]"}
 
@@ -3022,7 +3064,6 @@ df_medias_declaradas <- df_form5_anon %>%
 # Cruza com os índices oficiais (MC, IRA, IEA)
 df_panorama <- df_medias_declaradas %>%
   inner_join(df_indices_anon %>% select(ID_Aluno, MC, IRA, IEA), by = "ID_Aluno") %>%
-  # Calcula as médias globais da turma para a tabela
   summarise(
     `Média Básico` = mean(`Média Básico`, na.rm = TRUE),
     `Média Profissionalizante` = mean(`Média Profissionalizante`, na.rm = TRUE),
@@ -3076,61 +3117,81 @@ quiet_source("R/trat.forms.R")
 
 col_mapa_de_para <- intersect(c("Matrícula_Original", "Matricula_Original"), names(df_de_para))[1]
 
+# 1. Tratamento e Extração do Código da Turma
 df_squads_anon <- df_consolidado_entregas %>%
   left_join(df_de_para, by = setNames(col_mapa_de_para, "Matrícula")) %>%
-  select(any_of(c("Turma", "ID_Aluno", "Squad")))
+  select(any_of(c("Turma", "ID_Aluno", "Squad"))) %>%
+  mutate(Turma = if ("Turma" %in% names(.)) word(Turma, 1) else "Turma Única")
 
-if (!"Turma" %in% names(df_squads_anon)) {
-  df_squads_anon <- df_squads_anon %>% mutate(Turma = "Turma Única")
-} else {
-  df_squads_anon <- df_squads_anon %>% mutate(Turma = word(Turma, 1)) # EPRI4003 ou EPRI9001
+# 2. Dicionário Analítico para Rastreio do Código da Disciplina (1 a 55)
+# O algoritmo procura essas palavras-chave na base e vincula ao ID que numeramos no Forms.
+chaves_disc <- c(
+  "INTRODUÇÃO À ENGENHARIA", "CÁLCULO I", "GEOMETRIA", "LÓGICA", "DA QUALIDADE I",
+  "ESTÁTICA", "EQUAÇÕES", "PESSOAS", "METROLOGIA", "NUMÉRICO",
+  "ESTATÍSTICA", "PROJETOS", "ORGANIZAÇÃO", "RESISTÊNCIA", "GESTÃO DA QUALIDADE",
+  "ECONOMIA", "FENÔMENOS", "ERGONÔMICA", "AMBIENTE", "CUSTOS",
+  "PRODUTO II", "ESTRATÉGICA", "AUTOMAÇÃO", "FABRICAÇÃO", "PRODUÇÃO I\\b",
+  "INTEGRADOS", "SITUAÇÕES", "FINANCEIRA I", "MANUTENÇÃO", "LOGÍSTICA",
+  "PESQUISA", "PROJETOS INTEGRADOS.*I E II", "INFORMAÇÃO", "CONTROLE DA PRODUÇÃO I\\b", "FÁBRICA I\\b",
+  "PROJETOS INTEGRADOS.*II\\b", "SIMULAÇÃO", "ESTÁGIO", "CONCLUSÃO", "CONSULTORIA",
+  "QUALIDADE II", "INOVAÇÃO", "CIENTÍFICA", "ÁGEIS", "MARKETING",
+  "QUANTITATIVOS", "MODELAGEM", "CONTROLE DA PRODUÇÃO II", "FÁBRICA II", "SISTEMA DE GESTÃO DA QUALIDADE",
+  "PRODUÇÃO II\\b", "RECONFIGURÁVEIS", "TENDÊNCIAS", "VALUATION", "LIBRAS"
+)
+
+# Função auxiliar para encontrar o ID numérico
+obter_id <- function(nome) {
+  for (i in seq_along(chaves_disc)) {
+    if (str_detect(nome, regex(chaves_disc[i], ignore_case = TRUE))) return(i)
+  }
+  return(NA_integer_)
 }
 
+# 3. Processamento de Especialistas
 df_especialistas <- df_form5_anon %>%
+  select(-any_of("Turma")) %>%   # evita conflito Turma.x / Turma.y no join
   inner_join(df_squads_anon, by = "ID_Aluno") %>%
-  mutate(
-    Turma = coalesce(
-      if ("Turma" %in% names(.)) Turma else NA_character_,
-      if ("Turma.x" %in% names(.)) .data[["Turma.x"]] else NA_character_,
-      if ("Turma.y" %in% names(.)) .data[["Turma.y"]] else NA_character_,
-      "Turma Única"
-    )
-  ) %>%
   filter(Nota_Numerica >= 85 & !is.na(Squad)) %>%
+  rowwise() %>%
+  mutate(ID_Disc = obter_id(Disciplina)) %>%
+  ungroup() %>%
   group_by(Turma, Squad, Categoria) %>%
   summarise(
     `Nº de Especialistas` = n_distinct(ID_Aluno),
-    `Principais Disciplinas Dominadas` = paste(unique(Disciplina)[1:3], collapse = ", "),
+    # Pega apenas os 3 primeiros códigos únicos ordenados, sem gerar NAs
+    `Principais Disciplinas Dominadas` = paste(head(sort(unique(na.omit(ID_Disc))), 3), collapse = ", "),
     .groups = "drop"
   ) %>%
   mutate(
     Categoria = str_remove(Categoria, " \\(.*\\)"),
-    `Principais Disciplinas Dominadas` = str_remove(`Principais Disciplinas Dominadas`, "1$"),
-    `Principais Disciplinas Dominadas` = str_replace_all(`Principais Disciplinas Dominadas`, ", NA", "")
+    `Principais Disciplinas Dominadas` = ifelse(`Principais Disciplinas Dominadas` != "",
+                                                paste0("[ Cód: ", `Principais Disciplinas Dominadas`, " ]"),
+                                                "-")
   ) %>%
+  # Reordena as colunas para que Especialistas fique por último
+  select(Turma, Squad, Categoria, `Principais Disciplinas Dominadas`, `Nº de Especialistas`) %>%
   arrange(Turma, Squad, Categoria)
 
-if (nrow(df_especialistas) == 0) {
-  df_especialistas <- tibble(
-    Turma = "-",
-    Squad = "-",
-    Categoria = "Sem especialistas mapeados",
-    `Nº de Especialistas` = 0,
-    `Principais Disciplinas Dominadas` = "-"
-  )
-}
+# 4. Renderização Visual Inteligente
+# Cria a paleta de cores base para as turmas dinamicamente
+turmas_unicas <- unique(df_especialistas$Turma)
+cores_base <- c("#1f77b4", "#e67e22", "#27ae60", "#8e44ad")
+mapa_cores <- setNames(rep(cores_base, length.out = length(turmas_unicas)), turmas_unicas)
+cores_coluna_turma <- unname(mapa_cores[df_especialistas$Turma])
 
 df_especialistas %>%
-  select(Turma, Squad, Categoria, `Nº de Especialistas`, `Principais Disciplinas Dominadas`) %>%
-  kbl(align = c("c", "c", "l", "c", "l")) %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = TRUE) %>%
-  column_spec(1, width = "10%") %>%
-  column_spec(2, width = "15%") %>%
-  column_spec(3, width = "25%") %>%
-  column_spec(4, bold = TRUE, color = "#27ae60", width = "10%") %>%
-  column_spec(5, width = "40%") %>%
-  collapse_rows(columns = c(1, 2), valign = "top") %>%
-  add_header_above(c("Mapeamento do Capital Intelectual por Equipe" = 5), bold = TRUE, background = "#fdf2e9", color = "#2c3e50")
+  kbl(align = c("c", "c", "l", "c", "c")) %>%
+  kable_styling(bootstrap_options = c("hover", "bordered", "condensed"), full_width = TRUE) %>%
+  add_header_above(c("Mapeamento do Capital Intelectual por Equipe" = 5), bold = TRUE, background = "#fdf2e9", color = "#2c3e50") %>%
+  # Aplica a cor da Turma e alinhamento
+  column_spec(1, width = "12%", bold = TRUE, color = cores_coluna_turma, background = "#f8f9fa") %>%
+  column_spec(2, width = "12%", bold = TRUE, color = cores_coluna_turma, background = "#f8f9fa") %>%
+  column_spec(3, width = "36%", color = "#2c3e50") %>%
+  # Coluna dos Códigos com fonte técnica (cinza)
+  column_spec(4, width = "25%", color = "#7f8c8d", bold = TRUE, extra_css = "letter-spacing: 1px;") %>%
+  # Coluna de Especialistas no final (verde destaque)
+  column_spec(5, width = "15%", bold = TRUE, color = "#27ae60", extra_css = "vertical-align: middle; font-size: 1.1em;") %>%
+  collapse_rows(columns = c(1, 2), valign = "middle")
 ```
 
 #### Decodificando o *Skill Mapping*: A Realidade da Amostra
@@ -3279,11 +3340,25 @@ A @tbl-evolucao-individual apresenta os resultados desta etapa.
 #| message: false
 
 library(dplyr)
+library(stringr)
 library(knitr)
 library(kableExtra)
 
 # Garante que o df_evolucao_perfis esteja atualizado
 quiet_source("R/trat.forms.R")
+
+# Função robusta de padronização para a nomenclatura oficial dos Arquétipos
+padronizar_perfil <- function(x) {
+  case_when(
+    str_detect(as.character(x), "(?i)Analítico|P0?1") ~ "P1 (Analítico-Técnico)",
+    str_detect(as.character(x), "(?i)Opera[çc][õo]es|P0?2") ~ "P2 (Processos e Operações)",
+    str_detect(as.character(x), "(?i)Criativo|P0?3") ~ "P3 (Criativo-Inovador)",
+    str_detect(as.character(x), "(?i)Comunicador|P0?4") ~ "P4 (Comunicador-Articulador)",
+    str_detect(as.character(x), "(?i)Líder|Organizacional|P0?5") ~ "P5 (Organizacional-Líder)",
+    str_detect(as.character(x), "(?i)Sustentável|P0?6") ~ "P6 (Sustentável-Responsável)",
+    TRUE ~ as.character(x) # Mantém "-" ou "Pendente" inalterados
+  )
+}
 
 # Compatibiliza o identificador anonimizado oficial entre versões da base
 id_col_evolucao <- intersect(c("ID_Aluno", "Matrícula", "Matricula"), names(df_evolucao_perfis))[1]
@@ -3294,7 +3369,6 @@ if (is.na(id_col_evolucao)) {
 df_evolucao_tmp <- df_evolucao_perfis %>%
   # Mostramos uma amostra de 15 alunos para a renderização do livro
   head(15) %>%
-  # Correção: Utilizando o identificador mascarado oficial (ex: A037, A098)
   mutate(Aluno = as.character(.data[[id_col_evolucao]])) %>%
   select(
     Squad,
@@ -3304,8 +3378,13 @@ df_evolucao_tmp <- df_evolucao_perfis %>%
     `F3 (Pares)` = `F3 (Pares)`,
     `F4 (Instinto)` = `F4 (Instinto)`,
     `F5 (Recalibrado)` = `F5 (Recalibrado)`
+  ) %>%
+  # Aplica a padronização oficial nas 4 colunas de perfil simultaneamente
+  mutate(
+    across(c(`F1 (Ego)`, `F3 (Pares)`, `F4 (Instinto)`, `F5 (Recalibrado)`), padronizar_perfil)
   )
 
+# Tratamento de segurança caso a base retorne vazia
 if (nrow(df_evolucao_tmp) == 0) {
   df_evolucao_tmp <- tibble(
     Squad = "Sem dados",
@@ -3318,6 +3397,7 @@ if (nrow(df_evolucao_tmp) == 0) {
   )
 }
 
+# Renderização Visual
 df_evolucao_tmp %>%
   kbl(align = c("c", "c", "c", "l", "l", "l", "l")) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = TRUE, font_size = 12) %>%
