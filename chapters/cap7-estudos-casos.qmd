@@ -1156,34 +1156,237 @@ Se a autopercepção individual é falha e enviesada, como podemos calibrar a r�
 * **Ação Gerencial:** Comparar o perfil que a turma acha que tem (Formulário 1) com o perfil que a turma acha que o mercado quer (Formulário 2).
 * **🔗 Link de Acesso:** [FORMULÁRIO 2 — Exigência das Competências na Prática Profissional](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UMk8zNThSUjFJTTVBN09KR0k1VVBFNVhSUC4u)
 
-### O Dicionário de Requisitos: Mapeando a Prática
+---
 
-Para que os alunos conseguissem debater o mercado de forma realista, o instrumento de pesquisa traduziu as 8 Competências Macros oficiais do Engenheiro de Produção em **30 cenários práticos (Requisitos)**. A tabela abaixo demonstra a engenharia reversa desse mapeamento, ilustrando quais requisitos práticos alimentam o cálculo de cada competência.
+### Estrutura do Instrumento (Exigência Prática)
 
-| Competência Macro (Diretriz) | Foco Prático Exigido | Questões do Formulário 2 (Requisitos) |
-| :--- | :--- | :--- |
-| **C01** Formular e conceber soluções de Engenharia | Criatividade, solução de problemas e visão sistêmica | **02.** Contribuir com ideias<br>**03.** Manter a calma em imprevistos<br>**11.** Transformar ideias em ações<br>**14.** Propor soluções criativas<br>**30.** Enxergar o todo |
-| **C02** Analisar fenômenos físicos e químicos | Interpretação de dados, análise crítica e técnica | **01.** Interpretar gráficos e tabelas<br>**06.** Analisar antes de decidir<br>**10.** Compreender fundamentos técnicos<br>**13.** Identificar causa-raiz<br>**21.** Reconhecer padrões em dados |
-| **C03** Conceber e projetar sistemas e processos | Planejamento, estruturação e aplicação prática | **05.** Organizar etapas de tarefa<br>**19.** Priorizar atividades<br>**22.** Estruturar planejamento<br>**29.** Aplicar conceitos práticos<br>**30.** Enxergar o todo |
-| **C04** Implantar e controlar soluções de Engenharia | Execução, controle de qualidade, normas e persistência | **09.** Cumprir prazos com qualidade<br>**16.** Persistência em tarefas longas<br>**18.** Seguir normas técnicas<br>**25.** Manter o grupo organizado<br>**28.** Organizar textos e relatórios |
-| **C05** Comunicar-se eficazmente | Clareza, expressão oral/escrita e empatia comunicativa | **04.** Explicar conceitos a colegas<br>**12.** Comunicar-se em debates<br>**15.** Colaborar com os diferentes<br>**20.** Compreender outros pontos de vista<br>**28.** Organizar textos e relatórios |
-| **C06** Liderar equipes multidisciplinares | Colaboração, empatia, organização coletiva e liderança | **02.** Contribuir com ideias<br>**12.** Comunicar-se claramente<br>**15.** Colaborar com os diferentes<br>**20.** Compreender outros pontos de vista<br>**25.** Manter o grupo organizado |
-| **C07** Conhecer e aplicar ética e legislação | Responsabilidade social, compliance e impacto ambiental | **08.** Relacionar impactos socioambientais<br>**09.** Cumprir prazos com responsabilidade<br>**18.** Seguir normas técnicas<br>**23.** Refletir sobre melhorias (ética)<br>**24.** Responsabilidade social e ambiental |
-| **C08** Aprender com autonomia (Lifelong Learning) | Autonomia, adaptação tecnológica e visão da complexidade | **07.** Adaptar-se a novas ferramentas<br>**17.** Buscar informações sozinho<br>**23.** Refletir sobre o desempenho<br>**26.** Aprender sem depender do professor<br>**30.** Enxergar o todo |
+*(Abaixo, a reprodução da arquitetura visual do instrumento para fins de consulta metodológica).*
 
-: Mapeamento de Cenários Práticos para Competências (Formulário 2) {#tbl-mapa-form2 tbl-colwidths="[30,30,40]"}
+#### [Seção 1: Termo de Consentimento Livre e Esclarecido (TCLE)](#sec-apendice-tcle-form2)
+Esta seção garante o *compliance* ético da coleta de dados. A equipe deve atestar que compreende os objetivos da pesquisa coletiva e concorda com o uso de suas informações.
 
-*(Nota: Observe na arquitetura dos dados que habilidades altamente versáteis, como a "Visão Sistêmica" (Req. 30), pontuam matematicamente de forma simultânea para Múltiplas Competências (C01, C03 e C08), refletindo a complexidade do mundo real).*
+<span style="color:#000000; font-weight:bold;">1. Declaramos que, por nossa livre vontade, aceitamos participar nesta pesquisa, cooperando com a coleta de dados para análise.</span><br>
+<input type="radio" disabled> Concordamos<br>
+<input type="radio" disabled> Não Concordamos<br>
+
+#### Seção 2: Identificação da Equipe
+Como a resposta representa o consenso do *Squad*, a identificação captura o grupo como uma entidade única para o cruzamento de dados.
+
+<span style="color:#c0392b; font-weight:bold;">2. Nome do Esquadrão / Grupo <span style="color:#c0392b">*</span></span><br>
+[ Campo de Texto ]<br>
+
+<span style="color:#c0392b; font-weight:bold;">3. Nomes completos dos membros presentes na discussão <span style="color:#c0392b">*</span></span><br>
+[ Campo de Texto Longo ]<br>
+
+<span style="color:#c0392b; font-weight:bold;">4. Turma <span style="color:#c0392b">*</span></span><br>
+<input type="radio" disabled> EPRI4003 - GESTÃO DA QUALIDADE - T01<br>
+<input type="radio" disabled> EPRI0001 - INTRODUÇÃO À ENGENHARIA DE PRODUÇÃO - T01<br>
+<input type="radio" disabled> EPRI9001 - SISTEMAS DE GESTÃO INTEGRADOS - T02<br>
+
+---
+
+#### Seção 3: Competências do Engenheiro de Produção
+
+<span style="color:#6c3483; font-style:italic;">15. Classifique o nível de exigência do mercado atual (de 1 a 7) para as seguintes <b>capacidades analíticas</b>:</span> <span style="color:#c0392b">*</span>
+
+| Requisito | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **1.** Interpretar gráficos, tabelas e indicadores de desempenho (KPIs) da operação. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **2.** Investigar e identificar as causas-raiz principais de problemas complexos. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **3.** Reconhecer padrões, tendências e anomalias em grandes volumes de dados. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **4.** Analisar e validar informações com rigor antes de tomar decisões gerenciais. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **5.** Compreender os fundamentos técnicos e teóricos ao analisar falhas em processos. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+
+: Bloco 1: Capacidades Analíticas {#tbl-f2-analiticas tbl-colwidths="[44,8,8,8,8,8,8,8]"}
+
+<span style="color:#6c3483; font-style:italic;">16. Classifique o nível de exigência do mercado atual (de 1 a 7) para as <b>habilidades de organização e entrega</b>:</span> <span style="color:#c0392b">*</span>
+
+| Requisito | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **6.** Organizar as etapas e o cronograma de um projeto ou tarefa complexa. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **7.** Priorizar tarefas importantes e gerenciar o tempo de forma eficaz sob pressão. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **8.** Transformar ideias abstratas em planos de ação e projetos concretos. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **9.** Cumprir prazos rigorosos e entregar resultados com alto padrão de qualidade. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **10.** Seguir rigorosamente as normas, padronizações e requisitos técnicos exigidos. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+
+: Bloco 2: Organização e Entrega {#tbl-f2-organizacao tbl-colwidths="[44,8,8,8,8,8,8,8]"}
+
+<span style="color:#6c3483; font-style:italic;">17. Classifique o nível de exigência do mercado atual (de 1 a 7) para a <b>comunicação no ambiente corporativo</b>:</span> <span style="color:#c0392b">*</span>
+
+| Requisito | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **11.** Explicar conceitos técnicos ou ideias de forma clara e objetiva para leigos. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **12.** Comunicar-se de forma persuasiva e clara durante debates e reuniões. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **13.** Colaborar de forma eficaz com pessoas de perfis e opiniões diferentes. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **14.** Compreender e respeitar diferentes pontos de vista antes de argumentar. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **15.** Redigir e organizar textos, e-mails e relatórios técnicos de forma estruturada. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+
+: Bloco 3: Comunicação Corporativa {#tbl-f2-comunicacao tbl-colwidths="[44,8,8,8,8,8,8,8]"}
+
+<span style="color:#6c3483; font-style:italic;">18. Classifique o nível de exigência do mercado atual (de 1 a 7) para a <b>gestão de pessoas e visão global</b>:</span> <span style="color:#c0392b">*</span>
+
+| Requisito | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **16.** Manter a equipe de trabalho (ou o próprio setor) engajada, organizada e produtiva. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **17.** Colaborar e integrar-se com facilidade em ambientes e times multidisciplinares. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **18.** Contribuir de forma proativa com ideias que alavanquem os resultados coletivos da equipe. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **19.** Manter a calma e pensar em alternativas viáveis diante de crises ou problemas inesperados. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **20.** Enxergar o problema como um todo em situações de alta complexidade (visão sistêmica). | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+
+: Bloco 4: Gestão e Visão Global {#tbl-f2-gestao tbl-colwidths="[44,8,8,8,8,8,8,8]"}
+
+<span style="color:#6c3483; font-style:italic;">19. Classifique o nível de exigência do mercado atual (de 1 a 7) para o <b>perfil ágil e inovador do engenheiro</b>:</span> <span style="color:#c0392b">*</span>
+
+| Requisito | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **21.** Propor soluções criativas e diferentes do senso comum para contornar restrições. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **22.** Aplicar conceitos teóricos na resolução de problemas práticos do chão de fábrica. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **23.** Adaptar-se rapidamente e dominar novas ferramentas, *softwares* e tecnologias. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **24.** Aprender novos métodos com autonomia, sem depender exclusivamente de treinamentos formais. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **25.** Buscar informações, referências e soluções de forma proativa para otimizar rotinas. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+
+: Bloco 5: Perfil Ágil e Inovador {#tbl-f2-inovador tbl-colwidths="[44,8,8,8,8,8,8,8]"}
+
+<span style="color:#6c3483; font-style:italic;">20. Classifique o nível de exigência do mercado atual (de 1 a 7) para a <b>atitude e o impacto profissional</b>:</span> <span style="color:#c0392b">*</span>
+
+| Requisito | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **26.** Relacionar as atividades da empresa com seus impactos sociais, ambientais e econômicos. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **27.** Agir com responsabilidade socioambiental na tomada de decisão industrial ou corporativa. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **28.** Avaliar os próprios erros com transparência e refletir criticamente para buscar melhoria. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **29.** Manter a persistência, o foco e a resiliência na execução de projetos longos ou difíceis. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **30.** Estruturar e documentar atividades que exigem planejamento prévio e rastreabilidade. | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+
+: Bloco 6: Atitude e Impacto {#tbl-f2-atitude tbl-colwidths="[44,8,8,8,8,8,8,8]"}
+
+---
+
+### O Dicionário de Requisitos: A Matriz de Mapeamento (1 a 30)
+
+Para que os alunos conseguissem debater o mercado de forma realista, o instrumento de pesquisa traduziu as 8 Competências Macros (C01 a C08) em **30 requisitos práticos do mercado**.
+
+A @tbl-dicionario-form2 desvenda a engenharia do algoritmo. Ela cruza as perguntas enumeradas sequencialmente no formulário ($Req_{01}$ a $Req_{30}$) com as competências oficiais às quais elas fornecem pontuação matemática. Observe que habilidades altamente versáteis, como a "Visão Sistêmica" ($Req_{20}$), alimentam o cálculo de múltiplas competências simultaneamente.
+
+| Nº | Requisito Prático do Mercado | C01 | C02 | C03 | C04 | C05 | C06 | C07 | C08 |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **01** | Interpretar gráficos, tabelas e indicadores | | <input type="radio" checked disabled> | | | | | | |
+| **02** | Investigar causas-raiz principais | | <input type="radio" checked disabled> | | | | | | |
+| **03** | Reconhecer padrões em dados | | <input type="radio" checked disabled> | | | | | | |
+| **04** | Analisar e validar informações com rigor | | <input type="radio" checked disabled> | | | | | | |
+| **05** | Compreender fundamentos técnicos/teóricos | | <input type="radio" checked disabled> | | | | | | |
+| **06** | Organizar etapas e cronograma | | | <input type="radio" checked disabled> | | | | | |
+| **07** | Priorizar tarefas e gerenciar o tempo | | | <input type="radio" checked disabled> | | | | | |
+| **08** | Transformar ideias em planos de ação | <input type="radio" checked disabled> | | | | | | | |
+| **09** | Cumprir prazos com alto padrão | | | | <input type="radio" checked disabled> | | | | |
+| **10** | Seguir rigorosamente as normas | | | | <input type="radio" checked disabled> | | | <input type="radio" checked disabled> | |
+| **11** | Explicar conceitos de forma clara para leigos | | | | | <input type="radio" checked disabled> | | | |
+| **12** | Comunicar-se de forma persuasiva | | | | | <input type="radio" checked disabled> | <input type="radio" checked disabled> | | |
+| **13** | Colaborar com pessoas diferentes | | | | | <input type="radio" checked disabled> | <input type="radio" checked disabled> | | |
+| **14** | Compreender diferentes pontos de vista | | | | | <input type="radio" checked disabled> | <input type="radio" checked disabled> | | |
+| **15** | Redigir textos e relatórios estruturados | | | | <input type="radio" checked disabled> | <input type="radio" checked disabled> | | | |
+| **16** | Manter a equipe engajada | | | | | | <input type="radio" checked disabled> | | |
+| **17** | Colaborar em times multidisciplinares | | | | | | <input type="radio" checked disabled> | | |
+| **18** | Contribuir proativamente com ideias | <input type="radio" checked disabled> | | | | | <input type="radio" checked disabled> | | |
+| **19** | Manter a calma diante de crises | <input type="radio" checked disabled> | | | | | | | |
+| **20** | Enxergar o problema como um todo (Visão Sistêmica)| <input type="radio" checked disabled> | | <input type="radio" checked disabled> | | | | | <input type="radio" checked disabled> |
+| **21** | Propor soluções criativas e inovadoras | <input type="radio" checked disabled> | | | | | | | |
+| **22** | Aplicar conceitos teóricos na prática | | | <input type="radio" checked disabled> | | | | | |
+| **23** | Adaptar-se rapidamente a tecnologias | | | | | | | | <input type="radio" checked disabled> |
+| **24** | Aprender métodos com autonomia | | | | | | | | <input type="radio" checked disabled> |
+| **25** | Buscar referências proativamente | | | | | | | | <input type="radio" checked disabled> |
+| **26** | Relacionar impactos sociais e ambientais | | | | | | | <input type="radio" checked disabled> | |
+| **27** | Agir com responsabilidade socioambiental | | | | | | | <input type="radio" checked disabled> | |
+| **28** | Avaliar erros com transparência | | | | | | | <input type="radio" checked disabled> | <input type="radio" checked disabled> |
+| **29** | Manter resiliência em projetos difíceis | | | | <input type="radio" checked disabled> | | | | |
+| **30** | Estruturar planejamento e rastreabilidade | | | <input type="radio" checked disabled> | <input type="radio" checked disabled> | | | | |
+| **Σ** | **Contagem de itens por competência** | **5** | **5** | **5** | **5** | **5** | **6** | **4** | **5** |
+
+: Matriz de Correspondência: Requisitos do Forms vs. Competências (C01-C08) {#tbl-dicionario-form2 tbl-colwidths="[5,55,5,5,5,5,5,5,5,5]"}
+
+*(Legenda de Competências: **C01** - Conceber soluções; **C02** - Analisar fenômenos; **C03** - Projetar sistemas; **C04** - Implantar/Controlar; **C05** - Comunicação; **C06** - Liderar equipes; **C07** - Ética e Legislação; **C08** - Autonomia e Lifelong Learning).*
+
+Para ilustrar a profundidade matemática dessa matriz, observe que práticas altamente versáteis, como a **Visão Sistêmica ($Req_{20}$** — *Enxergar o problema como um todo em situações de alta complexidade*), estão relacionadas simultaneamente a três diretrizes distintas: C01, C03 e C08.
+
+Ou seja, se a equipe de alunos entra em consenso de que o mercado é muito exigente quanto a este requisito, atribuindo-lhe notas 6 ou 7, o algoritmo compreende que, para entregar essa visão sistêmica na prática, o futuro engenheiro precisará apresentar alto desempenho nestas três competências ancoradas. Para relembrar a modelagem estruturada na Tabela de Competências do Egresso, o desdobramento ocorre da seguinte forma:
+
+```{r}
+#| label: tbl-desdobramento-req20
+#| tbl-cap: "Desdobramento Analítico do Requisito de Visão Sistêmica ($Req_{20}$)"
+#| echo: false
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+df_req20 <- data.frame(
+  # Trocado para HTML puro (sub) para renderizar corretamente dentro do escape=FALSE
+  Requisito = rep("<b>Req<sub>20</sub></b><br><br><i>Enxergar o problema como um todo em situações de alta complexidade (Visão sistêmica).</i>", 12),
+
+  Variavel = c(
+    rep("<b>C01</b> Formular e conceber soluções desejáveis de Engenharia.", 5),
+    rep("<b>C03</b> Conceber, projetar e analisar sistemas, componentes ou processos.", 4),
+    rep("<b>C08</b> Aprender de forma autônoma e lidar com situações complexas.", 3)
+  ),
+
+  Descricao = c(
+    "Contribuir com ideias;",
+    "Manter a calma diante de problemas inesperados;",
+    "Transformar ideias em ações;",
+    "Propor soluções criativas;",
+    "Enxergar o problema como um todo.",
+    "Organizar etapas de uma tarefa;",
+    "Priorizar atividades importantes;",
+    "Estruturar planejamento;",
+    "Aplicar conceitos teóricos na prática.",
+    "Adaptar-se a novas ferramentas tecnológicas;",
+    "Buscar informações por conta própria;",
+    "Aprender conteúdos sem depender exclusivamente do professor."
+  )
+)
+
+df_req20 %>%
+  kbl(
+    format = "html",
+    align = c("c", "l", "l"),
+    escape = FALSE,
+    col.names = c("Requisito Prático do Mercado", "Competências Relacionadas", "Descrição Prática do Comportamento")
+  ) %>%
+  # Removemos qualquer menção ao "striped"
+  kable_styling(bootstrap_options = c("hover", "bordered"), full_width = TRUE) %>%
+
+  # Forçamos TODAS as linhas a terem fundo branco, anulando o zebrado do tema do Quarto
+  row_spec(1:12, background = "white") %>%
+
+  # Recolocamos as nossas linhas sólidas de marcação
+  row_spec(c(5, 9), extra_css = "border-bottom: 2px solid #7f8c8d !important;") %>%
+
+  # Formatação das colunas
+  column_spec(1, width = "25%", background = "#f8f9fa") %>%
+  column_spec(2, width = "30%", extra_css = "vertical-align: middle;") %>%
+  column_spec(3, width = "45%", extra_css = "border-bottom: 1px dashed #cccccc; vertical-align: middle;") %>%
+
+  collapse_rows(columns = 1:2, valign = "middle")
+```
+
+::: {.callout-warning title="⚠️ Alerta Pedagógico: A Ilusão da Competência Isolada"}
+Cabe ressaltar uma limitação cognitiva natural inerente a esta dinâmica. Alunos que se encontram nos períodos intermediários ou que possuem pouca carga horária integralizada no curso ainda não desenvolveram a maturidade acadêmica e corporativa para enxergar essa teia de interdependências.
+
+Ao atribuírem nota máxima a um requisito prático como a "Visão Sistêmica", eles acreditam estar avaliando apenas uma habilidade isolada ou um talento comportamental. Falta-lhes a vivência de chão de fábrica para compreender que, para atender a essa única demanda mercadológica, o profissional precisará entregar alta performance em três frentes distintas simultaneamente. Felizmente, o motor matemático do algoritmo contorna essa imaturidade ao capturar e distribuir a complexidade integral da exigência, independentemente do nível de consciência do aluno.
+:::
 
 ### A Análise Descritiva: A Régua Bruta do Mercado
 
-O primeiro passo do processamento é calcular a nota bruta que cada grupo atribuiu às 8 Competências. Matematicamente, a nota atribuída a uma competência macro ($C_i$) passa a ser a média aritmética simples das respostas ($y$) dadas aos cenários práticos mapeados acima na escala de 1 a 7.
+Para formalizar o modelo estatístico nesta etapa, devemos considerar a topologia da turma. A sala de aula foi particionada em $q$ esquadrões de consultoria (neste caso, $q = 18$). Seguindo a notação matemática de agrupamento, temos que cada grupo genérico é denotado por $g \in \{G_1, \dots, G_q\}$, tratando-se de conjuntos mutuamente excludentes, ou seja, a interseção entre eles é nula ($\bigcap_{g=1}^q G_g = \emptyset$), garantindo que cada aluno ($j$) pertença a um e apenas um único *squad*.
 
-Para a competência $C01$ (Formular soluções), por exemplo, o algoritmo calcula o seguinte sub-bloco de média antes de prosseguir:
+Como a [Rodada 2](@sec-rodada-2-mercado) exige uma submissão de consenso, a unidade de análise deixa de ser o indivíduo ($j$) e passa a ser o próprio grupo ($g$). O primeiro passo do processamento é calcular a nota bruta que cada grupo $g$ atribuiu às 8 Competências. Matematicamente, a nota da competência macro ($C_{i,g}$) é a média aritmética simples das avaliações dadas aos requisitos práticos ($Req$) mapeados na escala de 1 a 7.
 
-$$C01 = \frac{Req_{02} + Req_{03} + Req_{11} + Req_{14} + Req_{30}}{5}$$ {#eq-r2-c01-media-req}
+Para a competência **C01 (Formular soluções)**, por exemplo, o algoritmo busca exatamente os 5 requisitos correspondentes na @tbl-dicionario-form2 e calcula o seguinte sub-bloco de média para o grupo $g$ antes de prosseguir:
 
-A @tbl-resumo-exigencia-grupos apresenta o resultado bruto (médias aritméticas) para os 18 esquadrões (divididos em duas turmas distintas), calculando também a "Exigência Geral do Mercado", que representa a média global de exigência declarada pelo grupo para a engenharia.
+$$C_{01,g} = \frac{Req_{08,g} + Req_{18,g} + Req_{19,g} + Req_{20,g} + Req_{21,g}}{5}$$ {#eq-r2-c01-media-req}
+
+A @tbl-resumo-exigencia-grupos apresenta o resultado bruto (médias aritméticas) para os 18 esquadrões, calculando também a "Exigência Geral do Mercado", que representa a média global de exigência declarada pelo grupo para a engenharia. Nesta seção, as siglas de turma correspondem às disciplinas: EPRI4003 (Gestão da Qualidade), EPRI0001 (Introdução à Engenharia de Produção) e EPRI9001 (Sistemas de Gestão Integrados).
 
 ```{r}
 #| label: tbl-resumo-exigencia-grupos
@@ -1198,7 +1401,7 @@ library(kableExtra)
 
 quiet_source("R/trat.forms.R")
 
-# 1. Cálculo das Médias Brutas por Grupo
+# 1. Cálculo das Médias Brutas por Grupo (Consenso g)
 df_resumo_f2 <- df_form2_anon %>%
   group_by(ID_Grupo, Turma) %>%
   summarise(across(starts_with("C0"), ~ mean(.x, na.rm = TRUE)), .groups = "drop") %>%
@@ -1207,16 +1410,22 @@ df_resumo_f2 <- df_form2_anon %>%
 
 # 2. Renderização da Tabela
 df_resumo_f2 %>%
-  # Para otimizar o espaço no livro, extraímos apenas a sigla da turma
   mutate(Turma = sub(" - .*$", "", Turma)) %>%
+  {
+    turmas_unicas <- sort(unique(.$Turma))
+    cores_base <- c("#1f77b4", "#e67e22")
+    paleta_turmas <- setNames(rep(cores_base, length.out = length(turmas_unicas)), turmas_unicas)
+    mutate(., Turma = cell_spec(Turma, bold = TRUE, color = paleta_turmas[Turma]))
+  } %>%
   kbl(
-    align = "c", digits = 2,
+    align = "c", digits = 2, escape = FALSE,
     col.names = c("Grupo", "Turma", "C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "Exigência Geral")
   ) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
   column_spec(1, bold = TRUE, color = "#2c3e50") %>%
   column_spec(11, bold = TRUE, color = "white", background = "#34495e")
 ```
+
 A matriz descritiva confirma a tese de que, quando forçados a pensar no mundo real e sob a ótica do mercado (e não mais na complacência da própria avaliação), os alunos elevam o rigor. A maioria dos esquadrões posicionou a régua geral de exigência para o Engenheiro de Produção acima de 6,00 em uma escala de 7,00, beirando a excelência mandatória.
 
 ### O Motor Multivariado Replicado: O Perfil Exigido
@@ -1267,7 +1476,7 @@ df_radar_mercado <- df_scores_mercado %>%
       abs(Max_Score - P05_pct) < 1e-9 ~ "P05",
       abs(Max_Score - P06_pct) < 1e-9 ~ "P06"
     ),
-    Perfil_Exigido = normalizar_perfil(Perfil_Exigido)
+    Perfil_Exigido = sub("^P0", "P", Perfil_Exigido)
   ) %>%
   ungroup() %>%
   # Aplicação de Formatação HTML condicional para o maior valor (Negrito e Vermelho)
@@ -1284,8 +1493,7 @@ df_radar_mercado <- df_scores_mercado %>%
 df_radar_mercado %>%
   kbl(
     align = "c", escape = FALSE,
-    col.names = c("Grupo", "P1 (Analítico-Técnico)", "P2 (Operações)", "P3 (Criativo-Inovador)",
-                  "P4 (Comunicador-Articulador)", "P5 (Líder-Organizacional)", "P6 (Sustentável-Responsável)", "Perfil Exigido (Mercado)")
+    col.names = c("Grupo", "P1", "P2", "P3", "P4", "P5", "P6", "P Exigido")
   ) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
   add_header_above(c(" " = 1, "Radar de Exigência Multivariável (%)" = 6, " " = 1), bold = TRUE) %>%
@@ -1441,7 +1649,13 @@ Para a competência $C_{01}$, por exemplo:
 
 $$C_{01, G_x}^{pares} = \frac{\sum_{j=1}^{n_g} y_{j, C01}^{pares}}{n_g}$$ {#eq-r3-c01-media-pares}
 
-A @tbl-resumo-execucao-grupos apresenta a camada descritiva que antecede o ARM. Além das médias por competência, incluímos dois sinais gerenciais: (i) a **Execução Geral** do grupo e (ii) um **Índice de Consistência Interna** ($IC_g$), que aproxima o grau de homogeneidade entre competências dentro do esquadrão.
+A @tbl-resumo-execucao-grupos apresenta a camada descritiva que antecede o ARM. Além das médias por competência, incluímos três sinais gerenciais:
+
+- (i) a média geral de execução do grupo, representada por $\bar{C}_g$;
+- (ii) o índice de consistência interna, representado por $IC_g$, que aproxima o grau de homogeneidade entre competências dentro do esquadrão;
+- (iii) o desvio-padrão entre competências, representado por $\sigma_{C,g}$, calculado sobre as notas médias de $C01$ a $C08$ dentro do próprio grupo.
+
+Quanto maior $\sigma_{C,g}$, maior a assimetria interna da execução.
 
 ```{r}
 #| label: tbl-resumo-execucao-grupos
@@ -1478,7 +1692,19 @@ idx_exec <- which(names(df_resumo_f3) == "Execucao_Geral")
 idx_ic <- which(names(df_resumo_f3) == "IC_g")
 
 tbl_resumo_f3 <- df_resumo_f3 %>%
-  kbl(align = "c", digits = 2) %>%
+  {
+    turmas_unicas <- sort(unique(.$Turma))
+    cores_base <- c("#1f77b4", "#e67e22")
+    paleta_turmas <- setNames(rep(cores_base, length.out = length(turmas_unicas)), turmas_unicas)
+    mutate(., Turma = cell_spec(Turma, bold = TRUE, color = paleta_turmas[Turma]))
+  } %>%
+  kbl(
+    align = "c", digits = 2, escape = FALSE,
+    col.names = c(
+      "ID Grupo", "Turma", "C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08",
+      "C&#772;<sub>g</sub>", "&sigma;<sub>C,g</sub>", "IC<sub>g</sub>"
+    )
+  ) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
   column_spec(1, bold = TRUE, color = "#2c3e50")
 
@@ -1539,7 +1765,7 @@ df_radar_pares <- df_scores_pares %>%
       abs(Max_Score - P05_pct) < 1e-9 ~ "P05",
       abs(Max_Score - P06_pct) < 1e-9 ~ "P06"
     ),
-    Perfil_Executado = normalizar_perfil(Perfil_Executado)
+    Perfil_Executado = sub("^P0", "P", Perfil_Executado)
   ) %>%
   ungroup() %>%
   # Aplicação de Formatação HTML condicional para o maior valor (Negrito e Vermelho)
@@ -1555,8 +1781,7 @@ df_radar_pares <- df_scores_pares %>%
 df_radar_pares %>%
   kbl(
     align = "c", escape = FALSE,
-    col.names = c("Grupo", "P1 (Analítico-Técnico)", "P2 (Operações)", "P3 (Criativo-Inovador)",
-                  "P4 (Comunicador-Articulador)", "P5 (Líder-Organizacional)", "P6 (Sustentável-Responsável)", "Perfil Real (Execução)")
+    col.names = c("Grupo", "P1", "P2", "P3", "P4", "P5", "P6", "P Executado")
   ) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
   add_header_above(c(" " = 1, "Radar de Execução Prática (%)" = 6, " " = 1), bold = TRUE) %>%
@@ -1650,13 +1875,14 @@ df_gap_critico <- df_gap %>%
 
 df_gap_tabela <- df_gap_resumo %>%
   left_join(df_gap_critico, by = "ID_Grupo") %>%
-  arrange(desc(Gap_Medio_pp))
+  arrange(ID_Grupo)
 
 df_gap_tabela %>%
   kbl(
     align = c("c", "c", "c", "c", "c"),
+    escape = FALSE,
     digits = 2,
-    col.names = c("Grupo", "IA_g (%)", "Gap Médio (p.p.)", "Perfil de Maior Desvio", "Delta Dominante")
+    col.names = c("Grupo", "IA<sub>g</sub> (%)", "Gap Médio (p.p.)", "Perfil de Maior Desvio", "Delta Dominante")
   ) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
   column_spec(1, bold = TRUE, color = "#2c3e50") %>%
@@ -1788,107 +2014,145 @@ A tabela acima consolida a jornada comportamental. Observe como a engenharia de 
 É com este nível de profundidade analítica que o gestor deixa de avaliar os alunos por "achismos" e passa a atuar com precisão cirúrgica no desenvolvimento de talentos.
 
 ## ⏱️ Rodada 4: A Decisão Sob Pressão (Individual) - Formulário 4 {#sec-rodada-4-pressao}
+
 A aplicação dos formulários de SGI testa a capacidade do aluno de integrar Qualidade, Meio Ambiente, Saúde e Segurança. Para operacionalizar essa etapa, a engenharia pedagógica requer um design de formulário completamente diferente da autopercepção inicial. O aluno não avalia "o quanto acha que sabe", mas é jogado virtualmente no centro de uma crise operacional.
 
-Para garantir a lisura da coleta de dados e evitar o viés de desejabilidade social, o instrumento é configurado no Microsoft Forms (Forms 365) como um **teste cego**. O aluno visualiza apenas o cenário e as opções de ação, sem nenhuma indicação ou pontuação visível. As respostas não possuem "certo ou errado" absoluto, mas cada opção carrega um peso matemático direcionado a perfis específicos do modelo hexadimensional.
+Para garantir a lisura da coleta de dados e evitar o viés de desejabilidade social, o instrumento é configurado no Microsoft Forms como um **teste cego**. O aluno visualiza apenas o cenário e as opções de ação, sem nenhuma indicação ou pontuação visível. As respostas não possuem "certo ou errado" absoluto, mas cada opção carrega um peso matemático direcionado a perfis específicos do modelo hexadimensional.
 
 ::: {.callout-note title="💡 Insight Comportamental: Preferência Declarada vs. Revelada"}
 Na Ciência de Dados aplicada a pessoas, existe uma diferença abissal entre o que o usuário diz e o que ele faz. Nos Formulários 1, 2 e 3, trabalhamos com a **Preferência Declarada** (o aluno *afirma* ser ético ou analítico). No Formulário 4, sob a pressão de 10 minutos e diante de prejuízos milionários na simulação, capturamos a **Preferência Revelada**. É impossível fraudar o algoritmo quando o cérebro entra em modo de sobrevivência e precisa decidir entre salvar o lucro ou salvar a segurança do operador.
 :::
 
-Nesta etapa, o aluno responde individualmente a dilemas operacionais. O objetivo é recalibrar o perfil original do aluno com base nas suas reais prioridades de gestão (Risco vs. Custo vs. Compliance).
+Nesta etapa, o aluno responde individualmente a dilemas operacionais. O objetivo é recalibrar o perfil original do aluno com base nas suas reais prioridades de gestão (Risco vs. Custo vs. *Compliance*).
 
 **Instruções de Preenchimento projetadas aos alunos:**
 > *Bem-vindo(a) à simulação de Gestão de Crises. A partir de agora, você assume a cadeira de Gerente de Operações de uma instalação industrial complexa. Você tem exatos 10 minutos para concluir. Escolha apenas uma alternativa por cenário.*
 
 * **🔗 Link de Acesso:** [FORMULÁRIO 4 — Simulação de Gestão de Crises e Dilemas Operacionais (Individual)](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UQTJGVEE3Mk1OOVNYRklJTTMyVFdGRlJDVS4u)
+*(A aplicação deste formulário está vinculada ao TCLE presente em @sec-apendice-tcle-form4).*
 
-##### Dilema 1 — Qualidade vs. Produção (Conflito ISO 9001)
+---
 
-* **Contexto:** Durante o carregamento de um navio no porto, o laboratório identifica que o lote de minério de ferro está com sílica 0,5% acima do limite de um cliente europeu *premium*. O navio está 40% carregado. Paralisar gerará *demurrage* de US$ 100.000/dia e comprometerá a meta trimestral de produção.
-   - **Opção A (Foco em Compliance):** Interrompo o embarque imediatamente. Assumo o prejuízo, reporto a NC e corrijo o lote.
-   - **Opção B (Foco em Negociação):** Continuo o carregamento para não gerar multas e aciono o comercial para oferecer desconto agressivo (15%) ao cliente.
-   - **Opção C (Foco em Risco Operacional):** Suspendo apenas para contraprova. Se der o mesmo resultado, libero o navio para bater a meta e lido com a reclamação depois.
+### Estrutura do Instrumento (Simulação de Crises)
 
-##### Dilema 2 — Saúde e Segurança vs. Cultura (Conflito ISO 45001)
+*(Abaixo, a reprodução da arquitetura visual do instrumento para fins de consulta metodológica).*
 
-* **Contexto:** A planta está a 1 dia de bater 1 ano sem acidentes, o que garante 2 salários de bônus para 500 operadores. No turno da noite, um operador torce o tornozelo gravemente. O supervisor sugere registrar como 'acidente de trajeto doméstico' para salvar o bônus.
-   - **Opção A (Ética Inflexível):** Registro o acidente industrial imediatamente. Fraude é inegociável.
-   - **Opção B (Paternalismo):** Aceito a sugestão. Protejo o bônus e a motivação de 500 famílias.
-   - **Opção C (Estratégia Corporativa):** Isolo a área para investigação da causa-raiz. Após neutralizar o risco, negocio exceção contratual com o RH para pagar o bônus legalmente, apesar do acidente.
+#### [Seção 1: Termo de Consentimento Livre e Esclarecido (TCLE)](#sec-apendice-tcle-form4)
+Esta seção garante o *compliance* ético da coleta de dados. O aluno deve atestar que compreende os objetivos da pesquisa e concorda com o uso de suas informações para o cruzamento de perfil e formação de equipes.
 
-##### Dilema 3 — Meio Ambiente vs. Orçamento (Conflito ISO 14001)
+<span style="color:#000000; font-weight:bold;">1. Declaro que, por minha livre vontade, aceito participar nesta pesquisa, cooperando com a coleta de dados para análise.</span><br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Concordo<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Não Concordo
 
-* **Contexto:** Um filtro crítico na chaminé da usina de pelotização apresenta falhas intermitentes. Substituí-lo imediatamente paralisará a produção por 2 dias e custará US$ 50.000, estourando o seu orçamento de manutenção do trimestre.
+#### Seção 2: Identificação do Aluno
 
-* **O Conflito:** Se o filtro falhar de vez, as emissões de particulados ultrapassarão os limites legais do CONAMA, gerando multas pesadas e paralisação pelo órgão ambiental. Porém, a produção já está atrasada.
-   - **Opção A (Foco Ambiental/Técnico):** Paro a usina e troco o filtro imediatamente. Estouro o orçamento, mas garanto o compliance ambiental e elimino o risco de interdição técnica.
-   - **Opção B (Foco Operacional/Risco):** Mantenho a usina rodando, mas coloco um técnico monitorando a chaminé a cada hora. Preparamos um plano de contingência para desligamento emergencial apenas se o limite legal for atingido.
-   - **Opção C (Foco em Negociação/Criatividade):** Reduzo a carga da usina para 50%, diminuindo a pressão no filtro para que ele não quebre, enquanto negocio emergencialmente com a diretoria um orçamento extra para a troca no fim de semana.
+<span style="color:#c0392b; font-weight:bold;">2. Nome completo <span style="color:#c0392b">*</span></span><br>
+[ Campo de Texto ]<br>
 
-##### Dilema 4 — Auditoria vs. Ética Interna (Conflito ISO 19011)
+<span style="color:#c0392b; font-weight:bold;">3. Matrícula <span style="color:#c0392b">*</span></span><br>
+[ Campo Numérico ]<br>
 
-* **Contexto:** Durante uma auditoria interna do SGI, você descobre que a certificação do principal fornecedor de EPIs está vencida. O Gerente de Compras (um veterano influente e amigo do CEO) falsificou a data no sistema para evitar o bloqueio, pois este fornecedor é o mais barato.
+<span style="color:#c0392b; font-weight:bold;">4. E-mail institucional <span style="color:#c0392b">*</span></span><br>
+[ Campo de Texto ]<br>
 
-* **O Conflito:** Reportar a falsificação causará a demissão do gerente e uma crise de suprimentos. Ignorar o fato coloca a empresa em risco de perder a certificação na auditoria externa no mês que vem.
-   - **Opção A (Foco em Compliance/Auditoria):** Registro a Não Conformidade formalmente no relatório de auditoria e bloqueio o fornecedor no sistema de imediato, assumindo o desgaste político com o CEO.
-   - **Opção B (Foco em Liderança/Relacionamento):** Chamo o Gerente de Compras para uma conversa a portas fechadas. Dou a ele 48 horas para regularizar o fornecedor ou achar um substituto antes de fechar o meu relatório, resolvendo o problema sem exposição.
-   - **Opção C (Foco em Processos/Contorno):** Reclassifico o fornecedor no sistema como "Experimental Temporário", status que isenta a certificação imediata, enquanto oriento a equipe a procurar novos orçamentos discretamente.
+<span style="color:#c0392b; font-weight:bold;">5. Turma <span style="color:#c0392b">*</span></span><br>
+<span class="f4-radio-btn" aria-hidden="true"></span> EPRI4003 - GESTÃO DA QUALIDADE - T01<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> EPRI0001 - INTRODUÇÃO À ENGENHARIA DE PRODUÇÃO - T01<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> EPRI9001 - SISTEMAS DE GESTÃO INTEGRADOS - T02<br>
 
-##### Dilema 5 — Responsabilidade Social vs. Lucro (Conflito NBR 16001 / ISO 26000)
+---
 
-* **Contexto:** A empresa fará uma expansão lucrativa na mina. O caminho mais barato exige desapropriar uma pequena comunidade local. A equipe jurídica encontrou uma brecha legal que permite forçar a desapropriação pagando indenizações irrisórias.
+#### Seção 3: Simulação de Gestão de Crises
 
-* **O Conflito:** Usar a brecha economiza US$ 2 milhões e 6 meses de projeto. Conduzir o processo de forma ética e colaborativa custará o valor de mercado e atrasará o cronograma.
-   - **Opção A (Foco Social/Transparência):** Recuso a brecha legal. Inicio um processo transparente com a comunidade e pago o valor justo de mercado, protegendo a imagem e a licença social de operação da empresa.
-   - **Opção B (Foco em Compensação Cruzada):** Uso a brecha para garantir o terreno rápido, mas pego parte dos US$ 2 milhões economizados para construir uma escola e um posto de saúde na nova vila deles, apaziguando os ânimos.
-   - **Opção C (Foco em Eficiência Financeira):** Analiso friamente o risco legal. Se a brecha for sólida, executo a desapropriação pelo menor custo possível. Trato o impacto social estritamente como uma métrica de custo operacional.
+<span style="color:#083C92; font-weight:bold;">6. Qualidade vs. Produção (Conflito ISO 9001) <span style="color:#c0392b">*</span></span><br>
+<span style="color:#2980b9; font-style:italic;">Contexto: Durante o carregamento de um navio no porto, o laboratório identifica que o lote de minério de ferro está com sílica 0,5% acima do limite de um cliente europeu premium. O navio está 40% carregado. Paralisar gerará demurrage de US$ 100.000/dia e comprometerá a meta trimestral de produção. Como você atua?</span>
 
-##### Dilema 6 — Crise do Indicador de Desempenho (Conflito ISO 9001 / Liderança)
+<span class="f4-radio-btn" aria-hidden="true"></span> Interrompo o embarque imediatamente. Assumo o prejuízo financeiro, reporto a não conformidade e corrijo o lote.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Continuo o carregamento para não gerar multas operacionais e aciono o comercial para oferecer um desconto agressivo (ex: 15%) ao cliente.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Suspendo o embarque apenas para uma contraprova de laboratório. Se der o mesmo resultado, libero o navio para bater a meta e lido com a reclamação do cliente depois.<br>
 
-* **Contexto:** A diretoria exige que o índice de satisfação do cliente suba para 95% neste mês para garantir o bônus de todos os gerentes. O índice está em 88%. A equipe comercial sugere disparar as pesquisas apenas para a lista de clientes que já deram notas positivas no passado, garantindo a meta.
+<br>
 
-* **O Conflito:** Fraudar a amostragem garante o bônus de dezenas de gestores, mas mascara um problema real de qualidade perante a norma.
-   - **Opção A (Foco em Serviço/Comunicação):** Recusa o filtro viciado, mas cria uma campanha de engajamento oferecendo novos serviços agregados aos clientes insatisfeitos para reverter a percepção deles de forma amigável.
-   - **Opção B (Foco em Postura/Liderança):** Veta a fraude por violar a ética corporativa. Assume a liderança da crise e vai até a diretoria apresentar o risco de imagem que essa maquiagem traria a longo prazo.
-   - **Opção C (Foco em Estatística/Causa-raiz):** Nega a manipulação. Puxa a base de dados completa do semestre para analisar estatisticamente a causa-raiz da insatisfação e atua para otimizar o processo.
+<span style="color:#083C92; font-weight:bold;">7. Saúde e Segurança vs. Cultura (Conflito ISO 45001) <span style="color:#c0392b">*</span></span><br>
+<span style="color:#2980b9; font-style:italic;">Contexto: A planta está a 1 dia de bater 1 ano sem acidentes, o que garante 2 salários de bônus para 500 operadores. No turno da noite, um operador torce o tornozelo gravemente. O supervisor sugere registrar como "acidente de trajeto doméstico" para salvar o bônus. Como você atua?</span>
 
-##### Dilema 7 — Cadeia de Suprimentos vs. Qualidade Assegurada (Conflito ISO 9001 / Lean Manufacturing)
+<span class="f4-radio-btn" aria-hidden="true"></span> Registro o acidente industrial imediatamente. A omissão ou fraude de dados de segurança é inegociável.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Aceito a sugestão do supervisor. Protejo o pagamento do bônus para manter a motivação e o bem-estar financeiro de 500 famílias.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Isolo a área para investigação da causa-raiz. Após neutralizar o risco, negocio uma exceção contratual com o RH para pagar o bônus legalmente, apesar do acidente.<br>
 
-* **Contexto:** Uma greve portuária atrasou a importação de um componente eletrônico crítico para a linha de montagem. O estoque de segurança zerou. Parar a linha custará US$ 80.000 por turno. A equipe de compras encontrou um fabricante local não homologado pelo Sistema de Gestão da Qualidade, que tem o componente a pronta entrega, mas sem histórico de confiabilidade.
+<br>
 
-* **O Conflito:** Homologar o fornecedor leva 15 dias e paralisa a fábrica. Comprar sem homologar viola os procedimentos de qualidade e pode gerar falhas no produto final no mercado.
-   - **Opção A (Foco em Qualidade/Processos):** Interrompo a linha de montagem, assumo o custo da parada e só volto a operar quando a peça do fornecedor importado original chegar.
-   - **Opção B (Foco em Risco/Contingência):** Compro um lote pequeno do fornecedor não homologado, mas implemento uma barreira de inspeção de qualidade 100% no recebimento e no final da linha, mitigando o risco de falha.
-   - **Opção C (Foco Operacional/Custos):** Compro o lote inteiro do fornecedor local e rodo a produção normalmente. O impacto financeiro de parar a fábrica é muito pior do que lidar com um eventual acionamento de garantia pelos clientes depois.
+<span style="color:#083C92; font-weight:bold;">8. Meio Ambiente vs. Orçamento (Conflito ISO 14001) <span style="color:#c0392b">*</span></span><br>
+<span style="color:#2980b9; font-style:italic;">Contexto: Um filtro crítico na chaminé da usina apresenta falhas intermitentes. Substituí-lo imediatamente paralisará a produção por 2 dias e custará US$ 50.000, estourando seu orçamento do trimestre. Se o filtro falhar de vez, as emissões ultrapassarão os limites legais do CONAMA, gerando multas pesadas e paralisação. A produção já está atrasada. Como você atua?</span>
 
-##### Dilema 8 — Segurança Cibernética vs. Continuidade Produtiva (Conflito ISO 27001 / Indústria 4.0)
+<span class="f4-radio-btn" aria-hidden="true"></span> Paro a usina e troco o filtro imediatamente. Estouro o orçamento, mas garanto o compliance ambiental e elimino o risco de interdição técnica.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Mantenho a usina rodando, mas coloco um técnico monitorando a chaminé a cada hora. Preparamos um plano de contingência para desligamento emergencial apenas se o limite for atingido.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Reduzo a carga da usina para 50%, diminuindo a pressão no filtro para que ele não quebre, enquanto negocio emergencialmente com a diretoria um orçamento extra para a troca no fim de semana.<br>
 
-* **Contexto:** A equipe de TI detectou uma tentativa de invasão (*ransomware*) na rede corporativa. Para garantir que os CLPs (Controladores Lógicos Programáveis) e robôs do chão de fábrica não sejam infectados, a TI exige derrubar toda a rede industrial por 12 horas para aplicar correções de segurança.
+<br>
 
-* **O Conflito:** Desligar a rede agora interrompe o processamento do lote do maior cliente da empresa, cujo prazo de entrega inegociável é amanhã de manhã.
-   - **Opção A (Foco em Segurança da Informação):** Autorizo a TI a derrubar a rede imediatamente. O risco de ter a planta sequestrada por hackers e perder todos os dados é inaceitável, mesmo perdendo o maior cliente.
-   - **Opção B (Foco em Negociação/Criatividade):** Acordo com a TI para desconectar fisicamente a fábrica da internet (*air gap*), isolando o risco, e mantenho a produção rodando em modo manual/local até concluir o lote.
-   - **Opção C (Foco em Produção/Risco Operacional):** Nego a paralisação. O risco de um ataque chegar ao chão de fábrica é uma hipótese estatística, mas a multa milionária e a quebra de contrato com o cliente por atraso são certezas absolutas.
+<span style="color:#083C92; font-weight:bold;">9. Auditoria vs. Ética Interna (Conflito ISO 19011) <span style="color:#c0392b">*</span></span><br>
+<span style="color:#2980b9; font-style:italic;">Contexto: Durante uma auditoria interna, você descobre que a certificação do fornecedor de EPIs está vencida. O Gerente de Compras (amigo do CEO) falsificou a data para evitar o bloqueio, pois o fornecedor é o mais barato. Reportar causará demissão e crise de suprimentos. Ignorar coloca a empresa em risco de perder a certificação na auditoria externa. Como você atua?</span>
 
-##### Dilema 9 — Manutenção de Ativos vs. Pressão de Cronograma (Conflito ISO 55001 / Gestão de Riscos)
+<span class="f4-radio-btn" aria-hidden="true"></span> Registro a Não Conformidade formalmente no relatório de auditoria e bloqueio o fornecedor no sistema de imediato, assumindo o desgaste político com o CEO.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Chamo o Gerente de Compras para uma conversa a portas fechadas. Dou a ele 48 horas para regularizar o fornecedor ou achar um substituto antes de fechar o meu relatório.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Reclassifico o fornecedor no sistema como "Experimental Temporário", status que isenta a certificação imediata, enquanto oriento a equipe a procurar novos orçamentos discretamente.<br>
 
-* **Contexto:** O sistema de manutenção preditiva emitiu um alerta vermelho de vibração severa no redutor da correia transportadora principal. O laudo técnico indica que a quebra catastrófica pode ocorrer a qualquer momento. A troca preventiva do rolamento leva 3 dias.
+<br>
 
-* **O Conflito:** A equipe de PCP (Planejamento e Controle da Produção) implora para você manter a máquina rodando por mais 7 dias para fechar a meta de exportação do mês.
-   - **Opção A (Foco em Engenharia/Confiabilidade):** Paro a correia hoje e inicio a manutenção preventiva imediatamente. Respeito o laudo técnico, independentemente da grita do setor de planejamento e vendas.
-   - **Opção B (Foco em Monitoramento/Eficiência):** Mantenho o equipamento rodando, mas reduzo a velocidade operacional em 30% para diminuir o estresse mecânico, aceitando uma queda na produtividade para tentar chegar vivo até o fim do mês.
-   - **Opção C (Foco Operacional/Run-to-Failure):** Rodo a máquina na capacidade máxima para tentar terminar a campanha de exportação o quanto antes. Se quebrar, aciono a manutenção corretiva de emergência e lido com as consequências.
+<span style="color:#083C92; font-weight:bold;">10. Responsabilidade Social vs. Lucro (Conflito NBR 16001) <span style="color:#c0392b">*</span></span><br>
+<span style="color:#2980b9; font-style:italic;">Contexto: A expansão lucrativa da mina exige desapropriar uma pequena comunidade local. A equipe jurídica encontrou uma brecha legal que permite forçar a desapropriação pagando indenizações irrisórias. Usar a brecha economiza US$ 2 milhões e 6 meses de projeto. Conduzir de forma ética custará o valor de mercado e atrasará o cronograma. Como você atua?</span>
 
-##### Dilema 10 — Qualificação de Pessoal vs. Escassez de Mão de Obra (Conflito Normas Regulamentadoras / Continuidade)
+<span class="f4-radio-btn" aria-hidden="true"></span> Recuso a brecha legal. Inicio um processo transparente com a comunidade e pago o valor justo de mercado, protegendo a licença social de operação da empresa.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Uso a brecha para garantir o terreno rápido, mas pego parte dos US$ 2 milhões economizados para construir uma escola e um posto de saúde na nova vila deles, apaziguando os ânimos.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Analiso friamente o risco legal. Se a brecha for sólida, executo a desapropriação pelo menor custo possível. Trato o impacto social estritamente como uma métrica de custo operacional.<br>
 
-* **Contexto:** Um surto repentino de virose afasta todos os operadores de empilhadeira certificados do turno da madrugada. Há 15 carretas no pátio esperando carregamento, e cada carreta parada gera multa (*demurrage*) por hora.
+<br>
 
-* **O Conflito:** O encarregado do turno sugere colocar ajudantes de armazém, que têm experiência prática não documentada em dirigir empilhadeiras, para operar as máquinas, mesmo sem o treinamento formal e a certificação da NR-11.
-   - **Opção A (Foco em Segurança/Legalidade):** Proíbo terminantemente. Travo o carregamento, mando as carretas aguardarem até o turno da manhã (quando chegam os operadores certificados) e a empresa paga as multas.
-   - **Opção B (Foco em Liderança/Contorno):** Autorizo os ajudantes a operarem apenas na área externa (sem prateleiras altas) e assumo pessoalmente a supervisão visual direta deles durante toda a madrugada, assumindo o risco gerencial.
-   - **Opção C (Foco em Eficiência/Riscos Ocultos):** Autorizo os ajudantes a fazerem o trabalho normal para liberar os caminhões rápido, mas combino com o encarregado de não registrar os nomes deles nos diários de bordo das máquinas para não deixar rastros em auditorias futuras.
+<span style="color:#083C92; font-weight:bold;">11. Crise do Indicador de Desempenho (Conflito ISO 9001) <span style="color:#c0392b">*</span></span><br>
+<span style="color:#2980b9; font-style:italic;">Contexto: A diretoria exige que a satisfação do cliente suba para 95% para garantir o bônus de todos os gerentes. O índice atual é 88%. A equipe comercial sugere disparar as pesquisas apenas para clientes que já deram notas positivas no passado, garantindo a meta, mas mascarando o problema. Como você atua?</span>
 
+<span class="f4-radio-btn" aria-hidden="true"></span> Recusa o filtro viciado, mas cria uma campanha de engajamento oferecendo novos serviços agregados aos clientes insatisfeitos para reverter a percepção deles de forma amigável.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Veta a fraude por violar a ética corporativa. Assume a liderança da crise e vai até a diretoria apresentar o risco de imagem que essa maquiagem traria a longo prazo.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Nega a manipulação. Puxa a base de dados completa do semestre para analisar estatisticamente a causa-raiz da insatisfação e atua para otimizar o processo.<br>
+
+<br>
+
+<span style="color:#083C92; font-weight:bold;">12. Cadeia de Suprimentos vs. Qualidade (Conflito Lean) <span style="color:#c0392b">*</span></span><br>
+<span style="color:#2980b9; font-style:italic;">Contexto: Uma greve atrasou o componente eletrônico crítico e o estoque de segurança zerou. Parar a linha custará US$ 80.000 por turno. Compras encontrou um fabricante local não homologado pela Qualidade com a peça a pronta entrega. Homologar leva 15 dias; comprar sem homologar viola os procedimentos e pode gerar falhas no cliente. Como você atua?</span>
+
+<span class="f4-radio-btn" aria-hidden="true"></span> Interrompo a linha de montagem, assumo o custo da parada e só volto a operar quando a peça do fornecedor importado original chegar.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Compro um lote pequeno do fornecedor não homologado, mas implemento uma barreira de inspeção de qualidade 100% no recebimento e no final da linha, mitigando o risco de falha.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Compro o lote inteiro do fornecedor local e rodo a produção normalmente. O impacto de parar a fábrica é muito pior do que lidar com acionamento de garantia pelos clientes depois.<br>
+
+<br>
+
+<span style="color:#083C92; font-weight:bold;">13. Segurança Cibernética vs. Continuidade (Conflito ISO 27001) <span style="color:#c0392b">*</span></span><br>
+<span style="color:#2980b9; font-style:italic;">Contexto: A equipe de TI detectou uma tentativa de ransomware na rede. Para garantir que os CLPs e robôs do chão de fábrica não sejam infectados, a TI exige derrubar a rede industrial por 12h. Desligar a rede agora interrompe o processamento do lote do maior cliente, cujo prazo inegociável é amanhã. Como você atua?</span>
+
+<span class="f4-radio-btn" aria-hidden="true"></span> Autorizo a TI a derrubar a rede imediatamente. O risco de ter a planta sequestrada por hackers e perder todos os dados é inaceitável, mesmo perdendo o maior cliente.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Acordo com a TI para desconectar fisicamente a fábrica da internet (air gap), isolando o risco, e mantenho a produção rodando em modo manual/local até concluir o lote.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Nego a paralisação. O risco do ataque chegar ao chão de fábrica é estatístico, mas a multa milionária e a quebra de contrato com o cliente por atraso são certezas absolutas.<br>
+
+<br>
+
+<span style="color:#083C92; font-weight:bold;">14. Manutenção de Ativos vs. Pressão de Cronograma (ISO 55001) <span style="color:#c0392b">*</span></span><br>
+<span style="color:#2980b9; font-style:italic;">Contexto: O sistema preditivo emitiu um alerta vermelho de vibração no redutor da correia principal. A quebra catastrófica pode ocorrer a qualquer momento. A troca preventiva leva 3 dias. A equipe de PCP implora para você manter a máquina rodando por mais 7 dias para fechar a meta de exportação do mês. Como você atua?</span>
+
+<span class="f4-radio-btn" aria-hidden="true"></span> Paro a correia hoje e inicio a manutenção preventiva imediatamente. Respeito o laudo técnico, independentemente da grita do setor de planejamento e vendas.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Mantenho o equipamento rodando, mas reduzo a velocidade operacional em 30% para diminuir o estresse mecânico, aceitando queda na produtividade para tentar chegar vivo até o fim do mês.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Rodo a máquina na capacidade máxima para tentar terminar a campanha de exportação o quanto antes. Se quebrar, aciono a manutenção corretiva de emergência e lido com as consequências.<br>
+
+<br>
+
+<span style="color:#083C92; font-weight:bold;">15. Qualificação de Pessoal vs. Escassez de Mão de Obra (NR-11) <span style="color:#c0392b">*</span></span><br>
+<span style="color:#2980b9; font-style:italic;">Contexto: Um surto de virose afasta todos os operadores de empilhadeira certificados. Há 15 carretas no pátio, e cada carreta parada gera multa (demurrage) por hora. O encarregado sugere colocar ajudantes (que têm prática, mas sem a certificação NR-11 formal) para operar as máquinas. Como você atua?</span>
+
+<span class="f4-radio-btn" aria-hidden="true"></span> Proíbo terminantemente. Travo o carregamento, mando as carretas aguardarem até o turno da manhã (quando chegam os operadores certificados) e a empresa paga as multas.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Autorizo os ajudantes a operarem apenas na área externa (sem prateleiras altas) e assumo pessoalmente a supervisão visual direta deles durante a madrugada, assumindo o risco gerencial.<br>
+<span class="f4-radio-btn" aria-hidden="true"></span> Autorizo os ajudantes a fazerem o trabalho para liberar os caminhões rápido, mas combino com o encarregado de não registrar os nomes deles nos diários de bordo para evitar auditorias futuras.<br>
+
+---
 
 ### A Engenharia de Dados do SJT: A Matriz de Injeção de Pesos ($w_{SJT}$)
 
@@ -2585,81 +2849,132 @@ Para extrair esse dado sem obrigar o aluno a enviar o PDF do histórico escolar 
 Em vez de criar uma pergunta solta para cada uma das quase 100 disciplinas do curso, o formulário parametriza as respostas através de **Matrizes Likert agrupadas por períodos**. O aluno visualiza uma tabela limpa e compacta, bastando clicar na bolha correspondente à sua faixa de proficiência. No *Back-End*, o algoritmo transforma essas bolhas em variáveis categóricas ordinais.
 
 **Instruções de Preenchimento Projetadas à Equipe:**
-> *LÍDER DA EQUIPE: A partir desta seção, você deve passar o dispositivo (ou compartilhar a tela) para que CADA MEMBRO preencha suas próprias notas nas tabelas abaixo. Indique a nota final (aprovada) obtida nas disciplinas já cursadas.*
+> *LÍDER DA EQUIPE: A partir da Seção 3, você deve passar o dispositivo (ou compartilhar a tela) para que CADA MEMBRO preencha suas próprias notas nas tabelas abaixo. Indique a nota final (aprovada) obtida nas disciplinas já cursadas.*
 
 * **🔗 Link de Acesso:** [FORMULÁRIO 5 — Termo de Abertura e Mapeamento Técnico](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UNTZRQTBDSVVLUTBPVldJVUxRQkJDOENaRS4u)
 
-*(Abaixo, o recorte das disciplinas mapeadas por blocos curriculares, que fundamentam a base de dados técnica do algoritmo).*
+---
 
-##### Seção 1: O Ciclo Básico (1º ao 3º Período)
-*Escala de Resposta: "Ainda não cursei", "60 a 69", "70 a 79", "80 a 89", "90 a 100".*
+### Estrutura do Instrumento (Mapeamento Técnico de *Hard Skills*)
 
-* INTRODUÇÃO À ENGENHARIA DE PRODUÇÃO (32h)
-* CÁLCULO I e II (64h)
-* GEOMETRIA ANALÍTICA E ÁLGEBRA LINEAR (64h)
-* FUNDAMENTOS DE LÓGICA DE PROGRAMAÇÃO (64h)
-* ENGENHARIA DA QUALIDADE I (32h)
-* MECÂNICA ESTÁTICA (64h)
-* EQUAÇÕES DIFERENCIAIS ORDINÁRIAS (64h)
-* GESTÃO DE PESSOAS (64h)
+*(Abaixo, a reprodução da arquitetura visual do instrumento para fins de consulta metodológica).*
 
-##### Seção 2: O Ciclo Profissionalizante (4º ao 5º Período)
-*Escala de Resposta: "Ainda não cursei", "60 a 69", "70 a 79", "80 a 89", "90 a 100".*
+#### [Seção 1: Termo de Consentimento Livre e Esclarecido (TCLE)](#sec-apendice-tcle-form5)
+Esta seção garante o *compliance* ético da coleta de dados. O aluno deve atestar que compreende os objetivos da pesquisa e concorda com o uso de suas informações para o cruzamento de perfil e formação de equipes.
 
-* METROLOGIA (32h)
-* CÁLCULO NUMÉRICO (64h)
-* ESTATÍSTICA PARA ENGENHARIA DE PRODUÇÃO (64h)
-* GESTÃO DE PROJETOS (64h)
-* ORGANIZAÇÃO DO TRABALHO NA PRODUÇÃO (64h)
-* RESISTÊNCIA DOS MATERIAIS (64h)
-* GESTÃO DA QUALIDADE (64h)
-* ECONOMIA INDUSTRIAL (64h)
-* FENÔMENOS DE TRANSPORTE (64h)
+<span style="color:#000000; font-weight:bold;">1. Declaro que, por minha livre vontade, aceito participar nesta pesquisa, cooperando com a coleta de dados para análise.</span><br>
+<input type="radio" disabled> Concordo<br>
+<input type="radio" disabled> Não Concordo<br>
 
-##### Seção 3: O Ciclo Específico e Projetos (6º ao 10º Período)
-*Escala de Resposta: "Ainda não cursei", "60 a 69", "70 a 79", "80 a 89", "90 a 100".*
+#### Seção 2: Identificação do Aluno
+Onde a chave primária (`ID_Aluno`) e o vínculo com a disciplina são estabelecidos para a Fusão de Dados (*Data Fusion*).
 
-* ANÁLISE ERGONÔMICA DO TRABALHO (64h)
-* CIÊNCIAS DO AMBIENTE (32h)
-* CUSTOS I (64h)
-* ENGENHARIA DO PRODUTO II (64h)
-* GESTÃO ESTRATÉGICA (64h)
-* INTRODUÇÃO À AUTOMAÇÃO INDUSTRIAL E LABORATÓRIOS
-* TECNOLOGIA DE FABRICAÇÃO III E IV (Com laboratórios)
-* SISTEMAS DE PRODUÇÃO I (32h)
-* SISTEMAS DE GESTÃO INTEGRADOS (64h)
-* ANÁLISE DE SITUAÇÕES REAIS (64h)
-* ENGENHARIA ECONÔMICA E FINANCEIRA I (64h)
-* GESTÃO DA MANUTENÇÃO (64h)
-* LOGÍSTICA E TRANSPORTE (64h)
-* PESQUISA OPERACIONAL (32h)
-* PROJETOS INTEGRADOS DE ENGENHARIA DE PRODUÇÃO I E II (32h)
-* SISTEMAS DE INFORMAÇÃO (64h)
-* PLANEJAMENTO E CONTROLE DA PRODUÇÃO I (64h)
-* PROJETO DE FÁBRICA I (64h)
-* SIMULAÇÃO (32h)
-* ESTÁGIO SUPERVISIONADO (175h)
+<span style="color:#c0392b; font-weight:bold;">2. Nome completo <span style="color:#c0392b">*</span></span><br>
+[ Campo de Texto ]<br>
 
-##### Seção 4: Componentes Optativos e TCC
-*Escala de Resposta: "Ainda não cursei", "60 a 69", "70 a 79", "80 a 89", "90 a 100".*
+<span style="color:#c0392b; font-weight:bold;">3. Matrícula <span style="color:#c0392b">*</span></span><br>
+[ Campo Numérico ]<br>
 
-* TRABALHO DE CONCLUSÃO DE CURSO I E II (51h e 77h)
-* CONSULTORIA EMPRESARIAL (64h)
-* ENGENHARIA DA QUALIDADE II (64h)
-* GESTÃO DA INOVAÇÃO (64h)
-* INTRODUÇÃO À PRODUÇÃO CIENTÍFICA (32h)
-* INTRODUÇÃO ÀS METODOLOGIAS ÁGEIS (32h)
-* LIBRAS – LÍNGUA BRASILEIRA DE SINAIS (48h)
-* MARKETING DO PRODUTO (32h)
-* MÉTODOS QUANTITATIVOS I a V (80h)
-* MODELAGEM FINANCEIRA AVANÇADA (64h)
-* PLANEJAMENTO E CONTROLE DA PRODUÇÃO II (32h)
-* PROJETO DE FÁBRICA II (32h)
-* SISTEMA DE GESTÃO DA QUALIDADE (32h)
-* SISTEMAS DE PRODUÇÃO II (32h)
-* SISTEMAS DE PRODUÇÃO RECONFIGURÁVEIS (32h)
-* TENDÊNCIAS DE MERCADO (32h)
-* VALUATION AND VALUE INVESTING (80h)
+<span style="color:#c0392b; font-weight:bold;">4. E-mail institucional <span style="color:#c0392b">*</span></span><br>
+[ Campo de Texto ]<br>
+
+<span style="color:#c0392b; font-weight:bold;">5. Turma <span style="color:#c0392b">*</span></span><br>
+<input type="radio" disabled> EPRI4003 - GESTÃO DA QUALIDADE - T01<br>
+<input type="radio" disabled> EPRI0001 - INTRODUÇÃO À ENGENHARIA DE PRODUÇÃO - T01<br>
+<input type="radio" disabled> EPRI9001 - SISTEMAS DE GESTÃO INTEGRADOS - T02<br>
+
+---
+
+#### Seção 3: Matrizes de Proficiência Curricular
+Abaixo, o recorte das disciplinas mapeadas por blocos curriculares, que fundamentam a base de dados técnica do algoritmo de alocação.
+
+| | Ainda não cursei | 60 a 69 | 70 a 79 | 80 a 89 | 90 a 100 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **INTRODUÇÃO À ENGENHARIA DE PRODUÇÃO (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **CÁLCULO I e II (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **GEOMETRIA ANALÍTICA E ÁLGEBRA LINEAR (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **FUNDAMENTOS DE LÓGICA DE PROGRAMAÇÃO (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **ENGENHARIA DA QUALIDADE I (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **MECÂNICA ESTÁTICA (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **EQUAÇÕES DIFERENCIAIS ORDINÁRIAS (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **GESTÃO DE PESSOAS (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+
+: O Ciclo Básico (1º ao 3º Período) {#tbl-f5-basico tbl-colwidths="[50,10,10,10,10,10]"}
+
+<br>
+
+| | Ainda não cursei | 60 a 69 | 70 a 79 | 80 a 89 | 90 a 100 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **METROLOGIA (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **CÁLCULO NUMÉRICO (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **ESTATÍSTICA PARA ENGENHARIA DE PRODUÇÃO (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **GESTÃO DE PROJETOS (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **ORGANIZAÇÃO DO TRABALHO NA PRODUÇÃO (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **RESISTÊNCIA DOS MATERIAIS (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **GESTÃO DA QUALIDADE (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **ECONOMIA INDUSTRIAL (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **FENÔMENOS DE TRANSPORTE (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+
+: O Ciclo Profissionalizante (4º ao 5º Período) {#tbl-f5-profissionalizante tbl-colwidths="[50,10,10,10,10,10]"}
+
+<br>
+
+| | Ainda não cursei | 60 a 69 | 70 a 79 | 80 a 89 | 90 a 100 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **ANÁLISE ERGONÔMICA DO TRABALHO (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **CIÊNCIAS DO AMBIENTE (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **CUSTOS I (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **ENGENHARIA DO PRODUTO II (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **GESTÃO ESTRATÉGICA (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **INTRODUÇÃO À AUTOMAÇÃO IND. E LABORATÓRIOS** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **TECNOLOGIA DE FABRICAÇÃO III E IV** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **SISTEMAS DE PRODUÇÃO I (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **SISTEMAS DE GESTÃO INTEGRADOS (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **ANÁLISE DE SITUAÇÕES REAIS (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **ENGENHARIA ECONÔMICA E FINANCEIRA I (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **GESTÃO DA MANUTENÇÃO (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **LOGÍSTICA E TRANSPORTE (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **PESQUISA OPERACIONAL (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **PROJETOS INTEGRADOS DE ENG. DE PRODUÇÃO I E II**| <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **SISTEMAS DE INFORMAÇÃO (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+
+: O Ciclo Específico e Projetos (6º ao 7º Período) {#tbl-f5-especifico-67 tbl-colwidths="[50,10,10,10,10,10]"}
+
+<br>
+
+| | Ainda não cursei | 60 a 69 | 70 a 79 | 80 a 89 | 90 a 100 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **PLANEJAMENTO E CONTROLE DA PRODUÇÃO I (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **PROJETO DE FÁBRICA I (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **PROJETOS INTEGRADOS DE ENG. DE PRODUÇÃO II**| <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **SIMULAÇÃO (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **ESTÁGIO SUPERVISIONADO (175h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **TRABALHO DE CONCLUSÃO DE CURSO I E II** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+
+: O Ciclo Específico e Projetos (8º ao 10º Período) {#tbl-f5-especifico-810 tbl-colwidths="[50,10,10,10,10,10]"}
+
+<br>
+
+| | Ainda não cursei | 60 a 69 | 70 a 79 | 80 a 89 | 90 a 100 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **CONSULTORIA EMPRESARIAL (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **ENGENHARIA DA QUALIDADE II (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **GESTÃO DA INOVAÇÃO (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **INTRODUÇÃO À PRODUÇÃO CIENTÍFICA (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **INTRODUÇÃO ÀS METODOLOGIAS ÁGEIS (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **LIBRAS – LÍNGUA BRASILEIRA DE SINAIS (48h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **MARKETING DO PRODUTO (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **MÉTODOS QUANTITATIVOS I a V (80h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **MODELAGEM FINANCEIRA AVANÇADA (64h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **PLANEJAMENTO E CONTROLE DA PRODUÇÃO II (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **PROJETO DE FÁBRICA II (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **SISTEMA DE GESTÃO DA QUALIDADE (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **SISTEMAS DE PRODUÇÃO II (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **SISTEMAS DE PRODUÇÃO RECONFIGURÁVEIS (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **TENDÊNCIAS DE MERCADO (32h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+| **VALUATION AND VALUE INVESTING (80h)** | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> | <input type="radio" disabled> |
+
+: Componentes Optativos {#tbl-f5-optativas tbl-colwidths="[50,10,10,10,10,10]"}
 
 ---
 
@@ -2675,13 +2990,79 @@ Para resolver esse gargalo, o *pipeline* de dados aplica a técnica estatística
 * "80 a 89" → 85
 * "90 a 100" → 95 (Sinalizador de Especialista)
 
-O código abaixo ilustra a extração do capital intelectual mapeado pelo Formulário 5. Ele identifica as **Lideranças Técnicas** (*Hard Skills* com nota ≥ 85) dentro dos *Squads*, para que as equipes saibam exatamente a quem delegar as tarefas de maior complexidade matemática e analítica.
+### O Panorama do Capital Intelectual
+
+Após o processamento de 58 respostas válidas no Formulário 5, a engenharia de dados consolidou o perfil acadêmico declarado pela turma. Antes de mergulharmos nas *Hard Skills* específicas, é vital confrontar a média geral declarada pelo aluno nos blocos de disciplinas (Básico, Profissionalizante e Específico) com a realidade auditada pela Universidade na [Rodada 5](@sec-rodada-5-historico).
+
+A @tbl-panorama-academico cruza as autodeclarações de proficiência com os índices oficiais (MC, IRA e IEA), expondo o real lastro técnico da turma.
+
+```{r}
+#| label: tbl-panorama-academico
+#| tbl-cap: "Panorama de Proficiência Declarada vs. Auditoria Acadêmica (Base N=58)"
+#| echo: true
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+quiet_source("R/trat.forms.R")
+
+# Agrupa as médias declaradas por aluno em grandes blocos
+df_medias_declaradas <- df_form5_anon %>%
+  group_by(ID_Aluno) %>%
+  summarise(
+    `Média Básico` = mean(Nota_Numerica[grepl("Básico", Categoria)], na.rm = TRUE),
+    `Média Profissionalizante` = mean(Nota_Numerica[grepl("Profissionalizante", Categoria)], na.rm = TRUE),
+    `Média Específico/Optativas` = mean(Nota_Numerica[grepl("Específico|Optativo", Categoria)], na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# Cruza com os índices oficiais (MC, IRA, IEA)
+df_panorama <- df_medias_declaradas %>%
+  inner_join(df_indices_anon %>% select(ID_Aluno, MC, IRA, IEA), by = "ID_Aluno") %>%
+  # Calcula as médias globais da turma para a tabela
+  summarise(
+    `Média Básico` = mean(`Média Básico`, na.rm = TRUE),
+    `Média Profissionalizante` = mean(`Média Profissionalizante`, na.rm = TRUE),
+    `Média Específico` = mean(`Média Específico/Optativas`, na.rm = TRUE),
+    `MC Médio` = mean(MC, na.rm = TRUE),
+    `IRA Médio` = mean(IRA, na.rm = TRUE),
+    `IEA Médio` = mean(IEA, na.rm = TRUE)
+  )
+
+# Transpõe para exibição
+df_panorama_tabela <- tibble(
+  Métrica = c("Média do Ciclo Básico (Declarada)",
+              "Média do Ciclo Profissionalizante (Declarada)",
+              "Média do Ciclo Específico e Optativas (Declarada)",
+              "Média de Conclusão - MC (Oficial UF)",
+              "Índice de Rendimento - IRA (Oficial UF)",
+              "Eficiência Acadêmica - IEA (Oficial UF)"),
+  Valor = c(sprintf("%.2f", df_panorama$`Média Básico`),
+            sprintf("%.2f", df_panorama$`Média Profissionalizante`),
+            sprintf("%.2f", df_panorama$`Média Específico`),
+            sprintf("%.2f", df_panorama$`MC Médio`),
+            sprintf("%.2f", df_panorama$`IRA Médio`),
+            sprintf("%.2f", df_panorama$`IEA Médio`))
+)
+
+df_panorama_tabela %>%
+  kbl(align = c("l", "c")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE) %>%
+  pack_rows("Proficiência Declarada (Likert F5)", 1, 3, background = "#ecf0f1", color = "#2c3e50") %>%
+  pack_rows("Auditoria Oficial da Universidade", 4, 6, background = "#e8f8f5", color = "#27ae60") %>%
+  column_spec(2, bold = TRUE)
+```
+
+O código a seguir avança na granularidade. Ele filtra os 58 alunos que preencheram a autodeclaração e identifica as **Lideranças Técnicas** (*Hard Skills* com nota ≥ 85) dentro dos *Squads*, adicionando a variável `Turma`. Dessa forma, as equipes saberão exatamente a quem delegar as tarefas de maior complexidade matemática.
 
 A @tbl-hardskills-squad apresenta os resultados desta etapa.
 
 ```{r}
 #| label: tbl-hardskills-squad
-#| tbl-cap: "Inventário de Lideranças Técnicas (Especialistas com Notas ≥ 85) por Squad"
+#| tbl-cap: "Inventário de Lideranças Técnicas (Especialistas com Notas ≥ 85) por Squad e Turma"
 #| echo: true
 #| warning: false
 #| message: false
@@ -2691,32 +3072,22 @@ library(stringr)
 library(knitr)
 library(kableExtra)
 
-# 1. Carrega o back-end (Garante que o df_form5_anon esteja na memória)
 quiet_source("R/trat.forms.R")
 
-# Se o formulário 5 for muito recente, garantimos que a base de squads está carregada
-if (!exists("df_consolidado_entregas")) {
-  stop("A base de Squads (df_consolidado_entregas) não foi encontrada.")
+col_mapa_de_para <- intersect(c("Matrícula_Original", "Matricula_Original"), names(df_de_para))[1]
+
+df_squads_anon <- df_consolidado_entregas %>%
+  left_join(df_de_para, by = setNames(col_mapa_de_para, "Matrícula")) %>%
+  select(any_of(c("Turma", "ID_Aluno", "Squad")))
+
+if (!"Turma" %in% names(df_squads_anon)) {
+  df_squads_anon <- df_squads_anon %>% mutate(Turma = "Turma Única")
+} else {
+  df_squads_anon <- df_squads_anon %>% mutate(Turma = word(Turma, 1)) # EPRI4003 ou EPRI9001
 }
 
-# Compatibiliza possíveis nomes da chave de aluno no consolidado
-id_col <- intersect(c("Matrícula", "Matricula", "ID_Aluno"), names(df_consolidado_entregas))[1]
-if (is.na(id_col)) {
-  stop("Não foi possível identificar a coluna de ID do aluno em df_consolidado_entregas.")
-}
-
-if (!"Turma" %in% names(df_consolidado_entregas)) {
-  df_consolidado_entregas <- df_consolidado_entregas %>% mutate(Turma = "Turma Única")
-}
-
-# Isola os alunos que se declararam especialistas (Nota >= 85)
 df_especialistas <- df_form5_anon %>%
-  # Traz a informação de qual Squad o aluno pertence
-  inner_join(
-    df_consolidado_entregas %>%
-      transmute(ID_Aluno = as.character(.data[[id_col]]), Turma, Squad),
-    by = "ID_Aluno"
-  ) %>%
+  inner_join(df_squads_anon, by = "ID_Aluno") %>%
   mutate(
     Turma = coalesce(
       if ("Turma" %in% names(.)) Turma else NA_character_,
@@ -2725,26 +3096,20 @@ df_especialistas <- df_form5_anon %>%
       "Turma Única"
     )
   ) %>%
-  # Filtra apenas a alta proficiência e alunos alocados
   filter(Nota_Numerica >= 85 & !is.na(Squad)) %>%
-  # Agrupa por Turma, Squad e Categoria de Conhecimento
   group_by(Turma, Squad, Categoria) %>%
   summarise(
     `Nº de Especialistas` = n_distinct(ID_Aluno),
     `Principais Disciplinas Dominadas` = paste(unique(Disciplina)[1:3], collapse = ", "),
     .groups = "drop"
   ) %>%
-  # Limpa o texto da categoria para a tabela (Remove o texto entre parênteses)
   mutate(
     Categoria = str_remove(Categoria, " \\(.*\\)"),
-    # Limpa a redundância da string gerada pelo Forms ("ESTATÍSTICA PARA ENGENHARIA DE PRODUÇÃO1")
-    `Principais Disciplinas Dominadas` = str_remove(`Principais Disciplinas Dominadas`, "1$")
+    `Principais Disciplinas Dominadas` = str_remove(`Principais Disciplinas Dominadas`, "1$"),
+    `Principais Disciplinas Dominadas` = str_replace_all(`Principais Disciplinas Dominadas`, ", NA", "")
   ) %>%
-  # Remove NAs indesejados da string colapsada
-  mutate(`Principais Disciplinas Dominadas` = str_replace_all(`Principais Disciplinas Dominadas`, ", NA", "")) %>%
   arrange(Turma, Squad, Categoria)
 
-# Fallback defensivo para evitar quebra em casos de baixa resposta
 if (nrow(df_especialistas) == 0) {
   df_especialistas <- tibble(
     Turma = "-",
@@ -2755,29 +3120,29 @@ if (nrow(df_especialistas) == 0) {
   )
 }
 
-# 3. Renderiza a tabela de auditoria de conhecimento
-tabela_hs <- df_especialistas %>%
-  select(Squad, Categoria, `Nº de Especialistas`, `Principais Disciplinas Dominadas`) %>%
-  kbl(align = c("c", "l", "c", "l")) %>%
+df_especialistas %>%
+  select(Turma, Squad, Categoria, `Nº de Especialistas`, `Principais Disciplinas Dominadas`) %>%
+  kbl(align = c("c", "c", "l", "c", "l")) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = TRUE) %>%
-  collapse_rows(columns = 1, valign = "top") %>%
-  add_header_above(c("Mapeamento do Capital Intelectual por Equipe" = 4), bold = TRUE, background = "#fdf2e9", color = "#2c3e50") %>%
-  column_spec(3, bold = TRUE, color = "#27ae60")
-
-tabela_hs
+  column_spec(1, width = "10%") %>%
+  column_spec(2, width = "15%") %>%
+  column_spec(3, width = "25%") %>%
+  column_spec(4, bold = TRUE, color = "#27ae60", width = "10%") %>%
+  column_spec(5, width = "40%") %>%
+  collapse_rows(columns = c(1, 2), valign = "top") %>%
+  add_header_above(c("Mapeamento do Capital Intelectual por Equipe" = 5), bold = TRUE, background = "#fdf2e9", color = "#2c3e50")
 ```
 
 #### Decodificando o *Skill Mapping*: A Realidade da Amostra
 
-Ao processar a malha de dados das respostas consolidadas no Formulário 5 (atualmente, `r n_respostas_form5` respondentes válidos), a engenharia do algoritmo revela o verdadeiro cenário técnico que sustenta os esquadrões. A matriz de *Hard Skills* destrói qualquer resquício do Efeito Dunning-Kruger (a falsa sensação de competência) e entrega um diagnóstico tático para a disciplina:
+Ao processar a malha de dados das respostas consolidadas no Formulário 5, a engenharia do algoritmo revela o verdadeiro cenário técnico que sustenta os esquadrões. A matriz de *Hard Skills* destrói qualquer resquício do Efeito Dunning-Kruger (a falsa sensação de competência) e entrega um diagnóstico tático para a disciplina:
 
-* **A Escassez do Especialista Analítico:** Embora a dinâmica da [Rodada 2](@sec-rodada-2-mercado) tenha mostrado que quase a totalidade da turma sabe que o mercado exige um perfil Analítico-Técnico, o Formulário 5 prova que **a proficiência real é um recurso escasso**. Ao filtrarmos as notas de excelência (90 a 100) em disciplinas duras do Ciclo Profissionalizante (como *Estatística para Engenharia*, *Pesquisa Operacional* e *Cálculo Numérico*), o volume de "especialistas" despenca. A maioria da turma transita na faixa mediana (70 a 79) ou sequer cursou essas disciplinas críticas.
-* **A Concentração no Ciclo Básico:** Os dados revelam que o lastro de confiança de muitos alunos está ancorado nas disciplinas iniciais (Introdução à Engenharia, Geometria Analítica e Cálculo I). No entanto, quando a régua sobe para a aplicação específica (Sistemas de Gestão, Custos, Controle da Produção), a matriz é inundada por respostas *"Ainda não cursei"* ou notas limítrofes (60 a 69).
-* **A Gestão de Risco nos Esquadrões:** O cruzamento desses dados com a divisão dos grupos ilumina o campo de batalha do professor. O algoritmo expõe visualmente esquadrões que possuem múltiplos membros com lacunas graves em *Gestão da Qualidade* e *Metrologia*. Sem esse mapeamento, essas equipes chegariam ao final do semestre entregando projetos inviáveis ou reprovados em auditorias técnicas.
+* **A Escassez do Especialista Analítico:** Embora a dinâmica da [Rodada 2](@sec-rodada-2-mercado) tenha mostrado que quase a totalidade da turma sabe que o mercado exige um perfil Analítico-Técnico, o Formulário 5 prova que **a proficiência real é um recurso escasso**. Ao filtrarmos as notas de excelência (90 a 100) em disciplinas duras do Ciclo Profissionalizante, o volume de "especialistas" despenca.
+* **A Gestão de Risco nos Esquadrões:** O cruzamento desses dados ilumina o campo de batalha do professor. O algoritmo expõe visualmente esquadrões que possuem múltiplos membros com lacunas graves em *Gestão da Qualidade* e *Metrologia*. Sem esse mapeamento, essas equipes chegariam ao final do semestre entregando projetos inviáveis.
 
 Ao preencherem o **Team Charter** ([Rodada 7](@sec-rodada-7-tap)), a instrução tática baseada nestes dados é inegociável: a Matriz de Responsabilidades do grupo deve ser submissa a essa tabela.
 
-Se o esquadrão possui apenas um aluno que gabaritou *Estatística* e *Gestão da Qualidade*, é ele quem deve assinar a revisão de todos os cálculos de capabilidade do projeto. Delegar relatórios complexos a um membro que marcou "60 a 69" ou "Ainda não cursei" nessas disciplinas, apenas por afinidade ou para "dividir o trabalho por igual", é o atalho estatístico para a perda do SLA e o fracasso do projeto.
+Se o esquadrão possui apenas um aluno que gabaritou *Estatística*, é ele quem deve assinar a revisão dos cálculos de capabilidade.
 
 ### Fusão de Dados: A Recalibragem do DNA Profissional
 
@@ -2987,114 +3352,6 @@ A observação da última fase (Fase Dinâmica) prova que a avaliação de compe
 * **A Trajetória (Aluno E):** Atuou no grupo como um rigoroso *Analítico-Técnico* focado em normas e regras da ABNT (F1 a F3).
 * **A Intervenção do Algoritmo:** Quando a fábrica virtual entrou em colapso (F4), sob pressão de tempo, ele escolheu alternativas de improvisação e contorno de regras, migrando abruptamente para o perfil *Criativo*. O F5 confirmou a tendência: notas em Cálculo medianas, mas altíssimas em disciplinas Optativas focadas em inovação. O algoritmo chancelou seu perfil definitivo como **Criativo (P3)**. Ele é o solucionador de problemas complexos que a equipe precisará quando a teoria não funcionar na prática.
 
-## ⏱️ Rodada 7: Termo de Abertura do Projeto (*Team Charter*) {#sec-rodada-7-tap}
-
-::: {.callout-important title="🛠️ LABORATÓRIO DE ENGENHARIA: Rodada 7 — Formalização e Governança"}
-**Objetivo: O Contrato Social da Consultoria**
-
-Bem-vindos à formação oficial da sua Equipe de Consultoria. A partir deste momento, vocês deixam de ser um grupo de alunos e passam a atuar como uma equipe multidisciplinar encarregada de desenvolver e implantar um Sistema de Gestão Integrado (SGI).
-
-Este formulário é o **Contrato Social da equipe**. Ele deve ser discutido presencialmente por todos os membros, mas preenchido e enviado por apenas um representante (o Líder designado). As regras pactuadas aqui serão o documento oficial de governança de vocês para o semestre e poderão ser acionadas pelo professor em caso de conflitos de avaliação ou entregas.
-
-* **Tempo estimado para debate e preenchimento:** 20 minutos.
-* **🔗 Link de Acesso:** [FORMULÁRIO 6 — Termo de Abertura do Projeto (Team Charter)](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UQkFOUUs0QklYSVZVNlVPVzMwODYxRDUwNi4u)
-:::
-
-### A Estrutura do Contrato de Consultoria
-
-Para selar o compromisso operacional, o formulário exige que o *Squad* tome decisões definitivas sobre a sua identidade e os seus processos internos, divididos em cinco seções estratégicas:
-
-##### Seção 2: Identidade da Consultoria
-* **Nome da Empresa/Consultoria (Fictício):** A equipe deve criar um nome profissional que representará a marca do esquadrão durante as defesas de projeto.
-
-* **DNA do Grupo:** Listar o nome completo de todos os membros cruzado com o Perfil Dominante que o algoritmo validou. *(Ex: João da Silva - Perfil Analítico; Maria Souza - Perfil Líder).*
-
-##### Seção 3: Diagnóstico Multidisciplinar (O Radar da Equipe)
-Olhando para os perfis que compõem o grupo e para a Tabela de *Hard Skills*, a equipe deve fazer uma análise crítica das suas próprias capacidades:
-
-* **Qual é a MAIOR FORÇA operacional da equipe?**
-
-  > *Ex: "Temos um forte núcleo de Operações e Liderança, o que garante foco em prazos e execução prática."*
-
-* **Qual é o MAIOR PONTO CEGO (Gargalo ou Fraqueza)?**
-
-  > *Ex: "Não temos ninguém com o perfil Criativo, corremos o risco de sermos muito rígidos ou termos dificuldade com o design das soluções visuais."*
-
-* **Estratégia de Mitigação:** Como, de forma prática, o grupo vai compensar a ausência desse perfil ou *Hard Skill* durante o semestre?
-
-##### Seção 4: Matriz de Responsabilidades (Distribuição de Papéis)
-No mundo corporativo, todo mundo faz tudo, mas **as responsabilidades finais precisam ter donos**. A equipe deve definir quem será o responsável primário por cada pilar do SGI:
-
-1. **Gestor do Projeto:** Dono do cronograma, cobra a equipe pelos prazos e faz as submissões oficiais no sistema do professor.
-
-2. **Revisor de Qualidade e *Compliance*:** Garante que o trabalho atende às normas da ABNT/ISO, à formatação e aos critérios técnicos antes de qualquer envio.
-
-3. **Articulador de Comunicação:** Responsável por guiar a montagem das apresentações visuais e a defesa oral nos seminários.
-
-4. **Analista de Dados/Pesquisa:** Responsável por estruturar as planilhas, cálculos, gráficos e levantamento de referências técnicas e bibliográficas.
-
-5. **Função Estratégica Extra (Apenas para times de 5 ou 6 pessoas):** Definição de um título e cargo de acordo com a necessidade da equipe *(Ex: "Apoio de Pesquisa - João Silva")*.
-
-##### Seção 5: Governança e *Compliance* Interno (As Regras do Jogo)
-É aqui que a equipe define como vai operar sob pressão, estabelecendo as "Leis" do esquadrão:
-
-* **SLA Interno (Acordo de Nível de Serviço para Prazos):** Para não correr o risco de perder os prazos da disciplina, com qual antecedência mínima as partes individuais devem ser enviadas ao Revisor de Qualidade antes do prazo final do professor? *(Ex: 48 horas antes).*
-
-* **Canal Oficial e Repositório:** Onde a equipe vai centralizar as decisões e arquivos (Teams, Drive, WhatsApp) para não perder o histórico de versões do projeto?
-
-* **A Cláusula de Rescisão (Resolução de Conflitos e Sanções):** O que a equipe fará, de forma prática, caso um membro desapareça sistematicamente, não entregue sua parte no SLA combinado ou entregue com qualidade inaceitável (o famoso "copia e cola na véspera")?
-
-  > *Exemplo de Regra Clara: "No 1º atraso: advertência formal no grupo. No 2º atraso ou sumiço na véspera: o nome do membro será removido da capa do trabalho daquela rodada e o professor será imediatamente notificado."*
-
-##### Seção 6: Assinatura de Compromisso
-A formalização ocorre através do Termo de Aceite Multidisciplinar:
-
-> *"Como Líder designado para o preenchimento deste documento, declaro que as respostas acima foram debatidas e aprovadas por todos os membros presentes. Compreendemos que este Termo de Abertura do Projeto regerá nossas relações de trabalho ao longo da disciplina e que o professor atuará apenas como 'Auditor Externo', cobrando o cumprimento das regras que nós mesmos estabelecemos."*
-
-### O Caminho das Pedras: Traduzindo Dados em Governança
-
-A coleta e a fusão de dados (Perfis + IEA + *Hard Skills*) forneceram um painel de controle de altíssima resolução para cada esquadrão. No entanto, dados não tomam decisões; gestores tomam.
-
-Embora o papel do professor seja permitir que os alunos debatam e cheguem às suas próprias conclusões ao preencher o *Team Charter*, o livro fornece abaixo as diretrizes estratégicas — o "Caminho das Pedras" — de como uma equipe de consultoria madura deve utilizar os perfis gerados pelo algoritmo para fundamentar o seu Contrato Social.
-
-##### 1. Diagnóstico do Radar (Identificando Forças e Pontos Cegos)
-O diagnóstico da Seção 3 do formulário não deve ser baseado em intuição, mas na contagem matemática dos perfis alocados na equipe:
-
-* **Excesso de Criativos (P3) / Comunicadores (P4):** A força da equipe será a geração de ideias e apresentações de impacto. O Ponto Cego será a indisciplina com prazos e a desorganização documental. *Estratégia de mitigação:* O grupo precisará empoderar e obedecer cegamente ao membro mais Analítico (P1) para que ele controle a formatação e a agenda.
-
-* **Excesso de Analíticos (P1) / Operações (P2):** A força será a entrega rigorosa, técnica e dentro das normas ISO. O Ponto Cego será a "Paralisia por Análise" e a dificuldade de vender o projeto de forma atraente. *Estratégia de mitigação:* Treinar o *pitch* (discurso de venda) com antecedência para não perder pontos na defesa oral.
-
-* **Múltiplos Líderes (P5):** A força é a proatividade (ninguém fica parado). O Ponto Cego é o canibalismo de egos. *Estratégia de mitigação:* Delimitar escopos de poder rígidos logo no Dia 1.
-
-##### 2. O *Match* Cirúrgico na Matriz de Responsabilidades
-A distribuição de papéis (Seção 4) é onde o modelo de *Data Fusion* brilha. A delegação de funções deve obedecer ao DNA revelado do aluno:
-
-* **Gestor do Projeto:** Deve ser entregue preferencialmente aos perfis **Líder (P5)** ou **Operações (P2)**. Eles têm a tração necessária para cobrar os colegas sem constrangimento.
-
-* **Revisor de Qualidade e *Compliance*:** A função mais crítica para a nota final. DEVE ser entregue a um **Analítico-Técnico (P1)**. Crucialmente, a equipe deve olhar o *Dashboard* da [Rodada 5](@sec-rodada-5-historico) e garantir que este aluno possua um **IEA alto**. Colocar um aluno com deficiência acadêmica para revisar normas técnicas é a receita para o fracasso.
-
-* **Articulador de Comunicação:** É o *habitat* natural do **Comunicador (P4)** ou do **Criativo (P3)**. Eles transformarão cálculos densos em *dashboards* e apresentações palatáveis para a diretoria.
-
-* **Analista de Dados/Pesquisa:** A equipe deve abrir o rastreamento granular do Formulário 5 (*Hard Skills*) e alocar o aluno que declarou as **maiores notas em Exatas e Pesquisa Operacional**, independentemente de ser tímido ou não.
-
-##### 3. SLA Dinâmico Baseado no Risco Técnico
-O prazo de entrega interno (SLA da Seção 5) não pode ser um número aleatório (ex: "vamos entregar tudo na quinta-feira à noite"). Ele deve ser calculado com base no **Risco Técnico** da equipe.
-
-* Se a equipe recebeu alunos classificados como "Risco Técnico" ou "Pendentes" nas rodadas anteriores, **o SLA interno deve ser extremamente agressivo** (ex: 72 horas antes do prazo do professor). O Revisor precisará desse "colchão de tempo" para refazer os cálculos errados que fatalmente virão desses membros.
-
-* Se a equipe for composta majoritariamente por *High Potentials*, o SLA pode ser mais flexível (ex: 24 horas antes), pois o nível de retrabalho será estatisticamente menor.
-
-##### 4. A Cláusula de Rescisão Despersonalizada
-A regra de sanção não deve ter alvos pessoais. Ao utilizarem os dados comportamentais, os alunos compreendem que os atrasos de um "Criativo" ou a rispidez de um "Líder" fazem parte da sua natureza estatística. A cláusula de sanção deve ser binária e pragmática: *Ação X gera Consequência Y*. Ao assinar o termo, o membro aceita que a remoção do seu nome da capa do trabalho por quebra de SLA não é uma punição emocional, mas a execução estrita de um *Compliance* contratual preestabelecido.
-
----
-
-### O Fechamento do Ecossistema de *People Analytics*
-
-O preenchimento e a assinatura digital do *Team Charter* selaram a arquitetura de engenharia de equipes deste laboratório. A transição está completa: um grupo heterogêneo de alunos, inicialmente mascarado pelo "Efeito Bom Moço" e pelo "Pensamento de Grupo", foi dissecado matematicamente, testado sob estresse, auditado pelo sistema acadêmico oficial e, finalmente, reestruturado em **Esquadrões de Alta Performance**.
-
-Daqui em diante, a Ciência de Dados cede espaço para a Gestão de Projetos real. O sucesso ou o fracasso da implantação do Sistema de Gestão Integrado (SGI) ao longo do semestre não dependerá mais de afinidades aleatórias, mas da capacidade de cada *Squad* de pilotar o talento que lhes foi cientificamente alocado, respeitando o SLA e a matriz de responsabilidades que eles mesmos acabaram de assinar.
-
 ### Diagnóstico Gerencial e Recomendações Estratégicas
 
 A extração dos dados através de múltiplas rodadas de *People Analytics* permite transcender a mera constatação estatística e avançar para a engenharia pedagógica e operacional. A análise cruzada da evolução dos alunos revelou dinâmicas comportamentais profundas sobre como o futuro Engenheiro de Produção atua no mercado:
@@ -3103,21 +3360,24 @@ A extração dos dados através de múltiplas rodadas de *People Analytics* perm
 O modelo comprovou matematicamente que o comportamento do aluno em dinâmicas de grupo é fortemente enviesado. Na tentativa de adequação aos pares, a esmagadora maioria reprimiu traços de criatividade e liderança para assumir a máscara *Analítico-Técnica*. Contudo, quando submetidos a dilemas operacionais com restrição de tempo (F4), a máscara estilhaçou-se. Fica provado que o verdadeiro perfil profissional de um engenheiro não é aquele que ele declara em formulários calmos, mas o instinto de sobrevivência que ele ativa durante o caos.
 
 ##### 2. Os Ofensores de Execução (Risco Técnico e o "Efeito PowerPoint")
-O cruzamento das intenções comportamentais com os Índices de Eficiência Acadêmica (IEA) isolou as lacunas que cerceiam o sucesso em grandes corporações. Alunos com alta imposição de Liderança, mas com defasagem grave em disciplinas de exatas (Estatística, Custos e Pesquisa Operacional), representam um Risco Técnico. Eles possuem excelente retórica, mas limitam a capacidade da equipe de gerar lucro ou dimensionar sistemas confiáveis. A solução gerencial imediata é a blindagem desses perfis através de Revisores de Qualidade com alto IEA na Matriz de Responsabilidades.
+O cruzamento das intenções comportamentais com os Índices de Eficiência Acadêmica (IEA) isolou as lacunas que cerceiam o sucesso em grandes corporações. Alunos com alta imposição de Liderança, mas com defasagem grave em disciplinas de exatas (Estatística, Custos e Pesquisa Operacional), representam um Risco Técnico. Eles possuem excelente retórica, mas limitam a capacidade da equipe de gerar lucro ou dimensionar sistemas confiáveis. A solução gerencial imediata é a blindagem desses perfis através de Revisores de Qualidade com alto IEA na equipe.
 
 ##### 3. As Fortalezas Culturais (Liderança Validada e Pragmatismo)
 Se o sistema detecta riscos, ele também acerta de forma louvável na descoberta de talentos ocultos. O algoritmo revelou os "Técnicos Subutilizados" (alunos com IEA no teto da universidade, mas apagados pelo grupo) e os "Líderes Validados", que unem a articulação da fala ao domínio absoluto de métricas. O nível de "Criatividade Pragmática" (*MacGyverismo*) mapeado na crise demonstra uma geração altamente adaptável a cenários onde os recursos são escassos e as normas engessadas falham.
 
 ##### 4. O Plano de Ação: Curricularização da Extensão e Laboratório Vivo
-O diagnóstico final aponta que a melhor estratégia estrutural para nivelar os *gaps* e amadurecer os esquadrões é a **Curricularização da Extensão**. Ao exigir que esses *Squads* recém-formados implantem um Sistema de Gestão Integrado (SGI) não como um trabalho de faculdade, mas como um serviço de Consultoria, a academia cria um "laboratório vivo". O aluno deixa de ser um receptor passivo de notas e passa a aplicar estatística, padronização e governança em contextos de restrição real. A sala de aula converte-se no chão de fábrica corporativo.
+O diagnóstico final aponta que a melhor estratégia estrutural para nivelar os *gaps* e amadurecer os alunos é a **Curricularização da Extensão**. Ao exigir que esses perfis recém-descobertos implantem um Sistema de Gestão Integrado (SGI) ou rodem um MASP complexo não como um trabalho de faculdade, mas como um serviço de Consultoria, a academia cria um "laboratório vivo". O aluno deixa de ser um receptor passivo de notas e passa a aplicar estatística, padronização e governança em contextos de restrição real. A sala de aula converte-se no chão de fábrica corporativo.
+
+---
 
 ## 📝 Resumo do Capítulo
 
-* **Do Achismo à Engenharia de Equipes:** A formação de grupos não pode depender de afinidades ou sorteios ciegos. Ela precisa ser traduzida em cruzamentos numéricos que evitem a concentração de egos (Múltiplos Líderes) e o acúmulo de deficiências analíticas (*Squads* de Risco).
+* **Do Achismo à Engenharia de Equipes:** A formação de grupos não pode depender de afinidades ou sorteios cegos. Ela precisa ser traduzida em cruzamentos numéricos que evitem a concentração de egos (Múltiplos Líderes) e o acúmulo de deficiências analíticas.
 * **O Rastreamento de Identidade:** O método estruturou a coleta em rodadas progressivas, medindo o Ego (F1), a visão do Mercado (F2), o Julgamento dos Pares (F3) e o Instinto de Crise (F4).
-* **A Fusão de Dados (*Data Fusion*):** O coração da metodologia. O modelo funde as *Soft Skills* capturadas na simulação de crise com a eficiência bruta atestada pelos Sistemas da Universidade (F5 e IEA), punindo a falsa modéstia e o excesso de confiança.
-* **O Algoritmo de Alocação:** Utilizando heurística de restrição de capacidade (5 a 6 membros) e diluição de risco, os alunos foram reagrupados em Esquadrões de alta performance, garantindo que toda equipe possua uma "Casa de Máquinas" técnica.
-* **Governança e *Compliance* (*Team Charter*):** A transição final da teoria para a prática. Por meio do Formulário 6, os *Squads* assumiram responsabilidade jurídica sobre seus prazos (SLA), distribuíram papéis baseados em *Data Science* e estabeleceram sanções claras contra a ineficiência.
+* **A Fusão de Dados (*Data Fusion*):** O coração da metodologia. O modelo funde as *Soft Skills* capturadas na simulação de crise com a eficiência bruta atestada pelos Sistemas da Universidade (F5 e IEA), punindo a falsa modéstia e o excesso de confiança para criar o **Score Recalibrado (O DNA Definitivo)**.
+* O próximo passo é formalizar a governança desses esquadrões recém-formados e inseri-los no chão de fábrica da consultoria.
+
+---
 
 ## Apêndices do Capítulo {#sec-apendices-cap7}
 
@@ -3286,4 +3546,5 @@ Prezado(a) aluno(a), convido você e sua equipe a participarem da pesquisa "FORM
 **Retorno dos Dados:** O diagnóstico das estratégias de mitigação e das regras de Compliance criadas pelas equipes poderá ser discutido de forma macro em sala de aula para otimizar as melhores práticas de Gestão de Projetos na turma.
 
 Recomendamos que você salve ou tire um print desta tela para o seu registro de consentimento.
+
 

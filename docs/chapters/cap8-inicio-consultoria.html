@@ -343,13 +343,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#sec-missao-squads" id="toc-sec-missao-squads" class="nav-link active" data-scroll-target="#sec-missao-squads"><span class="header-section-number">8.1</span> 🚀 A Missão Tática: O Roteiro do Semestre</a>
+  <li><a href="#sec-tap" id="toc-sec-tap" class="nav-link active" data-scroll-target="#sec-tap"><span class="header-section-number">8.1</span> 🤝 O Termo de Abertura do Projeto (<em>Team Charter</em>)</a>
   <ul class="collapse">
-  <li><a href="#trilha-1-gestão-da-qualidade-foco-em-pdca-e-data-science" id="toc-trilha-1-gestão-da-qualidade-foco-em-pdca-e-data-science" class="nav-link" data-scroll-target="#trilha-1-gestão-da-qualidade-foco-em-pdca-e-data-science"><span class="header-section-number">8.1.1</span> Trilha 1: Gestão da Qualidade (Foco em PDCA e Data Science)</a></li>
-  <li><a href="#trilha-2-sistemas-de-gestão-integrados-foco-em-governança-e-normas" id="toc-trilha-2-sistemas-de-gestão-integrados-foco-em-governança-e-normas" class="nav-link" data-scroll-target="#trilha-2-sistemas-de-gestão-integrados-foco-em-governança-e-normas"><span class="header-section-number">8.1.2</span> Trilha 2: Sistemas de Gestão Integrados (Foco em Governança e Normas)</a></li>
+  <li><a href="#a-estrutura-do-contrato-de-consultoria" id="toc-a-estrutura-do-contrato-de-consultoria" class="nav-link" data-scroll-target="#a-estrutura-do-contrato-de-consultoria"><span class="header-section-number">8.1.1</span> A Estrutura do Contrato de Consultoria</a></li>
   </ul></li>
-  <li><a href="#sec-repositorio-dados" id="toc-sec-repositorio-dados" class="nav-link" data-scroll-target="#sec-repositorio-dados"><span class="header-section-number">8.2</span> 💾 Repositório de Dados Operacionais (Data Lake)</a></li>
-  <li><a href="#sec-intro-metrologia" id="toc-sec-intro-metrologia" class="nav-link" data-scroll-target="#sec-intro-metrologia"><span class="header-section-number">8.3</span> 📐 Introdução à Metrologia Operacional</a></li>
+  <li><a href="#sec-missao-squads" id="toc-sec-missao-squads" class="nav-link" data-scroll-target="#sec-missao-squads"><span class="header-section-number">8.2</span> 🚀 A Missão Tática: O Roteiro do Semestre</a>
+  <ul class="collapse">
+  <li><a href="#trilha-1-gestão-da-qualidade-foco-em-pdca-e-data-science" id="toc-trilha-1-gestão-da-qualidade-foco-em-pdca-e-data-science" class="nav-link" data-scroll-target="#trilha-1-gestão-da-qualidade-foco-em-pdca-e-data-science"><span class="header-section-number">8.2.1</span> Trilha 1: Gestão da Qualidade (Foco em PDCA e <em>Data Science</em>)</a></li>
+  <li><a href="#trilha-2-sistemas-de-gestão-integrados-foco-em-governança" id="toc-trilha-2-sistemas-de-gestão-integrados-foco-em-governança" class="nav-link" data-scroll-target="#trilha-2-sistemas-de-gestão-integrados-foco-em-governança"><span class="header-section-number">8.2.2</span> Trilha 2: Sistemas de Gestão Integrados (Foco em Governança)</a></li>
+  </ul></li>
+  <li><a href="#sec-repositorio-dados" id="toc-sec-repositorio-dados" class="nav-link" data-scroll-target="#sec-repositorio-dados"><span class="header-section-number">8.3</span> 💾 Repositório de Dados Operacionais (<em>Data Lake</em>)</a></li>
+  <li><a href="#sec-intro-metrologia" id="toc-sec-intro-metrologia" class="nav-link" data-scroll-target="#sec-intro-metrologia"><span class="header-section-number">8.4</span> 📐 Introdução à Metrologia Operacional</a></li>
+  <li><a href="#sec-alocacao-oficial" id="toc-sec-alocacao-oficial" class="nav-link" data-scroll-target="#sec-alocacao-oficial"><span class="header-section-number">8.5</span> 🎯 Alocação Oficial: Esquadrões Multidisciplinares</a>
+  <ul class="collapse">
+  <li><a href="#esquadrões-gestão-da-qualidade-turma-t01" id="toc-esquadrões-gestão-da-qualidade-turma-t01" class="nav-link" data-scroll-target="#esquadrões-gestão-da-qualidade-turma-t01"><span class="header-section-number">8.5.1</span> Esquadrões: Gestão da Qualidade (Turma T01)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -387,43 +395,115 @@ ul.task-list li input[type="checkbox"] {
 <div class="callout-body-container callout-body">
 <p>Neste capítulo, encerramos a Parte I do nosso livro, conectando a governança das equipes recém-formadas à realidade do chão de fábrica. Ao final da leitura, você será capaz de:</p>
 <ul>
-<li><strong>Compreender as Missões Táticas</strong> que os Esquadrões de Consultoria deverão executar ao longo do semestre.</li>
-<li><strong>Acessar e Extrair</strong> informações do Repositório de Dados (Data Lake) tratado para o projeto prático.</li>
+<li><strong>Formalizar o Contrato Social</strong> (<em>Team Charter</em>) das equipes de consultoria mapeadas por <em>Data Science</em>.</li>
+<li><strong>Compreender as Missões Táticas</strong> que os Esquadrões deverão executar ao longo do semestre.</li>
+<li><strong>Acessar e Extrair</strong> informações do Repositório de Dados (<em>Data Lake</em>) tratado para o projeto prático.</li>
 <li><strong>Entender a lógica</strong> da Metrologia Operacional como o gatilho inicial para rodar o ciclo PDCA.</li>
-<li><strong>Preparar o terreno</strong> para a Parte II do livro, onde aprofundaremos as equações e os algoritmos de confiabilidade e gestão de ativos.</li>
 </ul>
 </div>
 </div>
-<p>Com os <em>Squads</em> formados, os perfis mapeados e o <em>Team Charter</em> assinado (Capítulo 7), a fase de planejamento humano está oficialmente encerrada. A partir de agora, os esquadrões assumem o papel de Consultorias de Engenharia.</p>
-<p>Para que uma consultoria resolva problemas complexos aplicando o MASP e o PDCA (vistos no Capítulo 5), ela precisa de duas coisas: um alvo claro e dados confiáveis. Este capítulo serve como a Reunião de Partida (<em>Kick-off</em>) do seu projeto semestral.</p>
+<p>Com os <em>Squads</em> cientificamente formados e os perfis mapeados ao final do Capítulo 7, a fase de planejamento humano está oficialmente encerrada. A partir de agora, os esquadrões assumem o papel de <strong>Consultorias de Engenharia</strong>.</p>
+<p>Para que uma consultoria resolva problemas complexos aplicando o MASP e o PDCA (vistos no Capítulo 5), ela precisa de duas coisas: uma governança inegociável e dados operacionais confiáveis. Este capítulo serve como a Reunião de Partida (<em>Kick-off</em>) do seu projeto semestral.</p>
 <hr>
-<section id="sec-missao-squads" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="sec-missao-squads"><span class="header-section-number">8.1</span> 🚀 A Missão Tática: O Roteiro do Semestre</h2>
-<p>Como nosso laboratório atende a diferentes frentes da Engenharia de Produção, as missões das consultorias são divididas em duas grandes trilhas operacionais. Identifique a trilha correspondente à sua disciplina e utilize este roteiro como o <em>Backlog</em> (lista de tarefas) do seu projeto.</p>
-<section id="trilha-1-gestão-da-qualidade-foco-em-pdca-e-data-science" class="level3" data-number="8.1.1">
-<h3 data-number="8.1.1" class="anchored" data-anchor-id="trilha-1-gestão-da-qualidade-foco-em-pdca-e-data-science"><span class="header-section-number">8.1.1</span> Trilha 1: Gestão da Qualidade (Foco em PDCA e Data Science)</h3>
-<p>Para os esquadrões desta disciplina, o objetivo é atuar como Analistas de Confiabilidade e Melhoria Contínua. Vocês receberão uma base de dados real de uma operação de mineração contendo milhares de registros de telemetria, ciclos de transporte e falhas de equipamento. A missão do semestre é rodar o ciclo MASP/PDCA completo em cima dessa base:</p>
+<section id="sec-tap" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="sec-tap"><span class="header-section-number">8.1</span> 🤝 O Termo de Abertura do Projeto (<em>Team Charter</em>)</h2>
+<p>A engenharia de times não termina com a alocação dos alunos; ela exige a formalização do processo. Tradicionalmente, trabalhos em grupo operam baseados em “expectativas não ditas”, gerando conflitos crônicos e o temido fenômeno do aluno “carona”.</p>
+<p>Com o <em>Dashboard</em> de Perfil Recalibrado na mão de cada Esquadrão, as expectativas são escancaradas na mesa. O <strong>Team Charter</strong> é o contrato psicológico e operacional da equipe. Ele obriga o esquadrão recém-formado a se sentar na sua primeira reunião e debater abertamente a sua Matriz de Responsabilidades.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="🛠️ LABORATÓRIO DE ENGENHARIA: Formalização e Governança">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>🛠️ LABORATÓRIO DE ENGENHARIA: Formalização e Governança
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Objetivo:</strong> Estabelecer o Contrato Social da equipe para desenvolver e implantar o projeto da disciplina. O formulário deve ser discutido presencialmente por todos os membros, mas enviado por apenas um representante. As regras pactuadas aqui serão o documento oficial de governança de vocês para o semestre.</p>
 <ul>
-<li><strong>Etapa 1 (Plan - O Baseline):</strong> Baixar os dados, limpá-los e calcular os Indicadores-Chave de Desempenho (KPIs) para descobrir o estado atual da frota.</li>
-<li><strong>Etapa 2 (Plan - A Lacuna):</strong> Identificar o equipamento ou o processo ofensor através do Gráfico de Pareto. Construir o método da lacuna (<em>Waterfall</em>) para definir uma Meta SMART.</li>
-<li><strong>Etapa 3 (Plan - A Causa Raiz):</strong> Aplicar o diagrama de Ishikawa e a matriz GUT sobre os modos de falha do ofensor, aprofundando-se com a técnica dos 5 Porquês.</li>
-<li><strong>Etapa 4 (Do/Check - O Plano de Ação):</strong> Propor um plano de engenharia estruturado (5W2H) - como uma mudança no plano de manutenção, alteração de layout ou retreinamento - e simular o impacto financeiro dessa ação.</li>
+<li><strong>🔗 Link de Acesso:</strong> <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UQkFOUUs0QklYSVZVNlVPVzMwODYxRDUwNi4u">FORMULÁRIO 6 — Termo de Abertura do Projeto (Team Charter)</a> <em>(A aplicação deste formulário está vinculada ao TCLE presente no <a href="cap7-estudos-casos.html#sec-apendice-tcle-form6">Apêndice do Capítulo</a>).</em></li>
+</ul>
+</div>
+</div>
+<section id="a-estrutura-do-contrato-de-consultoria" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="a-estrutura-do-contrato-de-consultoria"><span class="header-section-number">8.1.1</span> A Estrutura do Contrato de Consultoria</h3>
+<p>Para selar o compromisso operacional, o formulário exige que o <em>Squad</em> tome decisões definitivas divididas em cinco seções estratégicas:</p>
+<section id="identidade-e-diagnóstico-o-radar-da-equipe" class="level5" data-number="8.1.1.0.1">
+<h5 data-number="8.1.1.0.1" class="anchored" data-anchor-id="identidade-e-diagnóstico-o-radar-da-equipe"><span class="header-section-number">8.1.1.0.1</span> 1. Identidade e Diagnóstico (O Radar da Equipe)</h5>
+<ul>
+<li><strong>DNA do Grupo:</strong> A equipe cruza os nomes com o Perfil Dominante que o algoritmo validou (ex: <em>Perfil Analítico</em>, <em>Perfil Líder</em>).</li>
+<li><strong>Forças e Fraquezas:</strong> Com base no mapeamento técnico (<em>Hard Skills</em>), a equipe declara seu maior ponto cego (ex: <em>“Não temos ninguém com o perfil Criativo”</em>) e estabelece uma estratégia imediata de mitigação.</li>
 </ul>
 </section>
-<section id="trilha-2-sistemas-de-gestão-integrados-foco-em-governança-e-normas" class="level3" data-number="8.1.2">
-<h3 data-number="8.1.2" class="anchored" data-anchor-id="trilha-2-sistemas-de-gestão-integrados-foco-em-governança-e-normas"><span class="header-section-number">8.1.2</span> Trilha 2: Sistemas de Gestão Integrados (Foco em Governança e Normas)</h3>
-<p>Para os esquadrões de SGI, a vertente avança para a estruturação normativa. Em vez de focar apenas na correção da falha de uma máquina, a missão é desenhar a arquitetura de gestão que impede que as falhas sistêmicas ocorram, integrando Qualidade (ISO 9001), Meio Ambiente (ISO 14001) e Saúde e Segurança (ISO 45001).</p>
+<section id="matriz-de-responsabilidades-distribuição-de-papéis" class="level5" data-number="8.1.1.0.2">
+<h5 data-number="8.1.1.0.2" class="anchored" data-anchor-id="matriz-de-responsabilidades-distribuição-de-papéis"><span class="header-section-number">8.1.1.0.2</span> 2. Matriz de Responsabilidades (Distribuição de Papéis)</h5>
+<p>As responsabilidades finais precisam ter donos de acordo com o DNA revelado pelo algoritmo:</p>
 <ul>
-<li><strong>Etapa 1 (Contexto e Liderança):</strong> Definir o escopo do SGI da empresa fictícia, mapeando as partes interessadas e elaborando a Política Integrada.</li>
-<li><strong>Etapa 2 (Planejamento e Risco):</strong> Construir a Matriz de Riscos e Oportunidades (SWOT) corporativa e a Matriz de Aspectos/Impactos Ambientais e Perigos/Riscos Ocupacionais.</li>
-<li><strong>Etapa 3 (Apoio e Operação):</strong> Desenvolver a matriz de competências do SGI, o plano de comunicação e estruturar a Informação Documentada (POP) de um processo crítico.</li>
-<li><strong>Etapa 4 (Avaliação e Melhoria):</strong> Estruturar o modelo de auditoria interna, o fluxo de tratamento de Não Conformidades (RNC) e a sistemática de Análise Crítica pela Direção.</li>
+<li><strong>Gestor do Projeto:</strong> Ideal para perfis <strong>Líder (P5)</strong> ou <strong>Operações (P2)</strong>. É o dono do cronograma e quem faz as submissões oficiais.</li>
+<li><strong>Revisor de Qualidade e <em>Compliance</em>:</strong> Ideal para o <strong>Analítico (P1)</strong>. Garante que o trabalho atende às normas da ABNT/ISO e aos critérios matemáticos antes do envio.</li>
+<li><strong>Articulador de Comunicação:</strong> <em>Habitat</em> natural do <strong>Comunicador (P4)</strong> ou <strong>Criativo (P3)</strong> para a defesa oral.</li>
+<li><strong>Analista de Dados/Pesquisa:</strong> Entregue ao aluno que obteve o maior IEA e notas nas disciplinas exatas, responsável pela estruturação do <em>Data Lake</em>.</li>
+</ul>
+</section>
+<section id="governança-e-compliance-interno-as-regras-do-jogo" class="level5" data-number="8.1.1.0.3">
+<h5 data-number="8.1.1.0.3" class="anchored" data-anchor-id="governança-e-compliance-interno-as-regras-do-jogo"><span class="header-section-number">8.1.1.0.3</span> 3. Governança e <em>Compliance</em> Interno (As Regras do Jogo)</h5>
+<p>A equipe define como vai operar sob pressão:</p>
+<ul>
+<li><strong>SLA Interno:</strong> Com qual antecedência mínima as partes individuais devem ser enviadas ao Revisor de Qualidade? (Ex: 48 horas antes do prazo do professor). Se a equipe tiver “Riscos Técnicos” mapeados, o SLA deve ser agressivo para permitir correções.</li>
+<li><strong>A Cláusula de Rescisão:</strong> O que a equipe fará caso um membro não entregue sua parte? <em>(Exemplo de Regra Clara: “No 1º atraso: advertência. No 2º atraso: o nome do membro será removido da capa do trabalho e o professor será notificado”).</em></li>
+</ul>
+<p>Ao assinar o Termo de Aceite Multidisciplinar, a equipe compreende que a remoção de um nome da capa por quebra de SLA não é uma punição emocional, mas a execução estrita do <em>Compliance</em> pactuado. O professor atuará apenas como ‘Auditor Externo’ desse contrato.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="sec-missao-squads" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="sec-missao-squads"><span class="header-section-number">8.2</span> 🚀 A Missão Tática: O Roteiro do Semestre</h2>
+<p>Como nosso laboratório atende a diferentes frentes da Engenharia de Produção, as missões das consultorias são divididas em duas grandes trilhas operacionais. Identifique a trilha correspondente à sua disciplina e utilize este roteiro como o <em>Backlog</em> do seu projeto.</p>
+<section id="trilha-1-gestão-da-qualidade-foco-em-pdca-e-data-science" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="trilha-1-gestão-da-qualidade-foco-em-pdca-e-data-science"><span class="header-section-number">8.2.1</span> Trilha 1: Gestão da Qualidade (Foco em PDCA e <em>Data Science</em>)</h3>
+<p>Para os esquadrões desta disciplina, o objetivo é atuar como Analistas de Confiabilidade. Vocês receberão uma base de dados real de uma mineração contendo milhares de registros de telemetria e falhas. A missão é rodar o ciclo MASP/PDCA metodicamente, dividido em duas grandes etapas:</p>
+<section id="fase-1-o-planejamento-e-o-masp-avaliação-n1" class="level5" data-number="8.2.1.0.1">
+<h5 data-number="8.2.1.0.1" class="anchored" data-anchor-id="fase-1-o-planejamento-e-o-masp-avaliação-n1"><span class="header-section-number">8.2.1.0.1</span> Fase 1: O Planejamento e o MASP (Avaliação N1)</h5>
+<ul>
+<li><strong>Identificação do Problema:</strong> Processar os dados brutos, avaliar o desempenho real da frota e definir Metas SMART.</li>
+<li><strong>Análise do Fenômeno e do Processo:</strong> Isolar o equipamento ofensor e descobrir a causa-raiz geradora das falhas e gargalos.</li>
+<li><strong>Plano de Ação:</strong> Propor um pacote de contramedidas de engenharia estruturado na ferramenta 5W2H para bloquear definitivamente a causa-raiz.</li>
+</ul>
+</section>
+<section id="fase-2-execução-controle-e-padronização-avaliação-n2" class="level5" data-number="8.2.1.0.2">
+<h5 data-number="8.2.1.0.2" class="anchored" data-anchor-id="fase-2-execução-controle-e-padronização-avaliação-n2"><span class="header-section-number">8.2.1.0.2</span> Fase 2: Execução, Controle e Padronização (Avaliação N2)</h5>
+<ul>
+<li><strong>Execução (<em>Do</em>):</strong> Especificar a qualidade e os equipamentos necessários para a mudança e simular o Relatório de Execução.</li>
+<li><strong>Verificação de Resultados (<em>Check</em>):</strong> Auditar os dados, simular os Custos da Qualidade e avaliar o ROI.</li>
+<li><strong>Ação e Padronização (<em>Act</em>):</strong> Elaborar POPs para prevenir a reincidência da falha e aplicar a matriz FMEA (Análise de Modos de Falha e Efeito) no equipamento de mineração escolhido.</li>
+</ul>
+</section>
+</section>
+<section id="trilha-2-sistemas-de-gestão-integrados-foco-em-governança" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="trilha-2-sistemas-de-gestão-integrados-foco-em-governança"><span class="header-section-number">8.2.2</span> Trilha 2: Sistemas de Gestão Integrados (Foco em Governança)</h3>
+<p>Para os esquadrões de SGI, a vertente avança para a estruturação normativa. A missão da consultoria é desenhar a arquitetura de gestão de uma empresa do zero, integrando Qualidade, Meio Ambiente, Segurança e Responsabilidade Social:</p>
+<section id="fase-1-estruturação-qualidade-e-meio-ambiente-avaliação-n1" class="level5" data-number="8.2.2.0.1">
+<h5 data-number="8.2.2.0.1" class="anchored" data-anchor-id="fase-1-estruturação-qualidade-e-meio-ambiente-avaliação-n1"><span class="header-section-number">8.2.2.0.1</span> Fase 1: Estruturação, Qualidade e Meio Ambiente (Avaliação N1)</h5>
+<ul>
+<li><strong>Contexto e Liderança:</strong> Definir a empresa, mapear as partes interessadas e aplicar o diagnóstico estratégico (SWOT).</li>
+<li><strong>Mapeamento de Processos e Qualidade:</strong> Construir a Matriz de Riscos corporativa e estruturar o fluxo de tratamento de Não Conformidades.</li>
+<li><strong>Gestão Ambiental:</strong> Aplicar a metodologia LAIA (Aspectos e Impactos Ambientais) para mapear os passivos ecológicos da operação (ISO 14001).</li>
+</ul>
+</section>
+<section id="fase-2-segurança-integração-e-auditoria-avaliação-n2" class="level5" data-number="8.2.2.0.2">
+<h5 data-number="8.2.2.0.2" class="anchored" data-anchor-id="fase-2-segurança-integração-e-auditoria-avaliação-n2"><span class="header-section-number">8.2.2.0.2</span> Fase 2: Segurança, Integração e Auditoria (Avaliação N2)</h5>
+<ul>
+<li><strong>Saúde e Segurança Ocupacional:</strong> Elaborar a Matriz de Perigos e Riscos e conduzir simulações de investigação de incidentes com análise de causa-raiz.</li>
+<li><strong>Governança e ESG:</strong> Redigir a Política Integrada do SGI e as diretrizes de Responsabilidade Social.</li>
+<li><strong>Auditoria e Consolidação:</strong> Planejar um programa de auditoria interna, criar <em>checklists</em>, redigir RNCs e unificar as entregas no Manual do SGI digital para a defesa oral do projeto.</li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="sec-repositorio-dados" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="sec-repositorio-dados"><span class="header-section-number">8.2</span> 💾 Repositório de Dados Operacionais (Data Lake)</h2>
+</section>
+<section id="sec-repositorio-dados" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="sec-repositorio-dados"><span class="header-section-number">8.3</span> 💾 Repositório de Dados Operacionais (<em>Data Lake</em>)</h2>
 <p>Para as equipes da <strong>Trilha 1 (Gestão da Qualidade)</strong>, a matéria-prima do projeto encontra-se abaixo. Tratam-se de bancos de dados extraídos de sistemas reais de despacho e telemetria, devidamente anonimizados e tratados para fins acadêmicos.</p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Atenção Analistas de Dados">
 <div class="callout-header d-flex align-content-center">
@@ -447,33 +527,40 @@ ul.task-list li input[type="checkbox"] {
 <p><em>(Nota: Os links acima devem ser acessados através do repositório oficial da disciplina no ambiente virtual de aprendizagem).</em></p>
 <hr>
 </section>
-<section id="sec-intro-metrologia" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="sec-intro-metrologia"><span class="header-section-number">8.3</span> 📐 Introdução à Metrologia Operacional</h2>
-<p>Você não pode gerenciar o que não pode medir. Para que os esquadrões da Trilha 1 consigam transformar o “Data Lake” acima no Passo 1 do PDCA (Identificação do Problema), é necessário introduzir o conceito de <strong>Metrologia Operacional</strong>.</p>
+<section id="sec-intro-metrologia" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="sec-intro-metrologia"><span class="header-section-number">8.4</span> 📐 Introdução à Metrologia Operacional</h2>
+<p>Você não pode gerenciar o que não pode medir. Para que os esquadrões consigam transformar o “<em>Data Lake</em>” acima no Passo 1 do PDCA (Identificação do Problema), é necessário introduzir o conceito de <strong>Metrologia Operacional</strong>.</p>
 <p>Na mineração, o tempo é o recurso mais escasso e caro. Uma hora de um caminhão fora de estrada parado custa milhares de dólares à companhia. A Metrologia Operacional é a ciência de fatiar o tempo de calendário de uma máquina (24 horas por dia, 365 dias por ano) em “caixas” exatas para descobrir onde o dinheiro está vazando.</p>
-<p>Ao longo da <strong>Parte II</strong> deste livro, mergulharemos a fundo nas modelagens matemáticas e nos códigos em <code>R</code> para o cálculo desses indicadores. No entanto, para o início imediato dos trabalhos da sua consultoria, você precisa compreender conceitualmente os três pilares que buscará nas bases de dados:</p>
+<p>Ao longo da <strong>Parte II</strong> deste livro, mergulharemos a fundo nas modelagens matemáticas e nos códigos em <code>R</code> para o cálculo desses indicadores. No entanto, para o início imediato dos trabalhos da sua consultoria, você precisa compreender os três pilares que buscará nas bases de dados:</p>
 <ol type="1">
-<li><strong>Disponibilidade Física (DF):</strong> É o indicador que mede a saúde da máquina. De todo o tempo do mês, quanto tempo o equipamento esteve mecanicamente “pronto para uso”, sem estar quebrado ou em manutenção? (Este é o foco de cobrança da equipe de Manutenção).</li>
-<li><strong>Utilização Física (UF):</strong> É o indicador que mede a eficiência da equipe. Do tempo em que a máquina esteve disponível, quanto tempo ela de fato foi operada gerando valor? (Ela não estava parada por falta de operador, aguardando frente de lavra ou em horário de refeição?).</li>
-<li><strong>Rendimento Operacional (RO):</strong> É a taxa de produção bruta. Quando a máquina estava efetivamente operando, ela entregou as toneladas por hora prometidas pelo fabricante, ou operou “arrastada” de forma ineficiente?</li>
+<li><strong>Disponibilidade Física (DF):</strong> É o indicador que mede a saúde da máquina. De todo o tempo do calendário, quanto tempo o equipamento esteve mecanicamente “pronto para uso”, sem estar quebrado ou em manutenção pré-programada? <em>(Foco da equipe de Manutenção).</em></li>
+<li><strong>Utilização Física (UF):</strong> É o indicador que mede a eficiência da equipe. Do tempo em que a máquina esteve disponível, quanto tempo ela de fato foi operada gerando valor? <em>(Foco da equipe de Operação).</em></li>
+<li><strong>Rendimento Operacional (RO):</strong> É a taxa de produção bruta. Quando a máquina estava efetivamente operando, ela entregou as toneladas por hora prometidas pelo projeto, ou operou “arrastada” de forma ineficiente?</li>
 </ol>
-<p>O cruzamento da Disponibilidade, Utilização e Rendimento gera o <strong>OEE (<em>Overall Equipment Effectiveness</em>)</strong>, o indicador supremo de excelência de qualquer indústria pesada.</p>
-<div class="callout callout-style-default callout-important callout-titled" title="➡️ O Próximo Passo: Rumo à Parte II">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>O cruzamento da Disponibilidade, Utilização e Rendimento gera o <strong>OEE (<em>Overall Equipment Effectiveness</em>)</strong>, o indicador supremo de excelência operacional de qualquer indústria pesada.</p>
+<hr>
+</section>
+<section id="sec-alocacao-oficial" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="sec-alocacao-oficial"><span class="header-section-number">8.5</span> 🎯 Alocação Oficial: Esquadrões Multidisciplinares</h2>
+<p>Abaixo, oficializamos as equipes que conduzirão as consultorias neste semestre. O <em>pipeline</em> de dados processou os 86 alunos matriculados e formou <strong>16 Esquadrões</strong>, divididos de acordo com as disciplinas de Gestão da Qualidade (7 esquadrões) e Sistemas de Gestão Integrados (9 esquadrões).</p>
+<p>As tabelas geradas dinamicamente pelo algoritmo apresentam o “DNA Definitivo” (Perfil Recalibrado) com o qual cada membro adentrou a equipe após o fechamento da matriz de competências.</p>
+<section id="esquadrões-gestão-da-qualidade-turma-t01" class="level3" data-number="8.5.1">
+<h3 data-number="8.5.1" class="anchored" data-anchor-id="esquadrões-gestão-da-qualidade-turma-t01"><span class="header-section-number">8.5.1</span> Esquadrões: Gestão da Qualidade (Turma T01)</h3>
+<div id="tbl-squads-qualidade" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-squads-qualidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;8.1: Distribuição Oficial dos Esquadrões - Gestão da Qualidade (EPRI4003)
+</figcaption>
+<div aria-describedby="tbl-squads-qualidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>➡️ O Próximo Passo: Rumo à Parte II
 </div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Sua equipe já tem o grupo formado, as regras estabelecidas e os dados baixados. O problema a ser resolvido está escondido dentro dessas milhares de linhas do Excel.</p>
-<p>Para extrair a verdade dos dados e calcular a DF, UF, MTBF e outros KPIs avançados com precisão cirúrgica, avance para a <strong>Parte II: Metrologia, Gestão de Ativos e Confiabilidade</strong>. Lá, abandonaremos a filosofia e entraremos definitivamente na Ciência de Dados aplicada à Engenharia.</p>
-</div>
+</figure>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

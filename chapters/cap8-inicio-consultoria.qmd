@@ -7,52 +7,87 @@ format: html
 ::: {.callout-tip title="🎯 Objetivos deste Capítulo"}
 Neste capítulo, encerramos a Parte I do nosso livro, conectando a governança das equipes recém-formadas à realidade do chão de fábrica. Ao final da leitura, você será capaz de:
 
-* **Compreender as Missões Táticas** que os Esquadrões de Consultoria deverão executar ao longo do semestre.
+* **Formalizar o Contrato Social** (*Team Charter*) das equipes de consultoria mapeadas por *Data Science*.
+* **Compreender as Missões Táticas** que os Esquadrões deverão executar ao longo do semestre.
 * **Acessar e Extrair** informações do Repositório de Dados (*Data Lake*) tratado para o projeto prático.
 * **Entender a lógica** da Metrologia Operacional como o gatilho inicial para rodar o ciclo PDCA.
-* **Preparar o terreno** para a Parte II do livro, onde aprofundaremos as equações e os algoritmos de confiabilidade e gestão de ativos.
 :::
 
-Com os *Squads* formados, os perfis mapeados e o *Team Charter* assinado (Capítulo 7), a fase de planejamento humano está oficialmente encerrada. A partir de agora, os esquadrões assumem o papel de Consultorias de Engenharia.
+Com os *Squads* cientificamente formados e os perfis mapeados ao final do Capítulo 7, a fase de planejamento humano está oficialmente encerrada. A partir de agora, os esquadrões assumem o papel de **Consultorias de Engenharia**.
 
-Para que uma consultoria resolva problemas complexos aplicando o MASP e o PDCA (vistos no Capítulo 5), ela precisa de duas coisas: um alvo claro e dados confiáveis. Este capítulo serve como a Reunião de Partida (*Kick-off*) do seu projeto semestral.
+Para que uma consultoria resolva problemas complexos aplicando o MASP e o PDCA (vistos no Capítulo 5), ela precisa de duas coisas: uma governança inegociável e dados operacionais confiáveis. Este capítulo serve como a Reunião de Partida (*Kick-off*) do seu projeto semestral.
+
+---
+
+## 🤝 O Termo de Abertura do Projeto (*Team Charter*) {#sec-tap}
+
+A engenharia de times não termina com a alocação dos alunos; ela exige a formalização do processo. Tradicionalmente, trabalhos em grupo operam baseados em "expectativas não ditas", gerando conflitos crônicos e o temido fenômeno do aluno "carona".
+
+Com o *Dashboard* de Perfil Recalibrado na mão de cada Esquadrão, as expectativas são escancaradas na mesa. O **Team Charter** é o contrato psicológico e operacional da equipe. Ele obriga o esquadrão recém-formado a se sentar na sua primeira reunião e debater abertamente a sua Matriz de Responsabilidades.
+
+::: {.callout-important title="🛠️ LABORATÓRIO DE ENGENHARIA: Formalização e Governança"}
+**Objetivo:** Estabelecer o Contrato Social da equipe para desenvolver e implantar o projeto da disciplina.
+O formulário deve ser discutido presencialmente por todos os membros, mas enviado por apenas um representante. As regras pactuadas aqui serão o documento oficial de governança de vocês para o semestre.
+
+* **🔗 Link de Acesso:** [FORMULÁRIO 6 — Termo de Abertura do Projeto (Team Charter)](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__pCJeT1UQkFOUUs0QklYSVZVNlVPVzMwODYxRDUwNi4u)
+*(A aplicação deste formulário está vinculada ao TCLE presente no [Apêndice do Capítulo](#sec-apendice-tcle-form6)).*
+:::
+
+### A Estrutura do Contrato de Consultoria
+
+Para selar o compromisso operacional, o formulário exige que o *Squad* tome decisões definitivas divididas em cinco seções estratégicas:
+
+##### 1. Identidade e Diagnóstico (O Radar da Equipe)
+* **DNA do Grupo:** A equipe cruza os nomes com o Perfil Dominante que o algoritmo validou (ex: *Perfil Analítico*, *Perfil Líder*).
+* **Forças e Fraquezas:** Com base no mapeamento técnico (*Hard Skills*), a equipe declara seu maior ponto cego (ex: *"Não temos ninguém com o perfil Criativo"*) e estabelece uma estratégia imediata de mitigação.
+
+##### 2. Matriz de Responsabilidades (Distribuição de Papéis)
+As responsabilidades finais precisam ter donos de acordo com o DNA revelado pelo algoritmo:
+
+* **Gestor do Projeto:** Ideal para perfis **Líder (P5)** ou **Operações (P2)**. É o dono do cronograma e quem faz as submissões oficiais.
+* **Revisor de Qualidade e *Compliance*:** Ideal para o **Analítico (P1)**. Garante que o trabalho atende às normas da ABNT/ISO e aos critérios matemáticos antes do envio.
+* **Articulador de Comunicação:** *Habitat* natural do **Comunicador (P4)** ou **Criativo (P3)** para a defesa oral.
+* **Analista de Dados/Pesquisa:** Entregue ao aluno que obteve o maior IEA e notas nas disciplinas exatas, responsável pela estruturação do *Data Lake*.
+
+##### 3. Governança e *Compliance* Interno (As Regras do Jogo)
+A equipe define como vai operar sob pressão:
+
+* **SLA Interno:** Com qual antecedência mínima as partes individuais devem ser enviadas ao Revisor de Qualidade? (Ex: 48 horas antes do prazo do professor). Se a equipe tiver "Riscos Técnicos" mapeados, o SLA deve ser agressivo para permitir correções.
+* **A Cláusula de Rescisão:** O que a equipe fará caso um membro não entregue sua parte? *(Exemplo de Regra Clara: "No 1º atraso: advertência. No 2º atraso: o nome do membro será removido da capa do trabalho e o professor será notificado").*
+
+Ao assinar o Termo de Aceite Multidisciplinar, a equipe compreende que a remoção de um nome da capa por quebra de SLA não é uma punição emocional, mas a execução estrita do *Compliance* pactuado. O professor atuará apenas como 'Auditor Externo' desse contrato.
 
 ---
 
 ## 🚀 A Missão Tática: O Roteiro do Semestre {#sec-missao-squads}
 
-Como nosso laboratório atende a diferentes frentes da Engenharia de Produção, as missões das consultorias são divididas em duas grandes trilhas operacionais. Identifique a trilha correspondente à sua disciplina e utilize este roteiro como o *Backlog* (lista de tarefas) do seu projeto.
+Como nosso laboratório atende a diferentes frentes da Engenharia de Produção, as missões das consultorias são divididas em duas grandes trilhas operacionais. Identifique a trilha correspondente à sua disciplina e utilize este roteiro como o *Backlog* do seu projeto.
 
 ### Trilha 1: Gestão da Qualidade (Foco em PDCA e *Data Science*)
-Para os esquadrões desta disciplina, o objetivo é atuar como Analistas de Confiabilidade e Melhoria Contínua. Vocês receberão uma base de dados real de uma operação de mineração contendo milhares de registros de telemetria, ciclos de transporte e falhas de equipamento. A missão do semestre é rodar o ciclo MASP/PDCA metodicamente em cima dessa base, dividido em duas grandes etapas de avaliação (N1 e N2):
+Para os esquadrões desta disciplina, o objetivo é atuar como Analistas de Confiabilidade. Vocês receberão uma base de dados real de uma mineração contendo milhares de registros de telemetria e falhas. A missão é rodar o ciclo MASP/PDCA metodicamente, dividido em duas grandes etapas:
 
-**Fase 1: O Planejamento e o MASP (Avaliação N1)**
-O foco inicial é debruçar-se sobre o *Data Lake* para blindar a fase *Plan* (Planejamento) do ciclo, evitando "soluções de prateleira":
-* **Identificação do Problema:** Processar os dados brutos, avaliar o desempenho real da frota e definir Metas e Objetivos claros.
-* **Análise do Fenômeno e do Processo:** Isolar o equipamento ou processo ofensor (utilizando estratificação) e descobrir a causa-raiz geradora das falhas e gargalos.
-* **Plano de Ação:** Propor um pacote de contramedidas de engenharia estruturado na ferramenta 5W2H para bloquear definitivamente a causa-raiz descoberta na etapa anterior.
+##### Fase 1: O Planejamento e o MASP (Avaliação N1)
+* **Identificação do Problema:** Processar os dados brutos, avaliar o desempenho real da frota e definir Metas SMART.
+* **Análise do Fenômeno e do Processo:** Isolar o equipamento ofensor e descobrir a causa-raiz geradora das falhas e gargalos.
+* **Plano de Ação:** Propor um pacote de contramedidas de engenharia estruturado na ferramenta 5W2H para bloquear definitivamente a causa-raiz.
 
-**Fase 2: Execução, Controle e Padronização (Avaliação N2)**
-Após a aprovação do planejamento no primeiro seminário, o esquadrão avança para as fases *Do*, *Check* e *Act*:
+##### Fase 2: Execução, Controle e Padronização (Avaliação N2)
 * **Execução (*Do*):** Especificar a qualidade e os equipamentos necessários para a mudança e simular o Relatório de Execução.
-* **Verificação de Resultados (*Check*):** Auditar os dados e simular os Custos da Qualidade (Prevenção vs. Falha). As metas de ROI e desempenho traçadas na N1 foram atingidas?
-* **Ação e Padronização (*Act*):** Elaborar procedimentos operacionais padrão para prevenir a reincidência da falha e aplicar a matriz FMEA (Análise de Modos de Falha e Efeito) no equipamento de mineração escolhido para consolidar a melhoria contínua.
+* **Verificação de Resultados (*Check*):** Auditar os dados, simular os Custos da Qualidade e avaliar o ROI.
+* **Ação e Padronização (*Act*):** Elaborar POPs para prevenir a reincidência da falha e aplicar a matriz FMEA (Análise de Modos de Falha e Efeito) no equipamento de mineração escolhido.
 
-#### Trilha 2: Sistemas de Gestão Integrados (Foco em Governança e Normas)
+### Trilha 2: Sistemas de Gestão Integrados (Foco em Governança)
+Para os esquadrões de SGI, a vertente avança para a estruturação normativa. A missão da consultoria é desenhar a arquitetura de gestão de uma empresa do zero, integrando Qualidade, Meio Ambiente, Segurança e Responsabilidade Social:
 
-Para os esquadrões de SGI, a vertente avança para a estruturação normativa corporativa. A missão da consultoria é desenhar, do zero, a arquitetura de gestão de uma empresa, integrando Qualidade (ISO 9001), Meio Ambiente (ISO 14001), Saúde e Segurança Ocupacional (ISO 45001) e Responsabilidade Social (ISO 26000 / NBR 16001). O projeto semestral é dividido em duas grandes entregas (N1 e N2):
+##### Fase 1: Estruturação, Qualidade e Meio Ambiente (Avaliação N1)
+* **Contexto e Liderança:** Definir a empresa, mapear as partes interessadas e aplicar o diagnóstico estratégico (SWOT).
+* **Mapeamento de Processos e Qualidade:** Construir a Matriz de Riscos corporativa e estruturar o fluxo de tratamento de Não Conformidades.
+* **Gestão Ambiental:** Aplicar a metodologia LAIA (Aspectos e Impactos Ambientais) para mapear os passivos ecológicos da operação (ISO 14001).
 
-**Fase 1: Estruturação, Qualidade e Meio Ambiente (Avaliação N1)**
-O foco inicial é estabelecer a fundação da empresa e mapear seus primeiros riscos sistêmicos e ambientais:
-* **Contexto e Liderança:** Definir a empresa fictícia, seu escopo de atuação, mapear as partes interessadas e aplicar o diagnóstico estratégico (SWOT).
-* **Mapeamento de Processos e Qualidade:** Construir a Matriz de Riscos e Oportunidades do negócio corporativo e estruturar procedimentos operacionais críticos, incluindo o fluxo de tratamento de Não Conformidades (NC).
-* **Gestão Ambiental:** Aplicar a metodologia LAIA (Levantamento de Aspectos e Impactos Ambientais) para mapear e mitigar os passivos ecológicos da operação, garantindo o *compliance* normativo.
-
-**Fase 2: Segurança, Integração e Auditoria (Avaliação N2)**
-Na segunda etapa, o escopo de consultoria se expande para a proteção humana, a governança corporativa e a auditoria do próprio sistema:
-* **Saúde e Segurança Ocupacional (SST):** Elaborar a Matriz de Perigos e Riscos (APR/HRN), definindo a hierarquia de controles operacionais e conduzindo simulações de investigação de incidentes com análise de causa-raiz (Ishikawa e 5 Porquês).
-* **Governança e ESG:** Redigir a Política Integrada do SGI, incorporando diretrizes de Direitos Humanos, cadeia de valor e Responsabilidade Social.
-* **Auditoria e Consolidação (Manual do SGI):** Planejar um programa de auditoria interna baseado na ISO 19011. Os alunos deverão criar os *checklists* de verificação, redigir Relatórios de Não Conformidade (RNC) perfeitos e unificar todas as entregas do semestre no Manual do SGI digital para a defesa oral do projeto.
+##### Fase 2: Segurança, Integração e Auditoria (Avaliação N2)
+* **Saúde e Segurança Ocupacional:** Elaborar a Matriz de Perigos e Riscos e conduzir simulações de investigação de incidentes com análise de causa-raiz.
+* **Governança e ESG:** Redigir a Política Integrada do SGI e as diretrizes de Responsabilidade Social.
+* **Auditoria e Consolidação:** Planejar um programa de auditoria interna, criar *checklists*, redigir RNCs e unificar as entregas no Manual do SGI digital para a defesa oral do projeto.
 
 ---
 
@@ -79,20 +114,54 @@ O papel do membro designado como **Analista de Dados/Pesquisa** no seu *Team Cha
 
 ## 📐 Introdução à Metrologia Operacional {#sec-intro-metrologia}
 
-Você não pode gerenciar o que não pode medir. Para que os esquadrões da Trilha 1 consigam transformar o "*Data Lake*" acima no Passo 1 do PDCA (Identificação do Problema), é necessário introduzir o conceito de **Metrologia Operacional**.
+Você não pode gerenciar o que não pode medir. Para que os esquadrões consigam transformar o "*Data Lake*" acima no Passo 1 do PDCA (Identificação do Problema), é necessário introduzir o conceito de **Metrologia Operacional**.
 
 Na mineração, o tempo é o recurso mais escasso e caro. Uma hora de um caminhão fora de estrada parado custa milhares de dólares à companhia. A Metrologia Operacional é a ciência de fatiar o tempo de calendário de uma máquina (24 horas por dia, 365 dias por ano) em "caixas" exatas para descobrir onde o dinheiro está vazando.
 
-Ao longo da **Parte II** deste livro, mergulharemos a fundo nas modelagens matemáticas e nos códigos em `R` para o cálculo desses indicadores. No entanto, para o início imediato dos trabalhos da sua consultoria, você precisa compreender conceitualmente os três pilares que buscará nas bases de dados:
+Ao longo da **Parte II** deste livro, mergulharemos a fundo nas modelagens matemáticas e nos códigos em `R` para o cálculo desses indicadores. No entanto, para o início imediato dos trabalhos da sua consultoria, você precisa compreender os três pilares que buscará nas bases de dados:
 
-1. **Disponibilidade Física (DF):** É o indicador que mede a saúde da máquina. De todo o tempo do calendário, quanto tempo o equipamento esteve mecanicamente "pronto para uso", sem estar quebrado ou em manutenção pré-programada? *(Este é o foco de cobrança da equipe de Manutenção).*
-2. **Utilização Física (UF):** É o indicador que mede a eficiência da equipe. Do tempo em que a máquina esteve disponível, quanto tempo ela de fato foi operada gerando valor? *(Ela não estava parada por falta de operador, aguardando frente de lavra ou em horário de refeição?)*
+1. **Disponibilidade Física (DF):** É o indicador que mede a saúde da máquina. De todo o tempo do calendário, quanto tempo o equipamento esteve mecanicamente "pronto para uso", sem estar quebrado ou em manutenção pré-programada? *(Foco da equipe de Manutenção).*
+2. **Utilização Física (UF):** É o indicador que mede a eficiência da equipe. Do tempo em que a máquina esteve disponível, quanto tempo ela de fato foi operada gerando valor? *(Foco da equipe de Operação).*
 3. **Rendimento Operacional (RO):** É a taxa de produção bruta. Quando a máquina estava efetivamente operando, ela entregou as toneladas por hora prometidas pelo projeto, ou operou "arrastada" de forma ineficiente?
 
 O cruzamento da Disponibilidade, Utilização e Rendimento gera o **OEE (*Overall Equipment Effectiveness*)**, o indicador supremo de excelência operacional de qualquer indústria pesada.
 
-::: {.callout-important title="➡️ O Próximo Passo: Rumo à Parte II"}
-Sua equipe já tem o grupo formado, as regras estabelecidas e os dados baixados. O problema a ser resolvido está escondido dentro dessas milhares de linhas do Excel.
+---
 
-Para extrair a verdade dos dados e calcular a DF, UF, MTBF e outros KPIs avançados com precisão cirúrgica, avance para a **Parte II: Metrologia, Gestão de Ativos e Confiabilidade**. Lá, abandonaremos a filosofia e entraremos definitivamente na Ciência de Dados aplicada à Engenharia.
-:::
+## 🎯 Alocação Oficial: Esquadrões Multidisciplinares {#sec-alocacao-oficial}
+
+Abaixo, oficializamos as equipes que conduzirão as consultorias neste semestre. O *pipeline* de dados processou os 86 alunos matriculados e formou **16 Esquadrões**, divididos de acordo com as disciplinas de Gestão da Qualidade (7 esquadrões) e Sistemas de Gestão Integrados (9 esquadrões).
+
+As tabelas geradas dinamicamente pelo algoritmo apresentam o "DNA Definitivo" (Perfil Recalibrado) com o qual cada membro adentrou a equipe após o fechamento da matriz de competências.
+
+### Esquadrões: Gestão da Qualidade (Turma T01)
+
+```{r}
+#| label: tbl-squads-qualidade
+#| tbl-cap: "Distribuição Oficial dos Esquadrões - Gestão da Qualidade (EPRI4003)"
+#| echo: false
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(stringr)
+library(knitr)
+library(kableExtra)
+
+quiet_source("R/trat.forms.R")
+
+# Filtra a base para a disciplina de Gestão da Qualidade
+df_qualidade <- df_evolucao_perfis %>%
+  left_join(df_de_para %>% rename(Matrícula = Matrícula_Original), by = "Matrícula") %>%
+  mutate(Turma = word(Turma, 1)) %>%
+  filter(Turma == "EPRI4003") %>%
+  select(Squad, `ID do Aluno` = ID_Aluno, `Perfil Definitivo` = `F5 (Recalibrado)`) %>%
+  arrange(Squad, `ID do Aluno`)
+
+df_qualidade %>%
+  kbl(align = c("c", "c", "l")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = "center") %>%
+  collapse_rows(columns = 1, valign = "top") %>%
+  row_spec(0, bold = TRUE, background = "#2c3e50", color = "white") %>%
+  column_spec(1, bold = TRUE, color = "#2980b9", background = "#ecf0f1")
+```
