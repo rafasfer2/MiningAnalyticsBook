@@ -134,6 +134,31 @@ Abaixo, oficializamos as equipes que conduzirão as consultorias neste semestre.
 
 As tabelas geradas dinamicamente pelo algoritmo apresentam o "DNA Definitivo" (Perfil Recalibrado) com o qual cada membro adentrou a equipe após o fechamento da matriz de competências.
 
+```{r}
+#| label: setup-cap8-dados
+#| include: false
+#| warning: false
+#| message: false
+
+quiet_source <- function(file, ...) {
+   is_trat_forms <- grepl("(^|/)R/trat\\.forms\\.R$", gsub("\\\\", "/", file))
+
+   if (is_trat_forms && exists(".trat_forms_loaded", envir = .GlobalEnv, inherits = FALSE)) {
+      return(invisible(NULL))
+   }
+
+   out <- invisible(capture.output(source(file, encoding = "UTF-8", ...)))
+
+   if (is_trat_forms) {
+      assign(".trat_forms_loaded", TRUE, envir = .GlobalEnv)
+   }
+
+   out
+}
+
+quiet_source("R/trat.forms.R")
+```
+
 ### Esquadrões: Gestão da Qualidade (Turma T01)
 
 ```{r}
@@ -147,8 +172,6 @@ library(dplyr)
 library(stringr)
 library(knitr)
 library(kableExtra)
-
-quiet_source("R/trat.forms.R")
 
 # Filtra a base para a disciplina de Gestão da Qualidade
 df_qualidade <- df_evolucao_perfis %>%
