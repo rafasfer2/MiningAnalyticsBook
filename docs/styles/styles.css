@@ -801,6 +801,17 @@ figure img {
   margin-right: auto !important;
 }
 
+main.content svg[id^="mermaid-figure-"],
+.quarto-figure svg[id^="mermaid-figure-"],
+figure svg[id^="mermaid-figure-"] {
+  width: min(100%, 1100px) !important;
+  max-width: none !important;
+  height: auto !important;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 /* Garante que figuras do Quarto também respeitem a largura */
 .quarto-figure,
 figure {

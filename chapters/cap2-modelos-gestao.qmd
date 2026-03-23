@@ -81,47 +81,44 @@ Na mineração, o TQM se manifesta através da integração rigorosa entre Opera
 
 #### Os 9 Fatores Críticos de Sucesso do TQM {#sec-tqm-9pilares}
 
-```{mermaid}
-%%| label: fig-fatores-tqm
-%%| fig-cap: "Os Fatores Estruturais da Gestão da Qualidade Total (TQM)"
+```{r}
+#| label: fig-fatores-tqm
+#| fig-cap: "Os Fatores Estruturais da Gestão da Qualidade Total (TQM)"
+#| echo: false
+#| warning: false
 
-flowchart TD
-    %% --- CONFIGURAÇÃO DE ESTILOS ---
-    classDef mainStyle fill:#2c3e50,stroke:#2c3e50,stroke-width:2px,color:#ffffff,font-size:18px,font-weight:bold
-    classDef catStyle fill:#34495e,stroke:#2c3e50,stroke-width:2px,color:#ffffff,font-size:16px,font-weight:bold
-    classDef itemStyle fill:#f8f9fa,stroke:#bdc3c7,stroke-width:2px,color:#2c3e50,font-size:15px,font-weight:bold
+DiagrammeR::grViz("
+digraph tqm {
+  graph [layout = dot, rankdir = TB, nodesep = 0.5, ranksep = 0.8]
 
-    %% --- NÓ CENTRAL ---
-    TQM{{"Gestão da<br/>Qualidade Total (TQM)"}}
+  node [shape = box, style = 'filled,rounded', fontname = Helvetica, fontsize = 12, penwidth = 1.5]
 
-    %% --- CATEGORIAS (PILARES) ---
-    L("Liderança e Estratégia")
-    P("Pessoas e Cultura")
-    O("Processos e Operação")
+  TQM [label = 'Gestão da Qualidade Total (TQM)', fillcolor = '#2c3e50', fontcolor = white, shape = folder, fontsize = 14]
 
-    TQM ==> L
-    TQM ==> P
-    TQM ==> O
+  node [fillcolor = '#34495e', fontcolor = white]
+  L [label = 'Liderança e Estratégia']
+  P [label = 'Pessoas e Cultura']
+  O [label = 'Processos e Operação']
 
-    %% --- FATORES DA LIDERANÇA ---
-    L --> F1["1 - Comprometimento da Alta Administração"]
-    F1 --> F2["2 - Foco no Consumidor"]
-    F2 --> F8["8 - Benchmarking"]
+  node [fillcolor = '#f8f9fa', fontcolor = black, color = '#bdc3c7']
+  F1 [label = '1 - Alta Administração']
+  F2 [label = '2 - Foco no Consumidor']
+  F8 [label = '8 - Benchmarking']
 
-    %% --- FATORES DE PESSOAS ---
-    P --> F4["4 - Envolvimento dos Funcionários"]
-    F4 --> F5["5 - Treinamento"]
-    F5 --> F9["9 - Empowerment"]
+  F4 [label = '4 - Envolvimento']
+  F5 [label = '5 - Treinamento']
+  F9 [label = '9 - Empowerment']
 
-    %% --- FATORES DE PROCESSOS ---
-    O --> F3["3 - Parceria com o Fornecedor"]
-    F3 --> F6["6 - Mensuração da Qualidade"]
-    F6 --> F7["7 - Melhoria Contínua"]
+  F3 [label = '3 - Parceria (Fornecedor)']
+  F6 [label = '6 - Mensuração']
+  F7 [label = '7 - Melhoria Contínua']
 
-    %% --- APLICAÇÃO DOS ESTILOS ---
-    class TQM mainStyle;
-    class L,P,O catStyle;
-    class F1,F2,F3,F4,F5,F6,F7,F8,F9 itemStyle;
+  TQM -> {L P O} [penwidth = 2, color = '#2c3e50']
+  L -> F1 -> F2 -> F8 [color = '#7f8c8d', penwidth = 1.5]
+  P -> F4 -> F5 -> F9 [color = '#7f8c8d', penwidth = 1.5]
+  O -> F3 -> F6 -> F7 [color = '#7f8c8d', penwidth = 1.5]
+}
+")
 ```
 
 Para que o TQM seja efetivamente implantado e mensurado, a literatura consolida **9 Fatores Críticos de Sucesso (FCS)**. Estes pilares permitem auditar o grau de maturidade organizacional e identificar as práticas gerenciais que precisam ser fortalecidas:
@@ -168,7 +165,7 @@ A qualidade do produto final depende intrinsecamente da qualidade dos insumos re
 
   - **3.4.** Participação do fornecedor desde o processo de desenvolvimento e projeto do produto.
 
-##### Fator 4 -Envolvimento dos Funcionários**
+##### Fator 4 - Envolvimento dos Funcionários
 
 A qualidade é construída pelas pessoas que operam o processo diariamente.
 
@@ -182,7 +179,7 @@ A qualidade é construída pelas pessoas que operam o processo diariamente.
 
   - **4.5.** Concessão de prêmios e recompensas não financeiras pelo engajamento e boas ideias.
 
-##### Fator 5 -Treinamento**
+##### Fator 5 - Treinamento
 
 A capacitação é o motor da estabilidade do processo.
 
@@ -194,7 +191,7 @@ A capacitação é o motor da estabilidade do processo.
 
   - **5.4.** Treinamento técnico em ferramentas e controle estatístico.
 
-##### Fator 6 - Mensuração da Qualidade**
+##### Fator 6 - Mensuração da Qualidade
 
 O que não se mede, não se gerencia. A coleta de dados deve ser confiável e contínua.
 
@@ -210,7 +207,7 @@ O que não se mede, não se gerencia. A coleta de dados deve ser confiável e co
 
   - **6.6.** Utilização real dos resultados como suporte primário para a melhoria.
 
-##### Fator 7 - Melhoria Contínua**
+##### Fator 7 - Melhoria Contínua
 
 A busca incessante por estabelecer novos e melhores padrões de desempenho.
 
@@ -224,7 +221,7 @@ A busca incessante por estabelecer novos e melhores padrões de desempenho.
 
   - **7.5.** Programas formais para a redução do tempo de ciclo de fabricação.
 
-##### Fator 8 - Benchmarking**
+##### Fator 8 - Benchmarking
 
 Olhar para o mercado e aprender com os melhores, independentemente do setor.
 
@@ -236,7 +233,7 @@ Olhar para o mercado e aprender com os melhores, independentemente do setor.
 
   - **8.4.** Manutenção do benchmarking não como uma ação isolada, mas como uma política contínua da empresa.
 
-##### Fator 9 - Empowerment (Delegação de Poderes)**
+##### Fator 9 - Empowerment (Delegação de Poderes)
 
 Dar autonomia à operação para agir rapidamente sobre os desvios.
 
@@ -314,6 +311,7 @@ A eliminação de desperdícios exige reconhecê-los no dia a dia. Imagine o flu
 ##### Disperdício 1 - Superprodução
 
 Extrair 10.000 toneladas de ROM (*Run of Mine*) quando o pátio da usina só suporta 5.000. Isso gera um gasto imediato e desnecessário com diesel e operação de maquinário.
+
 ##### Disperdício 2 - Espera
 
 Uma escavadeira gigantesca parada porque a frota de caminhões demorou a chegar, evidenciando falta de sincronismo logístico.
@@ -371,47 +369,37 @@ O *Lean* industrial prega que o sistema deve ser **Enxuto, mas nunca Raquítico*
 
 #### Os 14 Princípios do Sistema Toyota de Produção {#sec-lean-14principios}
 
-```{mermaid}
-%%| label: fig-casa-tps
-%%| fig-cap: "A Casa do Sistema Toyota de Produção (TPS)"
+```{r}
+#| label: fig-casa-tps
+#| fig-cap: "A Estrutura do Sistema Toyota de Produção (TPS)"
+#| echo: false
+#| warning: false
 
-flowchart TD
-    %% --- CONFIGURAÇÃO DE ESTILOS (Garantindo letras grandes e cores sólidas) ---
-    classDef teto fill:#c0392b,stroke:#922b21,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
-    classDef pilar fill:#2980b9,stroke:#1f618d,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
-    classDef centro fill:#f39c12,stroke:#d68910,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
-    classDef base fill:#7f8c8d,stroke:#2c3e50,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
+DiagrammeR::grViz("
+digraph tps {
+  graph [layout = dot, rankdir = TB, splines = ortho]
 
-    %% --- ESTRUTURA DA CASA (Formas Especiais) ---
+  node [shape = box, style = filled, fontname = Helvetica, fontsize = 12, width = 4]
 
-    %% TETO
-    T["TETO: Qualidade Máxima, Menor Custo e Menor Lead Time"]
+  Teto [label = 'TETO (META)\nQualidade Máxima, Menor Custo e Menor Lead Time', fillcolor = '#c0392b', fontcolor = white, shape = house]
 
-    %% PILARES E CENTRO
-    P1["PILAR 1: Just-in-Time<br/>Fluxo Contínuo, Puxado, Heijunka"]
-    C("CENTRO<br/>Pessoas, Parceiros e<br/>Melhoria Contínua (Kaizen)")
-    P2["PILAR 2: Jidoka<br/>Parar e Resolver, Poka-Yoke"]
+  { rank = same;
+    P1 [label = 'PILAR 1: Just-in-Time\nFluxo Contínuo e Puxado', fillcolor = '#2980b9', fontcolor = white, height = 1.5]
+    C [label = 'CENTRO\nPessoas e Melhoria (Kaizen)', fillcolor = '#f39c12', fontcolor = white, height = 1.5]
+    P2 [label = 'PILAR 2: Jidoka\nParar e Resolver (Poka-Yoke)', fillcolor = '#2980b9', fontcolor = white, height = 1.5]
+  }
 
-    %% BASE
-    B["BASE: Filosofia de Longo Prazo e Processos Padronizados"]
+  Base [label = 'ALICERCE\nFilosofia de Longo Prazo e Processos Padronizados', fillcolor = '#7f8c8d', fontcolor = white]
 
-    %% --- CONEXÕES (As Vigas da Casa) ---
-    T --- P1
-    T --- C
-    T --- P2
+  Teto -> P1 [dir = none, penwidth = 4, color = '#34495e']
+  Teto -> C [dir = none, penwidth = 4, color = '#34495e']
+  Teto -> P2 [dir = none, penwidth = 4, color = '#34495e']
 
-    P1 --- B
-    C --- B
-    P2 --- B
-
-    %% Engrossando as linhas para parecerem estrutura física
-    linkStyle default stroke:#34495e,stroke-width:4px
-
-    %% --- APLICAÇÃO DOS ESTILOS ---
-    class T teto;
-    class P1,P2 pilar;
-    class C centro;
-    class B base;
+  P1 -> Base [dir = none, penwidth = 4, color = '#34495e']
+  C -> Base [dir = none, penwidth = 4, color = '#34495e']
+  P2 -> Base [dir = none, penwidth = 4, color = '#34495e']
+}
+")
 ```
 
 O Modelo Toyota estrutura a filosofia Lean em 14 princípios organizados em 4 blocos conceituais:
@@ -471,40 +459,28 @@ A seleção de um projeto Seis Sigma não nasce de intuições, mas exige respon
 
 Para conduzir esses projetos complexos sem perder o foco corporativo, o Seis Sigma exige a criação de uma infraestrutura humana dedicada, inspirada no sistema de faixas das artes marciais. Essa hierarquia reflete o nível de domínio estatístico e a dedicação de tempo ao método:
 
-```{mermaid}
-%%| label: fig-piramide-belts
-%%| fig-cap: "Estrutura de Níveis de Certificação Six Sigma"
+```{r}
+#| label: fig-piramide-belts
+#| fig-cap: "Estrutura de Níveis de Certificação Six Sigma"
+#| echo: false
+#| warning: false
 
-flowchart BT
-    %% --- CONFIGURAÇÃO DE ESTILOS (Cores reais e letras grandes) ---
-    classDef white fill:#ffffff,stroke:#bdc3c7,stroke-width:3px,color:#2c3e50,font-size:15px,font-weight:bold
-    classDef yellow fill:#f1c40f,stroke:#d4ac0d,stroke-width:3px,color:#2c3e50,font-size:15px,font-weight:bold
-    classDef green fill:#27ae60,stroke:#1e8449,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
-    classDef black fill:#212f3d,stroke:#17202a,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
-    classDef master fill:#8e44ad,stroke:#6c3483,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
-    classDef champion fill:#2980b9,stroke:#1f618d,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
+DiagrammeR::grViz("
+digraph belts {
+  graph [layout = dot, rankdir = BT]
 
-    W["WHITE BELT<br/>Executores da Base Operacional"]
-    Y["YELLOW BELT<br/>Participantes Ativos de Projetos"]
-    G["GREEN BELT<br/>Líderes Parciais (Conciliam com rotina)"]
-    B["BLACK BELT<br/>Especialistas Dedicados (Full-time)"]
-    M["MASTER BLACK BELT<br/>Mentores e Gestores do Programa"]
-    C("CHAMPION / SPONSOR<br/>Alta Liderança e Direcionamento Estratégico")
+  node [shape = box, style = filled, fontname = Helvetica, fontsize = 12, width = 4.5]
 
-    W ==> Y
-    Y ==> G
-    G ==> B
-    B ==> M
-    M ==> C
+  W [label = 'WHITE BELT\nExecutores da Base Operacional', fillcolor = '#ecf0f1', fontcolor = black]
+  Y [label = 'YELLOW BELT\nParticipantes Ativos de Projetos', fillcolor = '#f1c40f', fontcolor = black]
+  G [label = 'GREEN BELT\nLíderes Parciais (Conciliam com rotina)', fillcolor = '#27ae60', fontcolor = white]
+  B [label = 'BLACK BELT\nEspecialistas Dedicados (Full-time)', fillcolor = '#2c3e50', fontcolor = white]
+  M [label = 'MASTER BLACK BELT\nMentores e Gestores do Programa', fillcolor = '#8e44ad', fontcolor = white]
+  C [label = 'CHAMPION / SPONSOR\nAlta Liderança e Direcionamento', fillcolor = '#2980b9', fontcolor = white]
 
-    linkStyle default stroke:#7f8c8d,stroke-width:4px
-
-    class W white;
-    class Y yellow;
-    class G green;
-    class B black;
-    class M master;
-    class C champion;
+  W -> Y -> G -> B -> M -> C [penwidth = 3, color = '#bdc3c7']
+}
+")
 ```
 
 * **Executivo Líder (Sponsor):** O CEO ou diretor geral. Conduz, incentiva e supervisiona as iniciativas, selecionando os "Campeões" e garantindo que o programa não perca força política.
@@ -519,33 +495,27 @@ flowchart BT
 
 Enquanto o SGQ tradicional utiliza o PDCA para melhorias rotineiras, o Seis Sigma utiliza um roteiro de execução de projetos próprio, altamente analítico e baseado em dados: o **DMAIC**.
 
-```{mermaid}
-%%| label: fig-ciclo-dmaic
-%%| fig-cap: "Ciclo DMAIC: Roteiro Estruturado de Melhoria Contínua"
+```{r}
+#| label: fig-ciclo-dmaic
+#| fig-cap: "Ciclo DMAIC: Roteiro Estruturado de Melhoria Contínua"
+#| echo: false
+#| warning: false
 
-flowchart LR
-    %% --- CONFIGURAÇÃO DE ESTILOS ---
-    classDef defStyle fill:#e74c3c,stroke:#c0392b,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
-    classDef meaStyle fill:#e67e22,stroke:#d35400,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
-    classDef anaStyle fill:#f1c40f,stroke:#f39c12,stroke-width:3px,color:#000000,font-size:15px,font-weight:bold
-    classDef impStyle fill:#2ecc71,stroke:#27ae60,stroke-width:3px,color:#000000,font-size:15px,font-weight:bold
-    classDef ctrStyle fill:#3498db,stroke:#2980b9,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+DiagrammeR::grViz("
+digraph dmaic {
+  graph [layout = dot, rankdir = LR]
 
-    D("D - DEFINE<br/>Definir o Problema")
-    M("M - MEASURE<br/>Medir o Processo")
-    A("A - ANALYZE<br/>Analisar a Causa")
-    I("I - IMPROVE<br/>Melhorar o Fluxo")
-    C("C - CONTROL<br/>Controlar e Manter")
+  node [shape = box, style = 'filled,rounded', fontname = Helvetica, fontcolor = white, width = 1.3, height = 0.8]
 
-    D ==> M ==> A ==> I ==> C
+  D [label = 'D\nDEFINE', fillcolor = '#e74c3c']
+  M [label = 'M\nMEASURE', fillcolor = '#e67e22']
+  A [label = 'A\nANALYZE', fillcolor = '#f1c40f', fontcolor = black]
+  I [label = 'I\nIMPROVE', fillcolor = '#2ecc71', fontcolor = black]
+  C [label = 'C\nCONTROL', fillcolor = '#3498db']
 
-    linkStyle default stroke:#7f8c8d,stroke-width:4px
-
-    class D defStyle;
-    class M meaStyle;
-    class A anaStyle;
-    class I impStyle;
-    class C ctrStyle;
+  D -> M -> A -> I -> C [penwidth = 3, color = '#7f8c8d']
+}
+")
 ```
 
 1. **Define (Definir):** Identificar as prioridades e os requisitos do cliente (CTQs). A equipe elabora o *Project Charter* (Termo de Abertura), mapeia os processos críticos em alto nível utilizando ferramentas como o SIPOC (*Supplier, Input, Process, Output, Customer*) e define formalmente o impacto financeiro esperado (ex: perda de recuperação mássica na flotação).
@@ -617,69 +587,30 @@ Antes de detalharmos a estrutura do modelo, é vital compreender as quatro dimen
 
 A aplicação prática do MEG orienta a empresa a sair da teoria e chegar na operação através de uma lógica sequencial de desdobramento:
 
-```{mermaid}
-%%| label: fig-cascata-implementacao
-%%| fig-cap: "Cascata de Implementação: Do Fundamento à Ferramenta"
+```{r}
+#| label: fig-cascata-implementacao
+#| fig-cap: "Cascata de Implementação: Do Fundamento à Ferramenta"
+#| echo: false
+#| warning: false
 
-flowchart TD
+DiagrammeR::grViz("
+digraph cascata {
+  graph [layout = dot, rankdir = LR]
 
-    %% --- CONFIGURAÇÃO DE ESTILOS (Cascata do Abstrato para o Prático) ---
-    classDef fund fill:#154360,stroke:#0d2b3e,stroke-width:3px,color:#ffffff,font-size:16px,font-weight:bold
-    classDef tema fill:#2980b9,stroke:#1a5276,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
-    classDef proc fill:#1abc9c,stroke:#117864,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
-    classDef deta fill:#f1c40f,stroke:#b7950b,stroke-width:3px,color:#000000,font-size:15px,font-weight:bold
-    classDef tool fill:#e67e22,stroke:#a04000,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+  node [shape = box, style = filled, fontname = Helvetica, fontcolor = white, fontsize = 12]
 
-    %% Classe para ocultar os nós fantasmas que forçam o layout em escada
-    classDef ghost fill:none,stroke:none,color:transparent
+  F [label = 'FUNDAMENTO', fillcolor = '#154360']
+  T [label = 'TEMAS', fillcolor = '#2980b9']
+  P [label = 'PROCESSOS', fillcolor = '#1abc9c']
+  D [label = 'DETALHAMENTO', fillcolor = '#f1c40f', fontcolor = black]
+  M [label = 'FERRAMENTAS\nE METODOS', fillcolor = '#e67e22']
 
-    %% --- ESTRUTURA DOS NÓS REAIS ---
-    F{{"FUNDAMENTO"}}
-    T("TEMAS")
-    P["PROCESSOS"]
-    D["DETALHAMENTO"]
-    M[("FERRAMENTAS E METODOLOGIAS")]
-
-    %% NÓS INVISÍVEIS PARA FORÇAR A ESCADA
-    i1[" "]
-    i2[" "]
-    i3[" "]
-    i4[" "]
-
-    %% --- CONEXÕES (A ordem das linhas empurra o fluxo para a direita) ---
-
-    %% Nível 1
-    F --- i1
-    F == "desdobrado em" ==> T
-
-    %% Nível 2
-    T --- i2
-    T == "concretizados por meio de" ==> P
-
-    %% Nível 3
-    P --- i3
-    P == "explicados por" ==> D
-
-    %% Nível 4
-    D --- i4
-    D == "com sugestão de" ==> M
-
-    %% --- CONTROLE DE VISIBILIDADE DAS LINHAS ---
-    %% Esconde as linhas que ligam aos nós fantasmas (Índices pares)
-    linkStyle 0,2,4,6 stroke:none,fill:none,color:transparent
-
-    %% Engrossa e destaca as linhas reais da sua escada (Índices ímpares)
-    linkStyle 1,3,5,7 stroke:#7f8c8d,stroke-width:4px,color:#2c3e50,font-weight:bold
-
-    %% --- APLICAÇÃO DOS ESTILOS ---
-    class F fund;
-    class T tema;
-    class P proc;
-    class D deta;
-    class M tool;
-
-    %% Aplicando a invisibilidade aos nós de apoio
-    class i1,i2,i3,i4 ghost;
+  F -> T [label = ' Desdobrado em ', fontname = Helvetica, fontsize = 10, color = '#34495e', penwidth = 2]
+  T -> P [label = ' Concretizado em ', fontname = Helvetica, fontsize = 10, color = '#34495e', penwidth = 2]
+  P -> D [label = ' Explicado por ', fontname = Helvetica, fontsize = 10, color = '#34495e', penwidth = 2]
+  D -> M [label = ' Utiliza ', fontname = Helvetica, fontsize = 10, color = '#34495e', penwidth = 2]
+}
+")
 ```
 
 #### Os 8 Fundamentos da Excelência
@@ -826,38 +757,27 @@ Se o **5S** estiver ruim, o vazamento não é visto e o **TPM** falha; se o TPM 
 
 Tanto o MEG quanto o VPS operam sob a lógica de **maturidade evolutiva**, similar à Curva de Bradley aplicada à segurança. As organizações são classificadas em níveis:
 
-```{mermaid}
-%%| label: fig-escala-maturidade
-%%| fig-cap: "Escala Semafórica de Maturidade"
+```{r}
+#| label: fig-escala-maturidade
+#| fig-cap: "Escala de Evolução de Maturidade Operacional"
+#| echo: false
+#| warning: false
 
-flowchart LR
+DiagrammeR::grViz("
+digraph maturidade {
+  graph [layout = dot, rankdir = LR]
 
-    %% --- CONFIGURAÇÃO DE ESTILOS (Escala Semafórica de Maturidade) ---
-    classDef st0 fill:#c0392b,stroke:#7b241c,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
-    classDef st1 fill:#d35400,stroke:#873600,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
-    classDef st2 fill:#f39c12,stroke:#b9770e,stroke-width:3px,color:#000000,font-size:15px,font-weight:bold
-    classDef st3 fill:#27ae60,stroke:#196f3d,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
-    classDef st4 fill:#145a32,stroke:#0b5345,stroke-width:3px,color:#ffffff,font-size:15px,font-weight:bold
+  node [shape = cds, style = filled, fontname = Helvetica, fontcolor = white, fontsize = 11, margin = '0.2,0.1']
 
-    %% --- ESTRUTURA DOS NÓS (Versão compatível para renderização estável) ---
-    A(["Estágio 0<br/>Inexistente"])
-    B(["Estágio 1<br/>Reativo"])
-    C(["Estágio 2<br/>Estruturado"])
-    D(["Estágio 3<br/>Proativo"])
-    E(["Estágio 4<br/>Classe Mundial"])
+  S0 [label = 'Estágio 0\nInexistente', fillcolor = '#c0392b']
+  S1 [label = 'Estágio 1\nReativo', fillcolor = '#d35400']
+  S2 [label = 'Estágio 2\nEstruturado', fillcolor = '#f39c12', fontcolor = black]
+  S3 [label = 'Estágio 3\nProativo', fillcolor = '#27ae60']
+  S4 [label = 'Estágio 4\nClasse Mundial', fillcolor = '#145a32']
 
-    %% --- CONEXÕES (Linha do Tempo Evolutiva) ---
-    A ==> B ==> C ==> D ==> E
-
-    %% Engrossando a linha direcional para dar peso à jornada
-    linkStyle default stroke:#7f8c8d,stroke-width:4px
-
-    %% --- APLICAÇÃO DOS ESTILOS ---
-    class A st0;
-    class B st1;
-    class C st2;
-    class D st3;
-    class E st4;
+  S0 -> S1 -> S2 -> S3 -> S4 [penwidth = 3, color = '#95a5a6']
+}
+")
 ```
 
 Para visualizar a transição entre o caos reativo e a excelência estratégica, é necessário compreender que a qualidade não é implementada do dia para a noite; ela segue uma curva evolutiva de maturidade. O gráfico abaixo compara o foco dos indicadores de desempenho (KPIs) nos extremos dessa jornada.

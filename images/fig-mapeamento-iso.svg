@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="920" viewBox="0 0 1600 920" role="img" aria-labelledby="title desc">
+  <title id="title">Mapeamento Sistemico: Da ISO 9001 a Engenharia de Dados</title>
+  <desc id="desc">Diagrama em tres etapas com estilo editorial tecnico: sistema de gestao, qualidade e engenharia de dados, com ciclo de retroalimentacao.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M0,0 L14,7 L0,14 Z" fill="#1e293b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="920" fill="url(#bg)"/>
+
+  <text x="800" y="84" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="46" font-weight="700" fill="#0f172a">
+    Mapeamento Sistemico
+  </text>
+  <text x="800" y="124" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="500" fill="#475569">
+    Da ISO 9001 a Engenharia de Dados
+  </text>
+
+  <line x1="170" y1="154" x2="1430" y2="154" stroke="#cbd5e1" stroke-width="2"/>
+
+  <rect x="90" y="220" width="440" height="500" rx="20" fill="#eff6ff" stroke="#3b82f6" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="310" y="274" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="31" font-weight="700" fill="#1d4ed8">1. SISTEMA DE GESTAO</text>
+  <text x="310" y="308" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="600" fill="#2563eb">ISO 9001</text>
+
+  <text x="128" y="360" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">- Cap. 4  Contexto</text>
+  <text x="128" y="398" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">- Cap. 5  Lideranca</text>
+  <text x="128" y="436" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">- Cap. 6  Planejamento</text>
+  <text x="128" y="474" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">- Cap. 7  Suporte</text>
+  <text x="128" y="512" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">- Cap. 8  Operacao</text>
+  <text x="128" y="550" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">- Cap. 9  Avaliacao</text>
+  <text x="128" y="588" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">- Cap. 10 Melhoria</text>
+
+  <rect x="580" y="250" width="440" height="440" rx="20" fill="#fffbeb" stroke="#d97706" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="800" y="304" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="31" font-weight="700" fill="#b45309">2. QUALIDADE</text>
+  <text x="800" y="338" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="600" fill="#b45309">Conceito Integrador</text>
+
+  <text x="618" y="398" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">- Essencia e atributos</text>
+  <text x="618" y="436" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">- Intencional: conformidade</text>
+  <text x="618" y="474" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">- Excepcional: excelencia</text>
+  <text x="618" y="512" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">- Transformadora: impacto</text>
+  <text x="618" y="550" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">- Responsavel: externalidades</text>
+
+  <rect x="1070" y="250" width="440" height="440" rx="20" fill="#faf5ff" stroke="#9333ea" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="1290" y="304" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="31" font-weight="700" fill="#7e22ce">3. ENGENHARIA DE DADOS</text>
+
+  <text x="1108" y="398" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">- Metricas e variaveis</text>
+  <text x="1108" y="436" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">- Niveis de importancia</text>
+  <text x="1108" y="474" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">- Algoritmo de analise</text>
+  <text x="1108" y="512" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">- Tomada de decisao</text>
+
+  <path d="M 530 208 C 552 208, 560 208, 580 208" fill="none" stroke="#1e293b" stroke-width="5" marker-end="url(#arrow)"/>
+  <text x="555" y="170" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="600" fill="#334155">Expectativas -> requisitos</text>
+
+  <path d="M 1020 208 C 1040 208, 1048 208, 1070 208" fill="none" stroke="#1e293b" stroke-width="5" marker-end="url(#arrow)"/>
+  <text x="1045" y="170" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="600" fill="#334155">Base teorica dos algoritmos</text>
+
+  <path d="M 1260 710 C 980 840, 620 840, 330 735" fill="none" stroke="#475569" stroke-width="4.5" stroke-dasharray="10 8" marker-end="url(#arrow)"/>
+  <text x="792" y="858" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="600" fill="#334155">Fatos e dados reais retroalimentam o sistema</text>
+</svg>

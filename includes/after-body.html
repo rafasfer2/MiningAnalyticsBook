@@ -1,6 +1,14 @@
-<script src="scripts/set-toc-expanded.js"></script>
-<script src="scripts/caption-format.js"></script>
-<script src="scripts/toc-expand-on-click.js"></script>
+<script>
+(() => {
+	const isChapterPage = window.location.pathname.includes("/chapters/");
+	const basePath = isChapterPage ? "../scripts/" : "scripts/";
+	["set-toc-expanded.js", "caption-format.js", "toc-expand-on-click.js"].forEach((fileName) => {
+		const script = document.createElement("script");
+		script.src = `${basePath}${fileName}`;
+		document.body.appendChild(script);
+	});
+})();
+</script>
 
 <script>
 window.addEventListener("load", async function () {

@@ -1571,60 +1571,7 @@ Para sistematizar essa integração na rotina da engenharia de produção, a @tb
 
 : Mapeamento Integrado — Qualidade × ISO 9001 {#tbl-mapeamento-iso}
 
-```{mermaid}
-%%| label: fig-mapeamento-iso
-%%| fig-cap: "Mapeamento Sistêmico: Da ISO 9001 à Engenharia de Dados"
-
-flowchart TD
-
-    %% --- CONFIGURAÇÃO DE ESTILOS (Garantindo contraste e letras pretas fortes) ---
-    classDef isoStyle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#000000,font-size:15px,font-weight:bold
-    classDef qualStyle fill:#fff8e1,stroke:#ef6c00,stroke-width:2px,color:#000000,font-size:15px,font-weight:bold
-    classDef engStyle fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000000,font-size:15px,font-weight:bold
-
-    %% Fundo BRANCO PURO para os subgrafos (Evita o problema da tela escura/cinza)
-    style Fase1 fill:#ffffff,stroke:#1565c0,stroke-width:2px,color:#1565c0,font-weight:bold,font-size:16px
-    style Fase2 fill:#ffffff,stroke:#ef6c00,stroke-width:2px,color:#ef6c00,font-weight:bold,font-size:16px
-    style Fase3 fill:#ffffff,stroke:#7b1fa2,stroke-width:2px,color:#7b1fa2,font-weight:bold,font-size:16px
-
-    %% --- ESTRUTURA DO DIAGRAMA ---
-
-    subgraph Fase1 ["📘 1. SISTEMA DE GESTÃO (ISO 9001)"]
-        direction LR
-        C4("Cap. 4<br>Contexto") --> C5("Cap. 5<br>Liderança") --> C6("Cap. 6<br>Planejamento")
-        C6 --> C7("Cap. 7<br>Suporte")
-        C6 --> C8("Cap. 8<br>Operação")
-        C7 & C8 --> C9("Cap. 9<br>Avaliação")
-        C9 --> C10("Cap. 10<br>Melhoria")
-    end
-
-    subgraph Fase2 ["💡 2. QUALIDADE (Conceito Integrador)"]
-        direction LR
-        Q1{{"Essência e<br>Atributos"}} --> Q2{{"Intencional<br>(Conformidade)"}}
-        Q2 --> Q3{{"Excepcional<br>(Excelência)"}}
-        Q3 --> Q4{{"Transformadora<br>(Impacto)"}}
-        Q4 --> Q5{{"Responsável<br>(Externalidades)"}}
-    end
-
-    subgraph Fase3 ["⚙️ 3. ENGENHARIA DE DADOS"]
-        direction LR
-        D1[("Métricas e<br>Variáveis")] --> D3["Desempenho<br>Medido"]
-        D2[("Níveis de<br>Importância")] --> D3
-        D3 == Algoritmo ==> D4{{"Tomada de<br>Decisão"}}
-    end
-
-    %% --- CONEXÕES SISTÊMICAS ---
-    Fase1 ===>|Traduz as expectativas do mercado em requisitos| Fase2
-    Fase2 ===>|Fornece a base teórica para os algoritmos| Fase3
-
-    %% O retorno é feito de nó para nó (D4 para C4) para evitar a inversão do layout
-    D4 -.->|Fatos e Dados reais retroalimentam o sistema| C4
-
-    %% --- APLICAÇÃO DOS ESTILOS ---
-    class C4,C5,C6,C7,C8,C9,C10 isoStyle;
-    class Q1,Q2,Q3,Q4,Q5 qualStyle;
-    class D1,D2,D3,D4 engStyle;
-```
+![Mapeamento Sistemico: Da ISO 9001 a Engenharia de Dados](../images/fig-mapeamento-iso.svg){#fig-mapeamento-iso fig-align="center"}
 
 #### A Universalidade do Modelo: Aplicações Setoriais {#sec-exemplos-setoriais-iso}
 
