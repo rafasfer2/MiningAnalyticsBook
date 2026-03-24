@@ -70,7 +70,16 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Procurar"
   }
 }</script>
-<script src="../site_libs/quarto-diagram/mermaid-postprocess-shim.js"></script>
+<link href="../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="../site_libs/viz-1.8.2/viz.js"></script>
+
+<link href="../site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+
+<script src="../site_libs/grViz-binding-1.0.11/grViz.js"></script>
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -205,7 +214,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/cap8-inicio-consultoria.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">O Início da Consultoria e a Metrologia Operacional</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">O Inicio da Consultoria e a Metrologia Operacional</span></span></a>
   </div>
 </li>
       </ul>
@@ -380,8 +389,9 @@ window.Quarto = {
   <li><a href="#sec-arm-multi" id="toc-sec-arm-multi" class="nav-link" data-scroll-target="#sec-arm-multi"><span class="header-section-number">3.2.2</span> O Modelo Multidimensional e Hierárquico</a></li>
   <li><a href="#sec-arm-multivariavel" id="toc-sec-arm-multivariavel" class="nav-link" data-scroll-target="#sec-arm-multivariavel"><span class="header-section-number">3.2.3</span> O Modelo Multivariável e a Dinâmica de Calibragem</a></li>
   <li><a href="#sec-ponte-normativa" id="toc-sec-ponte-normativa" class="nav-link" data-scroll-target="#sec-ponte-normativa"><span class="header-section-number">3.2.4</span> A Ponte Normativa: Associando o ARM à ISO 9000</a></li>
-  <li><a href="#sec-algoritmo-arm" id="toc-sec-algoritmo-arm" class="nav-link" data-scroll-target="#sec-algoritmo-arm"><span class="header-section-number">3.2.5</span> Fase 2: O Algoritmo de Execução (10 Passos e Portões de Decisão)</a></li>
-  <li><a href="#sec-modelagem-processos" id="toc-sec-modelagem-processos" class="nav-link" data-scroll-target="#sec-modelagem-processos"><span class="header-section-number">3.2.6</span> A Expansão do Modelo: Quantificando a Qualidade de Processos</a></li>
+  <li><a href="#sec-fase1-design" id="toc-sec-fase1-design" class="nav-link" data-scroll-target="#sec-fase1-design"><span class="header-section-number">3.2.5</span> Fase 1: O Design do Modelo (Identificando Variáveis e Pesos)</a></li>
+  <li><a href="#sec-algoritmo-arm" id="toc-sec-algoritmo-arm" class="nav-link" data-scroll-target="#sec-algoritmo-arm"><span class="header-section-number">3.2.6</span> Fase 2: O Algoritmo de Execução (10 Passos e Portões de Decisão)</a></li>
+  <li><a href="#sec-modelagem-processos" id="toc-sec-modelagem-processos" class="nav-link" data-scroll-target="#sec-modelagem-processos"><span class="header-section-number">3.2.7</span> A Expansão do Modelo: Quantificando a Qualidade de Processos</a></li>
   </ul></li>
   <li><a href="#resumo-do-capítulo" id="toc-resumo-do-capítulo" class="nav-link" data-scroll-target="#resumo-do-capítulo"><span class="header-section-number">3.3</span> 📝 Resumo do Capítulo</a></li>
   <li><a href="#sec-exercicios-cap3" id="toc-sec-exercicios-cap3" class="nav-link" data-scroll-target="#sec-exercicios-cap3"><span class="header-section-number">3.4</span> Exercícios de Fixação</a></li>
@@ -435,7 +445,7 @@ window.Quarto = {
 <p>Antes de avançarmos para as fórmulas e para os algoritmos de cálculo, é fundamental alinhar o propósito desta modelagem. A resposta reside na necessidade de traduzir a linguagem humana para a linguagem de máquina e de negócios.</p>
 <p><strong>De onde estamos saindo (O Ponto de Partida):</strong></p>
 <ul>
-<li><strong>Da Subjetividade:</strong> Como vimos no Capítulo 1, a qualidade frequentemente fica restrita a adjetivos vagos. Se afirmarmos que um produto “tem alta qualidade” ou que um general (como no caso de Napoleão) “foi excelente”, estamos presos à interpretação individual de quem avalia. Essa abordagem não é auditável.</li>
+<li><strong>Da Subjetividade:</strong> Como vimos no <strong><a href="cap1-fundamentos.html" class="quarto-xref"><span>Capítulo 1</span></a></strong>, a qualidade frequentemente fica restrita a adjetivos vagos. Se afirmarmos que um produto “tem alta qualidade” ou que um general (como no caso de Napoleão) “foi excelente”, estamos presos à interpretação individual de quem avalia. Essa abordagem não é auditável.</li>
 <li><strong>Do Caos dos Dados Isolados:</strong> Um lote de produto pode ter dezenas de laudos, e um processo pode ter dezenas de medidores. Avaliar essas variáveis de forma solta e desestruturada impede uma decisão sistêmica.</li>
 <li><strong>Dos Conflitos de Interesse:</strong> Saímos da tradicional “guerra” entre departamentos, onde cada setor defende a característica que lhe é conveniente: a Produção foca em volume, a Qualidade em especificações técnicas e o Comercial em redução de custos.</li>
 </ul>
@@ -465,7 +475,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Para que o ARM seja estatisticamente válido, a arquitetura do modelo de dados deve respeitar a teoria psicométrica dos <strong>Construtos Latentes</strong> (<span class="math inline">\(\theta\)</span>).</p>
-<p>Lembre-se da lição do Capítulo 1: não existe uma “régua” para medir a “Qualidade Global” ou a “Grandeza” de algo diretamente. Essas grandezas são <strong>construtos latentes</strong>. Para inferir se elas existem, a engenharia precisa desdobrar esse conceito abstrato e medir as suas <strong>variáveis observáveis</strong> associadas (as nossas variáveis <span class="math inline">\(x_i\)</span>).</p>
+<p>Lembre-se da lição do <strong><a href="cap1-fundamentos.html" class="quarto-xref"><span>Capítulo 1</span></a></strong>: não existe uma “régua” para medir a “Qualidade Global” ou a “Grandeza” de algo diretamente. Essas grandezas são <strong>construtos latentes</strong>. Para inferir se elas existem, a engenharia precisa desdobrar esse conceito abstrato e medir as suas <strong>variáveis observáveis</strong> associadas (as nossas variáveis <span class="math inline">\(x_i\)</span>).</p>
 <p>A complexidade do modelo depende de como esses construtos latentes interagem com os itens avaliados. A modelagem evolui estruturalmente nos seguintes níveis de sofisticação:</p>
 <section id="sec-arm-uni" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="sec-arm-uni"><span class="header-section-number">3.2.1</span> O Modelo Univariável (Flat Model)</h3>
@@ -492,52 +502,42 @@ window.Quarto = {
 </section>
 <section id="sec-arm-multivariavel" class="level3" data-number="3.2.3">
 <h3 data-number="3.2.3" class="anchored" data-anchor-id="sec-arm-multivariavel"><span class="header-section-number">3.2.3</span> O Modelo Multivariável e a Dinâmica de Calibragem</h3>
-<p>A evolução máxima do algoritmo ocorre quando o modelo precisa avaliar como as mesmas variáveis de entrada (<span class="math inline">\(x_i\)</span>) reagem sob diferentes perspectivas ou exigências (Perfis).</p>
-<p>Na teoria psicométrica e na modelagem de sistemas, assumir que o peso base de uma variável (<span class="math inline">\(w_i\)</span>) é suficiente para diferenciar construtos ou perfis é um erro metodológico comum. Na prática, especialmente na avaliação humana, os dados brutos sofrem de “achatamento” devido aos vieses de resposta.</p>
-<p>Para corrigir essa distorção e garantir o poder discriminatório (evitar o empate das notas), a arquitetura do ARM Multivariável exige a introdução de uma nova variável: o <strong>Fator de Intensidade (<span class="math inline">\(I_{i,p}\)</span>)</strong>.</p>
-<section id="a-parametrização-da-intensidade" class="level4" data-number="3.2.3.1">
-<h4 data-number="3.2.3.1" class="anchored" data-anchor-id="a-parametrização-da-intensidade"><span class="header-section-number">3.2.3.1</span> A Parametrização da Intensidade</h4>
-<p>O fator <span class="math inline">\(I_{i,p}\)</span> atua como um escalar matemático (um multiplicador) que amplifica ou restringe o impacto do valor observado (<span class="math inline">\(x_i\)</span>) de acordo com a relevância daquela variável para um construto latente específico (<span class="math inline">\(\theta_p\)</span>). Em vez de uma distribuição linear, aplicamos uma escala assimétrica para simular o <em>cross-loading</em> das habilidades:</p>
+<p>Na teoria psicométrica e na modelagem de sistemas, assumir que o peso base de uma variável (<span class="math inline">\(w_i\)</span>) é suficiente para diferenciar construtos ou perfis é um erro metodológico. Na prática, os dados brutos sofrem achatamento devido aos vieses de resposta.</p>
+<p>Para corrigir essa distorção e garantir a “explosão de variância” (evitando o empate das notas), a arquitetura do ARM Multivariável exige a introdução do <strong>Fator de Intensidade (<span class="math inline">\(I_{i,p}\)</span>)</strong>. O modelo processa as notas através de três etapas algébricas sequenciais:</p>
+<section id="estrutura-do-arm-multivariável-o-passo-a-passo" class="level4" data-number="3.2.3.1">
+<h4 data-number="3.2.3.1" class="anchored" data-anchor-id="estrutura-do-arm-multivariável-o-passo-a-passo"><span class="header-section-number">3.2.3.1</span> 1) Estrutura do ARM Multivariável (O Passo a Passo)</h4>
+<p><strong>Parâmetros de Entrada:</strong> Para um determinado avaliado e um perfil alvo <span class="math inline">\(p\)</span> (ex: P01 Analítico-Técnico), definimos os seguintes vetores de tamanho <span class="math inline">\(n\)</span>:</p>
 <ul>
-<li><p><strong>Forte (<span class="math inline">\(I = 2.0\)</span>):</strong> A variável é uma característica inegociável e central (o “núcleo”) do perfil. O multiplicador dobra o peso base, premiando exponencialmente o alto desempenho.</p></li>
-<li><p><strong>Moderado (<span class="math inline">\(I = 1.0\)</span>):</strong> A variável atua como suporte. Ela é útil e complementar, mas não define a exclusividade do perfil. O peso base é mantido em sua forma neutra.</p></li>
-<li><p><strong>Fraco (<span class="math inline">\(I = 0.2\)</span>):</strong> A variável é periférica ou oposta ao núcleo do perfil. O multiplicador esmaga o peso matemático em 80%, penalizando a alocação de notas em itens que fogem ao escopo do construto.</p></li>
+<li><strong>Vetor de notas observadas:</strong> <span class="math inline">\(x = (x_1, x_2, \dots, x_n)\)</span></li>
+<li><strong>Pesos base do perfil:</strong> <span class="math inline">\(w_p = (w_{1,p}, \dots, w_{n,p})\)</span></li>
+<li><strong>Intensidades do perfil:</strong> <span class="math inline">\(I_p = (I_{1,p}, \dots, I_{n,p})\)</span>, onde <span class="math inline">\(I \in \{2.0, 1.0, 0.2\}\)</span></li>
 </ul>
+<p><strong>Passo A — Peso Efetivo (Calibragem Bruta):</strong> O modelo multiplica o peso base por um escalar agressivo para tracionar as variáveis nucleares e esmagar as periféricas. O resultado é o peso efetivo bruto (<span class="math inline">\(\tilde{w}_{i,p}\)</span>):</p>
+<p><span class="math display">\[\tilde{w}_{i,p} = w_{i,p} \cdot I_{i,p}\]</span></p>
+<p><strong>Passo B — Normalização Obrigatória:</strong> Como a calibragem destrói a base centesimal, o somatório dos pesos efetivos não será mais igual a 1 (ou 100%). É obrigatório normalizar os valores dividindo cada peso efetivo bruto pelo somatório total do perfil:</p>
+<p><span class="math display">\[w'_{i,p} = \frac{\tilde{w}_{i,p}}{\sum_{k=1}^{n} \tilde{w}_{k,p}} \quad \Rightarrow \quad \sum_{i=1}^{n} w'_{i,p} = 1\]</span></p>
+<p><strong>Passo C — Score Final do Perfil:</strong> Com os pesos definitivos e normalizados (<span class="math inline">\(w'_{i,p}\)</span>), calcula-se o produto escalar contra as notas do aluno para obter o escore final do perfil (<span class="math inline">\(\theta_p\)</span>):</p>
+<p><span class="math display">\[\theta_p = \sum_{i=1}^{n} (w'_{i,p} \cdot x_i)\]</span></p>
 </section>
-<section id="a-equação-arm-alterada" class="level4" data-number="3.2.3.2">
-<h4 data-number="3.2.3.2" class="anchored" data-anchor-id="a-equação-arm-alterada"><span class="header-section-number">3.2.3.2</span> A Equação ARM Alterada</h4>
-<p>Ao acoplar o escalar de intensidade à Estrutura Multidimensional, a Equação do ARM deixa de ser uma simples soma ponderada linear e passa a ser uma função de calibragem forçada, onde a matriz de pesos muda dinamicamente. O peso efetivo do item passa a ser o produto do seu peso base pela sua intensidade.</p>
-<p><span id="eq-arm-intensidade"><span class="math display">\[\theta_p = \sum_{i=1}^{n} (w_{i,p} \times I_{i,p} \times x_i) \tag{3.3}\]</span></span></p>
-<p>Onde:</p>
-<ul>
-<li><p><strong><span class="math inline">\(p\)</span>:</strong> O construto latente específico ou perfil analisado (ex: Perfil Analítico).</p></li>
-<li><p><strong><span class="math inline">\(\theta_p\)</span>:</strong> O valor final calculado para o construto <span class="math inline">\(p\)</span>.</p></li>
-<li><p><strong><span class="math inline">\(w_{i,p}\)</span>:</strong> O peso estrutural base da variável <span class="math inline">\(i\)</span> no perfil <span class="math inline">\(p\)</span>.</p></li>
-<li><p><strong><span class="math inline">\(I_{i,p}\)</span>:</strong> O escalar de intensidade (2.0, 1.0 ou 0.2) da variável <span class="math inline">\(i\)</span> para o construto <span class="math inline">\(p\)</span>.</p></li>
-<li><p><strong><span class="math inline">\(x_i\)</span>:</strong> O valor observado bruto (nota) obtido na avaliação.</p></li>
-</ul>
+<section id="a-estruturação-matricial-o-motor-de-processamento" class="level4" data-number="3.2.3.2">
+<h4 data-number="3.2.3.2" class="anchored" data-anchor-id="a-estruturação-matricial-o-motor-de-processamento"><span class="header-section-number">3.2.3.2</span> 2) A Estruturação Matricial (O Motor de Processamento)</h4>
+<p>Para otimizar o processamento computacional de <span class="math inline">\(P\)</span> perfis simultaneamente (ex: processar os 6 arquétipos da Engenharia de uma só vez), a equação deixa de ser um somatório iterativo e passa a operar por Álgebra Linear.</p>
+<p>Construímos as matrizes de Pesos Base (<span class="math inline">\(W\)</span>) e de Intensidades (<span class="math inline">\(I\)</span>), ambas pertencentes a <span class="math inline">\(\mathbb{R}^{n \times P}\)</span>, onde cada coluna representa um perfil.</p>
+<p>O cálculo da matriz de Pesos Efetivos Brutos (<span class="math inline">\(\tilde{W}\)</span>) ocorre pelo Produto de Hadamard (multiplicação elemento a elemento):</p>
+<p><span class="math display">\[\tilde{W} = W \odot I\]</span></p>
+<p>Em seguida, realiza-se a normalização por coluna para encontrar a matriz de Pesos Finais (<span class="math inline">\(W'\)</span>), onde <span class="math inline">\(\mathbf{1}\)</span> é um vetor de uns:</p>
+<p><span class="math display">\[W'_{:,p} = \frac{\tilde{W}_{:,p}}{\mathbf{1}^\top \tilde{W}_{:,p}}\]</span></p>
+<p>Por fim, o vetor contendo os <em>scores</em> finais de todos os perfis (<span class="math inline">\(\Theta\)</span>) para um aluno com notas <span class="math inline">\(x\)</span> é calculado instantaneamente pela transposta:</p>
+<p><span class="math display">\[\Theta = x^\top W'\]</span></p>
 </section>
-<section id="a-estruturação-matricial-do-modelo-multivariável" class="level4" data-number="3.2.3.3">
-<h4 data-number="3.2.3.3" class="anchored" data-anchor-id="a-estruturação-matricial-do-modelo-multivariável"><span class="header-section-number">3.2.3.3</span> A Estruturação Matricial do Modelo Multivariável</h4>
-<p>Para otimizar o processamento computacional — especialmente na transição do modelo matemático para linguagens orientadas a dados, como <strong>R</strong> ou <strong>Python</strong> —, a Equação do ARM Multivariável deixa de ser tratada como um somatório iterativo linear e passa a ser operada através de Álgebra Linear.</p>
-<p>Seja <span class="math inline">\(\mathbf{x}\)</span> o vetor coluna das notas observadas de dimensão <span class="math inline">\(n \times 1\)</span>:</p>
-<p><span class="math display">\[\mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}\]</span></p>
-<p>E seja <span class="math inline">\(\mathbf{W}\)</span> a matriz de pesos efetivos de dimensão <span class="math inline">\(n \times m\)</span> (onde <span class="math inline">\(n\)</span> é o número de variáveis e <span class="math inline">\(m\)</span> é o número de perfis <span class="math inline">\(p\)</span>), composta pelos elementos já calibrados e normalizados <span class="math inline">\(w_{i,p}\)</span>:</p>
-<p><span class="math display">\[\mathbf{W} = \begin{bmatrix} w_{1,1} &amp; w_{1,2} &amp; \dots &amp; w_{1,m} \\ w_{2,1} &amp; w_{2,2} &amp; \dots &amp; w_{2,m} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ w_{n,1} &amp; w_{n,2} &amp; \dots &amp; w_{n,m} \end{bmatrix}\]</span></p>
-<p>O cálculo simultâneo de todos os construtos latentes (resultando no vetor de perfis <span class="math inline">\(\boldsymbol{\Theta}\)</span>) é obtido pela multiplicação da transposta da matriz de pesos pelo vetor de notas:</p>
-<p><span id="eq-arm-matricial"><span class="math display">\[\boldsymbol{\Theta} = \mathbf{W}^T \mathbf{x} \tag{3.4}\]</span></span></p>
-<p>Essa notação matricial é o verdadeiro diferencial arquitetônico para <em>Data Analytics</em>. Ela permite ao algoritmo calcular dezenas de perfis simultaneamente em frações de segundo, escalando o modelo para lidar com milhares de avaliados sem perda de <em>performance</em> computacional.</p>
-</section>
-<section id="justificativa-quando-há-necessidade-desta-alteração" class="level4" data-number="3.2.3.4">
-<h4 data-number="3.2.3.4" class="anchored" data-anchor-id="justificativa-quando-há-necessidade-desta-alteração"><span class="header-section-number">3.2.3.4</span> Justificativa: Quando há necessidade desta alteração?</h4>
-<p>A introdução do Fator de Intensidade (<span class="math inline">\(I_{i,p}\)</span>) não é recomendada em medições físicas exatas (ex: teor de sílica em um minério, onde o sensor do laboratório não sofre de viés psicológico). No entanto, ela torna-se <strong>estritamente obrigatória</strong> nos seguintes cenários de gestão:</p>
-<ol type="1">
-<li><p><strong>Mitigação de Vieses de Resposta (Efeito de Consistência):</strong> Quando o instrumento depende de percepção humana (escalas <em>Likert</em>). Se um aluno possui o viés de consistência e marca “5” em todas as 51 competências do questionário, a equação clássica (sem intensidade) geraria um empate global, inutilizando o teste. O fator <span class="math inline">\(I_{i,p}\)</span> destrói esse empate matematicamente ao multiplicar as variáveis “Fracas” por 0.2, forçando o afloramento do verdadeiro Perfil Dominante.</p></li>
-<li><p><strong>Necessidade de Explosão de Variância:</strong> Em amostras altamente homogêneas (ex: uma turma onde todos os engenheiros possuem notas parecidas), a média simples gera uma nuvem de dados sobreposta e indistinguível. A injeção dos escalares extremos (<span class="math inline">\(2.0\)</span> e <span class="math inline">\(0.2\)</span>) atua como um “zoom” estatístico, esticando a distância entre os resultados e permitindo a separação clara em <em>clusters</em>.</p></li>
-<li><p><strong>Mecânica de Exclusão Mútua (Ortogonalidade):</strong> Quando os construtos avaliados possuem naturezas opostas. Por exemplo, a precisão rigorosa e isolada de um “Perfil Analítico” concorre cognitivamente com a expansividade sociável de um “Perfil Comunicador”. O fator de intensidade garante que a excelência em uma ponta não infle artificialmente a nota na outra, mantendo a independência matemática das dimensões.</p></li>
-</ol>
+<section id="o-salto-analítico-modelo-hierárquico-multivariável" class="level4" data-number="3.2.3.3">
+<h4 data-number="3.2.3.3" class="anchored" data-anchor-id="o-salto-analítico-modelo-hierárquico-multivariável"><span class="header-section-number">3.2.3.3</span> 3) O Salto Analítico: Modelo Hierárquico + Multivariável</h4>
+<p>Em avaliações de alta complexidade, as variáveis (como as habilidades <span class="math inline">\(H_{01}\)</span> a <span class="math inline">\(H_{23}\)</span>) estão agrupadas em dimensões teóricas <span class="math inline">\(D_j\)</span> (ex: Habilidades Cognitivas, Habilidades Técnicas).</p>
+<p>Para que o algoritmo respeite essa arquitetura, fundimos o conceito hierárquico com as intensidades multivariáveis. Neste cenário, tanto os pesos internos das variáveis condicionadas à sua dimensão (<span class="math inline">\(w'_{i|D_j, p}\)</span>) quanto os pesos macro das próprias dimensões (<span class="math inline">\(w'_{D_j, p}\)</span>) são calibrados e normalizados de acordo com as exigências do perfil <span class="math inline">\(p\)</span>:</p>
+<p><span class="math display">\[\theta_p = \sum_{j=1}^{m} \left[ w'_{D_j,p} \cdot \left( \sum_{i \in D_j} w'_{i|D_j,p} \cdot x_i \right) \right]\]</span></p>
+<p>Essa formulação é o ápice do <em>People Analytics</em> e da Engenharia de Requisitos: ela garante que o algoritmo avalie o indivíduo não apenas pelas suas competências isoladas, mas pela forma como elas interagem dentro dos blocos lógicos exigidos por cada arquétipo profissional.</p>
 <blockquote class="blockquote">
-<p><strong>Avançando para a Prática:</strong> Para visualizar a aplicação completa desta mecânica e o cálculo real das equações <strong><a href="#eq-arm-multi" class="quarto-xref">Eq.&nbsp;<span>3.2</span></a></strong> e <strong><a href="#eq-arm-intensidade" class="quarto-xref">Eq.&nbsp;<span>3.3</span></a></strong> em um cenário de alta complexidade, consulte o estudo de caso detalhado na <strong><a href="cap7-estudos-casos.html#sec-arm-competencias" class="quarto-xref"><span>Seção 7.1</span></a></strong> e <strong><a href="cap7-estudos-casos.html#sec-caso-competencias" class="quarto-xref"><span>Seção 7.1.3</span></a></strong> (Capítulo 7).</p>
+<p><strong>Avançando para a Prática:</strong> Para visualizar a aplicação completa desta mecânica e o cálculo real das equações em um cenário de alta complexidade, consulte o estudo de caso detalhado na <strong><a href="cap7-estudos-casos.html#sec-arm-competencias" class="quarto-xref"><span>Seção 7.1</span></a></strong> e <strong><a href="cap7-estudos-casos.html#sec-caso-competencias" class="quarto-xref"><span>Seção 7.1.3</span></a></strong> (ver <strong><a href="cap7-estudos-casos.html" class="quarto-xref"><span>Capítulo 7</span></a></strong>).</p>
 </blockquote>
 <hr>
 </section>
@@ -605,8 +605,16 @@ Tabela&nbsp;3.1: Evolução do Conceito de Qualidade: Da Filosofia à Matemátic
 </ul></li>
 </ul>
 <p>O <strong>Índice Global de Qualidade (<span class="math inline">\(\theta\)</span>)</strong> é processado pela ponderação vetorial:</p>
-<p><span id="eq-arm-vetorial"><span class="math display">\[\theta = \frac{\sum_{i=1}^{n} w_i x^*_i}{\sum_{i=1}^{n} w_i} \tag{3.5}\]</span></span></p>
-<p>Caso o processo apresente falhas ou externalidades graves, aplica-se uma <strong>Penalidade de risco/impacto (<span class="math inline">\(P\)</span>)</strong>: <span class="math display">\[P = \sum_k \rho_k g_k\]</span> Resultando na <strong>Qualidade Ajustada por Risco (<span class="math inline">\(\theta^*\)</span>):</strong> <span class="math inline">\(\theta^* = \theta - P\)</span>.</p>
+<p><span id="eq-arm-vetorial"><span class="math display">\[\theta = \frac{\sum_{i=1}^{n} w_i x^*_i}{\sum_{i=1}^{n} w_i} \tag{3.3}\]</span></span></p>
+<p>Caso o processo apresente falhas ou externalidades graves (ex: vazamento ambiental, acidente de trabalho ou atraso crítico), aplica-se uma <strong>Penalidade de risco/impacto (<span class="math inline">\(P\)</span>)</strong>:</p>
+<p><span class="math display">\[P = \sum_k \rho_k g_k\]</span></p>
+<p>Onde:</p>
+<ul>
+<li><strong><span class="math inline">\(k\)</span>:</strong> Índice que representa cada evento de falha, não conformidade ou externalidade identificada.</li>
+<li><strong><span class="math inline">\(\rho_k\)</span> (Fator de Ocorrência/Probabilidade):</strong> A frequência com que o evento <span class="math inline">\(k\)</span> ocorre ou o peso estatístico de penalização atribuído a ele.</li>
+<li><strong><span class="math inline">\(g_k\)</span> (Gravidade/Severidade):</strong> O impacto financeiro, operacional, de segurança ou de imagem gerado pela falha <span class="math inline">\(k\)</span> (geralmente escalonado, de forma análoga à metodologia FMEA).</li>
+</ul>
+<p>A aplicação dessa dedução resulta na <strong>Qualidade Ajustada por Risco (<span class="math inline">\(\theta^*\)</span>):</strong> <span class="math display">\[\theta^* = \theta - P\]</span></p>
 <blockquote class="blockquote">
 <p><em>Síntese Operacional: Na ARM, as cláusulas 4–6 da ISO 9001 definem o que medir (<span class="math inline">\(\mathbf{x}\)</span>), o que é requerido (<span class="math inline">\(\mathbf{r}, \boldsymbol{\Delta}\)</span>) e o que importa mais (<span class="math inline">\(\mathbf{w}\)</span>); as cláusulas 7–8 garantem a confiabilidade da medição e o controle que gera <span class="math inline">\(\mathbf{x}\)</span>; as cláusulas 9–10 fecham o ciclo ao avaliar o construto final (<span class="math inline">\(\theta\)</span>) e ajustar os parâmetros do modelo preventivamente.</em></p>
 </blockquote>
@@ -758,300 +766,52 @@ Tabela&nbsp;3.1: Evolução do Conceito de Qualidade: Da Filosofia à Matemátic
 <hr>
 </section>
 </section>
-<section id="sec-algoritmo-arm" class="level3" data-number="3.2.5">
-<h3 data-number="3.2.5" class="anchored" data-anchor-id="sec-algoritmo-arm"><span class="header-section-number">3.2.5</span> Fase 2: O Algoritmo de Execução (10 Passos e Portões de Decisão)</h3>
+<section id="sec-fase1-design" class="level3" data-number="3.2.5">
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="sec-fase1-design"><span class="header-section-number">3.2.5</span> Fase 1: O Design do Modelo (Identificando Variáveis e Pesos)</h3>
+<p>Antes que o algoritmo possa calcular a qualidade (<span class="math inline">\(\theta\)</span>), a engenharia precisa definir matematicamente <strong>o que</strong> será medido (<span class="math inline">\(x_i\)</span>) e <strong>qual a importância</strong> de cada item (<span class="math inline">\(w_i\)</span>). Chutar essas variáveis em uma sala de reunião destrói a validade do modelo ARM. Para extrair esses números do mundo real com rigor científico, utilizamos duas ferramentas de estruturação:</p>
+<section id="a-árvore-de-valor-definindo-o-x_i" class="level4" data-number="3.2.5.1">
+<h4 data-number="3.2.5.1" class="anchored" data-anchor-id="a-árvore-de-valor-definindo-o-x_i"><span class="header-section-number">3.2.5.1</span> A Árvore de Valor (Definindo o <span class="math inline">\(x_i\)</span>)</h4>
+<p>A Árvore de Valor é uma ferramenta de desdobramento top-down. Ela parte do objetivo global (o Construto Latente <span class="math inline">\(\theta\)</span>) e o ramifica em dimensões lógicas, descendo até encontrar as variáveis operacionais mensuráveis (<span class="math inline">\(x_i\)</span>).</p>
+<ul>
+<li><strong>Nível 0 (Raiz):</strong> A Qualidade Global do Objeto (ex: Desempenho da Escavadeira).</li>
+<li><strong>Nível 1 (Dimensões):</strong> Os grandes blocos de avaliação (ex: Produtividade, Custo, Confiabilidade).</li>
+<li><strong>Nível 2 (Variáveis <span class="math inline">\(x_i\)</span>):</strong> Os indicadores reais extraídos no campo (ex: Toneladas/hora, Consumo de Diesel, MTBF).</li>
+</ul>
+<p>A regra da Árvore de Valor é a <strong>Mensurabilidade</strong>: se o último “galho” da árvore não puder ser medido por um sensor, uma auditoria ou uma escala, o modelo é inválido.</p>
+</section>
+<section id="o-diagrama-de-mudge-calibrando-o-w_i" class="level4" data-number="3.2.5.2">
+<h4 data-number="3.2.5.2" class="anchored" data-anchor-id="o-diagrama-de-mudge-calibrando-o-w_i"><span class="header-section-number">3.2.5.2</span> O Diagrama de Mudge (Calibrando o <span class="math inline">\(w_i\)</span>)</h4>
+<p>Uma vez que as variáveis (<span class="math inline">\(x_i\)</span>) foram mapeadas, como provar que a “Confiabilidade” vale 40% (<span class="math inline">\(w=0.4\)</span>) e o “Custo” vale 20% (<span class="math inline">\(w=0.2\)</span>)? Criado por Arthur Mudge como parte da Engenharia do Valor (FAST), o Diagrama de Mudge é uma matriz de <strong>Comparação Par a Par</strong>. Em vez de tentar atribuir pesos diretos a 10 variáveis de uma vez (o que confunde o cérebro humano), o gestor ou o cliente compara apenas duas variáveis simultaneamente.</p>
+<ol type="1">
+<li><strong>Confronto:</strong> A Variável A é mais importante que a Variável B?</li>
+<li><strong>Intensidade:</strong> Se A vence, ela vence por pouco (1 ponto), por média diferença (2 pontos) ou por muita diferença (3 pontos)?</li>
+<li><strong>Cálculo do Peso:</strong> Após confrontar todas as variáveis entre si, soma-se a pontuação absoluta de cada uma e divide-se pelo total de pontos da matriz. O resultado é o peso estatístico normalizado (<span class="math inline">\(w_i\)</span>).</li>
+</ol>
+<p>É através do Mudge que o “achismo” é substituído pela priorização matemática documentada. Com os <span class="math inline">\(x_i\)</span> mapeados e os <span class="math inline">\(w_i\)</span> calibrados, o modelo de design está pronto para ser plugado no motor de execução.</p>
+<hr>
+</section>
+</section>
+<section id="sec-algoritmo-arm" class="level3" data-number="3.2.6">
+<h3 data-number="3.2.6" class="anchored" data-anchor-id="sec-algoritmo-arm"><span class="header-section-number">3.2.6</span> Fase 2: O Algoritmo de Execução (10 Passos e Portões de Decisão)</h3>
 <p>Uma vez que o modelo foi estruturado (através dos 5 passos de Design detalhados anteriormente), ele é acoplado ao software de gestão da fábrica (MES/ERP). A partir desse momento, inicia-se a Fase de Operação.</p>
 <p>O sistema não “pensa” mais no design; ele passa a executar um algoritmo rotineiro de 10 passos: lendo os valores do processo (<span class="math inline">\(\mathbf{x}\)</span>), comparando com os alvos (<span class="math inline">\(\mathbf{r}\)</span>), ponderando pelos pesos (<span class="math inline">\(\mathbf{w}\)</span>) e gerando o Índice Global (<span class="math inline">\(\theta\)</span>).</p>
 <p>No entanto, em ambientes industriais de alta complexidade (como mineração e siderurgia), a equação não deve ser processada “cegamente”. Um produto pode atingir um score global <span class="math inline">\(\theta\)</span> altíssimo, mas violar uma norma de segurança ou gerar custos astronômicos de superqualidade.</p>
 <p>Para evitar falhas catastróficas, o algoritmo ARM de 10 passos é protegido por Portões de Decisão (Gates). O fluxograma abaixo explicita o caminho de aprovação, desde a medição do dado até a liberação final.</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewbox="0 0 1341.66796875 2847.453125" class="flowchart" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="672" id="mermaid-figure-1" height="480">
-<style>#mermaid-figure-1{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-1 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-1 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-1 .error-icon{fill:#552222;}#mermaid-figure-1 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-1 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-1 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-1 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-1 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-1 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-1 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-1 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-1 .marker.cross{stroke:#333333;}#mermaid-figure-1 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-figure-1 p{margin:0;}#mermaid-figure-1 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-1 .cluster-label text{fill:#333;}#mermaid-figure-1 .cluster-label span{color:#333;}#mermaid-figure-1 .cluster-label span p{background-color:transparent;}#mermaid-figure-1 .label text,#mermaid-figure-1 span{fill:#333;color:#333;}#mermaid-figure-1 .node rect,#mermaid-figure-1 .node circle,#mermaid-figure-1 .node ellipse,#mermaid-figure-1 .node polygon,#mermaid-figure-1 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-1 .rough-node .label text,#mermaid-figure-1 .node .label text,#mermaid-figure-1 .image-shape .label,#mermaid-figure-1 .icon-shape .label{text-anchor:middle;}#mermaid-figure-1 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-figure-1 .rough-node .label,#mermaid-figure-1 .node .label,#mermaid-figure-1 .image-shape .label,#mermaid-figure-1 .icon-shape .label{text-align:center;}#mermaid-figure-1 .node.clickable{cursor:pointer;}#mermaid-figure-1 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaid-figure-1 .arrowheadPath{fill:#333333;}#mermaid-figure-1 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-1 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-1 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-1 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaid-figure-1 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-1 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-figure-1 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-1 .cluster text{fill:#333;}#mermaid-figure-1 .cluster span{color:#333;}#mermaid-figure-1 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-1 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-1 rect.text{fill:none;stroke-width:0;}#mermaid-figure-1 .icon-shape,#mermaid-figure-1 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-1 .icon-shape p,#mermaid-figure-1 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaid-figure-1 .icon-shape rect,#mermaid-figure-1 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-1 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style>
-<g><marker orient="auto" markerheight="8" markerwidth="8" markerunits="userSpaceOnUse" refy="5" refx="5" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1774219929447_flowchart-v2-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerheight="8" markerwidth="8" markerunits="userSpaceOnUse" refy="5" refx="4.5" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1774219929447_flowchart-v2-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="11" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1774219929447_flowchart-v2-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="-1" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1774219929447_flowchart-v2-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="12" viewbox="0 0 11 11" class="marker cross flowchart-v2" id="mermaid-1774219929447_flowchart-v2-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="-1" viewbox="0 0 11 11" class="marker cross flowchart-v2" id="mermaid-1774219929447_flowchart-v2-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_A_E_0" d="M613,86L613,90.167C613,94.333,613,102.667,613,110.333C613,118,613,125,613,128.5L613,132"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_E_G0_0" d="M613,190L613,194.167C613,198.333,613,206.667,613.07,214.417C613.141,222.167,613.281,229.334,613.351,232.917L613.422,236.501"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G0_H0_0" d="M509.095,424.579L447.246,448.063C385.397,471.548,261.698,518.516,199.849,554.667C138,590.818,138,616.151,138,639.484C138,662.818,138,684.151,138,722.151C138,760.151,138,814.818,138,871.484C138,928.151,138,986.818,138,1042.044C138,1097.271,138,1149.057,138,1200.844C138,1252.63,138,1304.417,138,1359.643C138,1414.87,138,1473.536,138,1532.203C138,1590.87,138,1649.536,138,1689.536C138,1729.536,138,1750.87,138,1770.203C138,1789.536,138,1806.87,138,1826.203C138,1845.536,138,1866.87,138,1888.203C138,1909.536,138,1930.87,138,1962.891C138,1994.911,138,2037.62,138,2082.328C138,2127.036,138,2173.745,138,2226.432C138,2279.12,138,2337.786,138,2396.453C138,2455.12,138,2513.786,138,2550.62C138,2587.453,138,2602.453,138,2609.953L138,2617.453"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G0_F_0" d="M660.283,482.202L666.902,496.082C673.522,509.963,686.761,537.724,693.38,557.104C700,576.484,700,587.484,700,592.984L700,598.484"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_F_G1A_0" d="M700,680.484L700,684.651C700,688.818,700,697.151,700.07,704.901C700.141,712.651,700.281,719.818,700.351,723.402L700.422,726.985"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G1A_X1_0" d="M600.075,908.559L540.362,931.38C480.65,954.201,361.225,999.843,301.513,1048.557C241.801,1097.271,241.801,1149.057,241.801,1200.844C241.801,1252.63,241.801,1304.417,241.801,1359.643C241.801,1414.87,241.801,1473.536,241.801,1532.203C241.801,1590.87,241.801,1649.536,247.654,1684.571C253.506,1719.606,265.212,1731.009,271.065,1736.711L276.918,1742.412"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G1A_G1B_0" d="M742.682,966.803L748.348,979.916C754.014,993.03,765.347,1019.257,771.088,1037.954C776.829,1056.651,776.977,1067.818,777.052,1073.401L777.126,1078.985"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G1B_X1_0" d="M692.384,1234.908L641.017,1255.123C589.649,1275.339,486.914,1315.771,435.547,1365.321C384.18,1414.87,384.18,1473.536,384.18,1532.203C384.18,1590.87,384.18,1649.536,377.303,1684.609C370.427,1719.682,356.673,1731.161,349.797,1736.901L342.92,1742.64"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G1B_G1C_0" d="M825.504,1271.379L835.233,1285.516C844.962,1299.653,864.421,1327.928,874.224,1347.649C884.028,1367.37,884.177,1378.537,884.251,1384.12L884.326,1389.703"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G1C_X1_0" d="M788.671,1575.995L739.689,1598.029C690.707,1620.064,592.744,1664.134,526.348,1692.119C459.952,1720.105,425.123,1732.007,407.709,1737.959L390.294,1743.91"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G1C_Th_0" d="M900.56,1655.522L901.644,1664.302C902.729,1673.082,904.898,1690.643,905.982,1704.923C907.066,1719.203,907.066,1730.203,907.066,1735.703L907.066,1741.203"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_Th_P_0" d="M907.066,1799.203L907.066,1803.37C907.066,1807.536,907.066,1815.87,907.066,1823.536C907.066,1831.203,907.066,1838.203,907.066,1841.703L907.066,1845.203"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_P_G2_0" d="M907.066,1927.203L907.066,1931.37C907.066,1935.536,907.066,1943.87,907.137,1951.62C907.207,1959.37,907.347,1966.537,907.418,1970.12L907.488,1973.704"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G2_X2_0" d="M835.617,2112.003L793.625,2130.078C751.634,2148.153,667.651,2184.303,625.659,2231.711C583.668,2279.12,583.668,2337.786,583.668,2396.453C583.668,2455.12,583.668,2513.786,583.668,2550.62C583.668,2587.453,583.668,2602.453,583.668,2609.953L583.668,2617.453"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G2_G3_0" d="M961.728,2129.792L978.451,2144.902C995.174,2160.012,1028.62,2190.233,1045.418,2210.926C1062.215,2231.62,1062.364,2242.787,1062.439,2248.37L1062.513,2253.953"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G3_OK_0" d="M994.6,2467.987L977.778,2485.398C960.956,2502.809,927.312,2537.631,910.49,2560.542C893.668,2583.453,893.668,2594.453,893.668,2599.953L893.668,2605.453"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G3_OPT_0" d="M1124.539,2473.98L1137.727,2490.393C1150.915,2506.805,1177.292,2539.629,1190.48,2563.541C1203.668,2587.453,1203.668,2602.453,1203.668,2609.953L1203.668,2617.453"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_H0_PDCA_0" d="M138,2699.453L138,2705.62C138,2711.786,138,2724.12,192.184,2737.84C246.368,2751.561,354.736,2766.669,408.921,2774.223L463.105,2781.777"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_X1_PDCA_0" d="M307.5,1799.203L307.5,1803.37C307.5,1807.536,307.5,1815.87,307.5,1830.703C307.5,1845.536,307.5,1866.87,307.5,1888.203C307.5,1909.536,307.5,1930.87,307.5,1962.891C307.5,1994.911,307.5,2037.62,307.5,2082.328C307.5,2127.036,307.5,2173.745,307.5,2226.432C307.5,2279.12,307.5,2337.786,307.5,2396.453C307.5,2455.12,307.5,2513.786,307.5,2557.786C307.5,2601.786,307.5,2631.12,307.5,2658.453C307.5,2685.786,307.5,2711.12,333.443,2729.52C359.387,2747.921,411.274,2759.389,437.217,2765.123L463.161,2770.857"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_X2_PDCA_0" d="M583.668,2699.453L583.668,2705.62C583.668,2711.786,583.668,2724.12,584.404,2733.801C585.139,2743.481,586.611,2750.51,587.346,2754.024L588.082,2757.538"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_OK_PDCA_0" d="M893.668,2711.453L893.668,2715.62C893.668,2719.786,893.668,2728.12,866.553,2738.137C839.437,2748.155,785.207,2759.857,758.092,2765.707L730.976,2771.558"></path><path marker-end="url(#mermaid-1774219929447_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_OPT_PDCA_0" d="M1203.668,2699.453L1203.668,2705.62C1203.668,2711.786,1203.668,2724.12,1124.897,2738.597C1046.127,2753.075,888.586,2769.696,809.815,2778.007L731.044,2786.318"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel"></span>
+<div class="cell">
+<div id="fig-fluxo-arm" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fluxo-arm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="grViz html-widget html-fill-item" id="htmlwidget-d821d26766196eea94e1" style="width:100%;height:960px;"></div>
+<script type="application/json" data-for="htmlwidget-d821d26766196eea94e1">{"x":{"diagram":"\ndigraph fluxo_arm {\n  # nodesep alto = espalha na horizontal. ranksep = afasta na vertical. splines=ortho = linhas retas\n  graph [layout = dot, rankdir = TB, nodesep=1.8, ranksep=0.6, splines=ortho]\n\n  # --- CONFIGURAÇÃO GLOBAL (FONTES GIGANTES) ---\n  node [fontname = Helvetica, fontsize = 18, shape = box, style = \"filled,rounded\", penwidth = 1.5, margin=\"0.35,0.25\"]\n\n  # --- NÓS DE PROCESSO (Azul) ---\n  node [fillcolor = \"#ebf5fb\", color = \"#2980b9\", fontcolor = black]\n  A [label = \"Passos 1 a 4:\\nSetup de Variáveis, Alvos,\\nTolerâncias e Pesos\"]\n  E [label = \"Passo 5:\\nColetar Medições\"]\n  F [label = \"Passo 6:\\nCalcular Notas (x*_i)\"]\n  Th [label = \"Passo 7:\\nCalcular θ\"]\n  P_step [label = \"Passo 8: Penalidades\\nθ* = max(0, θ-P)\"]\n\n  # --- PORTÕES DE DECISÃO (Laranja/Losangos - Altura aumentada para caber a fonte 18) ---\n  node [shape = diamond, fillcolor = \"#fef5e7\", color = \"#d35400\", height=2.0, width=2.5]\n  G0 [label = \"GATE 0:\\nDados OK?\"]\n  G1A [label = \"GATE 1A:\\nLegal e Regulatório?\"]\n  G1B [label = \"GATE 1B:\\nSegurança OK?\"]\n  G1C [label = \"GATE 1C:\\nCTQ do Cliente?\"]\n  G2 [label = \"GATE 2:\\nθ* ≥ θ_min?\"]\n  G3 [label = \"GATE 3:\\nEficiência OK?\"]\n\n  # --- SAÍDAS DE BLOQUEIO (Vermelho) ---\n  node [shape = box, style = \"filled,rounded\", fillcolor = \"#fdedec\", color = \"#c0392b\", height=0.8]\n  H0 [label = \"HOLD:\\nRecolher dados sem decisão\"]\n  X1 [label = \"BLOQUEAR:\\nNão Conformidade Crítica\"]\n  X2 [label = \"BLOQUEAR:\\nAnálise de Causa\"]\n\n  # --- SAÍDAS DE APROVAÇÃO (Verde / Amarelo) ---\n  OK [label = \"Passo 9: APROVAR\\nRegistrar evidências\", fillcolor = \"#e9f7ef\", color = \"#27ae60\"]\n  OPT [label = \"LIBERAR COM PLANO\\nOtimizar custos\", fillcolor = \"#fcf3cf\", color = \"#f1c40f\"]\n\n  # --- RETROALIMENTAÇÃO (Roxo) ---\n  PDCA [label = \"Passo 10: PDCA\\nPriorizar ações preventivas\", fillcolor = \"#f4ecf7\", color = \"#8e44ad\"]\n\n  # =========================================================\n  # FORÇAR ESPALHAMENTO HORIZONTAL LADO A LADO\n  # =========================================================\n  { rank=same; G0; H0 }\n  { rank=same; G1B; X1 }\n  { rank=same; G2; X2 }\n  { rank=same; G3; OPT; OK }\n\n  # --- CONEXÕES (Fontes maiores nas setas) ---\n  edge [color = \"#7f8c8d\", penwidth = 2.5, fontname = Helvetica, fontsize = 16]\n\n  A -> E -> G0\n  G0 -> H0 [label = \" Não\", fontcolor = \"#c0392b\"]\n  G0 -> F [label = \" Sim\", fontcolor = \"#27ae60\"]\n\n  F -> G1A\n  G1A -> X1 [label = \" Não\", fontcolor = \"#c0392b\"]\n  G1A -> G1B [label = \" Sim\", fontcolor = \"#27ae60\"]\n\n  G1B -> X1 [label = \" Não\", fontcolor = \"#c0392b\"]\n  G1B -> G1C [label = \" Sim\", fontcolor = \"#27ae60\"]\n\n  G1C -> X1 [label = \" Não\", fontcolor = \"#c0392b\"]\n  G1C -> Th [label = \" Sim\", fontcolor = \"#27ae60\"]\n\n  Th -> P_step -> G2\n\n  G2 -> X2 [label = \" Não\", fontcolor = \"#c0392b\"]\n  G2 -> G3 [label = \" Sim\", fontcolor = \"#27ae60\"]\n\n  G3 -> OPT [label = \" Não\", fontcolor = \"#c0392b\"]\n  G3 -> OK [label = \" Sim\", fontcolor = \"#27ae60\"]\n\n  # Conexões de Retorno ao PDCA\n  H0 -> PDCA\n  X1 -> PDCA\n  X2 -> PDCA\n  OK -> PDCA\n  OPT -> PDCA\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
-</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel"></span>
-</div>
-</foreignobject></g></g><g transform="translate(138, 1708.203125)" class="edgeLabel"><g transform="translate(-13.6015625, -12)" class="label"><foreignobject height="24" width="27.203125">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel">
-<p>
-Não
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(700, 565.484375)" class="edgeLabel"><g transform="translate(-12.7734375, -12)" class="label"><foreignobject height="24" width="25.546875">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel">
-<p>
-Sim
-</p>
-</span>
-</div>
-</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel"></span>
-</div>
-</foreignobject></g></g><g transform="translate(241.80078125, 1356.203125)" class="edgeLabel"><g transform="translate(-13.6015625, -12)" class="label"><foreignobject height="24" width="27.203125">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel">
-<p>
-Não
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(776.6796875, 1045.484375)" class="edgeLabel"><g transform="translate(-12.7734375, -12)" class="label"><foreignobject height="24" width="25.546875">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel">
-<p>
-Sim
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(384.1796875, 1532.203125)" class="edgeLabel"><g transform="translate(-13.6015625, -12)" class="label"><foreignobject height="24" width="27.203125">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel">
-<p>
-Não
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(883.87890625, 1356.203125)" class="edgeLabel"><g transform="translate(-12.7734375, -12)" class="label"><foreignobject height="24" width="25.546875">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel">
-<p>
-Sim
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(494.78125, 1708.203125)" class="edgeLabel"><g transform="translate(-13.6015625, -12)" class="label"><foreignobject height="24" width="27.203125">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel">
-<p>
-Não
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(907.06640625, 1708.203125)" class="edgeLabel"><g transform="translate(-12.7734375, -12)" class="label"><foreignobject height="24" width="25.546875">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel">
-<p>
-Sim
-</p>
-</span>
-</div>
-</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel"></span>
-</div>
-</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel"></span>
-</div>
-</foreignobject></g></g><g transform="translate(583.66796875, 2396.453125)" class="edgeLabel"><g transform="translate(-13.6015625, -12)" class="label"><foreignobject height="24" width="27.203125">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel">
-<p>
-Não
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(1062.06640625, 2220.453125)" class="edgeLabel"><g transform="translate(-12.7734375, -12)" class="label"><foreignobject height="24" width="25.546875">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel">
-<p>
-Sim
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(893.66796875, 2572.453125)" class="edgeLabel"><g transform="translate(-12.7734375, -12)" class="label"><foreignobject height="24" width="25.546875">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel">
-<p>
-Sim
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(1203.66796875, 2572.453125)" class="edgeLabel"><g transform="translate(-13.6015625, -12)" class="label"><foreignobject height="24" width="27.203125">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel">
-<p>
-Não
-</p>
-</span>
-</div>
-</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel"></span>
-</div>
-</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel"></span>
-</div>
-</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel"></span>
-</div>
-</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel"></span>
-</div>
-</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
-<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="edgeLabel"></span>
-</div>
-</foreignobject></g></g></g><g class="nodes"><g transform="translate(613, 47)" id="flowchart-A-0" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"></rect><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
-<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="nodeLabel">
-<p>
-Passos 1 a 4: Setup de x_i, r_i, Δ_i, w_i
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(613, 163)" id="flowchart-E-1" class="node default"><rect height="54" width="244.6875" y="-27" x="-122.34375" style="" class="basic label-container"></rect><g transform="translate(-92.34375, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="184.6875">
-<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="nodeLabel">
-<p>
-Passo 5: Coletar Medições
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(613, 384.2421875)" id="flowchart-G0-3" class="node default"><polygon transform="translate(-144.2421875,144.2421875)" class="label-container" points="144.2421875,0 288.484375,-144.2421875 144.2421875,-288.484375 0,-144.2421875"></polygon><g transform="translate(-105.2421875, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="210.484375">
-<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="nodeLabel">
-<p>
-GATE 0:OK?,
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(138, 2660.453125)" id="flowchart-H0-5" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"></rect><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
-<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="nodeLabel">
-<p>
-HOLD:dadosdecisão
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(700, 641.484375)" id="flowchart-F-7" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"></rect><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
-<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="nodeLabel">
-<p>
-Passo 6: Calcular Notas (x*_i)
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(700, 869.484375)" id="flowchart-G1A-9" class="node default"><polygon transform="translate(-139,139)" class="label-container" points="139,0 278,-139 139,-278 0,-139"></polygon><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
-<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="nodeLabel">
-<p>
-GATE 1A:e Regulatório?
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(307.5, 1772.203125)" id="flowchart-X1-11" class="node default"><rect height="54" width="227.296875" y="-27" x="-113.6484375" style="" class="basic label-container"></rect><g transform="translate(-83.6484375, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="167.296875">
-<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="nodeLabel">
-<p>
-BLOQUEAR:crítica
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(776.6796875, 1200.84375)" id="flowchart-G1B-13" class="node default"><polygon transform="translate(-118.359375,118.359375)" class="label-container" points="118.359375,0 236.71875,-118.359375 118.359375,-236.71875 0,-118.359375"></polygon><g transform="translate(-91.359375, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="182.71875">
-<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="nodeLabel">
-<p>
-GATE 1B:OK?
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(883.87890625, 1532.203125)" id="flowchart-G1C-17" class="node default"><polygon transform="translate(-139,139)" class="label-container" points="139,0 278,-139 139,-278 0,-139"></polygon><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
-<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="nodeLabel">
-<p>
-GATE 1C:do Cliente OK?
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(907.06640625, 1772.203125)" id="flowchart-Th-21" class="node default"><rect height="54" width="194.25" y="-27" x="-97.125" style="" class="basic label-container"></rect><g transform="translate(-67.125, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="134.25">
-<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="nodeLabel">
-<p>
-Passo 7: Calcular θ
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(907.06640625, 1888.203125)" id="flowchart-P-23" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"></rect><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
-<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="nodeLabel">
-<p>
-Passo 8: Penalidades= max(0, θ-P)
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(907.06640625, 2080.328125)" id="flowchart-G2-25" class="node default"><polygon transform="translate(-103.125,103.125)" class="label-container" points="103.125,0 206.25,-103.125 103.125,-206.25 0,-103.125"></polygon><g transform="translate(-76.125, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="152.25">
-<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="nodeLabel">
-<p>
-GATE 2:≥ θ_min?
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(583.66796875, 2660.453125)" id="flowchart-X2-27" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"></rect><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
-<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="nodeLabel">
-<p>
-BLOQUEAR:de causa
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(1062.06640625, 2396.453125)" id="flowchart-G3-29" class="node default"><polygon transform="translate(-139,139)" class="label-container" points="139,0 278,-139 139,-278 0,-139"></polygon><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
-<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="nodeLabel">
-<p>
-GATE 3:OK?superqualidade
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(893.66796875, 2660.453125)" id="flowchart-OK-31" class="node default"><rect height="102" width="260" y="-51" x="-130" style="" class="basic label-container"></rect><g transform="translate(-100, -36)" style="" class="label"><rect></rect><foreignobject height="72" width="200">
-<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="nodeLabel">
-<p>
-Passo 9: APROVARevidências
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(1203.66796875, 2660.453125)" id="flowchart-OPT-33" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"></rect><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
-<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="nodeLabel">
-<p>
-LIBERAR COM PLANOcustos
-</p>
-</span>
-</div>
-</foreignobject></g></g><g transform="translate(597.06640625, 2800.453125)" id="flowchart-PDCA-35" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"></rect><g transform="translate(-100, -24)" style="" class="label"><rect></rect><foreignobject height="48" width="200">
-<div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span class="nodeLabel">
-<p>
-Passo 10: PDCAações
-</p>
-</span>
-</div>
-</foreignobject></g></g></g></g></g>
-</svg>
-</div>
-<p></p></figure><p></p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fluxo-arm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.1: Algoritmo ARM: Fluxo de Execução e Portões de Decisão (Gates)
+</figcaption>
+</figure>
 </div>
 </div>
-</div>
-<section id="leitura-técnica-do-fluxograma" class="level4" data-number="3.2.5.1">
-<h4 data-number="3.2.5.1" class="anchored" data-anchor-id="leitura-técnica-do-fluxograma"><span class="header-section-number">3.2.5.1</span> Leitura Técnica do Fluxograma</h4>
+<section id="leitura-técnica-do-fluxograma" class="level4" data-number="3.2.6.1">
+<h4 data-number="3.2.6.1" class="anchored" data-anchor-id="leitura-técnica-do-fluxograma"><span class="header-section-number">3.2.6.1</span> Leitura Técnica do Fluxograma</h4>
 <p>Para garantir que a matemática reflita a realidade fabril, o fluxo de execução obedece à seguinte estrutura de proteção:</p>
 <p><strong>Passos Iniciais (A Parametrização)</strong></p>
 <ul>
@@ -1061,12 +821,16 @@ Passo 10: PDCAações
 <li><p><strong>Definir pesos (<span class="math inline">\(w_i\)</span>):</strong> Conversão do valor percebido pelas partes em importância numérica (ISO 4.2).</p></li>
 <li><p><strong>Coletar medições (<span class="math inline">\(x_i\)</span>):</strong> Execução do processo sob condições controladas.</p></li>
 </ul>
-<p><strong>GATE 0: Qualidade de Dados</strong></p>
+<section id="gate-0-qualidade-de-dados" class="level5" data-number="3.2.6.1.1">
+<h5 data-number="3.2.6.1.1" class="anchored" data-anchor-id="gate-0-qualidade-de-dados"><span class="header-section-number">3.2.6.1.1</span> GATE 0: Qualidade de Dados</h5>
 <p>Antes de qualquer cálculo, o algoritmo não assume que os dados são perfeitos. Este <em>gate</em> verifica completude (todas as variáveis foram medidas?), validade (faixa plausível), rastreabilidade (lote/equipamento) e incerteza de medição.</p>
 <ul>
 <li><strong>Decisão:</strong> Se a incerteza for alta ou faltar dado, o sistema entra em estado de <strong>HOLD</strong> (recolher dados). Não há decisão de qualidade baseada em dados não confiáveis.</li>
 </ul>
-<p><strong>GATE 1: O Filtro da Inegociabilidade (1A, 1B e 1C)</strong> Nem tudo pode ser compensado por uma média ponderada. Se o produto falhar em aspectos mandatórios, o cálculo da média é interrompido, gerando um <strong>Bloqueio (Não Conformidade Crítica)</strong>:</p>
+</section>
+<section id="gate-1-o-filtro-da-inegociabilidade-1a-1b-e-1c" class="level5" data-number="3.2.6.1.2">
+<h5 data-number="3.2.6.1.2" class="anchored" data-anchor-id="gate-1-o-filtro-da-inegociabilidade-1a-1b-e-1c"><span class="header-section-number">3.2.6.1.2</span> GATE 1: O Filtro da Inegociabilidade (1A, 1B e 1C)</h5>
+<p>Nem tudo pode ser compensado por uma média ponderada. Se o produto falhar em aspectos mandatórios, o cálculo da média é interrompido, gerando um <strong>Bloqueio (Não Conformidade Crítica)</strong>:</p>
 <ul>
 <li><p><strong>Gate 1A (Legal/Regulatório):</strong> Cumpre normas governamentais e ambientais?</p></li>
 <li><p><strong>Gate 1B (Segurança):</strong> Cumpre critérios de risco operacional à vida (SST)?</p></li>
@@ -1079,12 +843,17 @@ Passo 10: PDCAações
 <li><p><strong>Calcular Índice Global (<span class="math inline">\(\theta\)</span>):</strong> Síntese da qualidade sistêmica.</p></li>
 <li><p><strong>Penalidades (<span class="math inline">\(P\)</span>):</strong> Incorporação de riscos e perdas, gerando o Índice Ajustado (<span class="math inline">\(\theta^*\)</span>).</p></li>
 </ul>
-<p><strong>GATE 2: O Ponto de Liberação da Qualidade</strong></p>
+</section>
+<section id="gate-2-o-ponto-de-liberação-da-qualidade" class="level5" data-number="3.2.6.1.3">
+<h5 data-number="3.2.6.1.3" class="anchored" data-anchor-id="gate-2-o-ponto-de-liberação-da-qualidade"><span class="header-section-number">3.2.6.1.3</span> GATE 2: O Ponto de Liberação da Qualidade</h5>
 <p>Verifica estritamente se o resultado matemático atende à estratégia:</p>
 <ul>
 <li><strong>Decisão:</strong> <span class="math inline">\(\theta^* \ge \theta_{\min}\)</span>? Se <strong>Não</strong>, bloqueia-se o lote para análise de causa. Se <strong>Sim</strong>, o produto é tecnicamente bom. Mas será eficiente? A resposta vai para o último <em>gate</em>.</li>
 </ul>
-<p><strong>GATE 3: Eficiência do Sistema e Superqualidade</strong> Não basta ser conforme; precisa ser rentável. Este portão avalia o Custo da Qualidade (<span class="math inline">\(C_Q = C_{\text{prev}} + C_{\text{aval}} + C_{\text{falha}}\)</span>) e o Índice de Eficiência Econômica (<span class="math inline">\(E = \theta^* / C_Q\)</span>). O objetivo é garantir <span class="math inline">\(E \ge E_{\min}\)</span> e identificar superqualidade (quando uma variável de baixo peso <span class="math inline">\(w_i\)</span> atinge nota máxima consumindo recursos operacionais extremos).</p>
+</section>
+<section id="gate-3-eficiência-do-sistema-e-superqualidade" class="level5" data-number="3.2.6.1.4">
+<h5 data-number="3.2.6.1.4" class="anchored" data-anchor-id="gate-3-eficiência-do-sistema-e-superqualidade"><span class="header-section-number">3.2.6.1.4</span> GATE 3: Eficiência do Sistema e Superqualidade</h5>
+<p>Não basta ser conforme; precisa ser rentável. Este portão avalia o Custo da Qualidade (<span class="math inline">\(C_Q = C_{\text{prev}} + C_{\text{aval}} + C_{\text{falha}}\)</span>) e o Índice de Eficiência Econômica (<span class="math inline">\(E = \theta^* / C_Q\)</span>). O objetivo é garantir <span class="math inline">\(E \ge E_{\min}\)</span> e identificar superqualidade (quando uma variável de baixo peso <span class="math inline">\(w_i\)</span> atinge nota máxima consumindo recursos operacionais extremos).</p>
 <ul>
 <li><p><strong>Decisão (Sim):</strong> Custos controlados <span class="math inline">\(\rightarrow\)</span> <strong>APROVAR E LIBERAR</strong>.</p></li>
 <li><p><strong>Decisão (Não):</strong> Produto excelente, mas caro demais <span class="math inline">\(\rightarrow\)</span> <strong>LIBERAR COM PLANO DE AÇÃO</strong> (otimizar custo e recalibrar limites).</p></li>
@@ -1092,53 +861,74 @@ Passo 10: PDCAações
 <blockquote class="blockquote">
 <p><em>Todas as saídas de bloqueio ou liberação retroalimentam a engenharia através do ciclo PDCA (ISO 9001 - Cláusulas 9 e 10), garantindo a melhoria ininterrupta do motor ARM.</em></p>
 </blockquote>
-<p>Para demonstrar a mecânica de cada etapa, utilizaremos como contexto de acompanhamento o <strong>fornecimento de minério de ferro para uma usina siderúrgica</strong>.</p>
-<p><strong>Passo 0: Delimitação do Objeto (Pré-ARM)</strong></p>
+<p>Para demonstrar a mecânica de cada etapa de design, utilizaremos como contexto de acompanhamento o <strong>fornecimento de minério de ferro para uma usina siderúrgica</strong>.</p>
+<div id="exm-arm-parametrizacao-mineracao" class="example theorem">
+<p><span class="theorem-title"><strong>Exemplo 3.4 (Parametrização do Modelo: Minério de Ferro)</strong></span> &nbsp;</p>
+<section id="passo-0-delimitação-do-objeto-pré-arm" class="level5" data-number="3.2.6.1.5">
+<h5 data-number="3.2.6.1.5" class="anchored" data-anchor-id="passo-0-delimitação-do-objeto-pré-arm"><span class="header-section-number">3.2.6.1.5</span> Passo 0: Delimitação do Objeto (Pré-ARM)</h5>
 <p>Antes de qualquer cálculo, a ARM exige clareza absoluta sobre o que está sendo avaliado.</p>
 <ul>
-<li><p><strong>Objeto:</strong> Lote mensal de minério de ferro.</p></li>
-<li><p><strong>Uso final:</strong> Alimentação do alto-forno.</p></li>
-<li><p><strong>Critério de sucesso:</strong> Operar o alto-forno com estabilidade, sem perdas metalúrgicas.</p></li>
-<li><p><em>Regra:</em> Este passo garante que o algoritmo não modele o produto errado.</p></li>
+<li><strong>Objeto:</strong> Lote mensal de minério de ferro.</li>
+<li><strong>Uso final:</strong> Alimentação do alto-forno.</li>
+<li><strong>Critério de sucesso:</strong> Operar o alto-forno com estabilidade, sem perdas metalúrgicas.</li>
+<li><em>Regra:</em> Este passo garante que o algoritmo não modele o produto errado.</li>
 </ul>
-<p><strong>Passo 1: Identificação das Variáveis (<span class="math inline">\(x_i\)</span>)</strong></p>
+</section>
+<section id="passo-1-identificação-das-variáveis-x_i" class="level5" data-number="3.2.6.1.6">
+<h5 data-number="3.2.6.1.6" class="anchored" data-anchor-id="passo-1-identificação-das-variáveis-x_i"><span class="header-section-number">3.2.6.1.6</span> Passo 1: Identificação das Variáveis (<span class="math inline">\(x_i\)</span>)</h5>
 <p>A partir do contrato e do processo produtivo, identificam-se as características inerentes:</p>
 <ul>
-<li><p><span class="math inline">\(x_1\)</span>: Teor de ferro (%)</p></li>
-<li><p><span class="math inline">\(x_2\)</span>: Sílica (%)</p></li>
-<li><p><span class="math inline">\(x_3\)</span>: Granulometria média (mm)</p></li>
-<li><p><span class="math inline">\(x_4\)</span>: Variabilidade granulométrica</p></li>
-<li><p><span class="math inline">\(x_5\)</span>: Umidade (%)</p></li>
-<li><p><em>Regra ARM:</em> Se uma característica não pode ser medida ou não afeta o uso final, ela não deve ser uma variável.</p></li>
+<li><span class="math inline">\(x_1\)</span>: Teor de ferro (%)</li>
+<li><span class="math inline">\(x_2\)</span>: Sílica (%)</li>
+<li><span class="math inline">\(x_3\)</span>: Granulometria média (mm)</li>
+<li><span class="math inline">\(x_4\)</span>: Variabilidade granulométrica</li>
+<li><span class="math inline">\(x_5\)</span>: Umidade (%)</li>
+<li><em>Regra ARM:</em> Se uma característica não pode ser medida ou não afeta o uso final, ela não deve ser uma variável.</li>
 </ul>
-<p><strong>Passo 2: Definição dos Requisitos/Alvos (<span class="math inline">\(r_i\)</span>)</strong></p>
+</section>
+<section id="passo-2-definição-dos-requisitosalvos-r_i" class="level5" data-number="3.2.6.1.7">
+<h5 data-number="3.2.6.1.7" class="anchored" data-anchor-id="passo-2-definição-dos-requisitosalvos-r_i"><span class="header-section-number">3.2.6.1.7</span> Passo 2: Definição dos Requisitos/Alvos (<span class="math inline">\(r_i\)</span>)</h5>
 <p>Para cada variável, define-se o valor requerido. É a qualidade como intenção.</p>
 <ul>
-<li><p><span class="math inline">\(x_1 \rightarrow r_1 = 64,0\%\)</span> (Teor mínimo para eficiência)</p></li>
-<li><p><span class="math inline">\(x_2 \rightarrow r_2 \le 4,0\%\)</span> (Limite para evitar escória)</p></li>
-<li><p><span class="math inline">\(x_3 \rightarrow r_3 = 12\text{ mm}\)</span> (Granulometria ideal)</p></li>
+<li><span class="math inline">\(x_1 \rightarrow r_1 = 64,0\%\)</span> (Teor mínimo para eficiência)</li>
+<li><span class="math inline">\(x_2 \rightarrow r_2 \le 4,0\%\)</span> (Limite para evitar escória)</li>
+<li><span class="math inline">\(x_3 \rightarrow r_3 = 12\text{ mm}\)</span> (Granulometria ideal)</li>
 </ul>
-<p><strong>Passo 3: Definição das Tolerâncias (<span class="math inline">\(\Delta_i\)</span>)</strong></p>
+</section>
+<section id="passo-3-definição-das-tolerâncias-delta_i" class="level5" data-number="3.2.6.1.8">
+<h5 data-number="3.2.6.1.8" class="anchored" data-anchor-id="passo-3-definição-das-tolerâncias-delta_i"><span class="header-section-number">3.2.6.1.8</span> Passo 3: Definição das Tolerâncias (<span class="math inline">\(\Delta_i\)</span>)</h5>
 <p>Define o quanto o sistema aceita se afastar do alvo antes de perder a qualidade.</p>
 <ul>
-<li><p><span class="math inline">\(x_1 \rightarrow \Delta_1 = \pm 1,0\%\)</span></p></li>
-<li><p><span class="math inline">\(x_2 \rightarrow \Delta_2 = 0,5\%\)</span></p></li>
-<li><p><span class="math inline">\(x_3 \rightarrow \Delta_3 = \pm 3\text{ mm}\)</span></p></li>
-<li><p><em>Regra ARM:</em> A tolerância não é “o que o processo aguenta”, mas o que o cliente tolera.</p></li>
+<li><span class="math inline">\(x_1 \rightarrow \Delta_1 = \pm 1,0\%\)</span></li>
+<li><span class="math inline">\(x_2 \rightarrow \Delta_2 = 0,5\%\)</span></li>
+<li><span class="math inline">\(x_3 \rightarrow \Delta_3 = \pm 3\text{ mm}\)</span></li>
+<li><em>Regra ARM:</em> A tolerância não é “o que o processo aguenta”, mas o que o cliente tolera.</li>
 </ul>
-<p><strong>Passo 4: Definição dos Pesos (<span class="math inline">\(w_i\)</span>)</strong></p>
+</section>
+<section id="passo-4-definição-dos-pesos-w_i" class="level5" data-number="3.2.6.1.9">
+<h5 data-number="3.2.6.1.9" class="anchored" data-anchor-id="passo-4-definição-dos-pesos-w_i"><span class="header-section-number">3.2.6.1.9</span> Passo 4: Definição dos Pesos (<span class="math inline">\(w_i\)</span>)</h5>
 <p>Os pesos refletem o impacto financeiro/operacional no cliente. Aqui ocorre a tradução do subjetivo para o matemático.</p>
 <ul>
-<li><p><span class="math inline">\(w_1 = 0,30\)</span> (Impacto direto no rendimento)</p></li>
-<li><p><span class="math inline">\(w_2 = 0,25\)</span> (Afeta escória e consumo de carvão)</p></li>
-<li><p><span class="math inline">\(w_3 = 0,20\)</span> (Controla fluxo de gases no alto-forno)</p></li>
+<li><span class="math inline">\(w_1 = 0,30\)</span> (Impacto direto no rendimento)</li>
+<li><span class="math inline">\(w_2 = 0,25\)</span> (Afeta escória e consumo de carvão)</li>
+<li><span class="math inline">\(w_3 = 0,20\)</span> (Controla fluxo de gases no alto-forno)</li>
 </ul>
-<p><strong>Passo 5: Escolha da Função de Nota Normalizada (<span class="math inline">\(x^*_i\)</span>)</strong> Define como o afastamento do alvo será penalizado. Em funções lineares normalizadas, a nota varia de 0 a 1: <span class="math display">\[x^*_i = 1 - \min\left(1, \frac{|x_i - r_i|}{\Delta_i}\right)\]</span></p>
-<p><strong>Passo 6 a 10: O Cálculo Operacional</strong> Após estabelecer o modelo (Passos 0 a 5), a operação assume o controle, coletando os dados do lote, gerando o Índice Global (<span class="math inline">\(\theta\)</span>), aplicando penalidades (<span class="math inline">\(P\)</span>) se existirem externalidades e priorizando as ações de melhoria através da identificação da maior Perda (<span class="math inline">\(w_i \times (1 - x^*_i)\)</span>).</p>
+</section>
+<section id="passo-5-escolha-da-função-de-nota-normalizada-x_i" class="level5" data-number="3.2.6.1.10">
+<h5 data-number="3.2.6.1.10" class="anchored" data-anchor-id="passo-5-escolha-da-função-de-nota-normalizada-x_i"><span class="header-section-number">3.2.6.1.10</span> Passo 5: Escolha da Função de Nota Normalizada (<span class="math inline">\(x^*_i\)</span>)</h5>
+<p>Define como o afastamento do alvo será penalizado. Em funções lineares normalizadas, a nota varia de 0 a 1: <span class="math display">\[x^*_i = 1 - \min\left(1, \frac{|x_i - r_i|}{\Delta_i}\right)\]</span></p>
+</section>
+</div>
+</section>
+<section id="passos-6-a-10-o-cálculo-operacional" class="level5" data-number="3.2.6.1.11">
+<h5 data-number="3.2.6.1.11" class="anchored" data-anchor-id="passos-6-a-10-o-cálculo-operacional"><span class="header-section-number">3.2.6.1.11</span> Passos 6 a 10: O Cálculo Operacional</h5>
+<p>Após estabelecer o modelo (Passos 0 a 5), a operação assume o controle, coletando os dados do lote, gerando o Índice Global (<span class="math inline">\(\theta\)</span>), aplicando penalidades (<span class="math inline">\(P\)</span>) se existirem externalidades e priorizando as ações de melhoria através da identificação da maior Perda, dada por <span class="math inline">\(w_i \times (1 - x^*_i)\)</span>.</p>
 <p>Para visualizar o ciclo de cálculo completo (do passo 6 ao 10), acompanhe a aplicação matemática formal no estudo de caso abaixo.</p>
 <div id="exm-arm-passo-siderurgia" class="example theorem">
-<p><span class="theorem-title"><strong>Exemplo 3.4 (Aplicação Matemática: Bobinas de Aço na Siderurgia)</strong></span> Nesta aplicação, o objeto é um lote de bobinas de aço laminado, com critério de liberação exigindo <span class="math inline">\(\theta \ge 0,80\)</span>.</p>
-<p><strong>1. Parametrização Inicial do Modelo (Passos 1 a 4)</strong> A engenharia definiu cinco variáveis de controle, combinando requisitos de alvo central (onde a perfeição é acertar na mosca) e requisitos de limite superior (onde quanto menor, melhor).</p>
+<p><span class="theorem-title"><strong>Exemplo 3.5 (Aplicação Matemática: Bobinas de Aço na Siderurgia)</strong></span> Nesta aplicação, o objeto é um lote de bobinas de aço laminado, com critério de liberação exigindo <span class="math inline">\(\theta \ge 0,80\)</span>.</p>
+<section id="parametrização-inicial-do-modelo-passos-1-a-4" class="level5" data-number="3.2.6.1.12">
+<h5 data-number="3.2.6.1.12" class="anchored" data-anchor-id="parametrização-inicial-do-modelo-passos-1-a-4"><span class="header-section-number">3.2.6.1.12</span> 1. Parametrização Inicial do Modelo (Passos 1 a 4)</h5>
+<p>A engenharia definiu cinco variáveis de controle, combinando requisitos de alvo central (onde a perfeição é acertar na mosca) e requisitos de limite superior (onde quanto menor, melhor).</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
@@ -1201,7 +991,10 @@ Passo 10: PDCAações
 </tr>
 </tbody>
 </table>
-<p><strong>2. Coleta e Cálculo das Notas Individuais (Passos 5 e 6)</strong> O laboratório analisou o lote e obteve o vetor de resultados <span class="math inline">\(\mathbf{x} = [0.085, 0.014, 285, 2.01, 9]\)</span>. Aplicam-se as funções matemáticas:</p>
+</section>
+<section id="coleta-e-cálculo-das-notas-individuais-passos-5-e-6" class="level5" data-number="3.2.6.1.13">
+<h5 data-number="3.2.6.1.13" class="anchored" data-anchor-id="coleta-e-cálculo-das-notas-individuais-passos-5-e-6"><span class="header-section-number">3.2.6.1.13</span> 2. Coleta e Cálculo das Notas Individuais (Passos 5 e 6)</h5>
+<p>O laboratório analisou o lote e obteve o vetor de resultados <span class="math inline">\(\mathbf{x} = [0.085, 0.014, 285, 2.01, 9]\)</span>. Aplicam-se as funções matemáticas:</p>
 <ul>
 <li><p>Para tipo <strong>Alvo Nominal</strong>: <span class="math inline">\(x^*_i = 1 - \min\left(1, \frac{|x_i - r_i|}{\Delta_i}\right)\)</span></p></li>
 <li><p>Para tipo <strong>Limite Superior</strong>: <span class="math display">\[x^*_i = \begin{cases} 1, &amp; x_i \le r_i \\ 1 - \min\left(1, \frac{x_i - r_i}{\Delta_i}\right), &amp; x_i &gt; r_i \end{cases}\]</span></p></li>
@@ -1214,9 +1007,15 @@ Passo 10: PDCAações
 <li><p><span class="math inline">\(x^*_4 (\text{Espessura}): 1 - (|2,01 - 2,00| / 0,05) = \mathbf{0,80}\)</span></p></li>
 <li><p><span class="math inline">\(x^*_5 (\text{Planicidade}): 9 \le 10 \rightarrow \mathbf{1,00}\)</span> (Perfeito)</p></li>
 </ul>
-<p><strong>3. Índice Global e Ajuste de Risco (Passos 7 e 8)</strong> Como <span class="math inline">\(\sum w_i = 1\)</span>, o índice global <span class="math inline">\(\theta\)</span> é o somatório direto: <span class="math display">\[\theta = (0,20 \times 0,75) + (0,25 \times 1,00) + (0,25 \times 0,75) + (0,20 \times 0,80) + (0,10 \times 1,00)\]</span> <span class="math display">\[\theta = 0,15 + 0,25 + 0,1875 + 0,16 + 0,10 = \mathbf{0,8475}\]</span></p>
+</section>
+<section id="índice-global-e-ajuste-de-risco-passos-7-e-8" class="level5" data-number="3.2.6.1.14">
+<h5 data-number="3.2.6.1.14" class="anchored" data-anchor-id="índice-global-e-ajuste-de-risco-passos-7-e-8"><span class="header-section-number">3.2.6.1.14</span> 3. Índice Global e Ajuste de Risco (Passos 7 e 8)</h5>
+<p>Como <span class="math inline">\(\sum w_i = 1\)</span>, o índice global <span class="math inline">\(\theta\)</span> é o somatório direto: <span class="math display">\[\theta = (0,20 \times 0,75) + (0,25 \times 1,00) + (0,25 \times 0,75) + (0,20 \times 0,80) + (0,10 \times 1,00)\]</span> <span class="math display">\[\theta = 0,15 + 0,25 + 0,1875 + 0,16 + 0,10 = \mathbf{0,8475}\]</span></p>
 <p>Durante a produção, houve um desvio operacional que gerou pequeno retrabalho (severidade <span class="math inline">\(g=1\)</span>, fator de penalidade <span class="math inline">\(\rho=0,02\)</span>). A qualidade ajustada (<span class="math inline">\(\theta^*\)</span>) passa a ser: <span class="math display">\[\theta^* = \max(0, \theta - P) \rightarrow 0,8475 - 0,02 = \mathbf{0,8275}\]</span></p>
-<p><strong>4. Decisão e Priorização (Passos 9 e 10)</strong> Como <span class="math inline">\(\theta^* = 0,8275 \ge 0,80\)</span> (limiar mínimo), o lote é <strong>APROVADO e liberado</strong>. Para a melhoria contínua, o algoritmo orienta a equipe calculando a perda ponderada (<span class="math inline">\(\text{Perda}_i = w_i \times (1 - x^*_i)\)</span>) para priorizar onde atuar no próximo lote:</p>
+</section>
+<section id="decisão-e-priorização-passos-9-e-10" class="level5" data-number="3.2.6.1.15">
+<h5 data-number="3.2.6.1.15" class="anchored" data-anchor-id="decisão-e-priorização-passos-9-e-10"><span class="header-section-number">3.2.6.1.15</span> 4. Decisão e Priorização (Passos 9 e 10)</h5>
+<p>Como <span class="math inline">\(\theta^* = 0,8275 \ge 0,80\)</span> (limiar mínimo), o lote é <strong>APROVADO e liberado</strong>. Para a melhoria contínua, o algoritmo orienta a equipe calculando a perda ponderada (<span class="math inline">\(\text{Perda}_i = w_i \times (1 - x^*_i)\)</span>) para priorizar onde atuar no próximo lote:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -1266,44 +1065,79 @@ Passo 10: PDCAações
 </tbody>
 </table>
 <p><strong>Conclusão:</strong> O sistema indica que a engenharia de processo deve ajustar prioritariamente os fornos para reduzir a variabilidade do Escoamento (<span class="math inline">\(Re\)</span>) e do Carbono, pois a combinação de alto peso com nota abaixo de 1 é o que mais drena o valor financeiro do produto.</p>
+</section>
 </div>
 <div id="exm-ferrovia" class="example theorem">
-<p><span class="theorem-title"><strong>Exemplo 3.5 (Serviço de Escoamento Ferroviário)</strong></span> Neste cenário, o usuário (o terminal portuário) avalia a qualidade do serviço prestado pela ferrovia através de três parâmetros: Pontualidade (<span class="math inline">\(x_1\)</span>), Integridade da Carga (<span class="math inline">\(x_2\)</span>) e Disponibilidade de Vagões (<span class="math inline">\(x_3\)</span>).</p>
-<p><strong>1. Atribuição de Pesos (<span class="math inline">\(w_i\)</span>)</strong> O porto define os pesos com base no impacto no custo de operação (<em>demurrage</em> de navios):</p>
+<p><span class="theorem-title"><strong>Exemplo 3.6 (Serviço de Escoamento Ferroviário)</strong></span> Neste cenário, o usuário (o terminal portuário) avalia a qualidade do serviço prestado pela ferrovia através de três parâmetros: Pontualidade (<span class="math inline">\(x_1\)</span>), Integridade da Carga (<span class="math inline">\(x_2\)</span>) e Disponibilidade de Vagões (<span class="math inline">\(x_3\)</span>).</p>
+<section id="atribuição-de-pesos-w_i" class="level5" data-number="3.2.6.1.16">
+<h5 data-number="3.2.6.1.16" class="anchored" data-anchor-id="atribuição-de-pesos-w_i"><span class="header-section-number">3.2.6.1.16</span> 1. Atribuição de Pesos (<span class="math inline">\(w_i\)</span>)</h5>
+<p>O porto define os pesos com base no impacto no custo de operação (<em>demurrage</em> de navios):</p>
 <ul>
 <li><p><strong><span class="math inline">\(w_1=0,5\)</span> (50%):</strong> A pontualidade é crítica para não perder a janela de atracação.</p></li>
 <li><p><strong><span class="math inline">\(w_2=0,3\)</span> (30%):</strong> A integridade (não haver contaminação de minérios no trajeto) é essencial.</p></li>
 <li><p><strong><span class="math inline">\(w_3=0,2\)</span> (20%):</strong> A quantidade de vagões disponíveis conforme o plano nominal.</p></li>
 </ul>
-<p><strong>2. Avaliação da Qualidade (<span class="math inline">\(x^*_i\)</span>)</strong> Avaliação do desempenho do serviço no último mês (escala de 0 a 10):</p>
+</section>
+<section id="avaliação-da-qualidade-x_i" class="level5" data-number="3.2.6.1.17">
+<h5 data-number="3.2.6.1.17" class="anchored" data-anchor-id="avaliação-da-qualidade-x_i"><span class="header-section-number">3.2.6.1.17</span> 2. Avaliação da Qualidade (<span class="math inline">\(x^*_i\)</span>)</h5>
+<p>Avaliação do desempenho do serviço no último mês (escala de 0 a 10):</p>
 <ul>
 <li><p><strong><span class="math inline">\(x^*_1=6,0\)</span>:</strong> Ocorreram atrasos frequentes nas descargas (nota baixa).</p></li>
 <li><p><strong><span class="math inline">\(x^*_2=10,0\)</span>:</strong> Nenhuma contaminação ou perda de carga foi registrada.</p></li>
 <li><p><strong><span class="math inline">\(x^*_3=9,0\)</span>:</strong> A ferrovia entregou quase a totalidade da frota prometida.</p></li>
 </ul>
-<p><strong>3. Cálculo da Função Global</strong> <span class="math display">\[\theta = (0,5 \times 6,0) + (0,3 \times 10,0) + (0,2 \times 9,0)\]</span> <span class="math display">\[\theta = 3,0 + 3,0 + 1,8 = \mathbf{7,8}\]</span></p>
-<p><strong>4. Análise do Resultado</strong> Embora a ferrovia tenha sido perfeita na integridade (<span class="math inline">\(x^*_2=10\)</span>) e muito boa na oferta de vagões (<span class="math inline">\(x^*_3=9\)</span>), a Qualidade Total do Serviço foi <strong>7,8</strong>. * <strong>Interpretação Didática:</strong> O parâmetro de maior peso para o cliente era a Pontualidade (50%). Como o desempenho nesse item foi baixo (6,0), ele comprometeu severamente a nota final. * <strong>Conclusão:</strong> Para aumentar a Qualidade Total percebida, o gestor logístico deve priorizar o Planejamento da Qualidade sobre o fluxo de tráfego para reduzir atrasos, pois é onde reside a maior expectativa do cliente.</p>
+</section>
+<section id="cálculo-da-função-global" class="level5" data-number="3.2.6.1.18">
+<h5 data-number="3.2.6.1.18" class="anchored" data-anchor-id="cálculo-da-função-global"><span class="header-section-number">3.2.6.1.18</span> 3. Cálculo da Função Global</h5>
+<p><span class="math display">\[\theta = (0,5 \times 6,0) + (0,3 \times 10,0) + (0,2 \times 9,0)\]</span> <span class="math display">\[\theta = 3,0 + 3,0 + 1,8 = \mathbf{7,8}\]</span></p>
+</section>
+<section id="análise-do-resultado" class="level5" data-number="3.2.6.1.19">
+<h5 data-number="3.2.6.1.19" class="anchored" data-anchor-id="análise-do-resultado"><span class="header-section-number">3.2.6.1.19</span> 4. Análise do Resultado</h5>
+<p>Embora a ferrovia tenha sido perfeita na integridade (<span class="math inline">\(x^*_2=10\)</span>) e muito boa na oferta de vagões (<span class="math inline">\(x^*_3=9\)</span>), a Qualidade Total do Serviço foi <strong>7,8</strong>.</p>
+<ul>
+<li><p><strong>Interpretação Didática:</strong> O parâmetro de maior peso para o cliente era a Pontualidade (50%). Como o desempenho nesse item foi baixo (6,0), ele comprometeu severamente a nota final.</p></li>
+<li><p><strong>Conclusão:</strong> Para aumentar a Qualidade Total percebida, o gestor logístico deve priorizar o Planejamento da Qualidade sobre o fluxo de tráfego para reduzir atrasos, pois é onde reside a maior expectativa do cliente.</p></li>
+</ul>
+</section>
 </div>
 <div id="exm-gestao" class="example theorem">
-<p><span class="theorem-title"><strong>Exemplo 3.6 (Qualidade pelo Atingimento de Metas (Gestão))</strong></span> Para finalizar a aplicação conceitual, utilizaremos como objeto a própria Organização e sua eficácia no cumprimento do plano estratégico.</p>
-<p><strong>1. Atribuição de Pesos (<span class="math inline">\(w_i\)</span>)</strong> A Alta Direção define o que é prioritário para o sucesso do negócio no trimestre:</p>
+<p><span class="theorem-title"><strong>Exemplo 3.7 (Qualidade pelo Atingimento de Metas (Gestão))</strong></span> Para finalizar a aplicação conceitual, utilizaremos como objeto a própria Organização e sua eficácia no cumprimento do plano estratégico.</p>
+<section id="atribuição-de-pesos-w_i-1" class="level5" data-number="3.2.6.1.20">
+<h5 data-number="3.2.6.1.20" class="anchored" data-anchor-id="atribuição-de-pesos-w_i-1"><span class="header-section-number">3.2.6.1.20</span> 1. Atribuição de Pesos (<span class="math inline">\(w_i\)</span>)</h5>
+<p>A Alta Direção define o que é prioritário para o sucesso do negócio no trimestre:</p>
 <ul>
 <li><p><strong><span class="math inline">\(w_1=0,4\)</span> (40%):</strong> Aderência ao Plano de Produção (Volume).</p></li>
 <li><p><strong><span class="math inline">\(w_2=0,4\)</span> (40%):</strong> Custo Operacional Unitário (Eficiência financeira).</p></li>
 <li><p><strong><span class="math inline">\(w_3=0,2\)</span> (20%):</strong> Índice de Treinamento e Capacitação (Desenvolvimento de pessoas).</p></li>
 </ul>
-<p><strong>2. Avaliação da Qualidade (<span class="math inline">\(x^*_i\)</span>)</strong> Desempenho apurado no fechamento do período:</p>
+</section>
+<section id="avaliação-da-qualidade-x_i-1" class="level5" data-number="3.2.6.1.21">
+<h5 data-number="3.2.6.1.21" class="anchored" data-anchor-id="avaliação-da-qualidade-x_i-1"><span class="header-section-number">3.2.6.1.21</span> 2. Avaliação da Qualidade (<span class="math inline">\(x^*_i\)</span>)</h5>
+<p>Desempenho apurado no fechamento do período:</p>
 <ul>
 <li><p><strong><span class="math inline">\(x^*_1=10,0\)</span>:</strong> O volume produzido superou a meta estabelecida.</p></li>
 <li><p><strong><span class="math inline">\(x^*_2=4,0\)</span>:</strong> O custo foi muito superior ao orçado devido a gastos imprevistos.</p></li>
 <li><p><strong><span class="math inline">\(x^*_3=8,5\)</span>:</strong> A maioria das horas de treinamento previstas foi executada.</p></li>
 </ul>
-<p><strong>3. Cálculo da Função Global</strong> <span class="math display">\[\theta = (0,4 \times 10,0) + (0,4 \times 4,0) + (0,2 \times 8,5)\]</span> <span class="math display">\[\theta = 4,0 + 1,6 + 1,7 = \mathbf{7,3}\]</span></p>
-<p><strong>4. Análise do Resultado</strong> A Qualidade Total da Organização foi <strong>7,3</strong>. * <strong>Interpretação Didática:</strong> O sucesso operacional em volume (<span class="math inline">\(x^*_1=10\)</span>) não foi suficiente para garantir excelência, pois a gestão financeira (<span class="math inline">\(x^*_2\)</span>) falhou e possuía o mesmo peso estratégico. * <strong>Conclusão:</strong> A Melhoria da Qualidade deve focar urgentemente no controle de custos, sob pena de o volume produzido não se traduzir em valor real (lucro) para o sistema.</p>
+</section>
+<section id="cálculo-da-função-global-1" class="level5" data-number="3.2.6.1.22">
+<h5 data-number="3.2.6.1.22" class="anchored" data-anchor-id="cálculo-da-função-global-1"><span class="header-section-number">3.2.6.1.22</span> 3. Cálculo da Função Global</h5>
+<p><span class="math display">\[\theta = (0,4 \times 10,0) + (0,4 \times 4,0) + (0,2 \times 8,5)\]</span> <span class="math display">\[\theta = 4,0 + 1,6 + 1,7 = \mathbf{7,3}\]</span></p>
+</section>
+<section id="análise-do-resultado-1" class="level5" data-number="3.2.6.1.23">
+<h5 data-number="3.2.6.1.23" class="anchored" data-anchor-id="análise-do-resultado-1"><span class="header-section-number">3.2.6.1.23</span> 4. Análise do Resultado</h5>
+<p>A Qualidade Total da Organização foi <strong>7,3</strong>.</p>
+<ul>
+<li><p><strong>Interpretação Didática:</strong> O sucesso operacional em volume (<span class="math inline">\(x^*_1=10\)</span>) não foi suficiente para garantir excelência, pois a gestão financeira (<span class="math inline">\(x^*_2\)</span>) falhou e possuía o mesmo peso estratégico.</p></li>
+<li><p><strong>Conclusão:</strong> A Melhoria da Qualidade deve focar urgentemente no controle de custos, sob pena de o volume produzido não se traduzir em valor real (lucro) para o sistema.</p></li>
+</ul>
+</section>
 </div>
 <div id="exm-silica" class="example theorem">
-<p><span class="theorem-title"><strong>Exemplo 3.7 (Estudo de Caso I: O Desafio do Minério de Alta Sílica)</strong></span> Neste estudo, o objeto é o “Produto B”, um minério de ferro com alta sílica processado em uma usina na região Norte. O desafio reside no fato de este material ser altamente abrasivo e não possuir dados históricos, exigindo monitoramento rigoroso via KPIs.</p>
-<p><strong>Passo 1: Definição dos Parâmetros (<span class="math inline">\(x_i\)</span>)</strong> Com base no problema de pesquisa e nos ofensores identificados, selecionamos cinco parâmetros fundamentais:</p>
+<p><span class="theorem-title"><strong>Exemplo 3.8 (Estudo de Caso I: O Desafio do Minério de Alta Sílica)</strong></span> Neste estudo, o objeto é o “Produto B”, um minério de ferro com alta sílica processado em uma usina na região Norte. O desafio reside no fato de este material ser altamente abrasivo e não possuir dados históricos, exigindo monitoramento rigoroso via KPIs.</p>
+<section id="passo-1-definição-dos-parâmetros-x_i" class="level5" data-number="3.2.6.1.24">
+<h5 data-number="3.2.6.1.24" class="anchored" data-anchor-id="passo-1-definição-dos-parâmetros-x_i"><span class="header-section-number">3.2.6.1.24</span> Passo 1: Definição dos Parâmetros (<span class="math inline">\(x_i\)</span>)</h5>
+<p>Com base no problema de pesquisa e nos ofensores identificados, selecionamos cinco parâmetros fundamentais:</p>
 <ul>
 <li><p><strong><span class="math inline">\(x_1\)</span> (Teor de Ferro - Fe):</strong> Indicador de qualidade química e valor de mercado.</p></li>
 <li><p><strong><span class="math inline">\(x_2\)</span> (Teor de Sílica - SiO2):</strong> Parâmetro crítico devido à abrasividade e impacto nos equipamentos.</p></li>
@@ -1311,7 +1145,10 @@ Passo 10: PDCAações
 <li><p><strong><span class="math inline">\(x_4\)</span> (Eficiência do Processo - Carga Circulante):</strong> Saúde do sistema de britagem e peneiramento.</p></li>
 <li><p><strong><span class="math inline">\(x_5\)</span> (Qualidade Física - Fração +19 mm):</strong> Conformidade granulométrica necessária.</p></li>
 </ul>
-<p><strong>Passo 2: Ponderação Estratégica (<span class="math inline">\(w_i\)</span>)</strong> A organização atribui pesos conforme a prioridade do teste (<span class="math inline">\(\sum w_i = 1,0\)</span>):</p>
+</section>
+<section id="passo-2-ponderação-estratégica-w_i" class="level5" data-number="3.2.6.1.25">
+<h5 data-number="3.2.6.1.25" class="anchored" data-anchor-id="passo-2-ponderação-estratégica-w_i"><span class="header-section-number">3.2.6.1.25</span> Passo 2: Ponderação Estratégica (<span class="math inline">\(w_i\)</span>)</h5>
+<p>A organização atribui pesos conforme a prioridade do teste (<span class="math inline">\(\sum w_i = 1,0\)</span>):</p>
 <ul>
 <li><p><strong><span class="math inline">\(w_1=0,30\)</span> (30%):</strong> O ferro é a missão básica do produto.</p></li>
 <li><p><strong><span class="math inline">\(w_2=0,25\)</span> (25%):</strong> A sílica é o maior risco operacional deste teste.</p></li>
@@ -1319,7 +1156,10 @@ Passo 10: PDCAações
 <li><p><strong><span class="math inline">\(w_4=0,15\)</span> (15%):</strong> A carga circulante indica a estabilidade da usina.</p></li>
 <li><p><strong><span class="math inline">\(w_5=0,10\)</span> (10%):</strong> A granulometria teve menor peso estratégico nesta campanha.</p></li>
 </ul>
-<p><strong>Passo 3: Atribuição de Notas de Desempenho (<span class="math inline">\(x^*_i\)</span>)</strong> Notas comparando o realizado com o requisito estabelecido:</p>
+</section>
+<section id="passo-3-atribuição-de-notas-de-desempenho-x_i" class="level5" data-number="3.2.6.1.26">
+<h5 data-number="3.2.6.1.26" class="anchored" data-anchor-id="passo-3-atribuição-de-notas-de-desempenho-x_i"><span class="header-section-number">3.2.6.1.26</span> Passo 3: Atribuição de Notas de Desempenho (<span class="math inline">\(x^*_i\)</span>)</h5>
+<p>Notas comparando o realizado com o requisito estabelecido:</p>
 <ul>
 <li><p><strong><span class="math inline">\(x^*_1=9,0\)</span>:</strong> Desempenho excelente; a média de 49,42% superou as expectativas.</p></li>
 <li><p><strong><span class="math inline">\(x^*_2=7,0\)</span>:</strong> Satisfatório; sílica próxima do limite inferior esperado.</p></li>
@@ -1327,12 +1167,26 @@ Passo 10: PDCAações
 <li><p><strong><span class="math inline">\(x^*_4=4,0\)</span>:</strong> Desempenho crítico; carga circulante atingiu 204% (muito acima do padrão de 145%).</p></li>
 <li><p><strong><span class="math inline">\(x^*_5=1,0\)</span>:</strong> Falha no requisito físico; 0,27% de fração retida para meta de 4,0%.</p></li>
 </ul>
-<p><strong>Passo 4: Processamento Matemático</strong> <span class="math display">\[\theta = (0,30 \times 9,0) + (0,25 \times 7,0) + (0,20 \times 9,9) + (0,15 \times 4,0) + (0,10 \times 1,0)\]</span> <span class="math display">\[\theta = 2,7 + 1,75 + 1,98 + 0,6 + 0,1 = \mathbf{7,13}\]</span></p>
-<p><strong>Passo 5: Diagnóstico Gerencial</strong> O resultado de <strong>7,13</strong> indica que, embora o teste tenha sido um sucesso sob a ótica química e comercial, ele apresentou falhas graves sob a ótica de processo e física. * <strong>Eficácia vs.&nbsp;Eficiência:</strong> A organização foi eficaz em entregar o produto (<span class="math inline">\(x^*_1\)</span> e <span class="math inline">\(x^*_3\)</span>), mas ineficiente no processo (<span class="math inline">\(x^*_4\)</span>). O alto nível de recirculado gerou restrições na alimentação. * <strong>Oportunidade de Melhoria:</strong> O baixo valor em <span class="math inline">\(x^*_5\)</span> e <span class="math inline">\(x^*_4\)</span> aponta que o foco do próximo planejamento deve ser o ajuste das telas de peneiramento e setpoints dos britadores.</p>
+</section>
+<section id="passo-4-processamento-matemático" class="level5" data-number="3.2.6.1.27">
+<h5 data-number="3.2.6.1.27" class="anchored" data-anchor-id="passo-4-processamento-matemático"><span class="header-section-number">3.2.6.1.27</span> Passo 4: Processamento Matemático</h5>
+<p><span class="math display">\[\theta = (0,30 \times 9,0) + (0,25 \times 7,0) + (0,20 \times 9,9) + (0,15 \times 4,0) + (0,10 \times 1,0)\]</span></p>
+<p><span class="math display">\[\theta = 2,7 + 1,75 + 1,98 + 0,6 + 0,1 = \mathbf{7,13}\]</span></p>
+</section>
+<section id="passo-5-diagnóstico-gerencial" class="level5" data-number="3.2.6.1.28">
+<h5 data-number="3.2.6.1.28" class="anchored" data-anchor-id="passo-5-diagnóstico-gerencial"><span class="header-section-number">3.2.6.1.28</span> Passo 5: Diagnóstico Gerencial</h5>
+<p>O resultado de <strong>7,13</strong> indica que, embora o teste tenha sido um sucesso sob a ótica química e comercial, ele apresentou falhas graves sob a ótica de processo e física.</p>
+<ul>
+<li><p><strong>Eficácia vs.&nbsp;Eficiência:</strong> A organização foi eficaz em entregar o produto (<span class="math inline">\(x^*_1\)</span> e <span class="math inline">\(x^*_3\)</span>), mas ineficiente no processo (<span class="math inline">\(x^*_4\)</span>). O alto nível de recirculado gerou restrições na alimentação.</p></li>
+<li><p><strong>Oportunidade de Melhoria:</strong> O baixo valor em <span class="math inline">\(x^*_5\)</span> e <span class="math inline">\(x^*_4\)</span> aponta que o foco do próximo planejamento deve ser o ajuste das telas de peneiramento e setpoints dos britadores.</p></li>
+</ul>
+</section>
 </div>
 <div id="exm-ppcj" class="example theorem">
-<p><span class="theorem-title"><strong>Exemplo 3.8 (Estudo de Caso II: Acurácia de Estoque e Medição (PPCJ))</strong></span> Neste cenário, o objeto é o processo de produção e estocagem do produto PPCJ. O principal desafio é a divergência entre o estoque contábil (balanças) e o estoque físico (topografia), que frequentemente supera o limite aceitável de ±2%.</p>
-<p><strong>Passo 1: Definição dos Parâmetros (<span class="math inline">\(x_i\)</span>)</strong> Selecionamos cinco parâmetros fundamentais para a confiabilidade:</p>
+<p><span class="theorem-title"><strong>Exemplo 3.9 (Estudo de Caso II: Acurácia de Estoque e Medição (PPCJ))</strong></span> Neste cenário, o objeto é o processo de produção e estocagem do produto PPCJ. O principal desafio é a divergência entre o estoque contábil (balanças) e o estoque físico (topografia), que frequentemente supera o limite aceitável de ±2%.</p>
+<section id="passo-1-definição-dos-parâmetros-x_i-1" class="level5" data-number="3.2.6.1.29">
+<h5 data-number="3.2.6.1.29" class="anchored" data-anchor-id="passo-1-definição-dos-parâmetros-x_i-1"><span class="header-section-number">3.2.6.1.29</span> Passo 1: Definição dos Parâmetros (<span class="math inline">\(x_i\)</span>)</h5>
+<p>Selecionamos cinco parâmetros fundamentais para a confiabilidade:</p>
 <ul>
 <li><p><strong><span class="math inline">\(x_1\)</span> (Teor de Ferro):</strong> Requisito básico do produto.</p></li>
 <li><p><strong><span class="math inline">\(x_2\)</span> (Conformidade de Estoque):</strong> Acurácia entre físico e contábil (limite ±2%).</p></li>
@@ -1340,7 +1194,9 @@ Passo 10: PDCAações
 <li><p><strong><span class="math inline">\(x_4\)</span> (Confiabilidade de Medição):</strong> Desempenho das balanças e periodicidade de calibração.</p></li>
 <li><p><strong><span class="math inline">\(x_5\)</span> (Controle de Umidade):</strong> Essencial para densidade e pesagem correta.</p></li>
 </ul>
-<p><strong>Passo 2: Ponderação Estratégica (<span class="math inline">\(w_i\)</span>)</strong></p>
+</section>
+<section id="passo-2-ponderação-estratégica-w_i-1" class="level5" data-number="3.2.6.1.30">
+<h5 data-number="3.2.6.1.30" class="anchored" data-anchor-id="passo-2-ponderação-estratégica-w_i-1"><span class="header-section-number">3.2.6.1.30</span> Passo 2: Ponderação Estratégica (<span class="math inline">\(w_i\)</span>)</h5>
 <ul>
 <li><p><strong><span class="math inline">\(w_1=0,20\)</span> (20%):</strong> Importância padrão para o teor metálico.</p></li>
 <li><p><strong><span class="math inline">\(w_2=0,35\)</span> (35%):</strong> Peso maior devido ao impacto em auditorias e bolsas de valores.</p></li>
@@ -1348,7 +1204,9 @@ Passo 10: PDCAações
 <li><p><strong><span class="math inline">\(w_4=0,20\)</span> (20%):</strong> Reflete o “Poder de Atuação” identificado na Matriz GUT.</p></li>
 <li><p><strong><span class="math inline">\(w_5=0,10\)</span> (10%):</strong> Parâmetro técnico de suporte.</p></li>
 </ul>
-<p><strong>Passo 3: Atribuição de Notas (<span class="math inline">\(x^*_i\)</span>)</strong></p>
+</section>
+<section id="passo-3-atribuição-de-notas-x_i" class="level5" data-number="3.2.6.1.31">
+<h5 data-number="3.2.6.1.31" class="anchored" data-anchor-id="passo-3-atribuição-de-notas-x_i"><span class="header-section-number">3.2.6.1.31</span> Passo 3: Atribuição de Notas (<span class="math inline">\(x^*_i\)</span>)</h5>
 <ul>
 <li><p><strong><span class="math inline">\(x^*_1=9,5\)</span>:</strong> Excelente desempenho químico (49,17% Fe).</p></li>
 <li><p><strong><span class="math inline">\(x^*_2=3,0\)</span>:</strong> Nota baixa; desvios de estoque muito além dos ±2%.</p></li>
@@ -1356,8 +1214,20 @@ Passo 10: PDCAações
 <li><p><strong><span class="math inline">\(x^*_4=4,0\)</span>:</strong> Crítico; Matriz GUT aponta periodicidade inadequada de calibração.</p></li>
 <li><p><strong><span class="math inline">\(x^*_5=6,0\)</span>:</strong> Regular; umidade impactando a densidade calculada.</p></li>
 </ul>
-<p><strong>Passo 4: Processamento Matemático</strong> <span class="math display">\[\theta = (0,20 \times 9,5) + (0,35 \times 3,0) + (0,15 \times 8,0) + (0,20 \times 4,0) + (0,10 \times 6,0)\]</span> <span class="math display">\[\theta = 1,9 + 1,05 + 1,2 + 0,8 + 0,6 = \mathbf{5,55}\]</span></p>
-<p><strong>Passo 5: Diagnóstico Gerencial</strong> O resultado de <strong>5,55</strong> revela um sistema de gestão sob estresse. * <strong>O “Paradoxo da Qualidade”:</strong> A organização produz um minério de excelente teor químico (<span class="math inline">\(x^*_1=9,5\)</span>), mas falha na garantia da qualidade da informação. * <strong>Causa Raiz:</strong> A baixa nota global é puxada pela falta de acurácia no estoque (<span class="math inline">\(x^*_2\)</span>) e falhas de calibração (<span class="math inline">\(x^*_4\)</span>). * <strong>Ação de Melhoria:</strong> O foco imediato deve ser a revisão da periodicidade de calibração e a atualização da densidade das pilhas. Sem isso, a “qualidade” percebida pelos auditores continuará baixa, independente da excelência do produto físico.</p>
+</section>
+<section id="passo-4-processamento-matemático-1" class="level5" data-number="3.2.6.1.32">
+<h5 data-number="3.2.6.1.32" class="anchored" data-anchor-id="passo-4-processamento-matemático-1"><span class="header-section-number">3.2.6.1.32</span> Passo 4: Processamento Matemático</h5>
+<p><span class="math display">\[\theta = (0,20 \times 9,5) + (0,35 \times 3,0) + (0,15 \times 8,0) + (0,20 \times 4,0) + (0,10 \times 6,0)\]</span></p>
+<p><span class="math display">\[\theta = 1,9 + 1,05 + 1,2 + 0,8 + 0,6 = \mathbf{5,55}\]</span></p>
+</section>
+<section id="passo-5-diagnóstico-gerencial-1" class="level5" data-number="3.2.6.1.33">
+<h5 data-number="3.2.6.1.33" class="anchored" data-anchor-id="passo-5-diagnóstico-gerencial-1"><span class="header-section-number">3.2.6.1.33</span> Passo 5: Diagnóstico Gerencial</h5>
+<p>O resultado de <strong>5,55</strong> revela um sistema de gestão sob estresse.</p>
+<ul>
+<li><p><strong>O “Paradoxo da Qualidade”:</strong> A organização produz um minério de excelente teor químico (<span class="math inline">\(x^*_1=9,5\)</span>), mas falha na garantia da qualidade da informação.</p></li>
+<li><p><strong>Causa Raiz:</strong> A baixa nota global é puxada pela falta de acurácia no estoque (<span class="math inline">\(x^*_2\)</span>) e falhas de calibração (<span class="math inline">\(x^*_4\)</span>).</p></li>
+<li><p><strong>Ação de Melhoria:</strong> O foco imediato deve ser a revisão da periodicidade de calibração e a atualização da densidade das pilhas. Sem isso, a “qualidade” percebida pelos auditores continuará baixa, independente da excelência do produto físico.</p></li>
+</ul>
 <div class="callout callout-style-default callout-tip callout-titled" title="Critérios de Robustez: Quantas características utilizar?">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1377,35 +1247,51 @@ Passo 10: PDCAações
 <p>No entanto, a função é expansível. Poderíamos adicionar <strong><span class="math inline">\(x_6\)</span> (Pluviosidade)</strong> para explicar a variação da umidade, criando uma análise ainda mais sistêmica.</p>
 </div>
 </div>
+</section>
 </div>
 </section>
 </section>
-<section id="sec-modelagem-processos" class="level3" data-number="3.2.6">
-<h3 data-number="3.2.6" class="anchored" data-anchor-id="sec-modelagem-processos"><span class="header-section-number">3.2.6</span> A Expansão do Modelo: Quantificando a Qualidade de Processos</h3>
+</section>
+<section id="sec-modelagem-processos" class="level3" data-number="3.2.7">
+<h3 data-number="3.2.7" class="anchored" data-anchor-id="sec-modelagem-processos"><span class="header-section-number">3.2.7</span> A Expansão do Modelo: Quantificando a Qualidade de Processos</h3>
 <p>Até este ponto, nossa modelagem esteve ancorada na avaliação do <strong>Produto</strong> final. Garantir a conformidade do minério é vital para satisfazer o cliente. No entanto, na engenharia de produção, o produto físico é apenas a consequência; o verdadeiro campo de batalha gerencial é o controle do <strong>Processo</strong>.</p>
 <p>Como podemos aplicar a equação do modelo ARM para medir a “qualidade” de uma operação industrial antes mesmo de o produto ficar pronto?</p>
 <p>A resposta é deslocar o objeto de estudo. Em vez de avaliar a rocha, avaliamos o maquinário e o fluxo de trabalho. As variáveis (<span class="math inline">\(x_i\)</span>) deixam de ser propriedades químicas e passam a ser <strong>Métricas de Desempenho Operacional (KPIs)</strong>.</p>
 <div id="exm-britagem" class="example theorem">
-<p><span class="theorem-title"><strong>Exemplo 3.9 (Estudo de Caso III: Qualidade do Processo de Britagem Primária)</strong></span> A gerência precisa avaliar a “saúde” e a eficiência operacional da planta de britagem primária em uma determinada semana, não pelo tamanho da pedra que sai, mas por <em>como</em> a máquina está sendo operada.</p>
-<p><strong>1. Definição dos Parâmetros do Processo (<span class="math inline">\(x_i\)</span>) e Pesos (<span class="math inline">\(w_i\)</span>)</strong> A engenharia selecionou quatro variáveis operacionais de impacto direto no custo e na produtividade:</p>
+<p><span class="theorem-title"><strong>Exemplo 3.10 (Estudo de Caso III: Qualidade do Processo de Britagem Primária)</strong></span> A gerência precisa avaliar a “saúde” e a eficiência operacional da planta de britagem primária em uma determinada semana, não pelo tamanho da pedra que sai, mas por <em>como</em> a máquina está sendo operada.</p>
+<section id="definição-dos-parâmetros-do-processo-x_i-e-pesos-w_i" class="level5" data-number="3.2.7.0.1">
+<h5 data-number="3.2.7.0.1" class="anchored" data-anchor-id="definição-dos-parâmetros-do-processo-x_i-e-pesos-w_i"><span class="header-section-number">3.2.7.0.1</span> 1. Definição dos Parâmetros do Processo (<span class="math inline">\(x_i\)</span>) e Pesos (<span class="math inline">\(w_i\)</span>)</h5>
+<p>A engenharia selecionou quatro variáveis operacionais de impacto direto no custo e na produtividade:</p>
 <ul>
 <li><p><strong><span class="math inline">\(x_1\)</span> (Disponibilidade Física - DF):</strong> O equipamento está pronto e liberado para operar? (Peso <span class="math inline">\(w_1 = 0,30\)</span>).</p></li>
 <li><p><strong><span class="math inline">\(x_2\)</span> (Taxa de Alimentação - t/h):</strong> O processo atinge a produtividade nominal de projeto? (Peso <span class="math inline">\(w_2 = 0,30\)</span>).</p></li>
 <li><p><strong><span class="math inline">\(x_3\)</span> (Consumo Específico de Energia - kWh/t):</strong> O processo é eficiente no uso de recursos elétricos? (Peso <span class="math inline">\(w_3 = 0,20\)</span>).</p></li>
 <li><p><strong><span class="math inline">\(x_4\)</span> (MTBF - Tempo Médio Entre Falhas):</strong> O processo é confiável ao longo do turno, sem paradas intermitentes? (Peso <span class="math inline">\(w_4 = 0,20\)</span>).</p></li>
 </ul>
-<p><strong>2. Atribuição de Notas de Desempenho (<span class="math inline">\(x^*_i\)</span>)</strong> Comparamos o resultado realizado pelo processo na semana contra a meta (budget) estabelecida (escala de 0 a 10):</p>
+</section>
+<section id="atribuição-de-notas-de-desempenho-x_i" class="level5" data-number="3.2.7.0.2">
+<h5 data-number="3.2.7.0.2" class="anchored" data-anchor-id="atribuição-de-notas-de-desempenho-x_i"><span class="header-section-number">3.2.7.0.2</span> 2. Atribuição de Notas de Desempenho (<span class="math inline">\(x^*_i\)</span>)</h5>
+<p>Comparamos o resultado realizado pelo processo na semana contra a meta (budget) estabelecida (escala de 0 a 10):</p>
 <ul>
 <li><p><strong><span class="math inline">\(x^*_1 = 9,0\)</span>:</strong> DF excelente (atingiu 92% da disponibilidade programada).</p></li>
 <li><p><strong><span class="math inline">\(x^*_2 = 8,0\)</span>:</strong> Taxa de alimentação boa, mas com leves tempos de espera por caminhões na praça.</p></li>
 <li><p><strong><span class="math inline">\(x^*_3 = 4,0\)</span>:</strong> Consumo de energia péssimo (consumiu muito mais kWh por tonelada que a linha de base, indicando que a máquina está fazendo “força” desnecessária).</p></li>
 <li><p><strong><span class="math inline">\(x^*_4 = 6,0\)</span>:</strong> MTBF regular (ocorreram alarmes de lubrificação que geraram pequenas interrupções no fluxo).</p></li>
 </ul>
-<p><strong>3. Processamento Matemático do Processo</strong> Aplicamos a função unidimensional: <span class="math display">\[\theta = (0,30 \times 9,0) + (0,30 \times 8,0) + (0,20 \times 4,0) + (0,20 \times 6,0)\]</span> <span class="math display">\[\theta = 2,7 + 2,4 + 0,8 + 1,2 = \mathbf{7,1}\]</span></p>
-<p><strong>4. Diagnóstico e o Gancho para a Solução de Problemas</strong> O Índice Global de Qualidade (<span class="math inline">\(\theta\)</span>) do Processo de Britagem foi de <strong>7,1</strong>. O gestor que analisa essa equação percebe imediatamente o comportamento sistêmico: a planta está disponível (<span class="math inline">\(x^*_1=9\)</span>) e está processando bastante minério (<span class="math inline">\(x^*_2=8\)</span>), mas está fazendo isso de forma <strong>extremamente ineficiente e custosa</strong> para a empresa (<span class="math inline">\(x^*_3=4\)</span>).</p>
+</section>
+<section id="processamento-matemático-do-processo" class="level5" data-number="3.2.7.0.3">
+<h5 data-number="3.2.7.0.3" class="anchored" data-anchor-id="processamento-matemático-do-processo"><span class="header-section-number">3.2.7.0.3</span> 3. Processamento Matemático do Processo</h5>
+<p>Aplicamos a função unidimensional:</p>
+<p><span class="math display">\[\theta = (0,30 \times 9,0) + (0,30 \times 8,0) + (0,20 \times 4,0) + (0,20 \times 6,0)\]</span></p>
+<p><span class="math display">\[\theta = 2,7 + 2,4 + 0,8 + 1,2 = \mathbf{7,1}\]</span></p>
+</section>
+<section id="diagnóstico-e-o-gancho-para-a-solução-de-problemas" class="level5" data-number="3.2.7.0.4">
+<h5 data-number="3.2.7.0.4" class="anchored" data-anchor-id="diagnóstico-e-o-gancho-para-a-solução-de-problemas"><span class="header-section-number">3.2.7.0.4</span> 4. Diagnóstico e o Gancho para a Solução de Problemas</h5>
+<p>O Índice Global de Qualidade (<span class="math inline">\(\theta\)</span>) do Processo de Britagem foi de <strong>7,1</strong>. O gestor que analisa essa equação percebe imediatamente o comportamento sistêmico: a planta está disponível (<span class="math inline">\(x^*_1=9\)</span>) e está processando bastante minério (<span class="math inline">\(x^*_2=8\)</span>), mas está fazendo isso de forma <strong>extremamente ineficiente e custosa</strong> para a empresa (<span class="math inline">\(x^*_3=4\)</span>).</p>
 <p>O desgaste prematuro de peças ou o entupimento severo da câmara de britagem são as possíveis razões para o processo estar consumindo tanta energia, o que logo se converterá em uma quebra catastrófica.</p>
 <p>É exatamente neste ponto que a quantificação termina e a engenharia de ação começa. Quando a nota (<span class="math inline">\(x^*_i\)</span>) de um <strong>processo</strong> cai de forma anormal, a organização não deve tentar adivinhar o motivo ou trocar peças cegamente. Ela deve isolar a anomalia e iniciar uma investigação científica.</p>
-<p>Como estruturar essa investigação para descobrir a causa raiz de um problema de processo e evitar o desperdício de recursos? Esse é o domínio absoluto do <strong>Método de Análise e Solução de Problemas (MASP)</strong> e do <strong>Ciclo PDCA</strong>, que formam o núcleo do nosso próximo capítulo.</p>
+<p>Como estruturar essa investigação para descobrir a causa raiz de um problema de processo e evitar o desperdício de recursos? Esse é o domínio absoluto do <strong>Método de Análise e Solução de Problemas (MASP)</strong> e do <strong>Ciclo PDCA</strong>, que formam o núcleo do <strong><a href="cap4-alma-estrategia.html" class="quarto-xref"><span>Capítulo 4</span></a></strong>.</p>
+</section>
 </div>
 </section>
 </section>
@@ -1461,11 +1347,27 @@ Passo 10: PDCAações
 </section>
 
 </main> <!-- /main -->
-<script src="scripts/set-toc-expanded.js"></script>
+<script>
 
-<script src="scripts/caption-format.js"></script>
+(() => {
 
-<script src="scripts/toc-expand-on-click.js"></script>
+	const isChapterPage = window.location.pathname.includes("/chapters/");
+
+	const basePath = isChapterPage ? "../scripts/" : "scripts/";
+
+	["set-toc-expanded.js", "caption-format.js", "toc-expand-on-click.js"].forEach((fileName) => {
+
+		const script = document.createElement("script");
+
+		script.src = `${basePath}${fileName}`;
+
+		document.body.appendChild(script);
+
+	});
+
+})();
+
+</script>
 
 
 

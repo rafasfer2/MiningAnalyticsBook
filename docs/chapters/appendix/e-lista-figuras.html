@@ -175,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/cap8-inicio-consultoria.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">O Início da Consultoria e a Metrologia Operacional</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">O Inicio da Consultoria e a Metrologia Operacional</span></span></a>
   </div>
 </li>
       </ul>
@@ -397,11 +397,27 @@ ul.task-list li input[type="checkbox"] {
 </section>
 
 </main> <!-- /main -->
-<script src="scripts/set-toc-expanded.js"></script>
+<script>
 
-<script src="scripts/caption-format.js"></script>
+(() => {
 
-<script src="scripts/toc-expand-on-click.js"></script>
+	const isChapterPage = window.location.pathname.includes("/chapters/");
+
+	const basePath = isChapterPage ? "../scripts/" : "scripts/";
+
+	["set-toc-expanded.js", "caption-format.js", "toc-expand-on-click.js"].forEach((fileName) => {
+
+		const script = document.createElement("script");
+
+		script.src = `${basePath}${fileName}`;
+
+		document.body.appendChild(script);
+
+	});
+
+})();
+
+</script>
 
 
 
