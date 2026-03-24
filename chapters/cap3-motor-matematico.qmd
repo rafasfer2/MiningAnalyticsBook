@@ -24,7 +24,7 @@ Antes de avançarmos para as fórmulas e para os algoritmos de cálculo, é fund
 
 **De onde estamos saindo (O Ponto de Partida):**
 
-* **Da Subjetividade:** Como vimos no Capítulo 1, a qualidade frequentemente fica restrita a adjetivos vagos. Se afirmarmos que um produto "tem alta qualidade" ou que um general (como no caso de Napoleão) "foi excelente", estamos presos à interpretação individual de quem avalia. Essa abordagem não é auditável.
+* **Da Subjetividade:** Como vimos no **@sec-cap1**, a qualidade frequentemente fica restrita a adjetivos vagos. Se afirmarmos que um produto "tem alta qualidade" ou que um general (como no caso de Napoleão) "foi excelente", estamos presos à interpretação individual de quem avalia. Essa abordagem não é auditável.
 * **Do Caos dos Dados Isolados:** Um lote de produto pode ter dezenas de laudos, e um processo pode ter dezenas de medidores. Avaliar essas variáveis de forma solta e desestruturada impede uma decisão sistêmica.
 * **Dos Conflitos de Interesse:** Saímos da tradicional "guerra" entre departamentos, onde cada setor defende a característica que lhe é conveniente: a Produção foca em volume, a Qualidade em especificações técnicas e o Comercial em redução de custos.
 
@@ -48,7 +48,7 @@ Em literaturas clássicas de gestão, formulações semelhantes costumam ser ref
 
 Para que o ARM seja estatisticamente válido, a arquitetura do modelo de dados deve respeitar a teoria psicométrica dos **Construtos Latentes** ($\theta$).
 
-Lembre-se da lição do Capítulo 1: não existe uma "régua" para medir a "Qualidade Global" ou a "Grandeza" de algo diretamente. Essas grandezas são **construtos latentes**. Para inferir se elas existem, a engenharia precisa desdobrar esse conceito abstrato e medir as suas **variáveis observáveis** associadas (as nossas variáveis $x_i$).
+Lembre-se da lição do **@sec-cap1**: não existe uma "régua" para medir a "Qualidade Global" ou a "Grandeza" de algo diretamente. Essas grandezas são **construtos latentes**. Para inferir se elas existem, a engenharia precisa desdobrar esse conceito abstrato e medir as suas **variáveis observáveis** associadas (as nossas variáveis $x_i$).
 
 A complexidade do modelo depende de como esses construtos latentes interagem com os itens avaliados. A modelagem evolui estruturalmente nos seguintes níveis de sofisticação:
 
@@ -84,69 +84,63 @@ Onde:
 
 ### O Modelo Multivariável e a Dinâmica de Calibragem {#sec-arm-multivariavel}
 
-A evolução máxima do algoritmo ocorre quando o modelo precisa avaliar como as mesmas variáveis de entrada ($x_i$) reagem sob diferentes perspectivas ou exigências (Perfis).
+Na teoria psicométrica e na modelagem de sistemas, assumir que o peso base de uma variável ($w_i$) é suficiente para diferenciar construtos ou perfis é um erro metodológico. Na prática, os dados brutos sofrem achatamento devido aos vieses de resposta.
 
-Na teoria psicométrica e na modelagem de sistemas, assumir que o peso base de uma variável ($w_i$) é suficiente para diferenciar construtos ou perfis é um erro metodológico comum. Na prática, especialmente na avaliação humana, os dados brutos sofrem de "achatamento" devido aos vieses de resposta.
+Para corrigir essa distorção e garantir a "explosão de variância" (evitando o empate das notas), a arquitetura do ARM Multivariável exige a introdução do **Fator de Intensidade ($I_{i,p}$)**. O modelo processa as notas através de três etapas algébricas sequenciais:
 
-Para corrigir essa distorção e garantir o poder discriminatório (evitar o empate das notas), a arquitetura do ARM Multivariável exige a introdução de uma nova variável: o **Fator de Intensidade ($I_{i,p}$)**.
+#### 1) Estrutura do ARM Multivariável (O Passo a Passo)
 
-#### A Parametrização da Intensidade
+**Parâmetros de Entrada:**
+Para um determinado avaliado e um perfil alvo $p$ (ex: P01 Analítico-Técnico), definimos os seguintes vetores de tamanho $n$:
 
-O fator $I_{i,p}$ atua como um escalar matemático (um multiplicador) que amplifica ou restringe o impacto do valor observado ($x_i$) de acordo com a relevância daquela variável para um construto latente específico ($\theta_p$). Em vez de uma distribuição linear, aplicamos uma escala assimétrica para simular o *cross-loading* das habilidades:
+* **Vetor de notas observadas:** $x = (x_1, x_2, \dots, x_n)$
+* **Pesos base do perfil:** $w_p = (w_{1,p}, \dots, w_{n,p})$
+* **Intensidades do perfil:** $I_p = (I_{1,p}, \dots, I_{n,p})$, onde $I \in \{2.0, 1.0, 0.2\}$
 
-* **Forte ($I = 2.0$):** A variável é uma característica inegociável e central (o "núcleo") do perfil. O multiplicador dobra o peso base, premiando exponencialmente o alto desempenho.
+**Passo A — Peso Efetivo (Calibragem Bruta):**
+O modelo multiplica o peso base por um escalar agressivo para tracionar as variáveis nucleares e esmagar as periféricas. O resultado é o peso efetivo bruto ($\tilde{w}_{i,p}$):
 
-* **Moderado ($I = 1.0$):** A variável atua como suporte. Ela é útil e complementar, mas não define a exclusividade do perfil. O peso base é mantido em sua forma neutra.
+$$\tilde{w}_{i,p} = w_{i,p} \cdot I_{i,p}$$
 
-* **Fraco ($I = 0.2$):** A variável é periférica ou oposta ao núcleo do perfil. O multiplicador esmaga o peso matemático em 80%, penalizando a alocação de notas em itens que fogem ao escopo do construto.
+**Passo B — Normalização Obrigatória:**
+Como a calibragem destrói a base centesimal, o somatório dos pesos efetivos não será mais igual a 1 (ou 100%). É obrigatório normalizar os valores dividindo cada peso efetivo bruto pelo somatório total do perfil:
 
-#### A Equação ARM Alterada
+$$w'_{i,p} = \frac{\tilde{w}_{i,p}}{\sum_{k=1}^{n} \tilde{w}_{k,p}} \quad \Rightarrow \quad \sum_{i=1}^{n} w'_{i,p} = 1$$
 
-Ao acoplar o escalar de intensidade à Estrutura Multidimensional, a Equação do ARM deixa de ser uma simples soma ponderada linear e passa a ser uma função de calibragem forçada, onde a matriz de pesos muda dinamicamente. O peso efetivo do item passa a ser o produto do seu peso base pela sua intensidade.
+**Passo C — Score Final do Perfil:**
+Com os pesos definitivos e normalizados ($w'_{i,p}$), calcula-se o produto escalar contra as notas do aluno para obter o escore final do perfil ($\theta_p$):
 
-$$\theta_p = \sum_{i=1}^{n} (w_{i,p} \times I_{i,p} \times x_i)$$ {#eq-arm-intensidade}
+$$\theta_p = \sum_{i=1}^{n} (w'_{i,p} \cdot x_i)$$
 
-Onde:
+#### 2) A Estruturação Matricial (O Motor de Processamento)
 
-* **$p$:** O construto latente específico ou perfil analisado (ex: Perfil Analítico).
+Para otimizar o processamento computacional de $P$ perfis simultaneamente (ex: processar os 6 arquétipos da Engenharia de uma só vez), a equação deixa de ser um somatório iterativo e passa a operar por Álgebra Linear.
 
-* **$\theta_p$:** O valor final calculado para o construto $p$.
+Construímos as matrizes de Pesos Base ($W$) e de Intensidades ($I$), ambas pertencentes a $\mathbb{R}^{n \times P}$, onde cada coluna representa um perfil.
 
-* **$w_{i,p}$:** O peso estrutural base da variável $i$ no perfil $p$.
+O cálculo da matriz de Pesos Efetivos Brutos ($\tilde{W}$) ocorre pelo Produto de Hadamard (multiplicação elemento a elemento):
 
-* **$I_{i,p}$:** O escalar de intensidade (2.0, 1.0 ou 0.2) da variável $i$ para o construto $p$.
+$$\tilde{W} = W \odot I$$
 
-* **$x_i$:** O valor observado bruto (nota) obtido na avaliação.
+Em seguida, realiza-se a normalização por coluna para encontrar a matriz de Pesos Finais ($W'$), onde $\mathbf{1}$ é um vetor de uns:
 
-#### A Estruturação Matricial do Modelo Multivariável
+$$W'_{:,p} = \frac{\tilde{W}_{:,p}}{\mathbf{1}^\top \tilde{W}_{:,p}}$$
 
-Para otimizar o processamento computacional — especialmente na transição do modelo matemático para linguagens orientadas a dados, como **R** ou **Python** —, a Equação do ARM Multivariável deixa de ser tratada como um somatório iterativo linear e passa a ser operada através de Álgebra Linear.
+Por fim, o vetor contendo os *scores* finais de todos os perfis ($\Theta$) para um aluno com notas $x$ é calculado instantaneamente pela transposta:
 
-Seja $\mathbf{x}$ o vetor coluna das notas observadas de dimensão $n \times 1$:
+$$\Theta = x^\top W'$$
 
-$$\mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}$$
+#### 3) O Salto Analítico: Modelo Hierárquico + Multivariável
 
-E seja $\mathbf{W}$ a matriz de pesos efetivos de dimensão $n \times m$ (onde $n$ é o número de variáveis e $m$ é o número de perfis $p$), composta pelos elementos já calibrados e normalizados $w_{i,p}$:
+Em avaliações de alta complexidade, as variáveis (como as habilidades $H_{01}$ a $H_{23}$) estão agrupadas em dimensões teóricas $D_j$ (ex: Habilidades Cognitivas, Habilidades Técnicas).
 
-$$\mathbf{W} = \begin{bmatrix} w_{1,1} & w_{1,2} & \dots & w_{1,m} \\ w_{2,1} & w_{2,2} & \dots & w_{2,m} \\ \vdots & \vdots & \ddots & \vdots \\ w_{n,1} & w_{n,2} & \dots & w_{n,m} \end{bmatrix}$$
+Para que o algoritmo respeite essa arquitetura, fundimos o conceito hierárquico com as intensidades multivariáveis. Neste cenário, tanto os pesos internos das variáveis condicionadas à sua dimensão ($w'_{i|D_j, p}$) quanto os pesos macro das próprias dimensões ($w'_{D_j, p}$) são calibrados e normalizados de acordo com as exigências do perfil $p$:
 
-O cálculo simultâneo de todos os construtos latentes (resultando no vetor de perfis $\boldsymbol{\Theta}$) é obtido pela multiplicação da transposta da matriz de pesos pelo vetor de notas:
+$$\theta_p = \sum_{j=1}^{m} \left[ w'_{D_j,p} \cdot \left( \sum_{i \in D_j} w'_{i|D_j,p} \cdot x_i \right) \right]$$
 
-$$\boldsymbol{\Theta} = \mathbf{W}^T \mathbf{x}$$ {#eq-arm-matricial}
+Essa formulação é o ápice do *People Analytics* e da Engenharia de Requisitos: ela garante que o algoritmo avalie o indivíduo não apenas pelas suas competências isoladas, mas pela forma como elas interagem dentro dos blocos lógicos exigidos por cada arquétipo profissional.
 
-Essa notação matricial é o verdadeiro diferencial arquitetônico para *Data Analytics*. Ela permite ao algoritmo calcular dezenas de perfis simultaneamente em frações de segundo, escalando o modelo para lidar com milhares de avaliados sem perda de *performance* computacional.
-
-#### Justificativa: Quando há necessidade desta alteração?
-
-A introdução do Fator de Intensidade ($I_{i,p}$) não é recomendada em medições físicas exatas (ex: teor de sílica em um minério, onde o sensor do laboratório não sofre de viés psicológico). No entanto, ela torna-se **estritamente obrigatória** nos seguintes cenários de gestão:
-
-1. **Mitigação de Vieses de Resposta (Efeito de Consistência):** Quando o instrumento depende de percepção humana (escalas *Likert*). Se um aluno possui o viés de consistência e marca "5" em todas as 51 competências do questionário, a equação clássica (sem intensidade) geraria um empate global, inutilizando o teste. O fator $I_{i,p}$ destrói esse empate matematicamente ao multiplicar as variáveis "Fracas" por 0.2, forçando o afloramento do verdadeiro Perfil Dominante.
-
-2. **Necessidade de Explosão de Variância:** Em amostras altamente homogêneas (ex: uma turma onde todos os engenheiros possuem notas parecidas), a média simples gera uma nuvem de dados sobreposta e indistinguível. A injeção dos escalares extremos ($2.0$ e $0.2$) atua como um "zoom" estatístico, esticando a distância entre os resultados e permitindo a separação clara em *clusters*.
-
-3. **Mecânica de Exclusão Mútua (Ortogonalidade):** Quando os construtos avaliados possuem naturezas opostas. Por exemplo, a precisão rigorosa e isolada de um "Perfil Analítico" concorre cognitivamente com a expansividade sociável de um "Perfil Comunicador". O fator de intensidade garante que a excelência em uma ponta não infle artificialmente a nota na outra, mantendo a independência matemática das dimensões.
-
-> **Avançando para a Prática:** Para visualizar a aplicação completa desta mecânica e o cálculo real das equações **@eq-arm-multi** e **@eq-arm-intensidade** em um cenário de alta complexidade, consulte o estudo de caso detalhado na **@sec-arm-competencias** e **@sec-caso-competencias** (Capítulo 7).
+> **Avançando para a Prática:** Para visualizar a aplicação completa desta mecânica e o cálculo real das equações em um cenário de alta complexidade, consulte o estudo de caso detalhado na **@sec-arm-competencias** e **@sec-caso-competencias** (ver **@sec-cap7**).
 
 <hr />
 
@@ -184,9 +178,17 @@ O **Índice Global de Qualidade ($\theta$)** é processado pela ponderação vet
 
 $$\theta = \frac{\sum_{i=1}^{n} w_i x^*_i}{\sum_{i=1}^{n} w_i}$$ {#eq-arm-vetorial}
 
-Caso o processo apresente falhas ou externalidades graves, aplica-se uma **Penalidade de risco/impacto ($P$)**:
+Caso o processo apresente falhas ou externalidades graves (ex: vazamento ambiental, acidente de trabalho ou atraso crítico), aplica-se uma **Penalidade de risco/impacto ($P$)**:
+
 $$P = \sum_k \rho_k g_k$$
-Resultando na **Qualidade Ajustada por Risco ($\theta^*$):** $\theta^* = \theta - P$.
+
+Onde:
+
+* **$k$:** Índice que representa cada evento de falha, não conformidade ou externalidade identificada.
+* **$\rho_k$ (Fator de Ocorrência/Probabilidade):** A frequência com que o evento $k$ ocorre ou o peso estatístico de penalização atribuído a ele.
+* **$g_k$ (Gravidade/Severidade):** O impacto financeiro, operacional, de segurança ou de imagem gerado pela falha $k$ (geralmente escalonado, de forma análoga à metodologia FMEA).
+
+A aplicação dessa dedução resulta na **Qualidade Ajustada por Risco ($\theta^*$):** $$\theta^* = \theta - P$$
 
 > *Síntese Operacional: Na ARM, as cláusulas 4–6 da ISO 9001 definem o que medir ($\mathbf{x}$), o que é requerido ($\mathbf{r}, \boldsymbol{\Delta}$) e o que importa mais ($\mathbf{w}$); as cláusulas 7–8 garantem a confiabilidade da medição e o controle que gera $\mathbf{x}$; as cláusulas 9–10 fecham o ciclo ao avaliar o construto final ($\theta$) e ajustar os parâmetros do modelo preventivamente.*
 
@@ -245,6 +247,31 @@ Neste cenário, o produto físico dá lugar a um processo de serviço. A regra d
 
 ---
 
+### Fase 1: O Design do Modelo (Identificando Variáveis e Pesos) {#sec-fase1-design}
+
+Antes que o algoritmo possa calcular a qualidade ($\theta$), a engenharia precisa definir matematicamente **o que** será medido ($x_i$) e **qual a importância** de cada item ($w_i$). Chutar essas variáveis em uma sala de reunião destrói a validade do modelo ARM. Para extrair esses números do mundo real com rigor científico, utilizamos duas ferramentas de estruturação:
+
+#### A Árvore de Valor (Definindo o $x_i$)
+A Árvore de Valor é uma ferramenta de desdobramento top-down. Ela parte do objetivo global (o Construto Latente $\theta$) e o ramifica em dimensões lógicas, descendo até encontrar as variáveis operacionais mensuráveis ($x_i$).
+
+* **Nível 0 (Raiz):** A Qualidade Global do Objeto (ex: Desempenho da Escavadeira).
+* **Nível 1 (Dimensões):** Os grandes blocos de avaliação (ex: Produtividade, Custo, Confiabilidade).
+* **Nível 2 (Variáveis $x_i$):** Os indicadores reais extraídos no campo (ex: Toneladas/hora, Consumo de Diesel, MTBF).
+
+A regra da Árvore de Valor é a **Mensurabilidade**: se o último "galho" da árvore não puder ser medido por um sensor, uma auditoria ou uma escala, o modelo é inválido.
+
+#### O Diagrama de Mudge (Calibrando o $w_i$)
+Uma vez que as variáveis ($x_i$) foram mapeadas, como provar que a "Confiabilidade" vale 40% ($w=0.4$) e o "Custo" vale 20% ($w=0.2$)?
+Criado por Arthur Mudge como parte da Engenharia do Valor (FAST), o Diagrama de Mudge é uma matriz de **Comparação Par a Par**. Em vez de tentar atribuir pesos diretos a 10 variáveis de uma vez (o que confunde o cérebro humano), o gestor ou o cliente compara apenas duas variáveis simultaneamente.
+
+1.  **Confronto:** A Variável A é mais importante que a Variável B?
+2.  **Intensidade:** Se A vence, ela vence por pouco (1 ponto), por média diferença (2 pontos) ou por muita diferença (3 pontos)?
+3.  **Cálculo do Peso:** Após confrontar todas as variáveis entre si, soma-se a pontuação absoluta de cada uma e divide-se pelo total de pontos da matriz. O resultado é o peso estatístico normalizado ($w_i$).
+
+É através do Mudge que o "achismo" é substituído pela priorização matemática documentada. Com os $x_i$ mapeados e os $w_i$ calibrados, o modelo de design está pronto para ser plugado no motor de execução.
+
+---
+
 ### Fase 2: O Algoritmo de Execução (10 Passos e Portões de Decisão) {#sec-algoritmo-arm}
 
 Uma vez que o modelo foi estruturado (através dos 5 passos de Design detalhados anteriormente), ele é acoplado ao software de gestão da fábrica (MES/ERP). A partir desse momento, inicia-se a Fase de Operação.
@@ -255,37 +282,97 @@ No entanto, em ambientes industriais de alta complexidade (como mineração e si
 
 Para evitar falhas catastróficas, o algoritmo ARM de 10 passos é protegido por Portões de Decisão (Gates). O fluxograma abaixo explicita o caminho de aprovação, desde a medição do dado até a liberação final.
 
-```{mermaid}
-flowchart TD
-    A["Passos 1 a 4: Setup de x_i, r_i, Δ_i, w_i"] --> E["Passo 5: Coletar Medições"]
+```{r}
+#| label: fig-fluxo-arm
+#| fig-cap: "Algoritmo ARM: Fluxo de Execução e Portões de Decisão (Gates)"
+#| echo: false
+#| warning: false
+#| fig-width: 16
+#| fig-height: 10
+#| out-width: "100%"
 
-    E --> G0{GATE 0:\nDados OK?\nrastreabilidade,\nincerteza}
-    G0 -->|Não| H0["HOLD:\nRecolher dados\nsem decisão"]
-    G0 -->|Sim| F["Passo 6: Calcular Notas (x*_i)"]
+if (!require("DiagrammeR")) install.packages("DiagrammeR")
+library(DiagrammeR)
 
-    F --> G1A{GATE 1A:\nLegal e Regulatório\nConforme?}
-    G1A -->|Não| X1["BLOQUEAR:\nNC crítica"]
-    G1A -->|Sim| G1B{GATE 1B:\nSegurança OK?}
+grViz("
+digraph fluxo_arm {
+  # nodesep alto = espalha na horizontal. ranksep = afasta na vertical. splines=ortho = linhas retas
+  graph [layout = dot, rankdir = TB, nodesep=1.8, ranksep=0.6, splines=ortho]
 
-    G1B -->|Não| X1
-    G1B -->|Sim| G1C{GATE 1C:\nCTQ do Cliente OK?}
+  # --- CONFIGURAÇÃO GLOBAL (FONTES GIGANTES) ---
+  node [fontname = Helvetica, fontsize = 18, shape = box, style = 'filled,rounded', penwidth = 1.5, margin='0.35,0.25']
 
-    G1C -->|Não| X1
-    G1C -->|Sim| Th["Passo 7: Calcular θ"]
-    Th --> P["Passo 8: Penalidades\nθ* = max(0, θ-P)"]
+  # --- NÓS DE PROCESSO (Azul) ---
+  node [fillcolor = '#ebf5fb', color = '#2980b9', fontcolor = black]
+  A [label = 'Passos 1 a 4:\\nSetup de Variáveis, Alvos,\\nTolerâncias e Pesos']
+  E [label = 'Passo 5:\\nColetar Medições']
+  F [label = 'Passo 6:\\nCalcular Notas (x*_i)']
+  Th [label = 'Passo 7:\\nCalcular \u03B8']
+  P_step [label = 'Passo 8: Penalidades\\n\u03B8* = max(0, \u03B8-P)']
 
-    P --> G2{GATE 2:\nθ* ≥ θ_min?}
-    G2 -->|Não| X2["BLOQUEAR:\nAnálise de causa"]
-    G2 -->|Sim| G3{GATE 3:\nEficiência OK?\nSem superqualidade}
+  # --- PORTÕES DE DECISÃO (Laranja/Losangos - Altura aumentada para caber a fonte 18) ---
+  node [shape = diamond, fillcolor = '#fef5e7', color = '#d35400', height=2.0, width=2.5]
+  G0 [label = 'GATE 0:\\nDados OK?']
+  G1A [label = 'GATE 1A:\\nLegal e Regulatório?']
+  G1B [label = 'GATE 1B:\\nSegurança OK?']
+  G1C [label = 'GATE 1C:\\nCTQ do Cliente?']
+  G2 [label = 'GATE 2:\\n\u03B8* \u2265 \u03B8_min?']
+  G3 [label = 'GATE 3:\\nEficiência OK?']
 
-    G3 -->|Sim| OK["Passo 9: APROVAR\nRegistrar evidências"]
-    G3 -->|Não| OPT["LIBERAR COM PLANO\nOtimizar custos"]
+  # --- SAÍDAS DE BLOQUEIO (Vermelho) ---
+  node [shape = box, style = 'filled,rounded', fillcolor = '#fdedec', color = '#c0392b', height=0.8]
+  H0 [label = 'HOLD:\\nRecolher dados sem decisão']
+  X1 [label = 'BLOQUEAR:\\nNão Conformidade Crítica']
+  X2 [label = 'BLOQUEAR:\\nAnálise de Causa']
 
-    H0 --> PDCA["Passo 10: PDCA\nPriorizar ações"]
-    X1 --> PDCA
-    X2 --> PDCA
-    OK --> PDCA
-    OPT --> PDCA
+  # --- SAÍDAS DE APROVAÇÃO (Verde / Amarelo) ---
+  OK [label = 'Passo 9: APROVAR\\nRegistrar evidências', fillcolor = '#e9f7ef', color = '#27ae60']
+  OPT [label = 'LIBERAR COM PLANO\\nOtimizar custos', fillcolor = '#fcf3cf', color = '#f1c40f']
+
+  # --- RETROALIMENTAÇÃO (Roxo) ---
+  PDCA [label = 'Passo 10: PDCA\\nPriorizar ações preventivas', fillcolor = '#f4ecf7', color = '#8e44ad']
+
+  # =========================================================
+  # FORÇAR ESPALHAMENTO HORIZONTAL LADO A LADO
+  # =========================================================
+  { rank=same; G0; H0 }
+  { rank=same; G1B; X1 }
+  { rank=same; G2; X2 }
+  { rank=same; G3; OPT; OK }
+
+  # --- CONEXÕES (Fontes maiores nas setas) ---
+  edge [color = '#7f8c8d', penwidth = 2.5, fontname = Helvetica, fontsize = 16]
+
+  A -> E -> G0
+  G0 -> H0 [label = ' Não', fontcolor = '#c0392b']
+  G0 -> F [label = ' Sim', fontcolor = '#27ae60']
+
+  F -> G1A
+  G1A -> X1 [label = ' Não', fontcolor = '#c0392b']
+  G1A -> G1B [label = ' Sim', fontcolor = '#27ae60']
+
+  G1B -> X1 [label = ' Não', fontcolor = '#c0392b']
+  G1B -> G1C [label = ' Sim', fontcolor = '#27ae60']
+
+  G1C -> X1 [label = ' Não', fontcolor = '#c0392b']
+  G1C -> Th [label = ' Sim', fontcolor = '#27ae60']
+
+  Th -> P_step -> G2
+
+  G2 -> X2 [label = ' Não', fontcolor = '#c0392b']
+  G2 -> G3 [label = ' Sim', fontcolor = '#27ae60']
+
+  G3 -> OPT [label = ' Não', fontcolor = '#c0392b']
+  G3 -> OK [label = ' Sim', fontcolor = '#27ae60']
+
+  # Conexões de Retorno ao PDCA
+  H0 -> PDCA
+  X1 -> PDCA
+  X2 -> PDCA
+  OK -> PDCA
+  OPT -> PDCA
+}
+")
 ```
 #### Leitura Técnica do Fluxograma
 
@@ -303,13 +390,13 @@ Para garantir que a matemática reflita a realidade fabril, o fluxo de execuçã
 
 * **Coletar medições ($x_i$):** Execução do processo sob condições controladas.
 
-**GATE 0: Qualidade de Dados**
+##### GATE 0: Qualidade de Dados
 
 Antes de qualquer cálculo, o algoritmo não assume que os dados são perfeitos. Este *gate* verifica completude (todas as variáveis foram medidas?), validade (faixa plausível), rastreabilidade (lote/equipamento) e incerteza de medição.
 
 * **Decisão:** Se a incerteza for alta ou faltar dado, o sistema entra em estado de **HOLD** (recolher dados). Não há decisão de qualidade baseada em dados não confiáveis.
 
-**GATE 1: O Filtro da Inegociabilidade (1A, 1B e 1C)**
+##### GATE 1: O Filtro da Inegociabilidade (1A, 1B e 1C)
 Nem tudo pode ser compensado por uma média ponderada. Se o produto falhar em aspectos mandatórios, o cálculo da média é interrompido, gerando um **Bloqueio (Não Conformidade Crítica)**:
 
 * **Gate 1A (Legal/Regulatório):** Cumpre normas governamentais e ambientais?
@@ -328,13 +415,13 @@ Se o produto sobreviveu ao Gate 1, o sistema avalia seu desempenho contínuo:
 
 * **Penalidades ($P$):** Incorporação de riscos e perdas, gerando o Índice Ajustado ($\theta^*$).
 
-**GATE 2: O Ponto de Liberação da Qualidade**
+##### GATE 2: O Ponto de Liberação da Qualidade
 
 Verifica estritamente se o resultado matemático atende à estratégia:
 
 * **Decisão:** $\theta^* \ge \theta_{\min}$? Se **Não**, bloqueia-se o lote para análise de causa. Se **Sim**, o produto é tecnicamente bom. Mas será eficiente? A resposta vai para o último *gate*.
 
-**GATE 3: Eficiência do Sistema e Superqualidade**
+##### GATE 3: Eficiência do Sistema e Superqualidade
 Não basta ser conforme; precisa ser rentável. Este portão avalia o Custo da Qualidade ($C_Q = C_{\text{prev}} + C_{\text{aval}} + C_{\text{falha}}$) e o Índice de Eficiência Econômica ($E = \theta^* / C_Q$). O objetivo é garantir $E \ge E_{\min}$ e identificar superqualidade (quando uma variável de baixo peso $w_i$ atinge nota máxima consumindo recursos operacionais extremos).
 
 * **Decisão (Sim):** Custos controlados $\rightarrow$ **APROVAR E LIBERAR**.
@@ -343,82 +430,64 @@ Não basta ser conforme; precisa ser rentável. Este portão avalia o Custo da Q
 
 > *Todas as saídas de bloqueio ou liberação retroalimentam a engenharia através do ciclo PDCA (ISO 9001 - Cláusulas 9 e 10), garantindo a melhoria ininterrupta do motor ARM.*
 
-Para demonstrar a mecânica de cada etapa, utilizaremos como contexto de acompanhamento o **fornecimento de minério de ferro para uma usina siderúrgica**.
+Para demonstrar a mecânica de cada etapa de design, utilizaremos como contexto de acompanhamento o **fornecimento de minério de ferro para uma usina siderúrgica**.
 
-**Passo 0: Delimitação do Objeto (Pré-ARM)**
-
+::: {.example #exm-arm-parametrizacao-mineracao name="Parametrização do Modelo: Minério de Ferro"}
+##### Passo 0: Delimitação do Objeto (Pré-ARM)
 Antes de qualquer cálculo, a ARM exige clareza absoluta sobre o que está sendo avaliado.
 
 * **Objeto:** Lote mensal de minério de ferro.
-
 * **Uso final:** Alimentação do alto-forno.
-
 * **Critério de sucesso:** Operar o alto-forno com estabilidade, sem perdas metalúrgicas.
-
 * *Regra:* Este passo garante que o algoritmo não modele o produto errado.
 
-**Passo 1: Identificação das Variáveis ($x_i$)**
-
+##### Passo 1: Identificação das Variáveis ($x_i$)
 A partir do contrato e do processo produtivo, identificam-se as características inerentes:
 
 * $x_1$: Teor de ferro (%)
-
 * $x_2$: Sílica (%)
-
 * $x_3$: Granulometria média (mm)
-
 * $x_4$: Variabilidade granulométrica
-
 * $x_5$: Umidade (%)
-
 * *Regra ARM:* Se uma característica não pode ser medida ou não afeta o uso final, ela não deve ser uma variável.
 
-**Passo 2: Definição dos Requisitos/Alvos ($r_i$)**
-
+##### Passo 2: Definição dos Requisitos/Alvos ($r_i$)
 Para cada variável, define-se o valor requerido. É a qualidade como intenção.
 
 * $x_1 \rightarrow r_1 = 64,0\%$ (Teor mínimo para eficiência)
-
 * $x_2 \rightarrow r_2 \le 4,0\%$ (Limite para evitar escória)
-
 * $x_3 \rightarrow r_3 = 12\text{ mm}$ (Granulometria ideal)
 
-**Passo 3: Definição das Tolerâncias ($\Delta_i$)**
-
+##### Passo 3: Definição das Tolerâncias ($\Delta_i$)
 Define o quanto o sistema aceita se afastar do alvo antes de perder a qualidade.
 
 * $x_1 \rightarrow \Delta_1 = \pm 1,0\%$
-
 * $x_2 \rightarrow \Delta_2 = 0,5\%$
-
 * $x_3 \rightarrow \Delta_3 = \pm 3\text{ mm}$
-
 * *Regra ARM:* A tolerância não é "o que o processo aguenta", mas o que o cliente tolera.
 
-**Passo 4: Definição dos Pesos ($w_i$)**
-
+##### Passo 4: Definição dos Pesos ($w_i$)
 Os pesos refletem o impacto financeiro/operacional no cliente. Aqui ocorre a tradução do subjetivo para o matemático.
 
 * $w_1 = 0,30$ (Impacto direto no rendimento)
-
 * $w_2 = 0,25$ (Afeta escória e consumo de carvão)
-
 * $w_3 = 0,20$ (Controla fluxo de gases no alto-forno)
 
-**Passo 5: Escolha da Função de Nota Normalizada ($x^*_i$)**
+##### Passo 5: Escolha da Função de Nota Normalizada ($x^*_i$)
 Define como o afastamento do alvo será penalizado. Em funções lineares normalizadas, a nota varia de 0 a 1:
 $$x^*_i = 1 - \min\left(1, \frac{|x_i - r_i|}{\Delta_i}\right)$$
+:::
 
-**Passo 6 a 10: O Cálculo Operacional**
-Após estabelecer o modelo (Passos 0 a 5), a operação assume o controle, coletando os dados do lote, gerando o Índice Global ($\theta$), aplicando penalidades ($P$) se existirem externalidades e priorizando as ações de melhoria através da identificação da maior Perda ($w_i \times (1 - x^*_i)$).
+##### Passos 6 a 10: O Cálculo Operacional
+
+Após estabelecer o modelo (Passos 0 a 5), a operação assume o controle, coletando os dados do lote, gerando o Índice Global ($\theta$), aplicando penalidades ($P$) se existirem externalidades e priorizando as ações de melhoria através da identificação da maior Perda, dada por $w_i \times (1 - x^*_i)$.
 
 Para visualizar o ciclo de cálculo completo (do passo 6 ao 10), acompanhe a aplicação matemática formal no estudo de caso abaixo.
 
 ::: {.example #exm-arm-passo-siderurgia name="Aplicação Matemática: Bobinas de Aço na Siderurgia"}
-
 Nesta aplicação, o objeto é um lote de bobinas de aço laminado, com critério de liberação exigindo $\theta \ge 0,80$.
 
-**1. Parametrização Inicial do Modelo (Passos 1 a 4)**
+##### 1. Parametrização Inicial do Modelo (Passos 1 a 4)
 A engenharia definiu cinco variáveis de controle, combinando requisitos de alvo central (onde a perfeição é acertar na mosca) e requisitos de limite superior (onde quanto menor, melhor).
 
 | $i$ | Variável ($x_i$) | Tipo de Regra | Alvo ($r_i$) | Tolerância ($\Delta_i$) | Peso ($w_i$) |
@@ -429,7 +498,7 @@ A engenharia definiu cinco variáveis de controle, combinando requisitos de alvo
 | 4 | Espessura (mm) | Alvo Nominal | $2,00$ | $0,05$ | $0,20$ |
 | 5 | Planicidade (I-unit) | Limite Superior | $10$ | $10$ | $0,10$ |
 
-**2. Coleta e Cálculo das Notas Individuais (Passos 5 e 6)**
+##### 2. Coleta e Cálculo das Notas Individuais (Passos 5 e 6)
 O laboratório analisou o lote e obteve o vetor de resultados $\mathbf{x} = [0.085, 0.014, 285, 2.01, 9]$. Aplicam-se as funções matemáticas:
 
 * Para tipo **Alvo Nominal**: $x^*_i = 1 - \min\left(1, \frac{|x_i - r_i|}{\Delta_i}\right)$
@@ -449,7 +518,7 @@ O processamento gera as seguintes notas normalizadas ($x^*_i$):
 
 * $x^*_5 (\text{Planicidade}): 9 \le 10 \rightarrow \mathbf{1,00}$ (Perfeito)
 
-**3. Índice Global e Ajuste de Risco (Passos 7 e 8)**
+##### 3. Índice Global e Ajuste de Risco (Passos 7 e 8)
 Como $\sum w_i = 1$, o índice global $\theta$ é o somatório direto:
 $$\theta = (0,20 \times 0,75) + (0,25 \times 1,00) + (0,25 \times 0,75) + (0,20 \times 0,80) + (0,10 \times 1,00)$$
 $$\theta = 0,15 + 0,25 + 0,1875 + 0,16 + 0,10 = \mathbf{0,8475}$$
@@ -457,7 +526,7 @@ $$\theta = 0,15 + 0,25 + 0,1875 + 0,16 + 0,10 = \mathbf{0,8475}$$
 Durante a produção, houve um desvio operacional que gerou pequeno retrabalho (severidade $g=1$, fator de penalidade $\rho=0,02$). A qualidade ajustada ($\theta^*$) passa a ser:
 $$\theta^* = \max(0, \theta - P) \rightarrow 0,8475 - 0,02 = \mathbf{0,8275}$$
 
-**4. Decisão e Priorização (Passos 9 e 10)**
+##### 4. Decisão e Priorização (Passos 9 e 10)
 Como $\theta^* = 0,8275 \ge 0,80$ (limiar mínimo), o lote é **APROVADO e liberado**.
 Para a melhoria contínua, o algoritmo orienta a equipe calculando a perda ponderada ($\text{Perda}_i = w_i \times (1 - x^*_i)$) para priorizar onde atuar no próximo lote:
 
@@ -475,7 +544,7 @@ Para a melhoria contínua, o algoritmo orienta a equipe calculando a perda ponde
 
 Neste cenário, o usuário (o terminal portuário) avalia a qualidade do serviço prestado pela ferrovia através de três parâmetros: Pontualidade ($x_1$), Integridade da Carga ($x_2$) e Disponibilidade de Vagões ($x_3$).
 
-**1. Atribuição de Pesos ($w_i$)**
+##### 1. Atribuição de Pesos ($w_i$)
 O porto define os pesos com base no impacto no custo de operação (*demurrage* de navios):
 
 * **$w_1=0,5$ (50%):**
@@ -487,7 +556,7 @@ O porto define os pesos com base no impacto no custo de operação (*demurrage* 
 * **$w_3=0,2$ (20%):**
   A quantidade de vagões disponíveis conforme o plano nominal.
 
-**2. Avaliação da Qualidade ($x^*_i$)**
+##### 2. Avaliação da Qualidade ($x^*_i$)
 Avaliação do desempenho do serviço no último mês (escala de 0 a 10):
 
 * **$x^*_1=6,0$:**
@@ -499,14 +568,18 @@ Avaliação do desempenho do serviço no último mês (escala de 0 a 10):
 * **$x^*_3=9,0$:**
   A ferrovia entregou quase a totalidade da frota prometida.
 
-**3. Cálculo da Função Global**
+##### 3. Cálculo da Função Global
+
 $$\theta = (0,5 \times 6,0) + (0,3 \times 10,0) + (0,2 \times 9,0)$$
 $$\theta = 3,0 + 3,0 + 1,8 = \mathbf{7,8}$$
 
-**4. Análise do Resultado**
+##### 4. Análise do Resultado
+
 Embora a ferrovia tenha sido perfeita na integridade ($x^*_2=10$) e muito boa na oferta de vagões ($x^*_3=9$), a Qualidade Total do Serviço foi **7,8**.
+
 * **Interpretação Didática:**
   O parâmetro de maior peso para o cliente era a Pontualidade (50%). Como o desempenho nesse item foi baixo (6,0), ele comprometeu severamente a nota final.
+
 * **Conclusão:**
   Para aumentar a Qualidade Total percebida, o gestor logístico deve priorizar o Planejamento da Qualidade sobre o fluxo de tráfego para reduzir atrasos, pois é onde reside a maior expectativa do cliente.
 :::
@@ -515,7 +588,7 @@ Embora a ferrovia tenha sido perfeita na integridade ($x^*_2=10$) e muito boa na
 
 Para finalizar a aplicação conceitual, utilizaremos como objeto a própria Organização e sua eficácia no cumprimento do plano estratégico.
 
-**1. Atribuição de Pesos ($w_i$)**
+##### 1. Atribuição de Pesos ($w_i$)
 A Alta Direção define o que é prioritário para o sucesso do negócio no trimestre:
 
 * **$w_1=0,4$ (40%):**
@@ -527,7 +600,7 @@ A Alta Direção define o que é prioritário para o sucesso do negócio no trim
 * **$w_3=0,2$ (20%):**
   Índice de Treinamento e Capacitação (Desenvolvimento de pessoas).
 
-**2. Avaliação da Qualidade ($x^*_i$)**
+##### 2. Avaliação da Qualidade ($x^*_i$)
 Desempenho apurado no fechamento do período:
 
 * **$x^*_1=10,0$:**
@@ -539,14 +612,18 @@ Desempenho apurado no fechamento do período:
 * **$x^*_3=8,5$:**
   A maioria das horas de treinamento previstas foi executada.
 
-**3. Cálculo da Função Global**
+##### 3. Cálculo da Função Global
+
 $$\theta = (0,4 \times 10,0) + (0,4 \times 4,0) + (0,2 \times 8,5)$$
 $$\theta = 4,0 + 1,6 + 1,7 = \mathbf{7,3}$$
 
-**4. Análise do Resultado**
+##### 4. Análise do Resultado
+
 A Qualidade Total da Organização foi **7,3**.
+
 * **Interpretação Didática:**
   O sucesso operacional em volume ($x^*_1=10$) não foi suficiente para garantir excelência, pois a gestão financeira ($x^*_2$) falhou e possuía o mesmo peso estratégico.
+
 * **Conclusão:**
   A Melhoria da Qualidade deve focar urgentemente no controle de custos, sob pena de o volume produzido não se traduzir em valor real (lucro) para o sistema.
 :::
@@ -555,7 +632,7 @@ A Qualidade Total da Organização foi **7,3**.
 
 Neste estudo, o objeto é o "Produto B", um minério de ferro com alta sílica processado em uma usina na região Norte. O desafio reside no fato de este material ser altamente abrasivo e não possuir dados históricos, exigindo monitoramento rigoroso via KPIs.
 
-**Passo 1: Definição dos Parâmetros ($x_i$)**
+##### Passo 1: Definição dos Parâmetros ($x_i$)
 Com base no problema de pesquisa e nos ofensores identificados, selecionamos cinco parâmetros fundamentais:
 
 * **$x_1$ (Teor de Ferro - Fe):**
@@ -573,7 +650,7 @@ Com base no problema de pesquisa e nos ofensores identificados, selecionamos cin
 * **$x_5$ (Qualidade Física - Fração +19 mm):**
   Conformidade granulométrica necessária.
 
-**Passo 2: Ponderação Estratégica ($w_i$)**
+##### Passo 2: Ponderação Estratégica ($w_i$)
 A organização atribui pesos conforme a prioridade do teste ($\sum w_i = 1,0$):
 
 * **$w_1=0,30$ (30%):**
@@ -591,7 +668,7 @@ A organização atribui pesos conforme a prioridade do teste ($\sum w_i = 1,0$):
 * **$w_5=0,10$ (10%):**
   A granulometria teve menor peso estratégico nesta campanha.
 
-**Passo 3: Atribuição de Notas de Desempenho ($x^*_i$)**
+##### Passo 3: Atribuição de Notas de Desempenho ($x^*_i$)
 Notas comparando o realizado com o requisito estabelecido:
 
 * **$x^*_1=9,0$:**
@@ -609,14 +686,19 @@ Notas comparando o realizado com o requisito estabelecido:
 * **$x^*_5=1,0$:**
   Falha no requisito físico; 0,27% de fração retida para meta de 4,0%.
 
-**Passo 4: Processamento Matemático**
+##### Passo 4: Processamento Matemático
+
 $$\theta = (0,30 \times 9,0) + (0,25 \times 7,0) + (0,20 \times 9,9) + (0,15 \times 4,0) + (0,10 \times 1,0)$$
+
 $$\theta = 2,7 + 1,75 + 1,98 + 0,6 + 0,1 = \mathbf{7,13}$$
 
-**Passo 5: Diagnóstico Gerencial**
+##### Passo 5: Diagnóstico Gerencial
+
 O resultado de **7,13** indica que, embora o teste tenha sido um sucesso sob a ótica química e comercial, ele apresentou falhas graves sob a ótica de processo e física.
+
 * **Eficácia vs. Eficiência:**
   A organização foi eficaz em entregar o produto ($x^*_1$ e $x^*_3$), mas ineficiente no processo ($x^*_4$). O alto nível de recirculado gerou restrições na alimentação.
+
 * **Oportunidade de Melhoria:**
   O baixo valor em $x^*_5$ e $x^*_4$ aponta que o foco do próximo planejamento deve ser o ajuste das telas de peneiramento e setpoints dos britadores.
 :::
@@ -625,7 +707,7 @@ O resultado de **7,13** indica que, embora o teste tenha sido um sucesso sob a �
 
 Neste cenário, o objeto é o processo de produção e estocagem do produto PPCJ. O principal desafio é a divergência entre o estoque contábil (balanças) e o estoque físico (topografia), que frequentemente supera o limite aceitável de ±2%.
 
-**Passo 1: Definição dos Parâmetros ($x_i$)**
+##### Passo 1: Definição dos Parâmetros ($x_i$)
 Selecionamos cinco parâmetros fundamentais para a confiabilidade:
 
 * **$x_1$ (Teor de Ferro):**
@@ -643,7 +725,7 @@ Selecionamos cinco parâmetros fundamentais para a confiabilidade:
 * **$x_5$ (Controle de Umidade):**
   Essencial para densidade e pesagem correta.
 
-**Passo 2: Ponderação Estratégica ($w_i$)**
+##### Passo 2: Ponderação Estratégica ($w_i$)
 
 * **$w_1=0,20$ (20%):**
   Importância padrão para o teor metálico.
@@ -660,7 +742,7 @@ Selecionamos cinco parâmetros fundamentais para a confiabilidade:
 * **$w_5=0,10$ (10%):**
   Parâmetro técnico de suporte.
 
-**Passo 3: Atribuição de Notas ($x^*_i$)**
+##### Passo 3: Atribuição de Notas ($x^*_i$)
 
 * **$x^*_1=9,5$:**
   Excelente desempenho químico (49,17% Fe).
@@ -677,16 +759,22 @@ Selecionamos cinco parâmetros fundamentais para a confiabilidade:
 * **$x^*_5=6,0$:**
   Regular; umidade impactando a densidade calculada.
 
-**Passo 4: Processamento Matemático**
+##### Passo 4: Processamento Matemático
+
 $$\theta = (0,20 \times 9,5) + (0,35 \times 3,0) + (0,15 \times 8,0) + (0,20 \times 4,0) + (0,10 \times 6,0)$$
+
 $$\theta = 1,9 + 1,05 + 1,2 + 0,8 + 0,6 = \mathbf{5,55}$$
 
-**Passo 5: Diagnóstico Gerencial**
+##### Passo 5: Diagnóstico Gerencial
+
 O resultado de **5,55** revela um sistema de gestão sob estresse.
+
 * **O "Paradoxo da Qualidade":**
   A organização produz um minério de excelente teor químico ($x^*_1=9,5$), mas falha na garantia da qualidade da informação.
+
 * **Causa Raiz:**
   A baixa nota global é puxada pela falta de acurácia no estoque ($x^*_2$) e falhas de calibração ($x^*_4$).
+
 * **Ação de Melhoria:**
   O foco imediato deve ser a revisão da periodicidade de calibração e a atualização da densidade das pilhas. Sem isso, a "qualidade" percebida pelos auditores continuará baixa, independente da excelência do produto físico.
 
@@ -716,7 +804,7 @@ A resposta é deslocar o objeto de estudo. Em vez de avaliar a rocha, avaliamos 
 
 A gerência precisa avaliar a "saúde" e a eficiência operacional da planta de britagem primária em uma determinada semana, não pelo tamanho da pedra que sai, mas por *como* a máquina está sendo operada.
 
-**1. Definição dos Parâmetros do Processo ($x_i$) e Pesos ($w_i$)**
+##### 1. Definição dos Parâmetros do Processo ($x_i$) e Pesos ($w_i$)
 A engenharia selecionou quatro variáveis operacionais de impacto direto no custo e na produtividade:
 
 * **$x_1$ (Disponibilidade Física - DF):**
@@ -731,7 +819,7 @@ A engenharia selecionou quatro variáveis operacionais de impacto direto no cust
 * **$x_4$ (MTBF - Tempo Médio Entre Falhas):**
   O processo é confiável ao longo do turno, sem paradas intermitentes? (Peso $w_4 = 0,20$).
 
-**2. Atribuição de Notas de Desempenho ($x^*_i$)**
+##### 2. Atribuição de Notas de Desempenho ($x^*_i$)
 Comparamos o resultado realizado pelo processo na semana contra a meta (budget) estabelecida (escala de 0 a 10):
 
 * **$x^*_1 = 9,0$:**
@@ -746,19 +834,22 @@ Comparamos o resultado realizado pelo processo na semana contra a meta (budget) 
 * **$x^*_4 = 6,0$:**
   MTBF regular (ocorreram alarmes de lubrificação que geraram pequenas interrupções no fluxo).
 
-**3. Processamento Matemático do Processo**
+##### 3. Processamento Matemático do Processo
 Aplicamos a função unidimensional:
+
 $$\theta = (0,30 \times 9,0) + (0,30 \times 8,0) + (0,20 \times 4,0) + (0,20 \times 6,0)$$
+
 $$\theta = 2,7 + 2,4 + 0,8 + 1,2 = \mathbf{7,1}$$
 
-**4. Diagnóstico e o Gancho para a Solução de Problemas**
+##### 4. Diagnóstico e o Gancho para a Solução de Problemas
+
 O Índice Global de Qualidade ($\theta$) do Processo de Britagem foi de **7,1**. O gestor que analisa essa equação percebe imediatamente o comportamento sistêmico: a planta está disponível ($x^*_1=9$) e está processando bastante minério ($x^*_2=8$), mas está fazendo isso de forma **extremamente ineficiente e custosa** para a empresa ($x^*_3=4$).
 
 O desgaste prematuro de peças ou o entupimento severo da câmara de britagem são as possíveis razões para o processo estar consumindo tanta energia, o que logo se converterá em uma quebra catastrófica.
 
 É exatamente neste ponto que a quantificação termina e a engenharia de ação começa. Quando a nota ($x^*_i$) de um **processo** cai de forma anormal, a organização não deve tentar adivinhar o motivo ou trocar peças cegamente. Ela deve isolar a anomalia e iniciar uma investigação científica.
 
-Como estruturar essa investigação para descobrir a causa raiz de um problema de processo e evitar o desperdício de recursos? Esse é o domínio absoluto do **Método de Análise e Solução de Problemas (MASP)** e do **Ciclo PDCA**, que formam o núcleo do nosso próximo capítulo.
+Como estruturar essa investigação para descobrir a causa raiz de um problema de processo e evitar o desperdício de recursos? Esse é o domínio absoluto do **Método de Análise e Solução de Problemas (MASP)** e do **Ciclo PDCA**, que formam o núcleo do **@sec-cap4**.
 :::
 
 ## 📝 Resumo do Capítulo
