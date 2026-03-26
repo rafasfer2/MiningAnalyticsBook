@@ -32,12 +32,12 @@
   --color-gray-med:     #aaaaaa;
 
   /* 1.4. Layout Dimensions */
-  --sidebar-width:      320px;
+  --sidebar-width:      300px;
   --toc-width:          300px;
   --header-height:      60px;
   --header-right-gap-adjust: 0px;
 
-  --content-gap:        -11rem;
+  --content-gap:        -12rem;
   --text-padding-left:  0.75rem;
   --main-font-scale:    1;
 }
@@ -556,11 +556,69 @@ span.citation sup.citation-superscript {
   }
 
   #quarto-header {
+    left: 0 !important;
     right: 0 !important;
   }
 
   body.nav-sidebar {
+    padding-left: 0 !important;
     padding-right: 0 !important;
+  }
+
+  .main-font-controls,
+  .quarto-breadcrumb,
+  .breadcrumb {
+    display: none !important;
+  }
+
+  #quarto-header .navbar,
+  #quarto-header .navbar-container {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.35rem;
+    min-width: 0 !important;
+  }
+
+  #quarto-header .navbar-brand,
+  #quarto-header .navbar-title,
+  #quarto-header .navbar-title-container,
+  #quarto-header .title,
+  #quarto-header h1,
+  #quarto-header h2 {
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  #quarto-header .navbar-toggler,
+  #quarto-header .quarto-btn-toggle,
+  #quarto-header .quarto-search-button,
+  #quarto-header .aa-DetachedSearchButton {
+    position: relative;
+    z-index: 130 !important;
+    pointer-events: auto !important;
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  #quarto-header {
+    height: 56px !important;
+  }
+
+  body.nav-sidebar {
+    padding-top: 56px !important;
+  }
+
+  #quarto-header .navbar-container,
+  #quarto-header .container,
+  #quarto-header .container-fluid,
+  #quarto-header .container-lg,
+  #quarto-header .container-xl,
+  #quarto-header .container-xxl {
+    padding-left: 0.4rem !important;
+    padding-right: 0.4rem !important;
   }
 }
 
